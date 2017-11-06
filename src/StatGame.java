@@ -1,8 +1,6 @@
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Rectangle;
 
-import java.awt.geom.RectangularShape;
 import java.util.ArrayList;
 
 public class StatGame extends BasicGame {
@@ -15,7 +13,7 @@ public class StatGame extends BasicGame {
 
     public StatGame(String title) {
         super(title);
-        gameEngine = new GameEngine(100, 10);
+        gameEngine = new GameEngine(40, 25);
         slickBinder = new SlickBinder();
     }
 
@@ -41,36 +39,38 @@ public class StatGame extends BasicGame {
 
         ArrayList<Field> fields = gameEngine.getFields();
         for(Field field: fields){
-            Rectangle fieldBackround = slickBinder.getRectangle(field);
+            Rectangle fieldBackground = slickBinder.getRectangle(field);
             Color fieldColor = slickBinder.getColor(field);
             g.setColor(fieldColor);
-            g.fill(fieldBackround);
+            g.fill(fieldBackground);
             g.setColor(Color.black);
-            g.draw(fieldBackround);
+            g.draw(fieldBackground);
 
-            ArrayList<Element> elements = field.getElements();
-            for(Element element: elements){
-                ArrayList<BasicShape> shapes = element.getShapes();
-                for(BasicShape shape: shapes){
-                    BasicShape.Type type = shape.getType();
+            Element element = field.getElement();
+            ArrayList<BasicShape> shapes;
+            if (element != null) shapes = element.getShapes();
+            else shapes = new ArrayList<>();
+            for(BasicShape shape: shapes){
+                BasicShape.Type type = shape.getType();
 
-                    switch (type){
-                        case Rectangle: {
-                            RectangleShape rect = (RectangleShape)shape;
-                            Rectangle slickRect = slickBinder.getRectangle(rect);
-                            Color color = slickBinder.getColor(rect);
-                            g.setColor(color);
-                            g.fill(slickRect);
-                            break;
-                        }
-                        case None:
-                            break;
+                switch (type){
+                    case Rectangle: {
+                        RectangleShape rect = (RectangleShape)shape;
+                        Rectangle slickRect = slickBinder.getRectangle(rect);
+                        Color color = slickBinder.getColor(rect);
+                        g.setColor(color);
+                        g.fill(slickRect);
+                        g.setColor(Color.black);
+                        g.draw(slickRect);
+                        break;
                     }
+                    case None:
+                        break;
                 }
             }
         }
-
-        g.draw(new Rectangle(x,y,10,10));
+        g.setColor(Color.gray);
+        g.fill(new Rectangle(x,y,10,10));
     }
 
     public static void main(String[] argv) {

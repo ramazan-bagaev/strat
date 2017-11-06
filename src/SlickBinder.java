@@ -28,6 +28,10 @@ public class SlickBinder{
                 return Color.yellow;
             case Green2:
                 return Color.cyan;
+            case Gray:
+                return Color.gray;
+            case LightGray:
+                return Color.lightGray;
             default:
                 return Color.white;
         }

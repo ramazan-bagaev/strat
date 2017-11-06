@@ -19,7 +19,6 @@ public class GameEngine {
                 int x = i * fieldSize;
                 int y = j * fieldSize;
                 Field newField = new Field(x, y, fieldSize, random);
-                newField.fillWithRandomTrees();
                 addField(newField);
             }
     }

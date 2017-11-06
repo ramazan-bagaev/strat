@@ -5,7 +5,7 @@ public class BasicShape {
     }
 
     public enum Color{
-        White, Black, Red, Green, Blue, Yellow, Green2
+        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray
     }
 
     private Type type;

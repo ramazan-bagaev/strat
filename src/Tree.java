@@ -94,7 +94,7 @@ public class Tree extends Element{
             case Big:
                 setFoliageHeight(elementSize / 2);
                 setFoliageWidth(elementSize * 3 / 4);
-                setTrunkHeight(elementSize / 8);
+                setTrunkHeight(elementSize / 2);
                 setTrunkWidth(elementSize / 4);
                 foliageX = x + elementSize / 8;
                 foliageY = y;
@@ -111,7 +111,7 @@ public class Tree extends Element{
                 setTrunkHeight(elementSize / 4);
                 setTrunkWidth(elementSize / 5);
                 trunkX = x + elementSize * 2 / 5;
-                trunkY = y - getTrunkHeight();
+                trunkY = y + elementSize - getTrunkHeight();
                 foliageX = x + elementSize / 4;
                 foliageY = trunkY - getFoliageHeight();
                 trunk = new RectangleShape(trunkX, trunkY, getTrunkWidth(), getTrunkHeight(), BasicShape.Color.Red);
@@ -125,7 +125,7 @@ public class Tree extends Element{
                 setTrunkHeight(elementSize / 8);
                 setTrunkWidth(elementSize / 7);
                 trunkX = x + elementSize * 5 / 12;
-                trunkY = y - getTrunkHeight();
+                trunkY = y + elementSize - getTrunkHeight();
                 foliageX = x + elementSize * 3 / 8;
                 foliageY = trunkY - getFoliageHeight();
                 trunk = new RectangleShape(trunkX, trunkY, getTrunkWidth(), getTrunkHeight(), BasicShape.Color.Red);
