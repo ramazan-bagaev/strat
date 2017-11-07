@@ -3,32 +3,35 @@ import java.util.Random;
 
 public class GameEngine {
 
-    private ArrayList<Field> fields;
+    private FieldMap map;
     private int fieldSize;
     final Random random = new Random();
 
     public GameEngine(){
-        fields = new ArrayList<Field>();
+        map = new FieldMap();
     }
 
     public GameEngine(int fieldSize, int fieldNumber){
-        fields =  new ArrayList<Field>();
+        map =  new FieldMap();
         setFieldSize(fieldSize);
+        generateRandomField(fieldNumber);
+    }
+
+
+    public void run(){
+        for(Field field: map.getValues()){
+            field.run();
+        }
+    }
+
+    public void generateRandomField(int fieldNumber){
         for(int i = 0; i < fieldNumber; i++)
             for(int j = 0; j < fieldNumber; j++){
                 int x = i * fieldSize;
                 int y = j * fieldSize;
-                Field newField = new Field(x, y, fieldSize, random);
-                addField(newField);
+                Field newField = new Field(x, y, fieldSize, random, map);
+                map.addField(new Coord(x, y), newField);
             }
-    }
-
-    public ArrayList<Field> getFields() {
-        return fields;
-    }
-
-    public void addField(Field field){
-        fields.add(field);
     }
 
     public int getFieldSize() {
@@ -37,5 +40,13 @@ public class GameEngine {
 
     public void setFieldSize(int fieldSize) {
         this.fieldSize = fieldSize;
+    }
+
+    public FieldMap getMap() {
+        return map;
+    }
+
+    public void setMap(FieldMap map) {
+        this.map = map;
     }
 }

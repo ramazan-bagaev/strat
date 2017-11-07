@@ -10,13 +10,13 @@ public class StatGame extends BasicGame {
 
     GameEngine  gameEngine;
     SlickBinder slickBinder;
-    GameWindowElement gameWindowElement;
+    MainWindow mainWindow;
 
     public StatGame(String title) {
         super(title);
         gameEngine = new GameEngine(40, 25);
         slickBinder = new SlickBinder();
-        gameWindowElement = new GameWindowElement(1, 1, 1000, 1000, null, gameEngine);
+        mainWindow = new MainWindow(1, 1, 1000, 1000, gameEngine, null);
     }
 
     @Override
@@ -38,23 +38,7 @@ public class StatGame extends BasicGame {
 
     @Override
     public void render(GameContainer gameContainer, Graphics g) throws SlickException {
-
-        /*ArrayList<Field> fields = gameEngine.getFields();
-        for(Field field: fields){
-            Rectangle fieldBackground = slickBinder.getRectangle(field);
-            Color fieldColor = slickBinder.getColor(field);
-            g.setColor(fieldColor);
-            g.fill(fieldBackground);
-            g.setColor(Color.black);
-            g.draw(fieldBackground);
-
-            Element element = field.getElement();
-            ArrayList<BasicShape> shapes;
-            if (element != null) shapes = element.getShapes();
-            else shapes = new ArrayList<>();
-            for(BasicShape shape: shapes) slickBinder.draw(g, shape);
-        }*/
-        ArrayList<BasicShape> basicShapes = gameWindowElement.getShapes();
+        ArrayList<BasicShape> basicShapes = mainWindow.getShapes();
         for(BasicShape basicShape: basicShapes){
             slickBinder.draw(g, basicShape);
         }

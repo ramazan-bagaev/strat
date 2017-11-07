@@ -2,10 +2,24 @@ import java.util.ArrayList;
 
 public class Element {
 
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public enum Type{
+        Rock, Tree, City, None
+    }
+
+    private Type type;
     private ArrayList<BasicShape> shapes;
 
-    public Element(){
+    public Element(Type type){
         this.shapes = new ArrayList<BasicShape>();
+        setType(type);
     }
 
 

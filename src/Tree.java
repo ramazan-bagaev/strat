@@ -56,15 +56,28 @@ public class Tree extends Element{
         this.foliageWidth = foliageWidth;
     }
 
-    public Type getType() {
-        return type;
+    public SizeType getSizeType() {
+        return sizeType;
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public void setSizeType(SizeType sizeType) {
+        this.sizeType = sizeType;
     }
 
-    public enum Type{
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void decrease(int delta){
+        capacity -= delta;
+    }
+
+
+    public enum SizeType{
         Small, Big, Middle
     }
 
@@ -75,12 +88,13 @@ public class Tree extends Element{
     private int trunkWidth;
     private int foliageHeight;
     private int foliageWidth;
-    private Type type;
+    private SizeType sizeType;
 
+    private int capacity;
 
-    public Tree(int x, int y, int elementSize, Type type){
-        super();
-        setType(type);
+    public Tree(int x, int y, int elementSize, SizeType sizeType){
+        super(Type.Tree);
+        setSizeType(sizeType);
         setElementSize(elementSize);
         setX(x);
         setY(y);
@@ -90,8 +104,9 @@ public class Tree extends Element{
         int trunkY;
         int foliageX;
         int foliageY;
-        switch (type){
+        switch (sizeType){
             case Big:
+                setCapacity(1000);
                 setFoliageHeight(elementSize / 2);
                 setFoliageWidth(elementSize * 3 / 4);
                 setTrunkHeight(elementSize / 2);
@@ -106,6 +121,7 @@ public class Tree extends Element{
                 addShape(foliage);
                 break;
             case Middle:
+                setCapacity(100);
                 setFoliageHeight(elementSize * 3 / 8);
                 setFoliageWidth(elementSize / 2);
                 setTrunkHeight(elementSize / 4);
@@ -120,6 +136,7 @@ public class Tree extends Element{
                 addShape(foliage);
                 break;
             case Small:
+                setCapacity(10);
                 setFoliageHeight(elementSize / 4);
                 setFoliageWidth(elementSize / 4);
                 setTrunkHeight(elementSize / 8);

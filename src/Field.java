@@ -19,6 +19,19 @@ public class Field {
         this.element = element;
     }
 
+    public void run() {
+        if (element.getType() == Element.Type.City){
+        }
+    }
+
+    public FieldMap getMap() {
+        return map;
+    }
+
+    public void setMap(FieldMap map) {
+        this.map = map;
+    }
+
     public enum Type{
         Ground, Sand, Water
     }
@@ -31,12 +44,14 @@ public class Field {
     private Type type;
 
     private Random random;
+    private FieldMap map;
 
 
-    public Field(int x, int y, int size, Random random){
+    public Field(int x, int y, int size, Random random, FieldMap map){
         setX(x);
         setY(y);
         setSize(size);
+        setMap(map);
         this.random = random;
         int randNum = random.nextInt(3);
         Type tempType = Type.Ground;
@@ -58,19 +73,19 @@ public class Field {
     private Tree createTree(){
         if (type == Type.Sand && random.nextInt(10) > 8){
             int typeNum = random.nextInt(10);
-            Tree.Type type = Tree.Type.Big;
-            if (typeNum < 1) type = Tree.Type.Big;
-            if (typeNum < 4 && typeNum > 0) type = Tree.Type.Middle;
-            if (typeNum > 3) type = Tree.Type.Small;
+            Tree.SizeType type = Tree.SizeType.Big;
+            if (typeNum < 1) type = Tree.SizeType.Big;
+            if (typeNum < 4 && typeNum > 0) type = Tree.SizeType.Middle;
+            if (typeNum > 3) type = Tree.SizeType.Small;
             Tree newTree = new Tree(getX(), getY(), getSize(), type);
             return newTree;
         }
         else if ( type == Type.Ground && random.nextInt(10) > 3){
             int typeNum = random.nextInt(3);
-            Tree.Type type = Tree.Type.Big;
-            if (typeNum == 0) type = Tree.Type.Big;
-            if (typeNum == 1) type = Tree.Type.Middle;
-            if (typeNum == 2) type = Tree.Type.Small;
+            Tree.SizeType type = Tree.SizeType.Big;
+            if (typeNum == 0) type = Tree.SizeType.Big;
+            if (typeNum == 1) type = Tree.SizeType.Middle;
+            if (typeNum == 2) type = Tree.SizeType.Small;
             Tree newTree = new Tree(getX(), getY(), getSize(), type);
             return newTree;
         }
@@ -81,10 +96,10 @@ public class Field {
     private Rock createRock(){
         if (random.nextInt(10) > 7) {
             int typeNum = random.nextInt(3);
-            Rock.Type type = Rock.Type.Big;
-            if (typeNum == 0) type = Rock.Type.Big;
-            if (typeNum == 1) type = Rock.Type.Middle;
-            if (typeNum == 2) type = Rock.Type.Small;
+            Rock.SizeType type = Rock.SizeType.Big;
+            if (typeNum == 0) type = Rock.SizeType.Big;
+            if (typeNum == 1) type = Rock.SizeType.Middle;
+            if (typeNum == 2) type = Rock.SizeType.Small;
             Rock newRock = new Rock(getX(), getY(), getSize(), type);
             return newRock;
         }
@@ -94,11 +109,11 @@ public class Field {
     private City createCity(){
         if (random.nextInt(10) > 8) {
             int typeNum = random.nextInt(10);
-            City.Type type = City.Type.Big;
-            if (typeNum == 0) type = City.Type.Big;
-            if (typeNum == 1 || typeNum == 2) type = City.Type.Middle;
-            if (typeNum > 2) type = City.Type.Small;
-            City newCity = new City(getX(), getY(), getSize(), type);
+            City.SizeType type = City.SizeType.Big;
+            if (typeNum == 0) type = City.SizeType.Big;
+            if (typeNum == 1 || typeNum == 2) type = City.SizeType.Middle;
+            if (typeNum > 2) type = City.SizeType.Small;
+            City newCity = new City(getX(), getY(), getSize(), type, map);
             return newCity;
         }
         return null;

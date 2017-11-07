@@ -21,8 +21,8 @@ public class GameWindowElement extends WindowElement{
     public ArrayList<BasicShape> getShapes() {
         ArrayList<BasicShape> result = new ArrayList<>();
         result.add(new RectangleShape(getX(), getY(), getSizeX(), getSizeY(), BasicShape.Color.Black, false));
-        ArrayList<Field> fields = gameEngine.getFields();
-        for (Field field: fields){
+        FieldMap map = gameEngine.getMap();
+        for (Field field: map.getValues()){
             Element element = field.getElement();
             ArrayList<BasicShape> basicShapes = new ArrayList<>();
             result.add(field.getRectangleShape());
