@@ -6,7 +6,20 @@ public class RectangleShape extends BasicShape {
     private int height;
 
     public RectangleShape(int x, int y, int width, int height, BasicShape.Color color){
-        super(Type.Rectangle, color);
+        super();
+        setColor(color);
+        setType(Type.FilledRectangle);
+        setX(x);
+        setY(y);
+        setWidth(width);
+        setHeight(height);
+    }
+
+    public RectangleShape(int x, int y, int width, int height, BasicShape.Color color, boolean filled){
+        super();
+        setColor(color);
+        if (filled) setType(Type.FilledRectangle);
+        else setType(Type.Rectangle);
         setX(x);
         setY(y);
         setWidth(width);

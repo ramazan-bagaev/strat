@@ -1,7 +1,7 @@
 public class BasicShape {
 
     public enum Type{
-        Rectangle, None
+        Rectangle, FilledRectangle, String
     }
 
     public enum Color{

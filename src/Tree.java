@@ -100,8 +100,8 @@ public class Tree extends Element{
                 foliageY = y;
                 trunkX = x + elementSize * 3 / 8;
                 trunkY = foliageY + getFoliageHeight();
-                trunk = new RectangleShape(trunkX, trunkY, getTrunkWidth(), getTrunkHeight(), BasicShape.Color.Red);
-                foliage = new RectangleShape(foliageX, foliageY, getFoliageWidth(), getFoliageHeight(), BasicShape.Color.Green);
+                trunk = new RectangleShape(trunkX, trunkY, getTrunkWidth(), getTrunkHeight(), BasicShape.Color.Red, true);
+                foliage = new RectangleShape(foliageX, foliageY, getFoliageWidth(), getFoliageHeight(), BasicShape.Color.Green, true);
                 addShape(trunk);
                 addShape(foliage);
                 break;

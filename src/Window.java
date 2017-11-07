@@ -4,10 +4,10 @@ public class Window {
     private int y;
     private int sizeX;
     private int sizeY;
+    private Window parent;
 
 
-
-    public Window(int x, int y, int sizeX, int sizeY){
+    public Window(int x, int y, int sizeX, int sizeY, Window parent){
         setX(x);
         setY(y);
         setSizeX(sizeX);

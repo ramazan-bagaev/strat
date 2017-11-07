@@ -134,6 +134,6 @@ public class Field {
         if (getType() == Type.Ground) color = BasicShape.Color.Green;
         if (getType() == Type.Sand) color = BasicShape.Color.Yellow;
         if (getType() == Type.Water) color = BasicShape.Color.Blue;
-        return new RectangleShape(getX(), getY(), getSize(), getSize(), color);
+        return new RectangleShape(getX(), getY(), getSize(), getSize(), color, true);
     }
 }

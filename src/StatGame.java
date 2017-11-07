@@ -10,11 +10,13 @@ public class StatGame extends BasicGame {
 
     GameEngine  gameEngine;
     SlickBinder slickBinder;
+    GameWindowElement gameWindowElement;
 
     public StatGame(String title) {
         super(title);
         gameEngine = new GameEngine(40, 25);
         slickBinder = new SlickBinder();
+        gameWindowElement = new GameWindowElement(1, 1, 1000, 1000, null, gameEngine);
     }
 
     @Override
@@ -37,7 +39,7 @@ public class StatGame extends BasicGame {
     @Override
     public void render(GameContainer gameContainer, Graphics g) throws SlickException {
 
-        ArrayList<Field> fields = gameEngine.getFields();
+        /*ArrayList<Field> fields = gameEngine.getFields();
         for(Field field: fields){
             Rectangle fieldBackground = slickBinder.getRectangle(field);
             Color fieldColor = slickBinder.getColor(field);
@@ -50,27 +52,16 @@ public class StatGame extends BasicGame {
             ArrayList<BasicShape> shapes;
             if (element != null) shapes = element.getShapes();
             else shapes = new ArrayList<>();
-            for(BasicShape shape: shapes){
-                BasicShape.Type type = shape.getType();
-
-                switch (type){
-                    case Rectangle: {
-                        RectangleShape rect = (RectangleShape)shape;
-                        Rectangle slickRect = slickBinder.getRectangle(rect);
-                        Color color = slickBinder.getColor(rect);
-                        g.setColor(color);
-                        g.fill(slickRect);
-                        g.setColor(Color.black);
-                        g.draw(slickRect);
-                        break;
-                    }
-                    case None:
-                        break;
-                }
-            }
+            for(BasicShape shape: shapes) slickBinder.draw(g, shape);
+        }*/
+        ArrayList<BasicShape> basicShapes = gameWindowElement.getShapes();
+        for(BasicShape basicShape: basicShapes){
+            slickBinder.draw(g, basicShape);
         }
         g.setColor(Color.gray);
         g.fill(new Rectangle(x,y,10,10));
+        BasicShape shape = new StringShape(100, 100, "heyaaaaa", BasicShape.Color.White);
+        slickBinder.draw(g, shape);
     }
 
     public static void main(String[] argv) {
