@@ -64,16 +64,12 @@ public class Tree extends Element{
         this.sizeType = sizeType;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public Field getParent() {
+        return parent;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public void decrease(int delta){
-        capacity -= delta;
+    public void setParent(Field parent) {
+        this.parent = parent;
     }
 
 
@@ -81,6 +77,7 @@ public class Tree extends Element{
         Small, Big, Middle
     }
 
+    private Field parent;
     private int x;
     private int y;
     private int elementSize; // this is the size of side of a square that element could annex
@@ -90,11 +87,21 @@ public class Tree extends Element{
     private int foliageWidth;
     private SizeType sizeType;
 
-    private int capacity;
-
-    public Tree(int x, int y, int elementSize, SizeType sizeType){
-        super(Type.Tree);
+    public Tree(int x, int y, int elementSize, SizeType sizeType, Field parent){
+        super(Type.Tree, parent);
         setSizeType(sizeType);
+
+        int maxCapacity = 0;
+        if (parent.getGroundType() == Ground.GroundType.Soil) maxCapacity = 100000;
+        if (parent.getGroundType() == Ground.GroundType.Sand) maxCapacity = 10000;
+        int cap = 0;
+        if (sizeType == SizeType.Big) cap = 100000;
+        if (sizeType == SizeType.Middle) cap = 10000;
+        if (sizeType == SizeType.Small) cap = 1000;
+
+        ResourceCause treeCause = new ResourceCause(Resource.Type.Tree, cap, maxCapacity, 1);
+        setResourceCause(treeCause);
+
         setElementSize(elementSize);
         setX(x);
         setY(y);
@@ -106,7 +113,6 @@ public class Tree extends Element{
         int foliageY;
         switch (sizeType){
             case Big:
-                setCapacity(1000);
                 setFoliageHeight(elementSize / 2);
                 setFoliageWidth(elementSize * 3 / 4);
                 setTrunkHeight(elementSize / 2);
@@ -121,7 +127,6 @@ public class Tree extends Element{
                 addShape(foliage);
                 break;
             case Middle:
-                setCapacity(100);
                 setFoliageHeight(elementSize * 3 / 8);
                 setFoliageWidth(elementSize / 2);
                 setTrunkHeight(elementSize / 4);
@@ -136,7 +141,6 @@ public class Tree extends Element{
                 addShape(foliage);
                 break;
             case Small:
-                setCapacity(10);
                 setFoliageHeight(elementSize / 4);
                 setFoliageWidth(elementSize / 4);
                 setTrunkHeight(elementSize / 8);
@@ -153,5 +157,7 @@ public class Tree extends Element{
         }
     }
 
-
+    public void run(){
+        renewResourceCause();
+    }
 }

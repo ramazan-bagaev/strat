@@ -16,37 +16,7 @@ public class City extends Element{
         this.population = population;
     }
 
-    public int getRockVolume() {
-        return rockVolume;
-    }
-
-    public void setRockVolume(int rockVolume) {
-        this.rockVolume = rockVolume;
-    }
-
-    public int getForestVolume() {
-        return forestVolume;
-    }
-
-    public void setForestVolume(int forestVolume) {
-        this.forestVolume = forestVolume;
-    }
-
-    public void mineRock(int delta){
-        rockVolume += delta;
-    }
-
-    public void consumeRock(int delta){
-        rockVolume -= delta;
-    }
-
-    public void mineForest(int delta){
-        forestVolume += delta;
-    }
-
-    public void consumeForest(int delta){
-        forestVolume += delta;
-    }
+    
 
     public FieldMap getMap() {
         return map;
@@ -54,6 +24,22 @@ public class City extends Element{
 
     public void setMap(FieldMap map) {
         this.map = map;
+    }
+
+    public ResourceStore getResourceStore() {
+        return resourceStore;
+    }
+
+    public void setResourceStore(ResourceStore resourceStore) {
+        this.resourceStore = resourceStore;
+    }
+
+    public Production getProduction() {
+        return production;
+    }
+
+    public void setProduction(Production production) {
+        this.production = production;
     }
 
     public enum SizeType{
@@ -90,16 +76,15 @@ public class City extends Element{
     private SizeType sizeType;
 
 
+    private ResourceStore resourceStore;
+    private Production production;
 
     private int population;
 
-    private int rockVolume;
-    private int forestVolume;
-
     private FieldMap map;
 
-    public City(int x, int y, int size, SizeType sizeType, FieldMap map){
-        super(Type.City);
+    public City(int x, int y, int size, SizeType sizeType, FieldMap map, Field parent){
+        super(Type.City, parent);
         setX(x);
         setY(y);
         setSize(size);
@@ -114,7 +99,7 @@ public class City extends Element{
                                                             BasicShape.Color.Red);
                 RectangleShape shape3 = new RectangleShape(getX() + getSize()/8, getY() + 5 * getSize()/8, getSize()/4, getSize()/4,
                                                             BasicShape.Color.Blue);
-                RectangleShape shape4 = new RectangleShape(getX() + 5 * getSize()/8, getY() + 5 * getSize()/8, getSize()/4, getSize()/4,
+                RectangleShape shape4 = new  RectangleShape(getX() + 5 * getSize()/8, getY() + 5 * getSize()/8, getSize()/4, getSize()/4,
                                                             BasicShape.Color.Yellow);
                 addShape(shape1);
                 addShape(shape2);
@@ -140,5 +125,9 @@ public class City extends Element{
                 break;
             }
         }
+    }
+
+    public void run() {
+        production.run();
     }
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Element {
+abstract public class Element {
 
     public Type getType() {
         return type;
@@ -10,16 +10,42 @@ public class Element {
         this.type = type;
     }
 
-    public enum Type{
-        Rock, Tree, City, None
+    public void setResourceCause(ResourceCause resourceCause) {
+        this.resourceCause = resourceCause;
     }
 
+    public ResourceCause getResourceCause(){
+        return resourceCause;
+    }
+
+    public Field getParent() {
+        return parent;
+    }
+
+    public void setParent(Field parent) {
+        this.parent = parent;
+    }
+
+    public enum Type{
+        Rock, Tree, City, Ground
+    }
+
+    private ResourceCause resourceCause;
     private Type type;
+    private Field parent;
+
     private ArrayList<BasicShape> shapes;
 
-    public Element(Type type){
+    public Element(Type type, Field parent){
         this.shapes = new ArrayList<BasicShape>();
         setType(type);
+        setParent(parent);
+    }
+
+    public abstract void run();
+
+    public void renewResourceCause(){
+        resourceCause.renew();
     }
 
 
