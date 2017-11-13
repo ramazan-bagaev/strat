@@ -23,10 +23,11 @@ public class GameWindowElement extends WindowElement{
         result.add(new RectangleShape(getX(), getY(), getSizeX(), getSizeY(), BasicShape.Color.Black, false));
         FieldMap map = gameEngine.getMap();
         for (Field field: map.getValues()){
-            Element element = field.getElement();
+            Element element = field.getGround();
             ArrayList<BasicShape> basicShapes = new ArrayList<>();
-            result.add(field.getRectangleShape());
             if (element != null) basicShapes = element.getShapes();
+            element = field.getAdditionalElement();
+            if (element != null) basicShapes.addAll(element.getShapes());
             result.addAll(basicShapes);
         }
         return result;

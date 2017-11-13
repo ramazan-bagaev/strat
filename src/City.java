@@ -125,6 +125,12 @@ public class City extends Element{
                 break;
             }
         }
+        resourceStore = new ResourceStore();
+
+        production = new Production();
+        FoodConvertor food = new FoodConvertor(getParent(), this, getPopulation());
+        production.addResourceConvertor(food);
+
     }
 
     public void run() {

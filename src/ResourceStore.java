@@ -4,6 +4,10 @@ public class ResourceStore {
 
     private ArrayList<ResourceBank> resourceBanks;
 
+    public ResourceStore(){
+        resourceBanks = new ArrayList<>();
+    }
+
     public void addResourceBank(ResourceBank resourceBank){
         for (ResourceBank bank: resourceBanks ){
             if (bank.getType() == resourceBank.getType()){

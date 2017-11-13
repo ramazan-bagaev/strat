@@ -25,6 +25,10 @@ public class Field {
         return groundElement;
     }
 
+    public Element getAdditionalElement(){
+        return additionalElement;
+    }
+
     private int x;
     private int y;
     private int size;

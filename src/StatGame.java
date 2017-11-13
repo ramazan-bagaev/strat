@@ -34,6 +34,8 @@ public class StatGame extends BasicGame {
         if (right) x += 1;
         if (up) y -= 1;
         if (down) y += 1;
+
+        gameEngine.run();
     }
 
     @Override

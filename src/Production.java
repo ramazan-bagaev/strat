@@ -5,7 +5,7 @@ public class Production {
     private ArrayList<ResourceConvertor> resourceConvertors;
 
     public Production(){
-
+        resourceConvertors = new ArrayList<>();
     }
 
     public ArrayList<ResourceConvertor> getResourceConvertors() {
@@ -23,7 +23,7 @@ public class Production {
     public ArrayList<Resource> run(){
         ArrayList<Resource> result = new ArrayList<>();
         for (ResourceConvertor resourceConvertor: resourceConvertors){
-            result.addAll(resourceConvertor.convert());
+            result.add(resourceConvertor.convert());
         }
         return result;
     }

@@ -65,14 +65,4 @@ public class SlickBinder{
                 return Color.white;
         }
     }
-
-    public Rectangle getRectangle(Field field){
-        RectangleShape rectangleShape = field.getRectangleShape();
-        return getRectangle(rectangleShape);
-    }
-
-    public Color getColor(Field field){
-        RectangleShape rectangleShape = field.getRectangleShape();
-        return getColor(rectangleShape);
-    }
 }
