@@ -103,6 +103,7 @@ public class Field {
     }
 
     private City createCity(){
+        if (getGroundType() == Ground.GroundType.Rock) return null;
         if (random.nextInt(10) > 8) {
             int typeNum = random.nextInt(10);
             City.SizeType type = City.SizeType.Big;

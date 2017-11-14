@@ -10,6 +10,7 @@ public class StatGame extends BasicGame {
 
     GameEngine  gameEngine;
     SlickBinder slickBinder;
+
     MainWindow mainWindow;
 
     public StatGame(String title) {
@@ -30,10 +31,10 @@ public class StatGame extends BasicGame {
         boolean right = gameContainer.getInput().isKeyDown(Input.KEY_D);
         boolean up = gameContainer.getInput().isKeyDown(Input.KEY_W);
         boolean down = gameContainer.getInput().isKeyDown(Input.KEY_S);
-        if (left) x -= 1;
-        if (right) x += 1;
-        if (up) y -= 1;
-        if (down) y += 1;
+        if (left) x -= 2;
+        if (right) x += 2;
+        if (up) y -= 2;
+        if (down) y += 2;
 
         gameEngine.run();
     }

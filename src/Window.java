@@ -2,54 +2,18 @@ import java.util.ArrayList;
 
 public class Window {
 
-    private int x;
-    private int y;
-    private int sizeX;
-    private int sizeY;
+    private Coord pos;
+    private Coord size;
     private Window parent;
 
     private ArrayList<WindowElement> windowElements;
 
 
-    public Window(int x, int y, int sizeX, int sizeY, Window parent){
-        setX(x);
-        setY(y);
-        setSizeX(sizeX);
-        setSizeY(sizeY);
+    public Window(Coord pos, Coord size, Window parent){
+        setPos(pos);
+        setSize(size);
         setParent(parent);
         windowElements = new ArrayList<>();
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    public void setSizeX(int sizeX) {
-        this.sizeX = sizeX;
-    }
-
-    public int getSizeY() {
-        return sizeY;
-    }
-
-    public void setSizeY(int sizeY) {
-        this.sizeY = sizeY;
     }
 
     public Window getParent() {
@@ -79,4 +43,35 @@ public class Window {
         }
         return  result;
     }
+
+    public Coord getPos() {
+        return pos;
+    }
+
+    public void setPos(Coord pos) {
+        this.pos = pos;
+    }
+
+    public Coord getSize() {
+        return size;
+    }
+
+    public void setSize(Coord size) {
+        this.size = size;
+    }
+
+    public boolean contain(Coord point){
+        return point.inRectangle(pos, size);
+    }
+
+    public void click(Coord point){
+        for(WindowElement windowElement: windowElements) {
+            if (windowElement.contain(point)){
+                windowElement.click();
+                return;
+            }
+        }
+
+    }
+
 }

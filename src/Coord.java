@@ -13,6 +13,11 @@ public class Coord {
         return ret;
     }
 
+    public boolean inRectangle(Coord pos, Coord size){
+        return (pos.x < x && pos.x + size.x > x && pos.y < y && pos.y + size.y < y);
+
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
