@@ -4,9 +4,9 @@ public class Label extends WindowElement{
 
     private StringShape stringShape;
 
-    public Label(int x, int y, int sizeX, int sizeY, String text, Window parent){
-        super(x, y, sizeX, sizeY, parent);
-        setStringShape(new StringShape(x, y, text, BasicShape.Color.Black));
+    public Label(Coord pos, Coord size, String text, Window parent){
+        super(pos, size, parent);
+        setStringShape(new StringShape(pos.x, pos.y, text, BasicShape.Color.Black));
     }
 
     @Override
@@ -14,6 +14,11 @@ public class Label extends WindowElement{
         ArrayList<BasicShape> result = new ArrayList<>();
         result.add(getStringShape());
         return result;
+    }
+
+    @Override
+    public void click() {
+        return;
     }
 
     public StringShape getStringShape() {

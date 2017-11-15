@@ -1,5 +1,5 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class Windows {
     LinkedList<Window> windows;
@@ -14,13 +14,29 @@ public class Windows {
     }
 
     public void click(Coord pos){
-        ListIterator li = windows.listIterator(windows.size());
-        for (Window window: windows){
+        for(int i = windows.size() - 1; i >= 0; i--){
+            Window window = windows.get(i);
             if (window.contain(pos)){
                 window.click(pos);
             }
         }
     }
 
+    public ArrayList<BasicShape> getShapes(){
+        ArrayList<BasicShape> result = new ArrayList<>();
+        for (Window window: windows){
+            result.addAll(window.getShapes());
+        }
+        return result;
+    }
 
+    public void removeWindow(Window window){
+        windows.remove(window);
+    }
+
+    public boolean isOnTop(Window window){
+        if (windows.size() == 0) return false;
+        if (windows.get(0) == window) return true;
+        return false;
+    }
 }

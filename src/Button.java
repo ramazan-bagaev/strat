@@ -7,8 +7,8 @@ abstract public class Button extends WindowElement{
 
     public Button(Coord pos, Coord size, Window parent, String str){
         super(pos, size, parent);
-        text = new StringShape(pos.x + 5, pos.y + size.y /2, str, BasicShape.Color.Black);
-        carcas = new RectangleShape(pos.x, pos.y, size.x, size.y, BasicShape.Color.Black, false);
+        text = new StringShape(pos.x + 5, pos.y + size.y /2, str, BasicShape.Color.White);
+        carcas = new RectangleShape(pos.x, pos.y, size.x, size.y, BasicShape.Color.Black, true);
 
     }
 
@@ -31,8 +31,8 @@ abstract public class Button extends WindowElement{
     @Override
     public ArrayList<BasicShape> getShapes() {
         ArrayList<BasicShape> result = new ArrayList<>();
-        result.add(text);
         result.add(carcas);
+        result.add(text);
         return result;
     }
 }

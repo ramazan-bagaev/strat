@@ -4,23 +4,23 @@ public class Window {
 
     private Coord pos;
     private Coord size;
-    private Window parent;
+    private Windows parent;
 
     private ArrayList<WindowElement> windowElements;
 
 
-    public Window(Coord pos, Coord size, Window parent){
+    public Window(Coord pos, Coord size, Windows parent){
         setPos(pos);
         setSize(size);
         setParent(parent);
         windowElements = new ArrayList<>();
     }
 
-    public Window getParent() {
+    public Windows getParent() {
         return parent;
     }
 
-    public void setParent(Window parent) {
+    public void setParent(Windows parent) {
         this.parent = parent;
     }
 
@@ -41,7 +41,7 @@ public class Window {
         for(WindowElement windowElement: windowElements){
             result.addAll(windowElement.getShapes());
         }
-        return  result;
+        return result;
     }
 
     public Coord getPos() {
@@ -66,12 +66,16 @@ public class Window {
 
     public void click(Coord point){
         for(WindowElement windowElement: windowElements) {
-            if (windowElement.contain(point)){
+            if (windowElement.contain(point)) {
                 windowElement.click();
                 return;
             }
         }
-
+        if (parent.isOnTop(this)) {
+            return;
+        }
+        parent.removeWindow(this);
+        parent.addWindow(this);
     }
 
 }

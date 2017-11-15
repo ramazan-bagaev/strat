@@ -45,6 +45,7 @@ public class Field {
         setY(y);
         setSize(size);
         setMap(map);
+        additionalElement = null;
         this.random = random;
         int randNum = random.nextInt(5);
         Ground.GroundType tempType = Ground.GroundType.Soil;
@@ -56,9 +57,9 @@ public class Field {
         groundElement = new Ground(getX(), getY(), getSize(), tempType, this);
         if (getGroundType() != Ground.GroundType.Water) {
             int elType = random.nextInt(3);
-            if (elType == 0) additionalElement = createRock();
-            if (elType == 1) additionalElement = createTree();
-            if (elType == 2) additionalElement = createCity();
+            //if (elType == 0) additionalElement = createRock();
+            //if (elType == 1) additionalElement = createTree();
+            //if (elType == 2) additionalElement = createCity();
         }
     }
 

@@ -4,8 +4,8 @@ public class GameWindowElement extends WindowElement{
 
     private GameEngine gameEngine;
 
-    public GameWindowElement(int x, int y, int sizeX, int sizeY, Window parent, GameEngine gameEngine){
-        super(x, y, sizeX, sizeY, parent);
+    public GameWindowElement(Coord pos, Coord size, Window parent, GameEngine gameEngine){
+        super(pos, size, parent);
         setGameEngine(gameEngine);
     }
 
@@ -20,7 +20,7 @@ public class GameWindowElement extends WindowElement{
     @Override
     public ArrayList<BasicShape> getShapes() {
         ArrayList<BasicShape> result = new ArrayList<>();
-        result.add(new RectangleShape(getX(), getY(), getSizeX(), getSizeY(), BasicShape.Color.Black, false));
+        result.add(new RectangleShape(getPos().x, getPos().y, getSize().x, getSize().y, BasicShape.Color.Black, false));
         FieldMap map = gameEngine.getMap();
         for (Field field: map.getValues()){
             Element element = field.getGround();
@@ -31,5 +31,10 @@ public class GameWindowElement extends WindowElement{
             result.addAll(basicShapes);
         }
         return result;
+    }
+
+    @Override
+    public void click() {
+        return;
     }
 }

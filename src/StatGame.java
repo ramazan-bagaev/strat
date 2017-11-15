@@ -12,12 +12,14 @@ public class StatGame extends BasicGame {
     SlickBinder slickBinder;
 
     MainWindow mainWindow;
+    Windows windows;
 
     public StatGame(String title) {
         super(title);
         gameEngine = new GameEngine(40, 25);
         slickBinder = new SlickBinder();
-        mainWindow = new MainWindow(1, 1, 1000, 1000, gameEngine, null);
+        mainWindow = new MainWindow(new Coord(1,1), new Coord(1000, 1000), gameEngine, null);
+        //windows = new Windows(mainWindow);
     }
 
     @Override
@@ -45,9 +47,8 @@ public class StatGame extends BasicGame {
         for(BasicShape basicShape: basicShapes){
             slickBinder.draw(g, basicShape);
         }
-        g.setColor(Color.gray);
-        g.fill(new Rectangle(x,y,10,10));
-        BasicShape shape = new StringShape(100, 100, "heyaaaaa", BasicShape.Color.White);
+
+        RectangleShape shape = new RectangleShape(x, y, 30, 30, BasicShape.Color.Gray);
         slickBinder.draw(g, shape);
     }
 
