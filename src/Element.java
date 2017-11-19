@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-abstract public class Element {
+public class Element {
 
     public Type getType() {
         return type;
@@ -42,7 +42,9 @@ abstract public class Element {
         setParent(parent);
     }
 
-    public abstract void run();
+    public void run(){
+
+    };
 
     public void renewResourceCause(){
         resourceCause.renew();

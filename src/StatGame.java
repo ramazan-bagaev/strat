@@ -14,9 +14,12 @@ public class StatGame extends BasicGame {
     MainWindow mainWindow;
     Windows windows;
 
+    static Image bigTree;
+    static Graphics gra;
+
     public StatGame(String title) {
         super(title);
-        gameEngine = new GameEngine(40, 25);
+        gameEngine = new GameEngine(20, 50);
         slickBinder = new SlickBinder();
         mainWindow = new MainWindow(new Coord(1,1), new Coord(1000, 1000), gameEngine, null);
         //windows = new Windows(mainWindow);
@@ -24,7 +27,6 @@ public class StatGame extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-
     }
 
     @Override
@@ -50,6 +52,14 @@ public class StatGame extends BasicGame {
 
         RectangleShape shape = new RectangleShape(x, y, 30, 30, BasicShape.Color.Gray);
         slickBinder.draw(g, shape);
+
+        /*Image image = new Image(256,256);
+        Graphics graphics = image.getGraphics();
+        graphics.setBackground(new Color(0,0,0,0));
+        graphics.clear();
+        graphics.setColor(Color.green);
+        graphics.drawRect(10, 10, 20 , 20);
+        graphics.flush();*/
     }
 
     public static void main(String[] argv) {

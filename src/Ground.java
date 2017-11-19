@@ -89,6 +89,8 @@ public class Ground extends Element {
         if (getGroundType() == GroundType.Rock) color = BasicShape.Color.Gray;
         RectangleShape newShape = new RectangleShape(getX(), getY(), getSize(), getSize(), color, true);
         addShape(newShape);
+        //newShape = new RectangleShape(getX() + getSize() /3, getY() + getSize() / 3, getSize()/3, getSize()/3, color, true);
+        //addShape(newShape);
     }
 
     public void run(){

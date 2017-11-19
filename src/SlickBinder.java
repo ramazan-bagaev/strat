@@ -1,11 +1,15 @@
 import com.sun.org.apache.regexp.internal.RE;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 public class SlickBinder{
 
+
     public SlickBinder(){
+
 
     }
 
@@ -34,6 +38,7 @@ public class SlickBinder{
                 break;
             }
         }
+
     }
 
     public Rectangle getRectangle(RectangleShape rectangleShape){

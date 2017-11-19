@@ -23,12 +23,14 @@ public class GameWindowElement extends WindowElement{
         result.add(new RectangleShape(getPos().x, getPos().y, getSize().x, getSize().y, BasicShape.Color.Black, false));
         FieldMap map = gameEngine.getMap();
         for (Field field: map.getValues()){
-            Element element = field.getGround();
+            //if (!field.isNeedToDraw()) continue;
+           // Element element = field.getGround();
             ArrayList<BasicShape> basicShapes = new ArrayList<>();
-            if (element != null) basicShapes = element.getShapes();
-            element = field.getAdditionalElement();
+            //if (element != null) basicShapes = element.getShapes();
+            Element element = field.getAdditionalElement();
             if (element != null) basicShapes.addAll(element.getShapes());
             result.addAll(basicShapes);
+            //field.setNeedToDraw(false);
         }
         return result;
     }

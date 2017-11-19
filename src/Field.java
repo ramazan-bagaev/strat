@@ -10,7 +10,7 @@ public class Field {
 
     public void run() {
         groundElement.run();
-        if (additionalElement != null) additionalElement.run();
+        //if (additionalElement != null) additionalElement.run();
     }
 
     public FieldMap getMap() {
@@ -32,11 +32,11 @@ public class Field {
     private int x;
     private int y;
     private int size;
+    private boolean needToDraw;
 
     private Ground groundElement;
     private Element additionalElement;
 
-    private Random random;
     private FieldMap map;
 
 
@@ -44,9 +44,9 @@ public class Field {
         setX(x);
         setY(y);
         setSize(size);
-        setMap(map);
-        additionalElement = null;
-        this.random = random;
+        //setMap(map);
+        setNeedToDraw(true);
+        //additionalElement = null;
         int randNum = random.nextInt(5);
         Ground.GroundType tempType = Ground.GroundType.Soil;
         if (randNum == 0) tempType = Ground.GroundType.Soil;
@@ -56,17 +56,17 @@ public class Field {
         if (randNum == 4) tempType = Ground.GroundType.Rock;
         groundElement = new Ground(getX(), getY(), getSize(), tempType, this);
         if (getGroundType() != Ground.GroundType.Water) {
-            int elType = random.nextInt(3);
-            //if (elType == 0) additionalElement = createRock();
-            //if (elType == 1) additionalElement = createTree();
-            //if (elType == 2) additionalElement = createCity();
+            int elType = random.nextInt(5);
+            if (elType == 0) additionalElement = createRock(random);
+            if (elType == 1) additionalElement = createTree(random);
+            if (elType == 2) additionalElement = createCity(random);
         }
     }
 
 
 
 
-    private Tree createTree(){
+    private Tree createTree(Random random){
         if (getGroundType() == Ground.GroundType.Sand && random.nextInt(10) > 8){
             int typeNum = random.nextInt(10);
             Tree.SizeType type = Tree.SizeType.Big;
@@ -88,7 +88,7 @@ public class Field {
         return null;
     }
 
-    private Rock createRock(){
+    private Rock createRock(Random random){
         if (getGroundType() == Ground.GroundType.Rock) {
             if (random.nextInt(10) > 7) {
                 int typeNum = random.nextInt(3);
@@ -103,7 +103,7 @@ public class Field {
         return null;
     }
 
-    private City createCity(){
+    private City createCity(Random random){
         if (getGroundType() == Ground.GroundType.Rock) return null;
         if (random.nextInt(10) > 8) {
             int typeNum = random.nextInt(10);
@@ -140,5 +140,13 @@ public class Field {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public boolean isNeedToDraw() {
+        return needToDraw;
+    }
+
+    public void setNeedToDraw(boolean needToDraw) {
+        this.needToDraw = needToDraw;
     }
 }
