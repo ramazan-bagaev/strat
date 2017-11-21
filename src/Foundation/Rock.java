@@ -20,7 +20,7 @@ public class Rock extends Element {
     private SizeType sizeType;
 
 
-    public Rock(int x, int y, int size, SizeType sizeType, Field parent){
+    public Rock(int x, int y, int intSize, SizeType sizeType, Field parent){
         super(Type.Rock, parent);
 
         int cap = 0;
@@ -32,15 +32,18 @@ public class Rock extends Element {
 
         setX(x);
         setY(y);
-        setSize(size);
+        setSize(intSize);
         setSizeType(sizeType);
-
+        Coord pos;
+        Coord size;
         switch (sizeType){
             case Big:{
-                RectangleShape shape1 = new RectangleShape(getX() + getSize()/4, getY() + getSize()/4, getSize()/2, getSize()/2,
-                                                            BasicShape.Color.Gray);
-                RectangleShape shape2 = new RectangleShape(getX() + getSize()/3, getY() + getSize()/3, getSize()/3, getSize()/3,
-                                                            BasicShape.Color.LightGray);
+                pos = new Coord(getX() + getSize()/4, getY() + getSize()/4);
+                size = new Coord(getSize()/2, getSize()/2);
+                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
+                pos = new Coord(getX() + getSize()/3, getY() + getSize()/3);
+                size = new Coord(getSize()/3, getSize()/3);
+                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
 
                 addShape(shape1);
                 addShape(shape2);
@@ -49,18 +52,21 @@ public class Rock extends Element {
 
 
             case Middle: {
-                RectangleShape shape1 = new RectangleShape(getX() + getSize()/3, getY() + getSize()/3, getSize()/3, getSize()/3,
-                        BasicShape.Color.Gray);
-                RectangleShape shape2 = new RectangleShape(getX() + getSize() * 2/5, getY() + getSize() *2/5, getSize()/5, getSize()/5,
-                        BasicShape.Color.LightGray);
+                pos = new Coord(getX() + getSize()/3, getY() + getSize()/3);
+                size = new Coord(getSize()/3, getSize()/3);
+                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
+                pos = new Coord(getX() + getSize() * 2/5, getY() + getSize() *2/5);
+                size = new Coord(getSize()/5, getSize()/5);
+                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
 
                 addShape(shape1);
                 addShape(shape2);
                 break;
             }
             case Small: {
-                RectangleShape shape1 = new RectangleShape(getX() + getSize() * 2/5, getY() + getSize() *2/5, getSize()/5, getSize()/5,
-                        BasicShape.Color.Gray);
+                pos = new Coord(getX() + getSize() * 2/5, getY() + getSize() *2/5);
+                size = new Coord(getSize()/5, getSize()/5);
+                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
                 addShape(shape1);
                 break;
             }

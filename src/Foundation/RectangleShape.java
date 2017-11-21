@@ -4,61 +4,39 @@ import Foundation.BasicShape;
 
 public class RectangleShape extends BasicShape {
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    private Coord pos;
+    private Coord size;
 
-    public RectangleShape(int x, int y, int width, int height, BasicShape.Color color){
+    public RectangleShape(Coord pos, Coord size, BasicShape.Color color){
         super();
         setColor(color);
         setType(Type.FilledRectangle);
-        setX(x);
-        setY(y);
-        setWidth(width);
-        setHeight(height);
+        setPos(pos);
+        setSize(size);
     }
 
-    public RectangleShape(int x, int y, int width, int height, BasicShape.Color color, boolean filled){
+    public RectangleShape(Coord pos, Coord size, BasicShape.Color color, boolean filled){
         super();
         setColor(color);
         if (filled) setType(Type.FilledRectangle);
         else setType(Type.Rectangle);
-        setX(x);
-        setY(y);
-        setWidth(width);
-        setHeight(height);
+        setPos(pos);
+        setSize(size);
     }
 
-    public int getX() {
-        return x;
+    public Coord getPos() {
+        return pos;
     }
 
-    public int getY() {
-        return y;
+    public void setPos(Coord pos) {
+        this.pos = pos;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public Coord getSize() {
+        return size;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    public void setSize(Coord size) {
+        this.size = size;
     }
 }

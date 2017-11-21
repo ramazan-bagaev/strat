@@ -42,6 +42,7 @@ public class Window {
 
     public ArrayList<BasicShape> getShapes(){
         ArrayList<BasicShape> result = new ArrayList<>();
+        result.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.White, true));
         for(WindowElement windowElement: windowElements){
             result.addAll(windowElement.getShapes());
         }
@@ -84,6 +85,10 @@ public class Window {
         }
         parent.removeWindow(this);
         parent.addWindow(this);
+    }
+
+    public void addWindow(Window window){
+        getParent().addWindow(window);
     }
 
 }

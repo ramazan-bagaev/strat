@@ -51,8 +51,8 @@ public class Tree extends Element {
                 foliageY = y;
                 trunkX = x + elementSize * 3 / 8;
                 trunkY = foliageY + foliageHeight;
-                trunk = new RectangleShape(trunkX, trunkY, trunkWidth, trunkHeight, BasicShape.Color.Red, true);
-                foliage = new RectangleShape(foliageX, foliageY, foliageWidth, foliageHeight, BasicShape.Color.Green, true);
+                trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red, true);
+                foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green, true);
                 addShape(trunk);
                 addShape(foliage);
                 break;
@@ -65,8 +65,8 @@ public class Tree extends Element {
                 trunkY = y + elementSize - trunkHeight;
                 foliageX = x + elementSize / 4;
                 foliageY = trunkY - foliageHeight;
-                trunk = new RectangleShape(trunkX, trunkY, trunkWidth, trunkHeight, BasicShape.Color.Red);
-                foliage = new RectangleShape(foliageX, foliageY, foliageWidth, foliageHeight, BasicShape.Color.Green);
+                trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red);
+                foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green);
                 addShape(trunk);
                 addShape(foliage);
                 break;
@@ -79,8 +79,8 @@ public class Tree extends Element {
                 trunkY = y + elementSize - trunkHeight;
                 foliageX = x + elementSize * 3 / 8;
                 foliageY = trunkY - foliageHeight;
-                trunk = new RectangleShape(trunkX, trunkY, trunkWidth, trunkHeight, BasicShape.Color.Red);
-                foliage = new RectangleShape(foliageX, foliageY, foliageWidth, foliageHeight, BasicShape.Color.Green);
+                trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red);
+                foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green);
                 addShape(trunk);
                 addShape(foliage);
                 break;

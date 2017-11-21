@@ -89,7 +89,7 @@ public class Ground extends Element {
         if (getGroundType() == GroundType.Water) color = BasicShape.Color.Blue;
         if (getGroundType() == GroundType.Mud) color = BasicShape.Color.Green2;
         if (getGroundType() == GroundType.Rock) color = BasicShape.Color.Gray;
-        RectangleShape newShape = new RectangleShape(getX(), getY(), getSize(), getSize(), color, true);
+        RectangleShape newShape = new RectangleShape(new Coord(getX(), getY()), new Coord(getSize(), getSize()), color, true);
         addShape(newShape);
     }
 

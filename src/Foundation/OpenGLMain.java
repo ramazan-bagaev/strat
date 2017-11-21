@@ -1,6 +1,6 @@
 package Foundation;
 
-import CharacterShape.CharacterShape;
+import Windows.ElementInfoWindow;
 import CharacterShape.Font;
 import CharacterShape.FontFactory;
 import org.lwjgl.*;
@@ -97,6 +97,8 @@ public class OpenGLMain {
         windows.setFonts(fonts);
         MainWindow mainWindow = new MainWindow(new Coord(0, 0), new Coord(1000, 1000), gameEngine, windows);
         windows.addWindow(mainWindow);
+        ElementInfoWindow elementInfoWindow = new ElementInfoWindow(windows);
+        windows.addWindow(elementInfoWindow);
         openGLBinder = new OpenGLBinder();
 
         DoubleBuffer b1 = BufferUtils.createDoubleBuffer(1);

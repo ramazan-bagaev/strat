@@ -87,24 +87,30 @@ public class City extends Element {
 
     private FieldMap map;
 
-    public City(int x, int y, int size, SizeType sizeType, FieldMap map, Field parent){
+    public City(int x, int y, int intSize, SizeType sizeType, FieldMap map, Field parent){
         super(Element.Type.City, parent);
         setX(x);
         setY(y);
-        setSize(size);
+        setSize(intSize);
         setSizeType(sizeType);
         setMap(map);
+        Coord pos;
+        Coord size;
         switch (sizeType){
             case Big: {
                 setPopulation(10000); // magic constant, TODO: make something with these constants
-                RectangleShape shape1 = new RectangleShape(getX() + getSize()/8, getY() + getSize()/8, getSize()/4, getSize()/4,
-                                                            BasicShape.Color.Green);
-                RectangleShape shape2 = new RectangleShape(getX() + 5 * getSize()/8, getY() + getSize()/8, getSize()/4, getSize()/4,
-                                                            BasicShape.Color.Red);
-                RectangleShape shape3 = new RectangleShape(getX() + getSize()/8, getY() + 5 * getSize()/8, getSize()/4, getSize()/4,
-                                                            BasicShape.Color.Blue);
-                RectangleShape shape4 = new RectangleShape(getX() + 5 * getSize()/8, getY() + 5 * getSize()/8, getSize()/4, getSize()/4,
-                                                            BasicShape.Color.Yellow);
+                pos = new Coord(getX() + getSize()/8, getY() + getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
+                pos = new Coord(getX() + 5 * getSize()/8, getY() + getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.Red);
+                pos = new Coord(getX() + getSize()/8, getY() + 5 * getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape3 = new RectangleShape(pos, size, BasicShape.Color.Blue);
+                pos = new Coord(getX() + 5 * getSize()/8, getY() + 5 * getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape4 = new RectangleShape(pos, size, BasicShape.Color.Yellow);
                 addShape(shape1);
                 addShape(shape2);
                 addShape(shape3);
@@ -113,18 +119,21 @@ public class City extends Element {
             }
             case Middle: {
                 setPopulation(1000);
-                RectangleShape shape1 = new RectangleShape(getX() + getSize()/8, getY() + 3 * getSize()/8, getSize()/4, getSize()/4,
-                        BasicShape.Color.Green);
-                RectangleShape shape2 = new RectangleShape(getX() + 5 * getSize()/8, getY() + 3 * getSize()/8, getSize()/4, getSize()/4,
-                        BasicShape.Color.Red);
+                pos = new Coord(getX() + getSize()/8, getY() + 3 * getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
+                pos = new Coord(getX() + 5 * getSize()/8, getY() + 3 * getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.Red);
                 addShape(shape1);
                 addShape(shape2);
                 break;
             }
             case Small:{
                 setPopulation(100);
-                RectangleShape shape1 = new RectangleShape(getX() + 3 * getSize()/8, getY() + 3 * getSize()/8, getSize()/4, getSize()/4,
-                        BasicShape.Color.Red);
+                pos = new Coord(getX() + 3 * getSize()/8, getY() + 3 * getSize()/8);
+                size = new Coord(getSize()/4, getSize()/4);
+                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Red);
                 addShape(shape1);
                 break;
             }

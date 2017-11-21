@@ -58,8 +58,9 @@ public class StringShape{
         int len = text.length();
         for (int i = 0; i < text.length(); i++){
             CharacterShape newShape = font.getCharacterShapeByDef(String.valueOf(text.charAt(i)));
+            if (newShape == null) continue;
             Coord newPos = new Coord(getPos().x + i * (getSize().x/len), getPos().y);
-            Coord newSize = new Coord(getSize().x / len, getSize().y / len);
+            Coord newSize = new Coord(getSize().x / len, getSize().y);
             newShape.setPos(newPos);
             newShape.setSize(newSize);
             newShape.setColor(color);

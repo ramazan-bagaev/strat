@@ -13,7 +13,7 @@ abstract public class Button extends WindowElement {
         super(pos, size, parent);
         Font font = parent.getFont("latin");
         text = new StringShape(new Coord(pos.x + size.x/4, pos.y + size.y /4), new Coord(size.x/ 2, size.y /2), str, BasicShape.Color.Black, font);
-        carcas = new RectangleShape(pos.x, pos.y, size.x, size.y, BasicShape.Color.White, true);
+        carcas = new RectangleShape(pos, size, BasicShape.Color.White, true);
 
     }
 

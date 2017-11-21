@@ -20,15 +20,19 @@ public class OpenGLBinder {
         float y;
         float x1;
         float y1;
+        Coord pos;
+        Coord size;
         switch (basicShape.getType()){
             case Rectangle:
                 rect = (RectangleShape)basicShape;
                 color = getColor(rect.getColor());
                 glColor3f(color.get(0), color.get(1), color.get(2));
-                x = rect.getX();
-                y = rect.getY();
-                x1 = rect.getX() + rect.getWidth();
-                y1 = rect.getY() + rect.getHeight();
+                pos = rect.getPos();
+                size = rect.getSize();
+                x = pos.x;
+                y = pos.y;
+                x1 = x + size.x;
+                y1 = y + size.y;
 
 
                 glBegin(GL_LINE_LOOP);
@@ -44,10 +48,12 @@ public class OpenGLBinder {
                 rect = (RectangleShape)basicShape;
                 color = getColor(rect.getColor());
                 glColor3f(color.get(0), color.get(1), color.get(2));
-                x = rect.getX();
-                y = rect.getY();
-                x1 = rect.getX() + rect.getWidth();
-                y1 = rect.getY() + rect.getHeight();
+                pos = rect.getPos();
+                size = rect.getSize();
+                x = pos.x;
+                y = pos.y;
+                x1 = x + size.x;
+                y1 = y + size.y;
 
                 //glRectf(x, y, x1, y1);
                 glBegin(GL_QUADS);
@@ -71,8 +77,9 @@ public class OpenGLBinder {
                 CharacterShape characterShape = (CharacterShape)basicShape;
                 color = getColor(characterShape.getColor());
                 glColor3f(color.get(0), color.get(1), color.get(2));
-                Coord pos = characterShape.getPos();
-                Coord size = characterShape.getSize();
+                glLineWidth(1.5f);
+                pos = characterShape.getPos();
+                size = characterShape.getSize();
                 for (int i = 0; i < characterShape.lineNumber(); i++){
                     Coord from = characterShape.getFrom(i);
                     Coord to = characterShape.getTo(i);

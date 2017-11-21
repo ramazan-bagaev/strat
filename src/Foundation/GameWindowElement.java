@@ -22,7 +22,7 @@ public class GameWindowElement extends WindowElement{
     @Override
     public ArrayList<BasicShape> getShapes() {
         ArrayList<BasicShape> result = new ArrayList<>();
-        result.add(new RectangleShape(getPos().x, getPos().y, getSize().x, getSize().y, BasicShape.Color.Black, false));
+        result.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.Black, false));
         FieldMap map = gameEngine.getMap();
         for (Field field: map.getValues()){
             //if (!field.isNeedToDraw()) continue;

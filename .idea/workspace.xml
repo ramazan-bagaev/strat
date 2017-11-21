@@ -2,80 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="370b8199-5ca5-4ee2-a9e2-44ed853efa5a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/fonts.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CharacterShape/CharacterShape.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CharacterShape/Font.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CharacterShape/FontFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/BasicShape$Color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/BasicShape$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/BasicShape.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Button.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/City$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/City$SizeType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/City.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Coord.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Element$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Element.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Field.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/FieldMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/FoodConvertor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/GameEngine.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/GameWindowElement.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Ground$GroundType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Ground.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Label.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/MainWindow.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/OpenGLBinder$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/OpenGLBinder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/OpenGLMain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Production.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/RectangleShape.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Resource$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Resource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/ResourceBank.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/ResourceCause.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/ResourceConvertor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/ResourceStore.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Rock$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Rock$SizeType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Rock.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/StringShape.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Tree$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Tree$SizeType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Tree.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Window.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/WindowElement.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/strat/Windows.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/OpenGLBinder.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/BasicShape.java" afterPath="$PROJECT_DIR$/src/Foundation/BasicShape.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Button.java" afterPath="$PROJECT_DIR$/src/Foundation/Button.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/City.java" afterPath="$PROJECT_DIR$/src/Foundation/City.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Coord.java" afterPath="$PROJECT_DIR$/src/Foundation/Coord.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Element.java" afterPath="$PROJECT_DIR$/src/Foundation/Element.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Field.java" afterPath="$PROJECT_DIR$/src/Foundation/Field.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FieldMap.java" afterPath="$PROJECT_DIR$/src/Foundation/FieldMap.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FoodConvertor.java" afterPath="$PROJECT_DIR$/src/Foundation/FoodConvertor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GameEngine.java" afterPath="$PROJECT_DIR$/src/Foundation/GameEngine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GameWindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Ground.java" afterPath="$PROJECT_DIR$/src/Foundation/Ground.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Label.java" afterPath="$PROJECT_DIR$/src/Foundation/Label.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="$PROJECT_DIR$/src/Foundation/MainWindow.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/OpenGLMain.java" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Production.java" afterPath="$PROJECT_DIR$/src/Foundation/Production.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/RectangleShape.java" afterPath="$PROJECT_DIR$/src/Foundation/RectangleShape.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Resource.java" afterPath="$PROJECT_DIR$/src/Foundation/Resource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ResourceBank.java" afterPath="$PROJECT_DIR$/src/Foundation/ResourceBank.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ResourceCause.java" afterPath="$PROJECT_DIR$/src/Foundation/ResourceCause.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ResourceConvertor.java" afterPath="$PROJECT_DIR$/src/Foundation/ResourceConvertor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ResourceStore.java" afterPath="$PROJECT_DIR$/src/Foundation/ResourceStore.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Rock.java" afterPath="$PROJECT_DIR$/src/Foundation/Rock.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/StringShape.java" afterPath="$PROJECT_DIR$/src/Foundation/StringShape.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Tree.java" afterPath="$PROJECT_DIR$/src/Foundation/Tree.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Window.java" afterPath="$PROJECT_DIR$/src/Foundation/Window.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/WindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Windows.java" afterPath="$PROJECT_DIR$/src/Foundation/Windows.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/Image.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Windows/CloseButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Button.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Button.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/City$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/City$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/City.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/City.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowElement.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Ground.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Ground.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/RectangleShape.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/RectangleShape.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Rock$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Rock$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Rock.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Rock.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/StringShape.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/StringShape.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Tree.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Tree.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/fonts.xml" afterPath="$PROJECT_DIR$/res/fonts.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/Button.java" afterPath="$PROJECT_DIR$/src/Foundation/Button.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/City.java" afterPath="$PROJECT_DIR$/src/Foundation/City.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/Ground.java" afterPath="$PROJECT_DIR$/src/Foundation/Ground.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/RectangleShape.java" afterPath="$PROJECT_DIR$/src/Foundation/RectangleShape.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/Rock.java" afterPath="$PROJECT_DIR$/src/Foundation/Rock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/StringShape.java" afterPath="$PROJECT_DIR$/src/Foundation/StringShape.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/Tree.java" afterPath="$PROJECT_DIR$/src/Foundation/Tree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Foundation/Window.java" afterPath="$PROJECT_DIR$/src/Foundation/Window.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,11 +47,10 @@
       <file leaf-file-name="OpenGLMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="98" column="38" lean-forward="false" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+            <state relative-caret-position="1872">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
               <folding>
-                <element signature="e#3796#4219#0" expanded="true" />
-                <element signature="e#4218#4219#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,30 +59,8 @@
       <file leaf-file-name="StringShape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Foundation/StringShape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Button.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Button.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Windows.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Windows.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="774">
+              <caret line="62" column="68" lean-forward="false" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,8 +71,8 @@
       <file leaf-file-name="OpenGLBinder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="79" column="96" lean-forward="false" selection-start-line="79" selection-start-column="96" selection-end-line="79" selection-end-column="96" />
+            <state relative-caret-position="1332">
+              <caret line="79" column="31" lean-forward="false" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,45 +80,91 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WindowElement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
+      <file leaf-file-name="ClosableWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Windows/ClosableWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Window.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="76" column="47" lean-forward="false" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
+            <state relative-caret-position="144">
+              <caret line="10" column="101" lean-forward="false" selection-start-line="10" selection-start-column="101" selection-end-line="10" selection-end-column="101" />
               <folding>
-                <element signature="e#1438#1439#0" expanded="true" />
-                <element signature="e#1485#1486#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Coord.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Coord.java">
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="91" lean-forward="false" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+            <state relative-caret-position="1170">
+              <caret line="91" column="5" lean-forward="false" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+              <folding>
+                <element signature="e#2082#2083#0" expanded="true" />
+                <element signature="e#2127#2128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ElementInfoWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Windows/ElementInfoWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
+                <element signature="e#517#518#0" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Image.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Image.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding>
+                <element signature="e#203#204#0" expanded="true" />
+                <element signature="e#256#257#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Label.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fonts.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/fonts.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1062">
+              <caret line="59" column="16" lean-forward="false" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/MainWindow.java">
+      <file leaf-file-name="GameWindowElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowElement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="79" lean-forward="false" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
-              <folding />
+            <state relative-caret-position="648">
+              <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+              <folding>
+                <element signature="e#1302#1303#0" expanded="true" />
+                <element signature="e#1324#1325#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,17 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ResourceConverter.java" />
-        <option value="$PROJECT_DIR$/src/ResourceBank.java" />
-        <option value="$PROJECT_DIR$/src/Rock.java" />
-        <option value="$PROJECT_DIR$/src/FoodProduction.java" />
-        <option value="$PROJECT_DIR$/src/Resource.java" />
-        <option value="$PROJECT_DIR$/src/ResourceConvertor.java" />
-        <option value="$PROJECT_DIR$/src/ResourceCause.java" />
-        <option value="$PROJECT_DIR$/src/FoodConvertor.java" />
-        <option value="$PROJECT_DIR$/src/ResourceStore.java" />
-        <option value="$PROJECT_DIR$/src/City.java" />
-        <option value="$PROJECT_DIR$/src/Production.java" />
         <option value="$PROJECT_DIR$/src/Coord.java" />
         <option value="$PROJECT_DIR$/src/WindowElement.java" />
         <option value="$PROJECT_DIR$/src/MainWindow.java" />
@@ -245,7 +214,6 @@
         <option value="$PROJECT_DIR$/src/Field.java" />
         <option value="$PROJECT_DIR$/src/Font.java" />
         <option value="$PROJECT_DIR$/src/CharacterShape.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/City.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Element.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Field.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Font.java" />
@@ -253,20 +221,32 @@
         <option value="$PROJECT_DIR$/res/fonts.xml.fxml" />
         <option value="$PROJECT_DIR$/src/Foundation/FontFactory.java" />
         <option value="$PROJECT_DIR$/src/CharacterShape/FontFactory.java" />
-        <option value="$PROJECT_DIR$/res/fonts.xml" />
         <option value="$PROJECT_DIR$/src/Foundation/Label.java" />
         <option value="$PROJECT_DIR$/src/Foundation/BasicShape.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/StringShape.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
         <option value="$PROJECT_DIR$/src/CharacterShape/CharacterShape.java" />
         <option value="$PROJECT_DIR$/src/CharacterShape/Font.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Coord.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Button.java" />
         <option value="$PROJECT_DIR$/src/Foundation/TestWindow.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
         <option value="$PROJECT_DIR$/src/Foundation/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Windows.java" />
+        <option value="$PROJECT_DIR$/src/Windows/CloseButton.java" />
+        <option value="$PROJECT_DIR$/src/Windows/ClosableWindow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/RectangleShape.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Button.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/City.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Ground.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Rock.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Tree.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" />
+        <option value="$PROJECT_DIR$/src/Windows/GeneratorWindow.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Window.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/StringShape.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
+        <option value="$PROJECT_DIR$/res/fonts.xml" />
+        <option value="$PROJECT_DIR$/src/Windows/ElementInfoWindow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/ImageWindowElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Image.java" />
       </list>
     </option>
   </component>
@@ -342,7 +322,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -372,13 +352,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Windows" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -526,23 +512,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="292" y="24" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31697342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31697342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24851751" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18760107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -553,8 +536,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -595,25 +580,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main.java" />
-    <entry file="file://$PROJECT_DIR$/src/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/Block.java" />
-    <entry file="file://$PROJECT_DIR$/src/RectangleCaster.java" />
-    <entry file="file://$PROJECT_DIR$/src/StratRectagle.java" />
-    <entry file="file://$PROJECT_DIR$/src/StratRectangle.java" />
-    <entry file="file://$PROJECT_DIR$/src/Type.java" />
     <entry file="file://$PROJECT_DIR$/src/StratGraphic.java" />
     <entry file="file://$PROJECT_DIR$/src/Resourse.java" />
     <entry file="file://$PROJECT_DIR$/src/ReesourceCause.java" />
     <entry file="file://$PROJECT_DIR$/src/ResourceConverter.java" />
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Rock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FoodProduction.java" />
     <entry file="file://$PROJECT_DIR$/src/Foundation/ResourceConvertor.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -633,12 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#162#163#0" expanded="false" />
-            <element signature="e#216#217#0" expanded="false" />
-            <element signature="e#550#551#0" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -647,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -663,33 +625,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StatGame.java" />
     <entry file="file://$PROJECT_DIR$/src/SlickBinder.java" />
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Element.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -697,9 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="10" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,10 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#214#215#0" expanded="false" />
-            <element signature="e#251#252#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -726,37 +662,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Ground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/fonts.fnt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/fonts.xml.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/fonts.fnt" />
+    <entry file="file://$PROJECT_DIR$/res/fonts.xml.fxml" />
     <entry file="file://$PROJECT_DIR$/src/CharacterShape/FontFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -767,62 +677,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/fonts.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/BasicShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/RectangleShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CharacterShape/CharacterShape.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="25" column="38" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2412#2413#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="e#2475#2476#0" expanded="true" />
-            <element signature="e#2505#2506#0" expanded="true" />
-            <element signature="e#2535#2536#0" expanded="true" />
-            <element signature="e#2562#2563#0" expanded="true" />
-            <element signature="e#2601#2602#0" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2412#2413#0" expanded="false" />
+            <element signature="e#2438#2439#0" expanded="false" />
+            <element signature="e#2475#2476#0" expanded="false" />
+            <element signature="e#2505#2506#0" expanded="false" />
+            <element signature="e#2535#2536#0" expanded="false" />
+            <element signature="e#2562#2563#0" expanded="false" />
+            <element signature="e#2601#2602#0" expanded="false" />
+            <element signature="e#2633#2634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -831,17 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strat.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,90 +706,204 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="91" lean-forward="false" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="79" column="96" lean-forward="false" selection-start-line="79" selection-start-column="96" selection-end-line="79" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="15" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/StringShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/TestWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/TestWindow.java" />
     <entry file="file://$PROJECT_DIR$/src/Foundation/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="79" lean-forward="false" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="98" column="38" lean-forward="false" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
-          <folding>
-            <element signature="e#3796#4219#0" expanded="true" />
-            <element signature="e#4218#4219#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Windows.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        <state relative-caret-position="220">
+          <caret line="38" column="37" lean-forward="true" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/BasicShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/RectangleShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Ground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="82" column="104" lean-forward="true" selection-start-line="82" selection-start-column="104" selection-end-line="82" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Rock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="55" column="59" lean-forward="true" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/GeneratorWindow.java" />
+    <entry file="file://$PROJECT_DIR$/strat.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/CloseButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#209#210#0" expanded="false" />
+            <element signature="e#254#255#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+          <folding>
+            <element signature="e#1302#1303#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="91" column="5" lean-forward="false" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="e#2082#2083#0" expanded="true" />
+            <element signature="e#2127#2128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ElementInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/Foundation/StringShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="62" column="68" lean-forward="false" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ClosableWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="101" lean-forward="false" selection-start-line="10" selection-start-column="101" selection-end-line="10" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1872">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1332">
+          <caret line="79" column="31" lean-forward="false" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/fonts.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="59" column="16" lean-forward="false" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
+    <entry file="file://$PROJECT_DIR$/src/Windows/ElementInfoWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="76" column="47" lean-forward="false" selection-start-line="76" selection-start-column="47" selection-end-line="76" selection-end-column="47" />
+        <state relative-caret-position="198">
+          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding>
-            <element signature="e#1438#1439#0" expanded="true" />
-            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/ImageWindowElement.java" />
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding>
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
           </folding>
         </state>
       </provider>
