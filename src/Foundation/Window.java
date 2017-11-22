@@ -9,11 +9,13 @@ public class Window {
     private Coord pos;
     private Coord size;
     private Windows parent;
+    private int id;
 
     private ArrayList<WindowElement> windowElements;
 
 
     public Window(Coord pos, Coord size, Windows parent){
+        setId(-1);
         setPos(pos);
         setSize(size);
         setParent(parent);
@@ -76,7 +78,7 @@ public class Window {
     public void click(Coord point){
         for(WindowElement windowElement: windowElements) {
             if (windowElement.contain(point)) {
-                windowElement.click();
+                windowElement.click(point);
                 return;
             }
         }
@@ -91,4 +93,15 @@ public class Window {
         getParent().addWindow(window);
     }
 
+    public void removeWindowElements(){
+        windowElements.clear();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

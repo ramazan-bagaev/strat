@@ -8,7 +8,7 @@ public class ClosableWindow extends Window {
 
     public ClosableWindow(Coord pos, Coord size, Windows parent) {
         super(pos, size, parent);
-        CloseButton closeButton = new CloseButton(new Coord(pos.x + size.x - 10, pos.y), new Coord(10, 10), this);
+        CloseButton closeButton = new CloseButton(new Coord(pos.x + size.x - 15, pos.y), new Coord(15, 15), this);
         addWindowElement(closeButton);
     }
 

@@ -50,4 +50,8 @@ public class GameEngine {
     public void setMap(FieldMap map) {
         this.map = map;
     }
+
+    public Field getField(int i, int j) {
+        return map.getField(new Coord(i, j));
+    }
 }

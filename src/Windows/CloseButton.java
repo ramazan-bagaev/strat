@@ -12,7 +12,7 @@ public class CloseButton extends Button {
     }
 
     @Override
-    public void click() {
+    public void click(Coord point) {
         ClosableWindow closableWindow = (ClosableWindow)getParent();
         closableWindow.close();
     }

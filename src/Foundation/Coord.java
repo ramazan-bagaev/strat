@@ -10,6 +10,11 @@ public class Coord {
         this.y = y;
     }
 
+    public Coord(Coord coord) {
+        this.x = coord.x;
+        this.y = coord.y;
+    }
+
     public Coord add(Coord other){
         Coord ret = new Coord(this.x + other.x, this.y + other.y);
         return ret;
@@ -33,7 +38,7 @@ public class Coord {
     public boolean equals(Object obj){
         if (this == obj) return true;
         if (obj == null) return false;
-        if (getClass() == obj.getClass()) return false;
+        if (getClass() != obj.getClass()) return false;
         Coord other = (Coord)obj;
         if (x != other.x) return false;
         if (y != other.y) return false;

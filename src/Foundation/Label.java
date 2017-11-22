@@ -22,7 +22,7 @@ public class Label extends WindowElement{
     }
 
     @Override
-    public void click() {
+    public void click(Coord point) {
         return;
     }
 

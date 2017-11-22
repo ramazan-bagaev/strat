@@ -9,13 +9,16 @@ public class Windows {
 
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
+    private int currentId;
 
     public Windows(){
+        currentId = 0;
         windows = new LinkedList<>();
         fonts = new ArrayList<>();
     }
 
     public void addWindow(Window window){
+        window.setId(getNewId());
         windows.add(window);
     }
 
@@ -24,6 +27,7 @@ public class Windows {
             Window window = windows.get(i);
             if (window.contain(pos)){
                 window.click(pos);
+                return;
             }
         }
     }
@@ -37,7 +41,13 @@ public class Windows {
     }
 
     public void removeWindow(Window window){
-        windows.remove(window);
+        for (Window win: windows) {
+            if (win.getId() == window.getId())
+            {
+                windows.remove(win);
+                return;
+            }
+        }
     }
 
     public boolean isOnTop(Window window){
@@ -65,5 +75,15 @@ public class Windows {
             }
         }
         return null;
+    }
+
+    public LinkedList<Window> getWindows(){
+        return windows;
+    }
+
+    public int getNewId(){
+        int newId = currentId;
+        currentId++;
+        return newId;
     }
 }

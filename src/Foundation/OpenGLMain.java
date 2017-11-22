@@ -1,6 +1,7 @@
 package Foundation;
 
-import Windows.ElementInfoWindow;
+import Windows.FieldInfoWindow;
+import Windows.ClosableWindow;
 import CharacterShape.Font;
 import CharacterShape.FontFactory;
 import org.lwjgl.*;
@@ -10,6 +11,7 @@ import org.lwjgl.system.*;
 
 import java.nio.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -96,9 +98,9 @@ public class OpenGLMain {
         windows = new Windows();
         windows.setFonts(fonts);
         MainWindow mainWindow = new MainWindow(new Coord(0, 0), new Coord(1000, 1000), gameEngine, windows);
+        ClosableWindow closableWindow = new ClosableWindow(new Coord(500, 500), new Coord(123, 125), windows);
         windows.addWindow(mainWindow);
-        ElementInfoWindow elementInfoWindow = new ElementInfoWindow(windows);
-        windows.addWindow(elementInfoWindow);
+        windows.addWindow(closableWindow);
         openGLBinder = new OpenGLBinder();
 
         DoubleBuffer b1 = BufferUtils.createDoubleBuffer(1);
@@ -107,7 +109,7 @@ public class OpenGLMain {
         GLFWMouseButtonCallback mouseButtonCallback = new GLFWMouseButtonCallback() {
             @Override
             public void invoke(long window, int button, int action, int mods) {
-                if (button == GLFW_MOUSE_BUTTON_1){
+                if (button == GLFW_MOUSE_BUTTON_1 && action == GLFW_RELEASE){
                     glfwGetCursorPos(window, b1, b2);
                     int x = (int) b1.get(0);
                     int y = (int) b2.get(0);

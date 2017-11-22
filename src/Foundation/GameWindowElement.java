@@ -2,6 +2,8 @@ package Foundation;
 
 import java.util.ArrayList;
 
+import Windows.FieldInfoWindow;
+
 public class GameWindowElement extends WindowElement{
 
     private GameEngine gameEngine;
@@ -38,7 +40,11 @@ public class GameWindowElement extends WindowElement{
     }
 
     @Override
-    public void click() {
-        return;
+    public void click(Coord point) {
+        int i = (point.x / gameEngine.getFieldSize()) * gameEngine.getFieldSize();
+        int j = (point.y / gameEngine.getFieldSize()) * gameEngine.getFieldSize();
+        Field field = gameEngine.getField(i, j);
+
+        ((MainWindow)getParent()).addNewFieldInfoWindow(field);
     }
 }

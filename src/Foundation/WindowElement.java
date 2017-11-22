@@ -47,5 +47,5 @@ public abstract class WindowElement {
         return point.inRectangle(pos, size);
     }
 
-    public abstract void click();
+    public abstract void click(Coord point);
 }
