@@ -11,6 +11,8 @@ public class GameWindowElement extends WindowElement{
     public GameWindowElement(Coord pos, Coord size, Window parent, GameEngine gameEngine){
         super(pos, size, parent);
         setGameEngine(gameEngine);
+        setBasicShapes(new ArrayList<>());
+        setShapes();
     }
 
     public GameEngine getGameEngine() {
@@ -21,22 +23,18 @@ public class GameWindowElement extends WindowElement{
         this.gameEngine = gameEngine;
     }
 
-    @Override
-    public ArrayList<BasicShape> getShapes() {
-        ArrayList<BasicShape> result = new ArrayList<>();
-        result.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.Black, false));
+    public void setShapes(){
+        ArrayList<BasicShape> basicShapes = getBasicShapes();
+        basicShapes.clear();
+        basicShapes.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.Black, false));
         FieldMap map = gameEngine.getMap();
         for (Field field: map.getValues()){
-            //if (!field.isNeedToDraw()) continue;
             Element element = field.getGround();
-            ArrayList<BasicShape> basicShapes = new ArrayList<>();
-            if (element != null) basicShapes = element.getShapes();
+            if (element != null) basicShapes.addAll(element.getShapes());
             element = field.getAdditionalElement();
             if (element != null) basicShapes.addAll(element.getShapes());
-            result.addAll(basicShapes);
-            //field.setNeedToDraw(false);
         }
-        return result;
+        //setBasicShapes(basicShapes);
     }
 
     @Override

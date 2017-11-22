@@ -10,6 +10,7 @@ public class Window {
     private Coord size;
     private Windows parent;
     private int id;
+    private ArrayList<BasicShape> basicShapes;
 
     private ArrayList<WindowElement> windowElements;
 
@@ -20,6 +21,8 @@ public class Window {
         setSize(size);
         setParent(parent);
         windowElements = new ArrayList<>();
+        basicShapes = new ArrayList<>();
+        basicShapes.add(new RectangleShape(pos, size, BasicShape.Color.White, true));
     }
 
     public Windows getParent() {
@@ -42,14 +45,6 @@ public class Window {
         windowElements.add(windowElement);
     }
 
-    public ArrayList<BasicShape> getShapes(){
-        ArrayList<BasicShape> result = new ArrayList<>();
-        result.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.White, true));
-        for(WindowElement windowElement: windowElements){
-            result.addAll(windowElement.getShapes());
-        }
-        return result;
-    }
 
     public Coord getPos() {
         return pos;
@@ -103,5 +98,28 @@ public class Window {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void run(){
+        for(WindowElement windowElement: windowElements){
+            windowElement.run();
+        }
+    }
+
+    public void draw(OpenGLBinder openGLBinder){
+        for(BasicShape basicShape: basicShapes){
+            openGLBinder.draw(basicShape);
+        }
+        for(WindowElement windowElement: windowElements){
+            windowElement.draw(openGLBinder);
+        }
+    }
+
+    public ArrayList<BasicShape> getBasicShapes() {
+        return basicShapes;
+    }
+
+    public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
+        this.basicShapes = basicShapes;
     }
 }

@@ -87,7 +87,26 @@ public class Tree extends Element {
         }
     }
 
+    @Override
     public void run(){
         renewResourceCause();
+    }
+
+    @Override
+    public String getValue(String key){
+        String result = super.getValue(key);
+        if (!Broadcaster.noResult.equals(result)) return result;
+        switch (key){
+            case "sizeType":
+                switch (sizeType){
+                    case Small:
+                        return "small";
+                    case Big:
+                        return "big";
+                    case Middle:
+                        return "middle";
+                }
+        }
+        return Broadcaster.noResult;
     }
 }

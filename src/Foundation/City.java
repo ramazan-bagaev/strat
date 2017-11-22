@@ -149,4 +149,24 @@ public class City extends Element {
     public void run() {
         production.run();
     }
+
+    @Override
+    public String getValue(String key){
+        String result = super.getValue(key);
+        if (!Broadcaster.noResult.equals(result)) return result;
+        switch (key){
+            case "population":
+                return String.valueOf(population);
+            case "sizeType":
+                switch (sizeType){
+                    case Big:
+                        return "big";
+                    case Middle:
+                        return "middle";
+                    case Small:
+                        return "small";
+                }
+        }
+        return Broadcaster.noResult;
+    }
 }

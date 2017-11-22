@@ -4,7 +4,7 @@ import Foundation.BasicShape;
 
 import java.util.ArrayList;
 
-public class Element {
+public class Element extends Broadcaster {
 
     public Type getType() {
         return type;
@@ -48,7 +48,7 @@ public class Element {
 
     public void run(){
 
-    };
+    }
 
     public void renewResourceCause(){
         resourceCause.renew();
@@ -65,5 +65,18 @@ public class Element {
 
     public void addShape(BasicShape shape){
         shapes.add(shape);
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key) {
+            case "resourceCause.capacity":
+                return getResourceCause().getValue("capacity");
+            case "resourceCause.maxCapacity":
+                return getResourceCause().getValue("maxCapacity");
+            case "resourceCause.renewAmount":
+                return getResourceCause().getValue("renewAmount");
+        }
+        return Broadcaster.noResult;
     }
 }

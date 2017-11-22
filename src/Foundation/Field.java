@@ -15,7 +15,7 @@ public class Field {
 
     public void run() {
         groundElement.run();
-        //if (additionalElement != null) additionalElement.run();
+        if (additionalElement != null) additionalElement.run();
     }
 
     public FieldMap getMap() {

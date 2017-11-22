@@ -1,6 +1,6 @@
 package Foundation;
 
-public class ResourceCause {
+public class ResourceCause extends Broadcaster {
 
     private Resource.Type type; // what kind of resource have
     private int capacity; // amount of resource; can be renewable
@@ -79,5 +79,18 @@ public class ResourceCause {
         if (cap < amount) amount = cap;
         setCapacity(cap - amount);
         return amount;
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "capacity":
+                return String.valueOf(capacity);
+            case "maxCapacity":
+                return String.valueOf(maxCapacity);
+            case "renewAmount":
+                return String.valueOf(renewAmount);
+        }
+        return "no such value";
     }
 }

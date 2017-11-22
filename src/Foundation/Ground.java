@@ -93,7 +93,31 @@ public class Ground extends Element {
         addShape(newShape);
     }
 
+    @Override
     public void run(){
         renewResourceCause();
+    }
+
+    @Override
+    public String getValue(String key){
+        String result = super.getValue(key);
+        if (!Broadcaster.noResult.equals(result)) return result;
+        switch (key){
+            case "groundType":
+                switch (groundType) {
+                    case Sand:
+                        return "Sand";
+                    case Water:
+                        return "Water";
+                    case Soil:
+                        return "Soil";
+                    case Mud:
+                        return "Mud";
+                    case Rock:
+                        return "Rock";
+                }
+
+        }
+        return Broadcaster.noResult;
     }
 }

@@ -32,14 +32,6 @@ public class Windows {
         }
     }
 
-    public ArrayList<BasicShape> getShapes(){
-        ArrayList<BasicShape> result = new ArrayList<>();
-        for (Window window: windows){
-            result.addAll(window.getShapes());
-        }
-        return result;
-    }
-
     public void removeWindow(Window window){
         for (Window win: windows) {
             if (win.getId() == window.getId())
@@ -85,5 +77,17 @@ public class Windows {
         int newId = currentId;
         currentId++;
         return newId;
+    }
+
+    public void run(){
+        for(Window window: windows){
+            window.run();
+        }
+    }
+
+    public void draw(OpenGLBinder openGLBinder){
+        for(Window window: windows){
+            window.draw(openGLBinder);
+        }
     }
 }

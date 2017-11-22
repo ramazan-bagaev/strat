@@ -26,7 +26,7 @@ public class StringShape{
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.text = text.toUpperCase();
     }
 
     public Font getFont() {

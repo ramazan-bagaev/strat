@@ -15,13 +15,6 @@ public class Label extends WindowElement{
     }
 
     @Override
-    public ArrayList<BasicShape> getShapes() {
-        ArrayList<BasicShape> result = new ArrayList<>();
-        result.addAll(getStringShape().getBasicShapes());
-        return result;
-    }
-
-    @Override
     public void click(Coord point) {
         return;
     }
@@ -32,5 +25,6 @@ public class Label extends WindowElement{
 
     public void setStringShape(StringShape stringShape) {
         this.stringShape = stringShape;
+        setBasicShapes(stringShape.getBasicShapes());
     }
 }

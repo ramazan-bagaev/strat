@@ -9,6 +9,8 @@ public abstract class WindowElement {
 
     private Window parent;
 
+    private ArrayList<BasicShape> basicShapes;
+
 
 
     public WindowElement(Coord pos, Coord size, Window parent){
@@ -24,8 +26,6 @@ public abstract class WindowElement {
     public void setParent(Window parent) {
         this.parent = parent;
     }
-
-    public abstract ArrayList<BasicShape> getShapes();
 
     public Coord getPos() {
         return pos;
@@ -48,4 +48,22 @@ public abstract class WindowElement {
     }
 
     public abstract void click(Coord point);
+
+    public void run(){
+        return;
+    }
+
+    public void draw(OpenGLBinder openGLBinder){
+        for (BasicShape basicShape: getBasicShapes()){
+            openGLBinder.draw(basicShape);
+        }
+    }
+
+    public ArrayList<BasicShape> getBasicShapes() {
+        return basicShapes;
+    }
+
+    public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
+        this.basicShapes = basicShapes;
+    }
 }

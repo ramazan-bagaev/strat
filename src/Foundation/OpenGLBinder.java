@@ -132,7 +132,7 @@ public class OpenGLBinder {
                 break;
             case Green2:
                 result.set(0, 0.2f);
-                result.set(1, 1f);
+                result.set(1, 0.6f);
                 result.set(2, 0.2f);
                 break;
             case Gray:

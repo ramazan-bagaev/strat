@@ -143,15 +143,12 @@ public class OpenGLMain {
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-            ArrayList<BasicShape> basicShapes = windows.getShapes();
-            for(BasicShape basicShape: basicShapes){
-                openGLBinder.draw(basicShape);
-            }
+            gameEngine.run();
+            windows.run();
+            windows.draw(openGLBinder);
+
             glfwSwapBuffers(window); // swap the color buffers
 
-            if (glfwGetKey(window, GLFW_KEY_V) == 1){
-                System.out.print("v is pressed\n");
-            }
 
 
             // Poll for window events. The key callback above will only be

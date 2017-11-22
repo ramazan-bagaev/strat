@@ -14,7 +14,10 @@ abstract public class Button extends WindowElement {
         Font font = parent.getFont("latin");
         text = new StringShape(new Coord(pos.x + size.x/4, pos.y + size.y /4), new Coord(size.x/ 2, size.y /2), str, BasicShape.Color.Black, font);
         carcas = new RectangleShape(pos, size, BasicShape.Color.White, true);
-
+        ArrayList<BasicShape> basicShapes = new ArrayList<>();
+        basicShapes.add(carcas);
+        basicShapes.addAll(text.getBasicShapes());
+        setBasicShapes(basicShapes);
     }
 
     public StringShape getText() {
@@ -31,13 +34,5 @@ abstract public class Button extends WindowElement {
 
     public void setCarcas(RectangleShape carcas) {
         this.carcas = carcas;
-    }
-
-    @Override
-    public ArrayList<BasicShape> getShapes() {
-        ArrayList<BasicShape> result = new ArrayList<>();
-        result.add(carcas);
-        result.addAll(text.getBasicShapes());
-        return result;
     }
 }

@@ -101,4 +101,22 @@ public class Rock extends Element {
     public void setSize(int size) {
         this.size = size;
     }
+
+    @Override
+    public String getValue(String key){
+        String result = super.getValue(key);
+        if (!Broadcaster.noResult.equals(result)) return result;
+        switch (key){
+            case "sizeType":
+                switch (sizeType){
+                    case Big:
+                        return "big";
+                    case Middle:
+                        return "middle";
+                    case Small:
+                        return "small";
+                }
+        }
+        return Broadcaster.noResult;
+    }
 }
