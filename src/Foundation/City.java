@@ -12,11 +12,11 @@ public class City extends Element {
         this.sizeType = sizeType;
     }
 
-    public int getPopulation() {
+    public Population getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public Population setPopulation(Population population) {
         this.population = population;
     }
 
@@ -44,6 +44,14 @@ public class City extends Element {
 
     public void setProduction(Production production) {
         this.production = production;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public enum SizeType{
@@ -79,11 +87,11 @@ public class City extends Element {
     private int size;
     private SizeType sizeType;
 
+    private int id;
 
     private ResourceStore resourceStore;
+    private Population population;
     private Production production;
-
-    private int population;
 
     private FieldMap map;
 
@@ -98,7 +106,7 @@ public class City extends Element {
         Coord size;
         switch (sizeType){
             case Big: {
-                setPopulation(10000); // magic constant, TODO: make something with these constants
+                setPopulation(new Population(this,10000)); // magic constant, TODO: make something with these constants
                 pos = new Coord(getX() + getSize()/8, getY() + getSize()/8);
                 size = new Coord(getSize()/4, getSize()/4);
                 RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
@@ -118,7 +126,7 @@ public class City extends Element {
                 break;
             }
             case Middle: {
-                setPopulation(1000);
+                setPopulation(new Population(this, 1000));
                 pos = new Coord(getX() + getSize()/8, getY() + 3 * getSize()/8);
                 size = new Coord(getSize()/4, getSize()/4);
                 RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
@@ -130,7 +138,7 @@ public class City extends Element {
                 break;
             }
             case Small:{
-                setPopulation(100);
+                setPopulation(new Population(this, 100));
                 pos = new Coord(getX() + 3 * getSize()/8, getY() + 3 * getSize()/8);
                 size = new Coord(getSize()/4, getSize()/4);
                 RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Red);
@@ -140,6 +148,8 @@ public class City extends Element {
         }
         resourceStore = new ResourceStore();
 
+
+
         production = new Production();
         FoodConvertor food = new FoodConvertor(getParent(), this, getPopulation());
         production.addResourceConvertor(food);
@@ -147,6 +157,7 @@ public class City extends Element {
     }
 
     public void run() {
+        population.run();
         production.run();
     }
 
@@ -156,7 +167,7 @@ public class City extends Element {
         if (!Broadcaster.noResult.equals(result)) return result;
         switch (key){
             case "population":
-                return String.valueOf(population);
+                return String.valueOf(population.overAllAmount());
             case "sizeType":
                 switch (sizeType){
                     case Big:

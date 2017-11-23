@@ -37,12 +37,13 @@ public class Field {
     private int x;
     private int y;
     private int size;
-    private boolean needToDraw;
 
     private Ground groundElement;
     private Element additionalElement;
 
     private FieldMap map;
+
+    private Random random;
 
 
     public Field(int x, int y, int size, Random random, FieldMap map){
@@ -50,7 +51,7 @@ public class Field {
         setY(y);
         setSize(size);
         setMap(map);
-        setNeedToDraw(true);
+        setRandom(random);
         additionalElement = null;
         int randNum = random.nextInt(5);
         Ground.GroundType tempType = Ground.GroundType.Soil;
@@ -147,11 +148,11 @@ public class Field {
         this.size = size;
     }
 
-    public boolean isNeedToDraw() {
-        return needToDraw;
+    public Random getRandom() {
+        return random;
     }
 
-    public void setNeedToDraw(boolean needToDraw) {
-        this.needToDraw = needToDraw;
+    public void setRandom(Random random) {
+        this.random = random;
     }
 }
