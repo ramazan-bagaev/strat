@@ -41,7 +41,7 @@ public class Element extends Broadcaster {
     private ArrayList<BasicShape> shapes;
 
     public Element(Type type, Field parent){
-        this.shapes = new ArrayList<BasicShape>();
+        this.shapes = new ArrayList<>();
         setType(type);
         setParent(parent);
     }

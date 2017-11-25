@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class FontFactory {
 
@@ -37,11 +38,11 @@ public class FontFactory {
                 NamedNodeMap fontAttrMap = font.getAttributes();
                 //System.out.print("3 +" + characterAttr + "\n");
                 if (fontAttrMap == null) continue;
-                String fontName = new String();
+                String fontName = "";
                 for (int j = 0; j < fontAttrMap.getLength(); j++){
                     //System.out.print("4\n");
                     Node fontAttr = fontAttrMap.item(j);
-                    if (fontAttr.getNodeName() == "name") fontName = fontAttr.getNodeValue();
+                    if (fontAttr.getNodeName().equals("name")) fontName = fontAttr.getNodeValue();
                 }
 
                 Font newFont = new Font(fontName);
@@ -56,13 +57,13 @@ public class FontFactory {
                     NamedNodeMap characterAttrMap = character.getAttributes();
                     //System.out.print("3 +" + characterAttr + "\n");
                     if (characterAttrMap == null) continue;
-                    String definition = new String();
+                    String definition = "";
                     int id = 0;
                     for (int k = 0; k < characterAttrMap.getLength(); k++){
                         //System.out.print("4\n");
                         Node characterAttr = characterAttrMap.item(k);
-                        if (characterAttr.getNodeName() == "id") id = Integer.parseInt(characterAttr.getNodeValue());
-                        if (characterAttr.getNodeName() == "definition") definition = characterAttr.getNodeValue();
+                        if (Objects.equals(characterAttr.getNodeName(), "id")) id = Integer.parseInt(characterAttr.getNodeValue());
+                        if (Objects.equals(characterAttr.getNodeName(), "definition")) definition = characterAttr.getNodeValue();
                     }
                     CharacterShape newCharacterShape = new CharacterShape(id, definition);
                     NodeList lineList = character.getChildNodes();
@@ -77,10 +78,10 @@ public class FontFactory {
                         int y2 = 0;
                         for(int h = 0; h < lineAttrMap.getLength(); h++){
                             Node lineAttr = lineAttrMap.item(h);
-                            if (lineAttr.getNodeName() == "x1") x1 = Integer.parseInt(lineAttr.getNodeValue());
-                            if (lineAttr.getNodeName() == "y1") y1 = Integer.parseInt(lineAttr.getNodeValue());
-                            if (lineAttr.getNodeName() == "x2") x2 = Integer.parseInt(lineAttr.getNodeValue());
-                            if (lineAttr.getNodeName() == "y2") y2 = Integer.parseInt(lineAttr.getNodeValue());
+                            if (Objects.equals(lineAttr.getNodeName(), "x1")) x1 = Integer.parseInt(lineAttr.getNodeValue());
+                            if (Objects.equals(lineAttr.getNodeName(), "y1")) y1 = Integer.parseInt(lineAttr.getNodeValue());
+                            if (Objects.equals(lineAttr.getNodeName(), "x2")) x2 = Integer.parseInt(lineAttr.getNodeValue());
+                            if (Objects.equals(lineAttr.getNodeName(), "y2")) y2 = Integer.parseInt(lineAttr.getNodeValue());
                         }
                         newCharacterShape.addLine(new Coord(x1, y1), new Coord(x2, y2));
                     }

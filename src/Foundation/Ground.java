@@ -58,17 +58,17 @@ public class Ground extends Element {
         if (getGroundType() == GroundType.Soil) {
             cap = 100000;
             maxCap = 100000;
-            renewAm = 100;
+            renewAm = 10000;
         }
         if (getGroundType() == GroundType.Mud){
             cap = 10000;
             maxCap = 10000;
-            renewAm  = 10;
+            renewAm  = 1000;
         }
         if (getGroundType() == GroundType.Sand){
             cap = 1000;
             maxCap = 1000;
-            renewAm = 10;
+            renewAm = 100;
         }
         if (getGroundType() == GroundType.Water){
             cap = 1000000;
@@ -78,7 +78,7 @@ public class Ground extends Element {
         if (getGroundType() == GroundType.Rock){
             cap = 10000;
             maxCap = 10000;
-            renewAm = 10;
+            renewAm = 100;
         }
         ResourceCause fertilityCause = new ResourceCause(Resource.Type.Fertility, cap, maxCap, renewAm);
         setResourceCause(fertilityCause);

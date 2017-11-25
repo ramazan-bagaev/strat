@@ -1,6 +1,6 @@
 package Foundation;
 
-import Foundation.BasicShape;
+import ResourceConvertors.FoodConvertor;
 
 public class City extends Element {
 
@@ -16,7 +16,7 @@ public class City extends Element {
         return population;
     }
 
-    public Population setPopulation(Population population) {
+    public void setPopulation(Population population) {
         this.population = population;
     }
 
@@ -52,6 +52,14 @@ public class City extends Element {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Works getWorks() {
+        return works;
+    }
+
+    public void setWorks(Works works) {
+        this.works = works;
     }
 
     public enum SizeType{
@@ -92,6 +100,7 @@ public class City extends Element {
     private ResourceStore resourceStore;
     private Population population;
     private Production production;
+    private Works works;
 
     private FieldMap map;
 
@@ -138,7 +147,7 @@ public class City extends Element {
                 break;
             }
             case Small:{
-                setPopulation(new Population(this, 100));
+                setPopulation(new Population(this, 400));
                 pos = new Coord(getX() + 3 * getSize()/8, getY() + 3 * getSize()/8);
                 size = new Coord(getSize()/4, getSize()/4);
                 RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Red);
@@ -150,10 +159,10 @@ public class City extends Element {
 
 
 
-        production = new Production();
-        FoodConvertor food = new FoodConvertor(getParent(), this, getPopulation());
-        production.addResourceConvertor(food);
-
+        production = new Production(resourceStore);
+        FoodConvertor foodConvertor = new FoodConvertor(getParent());
+        works = new Works(this);
+        works.addWork(foodConvertor, population.amountOfNotWorking()/2);
     }
 
     public void run() {
@@ -177,6 +186,10 @@ public class City extends Element {
                     case Small:
                         return "small";
                 }
+            case "food":
+                ResourceBank bank = resourceStore.getResourceBank(Resource.Type.Food);
+                if (bank == null) break;
+                return bank.getValue("capacity");
         }
         return Broadcaster.noResult;
     }

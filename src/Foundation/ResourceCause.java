@@ -37,14 +37,6 @@ public class ResourceCause extends Broadcaster {
         return capacity;
     }
 
-    public Resource getResource(int amount){
-        if (amount > capacity) amount = capacity;
-        if (amount < 0) amount = 0;
-        Resource resource = new Resource(getType(), amount);
-        setCapacity(getCapacity() - amount);
-        return resource;
-    }
-
     public void renew(){
         if (capacity >= maxCapacity) return;
         capacity += renewAmount;
@@ -79,6 +71,10 @@ public class ResourceCause extends Broadcaster {
         if (cap < amount) amount = cap;
         setCapacity(cap - amount);
         return amount;
+    }
+
+    public int consumeAll(){
+        return consume(getCapacity());
     }
 
     @Override

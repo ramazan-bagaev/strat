@@ -79,8 +79,7 @@ public class Field {
             if (typeNum < 1) type = Tree.SizeType.Big;
             if (typeNum < 4 && typeNum > 0) type = Tree.SizeType.Middle;
             if (typeNum > 3) type = Tree.SizeType.Small;
-            Tree newTree = new Tree(getX(), getY(), getSize(), type, this);
-            return newTree;
+            return new Tree(getX(), getY(), getSize(), type, this);
         }
         if ( getGroundType() == Ground.GroundType.Soil && random.nextInt(10) > 3) {
             int typeNum = random.nextInt(3);
@@ -88,8 +87,7 @@ public class Field {
             if (typeNum == 0) type = Tree.SizeType.Big;
             if (typeNum == 1) type = Tree.SizeType.Middle;
             if (typeNum == 2) type = Tree.SizeType.Small;
-            Tree newTree = new Tree(getX(), getY(), getSize(), type, this);
-            return newTree;
+            return new Tree(getX(), getY(), getSize(), type, this);
         }
         return null;
     }
@@ -102,8 +100,7 @@ public class Field {
                 if (typeNum == 0) type = Rock.SizeType.Big;
                 if (typeNum == 1) type = Rock.SizeType.Middle;
                 if (typeNum == 2) type = Rock.SizeType.Small;
-                Rock newRock = new Rock(getX(), getY(), getSize(), type, this);
-                return newRock;
+                return new Rock(getX(), getY(), getSize(), type, this);
             }
         }
         return null;
@@ -117,8 +114,7 @@ public class Field {
             if (typeNum == 0) type = City.SizeType.Big;
             if (typeNum == 1 || typeNum == 2) type = City.SizeType.Middle;
             if (typeNum > 2) type = City.SizeType.Small;
-            City newCity = new City(getX(), getY(), getSize(), type, map, this);
-            return newCity;
+            return new City(getX(), getY(), getSize(), type, map, this);
         }
         return null;
     }

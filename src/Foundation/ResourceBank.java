@@ -1,6 +1,6 @@
 package Foundation;
 
-public class ResourceBank {
+public class ResourceBank extends Broadcaster {
 
     private Resource.Type type; // what kind of resources it can store
     private int capacity; //
@@ -38,6 +38,11 @@ public class ResourceBank {
         return resource;
     }
 
+    public int consume(int amount){
+        Resource resource = getResource(amount);
+        return resource.getAmount();
+    }
+
     public void addResource(Resource resource){
         if (resource.getType() != getType()) return;
         int amount = resource.getAmount();
@@ -46,7 +51,15 @@ public class ResourceBank {
     }
 
     public Resource getAll(){
-        Resource resource = getResource(getCapacity());
-        return  resource;
+        return getResource(getCapacity());
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "capacity":
+                return String.valueOf(getCapacity());
+        }
+        return "no such value";
     }
 }

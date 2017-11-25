@@ -46,4 +46,11 @@ public class ResourceStore {
         }
         return null;
     }
+
+    public int consumeResource(int amount, Resource.Type type){
+        for(ResourceBank resourceBank: resourceBanks){
+            if (resourceBank.getType() == type) return resourceBank.consume(amount);
+        }
+        return 0;
+    }
 }

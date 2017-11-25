@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Production {
 
     private ArrayList<ResourceConvertor> resourceConvertors;
+    private ResourceStore resourceStore;
 
-    public Production(){
+    public Production(ResourceStore resourceStore){
         resourceConvertors = new ArrayList<>();
+        setResourceStore(resourceStore);
     }
 
     public ArrayList<ResourceConvertor> getResourceConvertors() {
@@ -22,12 +24,19 @@ public class Production {
         resourceConvertors.add(resourceConvertor);
     }
 
-    public ArrayList<Resource> run(){
-        ArrayList<Resource> result = new ArrayList<>();
-        for (ResourceConvertor resourceConvertor: resourceConvertors){
-            result.add(resourceConvertor.convert());
+    public void run(){
+        for (ResourceConvertor resourceConvertor: resourceConvertors) {
+            Resource resource = resourceConvertor.convert();
+            resourceStore.addResource(resource);
         }
-        return result;
+    }
+
+    public ResourceStore getResourceStore() {
+        return resourceStore;
+    }
+
+    public void setResourceStore(ResourceStore resourceStore) {
+        this.resourceStore = resourceStore;
     }
 }
 

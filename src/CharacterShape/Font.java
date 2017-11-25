@@ -29,8 +29,7 @@ public class Font {
     public CharacterShape getCharacterShapeByDef(String definition){
         for(CharacterShape characterShape: characters){
             if (characterShape.getDefinition().equals(definition)) {
-                CharacterShape newCharacterShape = new CharacterShape(characterShape);
-                return newCharacterShape;
+                return new CharacterShape(characterShape);
             }
         }
         return null;

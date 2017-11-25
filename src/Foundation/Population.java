@@ -1,6 +1,7 @@
 package Foundation;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class Population {
@@ -35,6 +36,7 @@ public class Population {
             populationGroup.age = i;
             populationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
             populationGroup.cityId = cityId;
+            populationGroup.workId = PopulationGroup.NO_WORK;
             populationGroups.add(populationGroup);
 
             populationGroup = new PopulationGroup(localAmount);
@@ -42,6 +44,7 @@ public class Population {
             populationGroup.age = i;
             populationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
             populationGroup.cityId = cityId;
+            populationGroup.workId = PopulationGroup.NO_WORK;
             populationGroups.add(populationGroup);
         }
 
@@ -52,12 +55,13 @@ public class Population {
             populationGroup.sex = random.nextBoolean();
             populationGroup.wealth = random.nextInt(3);
             populationGroup.cityId = cityId;
+            populationGroup.workId = PopulationGroup.NO_WORK;
             populationGroups.add(populationGroup);
         }
     }
 
     public void addNewGeneration(){
-        int amountOfChildren = 0;
+        int amountOfChildren;
         int maleAmount = 0;
         int femaleAmount = 0;
         for (PopulationGroup populationGroup: populationGroups){
@@ -65,21 +69,23 @@ public class Population {
             if (populationGroup.sex == PopulationGroup.MALE) maleAmount += populationGroup.getAmount();
             if (populationGroup.sex == PopulationGroup.FEMALE) femaleAmount += populationGroup.getAmount();
         }
-        if (femaleAmount > maleAmount) amountOfChildren = maleAmount / 10;
-        else amountOfChildren = femaleAmount / 10;
+        if (femaleAmount > maleAmount) amountOfChildren = maleAmount / 20;
+        else amountOfChildren = femaleAmount / 20;
 
         PopulationGroup newPopulationGroup = new PopulationGroup(amountOfChildren/2);
         newPopulationGroup.age = 0;
         newPopulationGroup.sex = PopulationGroup.MALE;
         newPopulationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
         newPopulationGroup.cityId = city.getId();
+        newPopulationGroup.workId = PopulationGroup.NO_WORK;
         addPopulationGroup(newPopulationGroup);
 
-        newPopulationGroup = new PopulationGroup();
+        newPopulationGroup = new PopulationGroup(amountOfChildren / 2);
         newPopulationGroup.age = 0;
         newPopulationGroup.sex = PopulationGroup.FEMALE;
         newPopulationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
         newPopulationGroup.cityId = city.getId();
+        newPopulationGroup.workId = PopulationGroup.NO_WORK;
         addPopulationGroup(newPopulationGroup);
     }
 
@@ -90,8 +96,9 @@ public class Population {
     }
 
     public void killOldPopulationGroup(){
-        for (PopulationGroup populationGroup: populationGroups){
-            if (populationGroup.age > 100) populationGroups.remove(populationGroup);
+        Iterator<PopulationGroup> it = populationGroups.iterator();
+        while (it.hasNext()){
+            if (it.next().age > 100) it.remove();
         }
     }
 
@@ -103,22 +110,93 @@ public class Population {
         return sum;
     }
 
-    public int request(boolean sex, int age, int wealth, int cityId){
+    // amount of people who are not working but could
+    public int amountOfNotWorking(){
         int sum = 0;
-        for (PopulationGroup populationGroup: populationGroups){
-            if (populationGroup.age != age) continue;
-            if (populationGroup.cityId != cityId) continue;
-            if (populationGroup.wealth != wealth) continue;
-            if (populationGroup.sex != sex) continue;
-            sum += populationGroup.getAmount();
+        for(PopulationGroup populationGroup: populationGroups){
+            if (populationGroup.age > PopulationGroup.MAX_WORKING_AGE || populationGroup.age < PopulationGroup.MIN_WORKING_AGE) continue;
+            if (populationGroup.workId == PopulationGroup.NO_WORK)
+                sum += populationGroup.getAmount();
         }
         return sum;
+    }
+
+    public int amountOfNotWorkingGroup(){
+        int sum = 0;
+        for(PopulationGroup populationGroup: populationGroups){
+            if (populationGroup.age > PopulationGroup.MAX_WORKING_AGE || populationGroup.age < PopulationGroup.MIN_WORKING_AGE) continue;
+            if (populationGroup.workId == PopulationGroup.NO_WORK)
+                sum += 1;
+        }
+        return sum;
+    }
+
+    public People getPeopleForWork(int amount, int workId){
+        int accessablePeople = amountOfNotWorking();
+        if (amount > accessablePeople) amount = accessablePeople;
+        if (amount < 0) return null;
+        int accessableGroup = amountOfNotWorkingGroup();
+        float multiplicator = (float) accessableGroup / (float)accessablePeople;
+        ArrayList<PopulationGroup> newPopulationGroups = new ArrayList<>();
+        Iterator<PopulationGroup> it = populationGroups.iterator();
+        while (it.hasNext()){
+            PopulationGroup populationGroup = it.next();
+            if (populationGroup.age > PopulationGroup.MAX_WORKING_AGE && populationGroup.age < PopulationGroup.MIN_WORKING_AGE) continue;
+            if (populationGroup.workId != PopulationGroup.NO_WORK) continue;
+            int localAmount = (int) Math.ceil(multiplicator * populationGroup.getAmount());
+            int realLocalAmount = populationGroup.decreaseAmount(localAmount);
+            amount -= realLocalAmount;
+            if (amount < 0) {
+                populationGroup.increaseAmount(Math.abs(amount));
+                realLocalAmount += Math.abs(amount);
+            }
+            PopulationGroup newPopulationGroup = new PopulationGroup(realLocalAmount);
+            newPopulationGroup.workId = workId;
+            newPopulationGroups.add(newPopulationGroup);
+            if (amount <= 0) break;
+        }
+        for (PopulationGroup populationGroup: newPopulationGroups){
+            addPopulationGroup(populationGroup);
+        }
+        relax();
+        People people = new People(city);
+        people.setPopulationGroups(newPopulationGroups);
+        return people;
     }
 
     public void run(){
         olderPopulationGroups();
         killOldPopulationGroup();
         addNewGeneration();
+        feed();
     }
 
+    public void relax(){
+        Iterator<PopulationGroup> it = populationGroups.iterator();
+        while(it.hasNext()){
+            if (it.next().getAmount() == 0){
+                it.remove();
+            }
+        }
+    }
+
+    public void feed(){
+        int necessaryFoodAmound = overAllAmount();
+        int existingFoodAmount = city.getResourceStore().consumeResource(necessaryFoodAmound, Resource.Type.Food);
+        int delta = existingFoodAmount - necessaryFoodAmound;
+        if (delta < 0){
+            delta = delta / 2;
+            killPeople(Math.abs(delta));
+        }
+    }
+
+    public void killPeople(int delta){
+        int overAllAmount = overAllAmount();
+        float multiplicator = (float) delta / (float) overAllAmount;
+        for(PopulationGroup populationGroup: populationGroups){
+            int amountToKill = (int)Math.ceil(multiplicator*populationGroup.getAmount());
+            populationGroup.decreaseAmount(amountToKill);
+        }
+        relax();
+    }
 }

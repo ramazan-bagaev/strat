@@ -138,12 +138,16 @@ public class OpenGLMain {
         glOrtho(0, 1000, 1000, 0, 1, -1);
         // Set the clear color
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
+        int i = 0;
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-            gameEngine.run();
+            if (i > 100){
+                i = 0;
+                gameEngine.run();
+            }
+            i++;
             windows.run();
             windows.draw(openGLBinder);
 

@@ -5,29 +5,24 @@ import java.util.ArrayList;
 abstract public class ResourceConvertor {
 
     private ResourceCause resourceCause; // if have one, arbitary
-    private ArrayList<Resource.Type> input;
+    private People people;
     private Resource.Type output;
     private ArrayList<ResourceBank> resourceBanks; // where from resources can be extracted
 
-    private int desirableAmount;
+
+
+
+
+    private ArrayList<Integer> resourceAmount;
 
     public ResourceConvertor(){
 
     }
 
-    public ResourceConvertor(ArrayList<Resource.Type> input, Resource.Type output){
-        setInput(input);
+    public ResourceConvertor(Resource.Type output, City city){
         setOutput(output);
     }
 
-
-    public ArrayList<Resource.Type> getInput() {
-        return input;
-    }
-
-    public void setInput(ArrayList<Resource.Type> input) {
-        this.input = input;
-    }
 
     public Resource.Type getOutput() {
         return output;
@@ -62,11 +57,11 @@ abstract public class ResourceConvertor {
 
     public abstract Resource convert();
 
-    public int getDesirableAmount() {
-        return desirableAmount;
+    public People getPeople() {
+        return people;
     }
 
-    public void setDesirableAmount(int desirableAmount) {
-        this.desirableAmount = desirableAmount;
+    public void setPeople(People people) {
+        this.people = people;
     }
 }

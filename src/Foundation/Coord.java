@@ -16,8 +16,7 @@ public class Coord {
     }
 
     public Coord add(Coord other){
-        Coord ret = new Coord(this.x + other.x, this.y + other.y);
-        return ret;
+        return new Coord(this.x + other.x, this.y + other.y);
     }
 
     public boolean inRectangle(Coord pos, Coord size){
