@@ -3,7 +3,7 @@ package Foundation;
 public class PopulationGroup {
 
     public static final boolean MALE = true;
-    public static final boolean FEMALE = true;
+    public static final boolean FEMALE = false;
 
     public static final int POOR = 0;
     public static final int MIDDLE_CLASS = 1;

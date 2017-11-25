@@ -1,9 +1,6 @@
 package Windows;
 
-import Foundation.City;
-import Foundation.Coord;
-import Foundation.Image;
-import Foundation.Windows;
+import Foundation.*;
 import Images.CityImage;
 
 public class CityInfoWindow extends ClosableWindow {
@@ -36,7 +33,24 @@ public class CityInfoWindow extends ClosableWindow {
         addWindowElement(citySizeLabel);
 
         MonitoredBroadcastLabel cityPopulationLabel = new MonitoredBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(200, 10),
-                "Population:", city, "population", this);
+                "Population:", city, "population", this){
+            @Override
+            public void click(Coord point){
+                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
+                cityInfoWindow.addPopulationGroupWindow(cityInfoWindow.getCity().getPopulation());
+            }
+        };
         addWindowElement(cityPopulationLabel);
+    }
+
+    public void addPopulationGroupWindow(Population population){
+        for(Window window: getParent().getWindows()){
+            if (window.getClass() == PopulationInfoWindow.class){
+                PopulationInfoWindow populationInfoWindow = (PopulationInfoWindow)window;
+                populationInfoWindow.setPopulation(population);
+                return;
+            }
+        }
+        addWindow(new PopulationInfoWindow(population, getParent()));
     }
 }

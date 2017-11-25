@@ -25,6 +25,18 @@ public class PopulationInfoWindow extends ClosableWindow{
         CloseButton closeButton = new CloseButton(new Coord(getPos().x + getSize().x - 15, getPos().y), new Coord(15, 15), this);
         addWindowElement(closeButton);
 
+        MonitoredBroadcastLabel populationAmount = new MonitoredBroadcastLabel(new Coord(10, 10).add(getPos()), new Coord(200, 10),
+                "Overall population:", population, "overallAmount", this);
+        addWindowElement(populationAmount);
+
+        MonitoredBroadcastLabel workingAmount = new MonitoredBroadcastLabel(new Coord(10, 30).add(getPos()), new Coord(200, 10),
+                "Working population:", population, "workingAmount", this);
+        addWindowElement(workingAmount);
+
+        MonitoredBroadcastLabel manAmount = new MonitoredBroadcastLabel(new Coord(10, 50).add(getPos()), new Coord(200, 10),
+                "Man populaion:", population, "manAmount", this);
+        addWindowElement(manAmount);
+
 
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-public class Population {
+public class Population extends Broadcaster{
 
     private City city;
     private ArrayList<PopulationGroup> populationGroups;
@@ -74,7 +74,7 @@ public class Population {
 
         PopulationGroup newPopulationGroup = new PopulationGroup(amountOfChildren/2);
         newPopulationGroup.age = 0;
-        newPopulationGroup.sex = PopulationGroup.MALE;
+        newPopulationGroup.sex = PopulationGroup.FEMALE;
         newPopulationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
         newPopulationGroup.cityId = city.getId();
         newPopulationGroup.workId = PopulationGroup.NO_WORK;
@@ -82,7 +82,7 @@ public class Population {
 
         newPopulationGroup = new PopulationGroup(amountOfChildren / 2);
         newPopulationGroup.age = 0;
-        newPopulationGroup.sex = PopulationGroup.FEMALE;
+        newPopulationGroup.sex = PopulationGroup.MALE;
         newPopulationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
         newPopulationGroup.cityId = city.getId();
         newPopulationGroup.workId = PopulationGroup.NO_WORK;
@@ -98,7 +98,11 @@ public class Population {
     public void killOldPopulationGroup(){
         Iterator<PopulationGroup> it = populationGroups.iterator();
         while (it.hasNext()){
-            if (it.next().age > 100) it.remove();
+            PopulationGroup populationGroup = it.next();
+            if (populationGroup.age > 100){
+                populationGroup.setAmount(0);
+                it.remove();
+            }
         }
     }
 
@@ -127,6 +131,14 @@ public class Population {
             if (populationGroup.age > PopulationGroup.MAX_WORKING_AGE || populationGroup.age < PopulationGroup.MIN_WORKING_AGE) continue;
             if (populationGroup.workId == PopulationGroup.NO_WORK)
                 sum += 1;
+        }
+        return sum;
+    }
+
+    public int menAmount(){
+        int sum = 0;
+        for(PopulationGroup populationGroup: populationGroups){
+            if (populationGroup.sex == PopulationGroup.MALE) sum += populationGroup.getAmount();
         }
         return sum;
     }
@@ -198,5 +210,15 @@ public class Population {
             populationGroup.decreaseAmount(amountToKill);
         }
         relax();
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "overallAmount": return String.valueOf(overAllAmount());
+            case "workingAmount": return String.valueOf(overAllAmount() - amountOfNotWorking());
+            case "manAmount": return String.valueOf(menAmount());
+        }
+        return Broadcaster.noResult;
     }
 }

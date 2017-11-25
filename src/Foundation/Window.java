@@ -14,6 +14,8 @@ public class Window {
 
     private ArrayList<WindowElement> windowElements;
 
+    private ArrayList<WindowElementGroup> windowElementGroups;
+
 
     public Window(Coord pos, Coord size, Windows parent){
         setId(-1);
@@ -71,6 +73,12 @@ public class Window {
     }
 
     public void click(Coord point){
+        for(WindowElementGroup windowElementGroup: windowElementGroups){
+            if (windowElementGroup.contain(point)){
+                windowElementGroup.click(point);
+                return;
+            }
+        }
         for(WindowElement windowElement: windowElements) {
             if (windowElement.contain(point)) {
                 windowElement.click(point);
@@ -121,5 +129,13 @@ public class Window {
 
     public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
         this.basicShapes = basicShapes;
+    }
+
+    public ArrayList<WindowElementGroup> getWindowElementGroups() {
+        return windowElementGroups;
+    }
+
+    public void setWindowElementGroups(ArrayList<WindowElementGroup> windowElementGroups) {
+        this.windowElementGroups = windowElementGroups;
     }
 }
