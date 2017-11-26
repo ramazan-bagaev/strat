@@ -27,4 +27,10 @@ public class Label extends WindowElement{
         this.stringShape = stringShape;
         setBasicShapes(stringShape.getBasicShapes());
     }
+
+    @Override
+    public void shift(Coord shift){
+        super.shift(shift);
+        stringShape.shift(shift);
+    }
 }

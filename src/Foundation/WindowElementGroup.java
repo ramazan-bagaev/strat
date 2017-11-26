@@ -85,4 +85,10 @@ public class WindowElementGroup {
     public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
         this.basicShapes = basicShapes;
     }
+
+    public void run(){
+        for(WindowElement windowElement: windowElements){
+            windowElement.run();
+        }
+    }
 }

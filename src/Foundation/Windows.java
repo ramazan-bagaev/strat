@@ -10,6 +10,8 @@ public class Windows {
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
     private int currentId;
+    private double cursorPosX;
+    private double cursorPosY;
 
     public Windows(){
         currentId = 0;
@@ -29,6 +31,12 @@ public class Windows {
                 window.click(pos);
                 return;
             }
+        }
+    }
+
+    public void scroll(int yScroll){
+        for(Window window: windows){
+            window.scroll(yScroll);
         }
     }
 
@@ -89,5 +97,22 @@ public class Windows {
         for(Window window: windows){
             window.draw(openGLBinder);
         }
+    }
+
+
+    public double getCursorPosX() {
+        return cursorPosX;
+    }
+
+    public void setCursorPosX(double cursorPosX) {
+        this.cursorPosX = cursorPosX;
+    }
+
+    public double getCursorPosY() {
+        return cursorPosY;
+    }
+
+    public void setCursorPosY(double cursorPosY) {
+        this.cursorPosY = cursorPosY;
     }
 }

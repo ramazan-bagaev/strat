@@ -8,15 +8,22 @@ public abstract class WindowElement {
     private Coord size;
 
     private Window parent;
+    private WindowElementGroup groupParent;
 
     private ArrayList<BasicShape> basicShapes;
 
 
-
     public WindowElement(Coord pos, Coord size, Window parent){
-        setPos(pos);
-        setSize(size);
+        this.pos = pos;
+        this.size = size;
         setParent(parent);
+    }
+
+    public WindowElement(Coord pos, Coord size, WindowElementGroup groupParent, Window parent){
+        this.pos = pos;
+        this.size = size;
+        setParent(parent);
+        setGroupParent(groupParent);
     }
 
     public Window getParent() {
@@ -31,16 +38,8 @@ public abstract class WindowElement {
         return pos;
     }
 
-    public void setPos(Coord pos) {
-        this.pos = pos;
-    }
-
     public Coord getSize() {
         return size;
-    }
-
-    public void setSize(Coord size) {
-        this.size = size;
     }
 
     public boolean contain(Coord point){
@@ -65,5 +64,20 @@ public abstract class WindowElement {
 
     public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
         this.basicShapes = basicShapes;
+    }
+
+    public WindowElementGroup getGroupParent() {
+        return groupParent;
+    }
+
+    public void setGroupParent(WindowElementGroup groupParent) {
+        this.groupParent = groupParent;
+    }
+
+    public void shift(Coord shift){
+        pos = getPos().add(shift);
+        for(BasicShape basicShape: basicShapes){
+            basicShape.shift(shift);
+        }
     }
 }

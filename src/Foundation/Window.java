@@ -1,6 +1,7 @@
 package Foundation;
 
 import CharacterShape.Font;
+import WindowElementGroups.ScrollableGroup;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class Window {
         setSize(size);
         setParent(parent);
         windowElements = new ArrayList<>();
+        windowElementGroups = new ArrayList<>();
         basicShapes = new ArrayList<>();
         basicShapes.add(new RectangleShape(pos, size, BasicShape.Color.White, true));
     }
@@ -92,6 +94,18 @@ public class Window {
         parent.addWindow(this);
     }
 
+    public void scroll(int yScroll){
+        for(WindowElementGroup windowElementGroup: windowElementGroups){
+            if (windowElementGroup.getClass() == ScrollableGroup.class){
+                int x = (int)getParent().getCursorPosX();
+                int y = (int)getParent().getCursorPosY();
+                if (!windowElementGroup.contain(new Coord(x, y))) continue;
+                ScrollableGroup scrollableGroup = (ScrollableGroup)windowElementGroup;
+                scrollableGroup.scroll(yScroll);
+            }
+        }
+    }
+
     public void addWindow(Window window){
         getParent().addWindow(window);
     }
@@ -112,6 +126,10 @@ public class Window {
         for(WindowElement windowElement: windowElements){
             windowElement.run();
         }
+
+        for (WindowElementGroup windowElementGroup: windowElementGroups){
+            windowElementGroup.run();
+        }
     }
 
     public void draw(OpenGLBinder openGLBinder){
@@ -120,6 +138,10 @@ public class Window {
         }
         for(WindowElement windowElement: windowElements){
             windowElement.draw(openGLBinder);
+        }
+
+        for (WindowElementGroup windowElementGroup: windowElementGroups){
+            windowElementGroup.draw(openGLBinder);
         }
     }
 
@@ -137,5 +159,9 @@ public class Window {
 
     public void setWindowElementGroups(ArrayList<WindowElementGroup> windowElementGroups) {
         this.windowElementGroups = windowElementGroups;
+    }
+
+    public void addWindowElementGroup(WindowElementGroup windowElementGroup){
+        windowElementGroups.add(windowElementGroup);
     }
 }

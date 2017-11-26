@@ -6,6 +6,7 @@ import Foundation.Coord;
 import java.util.ArrayList;
 
 public class CharacterShape extends BasicShape {
+
     private int characterId;
     private String definition; // arbitary
     private ArrayList<Coord> from;
@@ -112,5 +113,8 @@ public class CharacterShape extends BasicShape {
 
     public void setSize(Coord size) {
         this.size = size;
+    }
+
+    public void shift(Coord shift){
     }
 }

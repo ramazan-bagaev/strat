@@ -72,4 +72,8 @@ public class StringShape{
     public void setColor(BasicShape.Color color) {
         this.color = color;
     }
+
+    public void shift(Coord shift){
+        pos = pos.add(shift);
+    }
 }

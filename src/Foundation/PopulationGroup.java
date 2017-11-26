@@ -1,6 +1,6 @@
 package Foundation;
 
-public class PopulationGroup {
+public class PopulationGroup extends Broadcaster {
 
     public static final boolean MALE = true;
     public static final boolean FEMALE = false;
@@ -90,5 +90,24 @@ public class PopulationGroup {
 
     public void older(){
         age += 1;
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "age": return String.valueOf(age);
+            case "sex":
+                if (sex == MALE) return "male";
+                if (sex == FEMALE) return "female";
+            case "wealth":
+                if (wealth == POOR) return "poor";
+                if (wealth == MIDDLE_CLASS) return "middle class";
+                if (wealth == HIGH_CLASS) return "high class";
+            case "work":
+                if (workId == NO_WORK) return "no work";
+                return String.valueOf(workId);
+            case "amount": return String.valueOf(amount);
+        }
+        return Broadcaster.noResult;
     }
 }

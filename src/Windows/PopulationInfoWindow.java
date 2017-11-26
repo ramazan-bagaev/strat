@@ -1,8 +1,9 @@
 package Windows;
 
-import Foundation.Coord;
-import Foundation.Population;
-import Foundation.Windows;
+import Foundation.*;
+import WindowElementGroups.ScrollableGroup;
+
+import java.util.ArrayList;
 
 public class PopulationInfoWindow extends ClosableWindow{
 
@@ -37,6 +38,17 @@ public class PopulationInfoWindow extends ClosableWindow{
                 "Man populaion:", population, "manAmount", this);
         addWindowElement(manAmount);
 
+        ArrayList<WindowElement> populationMonitoredLabels = new ArrayList<>();
+        int index = 0;
+        int scrollEl = 20;
+        for (PopulationGroup populationGroup: population.getPopulationGroups()){
+            PopulationMonitoredLabel populationMonitoredLabel = new PopulationMonitoredLabel(new Coord(10, 70 + index * scrollEl).add(getPos()),
+                    new Coord(390, 10), populationGroup, this);
+            index++;
+            populationMonitoredLabels.add(populationMonitoredLabel);
+        }
 
+        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(10, 70).add(getPos()), 390, 20, scrollEl, populationMonitoredLabels, this);
+        addWindowElementGroup(scrollableGroup);
     }
 }

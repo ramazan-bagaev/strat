@@ -39,4 +39,9 @@ public class RectangleShape extends BasicShape {
     public void setSize(Coord size) {
         this.size = size;
     }
+
+    @Override
+    public void shift(Coord shift) {
+        pos = pos.add(shift);
+    }
 }

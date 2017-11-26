@@ -120,6 +120,26 @@ public class OpenGLMain {
 
         glfwSetMouseButtonCallback(window, mouseButtonCallback);
 
+        GLFWScrollCallback scrollCallback = new GLFWScrollCallback() {
+            @Override
+            public void invoke(long window, double xoffset, double yoffset) {
+                windows.scroll(-(int)yoffset);
+            }
+        };
+
+        glfwSetScrollCallback(window, scrollCallback);
+
+        GLFWCursorPosCallback cursorPosCallback = new GLFWCursorPosCallback() {
+
+            @Override
+            public void invoke(long window, double xpos, double ypos) {
+                windows.setCursorPosX(xpos);
+                windows.setCursorPosY(ypos);
+            }
+        };
+
+        glfwSetCursorPosCallback(window, cursorPosCallback);
+
         // Make the window visible
         glfwShowWindow(window);
     }

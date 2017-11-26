@@ -31,21 +31,21 @@ public class Population extends Broadcaster{
         int royal = amount % 120;
         int cityId = city.getId();
         for(int i = 0; i < 60; i++){
-            PopulationGroup populationGroup = new PopulationGroup(localAmount);
-            populationGroup.sex = PopulationGroup.MALE;
-            populationGroup.age = i;
-            populationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
-            populationGroup.cityId = cityId;
-            populationGroup.workId = PopulationGroup.NO_WORK;
-            populationGroups.add(populationGroup);
+            PopulationGroup populationGroupM = new PopulationGroup(localAmount);
+            populationGroupM.sex = PopulationGroup.MALE;
+            populationGroupM.age = i;
+            populationGroupM.wealth = PopulationGroup.MIDDLE_CLASS;
+            populationGroupM.cityId = cityId;
+            populationGroupM.workId = PopulationGroup.NO_WORK;
+            populationGroups.add(populationGroupM);
 
-            populationGroup = new PopulationGroup(localAmount);
-            populationGroup.sex = PopulationGroup.FEMALE;
-            populationGroup.age = i;
-            populationGroup.wealth = PopulationGroup.MIDDLE_CLASS;
-            populationGroup.cityId = cityId;
-            populationGroup.workId = PopulationGroup.NO_WORK;
-            populationGroups.add(populationGroup);
+            PopulationGroup populationGroupF = new PopulationGroup(localAmount);
+            populationGroupF.sex = PopulationGroup.FEMALE;
+            populationGroupF.age = i;
+            populationGroupF.wealth = PopulationGroup.MIDDLE_CLASS;
+            populationGroupF.cityId = cityId;
+            populationGroupF.workId = PopulationGroup.NO_WORK;
+            populationGroups.add(populationGroupF);
         }
 
         Random random = city.getParent().getRandom();
@@ -72,6 +72,8 @@ public class Population extends Broadcaster{
         if (femaleAmount > maleAmount) amountOfChildren = maleAmount / 20;
         else amountOfChildren = femaleAmount / 20;
 
+        if (amountOfChildren == 0) return;
+        if (amountOfChildren == 1) amountOfChildren = 2;
         PopulationGroup newPopulationGroup = new PopulationGroup(amountOfChildren/2);
         newPopulationGroup.age = 0;
         newPopulationGroup.sex = PopulationGroup.FEMALE;
@@ -210,6 +212,10 @@ public class Population extends Broadcaster{
             populationGroup.decreaseAmount(amountToKill);
         }
         relax();
+    }
+
+    public ArrayList<PopulationGroup> getPopulationGroups(){
+        return populationGroups;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package Foundation;
 
-public class BasicShape {
+public abstract class BasicShape {
 
     public enum Type{
         Rectangle, FilledRectangle, Character
@@ -41,4 +41,6 @@ public class BasicShape {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public abstract void shift(Coord shift);
 }

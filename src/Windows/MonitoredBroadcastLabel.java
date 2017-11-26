@@ -31,7 +31,7 @@ public class MonitoredBroadcastLabel extends Label{
         if (!oldText.equals(newText)){
             oldText = newText;
             StringShape stringShape = getStringShape();
-            stringShape.setText(preText + " " +newText);
+            stringShape.setText(preText + " " + newText);
             setStringShape(stringShape);
         }
     }
