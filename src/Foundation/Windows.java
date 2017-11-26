@@ -29,7 +29,6 @@ public class Windows {
     }
 
     public void click(Coord pos){
-        System.out.println("x = " + pos.x + "; y = " + pos.y);
         for(int i = windows.size() - 1; i >= 0; i--){
             Window window = windows.get(i);
             if (window.contain(pos)){

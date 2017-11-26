@@ -5,11 +5,14 @@ import Windows.FieldInfoWindow;
 public class MainWindow extends Window{
 
     private GameWindowElement gameWindowElement;
+    private GameWindowHelperElement gameWindowHelperElement;
 
     public MainWindow(Coord pos, Coord size, GameEngine gameEngine, Windows parent){
         super(pos, size, parent);
         gameWindowElement = new GameWindowElement(pos, size, this, gameEngine);
         addWindowElement(gameWindowElement);
+        gameWindowHelperElement = new GameWindowHelperElement(gameWindowElement);
+        addWindowElement(gameWindowHelperElement);
         CameraConfiguration cameraConfiguration = new CameraConfiguration(0, 0, 1000, 1000, true);
         setCameraConfiguration(cameraConfiguration);
     }

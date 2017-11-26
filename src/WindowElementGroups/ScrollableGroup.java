@@ -85,8 +85,8 @@ public class ScrollableGroup extends WindowElementGroup{
     public void bottomChange(int delta){
         int newBottomIndex = bottomIndex;
         newBottomIndex += delta;
-        if (newBottomIndex < 0) newBottomIndex = 0;
         if (newBottomIndex + elementOnScreen > scrollableElements.size() - 1) newBottomIndex = scrollableElements.size() - elementOnScreen - 1;
+        if (newBottomIndex < 0) newBottomIndex = 0;
 
         //System.out.println("bottom index " + newBottomIndex);
         int realDelta = bottomIndex - newBottomIndex;
