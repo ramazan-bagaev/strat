@@ -1,11 +1,14 @@
 package Foundation;
 
 import CharacterShape.Font;
+import sun.applet.Main;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Windows {
+
+    private Camera camera;
 
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
@@ -17,6 +20,7 @@ public class Windows {
         currentId = 0;
         windows = new LinkedList<>();
         fonts = new ArrayList<>();
+        camera = new Camera(0, 0, 1000, 1000);
     }
 
     public void addWindow(Window window){
@@ -25,6 +29,7 @@ public class Windows {
     }
 
     public void click(Coord pos){
+        System.out.println("x = " + pos.x + "; y = " + pos.y);
         for(int i = windows.size() - 1; i >= 0; i--){
             Window window = windows.get(i);
             if (window.contain(pos)){
@@ -35,8 +40,12 @@ public class Windows {
     }
 
     public void scroll(int yScroll){
-        for(Window window: windows){
-            window.scroll(yScroll);
+        for(int i = windows.size() - 1; i >= 0; i--){
+            int x = (int)getCursorPosX();
+            int y = (int)getCursorPosY();
+            if (!windows.get(i).contain(new Coord(x, y))) continue;
+            windows.get(i).scroll(yScroll);
+            return;
         }
     }
 
@@ -114,5 +123,19 @@ public class Windows {
 
     public void setCursorPosY(double cursorPosY) {
         this.cursorPosY = cursorPosY;
+    }
+
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public void moveGameWindow(Coord delta){
+        for (Window window: windows){
+            if (window.getClass() == MainWindow.class){
+                MainWindow mainWindow = (MainWindow)window;
+                mainWindow.moveGameWindow(delta);
+                return;
+            }
+        }
     }
 }

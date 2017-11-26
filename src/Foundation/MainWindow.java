@@ -10,6 +10,8 @@ public class MainWindow extends Window{
         super(pos, size, parent);
         gameWindowElement = new GameWindowElement(pos, size, this, gameEngine);
         addWindowElement(gameWindowElement);
+        CameraConfiguration cameraConfiguration = new CameraConfiguration(0, 0, 1000, 1000, true);
+        setCameraConfiguration(cameraConfiguration);
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -22,6 +24,7 @@ public class MainWindow extends Window{
 
     @Override
     public void click(Coord point){
+        point = getCameraConfiguration().transform(point);
         gameWindowElement.click(point);
     }
 
@@ -35,5 +38,11 @@ public class MainWindow extends Window{
         }
         addWindow(new FieldInfoWindow(getParent(), field));
 
+    }
+
+    public void moveGameWindow(Coord delta){
+        CameraConfiguration cameraConfiguration = getCameraConfiguration();
+        cameraConfiguration.move(delta);
+        gameWindowElement.setShapes();
     }
 }

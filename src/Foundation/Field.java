@@ -34,8 +34,7 @@ public class Field {
         return additionalElement;
     }
 
-    private int x;
-    private int y;
+    private Coord fieldMapPos;
     private int size;
 
     private Ground groundElement;
@@ -46,9 +45,8 @@ public class Field {
     private Random random;
 
 
-    public Field(int x, int y, int size, Random random, FieldMap map){
-        setX(x);
-        setY(y);
+    public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map){
+        this.fieldMapPos = fieldMapPos;
         setSize(size);
         setMap(map);
         setRandom(random);
@@ -60,26 +58,26 @@ public class Field {
         if (randNum == 2) tempType = Ground.GroundType.Water;
         if (randNum == 3) tempType = Ground.GroundType.Mud;
         if (randNum == 4) tempType = Ground.GroundType.Rock;
-        groundElement = new Ground(getX(), getY(), getSize(), tempType, this);
+        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, this);
         if (getGroundType() != Ground.GroundType.Water) {
             int elType = random.nextInt(3);
-            if (elType == 0) additionalElement = createRock(random);
-            if (elType == 1) additionalElement = createTree(random);
-            if (elType == 2) additionalElement = createCity(random);
+            if (elType == 0) additionalElement = createRock(random, globalPos);
+            if (elType == 1) additionalElement = createTree(random, globalPos);
+            if (elType == 2) additionalElement = createCity(random, globalPos);
         }
     }
 
 
 
 
-    private Tree createTree(Random random){
+    private Tree createTree(Random random, Coord pos){
         if (getGroundType() == Ground.GroundType.Sand && random.nextInt(10) > 8){
             int typeNum = random.nextInt(10);
             Tree.SizeType type = Tree.SizeType.Big;
             if (typeNum < 1) type = Tree.SizeType.Big;
             if (typeNum < 4 && typeNum > 0) type = Tree.SizeType.Middle;
             if (typeNum > 3) type = Tree.SizeType.Small;
-            return new Tree(getX(), getY(), getSize(), type, this);
+            return new Tree(pos.x, pos.y, getSize(), type, this);
         }
         if ( getGroundType() == Ground.GroundType.Soil && random.nextInt(10) > 3) {
             int typeNum = random.nextInt(3);
@@ -87,12 +85,12 @@ public class Field {
             if (typeNum == 0) type = Tree.SizeType.Big;
             if (typeNum == 1) type = Tree.SizeType.Middle;
             if (typeNum == 2) type = Tree.SizeType.Small;
-            return new Tree(getX(), getY(), getSize(), type, this);
+            return new Tree(pos.x, pos.y, getSize(), type, this);
         }
         return null;
     }
 
-    private Rock createRock(Random random){
+    private Rock createRock(Random random, Coord pos){
         if (getGroundType() == Ground.GroundType.Rock) {
             if (random.nextInt(10) > 7) {
                 int typeNum = random.nextInt(3);
@@ -100,13 +98,13 @@ public class Field {
                 if (typeNum == 0) type = Rock.SizeType.Big;
                 if (typeNum == 1) type = Rock.SizeType.Middle;
                 if (typeNum == 2) type = Rock.SizeType.Small;
-                return new Rock(getX(), getY(), getSize(), type, this);
+                return new Rock(pos.x, pos.y, getSize(), type, this);
             }
         }
         return null;
     }
 
-    private City createCity(Random random){
+    private City createCity(Random random, Coord pos){
         if (getGroundType() == Ground.GroundType.Rock) return null;
         if (random.nextInt(10) > 8) {
             int typeNum = random.nextInt(10);
@@ -114,26 +112,9 @@ public class Field {
             if (typeNum == 0) type = City.SizeType.Big;
             if (typeNum == 1 || typeNum == 2) type = City.SizeType.Middle;
             if (typeNum > 2) type = City.SizeType.Small;
-            return new City(getX(), getY(), getSize(), type, map, this);
+            return new City(pos.x, pos.y, getSize(), type, map, this);
         }
         return null;
-    }
-
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public int getSize() {
@@ -150,5 +131,13 @@ public class Field {
 
     public void setRandom(Random random) {
         this.random = random;
+    }
+
+    public Coord getFieldMapPos() {
+        return fieldMapPos;
+    }
+
+    public void setFieldMapPos(Coord fieldMapPos) {
+        this.fieldMapPos = fieldMapPos;
     }
 }

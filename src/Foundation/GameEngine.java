@@ -30,8 +30,8 @@ public class GameEngine {
             for(int j = 0; j < fieldNumber; j++){
                 int x = i * fieldSize;
                 int y = j * fieldSize;
-                Field newField = new Field(x, y, fieldSize, random, map);
-                map.addField(new Coord(x, y), newField);
+                Field newField = new Field(new Coord(i, j), new Coord(x, y), fieldSize, random, map);
+                map.addField(new Coord(i, j), newField);
             }
     }
 

@@ -140,6 +140,29 @@ public class OpenGLMain {
 
         glfwSetCursorPosCallback(window, cursorPosCallback);
 
+        GLFWKeyCallback keyCallback = new GLFWKeyCallback() {
+
+            @Override
+            public void invoke(long window, int key, int scancode, int action, int mods) {
+                if (action == GLFW_RELEASE) return;
+                switch (key){
+                    case GLFW_KEY_W:
+                        windows.moveGameWindow(new Coord(0, -10));
+                        break;
+                    case GLFW_KEY_S:
+                        windows.moveGameWindow(new Coord(0, 10));
+                        break;
+                    case GLFW_KEY_A:
+                        windows.moveGameWindow(new Coord(-10, 0));
+                        break;
+                    case GLFW_KEY_D:
+                        windows.moveGameWindow(new Coord(10, 0));
+                        break;
+                }
+            }
+        };
+        glfwSetKeyCallback(window, keyCallback);
+
         // Make the window visible
         glfwShowWindow(window);
     }

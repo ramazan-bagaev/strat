@@ -13,6 +13,8 @@ public class Window {
     private int id;
     private ArrayList<BasicShape> basicShapes;
 
+    private CameraConfiguration cameraConfiguration;
+
     private ArrayList<WindowElement> windowElements;
 
     private ArrayList<WindowElementGroup> windowElementGroups;
@@ -27,6 +29,7 @@ public class Window {
         windowElementGroups = new ArrayList<>();
         basicShapes = new ArrayList<>();
         basicShapes.add(new RectangleShape(pos, size, BasicShape.Color.White, true));
+        cameraConfiguration = new CameraConfiguration(0, 0, 1000, 1000, false);
     }
 
     public Windows getParent() {
@@ -81,7 +84,8 @@ public class Window {
                 return;
             }
         }
-        for(WindowElement windowElement: windowElements) {
+        for(int i = windowElements.size() - 1; i >= 0; i--){
+            WindowElement windowElement = windowElements.get(i);
             if (windowElement.contain(point)) {
                 windowElement.click(point);
                 return;
@@ -94,14 +98,22 @@ public class Window {
         parent.addWindow(this);
     }
 
-    public void scroll(int yScroll){
+    public void scroll(int delta){
         for(WindowElementGroup windowElementGroup: windowElementGroups){
             if (windowElementGroup.getClass() == ScrollableGroup.class){
                 int x = (int)getParent().getCursorPosX();
                 int y = (int)getParent().getCursorPosY();
                 if (!windowElementGroup.contain(new Coord(x, y))) continue;
                 ScrollableGroup scrollableGroup = (ScrollableGroup)windowElementGroup;
-                scrollableGroup.scroll(yScroll);
+                scrollableGroup.scroll(delta);
+                return;
+            }
+        }
+        if (cameraConfiguration.isScrollable()){
+            cameraConfiguration.scroll(delta);
+            if (getClass() == MainWindow.class){
+                MainWindow mainWindow = (MainWindow)this;
+                mainWindow.getGameWindowElement().setShapes();
             }
         }
     }
@@ -133,6 +145,8 @@ public class Window {
     }
 
     public void draw(OpenGLBinder openGLBinder){
+        Camera camera = getParent().getCamera();
+        camera.takeCameraView(cameraConfiguration);
         for(BasicShape basicShape: basicShapes){
             openGLBinder.draw(basicShape);
         }
@@ -143,6 +157,7 @@ public class Window {
         for (WindowElementGroup windowElementGroup: windowElementGroups){
             windowElementGroup.draw(openGLBinder);
         }
+        camera.takeBackCameraView();
     }
 
     public ArrayList<BasicShape> getBasicShapes() {
@@ -163,5 +178,13 @@ public class Window {
 
     public void addWindowElementGroup(WindowElementGroup windowElementGroup){
         windowElementGroups.add(windowElementGroup);
+    }
+
+    public void setCameraConfiguration(CameraConfiguration cameraConfiguration){
+        this.cameraConfiguration = cameraConfiguration;
+    }
+
+    public CameraConfiguration getCameraConfiguration(){
+        return cameraConfiguration;
     }
 }
