@@ -163,6 +163,17 @@ public class OpenGLMain {
         };
         glfwSetKeyCallback(window, keyCallback);
 
+
+        GLFWCharCallback charCallback = new GLFWCharCallback() {
+
+            @Override
+            public void invoke(long window, int codepoint) {
+                windows.input((char)codepoint);
+            }
+        };
+
+        glfwSetCharCallback(window, charCallback);
+
         // Make the window visible
         glfwShowWindow(window);
     }

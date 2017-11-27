@@ -17,6 +17,7 @@ public abstract class WindowElement {
         this.pos = pos;
         this.size = size;
         setParent(parent);
+        basicShapes = new ArrayList<>();
     }
 
     public WindowElement(Coord pos, Coord size, WindowElementGroup groupParent, Window parent){
@@ -24,6 +25,7 @@ public abstract class WindowElement {
         this.size = size;
         setParent(parent);
         setGroupParent(groupParent);
+        basicShapes = new ArrayList<>();
     }
 
     public Window getParent() {

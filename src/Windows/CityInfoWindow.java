@@ -41,6 +41,20 @@ public class CityInfoWindow extends ClosableWindow {
             }
         };
         addWindowElement(cityPopulationLabel);
+
+        Button addWork = new Button(new Coord(10, 160).add(getPos()), new Coord(150, 20), this, "add work") {
+
+            MainWindow mainWindow = getParent().getParent().getMainWindow();
+
+            @Override
+            public void click(Coord point) {
+                GameWindowHelperElement gameWindowHelperElement = mainWindow.getGameWindowHelperElement();
+                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
+                gameWindowHelperElement.addCityWork(cityInfoWindow.getCity());
+            }
+        };
+
+        addWindowElement(addWork);
     }
 
     public void addPopulationGroupWindow(Population population){
@@ -53,4 +67,5 @@ public class CityInfoWindow extends ClosableWindow {
         }
         addWindow(new PopulationInfoWindow(population, getParent()));
     }
+
 }

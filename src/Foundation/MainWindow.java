@@ -25,10 +25,14 @@ public class MainWindow extends Window{
         this.gameWindowElement = gameWindowElement;
     }
 
+    public GameWindowHelperElement getGameWindowHelperElement() {
+        return gameWindowHelperElement;
+    }
+
     @Override
     public void click(Coord point){
         point = getCameraConfiguration().transform(point);
-        gameWindowElement.click(point);
+        gameWindowHelperElement.click(point);
     }
 
     public void addNewFieldInfoWindow(Field field){
@@ -47,5 +51,6 @@ public class MainWindow extends Window{
         CameraConfiguration cameraConfiguration = getCameraConfiguration();
         cameraConfiguration.move(delta);
         gameWindowElement.setShapes();
+        gameWindowHelperElement.setShapes();
     }
 }
