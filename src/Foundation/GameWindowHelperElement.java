@@ -19,6 +19,7 @@ public class GameWindowHelperElement extends WindowElement {
 
     @Override
     public void click(Coord point) {
+        point = getParent().getCameraConfiguration().transform(point);
         if (cityForWork != null){
             int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
             Coord index = new Coord(point.x / fieldSize, point.y / fieldSize);

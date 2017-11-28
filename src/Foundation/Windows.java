@@ -8,13 +8,11 @@ import java.util.LinkedList;
 public class Windows {
 
     private Camera camera;
-    private Cursor cursor;
+    private Input input;
 
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
     private int currentId;
-    private double cursorPosX;
-    private double cursorPosY;
     private boolean inputOn;
     private InputWindowElement currentInput;
 
@@ -24,7 +22,7 @@ public class Windows {
         windows = new LinkedList<>();
         fonts = new ArrayList<>();
         camera = new Camera(0, 0, 1000, 1000);
-        cursor = new Cursor();
+        input = new Input(this);
     }
 
     public void addWindow(Window window){
@@ -32,37 +30,6 @@ public class Windows {
         windows.add(window);
     }
 
-    public void click(Coord pos){
-        if (inputOn)
-            if (!currentInput.contain(pos)){
-                inputOn = false;
-                currentInput.renewDefaultText();
-                currentInput = null;
-            }
-            else return;
-        for(int i = windows.size() - 1; i >= 0; i--){
-            Window window = windows.get(i);
-            if (window.contain(pos)){
-                window.click(pos);
-                return;
-            }
-        }
-    }
-
-    public void input(char c){
-        if (inputOn) currentInput.keyPressed(c);
-    }
-
-    public void scroll(int yScroll){
-        if (inputOn) return;
-        for(int i = windows.size() - 1; i >= 0; i--){
-            int x = (int)cursor.getPosX();
-            int y = (int)cursor.getPosY();
-            if (!windows.get(i).contain(new Coord(x, y))) continue;
-            windows.get(i).scroll(yScroll);
-            return;
-        }
-    }
 
     public void removeWindow(Window window){
         for (Window win: windows) {
@@ -160,11 +127,7 @@ public class Windows {
         this.currentInput = currentInput;
     }
 
-    public Cursor getCursor() {
-        return cursor;
-    }
-
-    public void setCursor(Cursor cursor) {
-        this.cursor = cursor;
+    public Input getInput(){
+        return input;
     }
 }

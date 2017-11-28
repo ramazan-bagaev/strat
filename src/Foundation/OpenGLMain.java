@@ -102,6 +102,10 @@ public class OpenGLMain {
         windows.addWindow(mainWindow);
         windows.addWindow(closableWindow);
         openGLBinder = new OpenGLBinder();
+        Input input = windows.getInput();
+        Cursor cursor = input.getCursor();
+        Keyboard keyboard = input.getKeyboard();
+        Controller controller = input.getController();
 
         DoubleBuffer b1 = BufferUtils.createDoubleBuffer(1);
         DoubleBuffer b2 = BufferUtils.createDoubleBuffer(1);
@@ -109,11 +113,13 @@ public class OpenGLMain {
         GLFWMouseButtonCallback mouseButtonCallback = new GLFWMouseButtonCallback() {
             @Override
             public void invoke(long window, int button, int action, int mods) {
-                if (button == GLFW_MOUSE_BUTTON_1 && action == GLFW_RELEASE){
+                if (button == GLFW_MOUSE_BUTTON_1){
                     glfwGetCursorPos(window, b1, b2);
                     int x = (int) b1.get(0);
                     int y = (int) b2.get(0);
-                    windows.click(new Coord(x, y));
+                    boolean pressed = true;
+                    if (action == GLFW_RELEASE) pressed = false;
+                    cursor.action(new Coord(x, y), pressed);
                 }
             }
         };
@@ -123,7 +129,7 @@ public class OpenGLMain {
         GLFWScrollCallback scrollCallback = new GLFWScrollCallback() {
             @Override
             public void invoke(long window, double xoffset, double yoffset) {
-                windows.scroll(-(int)yoffset);
+                cursor.scroll(-(int)yoffset);
             }
         };
 
@@ -133,8 +139,7 @@ public class OpenGLMain {
 
             @Override
             public void invoke(long window, double xpos, double ypos) {
-                windows.setCursorPosX(xpos);
-                windows.setCursorPosY(ypos);
+                cursor.posRenew(xpos, ypos);
             }
         };
 
@@ -147,16 +152,16 @@ public class OpenGLMain {
                 if (action == GLFW_RELEASE) return;
                 switch (key){
                     case GLFW_KEY_W:
-                        windows.moveGameWindow(new Coord(0, -10));
+                        controller.act('w');
                         break;
                     case GLFW_KEY_S:
-                        windows.moveGameWindow(new Coord(0, 10));
+                        controller.act('s');
                         break;
                     case GLFW_KEY_A:
-                        windows.moveGameWindow(new Coord(-10, 0));
+                        controller.act('a');
                         break;
                     case GLFW_KEY_D:
-                        windows.moveGameWindow(new Coord(10, 0));
+                        controller.act('d');
                         break;
                 }
             }
@@ -168,7 +173,7 @@ public class OpenGLMain {
 
             @Override
             public void invoke(long window, int codepoint) {
-                windows.input((char)codepoint);
+                keyboard.press((char)codepoint);
             }
         };
 

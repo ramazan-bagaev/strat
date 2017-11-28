@@ -82,4 +82,10 @@ public abstract class WindowElement {
             basicShape.shift(shift);
         }
     }
+
+    public void characterInput(char c){
+    }
+
+    public void drag(Coord pos){
+    }
 }

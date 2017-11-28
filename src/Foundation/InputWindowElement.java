@@ -6,9 +6,14 @@ public class InputWindowElement extends WindowElement {
 
     private StringShape text;
     private String defaultText;
+    private boolean firstClick;
+
+    private Keyboard keyboard;
 
     public InputWindowElement(Coord pos, Coord size, Window parent){
         super(pos, size, parent);
+        firstClick = true;
+        keyboard = getParent().getParent().getInput().getKeyboard();
         RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.LightGray, true);
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.add(rectangleShape);
@@ -19,13 +24,15 @@ public class InputWindowElement extends WindowElement {
 
     @Override
     public void click(Coord point) {
-        renewText("");
-        Windows windows = getParent().getParent();
-        windows.setInputOn(true);
-        windows.setCurrentInput(this);
+        if (firstClick){
+            renewText("");
+            firstClick = false;
+        }
+        keyboard.setActiveElement(this);
     }
 
-    public void keyPressed(char c){
+    @Override
+    public void characterInput(char c){
         String str = text.getText();
         str = str + c;
         renewText(str);

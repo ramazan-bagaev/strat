@@ -60,14 +60,17 @@ public class WindowElementGroup {
         return point.inRectangle(pos, size);
     }
 
+
     public void click(Coord point){
-        for(WindowElement windowElement: windowElements){
-            if (windowElement.contain(point)){
-                windowElement.click(point);
-                return;
-            }
-        }
     }
+
+    public void scroll(double delta){
+    }
+
+    public void drag(Coord point){
+
+    }
+
 
     public void draw(OpenGLBinder openGLBinder){
         for(BasicShape basicShape: basicShapes){

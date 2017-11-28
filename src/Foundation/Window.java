@@ -78,44 +78,22 @@ public class Window {
     }
 
     public void click(Coord point){
-        for(WindowElementGroup windowElementGroup: windowElementGroups){
-            if (windowElementGroup.contain(point)){
-                windowElementGroup.click(point);
-                return;
-            }
-        }
-        for(int i = windowElements.size() - 1; i >= 0; i--){
-            WindowElement windowElement = windowElements.get(i);
-            if (windowElement.contain(point)) {
-                windowElement.click(point);
-                return;
-            }
-        }
-        if (parent.isOnTop(this)) {
-            return;
-        }
+        if (parent.isOnTop(this)) return;
         parent.removeWindow(this);
         parent.addWindow(this);
     }
 
-    public void scroll(int delta){
-        for(WindowElementGroup windowElementGroup: windowElementGroups){
-            if (windowElementGroup.getClass() == ScrollableGroup.class){
-                int x = (int)getParent().getCursorPosX();
-                int y = (int)getParent().getCursorPosY();
-                if (!windowElementGroup.contain(new Coord(x, y))) continue;
-                ScrollableGroup scrollableGroup = (ScrollableGroup)windowElementGroup;
-                scrollableGroup.scroll(delta);
-                return;
-            }
-        }
+    public void scroll(double delta){
         if (cameraConfiguration.isScrollable()){
-            cameraConfiguration.scroll(delta);
+            cameraConfiguration.scroll((int)delta);
             if (getClass() == MainWindow.class){
                 MainWindow mainWindow = (MainWindow)this;
-                mainWindow.getGameWindowElement().setShapes();
+                mainWindow.getGameWindowElement().setShapes(); // TODO: you know
             }
         }
+    }
+
+    public void drag(Coord point){
     }
 
     public void addWindow(Window window){
@@ -186,5 +164,8 @@ public class Window {
 
     public CameraConfiguration getCameraConfiguration(){
         return cameraConfiguration;
+    }
+
+    public void handleAction(Controller.Action action){
     }
 }
