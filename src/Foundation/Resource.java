@@ -1,5 +1,8 @@
 package Foundation;
 
+import Images.RockResourceImage;
+import Images.TreeResourceImage;
+
 public class Resource {
 
     public int getAmount() {
@@ -28,6 +31,23 @@ public class Resource {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public static Image getImage(Coord pos, Coord size, Window parent, Type type){
+        switch (type){
+
+            case Tree:
+                return new TreeResourceImage(pos, size, parent);
+            case Stone:
+                return new RockResourceImage(pos, size, parent);
+            case HumanHour:
+                return null;
+            case Food:
+                return null;
+            case Fertility:
+                return null;
+        }
+        return null;
     }
 
 }

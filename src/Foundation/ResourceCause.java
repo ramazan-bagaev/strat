@@ -86,6 +86,20 @@ public class ResourceCause extends Broadcaster {
                 return String.valueOf(maxCapacity);
             case "renewAmount":
                 return String.valueOf(renewAmount);
+            case "type":
+                switch (type){
+
+                    case Tree:
+                        return "tree";
+                    case Stone:
+                        return "stone";
+                    case HumanHour:
+                        return "humanHour";
+                    case Food:
+                        return "food";
+                    case Fertility:
+                        return "fertility";
+                }
         }
         return "no such value";
     }

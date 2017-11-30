@@ -2,7 +2,7 @@ package Foundation;
 
 import java.util.ArrayList;
 
-public abstract class WindowElement {
+public class WindowElement {
 
     private Coord pos;
     private Coord size;
@@ -48,7 +48,8 @@ public abstract class WindowElement {
         return point.inRectangle(pos, size);
     }
 
-    public abstract void click(Coord point);
+    public void click(Coord point){
+    }
 
     public void run(){
         return;

@@ -1,8 +1,7 @@
 package Foundation;
 
 import java.util.ArrayList;
-
-import Windows.CityWorkWIndow;
+import Windows.CityWorkWindow;
 
 public class GameWindowHelperElement extends WindowElement {
 
@@ -32,8 +31,9 @@ public class GameWindowHelperElement extends WindowElement {
                 setShapes();
             }
             else{
-                CityWorkWIndow cityWorkWIndow = new CityWorkWIndow(cityForWork, getParent().getParent());
-                getParent().addWindow(cityWorkWIndow);
+                Field field = gameWindowElement.getGameEngine().getField(index.x, index.y);
+                CityWorkWindow cityWorkWindow = new CityWorkWindow(cityForWork, field, getParent().getParent());
+                getParent().addWindow(cityWorkWindow);
             }
         }
         gameWindowElement.click(point);
