@@ -52,8 +52,6 @@ public class PopulationMonitoredLabel extends Label{
 
     public ArrayList<String> getNewTexts(){
         ArrayList<String> newTexts = new ArrayList<>();
-        newTexts.add(broadcaster.getValue("age"));
-        newTexts.add(broadcaster.getValue("sex"));
         newTexts.add(broadcaster.getValue("wealth"));
         newTexts.add(broadcaster.getValue("work"));
         newTexts.add(broadcaster.getValue("amount"));

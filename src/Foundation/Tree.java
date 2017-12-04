@@ -16,8 +16,8 @@ public class Tree extends Element {
 
     private SizeType sizeType;
 
-    public Tree(int x, int y, int elementSize, SizeType sizeType, Field parent){
-        super(Type.Tree, parent);
+    public Tree(int x, int y, int elementSize, SizeType sizeType, Time time, Field parent){
+        super(Type.Tree, time, parent);
         setSizeType(sizeType);
 
         int maxCapacity = 0;

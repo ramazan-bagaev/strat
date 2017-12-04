@@ -2,7 +2,7 @@ package Foundation;
 
 import java.util.ArrayList;
 
-public class Production {
+public class Production extends Broadcaster{
 
     private ArrayList<ResourceConvertor> resourceConvertors;
     private ResourceStore resourceStore;
@@ -37,6 +37,24 @@ public class Production {
 
     public void setResourceStore(ResourceStore resourceStore) {
         this.resourceStore = resourceStore;
+    }
+
+    public int workerAmount(){
+        int sum = 0;
+        for (ResourceConvertor resourceConvertor: resourceConvertors){
+            int peopleNum = resourceConvertor.getPeople().getAmount();
+            sum += peopleNum;
+        }
+        return sum;
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "workerAmount":
+                return String.valueOf(workerAmount());
+        }
+        return Broadcaster.noResult;
     }
 }
 

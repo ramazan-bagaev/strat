@@ -20,8 +20,8 @@ public class Rock extends Element {
     private SizeType sizeType;
 
 
-    public Rock(int x, int y, int intSize, SizeType sizeType, Field parent){
-        super(Type.Rock, parent);
+    public Rock(int x, int y, int intSize, SizeType sizeType, Time time, Field parent){
+        super(Type.Rock, time, parent);
 
         int cap = 0;
         if (sizeType == SizeType.Big) cap = 100000;

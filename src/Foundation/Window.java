@@ -19,6 +19,8 @@ public class Window {
 
     private ArrayList<WindowElementGroup> windowElementGroups;
 
+    private ArrayList<Integer> windowId;
+
 
     public Window(Coord pos, Coord size, Windows parent){
         setId(-1);
@@ -30,6 +32,7 @@ public class Window {
         basicShapes = new ArrayList<>();
         basicShapes.add(new RectangleShape(pos, size, BasicShape.Color.White, true));
         cameraConfiguration = new CameraConfiguration(0, 0, 1000, 1000, false);
+        windowId = new ArrayList<>();
     }
 
     public Windows getParent() {
@@ -79,8 +82,7 @@ public class Window {
 
     public void click(Coord point){
         if (parent.isOnTop(this)) return;
-        parent.removeWindow(this);
-        parent.addWindow(this);
+        parent.takeOnTop(this);
     }
 
     public void scroll(double delta){
@@ -98,6 +100,7 @@ public class Window {
 
     public void addWindow(Window window){
         getParent().addWindow(window);
+        windowId.add(window.getId());
     }
 
     public void removeWindowElements(){
@@ -167,5 +170,9 @@ public class Window {
     }
 
     public void handleAction(Controller.Action action){
+    }
+
+    public ArrayList<Integer> getWindowId() {
+        return windowId;
     }
 }

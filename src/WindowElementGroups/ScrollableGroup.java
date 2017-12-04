@@ -107,8 +107,8 @@ public class ScrollableGroup extends WindowElementGroup{
         this.elementOnScreen = elementOnScreen;
     }
 
-    public void scroll(int delta){
-        bottomChange(delta);
+    public void scroll(double delta){
+        bottomChange((int)delta);
     }
 
     public void run(){

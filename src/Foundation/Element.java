@@ -30,6 +30,10 @@ public class Element extends Broadcaster {
         this.parent = parent;
     }
 
+    public Time getTime() {
+        return time;
+    }
+
     public enum Type{
         Rock, Tree, City, Ground
     }
@@ -37,11 +41,14 @@ public class Element extends Broadcaster {
     private ResourceCause resourceCause;
     private Type type;
     private Field parent;
+    private Time time;
 
     private ArrayList<BasicShape> shapes;
 
-    public Element(Type type, Field parent){
+    public Element(Type type, Time time, Field parent){
         this.shapes = new ArrayList<>();
+        this.time = time;
+
         setType(type);
         setParent(parent);
     }

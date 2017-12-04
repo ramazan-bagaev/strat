@@ -18,6 +18,7 @@ public class ResourceWorkTypeLabel extends WindowElement{
     }
 
     public void setShapes(){
+        if (resourceCause == null) return;
         Resource.Type type = resourceCause.getType();
         Image image = Resource.getImage(getPos(), new Coord(getSize().x / 5, getSize().y), getParent(), type);
         StaticBroadcastLabel name = new StaticBroadcastLabel(getPos().add(new Coord(getSize().x/5, 0)), new Coord(3 * getSize().x / 5, getSize().y),

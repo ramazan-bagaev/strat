@@ -4,22 +4,27 @@ import java.util.Random;
 
 public class GameEngine {
 
+    private Time time;
+
     private FieldMap map;
     private int fieldSize;
     final Random random = new Random();
 
     public GameEngine(){
         map = new FieldMap();
+        time = new Time();
     }
 
     public GameEngine(int fieldSize, int fieldNumber){
         map =  new FieldMap();
+        time = new Time();
         setFieldSize(fieldSize);
         generateRandomField(fieldNumber);
     }
 
 
     public void run(){
+        time.nextDay();
         for(Field field: map.getValues()){
             field.run();
         }
@@ -30,7 +35,7 @@ public class GameEngine {
             for(int j = 0; j < fieldNumber; j++){
                 int x = i * fieldSize;
                 int y = j * fieldSize;
-                Field newField = new Field(new Coord(i, j), new Coord(x, y), fieldSize, random, map);
+                Field newField = new Field(new Coord(i, j), new Coord(x, y), fieldSize, random, map, time);
                 map.addField(new Coord(i, j), newField);
             }
     }
@@ -53,5 +58,9 @@ public class GameEngine {
 
     public Field getField(int i, int j) {
         return map.getField(new Coord(i, j));
+    }
+
+    public Time getTime() {
+        return time;
     }
 }

@@ -45,8 +45,8 @@ public class Ground extends Element {
 
     private GroundType groundType;
 
-    public Ground(int x, int y, int elementSize, GroundType groundType, Field parent){
-        super(Type.Ground, parent);
+    public Ground(int x, int y, int elementSize, GroundType groundType, Time time, Field parent){
+        super(Type.Ground, time, parent);
         setGroundType(groundType);
         setX(x);
         setY(y);

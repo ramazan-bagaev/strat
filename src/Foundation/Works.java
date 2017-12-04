@@ -18,9 +18,9 @@ public class Works {
 
     public void addWork(ResourceConvertor resourceConvertor, int peopleNumber){
         People people = population.getPeopleForWork(peopleNumber, currentId);
-        currentId++;
         resourceConvertor.setPeople(people);
-        Work work = new Work(people, resourceConvertor);
+        Work work = new Work(people, resourceConvertor, currentId);
+        currentId++;
         works.add(work);
         city.getProduction().addResourceConvertor(resourceConvertor);
     }

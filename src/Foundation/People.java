@@ -6,7 +6,6 @@ public class People {
 
     private ArrayList<PopulationGroup> populationGroups;
     private City city;
-    private int amount;
 
     public People(City city){
         setCity(city);
@@ -19,7 +18,6 @@ public class People {
 
     public void setPopulationGroups(ArrayList<PopulationGroup> populationGroups) {
         this.populationGroups = populationGroups;
-        renewAmount();
     }
 
     public City getCity() {
@@ -38,11 +36,7 @@ public class People {
         return sum;
     }
 
-    public void renewAmount(){
-        amount = overAllAmount();
-    }
-
     public int getAmount() {
-        return amount;
+        return overAllAmount();
     }
 }

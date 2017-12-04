@@ -1,7 +1,7 @@
 package Foundation;
 
-import Windows.FieldInfoWindow;
-import Windows.ClosableWindow;
+import Windows.MainToolbarWindow;
+
 import CharacterShape.Font;
 import CharacterShape.FontFactory;
 import org.lwjgl.*;
@@ -11,7 +11,6 @@ import org.lwjgl.system.*;
 
 import java.nio.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -95,12 +94,12 @@ public class OpenGLMain {
         FontFactory fontFactory = new FontFactory();
         ArrayList<Font> fonts = fontFactory.getFonts();
         gameEngine = new GameEngine(50, 30);
-        windows = new Windows();
+        windows = new Windows(gameEngine);
         windows.setFonts(fonts);
         MainWindow mainWindow = new MainWindow(new Coord(0, 0), new Coord(1000, 1000), gameEngine, windows);
-        ClosableWindow closableWindow = new ClosableWindow(new Coord(500, 500), new Coord(123, 125), windows);
         windows.addWindow(mainWindow);
-        windows.addWindow(closableWindow);
+        MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(windows);
+        windows.addWindow(mainToolbarWindow);
         openGLBinder = new OpenGLBinder();
         Input input = windows.getInput();
         Cursor cursor = input.getCursor();

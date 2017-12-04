@@ -104,8 +104,8 @@ public class City extends Element {
 
     private FieldMap map;
 
-    public City(int x, int y, int intSize, SizeType sizeType, FieldMap map, Field parent){
-        super(Element.Type.City, parent);
+    public City(int x, int y, int intSize, SizeType sizeType, FieldMap map, Time time, Field parent){
+        super(Element.Type.City, time, parent);
         setX(x);
         setY(y);
         setSize(intSize);
@@ -156,13 +156,15 @@ public class City extends Element {
             }
         }
         resourceStore = new ResourceStore();
+        Resource resource = new Resource(Resource.Type.Food, population.overAllAmount() * 80);
+        resourceStore.addResource(resource);
 
 
 
         production = new Production(resourceStore);
         FoodConvertor foodConvertor = new FoodConvertor(getParent());
         works = new Works(this);
-        works.addWork(foodConvertor, population.amountOfNotWorking()/2);
+        works.addWork(foodConvertor, population.amountOfNotWorking());
     }
 
     public void run() {

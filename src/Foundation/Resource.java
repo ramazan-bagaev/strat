@@ -1,5 +1,6 @@
 package Foundation;
 
+import Images.FoodResourceImage;
 import Images.RockResourceImage;
 import Images.TreeResourceImage;
 
@@ -43,7 +44,7 @@ public class Resource {
             case HumanHour:
                 return null;
             case Food:
-                return null;
+                return new FoodResourceImage(pos, size, parent);
             case Fertility:
                 return null;
         }

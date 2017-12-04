@@ -3,26 +3,26 @@ package Foundation;
 import CharacterShape.Font;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Windows {
 
     private Camera camera;
     private Input input;
+    private GameEngine gameEngine;
 
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
     private int currentId;
-    private boolean inputOn;
-    private InputWindowElement currentInput;
 
-    public Windows(){
-        inputOn = false;
+    public Windows(GameEngine gameEngine){
         currentId = 0;
         windows = new LinkedList<>();
         fonts = new ArrayList<>();
         camera = new Camera(0, 0, 1000, 1000);
         input = new Input(this);
+        this.gameEngine = gameEngine;
     }
 
     public void addWindow(Window window){
@@ -31,10 +31,13 @@ public class Windows {
     }
 
 
-    public void removeWindow(Window window){
-        for (Window win: windows) {
-            if (win.getId() == window.getId())
+    public void removeWindow(int id){
+        Iterator<Window> it = windows.iterator();
+        while (it.hasNext()){
+            Window win = it.next();
+            if (win.getId() == id)
             {
+                for(Integer sucId: win.getWindowId()) removeWindow(sucId);
                 windows.remove(win);
                 return;
             }
@@ -95,16 +98,6 @@ public class Windows {
         return camera;
     }
 
-    public void moveGameWindow(Coord delta){
-        if (inputOn) return;
-        for (Window window: windows){
-            if (window.getClass() == MainWindow.class){
-                MainWindow mainWindow = (MainWindow)window;
-                mainWindow.moveGameWindow(delta);
-                return;
-            }
-        }
-    }
 
     public MainWindow getMainWindow(){
         for(Window window: windows){
@@ -115,19 +108,16 @@ public class Windows {
         return null;
     }
 
-    public boolean isInputOn() {
-        return inputOn;
-    }
-
-    public void setInputOn(boolean inputOn) {
-        this.inputOn = inputOn;
-    }
-
-    public void setCurrentInput(InputWindowElement currentInput) {
-        this.currentInput = currentInput;
-    }
-
     public Input getInput(){
         return input;
+    }
+
+    public GameEngine getGameEngine() {
+        return gameEngine;
+    }
+
+    public void takeOnTop(Window window){
+        windows.remove(window);
+        windows.add(window);
     }
 }

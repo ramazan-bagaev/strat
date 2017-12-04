@@ -41,12 +41,14 @@ public class Field {
     private Element additionalElement;
 
     private FieldMap map;
+    private Time time;
 
     private Random random;
 
 
-    public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map){
+    public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time){
         this.fieldMapPos = fieldMapPos;
+        this.time = time;
         setSize(size);
         setMap(map);
         setRandom(random);
@@ -58,7 +60,7 @@ public class Field {
         if (randNum == 2) tempType = Ground.GroundType.Water;
         if (randNum == 3) tempType = Ground.GroundType.Mud;
         if (randNum == 4) tempType = Ground.GroundType.Rock;
-        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, this);
+        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
         if (getGroundType() != Ground.GroundType.Water) {
             int elType = random.nextInt(3);
             if (elType == 0) additionalElement = createRock(random, globalPos);
@@ -77,7 +79,7 @@ public class Field {
             if (typeNum < 1) type = Tree.SizeType.Big;
             if (typeNum < 4 && typeNum > 0) type = Tree.SizeType.Middle;
             if (typeNum > 3) type = Tree.SizeType.Small;
-            return new Tree(pos.x, pos.y, getSize(), type, this);
+            return new Tree(pos.x, pos.y, getSize(), type, time, this);
         }
         if ( getGroundType() == Ground.GroundType.Soil && random.nextInt(10) > 3) {
             int typeNum = random.nextInt(3);
@@ -85,7 +87,7 @@ public class Field {
             if (typeNum == 0) type = Tree.SizeType.Big;
             if (typeNum == 1) type = Tree.SizeType.Middle;
             if (typeNum == 2) type = Tree.SizeType.Small;
-            return new Tree(pos.x, pos.y, getSize(), type, this);
+            return new Tree(pos.x, pos.y, getSize(), type, time, this);
         }
         return null;
     }
@@ -98,7 +100,7 @@ public class Field {
                 if (typeNum == 0) type = Rock.SizeType.Big;
                 if (typeNum == 1) type = Rock.SizeType.Middle;
                 if (typeNum == 2) type = Rock.SizeType.Small;
-                return new Rock(pos.x, pos.y, getSize(), type, this);
+                return new Rock(pos.x, pos.y, getSize(), type, time, this);
             }
         }
         return null;
@@ -112,7 +114,7 @@ public class Field {
             if (typeNum == 0) type = City.SizeType.Big;
             if (typeNum == 1 || typeNum == 2) type = City.SizeType.Middle;
             if (typeNum > 2) type = City.SizeType.Small;
-            return new City(pos.x, pos.y, getSize(), type, map, this);
+            return new City(pos.x, pos.y, getSize(), type, map, time, this);
         }
         return null;
     }

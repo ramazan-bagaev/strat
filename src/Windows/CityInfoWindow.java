@@ -2,6 +2,8 @@ package Windows;
 
 import Foundation.*;
 import Images.CityImage;
+import WindowElementGroups.ScrollableGroup;
+import WindowElements.ProductionInfoElement;
 
 public class CityInfoWindow extends ClosableWindow {
 
@@ -55,6 +57,29 @@ public class CityInfoWindow extends ClosableWindow {
         };
 
         addWindowElement(addWork);
+
+        Button showWorks = new Button(new Coord(10, 180).add(getPos()), new Coord(200, 20), this, "show works") {
+
+            @Override
+            public void click(Coord point) {
+                CityInfoWindow cityInfoWindow = (CityInfoWindow) getParent();
+                Production production = cityInfoWindow.getCity().getProduction();
+                cityInfoWindow.addCityProductionWindow(production);
+            }
+        };
+
+        addWindowElement(showWorks);
+
+        Button openResourceStore = new Button(new Coord(10, 200).add(getPos()), new Coord(200, 20), this, "resources") {
+            @Override
+            public void click(Coord point) {
+                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
+                ResourceStore resourceStore = cityInfoWindow.getCity().getResourceStore();
+                cityInfoWindow.addCityResourceWindow(resourceStore);
+            }
+        };
+
+        addWindowElement(openResourceStore);
     }
 
     public void addPopulationGroupWindow(Population population){
@@ -66,6 +91,28 @@ public class CityInfoWindow extends ClosableWindow {
             }
         }
         addWindow(new PopulationInfoWindow(population, getParent()));
+    }
+
+    public void addCityProductionWindow(Production production){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == CityProductionWindow.class){
+                CityProductionWindow cityProductionWindow = (CityProductionWindow)window;
+                cityProductionWindow.setProduction(production);
+                return;
+            }
+        }
+        addWindow(new CityProductionWindow(production, getParent()));
+    }
+
+    public void addCityResourceWindow(ResourceStore resourceStore){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == ResourceStoreWindow.class){
+                ResourceStoreWindow resourceStoreWindow = (ResourceStoreWindow) window;
+                resourceStoreWindow.setResourceStore(resourceStore);
+                return;
+            }
+        }
+        addWindow(new ResourceStoreWindow(resourceStore, getParent()));
     }
 
 }
