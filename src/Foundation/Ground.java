@@ -35,6 +35,14 @@ public class Ground extends Element {
         this.size = size;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
     public enum GroundType{
         Sand, Water, Soil, Mud, Rock
     }
@@ -42,6 +50,8 @@ public class Ground extends Element {
     private int x;
     private int y;
     private int size;
+    private int capacity;
+    private int maxCapacity;
 
     private GroundType groundType;
 

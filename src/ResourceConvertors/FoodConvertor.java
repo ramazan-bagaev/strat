@@ -11,8 +11,8 @@ public class FoodConvertor  extends ResourceConvertor {
         Resource.Type outputType = Resource.Type.Food;
         setOutput(outputType);
 
-        Ground ground = field.getGround();
-        ResourceCause resCause = ground.getResourceCause();
+        Ecosystem ecosystem = field.getEcosystem();
+        ResourceCause resCause = ecosystem.getResourceCause();
         setResourceCause(resCause);
     }
 

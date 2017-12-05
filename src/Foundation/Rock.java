@@ -1,6 +1,6 @@
 package Foundation;
 
-public class Rock extends Element {
+public class Rock{
 
     public SizeType getSizeType() {
         return sizeType;
@@ -21,14 +21,14 @@ public class Rock extends Element {
 
 
     public Rock(int x, int y, int intSize, SizeType sizeType, Time time, Field parent){
-        super(Type.Rock, time, parent);
+        //super(Type.Rock, time, parent);
 
         int cap = 0;
         if (sizeType == SizeType.Big) cap = 100000;
         if (sizeType == SizeType.Middle) cap = 100000;
         if (sizeType == SizeType.Small) cap = 10000;
         ResourceCause rockCause = new ResourceCause(Resource.Type.Stone, cap, 100000, 0);
-        setResourceCause(rockCause);
+        //setResourceCause(rockCause);
 
         setX(x);
         setY(y);
@@ -45,8 +45,8 @@ public class Rock extends Element {
                 size = new Coord(getSize()/3, getSize()/3);
                 RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
 
-                addShape(shape1);
-                addShape(shape2);
+                //addShape(shape1);
+                //addShape(shape2);
                 break;
             }
 
@@ -59,15 +59,15 @@ public class Rock extends Element {
                 size = new Coord(getSize()/5, getSize()/5);
                 RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
 
-                addShape(shape1);
-                addShape(shape2);
+                //addShape(shape1);
+                //addShape(shape2);
                 break;
             }
             case Small: {
                 pos = new Coord(getX() + getSize() * 2/5, getY() + getSize() *2/5);
                 size = new Coord(getSize()/5, getSize()/5);
                 RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
-                addShape(shape1);
+                //addShape(shape1);
                 break;
             }
         }
@@ -102,21 +102,4 @@ public class Rock extends Element {
         this.size = size;
     }
 
-    @Override
-    public String getValue(String key){
-        String result = super.getValue(key);
-        if (!Broadcaster.noResult.equals(result)) return result;
-        switch (key){
-            case "sizeType":
-                switch (sizeType){
-                    case Big:
-                        return "big";
-                    case Middle:
-                        return "middle";
-                    case Small:
-                        return "small";
-                }
-        }
-        return Broadcaster.noResult;
-    }
 }

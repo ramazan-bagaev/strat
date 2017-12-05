@@ -35,7 +35,7 @@ public class Element extends Broadcaster {
     }
 
     public enum Type{
-        Rock, Tree, City, Ground
+        City, Ground, Ecosystem
     }
 
     private ResourceCause resourceCause;
@@ -66,7 +66,7 @@ public class Element extends Broadcaster {
         return shapes;
     }
 
-    public void setShapes(ArrayList<BasicShape> shapes) {
+    public void setBasicShapes(ArrayList<BasicShape> shapes) {
         this.shapes = shapes;
     }
 

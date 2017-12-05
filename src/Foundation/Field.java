@@ -15,6 +15,7 @@ public class Field {
 
     public void run() {
         groundElement.run();
+        ecosystem.run();
         if (additionalElement != null) additionalElement.run();
     }
 
@@ -38,6 +39,7 @@ public class Field {
     private int size;
 
     private Ground groundElement;
+    private Ecosystem ecosystem;
     private Element additionalElement;
 
     private FieldMap map;
@@ -63,10 +65,9 @@ public class Field {
         groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
         if (getGroundType() != Ground.GroundType.Water) {
             int elType = random.nextInt(3);
-            if (elType == 0) additionalElement = createRock(random, globalPos);
-            if (elType == 1) additionalElement = createTree(random, globalPos);
             if (elType == 2) additionalElement = createCity(random, globalPos);
         }
+        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
     }
 
 
@@ -141,5 +142,9 @@ public class Field {
 
     public void setFieldMapPos(Coord fieldMapPos) {
         this.fieldMapPos = fieldMapPos;
+    }
+
+    public Ecosystem getEcosystem() {
+        return ecosystem;
     }
 }

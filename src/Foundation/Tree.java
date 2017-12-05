@@ -1,6 +1,6 @@
 package Foundation;
 
-public class Tree extends Element {
+public class Tree {
 
     public SizeType getSizeType() {
         return sizeType;
@@ -10,14 +10,14 @@ public class Tree extends Element {
         this.sizeType = sizeType;
     }
 
-    public enum SizeType{
+    public enum SizeType {
         Small, Big, Middle
     }
 
     private SizeType sizeType;
 
-    public Tree(int x, int y, int elementSize, SizeType sizeType, Time time, Field parent){
-        super(Type.Tree, time, parent);
+    public Tree(int x, int y, int elementSize, SizeType sizeType, Time time, Field parent) {
+        //super(Type.Tree, time, parent);
         setSizeType(sizeType);
 
         int maxCapacity = 0;
@@ -29,7 +29,7 @@ public class Tree extends Element {
         if (sizeType == SizeType.Small) cap = 1000;
 
         ResourceCause treeCause = new ResourceCause(Resource.Type.Tree, cap, maxCapacity, 1);
-        setResourceCause(treeCause);
+        //setResourceCause(treeCause);
 
         RectangleShape trunk;
         RectangleShape foliage;
@@ -41,7 +41,7 @@ public class Tree extends Element {
         int foliageWidth;
         int trunkHeight;
         int trunkWidth;
-        switch (sizeType){
+        switch (sizeType) {
             case Big:
                 foliageHeight = elementSize / 2;
                 foliageWidth = elementSize * 3 / 4;
@@ -53,8 +53,8 @@ public class Tree extends Element {
                 trunkY = foliageY + foliageHeight;
                 trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red, true);
                 foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green, true);
-                addShape(trunk);
-                addShape(foliage);
+                //addShape(trunk);
+                //addShape(foliage);
                 break;
             case Middle:
                 foliageHeight = elementSize * 3 / 8;
@@ -67,8 +67,8 @@ public class Tree extends Element {
                 foliageY = trunkY - foliageHeight;
                 trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red);
                 foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green);
-                addShape(trunk);
-                addShape(foliage);
+                //addShape(trunk);
+                //addShape(foliage);
                 break;
             case Small:
                 foliageHeight = elementSize / 4;
@@ -81,32 +81,10 @@ public class Tree extends Element {
                 foliageY = trunkY - foliageHeight;
                 trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red);
                 foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green);
-                addShape(trunk);
-                addShape(foliage);
+                //addShape(trunk);
+                //addShape(foliage);
                 break;
         }
     }
 
-    @Override
-    public void run(){
-        renewResourceCause();
-    }
-
-    @Override
-    public String getValue(String key){
-        String result = super.getValue(key);
-        if (!Broadcaster.noResult.equals(result)) return result;
-        switch (key){
-            case "sizeType":
-                switch (sizeType){
-                    case Small:
-                        return "small";
-                    case Big:
-                        return "big";
-                    case Middle:
-                        return "middle";
-                }
-        }
-        return Broadcaster.noResult;
-    }
 }

@@ -32,16 +32,6 @@ public class FieldInfoWindow extends ClosableWindow{
         Image finalImage = groundImage;
         if (additionalElement != null) {
             switch (additionalElement.getType()) {
-                case Rock:
-                    Rock rock = (Rock) additionalElement;
-                    Image rockImage = new RockImage(getPos(), rock.getSizeType(), this);
-                    finalImage = new Image(groundImage, rockImage, getPos(), this);
-                    break;
-                case Tree:
-                    Tree tree = (Tree) additionalElement;
-                    Image treeImage = new TreeImage(getPos(), tree.getSizeType(), this);
-                    finalImage = new Image(groundImage, treeImage, getPos(), this);
-                    break;
                 case City:
                     City city = (City) additionalElement;
                     Image cityImage = new CityImage(getPos(), city.getSizeType(), this);
@@ -72,6 +62,18 @@ public class FieldInfoWindow extends ClosableWindow{
                 "Ground fertility:", groundElement, "resourceCause.capacity", this);
         addWindowElement(groundResourceCauseLabel);
 
+
+        Button ecoButton = new Button(new Coord(10, 115).add(getPos()), new Coord(30, 20),this, "eco") {
+            @Override
+            public void click(Coord point) {
+                FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();
+                Ecosystem ecosystem = fieldInfoWindow.getField().getEcosystem();
+                fieldInfoWindow.addEcosystemInfoWindow(ecosystem);
+            }
+        };
+        addWindowElement(ecoButton);
+
+
         // additional element place
         if (additionalElement == null) return;
 
@@ -80,7 +82,7 @@ public class FieldInfoWindow extends ClosableWindow{
             Windows windows = getParent();
             //String cityTypeString = city.getValue("sizeType");
             //Label cityTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "City size: " + cityTypeString, this);
-            StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 115).add(getPos()), new Coord(300, 10),
+            StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(300, 10),
                     "City size:", city, "sizeType", this){
 
                 @Override
@@ -107,37 +109,6 @@ public class FieldInfoWindow extends ClosableWindow{
             addWindowElement(cityFoodChangableLabel);*/
 
         }
-        if (additionalElement.getType() == Element.Type.Rock){
-            Rock rock = (Rock)additionalElement;
-            //String rockTypeString = rock.getValue("sizeType");
-            //Label rockTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "Rock size: " + rockTypeString, this);
-            StaticBroadcastLabel rockLabel = new StaticBroadcastLabel(new Coord(10, 115).add(getPos()), new Coord(300, 10),
-                    "Rock size:", rock, "sizeType",this);
-            addWindowElement(rockLabel);
-
-            /*Label rockCapacityLabel = new Label(new Coord(10, 135).add(getPos()),new Coord(150, 10), "Rock capacity:", this);
-            addWindowElement(rockCapacityLabel);
-            String rockCapacityString = rock.getValue("resourceCause.capacity");
-            ChangableLabel rockCapacityChangableLabel = new ChangableLabel(new Coord(200, 135).add(getPos()), new Coord(50, 10),
-                    rockCapacityString, rock, "resourceCause.capacity", this);
-            addWindowElement(rockCapacityChangableLabel);*/
-        }
-        if (additionalElement.getType() == Element.Type.Tree){
-            Tree tree = (Tree)additionalElement;
-            //String treeTypeString = tree.getValue("sizeType");
-            //Label treeTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "Tree size: " + treeTypeString, this);
-            StaticBroadcastLabel treeLabel = new StaticBroadcastLabel(new Coord(10, 115).add(getPos()), new Coord(300, 10),
-                    "Tree size:", tree, "sizeType",this);
-            addWindowElement(treeLabel);
-
-            /*Label treeCapacityLabel = new Label(new Coord(10, 135).add(getPos()),new Coord(150, 10), "Tree capacity:", this);
-            addWindowElement(treeCapacityLabel);
-            String treeCapacityString = tree.getValue("resourceCause.capacity");
-            ChangableLabel treeCapacityChangableLabel = new ChangableLabel(new Coord(200, 135).add(getPos()), new Coord(50, 10),
-                    treeCapacityString, tree, "resourceCause.capacity", this);
-            addWindowElement(treeCapacityChangableLabel);*/
-        }
-
     }
 
     public void addCityInfoWindow(City city){
@@ -149,6 +120,17 @@ public class FieldInfoWindow extends ClosableWindow{
             }
         }
         addWindow(new CityInfoWindow(city, getParent()));
+    }
+
+    public void addEcosystemInfoWindow(Ecosystem ecosystem){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == EcosystemInfoWindow.class){
+                EcosystemInfoWindow ecosystemInfoWindow = (EcosystemInfoWindow)window;
+               ecosystemInfoWindow.setEcosystem(ecosystem);
+                return;
+            }
+        }
+        addWindow(new EcosystemInfoWindow(ecosystem, getParent()));
     }
 
 }
