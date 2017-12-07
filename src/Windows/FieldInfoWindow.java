@@ -3,8 +3,9 @@ package Windows;
 import Foundation.*;
 import Images.CityImage;
 import Images.GroundImage;
-import Images.RockImage;
-import Images.TreeImage;
+import WindowElements.CloseButton;
+import WindowElements.MonitoredBroadcastLabel;
+import WindowElements.StaticBroadcastLabel;
 
 public class FieldInfoWindow extends ClosableWindow{
 

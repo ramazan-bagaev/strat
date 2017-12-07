@@ -4,7 +4,6 @@ public class FoodType {
 
     public static final int MEAT = 0;
     public static final int PLANTS = 1;
-    public static final int WATER = 2;
 
     public int group;
     public int kind;
@@ -12,6 +11,10 @@ public class FoodType {
     public FoodType(int group){
         kind = 0;
         this.group = group;
+    }
+
+    public boolean sameAs(FoodType foodType){
+        return (group == foodType.group && kind == foodType.kind);
     }
 
 }

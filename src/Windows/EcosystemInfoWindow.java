@@ -6,6 +6,7 @@ import Foundation.Fauna.Fauna;
 import Foundation.Flora.Flora;
 import Foundation.Label;
 import Foundation.Windows;
+import WindowElements.MonitoredBroadcastLabel;
 
 public class EcosystemInfoWindow extends ClosableWindow{
 
@@ -45,13 +46,6 @@ public class EcosystemInfoWindow extends ClosableWindow{
 
         Fauna fauna = ecosystem.getFauna();
 
-        MonitoredBroadcastLabel herbAmount = new MonitoredBroadcastLabel(new Coord(10, 110).add(getPos()), new Coord(230, 20), "herbivores:",
-                fauna, "herbivores", this);
-        addWindowElement(herbAmount);
-
-        MonitoredBroadcastLabel predAmounts = new MonitoredBroadcastLabel(new Coord(10, 130).add(getPos()), new Coord(230, 20), "predators:",
-                fauna, "predators", this);
-        addWindowElement(predAmounts);
 
     }
 

@@ -1,6 +1,7 @@
 package Foundation;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ResourceStore {
 
@@ -23,12 +24,10 @@ public class ResourceStore {
 
     public void addResource(Resource resource){
         for (ResourceBank bank: resourceBanks){
-            if (bank.getType() == resource.getType()){
-                bank.addResource(resource);
-                return;
-            }
+            if (bank.addResource(resource)) return;
         }
-        ResourceBank newResourceBank = new ResourceBank(resource.getType(), resource.getAmount());
+        ResourceBank newResourceBank = resource.getResourceBank();
+        newResourceBank.addResource(resource);
         resourceBanks.add(newResourceBank);
     }
 
@@ -48,9 +47,19 @@ public class ResourceStore {
     }
 
     public int consumeResource(int amount, Resource.Type type){
+        int sum = 0;
         for(ResourceBank resourceBank: resourceBanks){
-            if (resourceBank.getType() == type) return resourceBank.consume(amount);
+            if (resourceBank.getType() == type) sum += resourceBank.consume(amount);
+            if (sum == amount) return sum;
         }
-        return 0;
+        return sum;
+    }
+
+    public void run(){
+        Iterator<ResourceBank> iter = resourceBanks.iterator();
+        while(iter.hasNext()){
+        ResourceBank resourceBank = iter.next();
+            if (resourceBank.getCapacity() == 0) iter.remove();
+        }
     }
 }

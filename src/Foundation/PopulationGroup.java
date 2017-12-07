@@ -8,6 +8,7 @@ public class PopulationGroup extends Broadcaster {
     public static final int HIGH_CLASS = 2;
 
     public static final int NO_WORK = -1;
+    public static final int NEW_WORK = -2;
 
     public static final int NO_CITY = -1;
 

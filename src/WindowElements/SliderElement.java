@@ -75,7 +75,15 @@ public class SliderElement extends WindowElement{
         pressedPos = point;
     }
 
-    public int getValue(){
+    public int getNumber(){
         return (int)(((float)(end - begin))/(float)(getSize().x - slider.getSize().x) * (slider.getPos().x - getPos().x));
+    }
+
+    @Override
+    public String getValue(String key){
+        if (key == "number"){
+            return String.valueOf(getNumber());
+        }
+        return Broadcaster.noResult;
     }
 }

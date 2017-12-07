@@ -1,6 +1,7 @@
 package Windows;
 
 import Foundation.*;
+import WindowElements.MonitoredBroadcastLabel;
 
 public class ResourceStoreWindow extends ClosableWindow {
 

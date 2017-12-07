@@ -1,6 +1,8 @@
 package Foundation.Resources;
 
-import Foundation.Resource;
+import Foundation.*;
+import Foundation.ResourceBanks.FoodBank;
+import Images.FoodResourceImage;
 
 public class Food extends Resource{
 
@@ -13,5 +15,16 @@ public class Food extends Resource{
 
     public FoodType getFoodType() {
         return foodType;
+    }
+
+    @Override
+    public Image getImage(Coord pos, Coord size, Window parent) {
+        return new FoodResourceImage(pos, size, parent);
+    }
+
+    @Override
+    public ResourceBank getResourceBank(){
+        FoodBank foodBank = new FoodBank(foodType);
+        return foodBank;
     }
 }

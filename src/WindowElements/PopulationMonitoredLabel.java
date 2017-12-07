@@ -1,4 +1,4 @@
-package Windows;
+package WindowElements;
 
 import Foundation.*;
 
@@ -25,10 +25,6 @@ public class PopulationMonitoredLabel extends Label{
 
     }
 
-    @Override
-    public void click(Coord point) {
-
-    }
 
     public void renew(){
         boolean changed = false;

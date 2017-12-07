@@ -1,6 +1,7 @@
 package Foundation;
 
-import ResourceConvertors.FoodConvertor;
+import Foundation.Resources.Food;
+import Foundation.Resources.FoodType;
 
 public class City extends Element {
 
@@ -38,13 +39,6 @@ public class City extends Element {
         this.resourceStore = resourceStore;
     }
 
-    public Production getProduction() {
-        return production;
-    }
-
-    public void setProduction(Production production) {
-        this.production = production;
-    }
 
     public int getId() {
         return id;
@@ -99,7 +93,6 @@ public class City extends Element {
 
     private ResourceStore resourceStore;
     private Population population;
-    private Production production;
     private Works works;
 
     private FieldMap map;
@@ -156,20 +149,16 @@ public class City extends Element {
             }
         }
         resourceStore = new ResourceStore();
-        Resource resource = new Resource(Resource.Type.Food, population.overAllAmount() * 80);
-        resourceStore.addResource(resource);
+        Food food = new Food(population.overAllAmount() * 80, new FoodType(FoodType.PLANTS));
+        resourceStore.addResource(food);
 
-
-
-        production = new Production(resourceStore);
-        FoodConvertor foodConvertor = new FoodConvertor(getParent());
-        works = new Works(this);
-        works.addWork(foodConvertor, population.amountOfNotWorking());
+        works = new Works();
     }
 
     public void run() {
+        resourceStore.run();
         population.run();
-        production.run();
+        works.run();
     }
 
     @Override

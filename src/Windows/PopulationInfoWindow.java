@@ -2,6 +2,9 @@ package Windows;
 
 import Foundation.*;
 import WindowElementGroups.ScrollableGroup;
+import WindowElements.CloseButton;
+import WindowElements.MonitoredBroadcastLabel;
+import WindowElements.PopulationMonitoredLabel;
 
 import java.util.ArrayList;
 

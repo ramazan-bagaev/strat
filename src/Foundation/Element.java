@@ -14,14 +14,6 @@ public class Element extends Broadcaster {
         this.type = type;
     }
 
-    public void setResourceCause(ResourceCause resourceCause) {
-        this.resourceCause = resourceCause;
-    }
-
-    public ResourceCause getResourceCause(){
-        return resourceCause;
-    }
-
     public Field getParent() {
         return parent;
     }
@@ -34,11 +26,15 @@ public class Element extends Broadcaster {
         return time;
     }
 
+    @Override
+    public String getValue(String key) {
+        return Broadcaster.noResult;
+    }
+
     public enum Type{
         City, Ground, Ecosystem
     }
 
-    private ResourceCause resourceCause;
     private Type type;
     private Field parent;
     private Time time;
@@ -58,7 +54,7 @@ public class Element extends Broadcaster {
     }
 
     public void renewResourceCause(){
-        resourceCause.renew();
+        //resourceCause.renew();
     }
 
 
@@ -74,16 +70,4 @@ public class Element extends Broadcaster {
         shapes.add(shape);
     }
 
-    @Override
-    public String getValue(String key) {
-        switch (key) {
-            case "resourceCause.capacity":
-                return getResourceCause().getValue("capacity");
-            case "resourceCause.maxCapacity":
-                return getResourceCause().getValue("maxCapacity");
-            case "resourceCause.renewAmount":
-                return getResourceCause().getValue("renewAmount");
-        }
-        return Broadcaster.noResult;
-    }
 }

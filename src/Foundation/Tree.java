@@ -28,7 +28,7 @@ public class Tree {
         if (sizeType == SizeType.Middle) cap = 10000;
         if (sizeType == SizeType.Small) cap = 1000;
 
-        ResourceCause treeCause = new ResourceCause(Resource.Type.Tree, cap, maxCapacity, 1);
+        //ResourceCause treeCause = new ResourceCause(Resource.Type.Tree, cap, maxCapacity, 1);
         //setResourceCause(treeCause);
 
         RectangleShape trunk;

@@ -2,7 +2,7 @@ package Foundation;
 
 import java.util.ArrayList;
 
-public class WindowElement {
+public class WindowElement extends Broadcaster{
 
     private Coord pos;
     private Coord size;
@@ -88,5 +88,10 @@ public class WindowElement {
     }
 
     public void drag(Coord pos){
+    }
+
+    @Override
+    public String getValue(String key) {
+        return null;
     }
 }

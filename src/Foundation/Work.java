@@ -1,35 +1,31 @@
 package Foundation;
 
-public class Work {
+public abstract class Work {
 
-    private People people;
+    protected ResourceStore store;
+    protected People people;
     private int id;
+    private Type type;
 
-    private ResourceConvertor resourceConvertor;
-
-    public Work(People people, ResourceConvertor resourceConvertor, int id){
-        setPeople(people);
-        setResourceConvertor(resourceConvertor);
-        this.id = id;
+    public Work(ResourceStore resourceStore){
+        this.store = resourceStore;
     }
 
-    public People getPeople() {
-        return people;
-    }
-
-    public void setPeople(People people) {
-        this.people = people;
-    }
-
-    public ResourceConvertor getResourceConvertor() {
-        return resourceConvertor;
-    }
-
-    public void setResourceConvertor(ResourceConvertor resourceConvertor) {
-        this.resourceConvertor = resourceConvertor;
-    }
+    public abstract void doJob();
 
     public int getId(){
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPeople(People people){
+        this.people = people;
+    }
+
+    public enum Type{
+        Hunting, Gathering
     }
 }

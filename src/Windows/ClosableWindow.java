@@ -3,6 +3,7 @@ package Windows;
 import Foundation.Coord;
 import Foundation.Window;
 import Foundation.Windows;
+import WindowElements.CloseButton;
 
 public class ClosableWindow extends Window {
 

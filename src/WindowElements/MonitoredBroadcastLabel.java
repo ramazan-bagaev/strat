@@ -1,4 +1,4 @@
-package Windows;
+package WindowElements;
 
 import Foundation.*;
 

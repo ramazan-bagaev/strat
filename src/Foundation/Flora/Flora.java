@@ -12,7 +12,7 @@ public class Flora extends Broadcaster{
 
     public Flora(Ground ground){
         this.ground = ground;
-        int max = ground.getResourceCause().getCapacity();
+        int max = ground.getCapacity();
         treeAmount = max/2;
         wildPlantsAmount = max/2;
         cultivatedPlantsAmount = 0;
@@ -31,7 +31,7 @@ public class Flora extends Broadcaster{
     }
 
     public void run(){
-       int max = ground.getResourceCause().getCapacity();
+       int max = ground.getCapacity();
        int delta = max - treeAmount - wildPlantsAmount;
        if (delta > 0){
            if (delta < 20) delta = 20;

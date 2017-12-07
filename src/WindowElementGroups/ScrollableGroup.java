@@ -127,4 +127,8 @@ public class ScrollableGroup extends WindowElementGroup{
     public void setRowHeight(int rowHeight) {
         this.rowHeight = rowHeight;
     }
+
+    public int getClickedIndex(Coord point){
+        return bottomIndex + (point.y - getPos().y)/rowHeight;
+    }
 }

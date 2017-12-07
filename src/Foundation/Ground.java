@@ -90,8 +90,8 @@ public class Ground extends Element {
             maxCap = 10000;
             renewAm = 100;
         }
-        ResourceCause fertilityCause = new ResourceCause(Resource.Type.Fertility, cap, maxCap, renewAm);
-        setResourceCause(fertilityCause);
+        //ResourceCause fertilityCause = new ResourceCause(Resource.Type.Fertility);
+        //setResourceCause(fertilityCause);
 
         BasicShape.Color color = BasicShape.Color.White;
         if (getGroundType() == GroundType.Soil) color = BasicShape.Color.Green;

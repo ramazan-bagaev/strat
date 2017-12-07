@@ -27,7 +27,7 @@ public class Rock{
         if (sizeType == SizeType.Big) cap = 100000;
         if (sizeType == SizeType.Middle) cap = 100000;
         if (sizeType == SizeType.Small) cap = 10000;
-        ResourceCause rockCause = new ResourceCause(Resource.Type.Stone, cap, 100000, 0);
+        //ResourceCause rockCause = new ResourceCause(Resource.Type.Stone, cap, 100000, 0);
         //setResourceCause(rockCause);
 
         setX(x);

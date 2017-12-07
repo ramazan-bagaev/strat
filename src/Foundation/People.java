@@ -39,4 +39,10 @@ public class People {
     public int getAmount() {
         return overAllAmount();
     }
+
+    public void setWorkId(int id){
+        for (PopulationGroup populationGroup: populationGroups){
+            populationGroup.workId = id;
+        }
+    }
 }

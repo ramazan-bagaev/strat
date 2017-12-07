@@ -4,24 +4,23 @@ import java.util.ArrayList;
 
 public class Works {
 
-    private City city;
-    private Population population;
     private ArrayList<Work> works;
     private int currentId;
 
-    public Works(City city){
+    public Works(){
         works = new ArrayList<>();
         currentId = 0;
-        this.city = city;
-        this.population = city.getPopulation();
     }
 
-    public void addWork(ResourceConvertor resourceConvertor, int peopleNumber){
-        People people = population.getPeopleForWork(peopleNumber, currentId);
-        resourceConvertor.setPeople(people);
-        Work work = new Work(people, resourceConvertor, currentId);
+    public void addWork(Work work){
         currentId++;
+        work.setId(currentId);
         works.add(work);
-        city.getProduction().addResourceConvertor(resourceConvertor);
+    }
+
+    public void run(){
+        for(Work work: works){
+            work.doJob();
+        }
     }
 }

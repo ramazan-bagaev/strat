@@ -1,50 +1,38 @@
 package Foundation.Fauna;
 
-import Foundation.Broadcaster;
+import Foundation.Ecosystem;
 import Foundation.Flora.Flora;
-import Foundation.ResourceCause;
-import Foundation.ResourceCauses.FoodCause;
+import Foundation.Ground;
+import Foundation.Resource;
 
 import java.util.ArrayList;
 
-public class Fauna extends Broadcaster{
+public class Fauna{
 
-    private ArrayList<ResourceCause> resourceCauses;
-
+    private Ecosystem ecosystem;
     private Flora flora;
-    private int herbivores;
-    private int predators;
+    private ArrayList<Animal> animals;
 
-    public Fauna(Flora flora){
-        this.flora = flora;
-        resourceCauses = new ArrayList<>();
-        resourceCauses.add(new FoodCause());
-        run();
+    public Fauna(Ecosystem ecosystem){
+        this.ecosystem = ecosystem;
+        this.flora = ecosystem.getFlora();
+        animals = new ArrayList<>();
+        Ground.GroundType groundType = ecosystem.getClimate().getGroundType();
+        if (groundType == Ground.GroundType.Soil){
+            animals.add(new Herbivores(100000));
+        }
+        if (groundType == Ground.GroundType.Mud){
+            animals.add(new Herbivores(10000));
+        }
     }
 
     public void run(){
-        herbivores = flora.getWildPlantsAmount() + flora.getTreeAmount();
-        predators = herbivores / 10;
-    }
-
-
-    @Override
-    public String getValue(String key) {
-        switch (key){
-            case "herbivores":
-                return String.valueOf(herbivores);
-            case "predators":
-                return String.valueOf(predators);
+        for (Animal animal: animals){
+            animal.run();
         }
-
-        return Broadcaster.noResult;
     }
 
-    public ArrayList<ResourceCause> getResourceCauses() {
-        return resourceCauses;
-    }
-
-    public void setResourceCauses(ArrayList<ResourceCause> resourceCauses) {
-        this.resourceCauses = resourceCauses;
+    public ArrayList<Animal> getAnimals() {
+        return animals;
     }
 }
