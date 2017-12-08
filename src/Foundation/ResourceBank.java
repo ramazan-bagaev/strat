@@ -48,6 +48,15 @@ public abstract class ResourceBank extends Broadcaster {
         switch (key){
             case "capacity":
                 return String.valueOf(getCapacity());
+            case "type":
+                switch (type){
+                    case HumanHour:
+                        return "humanHour";
+                    case Food:
+                        return "food";
+                    case Fertility:
+                        return "fertility";
+                }
         }
         return "no such value";
     }

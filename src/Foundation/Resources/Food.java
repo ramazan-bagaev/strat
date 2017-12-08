@@ -27,4 +27,18 @@ public class Food extends Resource{
         FoodBank foodBank = new FoodBank(foodType);
         return foodBank;
     }
+
+    @Override
+    public String getValue(String key){
+        switch (key){
+            case "foodType":
+                switch (foodType.group){
+                    case FoodType.MEAT:
+                        return "meat";
+                    case FoodType.PLANTS:
+                        return "plants";
+                }
+        }
+        return super.getValue(key);
+    }
 }

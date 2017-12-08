@@ -18,18 +18,6 @@ public class Flora extends Broadcaster{
         cultivatedPlantsAmount = 0;
     }
 
-    public int getTreeAmount() {
-        return treeAmount;
-    }
-
-    public int getWildPlantsAmount() {
-        return wildPlantsAmount;
-    }
-
-    public int getCultivatedPlantsAmount() {
-        return cultivatedPlantsAmount;
-    }
-
     public void run(){
        int max = ground.getCapacity();
        int delta = max - treeAmount - wildPlantsAmount;

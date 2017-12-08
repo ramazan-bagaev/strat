@@ -99,10 +99,6 @@ public class ScrollableGroup extends WindowElementGroup{
         }
     }
 
-    public int getElementOnScreen() {
-        return elementOnScreen;
-    }
-
     public void setElementOnScreen(int elementOnScreen) {
         this.elementOnScreen = elementOnScreen;
     }
