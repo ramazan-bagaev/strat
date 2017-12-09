@@ -21,9 +21,7 @@ public class HuntingWork extends Work {
         ArrayList<Resource> resources = new ArrayList<>();
         ArrayList<Animal> animals = fauna.getAnimals();
         for(Animal animal: animals){
-            if (animal.getConsumtionStage() > 1) {
-                resources.addAll(animal.getResources(amount));
-            }
+            if (animal.isHuntable()) resources.addAll(animal.getResources(amount));
         }
         for(Resource resource: resources){
             store.addResource(resource);

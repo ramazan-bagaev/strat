@@ -12,7 +12,7 @@ public class Ecosystem extends Element{
     public Ecosystem(Coord pos, Coord size, Time time, Field parent) {
         super(Type.Ecosystem, time, parent);
         climate = new Climate(parent.getGround(), Climate.MID_TEMPERATURE);
-        flora = new Flora(parent.getGround());
+        flora = new Flora(this, parent.getGround());
         fauna = new Fauna(this);
     }
 

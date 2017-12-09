@@ -2,8 +2,7 @@ package Windows;
 
 import Foundation.*;
 import WindowElementGroups.ScrollableGroup;
-import WindowElements.MonitoredBroadcastLabel;
-import WindowElements.ResourceBankElement;
+import WindowElements.ResourceWindowElement;
 
 import java.util.ArrayList;
 
@@ -25,8 +24,8 @@ public class ResourceStoreWindow extends ClosableWindow {
         ArrayList<WindowElement> elements = new ArrayList<>();
 
         int y = 10;
-        for(ResourceBank resourceBank: resourceStore.getResourceBanks()){
-            elements.add(new ResourceBankElement(new Coord(10, y).add(getPos()), new Coord(280, 20), resourceBank, this));
+        for(Resource resource: resourceStore.getResources()){
+            elements.add(new ResourceWindowElement(new Coord(10, y).add(getPos()), new Coord(280, 20), resource, this));
             y += 20;
         }
 

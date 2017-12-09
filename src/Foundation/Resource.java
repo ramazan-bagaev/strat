@@ -16,11 +16,16 @@ public abstract class Resource extends Broadcaster{
     }
 
     public enum Type{
-        HumanHour, Food, Fertility
+        HumanHour, Food, Fertility, Fur
     }
 
     protected int amount;
     private Type type;
+
+    public Resource(Resource resource){
+        this.type = resource.getType();
+        this.amount = 0;
+    }
 
     public Resource(Type type, int amount){
         this.amount = amount;
@@ -32,8 +37,6 @@ public abstract class Resource extends Broadcaster{
     }
 
     public abstract Image getImage(Coord pos, Coord size, Window parent);
-
-    public abstract ResourceBank getResourceBank();
 
     @Override
     public String getValue(String key) {
@@ -48,8 +51,30 @@ public abstract class Resource extends Broadcaster{
                         return "food";
                     case Fertility:
                         return "fertility";
+                    case Fur:
+                        return "fur";
                 }
         }
         return Broadcaster.noResult;
+    }
+
+    public abstract boolean sameAs(Resource resource);
+
+    public abstract Resource getResource(int amount);
+
+    public int getRealAmount(int amount){
+        if (amount > this.amount) amount = this.amount;
+        if (amount < 0) amount = 0;
+        return amount;
+    }
+
+    public void increaseAmount(int delta){
+        if (delta > 0) amount += delta;
+    }
+
+    public int consume(int amount){
+        amount = getRealAmount(amount);
+        this.amount -= amount;
+        return amount;
     }
 }

@@ -134,7 +134,7 @@ public class Population extends Broadcaster{
 
     public void feed(){
         int necessaryFoodAmound = 8 * overAllAmount();
-        int existingFoodAmount = city.getResourceStore().consumeResource(necessaryFoodAmound, Resource.Type.Food);
+        int existingFoodAmount = city.getResourceStore().consumeFood(necessaryFoodAmound);
         int delta = existingFoodAmount - necessaryFoodAmound;
         if (delta < 0){
             delta = delta / 10;

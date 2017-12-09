@@ -1,7 +1,6 @@
 package Foundation;
 
 import Foundation.Resources.Food;
-import Foundation.Resources.FoodType;
 
 public class City extends Element {
 
@@ -149,7 +148,7 @@ public class City extends Element {
             }
         }
         resourceStore = new ResourceStore();
-        Food food = new Food(population.overAllAmount() * 80, new FoodType(FoodType.PLANTS));
+        Food food = new Food(population.overAllAmount() * 80, Food.FoodType.PLANT, "beginning supply");
         resourceStore.addResource(food);
 
         works = new Works();
@@ -177,10 +176,6 @@ public class City extends Element {
                     case Small:
                         return "small";
                 }
-            case "food":
-                ResourceBank bank = resourceStore.getResourceBank(Resource.Type.Food);
-                if (bank == null) break;
-                return bank.getValue("capacity");
         }
         return Broadcaster.noResult;
     }

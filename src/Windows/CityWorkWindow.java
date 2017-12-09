@@ -1,6 +1,7 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.WorksP.GatheringWork;
 import Foundation.WorksP.HuntingWork;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.MonitoredBroadcastLabel;
@@ -37,6 +38,15 @@ public class CityWorkWindow extends ClosableWindow {
                     city.getWorks().addWork(work);
                     People hunters = city.getPopulation().getPeopleForWork(cityWorkWindow.getAmount(), work.getId());
                     work.setPeople(hunters);
+                    close();
+                }
+                if (index == 1){
+                    CityWorkWindow cityWorkWindow = (CityWorkWindow)getParent();
+                    City city = cityWorkWindow.getCity();
+                    GatheringWork work = new GatheringWork(city.getResourceStore(), cityWorkWindow.getField());
+                    city.getWorks().addWork(work);
+                    People gatherers = city.getPopulation().getPeopleForWork(cityWorkWindow.getAmount(), work.getId());
+                    work.setPeople(gatherers);
                     close();
                 }
             }

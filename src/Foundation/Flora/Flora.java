@@ -1,44 +1,47 @@
 package Foundation.Flora;
 
 import Foundation.Broadcaster;
+import Foundation.Climate;
+import Foundation.Ecosystem;
 import Foundation.Ground;
+
+import java.util.ArrayList;
 
 public class Flora extends Broadcaster{
 
+    private Ecosystem ecosystem;
     private Ground ground;
-    private int treeAmount;
-    private int wildPlantsAmount;
-    private int cultivatedPlantsAmount;
 
-    public Flora(Ground ground){
+    private ArrayList<Plant> plants;
+
+    public Flora(Ecosystem ecosystem, Ground ground){
+        this.ecosystem = ecosystem;
         this.ground = ground;
-        int max = ground.getCapacity();
-        treeAmount = max/2;
-        wildPlantsAmount = max/2;
-        cultivatedPlantsAmount = 0;
+        plants = new ArrayList<>();
+        if (ground.getGroundType() == Ground.GroundType.Soil) {
+            plants.add(new Berry(100000));
+        }
+        if (ground.getGroundType() == Ground.GroundType.Mud) {
+            plants.add(new Berry(10000));
+        }
+        //int max = ground.getCapacity();
     }
 
     public void run(){
-       int max = ground.getCapacity();
-       int delta = max - treeAmount - wildPlantsAmount;
-       if (delta > 0){
-           if (delta < 20) delta = 20;
-           treeAmount += delta/20;
-           wildPlantsAmount += delta/20;
-       }
+        for (Plant plant: plants){
+            plant.run();
+        }
     }
 
 
     @Override
     public String getValue(String key) {
         switch (key){
-            case "tree":
-                return String.valueOf(treeAmount);
-            case "wildPlants":
-                return String.valueOf(wildPlantsAmount);
-            case "cultivatedPlants":
-                return String.valueOf(cultivatedPlantsAmount);
         }
         return Broadcaster.noResult;
+    }
+
+    public ArrayList<Plant> getPlants() {
+        return plants;
     }
 }

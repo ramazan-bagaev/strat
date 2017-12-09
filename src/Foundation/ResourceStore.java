@@ -5,61 +5,42 @@ import java.util.Iterator;
 
 public class ResourceStore {
 
-    private ArrayList<ResourceBank> resourceBanks;
+    private ArrayList<Resource> resources;
 
     public ResourceStore(){
-        resourceBanks = new ArrayList<>();
-    }
-
-    public void addResourceBank(ResourceBank resourceBank){
-        for (ResourceBank bank: resourceBanks ){
-            if (bank.getType() == resourceBank.getType()){
-                Resource resource = resourceBank.getAll();
-                bank.addResource(resource);
-                return;
-            }
-        }
-        resourceBanks.add(resourceBank);
+        resources = new ArrayList<>();
     }
 
     public void addResource(Resource resource){
-        for (ResourceBank bank: resourceBanks){
-            if (bank.addResource(resource)) return;
+        for (Resource storedResource: resources){
+            if (storedResource.sameAs(resource)){
+                storedResource.increaseAmount(resource.getAmount());
+                return;
+            }
         }
-        ResourceBank newResourceBank = resource.getResourceBank();
-        newResourceBank.addResource(resource);
-        resourceBanks.add(newResourceBank);
-    }
-
-    public ArrayList<ResourceBank> getResourceBanks() {
-        return resourceBanks;
-    }
-
-    public void setResourceBanks(ArrayList<ResourceBank> resourceBanks) {
-        this.resourceBanks = resourceBanks;
-    }
-
-    public ResourceBank getResourceBank(Resource.Type type){
-        for(ResourceBank resourceBank: resourceBanks){
-            if (resourceBank.getType() == type) return resourceBank;
-        }
-        return null;
-    }
-
-    public int consumeResource(int amount, Resource.Type type){
-        int sum = 0;
-        for(ResourceBank resourceBank: resourceBanks){
-            if (resourceBank.getType() == type) sum += resourceBank.consume(amount);
-            if (sum == amount) return sum;
-        }
-        return sum;
+        resources.add(resource);
     }
 
     public void run(){
-        Iterator<ResourceBank> iter = resourceBanks.iterator();
+        Iterator<Resource> iter = resources.iterator();
         while(iter.hasNext()){
-        ResourceBank resourceBank = iter.next();
-            if (resourceBank.getCapacity() == 0) iter.remove();
+        Resource resource = iter.next();
+            if (resource.getAmount() == 0) iter.remove();
         }
+    }
+
+    public ArrayList<Resource> getResources() {
+        return resources;
+    }
+
+    public int consumeFood(int amount){
+        int consumed = 0;
+        for (Resource resource: resources){
+            if (resource.getType() == Resource.Type.Food){
+                consumed += resource.consume(amount);
+                if (consumed == amount) return consumed;
+            }
+        }
+        return consumed;
     }
 }

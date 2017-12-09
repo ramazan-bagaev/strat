@@ -36,6 +36,7 @@ public abstract class Animal extends Broadcaster{
     }
 
     public abstract ArrayList<Resource> getResources(int amount);
+    public abstract boolean isHuntable();
 
     @Override
     public String getValue(String key) {
