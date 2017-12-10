@@ -111,15 +111,26 @@ public class Cursor {
         this.activeWindowElementGroup = activeWindowElementGroup;
     }
 
+    public void click(Coord point, boolean pressed, int button){
+        if (button == 0) action(point, pressed);
+        if (button == 1) additionalAction(point, pressed);
+    }
+
     public void action(Coord point, boolean pressed){
         this.pressed = pressed;
         if (!pressed) {
-            click(point);
+            actionWindow(point);
         }
         else{
             if (clickedWindowElement != null) input.getKeyboard().check(clickedWindowElement);
             else input.getKeyboard().setActiveElement(null);
             return;
+        }
+    }
+
+    public void additionalAction(Coord point, boolean pressed){
+        if (!pressed){
+            additionalActionWindow(point);
         }
     }
 
@@ -133,7 +144,7 @@ public class Cursor {
         }
     }
 
-    public void click(Coord point){
+    public void actionWindow(Coord point){
         if (activeWindowElement != null) {
             activeWindowElement.click(point);
             clickedWindowElement = activeWindowElement;
@@ -145,6 +156,22 @@ public class Cursor {
         }
         if (activeWindow != null) {
             activeWindow.click(point);
+            return;
+        }
+    }
+
+    public void additionalActionWindow(Coord point){
+        if (activeWindowElement != null) {
+            activeWindowElement.click2(point);
+            clickedWindowElement = activeWindowElement;
+            return;
+        }
+        if (activeWindowElementGroup != null) {
+            activeWindowElementGroup.click2(point);
+            return;
+        }
+        if (activeWindow != null) {
+            activeWindow.click2(point);
             return;
         }
     }

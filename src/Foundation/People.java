@@ -2,7 +2,7 @@ package Foundation;
 
 import java.util.ArrayList;
 
-public class People {
+public class People extends Broadcaster{
 
     private ArrayList<PopulationGroup> populationGroups;
     private City city;
@@ -44,5 +44,14 @@ public class People {
         for (PopulationGroup populationGroup: populationGroups){
             populationGroup.workId = id;
         }
+    }
+
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "amount":
+                return String.valueOf(overAllAmount());
+        }
+        return Broadcaster.noResult;
     }
 }

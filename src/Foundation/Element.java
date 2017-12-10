@@ -32,7 +32,7 @@ public class Element extends Broadcaster {
     }
 
     public enum Type{
-        City, Ground, Ecosystem
+        City, Ground, Ecosystem, Army
     }
 
     private Type type;

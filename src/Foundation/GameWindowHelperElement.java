@@ -10,6 +10,10 @@ public class GameWindowHelperElement extends WindowElement {
     private Coord fieldCoordKey;
     private City cityForWork;
 
+    private Field chosenField;
+    private Army chosenArmy;
+    private City chosenCity;
+
     public GameWindowHelperElement(GameWindowElement gameWindowElement){
         super(gameWindowElement.getPos(), gameWindowElement.getSize(), gameWindowElement.getParent());
         setGameWindowElement(gameWindowElement);
@@ -40,6 +44,20 @@ public class GameWindowHelperElement extends WindowElement {
         addChosenField(point);
     }
 
+    @Override
+    public void click2(Coord point){
+        if (chosenArmy == null) return;
+        point = getParent().getCameraConfiguration().transform(point);
+        int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
+        Coord index = new Coord(point.x / fieldSize,  point.y/ fieldSize);
+        Field field = gameWindowElement.getGameEngine().getField(index.x, index.y);
+        if (field.getCity() != null){
+            
+        }
+        chosenArmy.move(field);
+        setShapes();
+    }
+
     public GameWindowElement getGameWindowElement() {
         return gameWindowElement;
     }
@@ -52,6 +70,15 @@ public class GameWindowHelperElement extends WindowElement {
         int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
         Coord index = new Coord(point.x / fieldSize,  point.y/ fieldSize);
         fieldCoordKey = index;
+        chosenField = gameWindowElement.getGameEngine().getField(fieldCoordKey.x, fieldCoordKey.y);
+        if (chosenField != null){
+            chosenArmy = chosenField.getArmy();
+            chosenCity = chosenField.getCity();
+        }
+        else{
+            chosenArmy = null;
+            chosenCity = null;
+        }
         setShapes();
         // really difficult stuff, thing a little bit
     }
@@ -61,44 +88,41 @@ public class GameWindowHelperElement extends WindowElement {
         setShapes();
     }
 
-    public void addFieldWork(Field field, ArrayList<BasicShape> basicShapes){
-        int fieldSize = field.getSize();
-        Coord fieldIndex = field.getFieldMapPos();
-        Coord pos = new Coord(fieldIndex.x * fieldSize, fieldIndex.y * fieldSize);
-        Coord size = new Coord(fieldSize, fieldSize);
-        RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.Green, false);
-        basicShapes.add(rectangleShape);
-    }
-
     public void setShapes(){
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
-        if (cityForWork != null){
+        if (chosenField != null){
+            basicShapes.add(highlightFieldRectangle(chosenField, BasicShape.Color.Red));
+        }
+        if (chosenCity != null){
+            basicShapes.add(highlightFieldRectangle(chosenField, BasicShape.Color.Yellow));
+        }
+        if (chosenArmy != null){
+            basicShapes.add(highlightFieldRectangle(chosenArmy.getParent(), BasicShape.Color.Blue));
+        }
+
+        if (cityForWork != null) {
             GameEngine gameEngine = gameWindowElement.getGameEngine();
             Field field = cityForWork.getParent();
             Coord cityFieldIndex = field.getFieldMapPos();
-            for (int i = -2; i <= 2; i++){
-                for (int j = -2; j <= 2; j++){
+            for (int i = -2; i <= 2; i++) {
+                for (int j = -2; j <= 2; j++) {
                     if (i == 0 && j == 0) continue;
                     Coord coord = new Coord(i, j).add(cityFieldIndex);
                     Field neighborField = gameEngine.getField(coord.x, coord.y);
                     if (neighborField == null) continue;
-                    addFieldWork(neighborField, basicShapes);
+                    basicShapes.add(highlightFieldRectangle(neighborField, BasicShape.Color.Green));
                 }
             }
         }
-        if (fieldCoordKey != null){
-            Field field = gameWindowElement.getGameEngine().getField(fieldCoordKey.x, fieldCoordKey.y);
-            if (field == null){
-                fieldCoordKey = null;
-                return;
-            }
-            int fieldSize = field.getSize();
-            Coord pos = new Coord(fieldCoordKey.x * fieldSize, fieldCoordKey.y * fieldSize);
-            Coord size = new Coord(fieldSize, fieldSize);
-            RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.Red, false);
-            basicShapes.add(rectangleShape);
-        }
+    }
+
+    public RectangleShape highlightFieldRectangle(Field field, BasicShape.Color color){
+        int fieldSize = field.getSize();
+        Coord pos = new Coord(field.getFieldMapPos().x * fieldSize, field.getFieldMapPos().y * fieldSize);
+        Coord size = new Coord(fieldSize, fieldSize);
+        RectangleShape rectangleShape = new RectangleShape(pos, size, color, false);
+        return rectangleShape;
     }
 
     @Override

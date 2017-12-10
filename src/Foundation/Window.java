@@ -85,6 +85,9 @@ public class Window {
         parent.takeOnTop(this);
     }
 
+    public void click2(Coord point){
+    }
+
     public void scroll(double delta){
         if (cameraConfiguration.isScrollable()){
             cameraConfiguration.scroll((int)delta);

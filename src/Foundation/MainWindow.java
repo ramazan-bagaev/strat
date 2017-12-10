@@ -1,6 +1,8 @@
 package Foundation;
 
 import Windows.FieldInfoWindow;
+import Windows.CityInfoWindow;
+import Windows.ArmyInfoWindow;
 
 public class MainWindow extends Window{
 
@@ -40,6 +42,28 @@ public class MainWindow extends Window{
         }
         addWindow(new FieldInfoWindow(getParent(), field));
 
+    }
+
+    public void addNewCityInfoWindow(City city){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == CityInfoWindow.class){
+                CityInfoWindow cityInfoWindow = (CityInfoWindow)window;
+                cityInfoWindow.setCity(city);
+                return;
+            }
+        }
+        addWindow(new CityInfoWindow(city, getParent()));
+    }
+
+    public void addNewArmyInfoWindow(Army army){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == ArmyInfoWindow.class){
+                ArmyInfoWindow armyInfoWindow = (ArmyInfoWindow)window;
+                armyInfoWindow.setArmy(army);
+                return;
+            }
+        }
+        addWindow(new ArmyInfoWindow(army, getParent()));
     }
 
     public void moveGameWindow(Coord delta){

@@ -59,6 +59,16 @@ public class CityInfoWindow extends ClosableWindow {
 
         addWindowElement(addWork);
 
+        Button addArmy = new Button(new Coord(10, 180).add(getPos()), new Coord(150, 20), this, "add army") {
+            @Override
+            public void click(Coord point){
+                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
+                cityInfoWindow.addArmyAddWindow();
+            }
+        };
+
+        addWindowElement(addArmy);
+
         Button openResourceStore = new Button(new Coord(10, 200).add(getPos()), new Coord(200, 20), this, "resources") {
             @Override
             public void click(Coord point) {
@@ -91,6 +101,13 @@ public class CityInfoWindow extends ClosableWindow {
             }
         }
         addWindow(new ResourceStoreWindow(resourceStore, getParent()));
+    }
+
+    public void addArmyAddWindow(){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == ArmyAddWindow.class) return;
+        }
+        addWindow(new ArmyAddWindow(city, getParent()));
     }
 
 }

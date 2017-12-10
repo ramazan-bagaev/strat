@@ -1,6 +1,7 @@
 package Windows;
 
 import Foundation.*;
+import Images.ArmyImage;
 import Images.CityImage;
 import Images.GroundImage;
 import WindowElements.CloseButton;
@@ -27,20 +28,17 @@ public class FieldInfoWindow extends ClosableWindow{
         addWindowElement(closeButton);
 
         if (field == null) return;
-        Element additionalElement = field.getAdditionalElement();
+        Army army = field.getArmy();
         Ground groundElement = field.getGround();
         Image groundImage = new GroundImage(getPos(), groundElement.getGroundType(), this);
         Image finalImage = groundImage;
-        if (additionalElement != null) {
-            switch (additionalElement.getType()) {
-                case City:
-                    City city = (City) additionalElement;
-                    Image cityImage = new CityImage(getPos(), city.getSizeType(), this);
-                    finalImage = new Image(groundImage, cityImage, getPos(), this);
-                    break;
-                case Ground:
-                    break;
-            }
+        if (field.getCity() != null){
+            Image cityImage = new CityImage(getPos(), field.getCity().getSizeType(), this);
+            finalImage = new Image(groundImage, cityImage, getPos(), this);
+        }
+        if (army != null) {
+            Image armyImage = new ArmyImage(getPos(), this);
+            finalImage = new Image(groundImage, armyImage, getPos(), this);
         }
         addWindowElement(finalImage);
 
@@ -75,25 +73,25 @@ public class FieldInfoWindow extends ClosableWindow{
         addWindowElement(ecoButton);
 
 
-        // additional element place
-        if (additionalElement == null) return;
+        City city = field.getCity();
 
-        if (additionalElement.getType() == Element.Type.City){
-            City city = (City)additionalElement;
-            Windows windows = getParent();
+        // additional element place
+        if (city == null) return;
+
+        Windows windows = getParent();
             //String cityTypeString = city.getValue("sizeType");
             //Label cityTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "City size: " + cityTypeString, this);
-            StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(300, 10),
-                    "City size:", city, "sizeType", this){
+        StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(300, 10),
+                "City size:", city, "sizeType", this){
 
-                @Override
-                public void click(Coord points){
-                    FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();
-                    City city = (City)fieldInfoWindow.getField().getAdditionalElement();
-                    fieldInfoWindow.addCityInfoWindow(city);
-                }
-            };
-            addWindowElement(cityLabel);
+            @Override
+            public void click(Coord points){
+                FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();
+                City city = fieldInfoWindow.getField().getCity();
+                fieldInfoWindow.addCityInfoWindow(city);
+            }
+        };
+        addWindowElement(cityLabel);
 
             /*Label cityPopulationLabel = new Label(new Coord(10, 135).add(getPos()),new Coord(150, 10), "City population:", this);
             addWindowElement(cityPopulationLabel);
@@ -108,8 +106,6 @@ public class FieldInfoWindow extends ClosableWindow{
             ChangableLabel cityFoodChangableLabel = new ChangableLabel(new Coord(200, 155).add(getPos()), new Coord(50, 10),
                     cityFoodString, city, "food", this);
             addWindowElement(cityFoodChangableLabel);*/
-
-        }
     }
 
     public void addCityInfoWindow(City city){

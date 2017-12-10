@@ -16,7 +16,9 @@ public class Field {
     public void run() {
         groundElement.run();
         ecosystem.run();
-        if (additionalElement != null) additionalElement.run();
+        if (army != null) army.run();
+        //if (additionalElement != null) additionalElement.run();
+        if (city != null) city.run();
     }
 
     public FieldMap getMap() {
@@ -31,24 +33,32 @@ public class Field {
         return groundElement;
     }
 
-    public Element getAdditionalElement(){
-        return additionalElement;
-    }
+    //public Element getAdditionalElement(){
+   //     return additionalElement;
+   // }
+
+   // public void setAdditionalElement(Element element){
+   //     additionalElement = element;
+   // }
 
     private Coord fieldMapPos;
     private int size;
 
     private Ground groundElement;
     private Ecosystem ecosystem;
+    private City city;
+    private Army army;
     private Element additionalElement;
 
     private FieldMap map;
     private Time time;
 
     private Random random;
+    private boolean changed;
 
 
     public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time){
+        changed = false;
         this.fieldMapPos = fieldMapPos;
         this.time = time;
         setSize(size);
@@ -65,7 +75,7 @@ public class Field {
         groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
         if (getGroundType() != Ground.GroundType.Water) {
             int elType = random.nextInt(3);
-            if (elType == 2) additionalElement = createCity(random, globalPos);
+            if (elType == 2) city = createCity(random, globalPos);
         }
         ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
     }
@@ -146,5 +156,25 @@ public class Field {
 
     public Ecosystem getEcosystem() {
         return ecosystem;
+    }
+
+    public City getCity(){
+        return city;
+    }
+
+    public boolean isChanged() {
+        return changed;
+    }
+
+    public void setChanged(boolean changed){
+        this.changed = changed;
+    }
+
+    public Army getArmy(){
+        return army;
+    }
+
+    public void setArmy(Army army) {
+        this.army = army;
     }
 }

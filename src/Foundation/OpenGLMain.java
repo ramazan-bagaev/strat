@@ -118,7 +118,15 @@ public class OpenGLMain {
                     int y = (int) b2.get(0);
                     boolean pressed = true;
                     if (action == GLFW_RELEASE) pressed = false;
-                    cursor.action(new Coord(x, y), pressed);
+                    cursor.click(new Coord(x, y), pressed, 0);
+                }
+                if (button == GLFW_MOUSE_BUTTON_2){
+                    glfwGetCursorPos(window, b1, b2);
+                    int x = (int) b1.get(0);
+                    int y = (int) b2.get(0);
+                    boolean pressed = true;
+                    if (action == GLFW_RELEASE) pressed = false;
+                    cursor.click(new Coord(x, y), pressed, 1);
                 }
             }
         };

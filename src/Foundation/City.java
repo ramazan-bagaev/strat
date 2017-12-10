@@ -55,6 +55,10 @@ public class City extends Element {
         this.works = works;
     }
 
+    public Armies getArmies() {
+        return armies;
+    }
+
     public enum SizeType{
         Big, Middle, Small
     }
@@ -93,6 +97,7 @@ public class City extends Element {
     private ResourceStore resourceStore;
     private Population population;
     private Works works;
+    private Armies armies;
 
     private FieldMap map;
 
@@ -152,6 +157,8 @@ public class City extends Element {
         resourceStore.addResource(food);
 
         works = new Works();
+
+        armies = new Armies(this);
     }
 
     public void run() {

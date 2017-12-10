@@ -64,6 +64,9 @@ public class WindowElementGroup {
     public void click(Coord point){
     }
 
+    public void click2(Coord point){
+    }
+
     public void scroll(double delta){
     }
 

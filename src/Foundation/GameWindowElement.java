@@ -48,7 +48,9 @@ public class GameWindowElement extends WindowElement{
                 if (field == null) continue;
                 Element element = field.getGround();
                 if (element != null) basicShapes.addAll(element.getShapes());
-                element = field.getAdditionalElement();
+                element = field.getCity();
+                if (element != null) basicShapes.addAll(element.getShapes());
+                element = field.getArmy();
                 if (element != null) basicShapes.addAll(element.getShapes());
             }
         }
@@ -70,5 +72,45 @@ public class GameWindowElement extends WindowElement{
         Field field = gameEngine.getField(i, j);
         if (field == null) return;
         ((MainWindow)getParent()).addNewFieldInfoWindow(field);
+        City city = field.getCity();
+        if (city != null){
+            ((MainWindow) getParent()).addNewCityInfoWindow(city);
+        }
+        Army army = field.getArmy();
+        if (army != null){
+            ((MainWindow)getParent()).addNewArmyInfoWindow(army);
+        }
+
+      ///  if (f)
+    }
+
+    @Override
+    public void run(){
+        CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
+        FieldMap map = gameEngine.getMap();
+        int fieldSize = gameEngine.getFieldSize();
+
+        float zoom = cameraConfiguration.getZoom();
+        int fieldNumber = (int) Math.ceil(20 * zoom) + 1;
+
+        float deltax = cameraConfiguration.getX() / fieldSize;
+        float deltay = cameraConfiguration.getY() / fieldSize;
+        int deltai = 0;
+        int deltaj = 0;
+        if (deltax < 0) deltai = (int)Math.floor(deltax);
+        if (deltax >= 0) deltai = (int)Math.floor(deltax);
+        if (deltay < 0) deltaj = (int)Math.floor(deltay);
+        if (deltay >= 0) deltaj = (int)Math.floor(deltay);
+        for (int i = deltai; i <= fieldNumber + deltai; i++) {
+            for (int j = deltaj; j <= fieldNumber + deltaj; j++) {
+                Field field = map.getField(new Coord(i, j));
+                if (field == null) continue;
+                if (field.isChanged()){
+                    setShapes();
+                    field.setChanged(false);
+                    return;
+                }
+            }
+        }
     }
 }
