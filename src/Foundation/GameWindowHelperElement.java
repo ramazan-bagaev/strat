@@ -52,7 +52,7 @@ public class GameWindowHelperElement extends WindowElement {
         Coord index = new Coord(point.x / fieldSize,  point.y/ fieldSize);
         Field field = gameWindowElement.getGameEngine().getField(index.x, index.y);
         if (field.getCity() != null){
-            
+
         }
         chosenArmy.move(field);
         setShapes();

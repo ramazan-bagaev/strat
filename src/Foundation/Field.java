@@ -48,10 +48,12 @@ public class Field {
     private Ecosystem ecosystem;
     private City city;
     private Army army;
-    private Element additionalElement;
 
     private FieldMap map;
     private Time time;
+
+
+    private Date timeToIntersect;
 
     private Random random;
     private boolean changed;
@@ -64,7 +66,6 @@ public class Field {
         setSize(size);
         setMap(map);
         setRandom(random);
-        additionalElement = null;
         int randNum = random.nextInt(5);
         Ground.GroundType tempType = Ground.GroundType.Soil;
         if (randNum == 0) tempType = Ground.GroundType.Soil;
@@ -78,6 +79,33 @@ public class Field {
             if (elType == 2) city = createCity(random, globalPos);
         }
         ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
+        calculateTimeToIntersect();
+    }
+
+    public void calculateTimeToIntersect(){
+        int days = 0;
+        switch (getGroundType()){
+            case Sand:
+                days += 2;
+                break;
+            case Water:
+                days += 5;
+                break;
+            case Soil:
+                days += 1;
+                break;
+            case Mud:
+                days += 3;
+                break;
+            case Rock:
+                days += 4;
+                break;
+        }
+        Climate climate = ecosystem.getClimate();
+        int temperature = climate.getTemperature();
+        if (temperature == Climate.LOW_TEMPERATURE) days += 2;
+        if (temperature == Climate.HIGH_TEMPERATURE) days += 1;
+        timeToIntersect = new Date(days);
     }
 
 
@@ -176,5 +204,9 @@ public class Field {
 
     public void setArmy(Army army) {
         this.army = army;
+    }
+
+    public Date getTimeToIntersect() {
+        return timeToIntersect;
     }
 }

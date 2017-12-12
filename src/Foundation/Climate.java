@@ -17,4 +17,8 @@ public class Climate {
     public Ground.GroundType getGroundType() {
         return groundType;
     }
+
+    public int getTemperature() {
+        return temperature;
+    }
 }

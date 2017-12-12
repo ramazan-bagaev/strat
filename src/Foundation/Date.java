@@ -18,4 +18,31 @@ public class Date {
         this.month = START_MONTH;
         this.year = START_YEAR;
     }
+
+    public Date(int days){
+        this.year = days / 361;
+        days = days % 361;
+        this.month = days / 31;
+        days = days % 31;
+        this.day = days;
+        this.weekDay = START_WEEKDAY;
+    }
+
+    public Date(int day, int month, int year, int weekDay){
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.weekDay = weekDay;
+    }
+
+    public boolean sameAs(Date date){
+        return (day == date.day && month == date.month && year == date.year);
+    }
+
+    public Date add(Date date){
+        int day = this.day + date.day;
+        int month = this.month + date.month + day / 31;
+        int year = this.year + date.year + month / 13;
+        return new Date(day, month, year, weekDay);
+    }
 }

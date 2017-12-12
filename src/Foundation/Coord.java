@@ -24,6 +24,11 @@ public class Coord {
 
     }
 
+    public boolean isNeighbor(Coord point){
+        if (Math.abs(x - point.x) + Math.abs(y - point.y) == 1) return true;
+        return false;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;

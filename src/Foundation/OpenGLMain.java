@@ -211,11 +211,11 @@ public class OpenGLMain {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
             if (i > 100){
                 i = 0;
-                gameEngine.run();
+                //gameEngine.run();
             }
             i++;
-            windows.run();
-            windows.draw(openGLBinder);
+            //windows.run();
+            //windows.draw(openGLBinder);
 
             glfwSwapBuffers(window); // swap the color buffers
 
