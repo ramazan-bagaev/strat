@@ -37,6 +37,13 @@ public class CameraConfiguration {
         zooms.add(1.1f);
         zooms.add(1.2f);
         zooms.add(1.3f);
+        zooms.add(1.5f);
+        zooms.add(1.8f);
+        zooms.add(2f);
+        zooms.add(4f);
+        zooms.add(8f);
+
+
     }
 
     public void scroll(int delta){

@@ -93,7 +93,7 @@ public class OpenGLMain {
 
         FontFactory fontFactory = new FontFactory();
         ArrayList<Font> fonts = fontFactory.getFonts();
-        gameEngine = new GameEngine(50, 30);
+        gameEngine = new GameEngine(50, 100);
         windows = new Windows(gameEngine);
         windows.setFonts(fonts);
         MainWindow mainWindow = new MainWindow(new Coord(0, 0), new Coord(1000, 1000), gameEngine, windows);

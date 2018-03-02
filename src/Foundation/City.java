@@ -112,7 +112,7 @@ public class City extends Element {
         Coord size;
         switch (sizeType){
             case Big: {
-                setPopulation(new Population(this,10000)); // magic constant, TODO: make something with these constants
+                setPopulation(new Population(this,10000)); // magic constant, eee TODO: make something with these constants
                 pos = new Coord(getX() + getSize()/8, getY() + getSize()/8);
                 size = new Coord(getSize()/4, getSize()/4);
                 RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);

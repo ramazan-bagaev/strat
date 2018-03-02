@@ -25,4 +25,8 @@ public class FieldMap {
     public Collection<Field> getValues() {
         return map.values();
     }
+
+    public void setMap(HashMap<Coord, Field> map){
+        this.map = map;
+    }
 }

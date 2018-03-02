@@ -1,5 +1,7 @@
 package Foundation;
 
+import Generation.FieldMapGenerator;
+
 import java.util.Random;
 
 public class GameEngine {
@@ -16,10 +18,12 @@ public class GameEngine {
     }
 
     public GameEngine(int fieldSize, int fieldNumber){
-        map =  new FieldMap();
+        FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
+        map =  fieldMapGenerator.generate(fieldNumber, fieldSize);
+        //map = new FieldMap();
         time = new Time();
         setFieldSize(fieldSize);
-        generateRandomField(fieldNumber);
+        //generateRandomField(fieldNumber);
     }
 
 

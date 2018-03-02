@@ -58,6 +58,22 @@ public class Field {
     private Random random;
     private boolean changed;
 
+    public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time, Ground.GroundType type){
+        changed = false;
+        this.fieldMapPos = fieldMapPos;
+        this.time = time;
+        setSize(size);
+        setMap(map);
+        setRandom(random);
+        Ground.GroundType tempType = type;
+        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
+        if (getGroundType() != Ground.GroundType.Water) {
+            int elType = random.nextInt(3);
+            if (elType == 2) city = createCity(random, globalPos);
+        }
+        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
+        calculateTimeToIntersect();
+    }
 
     public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time){
         changed = false;
