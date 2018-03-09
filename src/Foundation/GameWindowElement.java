@@ -36,15 +36,14 @@ public class GameWindowElement extends WindowElement{
         int fieldNumber = (int) Math.ceil(20 * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
         float deltax = cameraConfiguration.getX() / fieldSize;
         float deltay = cameraConfiguration.getY() / fieldSize;
-        int deltai = 0;
-        int deltaj = 0;
-        if (deltax < 0) deltai = (int)Math.floor(deltax);
-        if (deltax >= 0) deltai = (int)Math.floor(deltax);
-        if (deltay < 0) deltaj = (int)Math.floor(deltay);
-        if (deltay >= 0) deltaj = (int)Math.floor(deltay);
-        for (int i = deltai; i <= fieldNumber + deltai; i++){
+        int deltai = (int)Math.floor(deltax);
+        int deltaj = (int)Math.floor(deltay);
+
+        ArrayList<BasicShape> shapes = map.getShapes(new Coord(deltai, deltaj), new Coord(fieldNumber, fieldNumber));
+        basicShapes.addAll(shapes);
+       /* for (int i = deltai; i <= fieldNumber + deltai; i++){
             for (int j = deltaj; j <= fieldNumber + deltaj; j++){
-                Field field = map.getField(new Coord(i, j));
+                Field field = map.getFieldByIndex(new Coord(i, j));
                 if (field == null) continue;
                 Element element = field.getGround();
                 if (element != null) basicShapes.addAll(element.getShapes());
@@ -53,7 +52,8 @@ public class GameWindowElement extends WindowElement{
                 element = field.getArmy();
                 if (element != null) basicShapes.addAll(element.getShapes());
             }
-        }
+        }*/
+
         /*for (Field field: map.getValues()){
             Element element = field.getGround();
             if (element != null) basicShapes.addAll(element.getShapes());
@@ -65,11 +65,7 @@ public class GameWindowElement extends WindowElement{
 
     @Override
     public void click(Coord point) {
-        int x = (point.x / gameEngine.getFieldSize()) * gameEngine.getFieldSize();
-        int y = (point.y / gameEngine.getFieldSize()) * gameEngine.getFieldSize();
-        int i = x / gameEngine.getFieldSize();
-        int j = y / gameEngine.getFieldSize();
-        Field field = gameEngine.getField(i, j);
+        Field field = gameEngine.getFieldByPos(point);
         if (field == null) return;
         ((MainWindow)getParent()).addNewFieldInfoWindow(field);
         City city = field.getCity();
@@ -93,7 +89,7 @@ public class GameWindowElement extends WindowElement{
         float zoom = cameraConfiguration.getZoom();
         int fieldNumber = (int) Math.ceil(20 * zoom) + 1;
 
-        float deltax = cameraConfiguration.getX() / fieldSize;
+        /*float deltax = cameraConfiguration.getX() / fieldSize;
         float deltay = cameraConfiguration.getY() / fieldSize;
         int deltai = 0;
         int deltaj = 0;
@@ -103,7 +99,7 @@ public class GameWindowElement extends WindowElement{
         if (deltay >= 0) deltaj = (int)Math.floor(deltay);
         for (int i = deltai; i <= fieldNumber + deltai; i++) {
             for (int j = deltaj; j <= fieldNumber + deltaj; j++) {
-                Field field = map.getField(new Coord(i, j));
+                Field field = map.getFieldByIndex(new Coord(i, j));
                 if (field == null) continue;
                 if (field.isChanged()){
                     setShapes();
@@ -111,6 +107,6 @@ public class GameWindowElement extends WindowElement{
                     return;
                 }
             }
-        }
+        }*/
     }
 }

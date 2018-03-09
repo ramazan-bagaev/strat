@@ -88,12 +88,12 @@ public class Window {
     public void click2(Coord point){
     }
 
-    public void scroll(double delta){
+    public void scroll(double delta, double x, double y){
         if (cameraConfiguration.isScrollable()){
-            cameraConfiguration.scroll((int)delta);
+            cameraConfiguration.scroll((int)delta, x - pos.x, y - pos.y);
             if (getClass() == MainWindow.class){
                 MainWindow mainWindow = (MainWindow)this;
-                mainWindow.getGameWindowElement().setShapes(); // TODO: you know
+                mainWindow.getGameWindowElement().setShapes(); // TODO: you know (no)
             }
         }
     }

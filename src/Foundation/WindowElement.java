@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class WindowElement extends Broadcaster{
 
-    private Coord pos;
-    private Coord size;
+    protected Coord pos;
+    protected Coord size;
 
     private Window parent;
     private WindowElementGroup groupParent;

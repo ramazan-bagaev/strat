@@ -48,9 +48,10 @@ public class Field {
     private Ecosystem ecosystem;
     private City city;
     private Army army;
+    private River river;
+
 
     private FieldMap map;
-    private Time time;
 
 
     private Date timeToIntersect;
@@ -58,18 +59,17 @@ public class Field {
     private Random random;
     private boolean changed;
 
-    public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time, Ground.GroundType type){
+    public Field(Coord fieldMapPos, Coord globalPos, Random random, FieldMap map, Time time, Ground.GroundType type){
         changed = false;
         this.fieldMapPos = fieldMapPos;
-        this.time = time;
-        setSize(size);
+        size = map.getFieldSize();
         setMap(map);
         setRandom(random);
         Ground.GroundType tempType = type;
         groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
         if (getGroundType() != Ground.GroundType.Water) {
-            int elType = random.nextInt(3);
-            if (elType == 2) city = createCity(random, globalPos);
+            int elType = random.nextInt(100);
+            if (elType == 1) city = createCity(random, globalPos, time);
         }
         ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
         calculateTimeToIntersect();
@@ -78,7 +78,6 @@ public class Field {
     public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time){
         changed = false;
         this.fieldMapPos = fieldMapPos;
-        this.time = time;
         setSize(size);
         setMap(map);
         setRandom(random);
@@ -91,8 +90,8 @@ public class Field {
         if (randNum == 4) tempType = Ground.GroundType.Rock;
         groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
         if (getGroundType() != Ground.GroundType.Water) {
-            int elType = random.nextInt(3);
-            if (elType == 2) city = createCity(random, globalPos);
+            int elType = random.nextInt(100);
+            if (elType == 1) city = createCity(random, globalPos, time);
         }
         ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
         calculateTimeToIntersect();
@@ -134,7 +133,7 @@ public class Field {
             if (typeNum < 1) type = Tree.SizeType.Big;
             if (typeNum < 4 && typeNum > 0) type = Tree.SizeType.Middle;
             if (typeNum > 3) type = Tree.SizeType.Small;
-            return new Tree(pos.x, pos.y, getSize(), type, time, this);
+           // return new Tree(pos.x, pos.y, getSize(), type, time, this);
         }
         if ( getGroundType() == Ground.GroundType.Soil && random.nextInt(10) > 3) {
             int typeNum = random.nextInt(3);
@@ -142,7 +141,7 @@ public class Field {
             if (typeNum == 0) type = Tree.SizeType.Big;
             if (typeNum == 1) type = Tree.SizeType.Middle;
             if (typeNum == 2) type = Tree.SizeType.Small;
-            return new Tree(pos.x, pos.y, getSize(), type, time, this);
+            //return new Tree(pos.x, pos.y, getSize(), type, time, this);
         }
         return null;
     }
@@ -155,13 +154,13 @@ public class Field {
                 if (typeNum == 0) type = Rock.SizeType.Big;
                 if (typeNum == 1) type = Rock.SizeType.Middle;
                 if (typeNum == 2) type = Rock.SizeType.Small;
-                return new Rock(pos.x, pos.y, getSize(), type, time, this);
+              //  return new Rock(pos.x, pos.y, getSize(), type, time, this);
             }
         }
         return null;
     }
 
-    private City createCity(Random random, Coord pos){
+    private City createCity(Random random, Coord pos, Time time){
         if (getGroundType() == Ground.GroundType.Rock) return null;
         if (random.nextInt(10) > 8) {
             int typeNum = random.nextInt(10);
@@ -224,5 +223,13 @@ public class Field {
 
     public Date getTimeToIntersect() {
         return timeToIntersect;
+    }
+
+    public River getRiver() {
+        return river;
+    }
+
+    public void setRiver(River river) {
+        this.river = river;
     }
 }

@@ -5,6 +5,10 @@ public class Coord {
     public int x;
     public int y;
 
+    public enum Direction{
+        Up, Down, Right, Left, None
+    }
+
     public Coord(int x, int y){
         this.x = x;
         this.y = y;
@@ -47,5 +51,13 @@ public class Coord {
         if (x != other.x) return false;
         if (y != other.y) return false;
         return true;
+    }
+
+    public Direction whatDirection(Coord other){
+        if (other.y - y > 0) return Direction.Down;
+        if (other.y - y < 0) return Direction.Up;
+        if (other.x - x > 0) return Direction.Right;
+        if (other.x - x < 0) return Direction.Left;
+        return Direction.None;
     }
 }

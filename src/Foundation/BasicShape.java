@@ -3,7 +3,7 @@ package Foundation;
 public abstract class BasicShape {
 
     public enum Type{
-        Rectangle, FilledRectangle, Character
+        Rectangle, FilledRectangle, Character, Line, Triangle
     }
 
     public enum Color{

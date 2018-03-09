@@ -9,6 +9,7 @@ public class CameraConfiguration {
     private float x;
     private float y;
 
+
     private float sizeX;
     private float sizeY;
 
@@ -40,23 +41,40 @@ public class CameraConfiguration {
         zooms.add(1.5f);
         zooms.add(1.8f);
         zooms.add(2f);
+        zooms.add(3f);
         zooms.add(4f);
+        zooms.add(5f);
+        zooms.add(6f);
+        zooms.add(7f);
         zooms.add(8f);
-
+        zooms.add(10f);
+        zooms.add(12f);
+        zooms.add(15f);
+        zooms.add(20f);
+        zooms.add(30f);
+        zooms.add(40f);
 
     }
 
-    public void scroll(int delta){
+    public void scroll(int delta, double x, double y){
         if (!scrollable) return;
         if (applied) return;
         if (delta < 0){
             if (zoomIndex != 0){
+                Coord oldCurs = transform(new Coord((int)x, (int)y));
                 zoomIndex--;
+                Coord newCurs = transform(new Coord((int)x, (int)y));
+                this.x = this.x + (oldCurs.x - newCurs.x);
+                this.y = this.y + (oldCurs.y - newCurs.y);
             }
         }
         if (delta > 0){
             if (zoomIndex != zooms.size() - 1){
+                Coord oldCurs = transform(new Coord((int)x, (int)y));
                 zoomIndex++;
+                Coord newCurs = transform(new Coord((int)x, (int)y));
+                this.x = this.x + (oldCurs.x - newCurs.x);
+                this.y = this.y + (oldCurs.y - newCurs.y);
             }
         }
     }
@@ -64,8 +82,8 @@ public class CameraConfiguration {
     public void move(Coord delta){
         if (!scrollable) return;
         if (applied) return;
-        x += delta.x;
-        y += delta.y;
+        x += delta.x * getZoom();
+        y += delta.y * getZoom();
     }
 
     public boolean isScrollable() {
@@ -121,7 +139,7 @@ public class CameraConfiguration {
         Coord result = new Coord(0, 0);
         float fx = (coord.x * getZoom() + x);
         float fy = (coord.y * getZoom() + y);
-        if (fx < 0 || fy < 0) return new Coord(-1000, -1000);
+        //dddddddddddddddif (fx < 0 || fy < 0) return new Coord(-1000, -1000);
         result.x = (int)fx;
         result.y = (int)fy;
         return result;

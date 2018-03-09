@@ -7,12 +7,15 @@ public class RectangleShape extends BasicShape {
     private Coord pos;
     private Coord size;
 
+    private boolean boxes;
+
     public RectangleShape(Coord pos, Coord size, BasicShape.Color color){
         super();
         setColor(color);
         setType(Type.FilledRectangle);
         setPos(pos);
         setSize(size);
+        boxes = true;
     }
 
     public RectangleShape(Coord pos, Coord size, BasicShape.Color color, boolean filled){
@@ -22,6 +25,17 @@ public class RectangleShape extends BasicShape {
         else setType(Type.Rectangle);
         setPos(pos);
         setSize(size);
+        boxes = true;
+    }
+
+    public RectangleShape(Coord pos, Coord size, BasicShape.Color color, boolean boxes, boolean filled){
+        super();
+        setColor(color);
+        if (filled) setType(Type.FilledRectangle);
+        else setType(Type.Rectangle);
+        setPos(pos);
+        setSize(size);
+        this.boxes = boxes;
     }
 
     public Coord getPos() {
@@ -43,5 +57,9 @@ public class RectangleShape extends BasicShape {
     @Override
     public void shift(Coord shift) {
         pos = pos.add(shift);
+    }
+
+    public boolean isBoxes() {
+        return boxes;
     }
 }

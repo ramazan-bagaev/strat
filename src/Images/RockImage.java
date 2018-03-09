@@ -6,59 +6,38 @@ import java.util.ArrayList;
 
 public class RockImage extends Image {
 
-    public RockImage(Coord pos, Coord size, Rock.SizeType sizeType, Window parent) {
+    public RockImage(Coord pos, Coord size, Window parent) {
         super(pos, size, parent);
-        setShapes(sizeType);
+        setShapes();
     }
 
-    public RockImage(Coord pos, Rock.SizeType sizeType, Window parent) {
+    public RockImage(Coord pos, Window parent) {
         super(pos, parent);
-        setShapes(sizeType);
+        setShapes();
     }
 
-    public void setShapes(Rock.SizeType sizeType){
-        Coord pos;
-        Coord size;
-        int x = getPos().x;
-        int y = getPos().y;
-        int sizeX = getSize().x;
-        int sizeY = getSize().y;
+    public void setShapes(){
         ArrayList<BasicShape> shapes = new ArrayList<>();
-        switch (sizeType){
-            case Big:{
-                pos = new Coord(x + sizeX/4, y + sizeY/4);
-                size = new Coord(sizeX/2, sizeY/2);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
-                pos = new Coord(x + sizeX/3, y + sizeY/3);
-                size = new Coord(sizeX/3, sizeY/3);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
+        RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.Gray, true);
+        shapes.add(rectangleShape);
 
-                shapes.add(shape1);
-                shapes.add(shape2);
-                break;
-            }
+        TriangleShape tr1 = new TriangleShape(pos.add(new Coord(2 *size.x/10, size.y)),
+                pos.add(new Coord(size.x/2, size.y / 8)),
+                pos.add(new Coord(8*size.x/10, size.y)), BasicShape.Color.LightGray);
 
 
-            case Middle: {
-                pos = new Coord(x + sizeX/3, y + sizeY/3);
-                size = new Coord(sizeX/3, sizeY/3);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
-                pos = new Coord(x + sizeX * 2/5, y + sizeY *2/5);
-                size = new Coord(sizeX/5, sizeY/5);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
+        TriangleShape tr2 = new TriangleShape(pos.add(new Coord(0, size.y)),
+                pos.add(new Coord(3*size.x/10, 2*size.y/3)),
+                pos.add(new Coord(4 *size.x/10, size.y)), BasicShape.Color.LightGray);
 
-                shapes.add(shape1);
-                shapes.add(shape2);
-                break;
-            }
-            case Small: {
-                pos = new Coord(x + sizeX * 2/5, y + sizeY *2/5);
-                size = new Coord(sizeX/5, sizeY/5);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
-                shapes.add(shape1);
-                break;
-            }
-        }
+
+        TriangleShape tr3 = new TriangleShape(pos.add(new Coord(6*size.x/10, size.y)),
+                pos.add(new Coord(8*size.x/10, size.y/2)),
+                pos.add(new Coord(size.x, size.y)), BasicShape.Color.LightGray);
+
+        shapes.add(tr1);
+        shapes.add(tr2);
+        shapes.add(tr3);
         setBasicShapes(shapes);
     }
 }

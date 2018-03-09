@@ -13,13 +13,13 @@ public class GameEngine {
     final Random random = new Random();
 
     public GameEngine(){
-        map = new FieldMap();
+        map = new FieldMap(10000, 100);
         time = new Time();
     }
 
     public GameEngine(int fieldSize, int fieldNumber){
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
-        map =  fieldMapGenerator.generate(fieldNumber, fieldSize);
+        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000);
         //map = new FieldMap();
         time = new Time();
         setFieldSize(fieldSize);
@@ -29,9 +29,9 @@ public class GameEngine {
 
     public void run(){
         time.nextDay();
-        for(Field field: map.getValues()){
-            field.run();
-        }
+       // for(Field field: map.getValues()){
+       //     field.run();
+       // }
     }
 
     public void generateRandomField(int fieldNumber){
@@ -60,8 +60,8 @@ public class GameEngine {
         this.map = map;
     }
 
-    public Field getField(int i, int j) {
-        return map.getField(new Coord(i, j));
+    public Field getFieldByPos(Coord pos) {
+        return map.getFieldByPos(pos);
     }
 
     public Time getTime() {

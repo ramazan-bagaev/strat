@@ -1,5 +1,9 @@
 package Foundation;
 
+import Images.RockImage;
+
+import java.util.ArrayList;
+
 public class Ground extends Element {
 
 
@@ -99,8 +103,16 @@ public class Ground extends Element {
         if (getGroundType() == GroundType.Water) color = BasicShape.Color.Blue;
         if (getGroundType() == GroundType.Mud) color = BasicShape.Color.Green2;
         if (getGroundType() == GroundType.Rock) color = BasicShape.Color.Gray;
-        RectangleShape newShape = new RectangleShape(new Coord(getX(), getY()), new Coord(getSize(), getSize()), color, true);
-        addShape(newShape);
+        if (getGroundType() == GroundType.Rock){
+            ArrayList<BasicShape> shapes = new RockImage(new Coord(getX(), getY()), new Coord(getSize(), getSize()), null).getBasicShapes();
+            for (BasicShape basicShape: shapes){
+                addShape(basicShape);
+            }
+        }
+        else {
+            RectangleShape newShape = new RectangleShape(new Coord(getX(), getY()), new Coord(getSize(), getSize()), color, true);
+            addShape(newShape);
+        }
     }
 
     @Override

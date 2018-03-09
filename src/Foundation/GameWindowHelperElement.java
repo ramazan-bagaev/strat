@@ -24,18 +24,16 @@ public class GameWindowHelperElement extends WindowElement {
     public void click(Coord point) {
         point = getParent().getCameraConfiguration().transform(point);
         if (cityForWork != null){
-            int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
-            Coord index = new Coord(point.x / fieldSize, point.y / fieldSize);
-            if (index.x - fieldCoordKey.x > 2 || index.x - fieldCoordKey.x < -2){
+            if (point.x - fieldCoordKey.x > 2 || point.x - fieldCoordKey.x < -2){
                 cityForWork = null;
                 setShapes();
             }
-            else if (index.y - fieldCoordKey.y > 2 || index.y - fieldCoordKey.y < -2){
+            else if (point.y - fieldCoordKey.y > 2 || point.y - fieldCoordKey.y < -2){
                 cityForWork = null;
                 setShapes();
             }
             else{
-                Field field = gameWindowElement.getGameEngine().getField(index.x, index.y);
+                Field field = gameWindowElement.getGameEngine().getFieldByPos(point);
                 CityWorkWindow cityWorkWindow = new CityWorkWindow(cityForWork, field, getParent().getParent());
                 getParent().addWindow(cityWorkWindow);
             }
@@ -49,8 +47,7 @@ public class GameWindowHelperElement extends WindowElement {
         if (chosenArmy == null) return;
         point = getParent().getCameraConfiguration().transform(point);
         int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
-        Coord index = new Coord(point.x / fieldSize,  point.y/ fieldSize);
-        Field field = gameWindowElement.getGameEngine().getField(index.x, index.y);
+        Field field = gameWindowElement.getGameEngine().getFieldByPos(point);
         if (field.getCity() != null){
 
         }
@@ -70,7 +67,7 @@ public class GameWindowHelperElement extends WindowElement {
         int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
         Coord index = new Coord(point.x / fieldSize,  point.y/ fieldSize);
         fieldCoordKey = index;
-        chosenField = gameWindowElement.getGameEngine().getField(fieldCoordKey.x, fieldCoordKey.y);
+        chosenField = gameWindowElement.getGameEngine().getFieldByPos(point);
         if (chosenField != null){
             chosenArmy = chosenField.getArmy();
             chosenCity = chosenField.getCity();
@@ -109,7 +106,7 @@ public class GameWindowHelperElement extends WindowElement {
                 for (int j = -2; j <= 2; j++) {
                     if (i == 0 && j == 0) continue;
                     Coord coord = new Coord(i, j).add(cityFieldIndex);
-                    Field neighborField = gameEngine.getField(coord.x, coord.y);
+                    Field neighborField = gameEngine.getMap().getFieldByIndex(coord);
                     if (neighborField == null) continue;
                     basicShapes.add(highlightFieldRectangle(neighborField, BasicShape.Color.Green));
                 }

@@ -22,6 +22,9 @@ public class OpenGLBinder {
         float y1;
         Coord pos;
         Coord size;
+        Coord posA;
+        Coord posB;
+        Coord posC;
         switch (basicShape.getType()){
             case Rectangle:
                 rect = (RectangleShape)basicShape;
@@ -64,14 +67,16 @@ public class OpenGLBinder {
                 glEnd();
                 glFlush();
 
-                glColor3f(0, 0, 0);
-                glBegin(GL_LINE_LOOP);
-                glVertex3f(x, y, 1);
-                glVertex3f(x, y1, 1);
-                glVertex3f(x1, y1, 1);
-                glVertex3f(x1, y, 1);
-                glEnd();
-                glFlush();
+                if (rect.isBoxes()) {
+                    glColor3f(0, 0, 0);
+                    glBegin(GL_LINE_LOOP);
+                    glVertex3f(x, y, 1);
+                    glVertex3f(x, y1, 1);
+                    glVertex3f(x1, y1, 1);
+                    glVertex3f(x1, y, 1);
+                    glEnd();
+                    glFlush();
+                }
                 break;
             case Character:
                 CharacterShape characterShape = (CharacterShape)basicShape;
@@ -90,6 +95,33 @@ public class OpenGLBinder {
                     glFlush();
                 }
                 break;
+            case Line:
+                LineShape lineShape = (LineShape)basicShape;
+                color = getColor(lineShape.getColor());
+                glColor3f(color.get(0), color.get(1), color.get(2));
+                glLineWidth(lineShape.getWidth());
+                posA = lineShape.getPosA();
+                posB = lineShape.getPosB();
+                glBegin(GL_LINES);
+                glVertex3f(posA.x, posA.y, 0);
+                glVertex3f(posB.x, posB.y, 0);
+                glEnd();
+                glFlush();
+                break;
+            case Triangle:
+                TriangleShape triangleShape = (TriangleShape)basicShape;
+                color = getColor(triangleShape.getColor());
+
+                posA = triangleShape.getPosA();
+                posB = triangleShape.getPosB();
+                posC = triangleShape.getPosC();
+                glBegin(GL_TRIANGLES);
+                glColor3f(color.get(0), color.get(1), color.get(2));
+                glVertex3f(posA.x, posA.y, 0);
+                glVertex3f(posB.x, posB.y, 0);
+                glVertex3f(posC.x, posC.y, 0);
+                glEnd();
+                glFlush();
         }
     }
 

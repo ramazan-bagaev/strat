@@ -140,7 +140,7 @@ public class Cursor {
             return;
         }
         if (activeWindow != null){
-            activeWindow.scroll(delta);
+            activeWindow.scroll(delta, posX, posY);
         }
     }
 
