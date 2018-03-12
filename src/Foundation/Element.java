@@ -32,25 +32,23 @@ public class Element extends Broadcaster {
     }
 
     public enum Type{
-        City, Ground, Ecosystem, Army, River
+        City, Ground, Ecosystem, Army, River, Tree, WorkPlace
     }
 
     private Type type;
-    private Field parent;
-    private Time time;
+    protected Field parent;
+    protected Time time;
+    protected FieldMap map;
 
     private ArrayList<BasicShape> shapes;
 
-    public Element(Type type, Time time, Field parent){
+    public Element(Type type, Time time, Field parent, FieldMap map){
         this.shapes = new ArrayList<>();
         this.time = time;
+        this.map = map;
 
         setType(type);
         setParent(parent);
-    }
-
-    public void run(){
-
     }
 
     public void renewResourceCause(){

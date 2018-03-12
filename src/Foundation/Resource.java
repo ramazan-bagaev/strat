@@ -1,66 +1,50 @@
 package Foundation;
 
-import Foundation.Resources.Food;
-import Images.FoodResourceImage;
-import Images.RockResourceImage;
-import Images.TreeResourceImage;
+public class Resource extends Broadcaster{
 
-public abstract class Resource extends Broadcaster{
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
 
     public enum Type{
-        HumanHour, Food, Fertility, Fur
+        Food, Material
     }
 
+
+    protected String name;
     protected int amount;
     private Type type;
 
-    public Resource(Resource resource){
-        this.type = resource.getType();
-        this.amount = 0;
-    }
 
-    public Resource(Type type, int amount){
+    public Resource(Type type, String name, int amount){
         this.amount = amount;
         this.type = type;
+        this.name = name;
     }
 
     public Type getType() {
         return type;
     }
 
-    public abstract Image getImage(Coord pos, Coord size, Window parent);
+    public Image getImage(Coord pos, Coord size, Window parent){
+        return null;
+    }
 
     @Override
     public String getValue(String key) {
         switch (key){
             case "amount":
                 return String.valueOf(amount);
-            case "type":
-                switch (type){
-                    case HumanHour:
-                        return "humanHour";
-                    case Food:
-                        return "food";
-                    case Fertility:
-                        return "fertility";
-                    case Fur:
-                        return "fur";
-                }
         }
         return Broadcaster.noResult;
     }
 
-    public abstract boolean sameAs(Resource resource);
+    public boolean sameAs(Resource resource){
+        if (this.type == resource.type && this.name.equals(resource.name)) return true;
+        return false;
+    }
 
-    public abstract Resource getResource(int amount);
+    public Resource getResource(int amount){
+        return new Resource(type, name, getRealAmount(amount));
+    }
 
     public int getRealAmount(int amount){
         if (amount > this.amount) amount = this.amount;
@@ -76,5 +60,21 @@ public abstract class Resource extends Broadcaster{
         amount = getRealAmount(amount);
         this.amount -= amount;
         return amount;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

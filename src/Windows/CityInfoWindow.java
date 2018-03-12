@@ -53,7 +53,8 @@ public class CityInfoWindow extends ClosableWindow {
             public void click(Coord point) {
                 GameWindowHelperElement gameWindowHelperElement = mainWindow.getGameWindowHelperElement();
                 CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
-                gameWindowHelperElement.addCityWork(cityInfoWindow.getCity());
+                cityInfoWindow.addWorkListWindow();
+                //gameWindowHelperElement.addCityWork(cityInfoWindow.getCity());
             }
         };
 
@@ -108,6 +109,13 @@ public class CityInfoWindow extends ClosableWindow {
             if (window.getClass() == ArmyAddWindow.class) return;
         }
         addWindow(new ArmyAddWindow(city, getParent()));
+    }
+
+    public void addWorkListWindow(){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == WorkListWindow.class) return;
+        }
+        addWindow(new WorkListWindow(city, getParent()));
     }
 
 }

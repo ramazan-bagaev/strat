@@ -2,13 +2,13 @@ package Foundation;
 
 public abstract class Work {
 
-    protected ResourceStore store;
+    protected City city;
     protected People people;
     private int id;
     private Type type;
 
-    public Work(ResourceStore resourceStore){
-        this.store = resourceStore;
+    public Work(City city){
+        this.city = city;
     }
 
     public abstract void doJob();

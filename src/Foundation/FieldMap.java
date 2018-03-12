@@ -93,6 +93,8 @@ public class FieldMap {
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getRiver();
                     if (element != null) result.addAll(element.getShapes());
+                    element = field.getTree();
+                    if (element != null) result.addAll(element.getShapes());
                 }
             }
         }

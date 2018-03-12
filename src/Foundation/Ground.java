@@ -59,8 +59,8 @@ public class Ground extends Element {
 
     private GroundType groundType;
 
-    public Ground(int x, int y, int elementSize, GroundType groundType, Time time, Field parent){
-        super(Type.Ground, time, parent);
+    public Ground(int x, int y, int elementSize, GroundType groundType, Time time, Field parent, FieldMap map){
+        super(Type.Ground, time, parent, map);
         setGroundType(groundType);
         setX(x);
         setY(y);
@@ -115,10 +115,6 @@ public class Ground extends Element {
         }
     }
 
-    @Override
-    public void run(){
-        renewResourceCause();
-    }
 
     @Override
     public String getValue(String key){

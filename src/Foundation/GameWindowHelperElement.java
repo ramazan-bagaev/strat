@@ -1,6 +1,8 @@
 package Foundation;
 
 import java.util.ArrayList;
+
+import Foundation.GameWindowHelper.HelperFieldMap;
 import Windows.CityWorkWindow;
 
 public class GameWindowHelperElement extends WindowElement {
@@ -11,48 +13,27 @@ public class GameWindowHelperElement extends WindowElement {
     private City cityForWork;
 
     private Field chosenField;
+
     private Army chosenArmy;
     private City chosenCity;
+
+    private HelperFieldMap map;
 
     public GameWindowHelperElement(GameWindowElement gameWindowElement){
         super(gameWindowElement.getPos(), gameWindowElement.getSize(), gameWindowElement.getParent());
         setGameWindowElement(gameWindowElement);
+        map = new HelperFieldMap(gameWindowElement.getGameEngine().getMap(), this);
         setBasicShapes(new ArrayList<>());
     }
 
     @Override
     public void click(Coord point) {
         point = getParent().getCameraConfiguration().transform(point);
-        if (cityForWork != null){
-            if (point.x - fieldCoordKey.x > 2 || point.x - fieldCoordKey.x < -2){
-                cityForWork = null;
-                setShapes();
-            }
-            else if (point.y - fieldCoordKey.y > 2 || point.y - fieldCoordKey.y < -2){
-                cityForWork = null;
-                setShapes();
-            }
-            else{
-                Field field = gameWindowElement.getGameEngine().getFieldByPos(point);
-                CityWorkWindow cityWorkWindow = new CityWorkWindow(cityForWork, field, getParent().getParent());
-                getParent().addWindow(cityWorkWindow);
-            }
-        }
         gameWindowElement.click(point);
-        addChosenField(point);
     }
 
     @Override
     public void click2(Coord point){
-        if (chosenArmy == null) return;
-        point = getParent().getCameraConfiguration().transform(point);
-        int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
-        Field field = gameWindowElement.getGameEngine().getFieldByPos(point);
-        if (field.getCity() != null){
-
-        }
-        chosenArmy.move(field);
-        setShapes();
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -63,55 +44,24 @@ public class GameWindowHelperElement extends WindowElement {
         this.gameWindowElement = gameWindowElement;
     }
 
-    public void addChosenField(Coord point){
-        int fieldSize = gameWindowElement.getGameEngine().getFieldSize();
-        Coord index = new Coord(point.x / fieldSize,  point.y/ fieldSize);
-        fieldCoordKey = index;
-        chosenField = gameWindowElement.getGameEngine().getFieldByPos(point);
-        if (chosenField != null){
-            chosenArmy = chosenField.getArmy();
-            chosenCity = chosenField.getCity();
-        }
-        else{
-            chosenArmy = null;
-            chosenCity = null;
-        }
-        setShapes();
-        // really difficult stuff, thing a little bit
-    }
-
-    public void addCityWork(City city){
-        cityForWork = city;
-        setShapes();
-    }
 
     public void setShapes(){
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
-        if (chosenField != null){
-            basicShapes.add(highlightFieldRectangle(chosenField, BasicShape.Color.Red));
-        }
-        if (chosenCity != null){
-            basicShapes.add(highlightFieldRectangle(chosenField, BasicShape.Color.Yellow));
-        }
-        if (chosenArmy != null){
-            basicShapes.add(highlightFieldRectangle(chosenArmy.getParent(), BasicShape.Color.Blue));
-        }
+        CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
 
-        if (cityForWork != null) {
-            GameEngine gameEngine = gameWindowElement.getGameEngine();
-            Field field = cityForWork.getParent();
-            Coord cityFieldIndex = field.getFieldMapPos();
-            for (int i = -2; i <= 2; i++) {
-                for (int j = -2; j <= 2; j++) {
-                    if (i == 0 && j == 0) continue;
-                    Coord coord = new Coord(i, j).add(cityFieldIndex);
-                    Field neighborField = gameEngine.getMap().getFieldByIndex(coord);
-                    if (neighborField == null) continue;
-                    basicShapes.add(highlightFieldRectangle(neighborField, BasicShape.Color.Green));
-                }
-            }
-        }
+        int fieldSize = map.getFieldSize();
+
+        float zoom = cameraConfiguration.getZoom();
+        int fieldNumber = (int) Math.ceil(20 * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
+        float deltax = cameraConfiguration.getX() / fieldSize;
+        float deltay = cameraConfiguration.getY() / fieldSize;
+        int deltai = (int)Math.floor(deltax);
+        int deltaj = (int)Math.floor(deltay);
+
+        ArrayList<BasicShape> shapes = map.getShapes(new Coord(deltai, deltaj), new Coord(fieldNumber, fieldNumber));
+        basicShapes.addAll(shapes);
+
     }
 
     public RectangleShape highlightFieldRectangle(Field field, BasicShape.Color color){

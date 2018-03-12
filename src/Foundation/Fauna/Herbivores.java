@@ -1,8 +1,6 @@
 package Foundation.Fauna;
 
 import Foundation.Resource;
-import Foundation.Resources.Food;
-import Foundation.Resources.Fur;
 
 import java.util.ArrayList;
 
@@ -19,8 +17,8 @@ public class Herbivores extends Animal{
         if (this.amount < amount) amount = this.amount;
         if (amount < 0) amount = 0;
         this.amount -= amount;
-        Food food = new Food(amount, Food.FoodType.MEAT, "herbivorous meat");
-        Fur fur = new Fur(amount, "herbivorous");
+        Resource food = new Resource(Resource.Type.Food,"herbivorous meat", amount);
+        Resource fur = new Resource(Resource.Type.Material, "herbivorous fur", amount);
         resources.add(food);
         resources.add(fur);
         return resources;

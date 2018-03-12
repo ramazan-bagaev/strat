@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class Window {
 
-    private Coord pos;
-    private Coord size;
-    private Windows parent;
+    protected Coord pos;
+    protected Coord size;
+    protected Windows parent;
     private int id;
     private ArrayList<BasicShape> basicShapes;
 
@@ -91,10 +91,13 @@ public class Window {
     public void scroll(double delta, double x, double y){
         if (cameraConfiguration.isScrollable()){
             cameraConfiguration.scroll((int)delta, x - pos.x, y - pos.y);
-            if (getClass() == MainWindow.class){
+            for(WindowElement element: windowElements){
+                element.setShapes();
+            }
+            /*if (getClass() == MainWindow.class){
                 MainWindow mainWindow = (MainWindow)this;
                 mainWindow.getGameWindowElement().setShapes(); // TODO: you know (no)
-            }
+            }*/
         }
     }
 

@@ -1,6 +1,6 @@
 package Foundation;
 
-import Foundation.Resources.Food;
+import Images.CityImage;
 
 public class City extends Element {
 
@@ -63,22 +63,6 @@ public class City extends Element {
         Big, Middle, Small
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
     public int getSize() {
         return size;
     }
@@ -87,10 +71,10 @@ public class City extends Element {
         this.size = size;
     }
 
-    private int x;
-    private int y;
+    private Coord pos;
     private int size;
     private SizeType sizeType;
+    private String name;
 
     private int id;
 
@@ -101,64 +85,32 @@ public class City extends Element {
 
     private FieldMap map;
 
-    public City(int x, int y, int intSize, SizeType sizeType, FieldMap map, Time time, Field parent){
-        super(Element.Type.City, time, parent);
-        setX(x);
-        setY(y);
+    public City(Coord pos, int intSize, String name, SizeType sizeType, FieldMap map, Time time, Field parent){
+        super(Element.Type.City, time, parent, map);
+        this.pos = new Coord(pos);
         setSize(intSize);
         setSizeType(sizeType);
         setMap(map);
-        Coord pos;
-        Coord size;
+        setBasicShapes(new CityImage(pos, new Coord(intSize, intSize), sizeType, null).getBasicShapes());
         switch (sizeType){
             case Big: {
                 setPopulation(new Population(this,10000)); // magic constant, eee TODO: make something with these constants
-                pos = new Coord(getX() + getSize()/8, getY() + getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
-                pos = new Coord(getX() + 5 * getSize()/8, getY() + getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.Red);
-                pos = new Coord(getX() + getSize()/8, getY() + 5 * getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape3 = new RectangleShape(pos, size, BasicShape.Color.Blue);
-                pos = new Coord(getX() + 5 * getSize()/8, getY() + 5 * getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape4 = new RectangleShape(pos, size, BasicShape.Color.Yellow);
-                addShape(shape1);
-                addShape(shape2);
-                addShape(shape3);
-                addShape(shape4);
-                break;
             }
             case Middle: {
                 setPopulation(new Population(this, 1000));
-                pos = new Coord(getX() + getSize()/8, getY() + 3 * getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
-                pos = new Coord(getX() + 5 * getSize()/8, getY() + 3 * getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.Red);
-                addShape(shape1);
-                addShape(shape2);
-                break;
             }
             case Small:{
                 setPopulation(new Population(this, 400));
-                pos = new Coord(getX() + 3 * getSize()/8, getY() + 3 * getSize()/8);
-                size = new Coord(getSize()/4, getSize()/4);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Red);
-                addShape(shape1);
-                break;
             }
         }
         resourceStore = new ResourceStore();
-        Food food = new Food(population.overAllAmount() * 80, Food.FoodType.PLANT, "beginning supply");
+        Resource food = new Resource(Resource.Type.Food, "beginning supply", population.overAllAmount() * 80);
         resourceStore.addResource(food);
 
         works = new Works();
 
         armies = new Armies(this);
+        this.name = name;
     }
 
     public void run() {
@@ -185,5 +137,13 @@ public class City extends Element {
                 }
         }
         return Broadcaster.noResult;
+    }
+
+    public Coord getPos() {
+        return pos;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -14,8 +14,8 @@ public class WindowElement extends Broadcaster{
 
 
     public WindowElement(Coord pos, Coord size, Window parent){
-        this.pos = pos;
-        this.size = size;
+        this.pos = new Coord(pos);
+        this.size = new Coord(size);
         setParent(parent);
         basicShapes = new ArrayList<>();
     }
@@ -91,6 +91,10 @@ public class WindowElement extends Broadcaster{
     }
 
     public void drag(Coord pos){
+    }
+
+    public void setShapes(){
+
     }
 
     @Override

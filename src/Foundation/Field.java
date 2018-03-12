@@ -14,9 +14,7 @@ public class Field {
 
 
     public void run() {
-        groundElement.run();
         ecosystem.run();
-        if (army != null) army.run();
         //if (additionalElement != null) additionalElement.run();
         if (city != null) city.run();
     }
@@ -49,7 +47,7 @@ public class Field {
     private City city;
     private Army army;
     private River river;
-
+    private Tree tree;
 
     private FieldMap map;
 
@@ -66,12 +64,12 @@ public class Field {
         setMap(map);
         setRandom(random);
         Ground.GroundType tempType = type;
-        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
+        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this, map);
         if (getGroundType() != Ground.GroundType.Water) {
-            int elType = random.nextInt(100);
+            int elType = random.nextInt(2);
             if (elType == 1) city = createCity(random, globalPos, time);
         }
-        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
+        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this, map);
         calculateTimeToIntersect();
     }
 
@@ -88,12 +86,12 @@ public class Field {
         if (randNum == 2) tempType = Ground.GroundType.Water;
         if (randNum == 3) tempType = Ground.GroundType.Mud;
         if (randNum == 4) tempType = Ground.GroundType.Rock;
-        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this);
+        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this, map);
         if (getGroundType() != Ground.GroundType.Water) {
             int elType = random.nextInt(100);
             if (elType == 1) city = createCity(random, globalPos, time);
         }
-        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this);
+        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this, map);
         calculateTimeToIntersect();
     }
 
@@ -125,27 +123,6 @@ public class Field {
 
 
 
-
-    private Tree createTree(Random random, Coord pos){
-        if (getGroundType() == Ground.GroundType.Sand && random.nextInt(10) > 8){
-            int typeNum = random.nextInt(10);
-            Tree.SizeType type = Tree.SizeType.Big;
-            if (typeNum < 1) type = Tree.SizeType.Big;
-            if (typeNum < 4 && typeNum > 0) type = Tree.SizeType.Middle;
-            if (typeNum > 3) type = Tree.SizeType.Small;
-           // return new Tree(pos.x, pos.y, getSize(), type, time, this);
-        }
-        if ( getGroundType() == Ground.GroundType.Soil && random.nextInt(10) > 3) {
-            int typeNum = random.nextInt(3);
-            Tree.SizeType type = Tree.SizeType.Big;
-            if (typeNum == 0) type = Tree.SizeType.Big;
-            if (typeNum == 1) type = Tree.SizeType.Middle;
-            if (typeNum == 2) type = Tree.SizeType.Small;
-            //return new Tree(pos.x, pos.y, getSize(), type, time, this);
-        }
-        return null;
-    }
-
     private Rock createRock(Random random, Coord pos){
         if (getGroundType() == Ground.GroundType.Rock) {
             if (random.nextInt(10) > 7) {
@@ -168,7 +145,8 @@ public class Field {
             if (typeNum == 0) type = City.SizeType.Big;
             if (typeNum == 1 || typeNum == 2) type = City.SizeType.Middle;
             if (typeNum > 2) type = City.SizeType.Small;
-            return new City(pos.x, pos.y, getSize(), type, map, time, this);
+            String name = "city";
+            return new City(pos, getSize(), name, type, map, time, this);
         }
         return null;
     }
@@ -231,5 +209,13 @@ public class Field {
 
     public void setRiver(River river) {
         this.river = river;
+    }
+
+    public Tree getTree() {
+        return tree;
+    }
+
+    public void setTree(Tree tree) {
+        this.tree = tree;
     }
 }

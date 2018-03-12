@@ -2,13 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="360a330c-dad6-4b8e-837d-e5cb5d393a2b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/Farm.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/CityInfoHelper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperField.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperState.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Images/FarmImage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Windows/WorkListWindow.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Army.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Army.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/City$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/City$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/City.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/City.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Ecosystem.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Ecosystem.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Element$Type.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Element$Type.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Element.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Element.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Fauna/Herbivores.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Fauna/Herbivores.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Field$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Field$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Field.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Field.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/FieldMap.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/FieldMap.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Flora/Berry.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Flora/Berry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelperElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelperElement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Ground$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Ground$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Ground.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Ground.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Image.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Image.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/InputWindowElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/InputWindowElement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Label.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Label.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$Type.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$Type.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Resource.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resources/Food$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resources/Food$FoodType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resources/Food.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resources/Fur.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/River.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/River.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/StringShape.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/StringShape.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Tree$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Tree$SizeType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Tree.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Tree.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Work.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Work.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/ArmyWork.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/ArmyWork.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/GatheringWork.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/GatheringWork.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/HuntingWork.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/HuntingWork.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Generation/FieldMapGenerator.class" afterPath="$PROJECT_DIR$/out/production/strat/Generation/FieldMapGenerator.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TreeImage$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TreeImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/TreeImage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow$2.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow$3.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow$4.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/CityInfoWindow.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/CityWorkWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/CityWorkWindow$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$2.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$2.class" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Army.java" afterPath="$PROJECT_DIR$/src/Foundation/Army.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/City.java" afterPath="$PROJECT_DIR$/src/Foundation/City.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Ecosystem.java" afterPath="$PROJECT_DIR$/src/Foundation/Ecosystem.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Element.java" afterPath="$PROJECT_DIR$/src/Foundation/Element.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Fauna/Herbivores.java" afterPath="$PROJECT_DIR$/src/Foundation/Fauna/Herbivores.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Field.java" afterPath="$PROJECT_DIR$/src/Foundation/Field.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/FieldMap.java" afterPath="$PROJECT_DIR$/src/Foundation/FieldMap.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Flora/Berry.java" afterPath="$PROJECT_DIR$/src/Foundation/Flora/Berry.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Ground.java" afterPath="$PROJECT_DIR$/src/Foundation/Ground.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Image.java" afterPath="$PROJECT_DIR$/src/Foundation/Image.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/InputWindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/InputWindowElement.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Label.java" afterPath="$PROJECT_DIR$/src/Foundation/Label.java" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Resource.java" afterPath="$PROJECT_DIR$/src/Foundation/Resource.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Resources/Food.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Resources/Fur.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/River.java" afterPath="$PROJECT_DIR$/src/Foundation/River.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/StringShape.java" afterPath="$PROJECT_DIR$/src/Foundation/StringShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Tree.java" afterPath="$PROJECT_DIR$/src/Foundation/Tree.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Window.java" afterPath="$PROJECT_DIR$/src/Foundation/Window.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/WindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/Work.java" afterPath="$PROJECT_DIR$/src/Foundation/Work.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/ArmyWork.java" afterPath="$PROJECT_DIR$/src/Foundation/WorksP/ArmyWork.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/GatheringWork.java" afterPath="$PROJECT_DIR$/src/Foundation/WorksP/GatheringWork.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/HuntingWork.java" afterPath="$PROJECT_DIR$/src/Foundation/WorksP/HuntingWork.java" />
       <change beforePath="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" afterPath="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/Images/TreeImage.java" afterPath="$PROJECT_DIR$/src/Images/TreeImage.java" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/ArmyAddWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ArmyAddWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/CityInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/CityInfoWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/CityWorkWindow.java" afterPath="$PROJECT_DIR$/src/Windows/CityWorkWindow.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,56 +103,99 @@
       <file leaf-file-name="FieldMapGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Generation/FieldMapGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-339">
-              <caret line="178" column="36" lean-forward="false" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
-              <folding>
-                <element signature="e#9374#9390#0" expanded="true" />
-                <element signature="e#10263#10279#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Coord.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Coord.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
-              <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+            <state relative-caret-position="201">
+              <caret line="271" column="52" lean-forward="true" selection-start-line="271" selection-start-column="52" selection-end-line="271" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="River.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/River.java">
+      <file leaf-file-name="GameWindowHelperElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-450">
-              <caret line="83" column="41" lean-forward="true" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
-              <folding>
-                <element signature="e#5227#5228#0" expanded="true" />
-                <element signature="e#5259#5260#0" expanded="true" />
-                <element signature="e#5308#5309#0" expanded="true" />
-                <element signature="e#5350#5351#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LineShape.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/LineShape.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/FieldMap.java">
+      <file leaf-file-name="HelperState.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1422">
-              <caret line="94" column="74" lean-forward="false" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
+            <state relative-caret-position="72">
+              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CityInfoWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Windows/CityInfoWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="55" column="51" lean-forward="true" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkListWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Windows/WorkListWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#579#580#0" expanded="true" />
+                <element signature="e#637#638#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Farm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Farm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+              <folding>
+                <element signature="e#2799#2800#0" expanded="true" />
+                <element signature="e#2837#2838#0" expanded="true" />
+                <element signature="e#2863#2864#0" expanded="true" />
+                <element signature="e#2888#2889#0" expanded="true" />
+                <element signature="e#2921#2922#0" expanded="true" />
+                <element signature="e#2949#2950#0" expanded="true" />
+                <element signature="e#3802#3803#0" expanded="true" />
+                <element signature="e#3836#3837#0" expanded="true" />
+                <element signature="e#3905#3906#0" expanded="true" />
+                <element signature="e#3951#3952#0" expanded="true" />
+                <element signature="e#4020#4021#0" expanded="true" />
+                <element signature="e#4062#4063#0" expanded="true" />
+                <element signature="e#4557#4558#0" expanded="true" />
+                <element signature="e#4599#4600#0" expanded="true" />
+                <element signature="e#4709#4710#0" expanded="true" />
+                <element signature="e#4740#4741#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceStoreWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-36">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -81,53 +204,18 @@
       <file leaf-file-name="OpenGLMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="95" column="42" lean-forward="false" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
+            <state relative-caret-position="0">
+              <caret line="46" column="54" lean-forward="true" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/GameEngine.java">
+      <file leaf-file-name="PopulationInfoWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenGLBinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1314">
-              <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Field.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-              <folding>
-                <element signature="e#6735#6736#0" expanded="true" />
-                <element signature="e#6763#6764#0" expanded="true" />
-                <element signature="e#6804#6805#0" expanded="true" />
-                <element signature="e#6838#6839#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Element.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Element.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="34" column="44" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            <state relative-caret-position="-144">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -153,33 +241,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Generation/Polygone.java" />
-        <option value="$PROJECT_DIR$/src/Generation/PolygoneGenerator.java" />
-        <option value="$PROJECT_DIR$/src/Generation/Line.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Rock.java" />
         <option value="$PROJECT_DIR$/src/Foundation/RunEntity.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Cursor.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Window.java" />
         <option value="$PROJECT_DIR$/src/Foundation/CameraConfiguration.java" />
         <option value="$PROJECT_DIR$/src/Foundation/GameEngine.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Ground.java" />
         <option value="$PROJECT_DIR$/src/Foundation/SuperField.java" />
         <option value="$PROJECT_DIR$/src/Foundation/LineShape.java" />
         <option value="$PROJECT_DIR$/src/Foundation/BasicShape.java" />
         <option value="$PROJECT_DIR$/src/Foundation/TriangleShape.java" />
         <option value="$PROJECT_DIR$/src/Images/RockImage.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Element.java" />
         <option value="$PROJECT_DIR$/src/Foundation/RectangleShape.java" />
         <option value="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Field.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/FieldMap.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Coord.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/FieldMap.java" />
+        <option value="$PROJECT_DIR$/src/Images/TreeImage.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Work.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WorksP/WheatFarm.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Army.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Ground.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Element.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/River.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Ecosystem.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Tree.java" />
+        <option value="$PROJECT_DIR$/src/Windows/ArmyAddWindow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WorksP/HuntingWork.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WorksP/ArmyWork.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WorksP/GatheringWork.java" />
+        <option value="$PROJECT_DIR$/src/Windows/CityWorkWindow.java" />
+        <option value="$PROJECT_DIR$/src/Images/FarmImage.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Farm.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Resource.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Flora/Berry.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Fauna/Herbivores.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperField.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/StringShape.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/City.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/CityInfoHelper.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Label.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/InputWindowElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Image.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Field.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Window.java" />
+        <option value="$PROJECT_DIR$/src/Windows/CityInfoWindow.java" />
         <option value="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
         <option value="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/River.java" />
+        <option value="$PROJECT_DIR$/src/Windows/WorkListWindow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperState.java" />
       </list>
     </option>
   </component>
@@ -210,9 +322,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -241,6 +351,13 @@
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
               <item name="strat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Generation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -251,12 +368,26 @@
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="WindowElements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Windows" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,7 +397,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ramazan/Documents/prog/strat/src/Foundation/GameWindowHelperElement.java&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -414,6 +545,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="292" y="24" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -423,12 +555,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23342317" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22964959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -462,234 +594,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3906">
-          <caret line="217" column="12" lean-forward="false" selection-start-line="217" selection-start-column="12" selection-end-line="217" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generation/PolygoneGenerator.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/River.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/Line.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/Polygone.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/River.java" />
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3510">
-          <caret line="217" column="12" lean-forward="false" selection-start-line="217" selection-start-column="12" selection-end-line="217" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generation/PolygoneGenerator.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/Line.java" />
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3906">
-          <caret line="217" column="12" lean-forward="false" selection-start-line="217" selection-start-column="12" selection-end-line="217" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generation/Line.java" />
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/Foundation" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/Line.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/PolygoneGenerator.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/Polygone.java" />
-    <entry file="file://$PROJECT_DIR$/src/Generation/River.java" />
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/LinkedList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Input.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WorksP/WheatFarm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElementGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/RunEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Army.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="83" lean-forward="false" selection-start-line="108" selection-start-column="83" selection-end-line="108" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="70" column="28" lean-forward="false" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Cursor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2267">
-          <caret line="144" column="5" lean-forward="false" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/CameraConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="92" column="71" lean-forward="false" selection-start-line="92" selection-start-column="71" selection-end-line="92" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="103" column="39" lean-forward="true" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="201">
+          <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Ground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="114" column="9" lean-forward="false" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/SuperField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/BasicShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="61" lean-forward="false" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/TriangleShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/RockImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Rock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="48" column="18" lean-forward="false" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="103" column="74" lean-forward="false" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/RectangleShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1410#1411#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1314">
-          <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
+        <state relative-caret-position="316">
+          <caret line="62" column="44" lean-forward="false" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -697,85 +621,459 @@
     <entry file="file://$PROJECT_DIR$/src/Foundation/Element.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="34" column="44" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+          <caret line="37" column="11" lean-forward="false" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/River.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding>
+            <element signature="e#5168#5169#0" expanded="false" />
+            <element signature="e#5200#5201#0" expanded="false" />
+            <element signature="e#5249#5250#0" expanded="false" />
+            <element signature="e#5291#5292#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Ecosystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="11" column="81" lean-forward="false" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="42" lean-forward="false" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ArmyAddWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="46" column="83" lean-forward="false" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Work.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WorksP/HuntingWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WorksP/ArmyWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="e#172#173#0" expanded="false" />
+            <element signature="e#199#200#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WorksP/GatheringWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/CityWorkWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/ResourceStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="47" lean-forward="true" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/FarmImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElementGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Flora/Plant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Flora/Flora.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Resource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="45" column="62" lean-forward="false" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
+          <folding>
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#904#905#0" expanded="false" />
+            <element signature="e#974#975#0" expanded="false" />
+            <element signature="e#1395#1396#0" expanded="false" />
+            <element signature="e#1424#1425#0" expanded="false" />
+            <element signature="e#1465#1466#0" expanded="false" />
+            <element signature="e#1501#1502#0" expanded="false" />
+            <element signature="e#1532#1533#0" expanded="false" />
+            <element signature="e#1559#1560#0" expanded="false" />
+            <element signature="e#1599#1600#0" expanded="false" />
+            <element signature="e#1631#1632#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Flora/Berry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="74" lean-forward="false" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Fauna/Herbivores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/CityImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/FieldMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="98" column="13" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="98" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#408#409#0" expanded="false" />
+            <element signature="e#442#443#0" expanded="false" />
+            <element signature="e#485#486#0" expanded="false" />
+            <element signature="e#519#520#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#526#527#0" expanded="false" />
+            <element signature="e#811#812#0" expanded="false" />
+            <element signature="e#863#864#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Coord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-260">
+          <caret line="89" column="13" lean-forward="false" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+          <folding>
+            <element signature="e#3363#3364#0" expanded="false" />
+            <element signature="e#3389#3390#0" expanded="false" />
+            <element signature="e#3420#3421#0" expanded="false" />
+            <element signature="e#3447#3448#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/CityInfoHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="89" lean-forward="false" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Input.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Cursor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1764">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/InputWindowElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-154">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="e#1290#1291#0" expanded="false" />
+            <element signature="e#1317#1318#0" expanded="false" />
+            <element signature="e#1818#1819#0" expanded="false" />
+            <element signature="e#1856#1857#0" expanded="false" />
+            <element signature="e#1901#1902#0" expanded="false" />
+            <element signature="e#1933#1934#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/StringShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="72" column="42" lean-forward="false" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        <state relative-caret-position="237">
+          <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
           <folding>
-            <element signature="e#6735#6736#0" expanded="true" />
-            <element signature="e#6763#6764#0" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6838#6839#0" expanded="true" />
+            <element signature="e#583#623#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/FieldMap.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="94" column="74" lean-forward="false" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
+        <state relative-caret-position="-414">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Coord.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+        <state relative-caret-position="532">
+          <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/LineShape.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowElement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="784">
+          <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="-144">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding>
+            <element signature="e#2799#2800#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2863#2864#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+            <element signature="e#2949#2950#0" expanded="true" />
+            <element signature="e#3802#3803#0" expanded="true" />
+            <element signature="e#3836#3837#0" expanded="true" />
+            <element signature="e#3905#3906#0" expanded="true" />
+            <element signature="e#3951#3952#0" expanded="true" />
+            <element signature="e#4020#4021#0" expanded="true" />
+            <element signature="e#4062#4063#0" expanded="true" />
+            <element signature="e#4557#4558#0" expanded="true" />
+            <element signature="e#4599#4600#0" expanded="true" />
+            <element signature="e#4709#4710#0" expanded="true" />
+            <element signature="e#4740#4741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+          <folding>
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/CityInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="55" column="51" lean-forward="true" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="95" column="42" lean-forward="false" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
+        <state relative-caret-position="0">
+          <caret line="46" column="54" lean-forward="true" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Generation/FieldMapGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-339">
-          <caret line="178" column="36" lean-forward="false" selection-start-line="178" selection-start-column="36" selection-end-line="178" selection-end-column="36" />
+        <state relative-caret-position="201">
+          <caret line="271" column="52" lean-forward="true" selection-start-line="271" selection-start-column="52" selection-end-line="271" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/WorkListWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding>
-            <element signature="e#9374#9390#0" expanded="true" />
-            <element signature="e#10263#10279#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/River.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Farm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="83" column="41" lean-forward="true" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
-          <folding>
-            <element signature="e#5227#5228#0" expanded="true" />
-            <element signature="e#5259#5260#0" expanded="true" />
-            <element signature="e#5308#5309#0" expanded="true" />
-            <element signature="e#5350#5351#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

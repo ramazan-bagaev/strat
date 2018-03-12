@@ -44,7 +44,7 @@ public class ArmyAddWindow extends ClosableWindow{
                 city.getWorks().addWork(work);
                 People warriors = city.getPopulation().getPeopleForWork(window.getAmount(), work.getId());
                 work.setPeople(warriors);
-                Army army = new Army(warriors, city.getTime(), field);
+                Army army = new Army(warriors, city.getTime(), field, city.getMap());
                 city.getArmies().addArmy(army);
                 field.setArmy(army);
                 field.setChanged(true);

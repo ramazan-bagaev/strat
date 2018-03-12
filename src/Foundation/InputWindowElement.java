@@ -14,12 +14,7 @@ public class InputWindowElement extends WindowElement {
         super(pos, size, parent);
         firstClick = true;
         keyboard = getParent().getParent().getInput().getKeyboard();
-        RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.LightGray, true);
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.add(rectangleShape);
-        defaultText = "enter text";
-        setText(new StringShape(pos, size, defaultText, BasicShape.Color.Black, getParent().getFont("latin")));
-        basicShapes.addAll(text.getBasicShapes());
+        setShapes();
     }
 
     @Override
@@ -36,6 +31,16 @@ public class InputWindowElement extends WindowElement {
         String str = text.getText();
         str = str + c;
         renewText(str);
+    }
+
+    @Override
+    public void setShapes() {
+        RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.LightGray, true);
+        ArrayList<BasicShape> basicShapes = getBasicShapes();
+        basicShapes.add(rectangleShape);
+        defaultText = "enter text";
+        setText(new StringShape(pos, size, defaultText, BasicShape.Color.Black, getParent().getFont("latin")));
+        basicShapes.addAll(text.getBasicShapes());
     }
 
     public StringShape getText() {

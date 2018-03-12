@@ -15,15 +15,13 @@ public class River extends Element {
     }
 
     private River nextPiece;
-    private FieldMap map;
     private RiverType riverType;
 
     private ArrayList<Side> inStreams;
     private Side outStream;
 
     public River(Time time, FieldMap map, Field parent, ArrayList<Side> in, Side out, RiverType type) {
-        super(Type.River, time, parent);
-        this.map = map;
+        super(Type.River, time, parent, map);
         inStreams = in;
         outStream = out;
         riverType = type;
@@ -31,8 +29,7 @@ public class River extends Element {
     }
 
     public River(Time time, FieldMap map, Field parent, Side in, Side out, RiverType type) {
-        super(Type.River, time, parent);
-        this.map = map;
+        super(Type.River, time, parent, map);
         inStreams = new ArrayList<>();
         inStreams.add(in);
         outStream = out;
@@ -41,7 +38,7 @@ public class River extends Element {
     }
 
     public River(Time time, FieldMap map, Field parent, Side out) {
-        super(Type.River, time, parent);
+        super(Type.River, time, parent, map);
         this.map = map;
         inStreams = new ArrayList<>();
         outStream = out;

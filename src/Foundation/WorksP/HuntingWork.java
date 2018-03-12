@@ -10,8 +10,9 @@ public class HuntingWork extends Work {
 
     private Fauna fauna;
 
-    public HuntingWork(ResourceStore resourceStore, Field field) {
-        super(resourceStore);
+    public HuntingWork(Field field) {
+        super(null);
+        //super(f);
         fauna = field.getEcosystem().getFauna();
     }
 
@@ -24,7 +25,7 @@ public class HuntingWork extends Work {
             if (animal.isHuntable()) resources.addAll(animal.getResources(amount));
         }
         for(Resource resource: resources){
-            store.addResource(resource);
+            //store.addResource(resource);
         }
 
     }

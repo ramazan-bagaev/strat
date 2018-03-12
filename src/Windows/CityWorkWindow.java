@@ -34,7 +34,7 @@ public class CityWorkWindow extends ClosableWindow {
                 if (index == 0){
                     CityWorkWindow cityWorkWindow = (CityWorkWindow)getParent();
                     City city = cityWorkWindow.getCity();
-                    HuntingWork work = new HuntingWork(city.getResourceStore(), cityWorkWindow.getField());
+                    HuntingWork work = new HuntingWork(cityWorkWindow.getField());
                     city.getWorks().addWork(work);
                     People hunters = city.getPopulation().getPeopleForWork(cityWorkWindow.getAmount(), work.getId());
                     work.setPeople(hunters);

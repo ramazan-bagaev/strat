@@ -6,7 +6,7 @@ import Foundation.Work;
 public class ArmyWork extends Work{
 
     public ArmyWork(ResourceStore resourceStore) {
-        super(resourceStore);
+        super(null);
     }
 
     @Override

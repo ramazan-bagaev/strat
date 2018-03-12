@@ -14,8 +14,8 @@ public class StringShape{
     private BasicShape.Color color;
 
     public StringShape(Coord pos, Coord size, String text, BasicShape.Color color, Font font){
-        setPos(pos);
-        setSize(size);
+        this.pos = new Coord(pos);
+        this.size = new Coord(size);
         setText(text);
         setFont(font);
         setColor(color);

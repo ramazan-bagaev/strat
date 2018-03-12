@@ -14,8 +14,8 @@ public class Army extends Element{
     private Field destination;
     private LinkedList<Field> path;
 
-    public Army(People people, Time time, Field field){
-        super(Type.Army, time, field);
+    public Army(People people, Time time, Field field, FieldMap map){
+        super(Type.Army, time, field, map);
         this.people = people;
         isMoving = false;
         setShapes();
@@ -60,20 +60,5 @@ public class Army extends Element{
         return people;
     }
 
-    @Override
-    public void run(){
-        if (isMoving) {
-            if (getTime().getDate().sameAs(endIntersect)){
-               // if (localDestination.getArmy() != null){
-               //     endIntersect.add(new Date(1, 0, 0, 0));
-                //    return;
-               // }
-               // getParent().setArmy(null);
-              ///  setParent(localDestination);
-              //  localDestination.setArmy(this);
-              //  localDestination.setChanged(true);
-             //   setShapes();
-            }
-        }
-    }
+
 }

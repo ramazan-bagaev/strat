@@ -14,7 +14,7 @@ public class GatheringWork extends Work {
     private Flora flora;
 
     public GatheringWork(ResourceStore resourceStore, Field field) {
-        super(resourceStore);
+        super(null);
 
         flora = field.getEcosystem().getFlora();
 
@@ -29,7 +29,7 @@ public class GatheringWork extends Work {
             if (plant.isEdible()) resources.addAll(plant.getResources(amount));
         }
         for(Resource resource: resources){
-            store.addResource(resource);
+            //store.addResource(resource);
         }
     }
 }

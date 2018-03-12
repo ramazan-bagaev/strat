@@ -22,4 +22,9 @@ public class Image extends WindowElement{
     @Override
     public void click(Coord point) {
     }
+
+    @Override
+    public void setShapes() {
+
+    }
 }

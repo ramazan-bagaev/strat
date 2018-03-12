@@ -1,7 +1,6 @@
 package Foundation.Flora;
 
 import Foundation.Resource;
-import Foundation.Resources.Food;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class Berry extends Plant {
         if (amount > this.amount) amount = this.amount;
         if (amount < 0) amount = 0;
         this.amount -= amount;
-        Food food = new Food(amount, Food.FoodType.PLANT, "berry");
+        Resource food = new Resource(Resource.Type.Food, "berry", amount);
         resources.add(food);
         return resources;
     }
