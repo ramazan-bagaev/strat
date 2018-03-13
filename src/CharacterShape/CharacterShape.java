@@ -1,6 +1,7 @@
 package CharacterShape;
 
 import Foundation.BasicShape;
+import Foundation.Color;
 import Foundation.Coord;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class CharacterShape extends BasicShape {
     public CharacterShape(int characterId){
         super();
         setType(Type.Character);
-        setColor(Color.Black);
+        setColor(new Color(Color.Type.Black));
         setPos(new Coord(0, 0));
         setSize(new Coord(100, 100));
         setCharacterId(characterId);
@@ -41,7 +42,7 @@ public class CharacterShape extends BasicShape {
     public CharacterShape(int characterId, String definition){
         super();
         setType(Type.Character);
-        setColor(Color.Black);
+        setColor(new Color(Color.Type.Black));
         setPos(new Coord(0, 0));
         setSize(new Coord(100, 100));
         setCharacterId(characterId);

@@ -11,9 +11,9 @@ public class StringShape{
     private String text;
     private Coord pos;
     private Coord size;
-    private BasicShape.Color color;
+    private Color color;
 
-    public StringShape(Coord pos, Coord size, String text, BasicShape.Color color, Font font){
+    public StringShape(Coord pos, Coord size, String text, Color color, Font font){
         this.pos = new Coord(pos);
         this.size = new Coord(size);
         setText(text);
@@ -69,7 +69,7 @@ public class StringShape{
         return result;
     }
 
-    public void setColor(BasicShape.Color color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

@@ -93,11 +93,8 @@ public class OpenGLMain {
 
         FontFactory fontFactory = new FontFactory();
         ArrayList<Font> fonts = fontFactory.getFonts();
-        gameEngine = new GameEngine(50, 30);
-        windows = new Windows(gameEngine);
-        windows.setFonts(fonts);
-        MainWindow mainWindow = new MainWindow(new Coord(0, 0), new Coord(1000, 1000), gameEngine, windows);
-        windows.addWindow(mainWindow);
+        windows = new Windows(fonts);
+        gameEngine = windows.getGameEngine();
         MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(windows);
         windows.addWindow(mainToolbarWindow);
         openGLBinder = new OpenGLBinder();
@@ -197,7 +194,8 @@ public class OpenGLMain {
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
-
+        glEnable (GL_BLEND);
+        glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glViewport(0, 0, 1000, 1000);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();

@@ -15,7 +15,7 @@ public class OpenGLBinder {
 
     public void draw(BasicShape basicShape){
         RectangleShape rect;
-        ArrayList<Float> color;
+        Color color = basicShape.getColor();
         float x;
         float y;
         float x1;
@@ -28,8 +28,7 @@ public class OpenGLBinder {
         switch (basicShape.getType()){
             case Rectangle:
                 rect = (RectangleShape)basicShape;
-                color = getColor(rect.getColor());
-                glColor3f(color.get(0), color.get(1), color.get(2));
+                glColor4f(color.r, color.g, color.b, color.a);
                 pos = rect.getPos();
                 size = rect.getSize();
                 x = pos.x;
@@ -49,8 +48,7 @@ public class OpenGLBinder {
                 break;
             case FilledRectangle:
                 rect = (RectangleShape)basicShape;
-                color = getColor(rect.getColor());
-                glColor3f(color.get(0), color.get(1), color.get(2));
+                glColor4f(color.r, color.g, color.b, color.a);
                 pos = rect.getPos();
                 size = rect.getSize();
                 x = pos.x;
@@ -80,8 +78,7 @@ public class OpenGLBinder {
                 break;
             case Character:
                 CharacterShape characterShape = (CharacterShape)basicShape;
-                color = getColor(characterShape.getColor());
-                glColor3f(color.get(0), color.get(1), color.get(2));
+                glColor4f(color.r, color.g, color.b, color.a);
                 glLineWidth(1.5f);
                 pos = characterShape.getPos();
                 size = characterShape.getSize();
@@ -97,8 +94,9 @@ public class OpenGLBinder {
                 break;
             case Line:
                 LineShape lineShape = (LineShape)basicShape;
-                color = getColor(lineShape.getColor());
-                glColor3f(color.get(0), color.get(1), color.get(2));
+                glColor4f(color.r, color.g, color.b, color.a);
+                float width;
+                width = glGetFloat(GL_LINE_WIDTH);
                 glLineWidth(lineShape.getWidth());
                 posA = lineShape.getPosA();
                 posB = lineShape.getPosB();
@@ -107,77 +105,20 @@ public class OpenGLBinder {
                 glVertex3f(posB.x, posB.y, 0);
                 glEnd();
                 glFlush();
+                glLineWidth(width);
                 break;
             case Triangle:
                 TriangleShape triangleShape = (TriangleShape)basicShape;
-                color = getColor(triangleShape.getColor());
-
                 posA = triangleShape.getPosA();
                 posB = triangleShape.getPosB();
                 posC = triangleShape.getPosC();
                 glBegin(GL_TRIANGLES);
-                glColor3f(color.get(0), color.get(1), color.get(2));
+                glColor4f(color.r, color.g, color.b, color.a);
                 glVertex3f(posA.x, posA.y, 0);
                 glVertex3f(posB.x, posB.y, 0);
                 glVertex3f(posC.x, posC.y, 0);
                 glEnd();
                 glFlush();
         }
-    }
-
-    public ArrayList<Float> getColor(BasicShape.Color color){
-        ArrayList<Float> result = new ArrayList<>();
-        result.add(0f);
-        result.add(0f);
-        result.add(0f);
-        switch(color){
-
-            case White:
-                result.set(0, 1f);
-                result.set(1, 1f);
-                result.set(2, 1f);
-                break;
-            case Black:
-                result.set(0, 0f);
-                result.set(1, 0f);
-                result.set(2, 0f);
-                break;
-            case Red:
-                result.set(0, 1f);
-                result.set(1, 0f);
-                result.set(2, 0f);
-                break;
-            case Green:
-                result.set(0, 0f);
-                result.set(1, 1f);
-                result.set(2, 0f);
-                break;
-            case Blue:
-                result.set(0, 0f);
-                result.set(1, 0f);
-                result.set(2, 1f);
-                break;
-            case Yellow:
-                result.set(0, 1f);
-                result.set(1, 1f);
-                result.set(2, 0f);
-                break;
-            case Green2:
-                result.set(0, 0.2f);
-                result.set(1, 0.6f);
-                result.set(2, 0.2f);
-                break;
-            case Gray:
-                result.set(0, 0.4f);
-                result.set(1, 0.4f);
-                result.set(2, 0.4f);
-                break;
-            case LightGray:
-                result.set(0, 0.6f);
-                result.set(1, 0.6f);
-                result.set(2, 0.6f);
-                break;
-        }
-        return result;
     }
 }

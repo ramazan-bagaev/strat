@@ -48,6 +48,9 @@ public class Field {
     private Army army;
     private River river;
     private Tree tree;
+    private Farm farm;
+
+    private Time time;
 
     private FieldMap map;
 
@@ -79,6 +82,7 @@ public class Field {
         setSize(size);
         setMap(map);
         setRandom(random);
+        this.time = time;
         int randNum = random.nextInt(5);
         Ground.GroundType tempType = Ground.GroundType.Soil;
         if (randNum == 0) tempType = Ground.GroundType.Soil;
@@ -217,5 +221,17 @@ public class Field {
 
     public void setTree(Tree tree) {
         this.tree = tree;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public Farm getFarm() {
+        return farm;
+    }
+
+    public void setFarm(Farm farm) {
+        this.farm = farm;
     }
 }

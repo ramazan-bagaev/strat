@@ -35,12 +35,14 @@ public class SliderElement extends WindowElement{
         Coord size = getSize();
         Font font = getParent().getFont("latin");
         if (horizontal) {
-            RectangleShape scale = new RectangleShape(pos.add(new Coord(0, size.y / 2 - 2)), new Coord(size.x, 4), BasicShape.Color.Black, true);
-            RectangleShape slider = new RectangleShape(pos.add(new Coord(0, size.y / 2 - 5)), new Coord(10, 20), BasicShape.Color.LightGray, true);
+            RectangleShape scale = new RectangleShape(pos.add(new Coord(0, size.y / 2 - 2)),
+                    new Coord(size.x, 4), new Color(Color.Type.Black), true);
+            RectangleShape slider = new RectangleShape(pos.add(new Coord(0, size.y / 2 - 5)),
+                    new Coord(10, 20), new Color(Color.Type.LightGray), true);
             StringShape minVal = new StringShape(pos.add(new Coord(0, size.y/2 - 20)), new Coord(50, 10), String.valueOf(begin),
-                    BasicShape.Color.Black, font);
+                    new Color(Color.Type.Black), font);
             StringShape maxVal = new StringShape(pos.add(new Coord( size.x - 50,size.y/2 - 20)), new Coord(50, 10), String.valueOf(end),
-                    BasicShape.Color.Black, font);
+                    new Color(Color.Type.Black), font);
             ArrayList<BasicShape> basicShapes = getBasicShapes();
             basicShapes.addAll(minVal.getBasicShapes());
             basicShapes.addAll(maxVal.getBasicShapes());

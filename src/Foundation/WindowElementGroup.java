@@ -17,7 +17,7 @@ public class WindowElementGroup {
         setSize(size);
         windowElements = new ArrayList<>();
         basicShapes = new ArrayList<>();
-        basicShapes.add(new RectangleShape(new Coord(pos), new Coord(size), BasicShape.Color.Black, false));
+        basicShapes.add(new RectangleShape(new Coord(pos), new Coord(size), new Color(Color.Type.Black), false));
     }
 
     public ArrayList<WindowElement> getWindowElements() {
@@ -71,6 +71,10 @@ public class WindowElementGroup {
     }
 
     public void drag(Coord point){
+
+    }
+
+    public void hoover(Coord point){
 
     }
 

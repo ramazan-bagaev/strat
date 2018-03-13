@@ -13,12 +13,12 @@ public class FoodResourceImage extends Image {
 
     public void setShapes(){
         RectangleShape rectangleShape = new RectangleShape(getPos().add(new Coord(0, getSize().y/4)), new Coord(getSize().x, getSize().y/2),
-                BasicShape.Color.Red, true);
+                new Color(Color.Type.Red), true);
         RectangleShape rectangleShape1 = new RectangleShape(getPos().add(new Coord(getSize().x/4, 2 * getSize().y/5)), new Coord(getSize().x/10, getSize().y/5),
-                BasicShape.Color.Yellow, true);
+                new Color(Color.Type.Yellow), true);
 
         RectangleShape rectangleShape2 = new RectangleShape(getPos().add(new Coord(3 * getSize().x/4, 2 * getSize().y/5)), new Coord(getSize().x/10, getSize().y/5),
-                BasicShape.Color.Yellow, true);
+                new Color(Color.Type.Yellow), true);
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
         basicShapes.add(rectangleShape);

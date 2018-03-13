@@ -19,9 +19,10 @@ public class CityInfoHelper extends HelperElement {
     public void setShapes(){
         ArrayList<BasicShape> shapes = getBasicShapes();
         String name = city.getName();
-        StringShape stringShape = new StringShape(city.getPos(), new Coord(city.getSize(), city.getSize()/4), name,
-                BasicShape.Color.Black, parentField.getMap().getParent().getParent().getFont("latin"));
+        StringShape stringShape = new StringShape(pos, new Coord(size.x,  size.y/4), name,
+                new Color(Color.Type.Black), parentField.getMap().getParent().getParent().getFont("latin"));
         shapes.addAll(stringShape.getBasicShapes());
+        getParentField().getMap().getParent().setShapes();
     }
 
 }

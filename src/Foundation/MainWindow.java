@@ -3,16 +3,17 @@ package Foundation;
 import Windows.FieldInfoWindow;
 import Windows.CityInfoWindow;
 import Windows.ArmyInfoWindow;
+import Windows.WorkPlaceWindows.FarmInfoWindow;
 
 public class MainWindow extends Window{
 
     private GameWindowElement gameWindowElement;
     private GameWindowHelperElement gameWindowHelperElement;
 
-    public MainWindow(Coord pos, Coord size, GameEngine gameEngine, Windows parent){
+    public MainWindow(Coord pos, Coord size, Windows parent){
         super(pos, size, parent);
         getParent().getInput().getController().setActiveWindow(this);
-        gameWindowElement = new GameWindowElement(pos, size, this, gameEngine);
+        gameWindowElement = new GameWindowElement(pos, size, this);
         addWindowElement(gameWindowElement);
         gameWindowHelperElement = new GameWindowHelperElement(gameWindowElement);
         addWindowElement(gameWindowHelperElement);
@@ -64,6 +65,17 @@ public class MainWindow extends Window{
             }
         }
         addWindow(new ArmyInfoWindow(army, getParent()));
+    }
+
+    public void addNewFarmInfoWindow(Farm farm){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == ArmyInfoWindow.class){
+                FarmInfoWindow farmInfoWindow = (FarmInfoWindow)window;
+                farmInfoWindow.setFarm(farm);
+                return;
+            }
+        }
+        addWindow(new FarmInfoWindow(farm, getParent()));
     }
 
     public void moveGameWindow(Coord delta){

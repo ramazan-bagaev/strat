@@ -60,16 +60,16 @@ public class River extends Element {
         int size = getParent().getSize();
         pos.x = pos.x * size;
         pos.y = pos.y * size;
-        BasicShape.Color color = BasicShape.Color.Blue;
+        Color color = new Color(Color.Type.Blue);
         if (inStreams.contains(Side.North) || outStream == Side.North){
             RectangleShape rect = new RectangleShape(pos.add(new Coord(9*size/20, 0)),
                     new Coord(size/10, size/2), color, false, true);
             shapes.add(rect);
             if (outStream == Side.North){
                 LineShape line1 = new LineShape(pos.add(new Coord(9*size/20, 3*size/8)),
-                        pos.add(new Coord(size/2, size/8)), BasicShape.Color.Black);
+                        pos.add(new Coord(size/2, size/8)), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(pos.add(new Coord(11*size/20, 3*size/8)),
-                        pos.add(new Coord(size/2, size/8)), BasicShape.Color.Black);
+                        pos.add(new Coord(size/2, size/8)), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
@@ -80,9 +80,9 @@ public class River extends Element {
             shapes.add(rect);
             if (outStream == Side.South){
                 LineShape line1 = new LineShape(pos.add(new Coord(9*size/20, 5*size/8)),
-                        pos.add(new Coord(size/2, 7*size/8)), BasicShape.Color.Black);
+                        pos.add(new Coord(size/2, 7*size/8)), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(pos.add(new Coord(11*size/20, 5*size/8)),
-                        pos.add(new Coord(size/2, 7*size/8)), BasicShape.Color.Black);
+                        pos.add(new Coord(size/2, 7*size/8)), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
@@ -93,9 +93,9 @@ public class River extends Element {
             shapes.add(rect);
             if (outStream == Side.West){
                 LineShape line1 = new LineShape(pos.add(new Coord(3*size/8, 9*size/20)),
-                        pos.add(new Coord(size/8, size/2)), BasicShape.Color.Black);
+                        pos.add(new Coord(size/8, size/2)), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(pos.add(new Coord(3*size/8, 11*size/20)),
-                        pos.add(new Coord(size/8, size/2)), BasicShape.Color.Black);
+                        pos.add(new Coord(size/8, size/2)), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
@@ -106,9 +106,9 @@ public class River extends Element {
             shapes.add(rect);
             if (outStream == Side.East){
                 LineShape line1 = new LineShape(pos.add(new Coord(5*size/8, 9*size/20)),
-                        pos.add(new Coord(7*size/8, size/2)), BasicShape.Color.Black);
+                        pos.add(new Coord(7*size/8, size/2)), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(pos.add(new Coord(5*size/8, 11*size/20)),
-                        pos.add(new Coord(7*size/8, size/2)), BasicShape.Color.Black);
+                        pos.add(new Coord(7*size/8, size/2)), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }

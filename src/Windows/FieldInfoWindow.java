@@ -7,6 +7,7 @@ import Images.GroundImage;
 import WindowElements.CloseButton;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
+import Windows.WorkPlaceWindows.FarmInfoWindow;
 
 public class FieldInfoWindow extends ClosableWindow{
 
@@ -24,8 +25,7 @@ public class FieldInfoWindow extends ClosableWindow{
     public void setField(Field field) {
         this.field = field;
         removeWindowElements();
-        CloseButton closeButton = new CloseButton(new Coord(getPos().x + getSize().x - 15, getPos().y), new Coord(15, 15), this);
-        addWindowElement(closeButton);
+        addCloseButton();
 
         if (field == null) return;
         Army army = field.getArmy();
@@ -78,7 +78,6 @@ public class FieldInfoWindow extends ClosableWindow{
         // additional element place
         if (city == null) return;
 
-        Windows windows = getParent();
             //String cityTypeString = city.getValue("sizeType");
             //Label cityTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "City size: " + cityTypeString, this);
         StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(300, 10),
@@ -128,6 +127,17 @@ public class FieldInfoWindow extends ClosableWindow{
             }
         }
         addWindow(new EcosystemInfoWindow(ecosystem, getParent()));
+    }
+
+    public void addFarmInfoWindow(Farm farm){
+        for (Window window: getParent().getWindows()){
+            if (window.getClass() == EcosystemInfoWindow.class){
+                FarmInfoWindow farmInfoWindow = (FarmInfoWindow)window;
+                farmInfoWindow.setFarm(farm);
+                return;
+            }
+        }
+        addWindow(new FarmInfoWindow(farm, getParent()));
     }
 
 }

@@ -30,7 +30,7 @@ public class Window {
         windowElements = new ArrayList<>();
         windowElementGroups = new ArrayList<>();
         basicShapes = new ArrayList<>();
-        basicShapes.add(new RectangleShape(pos, size, BasicShape.Color.White, true));
+        basicShapes.add(new RectangleShape(pos, size, new Color(Color.Type.White), true));
         cameraConfiguration = new CameraConfiguration(0, 0, 1000, 1000, false);
         windowId = new ArrayList<>();
     }
@@ -89,9 +89,9 @@ public class Window {
     }
 
     public void scroll(double delta, double x, double y){
-        if (cameraConfiguration.isScrollable()){
-            cameraConfiguration.scroll((int)delta, x - pos.x, y - pos.y);
-            for(WindowElement element: windowElements){
+        if (cameraConfiguration.isScrollable()) {
+            cameraConfiguration.scroll((int) delta, x - pos.x, y - pos.y);
+            for (WindowElement element : windowElements) {
                 element.setShapes();
             }
             /*if (getClass() == MainWindow.class){
@@ -102,6 +102,12 @@ public class Window {
     }
 
     public void drag(Coord point){
+    }
+
+    public void hoover(Coord point){
+        for(WindowElement element: windowElements){
+            element.hoover(point);
+        }
     }
 
     public void addWindow(Window window){

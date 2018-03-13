@@ -31,7 +31,7 @@ public class SuperField extends RunEntity{
         this.numberOfWaterField = 0;
         this.basicShapes = new ArrayList<>();
         this.isWater = 1;
-        basicShapes.add(new RectangleShape(globalPos, new Coord(size, size), BasicShape.Color.Blue, true));
+        basicShapes.add(new RectangleShape(globalPos, new Coord(size, size), new Color(Color.Type.Blue), true));
     }
 
     public void addField(Field field){
@@ -48,12 +48,12 @@ public class SuperField extends RunEntity{
     public void recolibrate(){
         if ((numberOfWaterField > numberOfSoilField && isWater == 0) || (numberOfWaterField < numberOfSoilField && isWater == 1)){
             basicShapes.clear();
-            BasicShape.Color color;
+            Color color;
             if (isWater == 0){
-                color = BasicShape.Color.Blue;
+                color = new Color(Color.Type.Blue);
             }
             else {
-                color = BasicShape.Color.Green;
+                color = new Color(Color.Type.Green);
             }
             RectangleShape newShape = new RectangleShape(globalPos, new Coord(size, size), color, true);
             basicShapes.add(newShape);

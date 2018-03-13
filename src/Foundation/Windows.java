@@ -1,6 +1,7 @@
 package Foundation;
 
 import CharacterShape.Font;
+import sun.applet.Main;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,19 +11,20 @@ public class Windows {
 
     private Camera camera;
     private Input input;
-    private GameEngine gameEngine;
+    private MainWindow mainWindow;
 
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
     private int currentId;
 
-    public Windows(GameEngine gameEngine){
+    public Windows(ArrayList<Font> fonts){
         currentId = 0;
         windows = new LinkedList<>();
-        fonts = new ArrayList<>();
+        this.fonts = fonts;
         camera = new Camera(0, 0, 1000, 1000);
         input = new Input(this);
-        this.gameEngine = gameEngine;
+        this.mainWindow =  new MainWindow(new Coord(0, 0), new Coord(1000, 1000), this);
+        addWindow(mainWindow);
     }
 
     public void addWindow(Window window){
@@ -113,7 +115,7 @@ public class Windows {
     }
 
     public GameEngine getGameEngine() {
-        return gameEngine;
+        return mainWindow.getGameWindowElement().getGameEngine();
     }
 
     public void takeOnTop(Window window){

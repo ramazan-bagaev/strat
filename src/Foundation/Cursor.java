@@ -40,6 +40,7 @@ public class Cursor {
             if (pressed) drag(point);
             renewActive();
         }
+        activeWindow.hoover(point);
     }
 
     public double getPosX() {

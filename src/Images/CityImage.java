@@ -28,16 +28,16 @@ public class CityImage extends Image{
             case Big: {
                 pos = new Coord(x + sizeX / 8, y + sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
+                RectangleShape shape1 = new RectangleShape(pos, size, new Color(Color.Type.Green));
                 pos = new Coord(x + 5 * sizeX / 8, y + sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.Red);
+                RectangleShape shape2 = new RectangleShape(pos, size, new Color(Color.Type.Red));
                 pos = new Coord(x + sizeX / 8, y + 5 * sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape3 = new RectangleShape(pos, size, BasicShape.Color.Blue);
+                RectangleShape shape3 = new RectangleShape(pos, size, new Color(Color.Type.Blue));
                 pos = new Coord(x + 5 * sizeX / 8, y + 5 * sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape4 = new RectangleShape(pos, size, BasicShape.Color.Yellow);
+                RectangleShape shape4 = new RectangleShape(pos, size, new Color(Color.Type.Yellow));
                 shapes.add(shape1);
                 shapes.add(shape2);
                 shapes.add(shape3);
@@ -47,10 +47,10 @@ public class CityImage extends Image{
             case Middle: {
                 pos = new Coord(x + sizeX / 8, y + 3 * sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Green);
+                RectangleShape shape1 = new RectangleShape(pos, size, new Color(Color.Type.Green));
                 pos = new Coord(x + 5 * sizeX / 8, y + 3 * sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.Red);
+                RectangleShape shape2 = new RectangleShape(pos, size, new Color(Color.Type.Red));
                 shapes.add(shape1);
                 shapes.add(shape2);
                 break;
@@ -58,7 +58,7 @@ public class CityImage extends Image{
             case Small: {
                 pos = new Coord(x + 3 * sizeX / 8, y + 3 * sizeY / 8);
                 size = new Coord(sizeX / 4, sizeY / 4);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Red);
+                RectangleShape shape1 = new RectangleShape(pos, size, new Color(Color.Type.Red));
                 shapes.add(shape1);
                 break;
             }

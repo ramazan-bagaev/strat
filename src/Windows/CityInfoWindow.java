@@ -25,8 +25,7 @@ public class CityInfoWindow extends ClosableWindow {
         this.city = city;
 
         removeWindowElements();
-        CloseButton closeButton = new CloseButton(new Coord(getPos().x + getSize().x - 15, getPos().y), new Coord(15, 15), this);
-        addWindowElement(closeButton);
+        addCloseButton();
 
         Image cityImage = new CityImage(getPos(), new Coord(100, 100), city.getSizeType(), this);
         addWindowElement(cityImage);

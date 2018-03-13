@@ -3,6 +3,8 @@ package Foundation;
 import java.util.ArrayList;
 
 import Foundation.GameWindowHelper.HelperFieldMap;
+import Foundation.GameWindowHelper.HelperState;
+import Foundation.GameWindowHelper.StandartState;
 import Windows.CityWorkWindow;
 
 public class GameWindowHelperElement extends WindowElement {
@@ -17,6 +19,8 @@ public class GameWindowHelperElement extends WindowElement {
     private Army chosenArmy;
     private City chosenCity;
 
+    private HelperState currentState;
+
     private HelperFieldMap map;
 
     public GameWindowHelperElement(GameWindowElement gameWindowElement){
@@ -24,16 +28,22 @@ public class GameWindowHelperElement extends WindowElement {
         setGameWindowElement(gameWindowElement);
         map = new HelperFieldMap(gameWindowElement.getGameEngine().getMap(), this);
         setBasicShapes(new ArrayList<>());
+        currentState = new StandartState(this);
     }
 
     @Override
     public void click(Coord point) {
-        point = getParent().getCameraConfiguration().transform(point);
-        gameWindowElement.click(point);
+        currentState.click(point);
     }
 
     @Override
     public void click2(Coord point){
+        currentState.click2(point);
+    }
+
+    @Override
+    public void hoover(Coord point){
+        currentState.hoover(point);
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -59,12 +69,12 @@ public class GameWindowHelperElement extends WindowElement {
         int deltai = (int)Math.floor(deltax);
         int deltaj = (int)Math.floor(deltay);
 
+
         ArrayList<BasicShape> shapes = map.getShapes(new Coord(deltai, deltaj), new Coord(fieldNumber, fieldNumber));
         basicShapes.addAll(shapes);
-
     }
 
-    public RectangleShape highlightFieldRectangle(Field field, BasicShape.Color color){
+    public RectangleShape highlightFieldRectangle(Field field, Color color){
         int fieldSize = field.getSize();
         Coord pos = new Coord(field.getFieldMapPos().x * fieldSize, field.getFieldMapPos().y * fieldSize);
         Coord size = new Coord(fieldSize, fieldSize);
@@ -74,5 +84,21 @@ public class GameWindowHelperElement extends WindowElement {
 
     @Override
     public void run(){
+    }
+
+    public HelperFieldMap getMap() {
+        return map;
+    }
+
+    public void clearHelperElements(){
+        currentState.clearHelperElements();
+    }
+
+    public void setState(HelperState helperState){
+        currentState = helperState;
+    }
+
+    public void setStandartState(){
+        currentState = new StandartState(this);
     }
 }

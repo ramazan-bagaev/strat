@@ -6,9 +6,6 @@ public abstract class BasicShape {
         Rectangle, FilledRectangle, Character, Line, Triangle
     }
 
-    public enum Color{
-        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray
-    }
 
     private Type type;
     private Color color;
@@ -16,7 +13,7 @@ public abstract class BasicShape {
 
     public BasicShape() {
         setType(Type.Rectangle);
-        setColor(Color.White);
+        setColor(new Color(Color.Type.White));
     }
 
     public BasicShape(Type type, Color color){

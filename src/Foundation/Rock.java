@@ -40,10 +40,10 @@ public class Rock{
             case Big:{
                 pos = new Coord(getX() + getSize()/4, getY() + getSize()/4);
                 size = new Coord(getSize()/2, getSize()/2);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
+                RectangleShape shape1 = new RectangleShape(pos, size, new Color(Color.Type.Gray));
                 pos = new Coord(getX() + getSize()/3, getY() + getSize()/3);
                 size = new Coord(getSize()/3, getSize()/3);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
+                RectangleShape shape2 = new RectangleShape(pos, size, new Color(Color.Type.LightGray));
 
                 //addShape(shape1);
                 //addShape(shape2);
@@ -54,10 +54,10 @@ public class Rock{
             case Middle: {
                 pos = new Coord(getX() + getSize()/3, getY() + getSize()/3);
                 size = new Coord(getSize()/3, getSize()/3);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
+                RectangleShape shape1 = new RectangleShape(pos, size, new Color(Color.Type.Gray));
                 pos = new Coord(getX() + getSize() * 2/5, getY() + getSize() *2/5);
                 size = new Coord(getSize()/5, getSize()/5);
-                RectangleShape shape2 = new RectangleShape(pos, size, BasicShape.Color.LightGray);
+                RectangleShape shape2 = new RectangleShape(pos, size, new Color(Color.Type.LightGray));
 
                 //addShape(shape1);
                 //addShape(shape2);
@@ -66,7 +66,7 @@ public class Rock{
             case Small: {
                 pos = new Coord(getX() + getSize() * 2/5, getY() + getSize() *2/5);
                 size = new Coord(getSize()/5, getSize()/5);
-                RectangleShape shape1 = new RectangleShape(pos, size, BasicShape.Color.Gray);
+                RectangleShape shape1 = new RectangleShape(pos, size, new Color(Color.Type.Gray));
                 //addShape(shape1);
                 break;
             }

@@ -97,12 +97,11 @@ public class Ground extends Element {
         //ResourceCause fertilityCause = new ResourceCause(Resource.Type.Fertility);
         //setResourceCause(fertilityCause);
 
-        BasicShape.Color color = BasicShape.Color.White;
-        if (getGroundType() == GroundType.Soil) color = BasicShape.Color.Green;
-        if (getGroundType() == GroundType.Sand) color = BasicShape.Color.Yellow;
-        if (getGroundType() == GroundType.Water) color = BasicShape.Color.Blue;
-        if (getGroundType() == GroundType.Mud) color = BasicShape.Color.Green2;
-        if (getGroundType() == GroundType.Rock) color = BasicShape.Color.Gray;
+        Color color = new Color(Color.Type.White);
+        if (getGroundType() == GroundType.Soil) color = new Color(Color.Type.Green);
+        if (getGroundType() == GroundType.Sand) color = new Color(Color.Type.Yellow);
+        if (getGroundType() == GroundType.Water) color = new Color(Color.Type.Blue);
+        if (getGroundType() == GroundType.Mud) color = new Color(Color.Type.Green2);
         if (getGroundType() == GroundType.Rock){
             ArrayList<BasicShape> shapes = new RockImage(new Coord(getX(), getY()), new Coord(getSize(), getSize()), null).getBasicShapes();
             for (BasicShape basicShape: shapes){

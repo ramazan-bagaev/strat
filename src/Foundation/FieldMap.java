@@ -11,9 +11,11 @@ public class FieldMap {
     private int superFieldSize;
     private HashMap<Coord, Field> map;
     private HashMap<Coord, SuperField> superFieldMap;
+    private GameWindowElement gameWindowElement;
 
-    public FieldMap(int superFieldSize, int fieldSize)
+    public FieldMap(int superFieldSize, int fieldSize, GameWindowElement gameWindowElement)
     {
+        this.gameWindowElement = gameWindowElement;
         this.fieldSize = fieldSize;
         this.superFieldSize = superFieldSize;
         map = new HashMap<>();
@@ -95,6 +97,8 @@ public class FieldMap {
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getTree();
                     if (element != null) result.addAll(element.getShapes());
+                    element = field.getFarm();
+                    if (element != null) result.addAll(element.getShapes());
                 }
             }
         }
@@ -112,5 +116,9 @@ public class FieldMap {
             }
         }
         return result;
+    }
+
+    public GameWindowElement getGameWindowElement() {
+        return gameWindowElement;
     }
 }

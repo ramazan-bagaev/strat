@@ -27,9 +27,9 @@ public class FieldMapGenerator {
         mountains = new ArrayList<>();
     }
 
-    public FieldMap generate(int number, int size, int superFieldSize)
+    public FieldMap generate(int number, int size, int superFieldSize, GameWindowElement gameWindowElement)
     {
-        map = new FieldMap(superFieldSize, size);
+        map = new FieldMap(superFieldSize, size, gameWindowElement);
         time = new Time();
         this.number = number;
         this.size = size;
@@ -432,10 +432,10 @@ public class FieldMapGenerator {
         for(ArrayList<Coord> continent: continents){
 
             int size = continent.size();
-            int number = random.nextInt(size/4);
+            int number = random.nextInt(size/4 + 1);
 
             int iter = 0;
-            int banchNum = random.nextInt(size/4);
+            int banchNum = random.nextInt(size/4 + 1);
 
             while(iter < number){
                 LinkedList<Coord> que = new LinkedList<>();

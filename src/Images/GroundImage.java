@@ -18,22 +18,22 @@ public class GroundImage extends Image {
 
     public void setShapes(Ground.GroundType groundType){
         ArrayList<BasicShape> groundShapes = new ArrayList<>();
-        BasicShape.Color color = BasicShape.Color.White;
+        Color color = new Color(Color.Type.White);
         switch (groundType){
             case Sand:
-                color = BasicShape.Color.Yellow;
+                color = new Color(Color.Type.Yellow);
                 break;
             case Water:
-                color = BasicShape.Color.Blue;
+                color = new Color(Color.Type.Blue);
                 break;
             case Soil:
-                color = BasicShape.Color.Green;
+                color = new Color(Color.Type.Green);
                 break;
             case Mud:
-                color = BasicShape.Color.Green2;
+                color = new Color(Color.Type.Green2);
                 break;
             case Rock:
-                color = BasicShape.Color.Gray;
+                color = new Color(Color.Type.Gray);
                 break;
         }
         RectangleShape newShape = new RectangleShape(new Coord(getPos()), new Coord(getSize()), color, true);

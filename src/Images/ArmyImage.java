@@ -20,8 +20,10 @@ public class ArmyImage extends Image{
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
         Coord size = getSize();
-        RectangleShape rectangleShape = new RectangleShape(new Coord(size.x/6, 0).add(getPos()), new Coord(size.x/6, size.y), BasicShape.Color.Black, true);
-        RectangleShape rectangleShape1 = new RectangleShape(new Coord(2 * size.x/3, 0).add(getPos()), new Coord(size.x/6, size.y), BasicShape.Color.Black, true);
+        RectangleShape rectangleShape =
+                new RectangleShape(new Coord(size.x/6, 0).add(getPos()), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
+        RectangleShape rectangleShape1 =
+                new RectangleShape(new Coord(2 * size.x/3, 0).add(getPos()), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
         basicShapes.add(rectangleShape);
         basicShapes.add(rectangleShape1);
     }

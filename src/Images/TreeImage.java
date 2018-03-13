@@ -41,8 +41,8 @@ public class TreeImage extends Image {
         foliageY = y;
         trunkX = x + width * 3 / 8;
         trunkY = foliageY + foliageHeight;
-        trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), BasicShape.Color.Red, true);
-        foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), BasicShape.Color.Green2, true);
+        trunk = new RectangleShape(new Coord(trunkX, trunkY), new Coord(trunkWidth, trunkHeight), new Color(Color.Type.Red), true);
+        foliage = new RectangleShape(new Coord(foliageX, foliageY), new Coord(foliageWidth, foliageHeight), new Color(Color.Type.Green2), true);
         treeShapes.add(trunk);
         treeShapes.add(foliage);
 

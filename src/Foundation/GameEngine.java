@@ -12,14 +12,14 @@ public class GameEngine {
     private int fieldSize;
     final Random random = new Random();
 
-    public GameEngine(){
-        map = new FieldMap(10000, 100);
+    public GameEngine(GameWindowElement gameWindowElement){
+        map = new FieldMap(10000, 100, gameWindowElement);
         time = new Time();
     }
 
-    public GameEngine(int fieldSize, int fieldNumber){
+    public GameEngine(int fieldSize, int fieldNumber, GameWindowElement gameWindowElement){
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
-        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000);
+        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000, gameWindowElement);
         //map = new FieldMap();
         time = new Time();
         setFieldSize(fieldSize);
@@ -67,4 +67,5 @@ public class GameEngine {
     public Time getTime() {
         return time;
     }
+
 }

@@ -36,7 +36,7 @@ public class TimeElement extends Label {
         if (day.length() != 2) fineDay = "0"+day;
         if (month.length() != 2) fineMonth = "0"+month;
         String time = fineDay + ":" + fineMonth + ":" + year;
-        StringShape stringShape = new StringShape(getPos(), getSize(), time, BasicShape.Color.Black, getParent().getFont("latin"));
+        StringShape stringShape = new StringShape(getPos(), getSize(), time, new Color(Color.Type.Black), getParent().getFont("latin"));
         basicShapes.addAll(stringShape.getBasicShapes());
     }
 

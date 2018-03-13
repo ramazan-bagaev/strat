@@ -17,10 +17,10 @@ public abstract class RadioButton extends WindowElement {
     public void setShapes(){
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
-        RectangleShape carcas = new RectangleShape(getPos(), getSize(), BasicShape.Color.Black, false);
+        RectangleShape carcas = new RectangleShape(getPos(), getSize(), new Color(Color.Type.Black), false);
         basicShapes.add(carcas);
         RectangleShape point = new RectangleShape(getPos().add(new Coord(getSize().x / 4, getSize().y / 4)),
-                new Coord(getSize().x / 2, getSize().y / 2), BasicShape.Color.Black, true);
+                new Coord(getSize().x / 2, getSize().y / 2), new Color(Color.Type.Black), true);
         if (checked) basicShapes.add(point);
     }
 

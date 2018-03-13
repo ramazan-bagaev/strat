@@ -6,7 +6,7 @@ public class TriangleShape extends BasicShape {
     private Coord posB;
     private Coord posC;
 
-    public TriangleShape(Coord a, Coord b, Coord c, BasicShape.Color color){
+    public TriangleShape(Coord a, Coord b, Coord c, Color color){
         setColor(color);
         setType(Type.Triangle);
         posA = new Coord(a);

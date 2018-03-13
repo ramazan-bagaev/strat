@@ -54,6 +54,9 @@ public class WindowElement extends Broadcaster{
     public void click2(Coord point){
     }
 
+    public void hoover(Coord point){
+    }
+
     public void run(){
         return;
     }

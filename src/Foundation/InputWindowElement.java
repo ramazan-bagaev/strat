@@ -35,11 +35,11 @@ public class InputWindowElement extends WindowElement {
 
     @Override
     public void setShapes() {
-        RectangleShape rectangleShape = new RectangleShape(pos, size, BasicShape.Color.LightGray, true);
+        RectangleShape rectangleShape = new RectangleShape(pos, size, new Color(Color.Type.LightGray), true);
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.add(rectangleShape);
         defaultText = "enter text";
-        setText(new StringShape(pos, size, defaultText, BasicShape.Color.Black, getParent().getFont("latin")));
+        setText(new StringShape(pos, size, defaultText, new Color(Color.Type.Black), getParent().getFont("latin")));
         basicShapes.addAll(text.getBasicShapes());
     }
 
@@ -56,7 +56,7 @@ public class InputWindowElement extends WindowElement {
         setNewText(str);
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
-        basicShapes.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.LightGray, true));
+        basicShapes.add(new RectangleShape(getPos(), getSize(), new Color(Color.Type.LightGray), true));
         basicShapes.addAll(text.getBasicShapes());
     }
 

@@ -8,8 +8,9 @@ public class GameWindowElement extends WindowElement{
 
     private GameEngine gameEngine;
 
-    public GameWindowElement(Coord pos, Coord size, Window parent, GameEngine gameEngine){
+    public GameWindowElement(Coord pos, Coord size, Window parent){
         super(pos, size, parent);
+        gameEngine = new GameEngine(50, 100, this);
         setGameEngine(gameEngine);
         setBasicShapes(new ArrayList<>());
         setShapes();
@@ -26,7 +27,7 @@ public class GameWindowElement extends WindowElement{
     public void setShapes(){
         ArrayList<BasicShape> basicShapes = getBasicShapes();
         basicShapes.clear();
-        basicShapes.add(new RectangleShape(getPos(), getSize(), BasicShape.Color.Black, false));
+        basicShapes.add(new RectangleShape(getPos(), getSize(), new Color(Color.Type.Black), false));
         CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
 
         FieldMap map = gameEngine.getMap();
@@ -75,6 +76,10 @@ public class GameWindowElement extends WindowElement{
         Army army = field.getArmy();
         if (army != null){
             ((MainWindow)getParent()).addNewArmyInfoWindow(army);
+        }
+        Farm farm = field.getFarm();
+        if (farm != null){
+            ((MainWindow)getParent()).addNewFarmInfoWindow(farm);
         }
 
       ///  if (f)

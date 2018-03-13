@@ -9,7 +9,7 @@ public class RectangleShape extends BasicShape {
 
     private boolean boxes;
 
-    public RectangleShape(Coord pos, Coord size, BasicShape.Color color){
+    public RectangleShape(Coord pos, Coord size, Color color){
         super();
         setColor(color);
         setType(Type.FilledRectangle);
@@ -18,7 +18,7 @@ public class RectangleShape extends BasicShape {
         boxes = true;
     }
 
-    public RectangleShape(Coord pos, Coord size, BasicShape.Color color, boolean filled){
+    public RectangleShape(Coord pos, Coord size, Color color, boolean filled){
         super();
         setColor(color);
         if (filled) setType(Type.FilledRectangle);
@@ -28,7 +28,7 @@ public class RectangleShape extends BasicShape {
         boxes = true;
     }
 
-    public RectangleShape(Coord pos, Coord size, BasicShape.Color color, boolean boxes, boolean filled){
+    public RectangleShape(Coord pos, Coord size, Color color, boolean boxes, boolean filled){
         super();
         setColor(color);
         if (filled) setType(Type.FilledRectangle);
