@@ -1,7 +1,7 @@
 package Windows;
 
 import Foundation.*;
-import Foundation.Elements.Army;
+import Foundation.Elements.ArmyElement;
 import Foundation.Elements.City;
 import Foundation.WorksP.ArmyWork;
 import WindowElements.MonitoredBroadcastLabel;
@@ -41,15 +41,14 @@ public class ArmyAddWindow extends ClosableWindow{
                 ArmyAddWindow window = (ArmyAddWindow)getParent();
                 City city = window.getCity();
                 Field field = city.getParent();
-                if (field.getArmy() != null) return;
+                if (field.getArmyElement() != null) return;
                 ArmyWork work = new ArmyWork(city.getResourceStore());
                 city.getWorks().addWork(work);
                 People warriors = city.getPopulation().getPeopleForWork(window.getAmount(), work.getId());
                 work.setPeople(warriors);
-                Army army = new Army(warriors, city.getTime(), field, city.getMap());
+                Army army = new Army(field.getFieldMapPos(), warriors, city.getMap(), city.getTime());
+                city.getMap().getGameWindowElement().getGameEngine().addRunEntity(army);
                 city.getArmies().addArmy(army);
-                field.setArmy(army);
-                field.setChanged(true);
                 window.close();
             }
         };

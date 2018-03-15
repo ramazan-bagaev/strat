@@ -2,7 +2,6 @@ package Foundation;
 
 import java.util.ArrayList;
 
-import Foundation.Elements.Army;
 import Foundation.Elements.City;
 import Foundation.GameWindowHelper.HelperFieldMap;
 import Foundation.GameWindowHelper.States.HelperState;
@@ -97,6 +96,7 @@ public class GameWindowHelperElement extends WindowElement {
 
     public void setState(HelperState helperState){
         currentState = helperState;
+        setShapes();
     }
 
     public void setStandartState(){

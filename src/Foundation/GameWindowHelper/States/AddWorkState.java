@@ -84,4 +84,9 @@ public class AddWorkState extends HelperState {
     public void clearHelperElements() {
         coveringFieldMode.removeHelpers();
     }
+
+    @Override
+    public void run() {
+
+    }
 }

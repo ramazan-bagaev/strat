@@ -60,4 +60,8 @@ public class Coord {
         if (other.x - x < 0) return Direction.Left;
         return Direction.None;
     }
+
+    public double distance(Coord other){
+        return Math.sqrt(  Math.pow(other.x - x, 2) + Math.pow(other.y - y, 2));
+    }
 }

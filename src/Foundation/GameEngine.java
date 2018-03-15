@@ -2,6 +2,7 @@ package Foundation;
 
 import Generation.FieldMapGenerator;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GameEngine {
@@ -12,12 +13,16 @@ public class GameEngine {
     private int fieldSize;
     final Random random = new Random();
 
+    private ArrayList<RunEntity> runEntities;
+
     public GameEngine(GameWindowElement gameWindowElement){
         map = new FieldMap(10000, 100, gameWindowElement);
         time = new Time();
+        runEntities = new ArrayList<>();
     }
 
     public GameEngine(int fieldSize, int fieldNumber, GameWindowElement gameWindowElement){
+        runEntities = new ArrayList<>();
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
         map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000, gameWindowElement);
         //map = new FieldMap();
@@ -29,19 +34,12 @@ public class GameEngine {
 
     public void run(){
         time.nextDay();
+        for(RunEntity runEntity: runEntities){
+            runEntity.run();
+        }
        // for(Field field: map.getValues()){
        //     field.run();
        // }
-    }
-
-    public void generateRandomField(int fieldNumber){
-        for(int i = 0; i < fieldNumber; i++)
-            for(int j = 0; j < fieldNumber; j++){
-                int x = i * fieldSize;
-                int y = j * fieldSize;
-                Field newField = new Field(new Coord(i, j), new Coord(x, y), fieldSize, random, map, time);
-                map.addField(new Coord(i, j), newField);
-            }
     }
 
     public int getFieldSize() {
@@ -66,6 +64,10 @@ public class GameEngine {
 
     public Time getTime() {
         return time;
+    }
+
+    public void addRunEntity(RunEntity runEntity){
+        runEntities.add(runEntity);
     }
 
 }

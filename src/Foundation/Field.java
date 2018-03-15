@@ -15,7 +15,7 @@ public class Field {
     private Ground groundElement;
     private Ecosystem ecosystem;
     private City city;
-    private Army army;
+    private ArmyElement armyElement;
     private River river;
     private Tree tree;
     private Manor manor;
@@ -128,12 +128,12 @@ public class Field {
         this.changed = changed;
     }
 
-    public Army getArmy(){
-        return army;
+    public ArmyElement getArmyElement(){
+        return armyElement;
     }
 
-    public void setArmy(Army army) {
-        this.army = army;
+    public void setArmyElement(ArmyElement armyElement) {
+        this.armyElement = armyElement;
     }
 
     public Date getTimeToIntersect() {
@@ -213,5 +213,16 @@ public class Field {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public void createAndAddArmy(Army army){
+        ArmyElement armyElement = new ArmyElement(time, this, map, army);
+        setArmyElement(armyElement);
+        map.getGameWindowElement().setShapes();
+    }
+
+    public void removerArmy(){
+        armyElement = null;
+        map.getGameWindowElement().setShapes();
     }
 }

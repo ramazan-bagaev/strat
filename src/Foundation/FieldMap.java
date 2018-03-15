@@ -90,7 +90,7 @@ public class FieldMap {
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getCity();
                     if (element != null) result.addAll(element.getShapes());
-                    element = field.getArmy();
+                    element = field.getArmyElement();
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getRiver();
                     if (element != null) result.addAll(element.getShapes());

@@ -4,6 +4,7 @@ import Foundation.Color;
 import Foundation.Coord;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.GameWindowHelperElement;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class AddManorFieldState extends HelperState {
 
     //private ArrayList<CoveringFieldHelper> possibleTerritory;
 
+    private MegaBorderMode megaBorderMode;
     private CoveringFieldMode farmTerritory;
     private CoveringFieldMode possibleTerritory;
 
@@ -25,12 +27,29 @@ public class AddManorFieldState extends HelperState {
         super(gameWindowHelperElement);
         farmTerritory = new CoveringFieldMode(gameWindowHelperElement);
         possibleTerritory = new CoveringFieldMode(gameWindowHelperElement);
+        megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
         farmTerritory.putHelpers();
         possibleTerritory.putHelpers();
-        maxTerritory = manor.getCity().getTerritory();
+        megaBorderMode.putHelpers();
         this.manor = manor;
+        initMaxTerritory();
         ArrayList<Coord> currentTerritory = manor.getTerritory();
         initFarmTerritory(currentTerritory);
+    }
+
+    private void initMaxTerritory(){
+        maxTerritory = new ArrayList<>();
+        ArrayList<Manor> manors = manor.getCity().getManors();
+        ArrayList<Coord> otherManors = new ArrayList<>();
+        for (Manor man: manors) {
+            if (man.equals(manor)) continue;
+            otherManors.addAll(man.getTerritory());
+        }
+        ArrayList<Coord> candidates = manor.getCity().getTerritory();
+        for (Coord candidate: candidates){
+            if (otherManors.contains(candidate)) continue;
+            maxTerritory.add(candidate);
+        }
     }
 
     public void addFarmTerritory(Coord pos){
@@ -92,5 +111,11 @@ public class AddManorFieldState extends HelperState {
     public void clearHelperElements() {
         possibleTerritory.removeHelpers();
         farmTerritory.removeHelpers();
+        megaBorderMode.removeHelpers();
+    }
+
+    @Override
+    public void run() {
+
     }
 }

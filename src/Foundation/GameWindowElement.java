@@ -1,6 +1,6 @@
 package Foundation;
 
-import Foundation.Elements.Army;
+import Foundation.Elements.ArmyElement;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
 
@@ -75,9 +75,9 @@ public class GameWindowElement extends WindowElement{
         if (city != null){
             ((MainWindow) getParent()).addNewCityInfoWindow(city);
         }
-        Army army = field.getArmy();
-        if (army != null){
-            ((MainWindow)getParent()).addNewArmyInfoWindow(army);
+        ArmyElement armyElement = field.getArmyElement();
+        if (armyElement != null){
+            ((MainWindow)getParent()).addNewArmyInfoWindow(armyElement.getArmy());
         }
         Manor manor = field.getManor();
         if (manor != null){

@@ -1,6 +1,6 @@
 package Windows;
 
-import Foundation.Elements.Army;
+import Foundation.Army;
 import Foundation.Coord;
 import Foundation.People;
 import Foundation.Windows;

@@ -22,4 +22,6 @@ public abstract class HelperState {
 
     public abstract void clearHelperElements();
 
+    public abstract void run();
+
 }

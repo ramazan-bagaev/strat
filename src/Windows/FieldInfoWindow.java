@@ -29,7 +29,7 @@ public class FieldInfoWindow extends ClosableWindow{
         addCloseButton();
 
         if (field == null) return;
-        Army army = field.getArmy();
+        ArmyElement army = field.getArmyElement();
         Ground groundElement = field.getGround();
         Image groundImage = new GroundImage(getPos(), groundElement.getGroundType(), this);
         Image finalImage = groundImage;

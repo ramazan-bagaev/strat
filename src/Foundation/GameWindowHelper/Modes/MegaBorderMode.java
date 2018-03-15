@@ -26,14 +26,13 @@ public class MegaBorderMode extends Mode {
             City city = field.getCity();
             if (city == null) continue;
             Random random = field.getRandom();
-            BorderMode borderMode = new BorderMode(gameWindowHelperElement, city.getTerritory(), new Color(
-                    random.nextInt(256)/256f, random.nextInt(256)/256f, random.nextInt(256)/256f), 8);
+            Color color = new Color(random.nextInt(256)/256f, random.nextInt(256)/256f, random.nextInt(256)/256f);
+            BorderMode borderMode = new BorderMode(gameWindowHelperElement, city.getTerritory(), color, 4);
 
             borderModes.add(borderMode);
             ArrayList<Manor> manors = city.getManors();
             for(Manor manor: manors){
-                borderMode = new BorderMode(gameWindowHelperElement, manor.getTerritory(), new Color(
-                        random.nextInt(256)/256f, random.nextInt(256)/256f, random.nextInt(256)/256f),4);
+                borderMode = new BorderMode(gameWindowHelperElement, manor.getTerritory(), color,0.5f);
                 borderModes.add(borderMode);
             }
         }

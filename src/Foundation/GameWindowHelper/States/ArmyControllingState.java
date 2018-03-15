@@ -1,24 +1,23 @@
 package Foundation.GameWindowHelper.States;
 
-import Foundation.*;
+import Foundation.Army;
+import Foundation.Coord;
 import Foundation.Elements.ArmyElement;
-import Foundation.Elements.City;
-import Foundation.GameWindowHelper.*;
+import Foundation.Field;
 import Foundation.GameWindowHelper.Modes.ChoosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
-import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
+import Foundation.GameWindowHelperElement;
 
-import java.util.ArrayList;
-
-public class StandartState extends HelperState {
+public class ArmyControllingState extends HelperState {
 
     private ChoosenFieldMode choosenFieldMode;
     private CityInfoMode cityInfoMode;
     private MegaBorderMode megaBorderMode;
 
+    private Army army;
 
-    public StandartState(GameWindowHelperElement gameWindowHelperElement){
+    public ArmyControllingState(GameWindowHelperElement gameWindowHelperElement, Army army) {
         super(gameWindowHelperElement);
         cityInfoMode = new CityInfoMode(gameWindowHelperElement);
         choosenFieldMode = new ChoosenFieldMode(gameWindowHelperElement);
@@ -26,9 +25,9 @@ public class StandartState extends HelperState {
         cityInfoMode.putHelpers();
         choosenFieldMode.putHelpers();
         megaBorderMode.putHelpers();
+        this.army = army;
+        choosenFieldMode.setNewPos(army.getPos());
     }
-
-
 
     @Override
     public void click(Coord point) {
@@ -38,19 +37,24 @@ public class StandartState extends HelperState {
         ArmyElement armyElement = field.getArmyElement();
         if (armyElement != null){
             Army army = armyElement.getArmy();
-            gameWindowHelperElement.clearHelperElements();
-            gameWindowHelperElement.setState(new ArmyControllingState(gameWindowHelperElement, army));
-            return;
+            if (!this.army.equals(army)) this.army = army;
         }
 
         choosenFieldMode.setNewPos(point);
 
         gameWindowHelperElement.getGameWindowElement().click(point);
+
+        gameWindowHelperElement.clearHelperElements();
+        gameWindowHelperElement.setStandartState();
     }
 
     @Override
     public void click2(Coord point) {
-
+        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
+        point.x = point.x / gameWindowHelperElement.getMap().getFieldSize();
+        point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
+        army.action(point);
+        choosenFieldMode.setNewPos(army.getPos());
     }
 
     @Override
@@ -69,4 +73,6 @@ public class StandartState extends HelperState {
     public void run() {
 
     }
+
+
 }

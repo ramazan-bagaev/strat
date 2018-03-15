@@ -4,11 +4,13 @@ import Foundation.*;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 
 import java.util.ArrayList;
 
 public class AddFarmState extends HelperState {
 
+    private MegaBorderMode megaBorderMode;
     private CoveringFieldMode impossible;
     private CoveringFieldMode possible;
 
@@ -19,8 +21,10 @@ public class AddFarmState extends HelperState {
         this.manor = manor;
         impossible = new CoveringFieldMode(gameWindowHelperElement);
         possible = new CoveringFieldMode(gameWindowHelperElement);
+        megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
         impossible.putHelpers();
         possible.putHelpers();
+        megaBorderMode.putHelpers();
         init();
     }
 
@@ -83,5 +87,11 @@ public class AddFarmState extends HelperState {
     public void clearHelperElements() {
         impossible.removeHelpers();
         possible.removeHelpers();
+        megaBorderMode.removeHelpers();
+    }
+
+    @Override
+    public void run() {
+
     }
 }
