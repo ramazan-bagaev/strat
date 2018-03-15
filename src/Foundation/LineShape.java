@@ -10,6 +10,15 @@ public class LineShape extends BasicShape {
 
     private final float standartWidth = 1.5f;
 
+    public LineShape(Coord a, Coord b){
+        super();
+        setType(Type.Line);
+        setColor(new Color(Color.Type.Black));
+        posA = new Coord(a);
+        posB = new Coord(b);
+        width = standartWidth;
+    }
+
     public LineShape(Coord a, Coord b, Color color){
         super();
         setType(Type.Line);
@@ -17,6 +26,15 @@ public class LineShape extends BasicShape {
         posA = new Coord(a);
         posB = new Coord(b);
         width = standartWidth;
+    }
+
+    public LineShape(Coord a, Coord b, float width){
+        super();
+        setType(Type.Line);
+        setColor(new Color(Color.Type.Black));
+        posA = new Coord(a);
+        posB = new Coord(b);
+        this.width = width;
     }
 
     public LineShape(Coord a, Coord b, Color color, float width){

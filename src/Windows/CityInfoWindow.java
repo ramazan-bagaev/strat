@@ -1,8 +1,11 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.Elements.City;
+import Foundation.GameWindowHelper.States.HelperState;
+import Foundation.GameWindowHelper.States.StandartState;
 import Images.CityImage;
-import WindowElements.CloseButton;
+import Images.Image;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 
@@ -13,7 +16,6 @@ public class CityInfoWindow extends ClosableWindow {
     public CityInfoWindow(City city, Windows parent) {
         super(new Coord(700, 0), new Coord(300, 400), parent);
         setCity(city);
-
     }
 
 
@@ -46,11 +48,9 @@ public class CityInfoWindow extends ClosableWindow {
 
         Button addWork = new Button(new Coord(10, 160).add(getPos()), new Coord(150, 20), this, "add work") {
 
-            MainWindow mainWindow = getParent().getParent().getMainWindow();
 
             @Override
             public void click(Coord point) {
-                GameWindowHelperElement gameWindowHelperElement = mainWindow.getGameWindowHelperElement();
                 CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
                 cityInfoWindow.addWorkListWindow();
                 //gameWindowHelperElement.addCityWork(cityInfoWindow.getCity());

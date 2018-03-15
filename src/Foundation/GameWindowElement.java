@@ -1,8 +1,10 @@
 package Foundation;
 
-import java.util.ArrayList;
+import Foundation.Elements.Army;
+import Foundation.Elements.City;
+import Foundation.Elements.Manor;
 
-import Windows.FieldInfoWindow;
+import java.util.ArrayList;
 
 public class GameWindowElement extends WindowElement{
 
@@ -77,9 +79,9 @@ public class GameWindowElement extends WindowElement{
         if (army != null){
             ((MainWindow)getParent()).addNewArmyInfoWindow(army);
         }
-        Farm farm = field.getFarm();
-        if (farm != null){
-            ((MainWindow)getParent()).addNewFarmInfoWindow(farm);
+        Manor manor = field.getManor();
+        if (manor != null){
+            ((MainWindow)getParent()).addNewFarmInfoWindow(manor);
         }
 
       ///  if (f)

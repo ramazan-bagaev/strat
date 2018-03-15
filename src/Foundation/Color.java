@@ -11,6 +11,13 @@ public class Color {
         White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray
     }
 
+    public Color(float r, float b, float g){
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.a = 1;
+    }
+
     public Color(float r, float b, float g, float a){
         this.r = r;
         this.g = g;
@@ -76,5 +83,9 @@ public class Color {
                 b = 0.6f;
                 break;
         }
+    }
+
+    public Color lighter(){
+        return new Color(9*r/10, 9*g/10, 9*b/10, a);
     }
 }

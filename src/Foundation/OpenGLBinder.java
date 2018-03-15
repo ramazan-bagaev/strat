@@ -25,6 +25,7 @@ public class OpenGLBinder {
         Coord posA;
         Coord posB;
         Coord posC;
+        float width;
         switch (basicShape.getType()){
             case Rectangle:
                 rect = (RectangleShape)basicShape;
@@ -79,6 +80,7 @@ public class OpenGLBinder {
             case Character:
                 CharacterShape characterShape = (CharacterShape)basicShape;
                 glColor4f(color.r, color.g, color.b, color.a);
+                width = glGetFloat(GL_LINE_WIDTH);
                 glLineWidth(1.5f);
                 pos = characterShape.getPos();
                 size = characterShape.getSize();
@@ -91,11 +93,11 @@ public class OpenGLBinder {
                     glEnd();
                     glFlush();
                 }
+                glLineWidth(width);
                 break;
             case Line:
                 LineShape lineShape = (LineShape)basicShape;
                 glColor4f(color.r, color.g, color.b, color.a);
-                float width;
                 width = glGetFloat(GL_LINE_WIDTH);
                 glLineWidth(lineShape.getWidth());
                 posA = lineShape.getPosA();

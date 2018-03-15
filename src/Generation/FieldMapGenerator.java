@@ -1,7 +1,10 @@
 package Generation;
 
 import Foundation.*;
-import org.lwjgl.system.CallbackI;
+import Foundation.Elements.City;
+import Foundation.Elements.Ground;
+import Foundation.Elements.River;
+import Foundation.Elements.Tree;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,6 +51,8 @@ public class FieldMapGenerator {
         addSwamps();
         System.out.println("add forests...");
         addForests();
+        System.out.println("add cities...");
+        addCities();
         return map;
     }
 
@@ -390,7 +395,6 @@ public class FieldMapGenerator {
     }
 
     public void addRiver(LinkedList<Coord> river, Coord end){
-        System.out.println("here");
         if (river.size() == 0) return;
         Field field = map.getFieldByIndex(river.get(0));
         River.Side out, in;
@@ -549,6 +553,29 @@ public class FieldMapGenerator {
                 banchNum--;
                 if (banchNum == 0) break;
             }
+        }
+    }
+
+    public void addCities(){
+        for (ArrayList<Coord> continent: continents){
+
+            int size = continent.size();
+            int number = random.nextInt(size/1000 + 1);
+
+            int count = 0;
+            while (count < continent.size()) {
+                Coord pos = continent.get(random.nextInt(continent.size()));
+                if (info[pos.y][pos.x] > 0 && info[pos.y][pos.x] <= continents.size()) {
+                    Field field = map.getFieldByIndex(pos);
+                    if (field.getOwner() != null) continue;
+                    field.setCity(new City("city", City.SizeType.Big, map, time, field));
+                    info[pos.y][pos.x] = continents.size() + 6;
+                    number--;
+                }
+                count++;
+                if (number == 0) break;
+            }
+
         }
     }
 

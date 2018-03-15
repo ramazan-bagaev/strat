@@ -1,5 +1,7 @@
 package Foundation;
 
+import Foundation.Elements.Ground;
+
 public class Climate {
 
     public static final int LOW_TEMPERATURE = 0;

@@ -18,7 +18,7 @@ public class RockImage extends Image {
 
     public void setShapes(){
         ArrayList<BasicShape> shapes = new ArrayList<>();
-        RectangleShape rectangleShape = new RectangleShape(pos, size, new Color(Color.Type.Gray), true);
+        RectangleShape rectangleShape = new RectangleShape(pos, size, new Color(Color.Type.Gray), false, true);
         shapes.add(rectangleShape);
 
         TriangleShape tr1 = new TriangleShape(pos.add(new Coord(2 *size.x/10, size.y)),

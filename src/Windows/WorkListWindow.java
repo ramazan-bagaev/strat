@@ -1,9 +1,8 @@
 package Windows;
 
 import Foundation.*;
-import Foundation.GameWindowHelper.AddWorkState;
-
-import java.util.ArrayList;
+import Foundation.Elements.City;
+import Foundation.GameWindowHelper.States.AddWorkState;
 
 public class WorkListWindow extends ClosableWindow {
 
@@ -19,9 +18,8 @@ public class WorkListWindow extends ClosableWindow {
         removeWindowElements();
         addCloseButton();
 
-        ArrayList<Element> elements = new ArrayList<>();
 
-        Label farm = new Label(pos.add(new Coord(10, 10)), new Coord(80, 20), "farm", this){
+        Label manor = new Label(pos.add(new Coord(10, 10)), new Coord(80, 20), "manor", this){
 
             @Override
             public void click(Coord point){
@@ -32,7 +30,7 @@ public class WorkListWindow extends ClosableWindow {
                 close();
             }
         };
-        addWindowElement(farm);
+        addWindowElement(manor);
     }
 
 

@@ -1,6 +1,8 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.Elements.Army;
+import Foundation.Elements.City;
 import Foundation.WorksP.ArmyWork;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.SliderElement;

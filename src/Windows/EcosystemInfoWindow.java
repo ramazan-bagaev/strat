@@ -1,7 +1,7 @@
 package Windows;
 
 import Foundation.Coord;
-import Foundation.Ecosystem;
+import Foundation.Elements.Ecosystem;
 import Foundation.Fauna.Fauna;
 import Foundation.Flora.Flora;
 import Foundation.Label;

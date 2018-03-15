@@ -1,5 +1,7 @@
 package Foundation;
 
+import Images.Image;
+
 public class Resource extends Broadcaster{
 
 

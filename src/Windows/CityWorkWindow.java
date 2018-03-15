@@ -1,6 +1,7 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.Elements.City;
 import Foundation.WorksP.GatheringWork;
 import Foundation.WorksP.HuntingWork;
 import WindowElementGroups.ScrollableGroup;

@@ -1,9 +1,8 @@
 package Foundation.Flora;
 
 import Foundation.Broadcaster;
-import Foundation.Climate;
-import Foundation.Ecosystem;
-import Foundation.Ground;
+import Foundation.Elements.Ecosystem;
+import Foundation.Elements.Ground;
 
 import java.util.ArrayList;
 

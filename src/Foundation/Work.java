@@ -1,5 +1,7 @@
 package Foundation;
 
+import Foundation.Elements.City;
+
 public abstract class Work {
 
     protected City city;

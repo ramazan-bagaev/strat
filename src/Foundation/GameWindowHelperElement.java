@@ -2,10 +2,11 @@ package Foundation;
 
 import java.util.ArrayList;
 
+import Foundation.Elements.Army;
+import Foundation.Elements.City;
 import Foundation.GameWindowHelper.HelperFieldMap;
-import Foundation.GameWindowHelper.HelperState;
-import Foundation.GameWindowHelper.StandartState;
-import Windows.CityWorkWindow;
+import Foundation.GameWindowHelper.States.HelperState;
+import Foundation.GameWindowHelper.States.StandartState;
 
 public class GameWindowHelperElement extends WindowElement {
 
@@ -100,5 +101,11 @@ public class GameWindowHelperElement extends WindowElement {
 
     public void setStandartState(){
         currentState = new StandartState(this);
+        setShapes();
     }
+
+    public HelperState getCurrentState() {
+        return currentState;
+    }
+
 }

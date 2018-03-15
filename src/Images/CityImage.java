@@ -1,6 +1,7 @@
 package Images;
 
 import Foundation.*;
+import Foundation.Elements.City;
 
 import java.util.ArrayList;
 

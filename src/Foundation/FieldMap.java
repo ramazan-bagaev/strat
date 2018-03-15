@@ -1,7 +1,6 @@
 package Foundation;
 
-import Foundation.Coord;
-import Foundation.Field;
+import Foundation.Elements.Element;
 
 import java.util.*;
 
@@ -96,6 +95,8 @@ public class FieldMap {
                     element = field.getRiver();
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getTree();
+                    if (element != null) result.addAll(element.getShapes());
+                    element = field.getManor();
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getFarm();
                     if (element != null) result.addAll(element.getShapes());

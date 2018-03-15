@@ -1,6 +1,7 @@
 package Images;
 
 import Foundation.*;
+import Foundation.Elements.Ground;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class GroundImage extends Image {
                 color = new Color(Color.Type.Gray);
                 break;
         }
-        RectangleShape newShape = new RectangleShape(new Coord(getPos()), new Coord(getSize()), color, true);
+        RectangleShape newShape = new RectangleShape(new Coord(getPos()), new Coord(getSize()), color, false, true);
         groundShapes.add(newShape);
         setBasicShapes(groundShapes);
     }

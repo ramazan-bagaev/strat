@@ -1,5 +1,7 @@
 package Foundation;
 
+import Foundation.Elements.City;
+
 import java.util.ArrayList;
 
 public class People extends Broadcaster{

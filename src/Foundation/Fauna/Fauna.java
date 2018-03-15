@@ -1,9 +1,8 @@
 package Foundation.Fauna;
 
-import Foundation.Ecosystem;
+import Foundation.Elements.Ecosystem;
 import Foundation.Flora.Flora;
-import Foundation.Ground;
-import Foundation.Resource;
+import Foundation.Elements.Ground;
 
 import java.util.ArrayList;
 

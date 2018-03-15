@@ -1,6 +1,8 @@
 package Foundation;
 
-import java.lang.reflect.Array;
+import Foundation.Elements.City;
+import Foundation.Elements.Ground;
+
 import java.util.ArrayList;
 
 public class SuperField extends RunEntity{
@@ -66,7 +68,11 @@ public class SuperField extends RunEntity{
 
     public void deleteField(Field field){
         fields.remove(field);
-        if (field.getCity() != null) System.out.println("Danger!!! at SuperField deleteField method"); // should delete this field info from cityPos
+        City city = field.getCity();
+        if (city != null) System.out.println("Danger!!! at SuperField deleteField method"); // should delete this field info from cityPos
+        if (city != null){
+            city.destroy();
+        }
         if (field.getGroundType() == Ground.GroundType.Water){
             numberOfWaterField--;
         }

@@ -1,46 +1,16 @@
 package Foundation;
 
-import Foundation.City;
-import Foundation.Element;
+import Foundation.Elements.*;
 
 import java.util.Random;
 
 
 public class Field {
 
-    public Ground.GroundType getGroundType() {
-        return groundElement.getGroundType();
-    }
-
-
-    public void run() {
-        ecosystem.run();
-        //if (additionalElement != null) additionalElement.run();
-        if (city != null) city.run();
-    }
-
-    public FieldMap getMap() {
-        return map;
-    }
-
-    public void setMap(FieldMap map) {
-        this.map = map;
-    }
-
-    public Ground getGround(){
-        return groundElement;
-    }
-
-    //public Element getAdditionalElement(){
-   //     return additionalElement;
-   // }
-
-   // public void setAdditionalElement(Element element){
-   //     additionalElement = element;
-   // }
-
     private Coord fieldMapPos;
     private int size;
+
+    private City owner;
 
     private Ground groundElement;
     private Ecosystem ecosystem;
@@ -48,6 +18,7 @@ public class Field {
     private Army army;
     private River river;
     private Tree tree;
+    private Manor manor;
     private Farm farm;
 
     private Time time;
@@ -68,10 +39,6 @@ public class Field {
         setRandom(random);
         Ground.GroundType tempType = type;
         groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this, map);
-        if (getGroundType() != Ground.GroundType.Water) {
-            int elType = random.nextInt(2);
-            if (elType == 1) city = createCity(random, globalPos, time);
-        }
         ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this, map);
         calculateTimeToIntersect();
     }
@@ -91,10 +58,6 @@ public class Field {
         if (randNum == 3) tempType = Ground.GroundType.Mud;
         if (randNum == 4) tempType = Ground.GroundType.Rock;
         groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this, map);
-        if (getGroundType() != Ground.GroundType.Water) {
-            int elType = random.nextInt(100);
-            if (elType == 1) city = createCity(random, globalPos, time);
-        }
         ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this, map);
         calculateTimeToIntersect();
     }
@@ -123,36 +86,6 @@ public class Field {
         if (temperature == Climate.LOW_TEMPERATURE) days += 2;
         if (temperature == Climate.HIGH_TEMPERATURE) days += 1;
         timeToIntersect = new Date(days);
-    }
-
-
-
-    private Rock createRock(Random random, Coord pos){
-        if (getGroundType() == Ground.GroundType.Rock) {
-            if (random.nextInt(10) > 7) {
-                int typeNum = random.nextInt(3);
-                Rock.SizeType type = Rock.SizeType.Big;
-                if (typeNum == 0) type = Rock.SizeType.Big;
-                if (typeNum == 1) type = Rock.SizeType.Middle;
-                if (typeNum == 2) type = Rock.SizeType.Small;
-              //  return new Rock(pos.x, pos.y, getSize(), type, time, this);
-            }
-        }
-        return null;
-    }
-
-    private City createCity(Random random, Coord pos, Time time){
-        if (getGroundType() == Ground.GroundType.Rock) return null;
-        if (random.nextInt(10) > 8) {
-            int typeNum = random.nextInt(10);
-            City.SizeType type = City.SizeType.Big;
-            if (typeNum == 0) type = City.SizeType.Big;
-            if (typeNum == 1 || typeNum == 2) type = City.SizeType.Middle;
-            if (typeNum > 2) type = City.SizeType.Small;
-            String name = "city";
-            return new City(pos, getSize(), name, type, map, time, this);
-        }
-        return null;
     }
 
     public int getSize() {
@@ -227,11 +160,58 @@ public class Field {
         return time;
     }
 
+    public Manor getManor() {
+        return manor;
+    }
+
+    public void setManor(Manor manor) {
+        this.manor = manor;
+    }
+
+    public void run() {
+        ecosystem.run();
+        //if (additionalElement != null) additionalElement.run();
+        if (city != null) city.run();
+    }
+
+    public FieldMap getMap() {
+        return map;
+    }
+
+    public void setMap(FieldMap map) {
+        this.map = map;
+    }
+
+    public Ground getGround(){
+        return groundElement;
+    }
+
+    public Ground.GroundType getGroundType() {
+        return groundElement.getGroundType();
+    }
+
     public Farm getFarm() {
         return farm;
     }
 
     public void setFarm(Farm farm) {
         this.farm = farm;
+    }
+
+    public City getOwner() {
+        return owner;
+    }
+
+    public void setOwner(City owner) {
+        this.owner = owner;
+    }
+
+    public boolean hasOwner(){
+        if (owner == null) return false;
+        return true;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

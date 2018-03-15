@@ -1,13 +1,14 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.Elements.*;
 import Images.ArmyImage;
 import Images.CityImage;
 import Images.GroundImage;
-import WindowElements.CloseButton;
+import Images.Image;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
-import Windows.WorkPlaceWindows.FarmInfoWindow;
+import Windows.WorkPlaceWindows.ManorInfoWindow;
 
 public class FieldInfoWindow extends ClosableWindow{
 
@@ -129,15 +130,15 @@ public class FieldInfoWindow extends ClosableWindow{
         addWindow(new EcosystemInfoWindow(ecosystem, getParent()));
     }
 
-    public void addFarmInfoWindow(Farm farm){
+    public void addFarmInfoWindow(Manor manor){
         for (Window window: getParent().getWindows()){
             if (window.getClass() == EcosystemInfoWindow.class){
-                FarmInfoWindow farmInfoWindow = (FarmInfoWindow)window;
-                farmInfoWindow.setFarm(farm);
+                ManorInfoWindow manorInfoWindow = (ManorInfoWindow)window;
+                manorInfoWindow.setManor(manor);
                 return;
             }
         }
-        addWindow(new FarmInfoWindow(farm, getParent()));
+        addWindow(new ManorInfoWindow(manor, getParent()));
     }
 
 }

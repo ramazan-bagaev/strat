@@ -1,8 +1,9 @@
 package Foundation;
 
+import Foundation.Elements.City;
+
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Random;
 
 public class Population extends Broadcaster{
 

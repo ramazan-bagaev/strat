@@ -1,9 +1,12 @@
 package Foundation;
 
+import Foundation.Elements.Army;
+import Foundation.Elements.City;
+import Foundation.Elements.Manor;
 import Windows.FieldInfoWindow;
 import Windows.CityInfoWindow;
 import Windows.ArmyInfoWindow;
-import Windows.WorkPlaceWindows.FarmInfoWindow;
+import Windows.WorkPlaceWindows.ManorInfoWindow;
 
 public class MainWindow extends Window{
 
@@ -67,15 +70,15 @@ public class MainWindow extends Window{
         addWindow(new ArmyInfoWindow(army, getParent()));
     }
 
-    public void addNewFarmInfoWindow(Farm farm){
+    public void addNewFarmInfoWindow(Manor manor){
         for (Window window: getParent().getWindows()){
             if (window.getClass() == ArmyInfoWindow.class){
-                FarmInfoWindow farmInfoWindow = (FarmInfoWindow)window;
-                farmInfoWindow.setFarm(farm);
+                ManorInfoWindow manorInfoWindow = (ManorInfoWindow)window;
+                manorInfoWindow.setManor(manor);
                 return;
             }
         }
-        addWindow(new FarmInfoWindow(farm, getParent()));
+        addWindow(new ManorInfoWindow(manor, getParent()));
     }
 
     public void moveGameWindow(Coord delta){

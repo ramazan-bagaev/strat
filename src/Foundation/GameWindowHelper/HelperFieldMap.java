@@ -21,7 +21,6 @@ public class HelperFieldMap {
         this.fieldSize = fieldMap.getFieldSize();
         this.fieldMap = fieldMap;
         this.parent = parent;
-        //addCityNames();
     }
 
 
@@ -45,16 +44,6 @@ public class HelperFieldMap {
         return result;
     }
 
-    public void addCityNames(){
-        for(Field field: fieldMap.getValues()){
-            if (field.getCity() == null) continue;
-            HelperField helperField = new HelperField(field, this);
-            CityInfoHelper cityInfoHelper = new CityInfoHelper(field.getCity(), helperField);
-            helperField.setCityInfoHelper(cityInfoHelper);
-            Coord pos = field.getFieldMapPos();
-            map.put(pos, helperField);
-        }
-    }
 
     public GameWindowHelperElement getParent() {
         return parent;
