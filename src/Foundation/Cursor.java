@@ -8,6 +8,8 @@ public class Cursor {
     private double posX;
     private double posY;
     private boolean posChanged;
+    private Coord pressedPos;
+    private boolean dragEnd;
 
     private boolean pressed;
 
@@ -24,6 +26,7 @@ public class Cursor {
         this.windows = windows;
         this.input = input;
         pressed = false;
+        dragEnd = true;
     }
 
     public void posRenew(double x, double y){
@@ -113,7 +116,10 @@ public class Cursor {
     }
 
     public void click(Coord point, boolean pressed, int button){
-        if (button == 0) action(point, pressed);
+        if (button == 0) {
+            dragEnd = true;
+            action(point, pressed);
+        }
         if (button == 1) additionalAction(point, pressed);
     }
 
@@ -121,8 +127,10 @@ public class Cursor {
         this.pressed = pressed;
         if (!pressed) {
             actionWindow(point);
+            pressedPos = null;
         }
         else{
+            pressedPos = point;
             if (clickedWindowElement != null) input.getKeyboard().check(clickedWindowElement);
             else input.getKeyboard().setActiveElement(null);
             return;
@@ -178,17 +186,20 @@ public class Cursor {
     }
 
     public void drag(Coord point){
+        if (activeWindow != null) {
+            activeWindow.drag(point, pressedPos, dragEnd);
+            dragEnd = false;
+            return;
+        }
         if (activeWindowElement != null) {
-            activeWindowElement.drag(point);
+            activeWindowElement.drag(point, pressedPos, dragEnd);
+            dragEnd = false;
             clickedWindowElement = activeWindowElement;
             return;
         }
         if (activeWindowElementGroup != null) {
-            activeWindowElementGroup.drag(point);
-            return;
-        }
-        if (activeWindow != null) {
-            activeWindow.drag(point);
+            activeWindowElementGroup.drag(point, pressedPos, dragEnd);
+            dragEnd = false;
             return;
         }
     }

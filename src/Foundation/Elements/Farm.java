@@ -1,13 +1,18 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.Person.People;
+import Foundation.WorksP.FarmWork;
 import Images.FarmImage;
 
 import java.util.ArrayList;
 
 public class Farm extends Element {
 
+    private Work work;
     private Manor manor;
+    private People people;
+    private int efficiency;
 
     public Farm(Manor manor, Time time, Field parent, FieldMap map) {
         super(Type.Farm, time, parent, map);
@@ -18,6 +23,9 @@ public class Farm extends Element {
         ArrayList<BasicShape> image = new FarmImage(pos,
                 new Coord(parent.getSize(), parent.getSize()), null).getBasicShapes();
         setBasicShapes(image);
+        efficiency = 10;
+        people = parent.getPeople();
+        work = new FarmWork(manor, this);
     }
 
     public Manor getManor() {
@@ -26,5 +34,17 @@ public class Farm extends Element {
 
     public void setManor(Manor manor) {
         this.manor = manor;
+    }
+
+    public People getPeople() {
+        return people;
+    }
+
+    public int getEfficiency() {
+        return efficiency;
+    }
+
+    public Work getWork() {
+        return work;
     }
 }

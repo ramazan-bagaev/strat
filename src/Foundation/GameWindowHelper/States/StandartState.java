@@ -2,14 +2,10 @@ package Foundation.GameWindowHelper.States;
 
 import Foundation.*;
 import Foundation.Elements.ArmyElement;
-import Foundation.Elements.City;
-import Foundation.GameWindowHelper.*;
 import Foundation.GameWindowHelper.Modes.ChoosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
-import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
-
-import java.util.ArrayList;
+import Foundation.Runnable.Army;
 
 public class StandartState extends HelperState {
 
@@ -35,12 +31,14 @@ public class StandartState extends HelperState {
         point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
 
         Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByPos(point);
-        ArmyElement armyElement = field.getArmyElement();
-        if (armyElement != null){
-            Army army = armyElement.getArmy();
-            gameWindowHelperElement.clearHelperElements();
-            gameWindowHelperElement.setState(new ArmyControllingState(gameWindowHelperElement, army));
-            return;
+        if (field != null) {
+            ArmyElement armyElement = field.getArmyElement();
+            if (armyElement != null) {
+                Army army = armyElement.getArmy();
+                gameWindowHelperElement.clearHelperElements();
+                gameWindowHelperElement.setState(new ArmyControllingState(gameWindowHelperElement, army));
+                return;
+            }
         }
 
         choosenFieldMode.setNewPos(point);

@@ -1,12 +1,14 @@
-package Foundation;
+package Foundation.Runnable;
 
+import Foundation.*;
 import Foundation.Elements.City;
 import Foundation.Elements.Ground;
 
 import java.util.ArrayList;
 
-public class SuperField extends RunEntity{
+public class SuperField implements RunEntity {
 
+    private Time time;
     private FieldMap fieldMap;
 
     private Coord globalPos;
@@ -23,7 +25,8 @@ public class SuperField extends RunEntity{
 
     private int isWater; // 1 - water, 0 - ground
 
-    public SuperField(Coord globalPos, FieldMap fieldMap){
+    public SuperField(Coord globalPos, FieldMap fieldMap, Time time){
+        this.time = time;
         this.globalPos = new Coord(globalPos);
         this.size = fieldMap.getSuperFieldSize();
         this.fieldMap = fieldMap;
@@ -44,10 +47,10 @@ public class SuperField extends RunEntity{
         else{
             numberOfSoilField += 1;
         }
-        recolibrate();
+        recalibrate();
     }
 
-    public void recolibrate(){
+    public void recalibrate(){
         if ((numberOfWaterField > numberOfSoilField && isWater == 0) || (numberOfWaterField < numberOfSoilField && isWater == 1)){
             basicShapes.clear();
             Color color;
@@ -79,7 +82,7 @@ public class SuperField extends RunEntity{
         else{
             numberOfSoilField++;
         }
-        recolibrate();
+        recalibrate();
     }
 
     @Override  // RunEntity method

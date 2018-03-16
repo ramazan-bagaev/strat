@@ -1,12 +1,5 @@
 package Foundation;
 
-import Foundation.Elements.City;
-import Foundation.Elements.Manor;
-import Windows.FieldInfoWindow;
-import Windows.CityInfoWindow;
-import Windows.ArmyInfoWindow;
-import Windows.WorkPlaceWindows.ManorInfoWindow;
-
 public class MainWindow extends Window{
 
     private GameWindowElement gameWindowElement;
@@ -35,54 +28,20 @@ public class MainWindow extends Window{
         return gameWindowHelperElement;
     }
 
-    public void addNewFieldInfoWindow(Field field){
-        for(Window window: getParent().getWindows()){
-            if (window.getClass() == FieldInfoWindow.class){
-                FieldInfoWindow fieldInfoWindow = (FieldInfoWindow)window;
-                fieldInfoWindow.setField(field);
-                return;
-            }
-        }
-        addWindow(new FieldInfoWindow(getParent(), field));
 
-    }
 
-    public void addNewCityInfoWindow(City city){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == CityInfoWindow.class){
-                CityInfoWindow cityInfoWindow = (CityInfoWindow)window;
-                cityInfoWindow.setCity(city);
-                return;
-            }
-        }
-        addWindow(new CityInfoWindow(city, getParent()));
-    }
-
-    public void addNewArmyInfoWindow(Army army){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == ArmyInfoWindow.class){
-                ArmyInfoWindow armyInfoWindow = (ArmyInfoWindow)window;
-                armyInfoWindow.setArmy(army);
-                return;
-            }
-        }
-        addWindow(new ArmyInfoWindow(army, getParent()));
-    }
-
-    public void addNewFarmInfoWindow(Manor manor){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == ArmyInfoWindow.class){
-                ManorInfoWindow manorInfoWindow = (ManorInfoWindow)window;
-                manorInfoWindow.setManor(manor);
-                return;
-            }
-        }
-        addWindow(new ManorInfoWindow(manor, getParent()));
-    }
 
     public void moveGameWindow(Coord delta){
         CameraConfiguration cameraConfiguration = getCameraConfiguration();
         cameraConfiguration.move(delta);
+        gameWindowElement.setShapes();
+        gameWindowHelperElement.setShapes();
+    }
+
+    @Override
+    public void drag(Coord pos, Coord pressedPos, boolean dragBegin){
+        CameraConfiguration cameraConfiguration = getCameraConfiguration();
+        cameraConfiguration.drag(pos, pressedPos, dragBegin);
         gameWindowElement.setShapes();
         gameWindowHelperElement.setShapes();
     }

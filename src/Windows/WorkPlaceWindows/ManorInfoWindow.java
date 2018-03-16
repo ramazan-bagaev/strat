@@ -1,11 +1,13 @@
 package Windows.WorkPlaceWindows;
 
 import Foundation.*;
+import Foundation.Windows;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.States.AddManorFieldState;
 import Images.Image;
 import Images.ManorImage;
 import Windows.ClosableWindow;
+import Windows.ResourceStoreWindow;
 
 public class ManorInfoWindow extends ClosableWindow {
 
@@ -45,6 +47,17 @@ public class ManorInfoWindow extends ClosableWindow {
         };
 
         addWindowElement(addWork);
+
+        Button showResource = new Button(getPos().add(new Coord(20, 240)), new Coord(150, 20), this, "show resources"){
+
+            @Override
+            public void click(Coord point) {
+                Windows windows = getParent().getParent();
+                windows.addSpecialWindow("resource store window", new ResourceStoreWindow(manor.getResourceStore(), windows));
+            }
+        };
+
+        addWindowElement(showResource);
 
 
 

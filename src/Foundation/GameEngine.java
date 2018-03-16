@@ -1,5 +1,6 @@
 package Foundation;
 
+import Foundation.Runnable.RunEntity;
 import Generation.FieldMapGenerator;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ public class GameEngine {
 
     private Time time;
 
+    private GameWindowElement gameWindowElement;
     private FieldMap map;
     private int fieldSize;
     final Random random = new Random();
@@ -16,15 +18,17 @@ public class GameEngine {
     private ArrayList<RunEntity> runEntities;
 
     public GameEngine(GameWindowElement gameWindowElement){
-        map = new FieldMap(10000, 100, gameWindowElement);
-        time = new Time();
         runEntities = new ArrayList<>();
+        this.gameWindowElement = gameWindowElement;
+        map = new FieldMap(10000, 100, this);
+        time = new Time();
     }
 
     public GameEngine(int fieldSize, int fieldNumber, GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
+        this.gameWindowElement = gameWindowElement;
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
-        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000, gameWindowElement);
+        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000, this);
         //map = new FieldMap();
         time = new Time();
         setFieldSize(fieldSize);
@@ -70,4 +74,7 @@ public class GameEngine {
         runEntities.add(runEntity);
     }
 
+    public GameWindowElement getGameWindowElement() {
+        return gameWindowElement;
+    }
 }

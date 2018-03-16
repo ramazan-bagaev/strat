@@ -31,7 +31,7 @@ public class MegaBorderMode extends Mode {
 
             borderModes.add(borderMode);
             ArrayList<Manor> manors = city.getManors();
-            for(Manor manor: manors){
+            for(Manor manor : manors){
                 borderMode = new BorderMode(gameWindowHelperElement, manor.getTerritory(), color,0.5f);
                 borderModes.add(borderMode);
             }

@@ -6,6 +6,10 @@ public class CameraConfiguration {
 
     private boolean applied;
 
+    private float draggedX;
+    private float draggedY;
+    private boolean dragged;
+
     private float x;
     private float y;
 
@@ -24,6 +28,7 @@ public class CameraConfiguration {
         this.y = y;
         this.sizeY = sizeY;
         this.sizeX = sizeX;
+        dragged = false;
         applied = false;
         zooms = new ArrayList<>();
         zooms.add(0.1f);
@@ -86,6 +91,15 @@ public class CameraConfiguration {
         y += delta.y * getZoom();
     }
 
+    public void drag(Coord pos, Coord pressedPos, boolean begin){
+        if (begin){
+            draggedX = x;
+            draggedY = y;
+        }
+        x = draggedX - (pos.x - pressedPos.x) * getZoom();
+        y = draggedY - (pos.y - pressedPos.y) * getZoom();
+    }
+
     public boolean isScrollable() {
         return scrollable;
     }
@@ -139,7 +153,7 @@ public class CameraConfiguration {
         Coord result = new Coord(0, 0);
         float fx = (coord.x * getZoom() + x);
         float fy = (coord.y * getZoom() + y);
-        //dddddddddddddddif (fx < 0 || fy < 0) return new Coord(-1000, -1000);
+        //if (fx < 0 || fy < 0) return new Coord(-1000, -1000);
         result.x = (int)fx;
         result.y = (int)fy;
         return result;

@@ -1,11 +1,13 @@
-package Foundation;
+package Foundation.Person;
 
+import Foundation.Broadcaster;
 import Foundation.Elements.City;
+import Foundation.Time;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Population extends Broadcaster{
+public class Population extends Broadcaster {
 
     private City city;
     private ArrayList<PopulationGroup> populationGroups;
@@ -72,37 +74,6 @@ public class Population extends Broadcaster{
         return sum;
     }
 
-    public People getPeopleForWork(int amount, int workId){
-        int accessablePeople = amountOfNotWorking();
-        if (amount > accessablePeople) amount = accessablePeople;
-        if (amount < 0) return null;
-        int accessableGroup = amountOfNotWorkingGroup();
-        float multiplicator = (float) amount / (float)accessablePeople;
-        ArrayList<PopulationGroup> newPopulationGroups = new ArrayList<>();
-        Iterator<PopulationGroup> it = populationGroups.iterator();
-        while (it.hasNext()){
-            PopulationGroup populationGroup = it.next();
-            if (populationGroup.workId != PopulationGroup.NO_WORK) continue;
-            int localAmount = (int) Math.ceil(multiplicator * populationGroup.getAmount());
-            int realLocalAmount = populationGroup.decreaseAmount(localAmount);
-            amount -= realLocalAmount;
-            if (amount < 0) {
-                populationGroup.increaseAmount(Math.abs(amount));
-                realLocalAmount += Math.abs(amount);
-            }
-            PopulationGroup newPopulationGroup = new PopulationGroup(realLocalAmount, populationGroup);
-            newPopulationGroup.workId = workId;
-            newPopulationGroups.add(newPopulationGroup);
-            if (amount <= 0) break;
-        }
-        for (PopulationGroup populationGroup: newPopulationGroups){
-            addPopulationGroup(populationGroup);
-        }
-        relax();
-        People people = new People(city);
-        people.setPopulationGroups(newPopulationGroups);
-        return people;
-    }
 
     public void run(){
         Time time = city.getTime();

@@ -1,25 +1,25 @@
 package Foundation.Elements;
 
-import Foundation.Coord;
+import Foundation.*;
 import Foundation.Elements.City;
 import Foundation.Elements.Element;
-import Foundation.Field;
-import Foundation.FieldMap;
-import Foundation.Time;
+import Foundation.Runnable.RunableElement;
 import Images.ManorImage;
 
 import java.util.ArrayList;
 
-public class Manor extends Element {
+public class Manor extends RunableElement {
 
     private ArrayList<Coord> farms;
 
+    private ResourceStore resourceStore;
     private ArrayList<Coord> territory;
     private City city;
 
     public Manor(Time time, Field parent, FieldMap map, City city) {
         super(Type.Manor, time, parent, map);
         this.city = city;
+        this.resourceStore = new ResourceStore();
         territory = new ArrayList<>();
         territory.add(parent.getFieldMapPos());
         farms = new ArrayList<>();
@@ -49,7 +49,19 @@ public class Manor extends Element {
         Farm farm = new Farm(this, time, field, map);
         field.setFarm(farm);
         farms.add(point);
-        map.getGameWindowElement().setShapes();
+        map.getGameEngine().getGameWindowElement().setShapes();
         System.out.println(city.getTerritory().size());
+    }
+
+    public ResourceStore getResourceStore() {
+        return resourceStore;
+    }
+
+    @Override
+    public void run() {
+        for(Coord pos: farms){
+            Farm farm = map.getFieldByIndex(pos).getFarm();
+            farm.getWork().doJob();
+        }
     }
 }

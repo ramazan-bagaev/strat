@@ -1,6 +1,7 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.Runnable.Army;
 import Images.ArmyImage;
 
 public class ArmyElement extends Element{

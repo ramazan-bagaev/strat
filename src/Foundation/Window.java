@@ -101,7 +101,7 @@ public class Window {
         }
     }
 
-    public void drag(Coord point){
+    public void drag(Coord point, Coord pressedPos, boolean dragBegin){
     }
 
     public void hoover(Coord point){

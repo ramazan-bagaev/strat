@@ -1,6 +1,9 @@
 package Foundation;
 
 import Foundation.Elements.*;
+import Foundation.Person.People;
+import Foundation.Person.Person;
+import Foundation.Runnable.Army;
 
 import java.util.Random;
 
@@ -21,6 +24,9 @@ public class Field {
     private Manor manor;
     private Farm farm;
 
+
+    private People people;
+
     private Time time;
 
     private FieldMap map;
@@ -34,6 +40,7 @@ public class Field {
     public Field(Coord fieldMapPos, Coord globalPos, Random random, FieldMap map, Time time, Ground.GroundType type){
         changed = false;
         this.fieldMapPos = fieldMapPos;
+        people = new People(this);
         size = map.getFieldSize();
         setMap(map);
         setRandom(random);
@@ -46,6 +53,7 @@ public class Field {
     public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time){
         changed = false;
         this.fieldMapPos = fieldMapPos;
+        people = new People(this);
         setSize(size);
         setMap(map);
         setRandom(random);
@@ -218,11 +226,24 @@ public class Field {
     public void createAndAddArmy(Army army){
         ArmyElement armyElement = new ArmyElement(time, this, map, army);
         setArmyElement(armyElement);
-        map.getGameWindowElement().setShapes();
+        map.getGameEngine().getGameWindowElement().setShapes();
     }
 
     public void removerArmy(){
         armyElement = null;
-        map.getGameWindowElement().setShapes();
+        map.getGameEngine().getGameWindowElement().setShapes();
+    }
+
+    public void addPerson(Person person){
+        people.addPerson(person);
+    }
+
+    public void removePerson(Person person){
+        people.removePerson(person);
+    }
+
+
+    public People getPeople() {
+        return people;
     }
 }

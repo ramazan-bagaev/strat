@@ -5,6 +5,7 @@ import Foundation.Elements.City;
 import Foundation.Elements.Ground;
 import Foundation.Elements.River;
 import Foundation.Elements.Tree;
+import Foundation.Person.Person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,9 +31,9 @@ public class FieldMapGenerator {
         mountains = new ArrayList<>();
     }
 
-    public FieldMap generate(int number, int size, int superFieldSize, GameWindowElement gameWindowElement)
+    public FieldMap generate(int number, int size, int superFieldSize, GameEngine gameEngine)
     {
-        map = new FieldMap(superFieldSize, size, gameWindowElement);
+        map = new FieldMap(superFieldSize, size, gameEngine);
         time = new Time();
         this.number = number;
         this.size = size;
@@ -568,7 +569,10 @@ public class FieldMapGenerator {
                 if (info[pos.y][pos.x] > 0 && info[pos.y][pos.x] <= continents.size()) {
                     Field field = map.getFieldByIndex(pos);
                     if (field.getOwner() != null) continue;
-                    field.setCity(new City("city", City.SizeType.Big, map, time, field));
+                    City city = new City("city", City.SizeType.Big, map, time, field);
+                    field.setCity(city);
+                    addPeopleAround(city);
+                    field.getMap().getGameEngine().addRunEntity(city);
                     info[pos.y][pos.x] = continents.size() + 6;
                     number--;
                 }
@@ -576,6 +580,45 @@ public class FieldMapGenerator {
                 if (number == 0) break;
             }
 
+        }
+    }
+
+    public void addPeopleAround(City city){
+        ArrayList<Coord> territory = city.getTerritory();
+        int num;
+        for (Coord pos: territory){
+            Field field = map.getFieldByIndex(pos);
+            if (field.getCity() != null){
+                num = random.nextInt(100);
+                for(int i = 0; i < num; i++){
+                    Person person = new Person(field);
+                }
+            }
+            if (field.getGroundType() == Ground.GroundType.Water) continue;
+            if (field.getGroundType() == Ground.GroundType.Rock){
+                num = random.nextInt(3);
+                for(int i = 0; i < num; i++){
+                    Person person = new Person(field);
+                }
+            }
+            if (field.getGroundType() == Ground.GroundType.Mud){
+                num = random.nextInt(5);
+                for(int i = 0; i < num; i++){
+                    Person person = new Person(field);
+                }
+            }
+            if (field.getGroundType() == Ground.GroundType.Sand){
+                num = random.nextInt(7);
+                for(int i = 0; i < num; i++){
+                    Person person = new Person(field);
+                }
+            }
+            if (field.getGroundType() == Ground.GroundType.Soil){
+                num = random.nextInt(50);
+                for(int i = 0; i < num; i++){
+                    Person person = new Person(field);
+                }
+            }
         }
     }
 

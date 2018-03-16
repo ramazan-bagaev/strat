@@ -68,10 +68,14 @@ public class FieldInfoWindow extends ClosableWindow{
             public void click(Coord point) {
                 FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();
                 Ecosystem ecosystem = fieldInfoWindow.getField().getEcosystem();
-                fieldInfoWindow.addEcosystemInfoWindow(ecosystem);
+                getParent().getParent().addSpecialWindow("ecosystem info window", new EcosystemInfoWindow(ecosystem, getParent().getParent()));
             }
         };
         addWindowElement(ecoButton);
+
+        MonitoredBroadcastLabel peopleNumLabel = new MonitoredBroadcastLabel(new Coord(10, 155).add(getPos()), new Coord(200, 10),
+                "people number:", field.getPeople(), "amount", this);
+        addWindowElement(peopleNumLabel);
 
 
         City city = field.getCity();
@@ -82,15 +86,7 @@ public class FieldInfoWindow extends ClosableWindow{
             //String cityTypeString = city.getValue("sizeType");
             //Label cityTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "City size: " + cityTypeString, this);
         StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(300, 10),
-                "City size:", city, "sizeType", this){
-
-            @Override
-            public void click(Coord points){
-                FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();
-                City city = fieldInfoWindow.getField().getCity();
-                fieldInfoWindow.addCityInfoWindow(city);
-            }
-        };
+                "City size:", city, "sizeType", this);
         addWindowElement(cityLabel);
 
             /*Label cityPopulationLabel = new Label(new Coord(10, 135).add(getPos()),new Coord(150, 10), "City population:", this);
@@ -107,38 +103,4 @@ public class FieldInfoWindow extends ClosableWindow{
                     cityFoodString, city, "food", this);
             addWindowElement(cityFoodChangableLabel);*/
     }
-
-    public void addCityInfoWindow(City city){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == CityInfoWindow.class){
-                CityInfoWindow cityInfoWindow = (CityInfoWindow)window;
-                cityInfoWindow.setCity(city);
-                return;
-            }
-        }
-        addWindow(new CityInfoWindow(city, getParent()));
-    }
-
-    public void addEcosystemInfoWindow(Ecosystem ecosystem){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == EcosystemInfoWindow.class){
-                EcosystemInfoWindow ecosystemInfoWindow = (EcosystemInfoWindow)window;
-               ecosystemInfoWindow.setEcosystem(ecosystem);
-                return;
-            }
-        }
-        addWindow(new EcosystemInfoWindow(ecosystem, getParent()));
-    }
-
-    public void addFarmInfoWindow(Manor manor){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == EcosystemInfoWindow.class){
-                ManorInfoWindow manorInfoWindow = (ManorInfoWindow)window;
-                manorInfoWindow.setManor(manor);
-                return;
-            }
-        }
-        addWindow(new ManorInfoWindow(manor, getParent()));
-    }
-
 }

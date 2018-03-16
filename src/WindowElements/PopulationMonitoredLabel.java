@@ -1,6 +1,7 @@
 package WindowElements;
 
 import Foundation.*;
+import Foundation.Person.PopulationGroup;
 
 import java.util.ArrayList;
 

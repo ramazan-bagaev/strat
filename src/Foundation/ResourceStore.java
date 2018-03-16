@@ -12,6 +12,7 @@ public class ResourceStore {
     }
 
     public void addResource(Resource resource){
+        if (resource.getAmount() <= 0) return;
         for (Resource storedResource: resources){
             if (storedResource.sameAs(resource)){
                 storedResource.increaseAmount(resource.getAmount());

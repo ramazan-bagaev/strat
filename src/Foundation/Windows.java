@@ -4,6 +4,7 @@ import CharacterShape.Font;
 import sun.applet.Main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -13,12 +14,14 @@ public class Windows {
     private Input input;
     private MainWindow mainWindow;
 
+    private HashMap<String, Window> specialWindows;
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
     private int currentId;
 
     public Windows(ArrayList<Font> fonts){
         currentId = 0;
+        specialWindows = new HashMap<>();
         windows = new LinkedList<>();
         this.fonts = fonts;
         camera = new Camera(0, 0, 1000, 1000);
@@ -41,6 +44,18 @@ public class Windows {
             {
                 for(Integer sucId: win.getWindowId()) removeWindow(sucId);
                 windows.remove(win);
+                removeSpecialWindow(win);
+                return;
+            }
+        }
+    }
+
+    public void removeSpecialWindow(Window window){
+        Iterator i = specialWindows.entrySet().iterator();
+        while (i.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)i.next();
+            if (pair.getValue().equals(window)){
+                i.remove();
                 return;
             }
         }
@@ -121,5 +136,18 @@ public class Windows {
     public void takeOnTop(Window window){
         windows.remove(window);
         windows.add(window);
+    }
+
+    public void addSpecialWindow(String string, Window window){
+        Window sWindow = specialWindows.getOrDefault(string, null);
+        if (sWindow != null){
+            specialWindows.put(string, window);
+            removeWindow(sWindow.getId());
+            addWindow(window);
+        }
+        else {
+            specialWindows.put(string, window);
+            addWindow(window);
+        }
     }
 }

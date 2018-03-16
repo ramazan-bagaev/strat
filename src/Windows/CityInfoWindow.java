@@ -40,8 +40,8 @@ public class CityInfoWindow extends ClosableWindow {
                 "Population:", city, "population", this){
             @Override
             public void click(Coord point){
-                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
-                cityInfoWindow.addPopulationGroupWindow(cityInfoWindow.getCity().getPopulation());
+                Windows windows = getParent().getParent();
+                windows.addSpecialWindow("population group window", new PopulationInfoWindow(getCity().getPopulation(), windows));
             }
         };
         addWindowElement(cityPopulationLabel);
@@ -51,9 +51,8 @@ public class CityInfoWindow extends ClosableWindow {
 
             @Override
             public void click(Coord point) {
-                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
-                cityInfoWindow.addWorkListWindow();
-                //gameWindowHelperElement.addCityWork(cityInfoWindow.getCity());
+                Windows windows = getParent().getParent();
+                windows.addSpecialWindow("work list window", new WorkListWindow(city, windows));
             }
         };
 
@@ -62,8 +61,8 @@ public class CityInfoWindow extends ClosableWindow {
         Button addArmy = new Button(new Coord(10, 180).add(getPos()), new Coord(150, 20), this, "add army") {
             @Override
             public void click(Coord point){
-                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
-                cityInfoWindow.addArmyAddWindow();
+                Windows windows = getParent().getParent();
+                windows.addSpecialWindow("army add window", new ArmyAddWindow(city, windows));
             }
         };
 
@@ -72,49 +71,11 @@ public class CityInfoWindow extends ClosableWindow {
         Button openResourceStore = new Button(new Coord(10, 200).add(getPos()), new Coord(200, 20), this, "resources") {
             @Override
             public void click(Coord point) {
-                CityInfoWindow cityInfoWindow = (CityInfoWindow)getParent();
-                ResourceStore resourceStore = cityInfoWindow.getCity().getResourceStore();
-                cityInfoWindow.addCityResourceWindow(resourceStore);
+                Windows windows = getParent().getParent();
+                windows.addSpecialWindow("resource store window", new ResourceStoreWindow(getCity().getResourceStore(), windows));
             }
         };
 
         addWindowElement(openResourceStore);
     }
-
-    public void addPopulationGroupWindow(Population population){
-        for(Window window: getParent().getWindows()){
-            if (window.getClass() == PopulationInfoWindow.class){
-                PopulationInfoWindow populationInfoWindow = (PopulationInfoWindow)window;
-                populationInfoWindow.setPopulation(population);
-                return;
-            }
-        }
-        addWindow(new PopulationInfoWindow(population, getParent()));
-    }
-
-    public void addCityResourceWindow(ResourceStore resourceStore){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == ResourceStoreWindow.class){
-                ResourceStoreWindow resourceStoreWindow = (ResourceStoreWindow) window;
-                resourceStoreWindow.setResourceStore(resourceStore);
-                return;
-            }
-        }
-        addWindow(new ResourceStoreWindow(resourceStore, getParent()));
-    }
-
-    public void addArmyAddWindow(){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == ArmyAddWindow.class) return;
-        }
-        addWindow(new ArmyAddWindow(city, getParent()));
-    }
-
-    public void addWorkListWindow(){
-        for (Window window: getParent().getWindows()){
-            if (window.getClass() == WorkListWindow.class) return;
-        }
-        addWindow(new WorkListWindow(city, getParent()));
-    }
-
 }

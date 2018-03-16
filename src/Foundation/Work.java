@@ -4,13 +4,12 @@ import Foundation.Elements.City;
 
 public abstract class Work {
 
-    protected City city;
-    protected People people;
+    protected ResourceStore resourceStore;
     private int id;
     private Type type;
 
-    public Work(City city){
-        this.city = city;
+    public Work(ResourceStore resourceStore){
+        this.resourceStore = resourceStore;
     }
 
     public abstract void doJob();
@@ -23,9 +22,6 @@ public abstract class Work {
         this.id = id;
     }
 
-    public void setPeople(People people){
-        this.people = people;
-    }
 
     public enum Type{
         Hunting, Gathering

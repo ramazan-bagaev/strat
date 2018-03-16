@@ -54,7 +54,7 @@ public class SliderElement extends WindowElement{
     }
 
     @Override
-    public void drag(Coord point){
+    public void drag(Coord point, Coord pressedPosition, boolean dragBegin){
         if (pressedPos == null){
             pressedPos = point;
             return;
@@ -83,7 +83,7 @@ public class SliderElement extends WindowElement{
 
     @Override
     public String getValue(String key){
-        if (key == "number"){
+        if (key.equals("number")){
             return String.valueOf(getNumber());
         }
         return Broadcaster.noResult;

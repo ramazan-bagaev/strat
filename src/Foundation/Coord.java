@@ -23,6 +23,8 @@ public class Coord {
         return new Coord(this.x + other.x, this.y + other.y);
     }
 
+    public Coord minus(Coord other){ return new Coord(this.x - other.x, this.y - other.y); }
+
     public boolean inRectangle(Coord pos, Coord size){
         return ((pos.x < x) && ((pos.x + size.x) > x) && (pos.y < y) && ((pos.y + size.y) > y));
 

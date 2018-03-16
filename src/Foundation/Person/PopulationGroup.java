@@ -1,4 +1,6 @@
-package Foundation;
+package Foundation.Person;
+
+import Foundation.Broadcaster;
 
 public class PopulationGroup extends Broadcaster {
 

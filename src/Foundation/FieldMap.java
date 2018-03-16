@@ -1,6 +1,7 @@
 package Foundation;
 
 import Foundation.Elements.Element;
+import Foundation.Runnable.SuperField;
 
 import java.util.*;
 
@@ -10,11 +11,11 @@ public class FieldMap {
     private int superFieldSize;
     private HashMap<Coord, Field> map;
     private HashMap<Coord, SuperField> superFieldMap;
-    private GameWindowElement gameWindowElement;
+    private GameEngine gameEngine;
 
-    public FieldMap(int superFieldSize, int fieldSize, GameWindowElement gameWindowElement)
+    public FieldMap(int superFieldSize, int fieldSize, GameEngine gameEngine)
     {
-        this.gameWindowElement = gameWindowElement;
+        this.gameEngine = gameEngine;
         this.fieldSize = fieldSize;
         this.superFieldSize = superFieldSize;
         map = new HashMap<>();
@@ -48,7 +49,7 @@ public class FieldMap {
         SuperField superField = getSuperFieldByIndex(index);
         if (superField == null){
             Coord pos = new Coord(index.x * superFieldSize, index.y * superFieldSize);
-            SuperField newSuperField = new SuperField(pos, this);
+            SuperField newSuperField = new SuperField(pos, this, field.getTime());
             superFieldMap.put(index, newSuperField);
             newSuperField.addField(field);
         }
@@ -119,7 +120,7 @@ public class FieldMap {
         return result;
     }
 
-    public GameWindowElement getGameWindowElement() {
-        return gameWindowElement;
+    public GameEngine getGameEngine() {
+        return gameEngine;
     }
 }

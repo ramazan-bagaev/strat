@@ -1,8 +1,10 @@
 package Windows;
 
 import Foundation.*;
-import Foundation.Elements.ArmyElement;
 import Foundation.Elements.City;
+import Foundation.Person.People;
+import Foundation.Person.Population;
+import Foundation.Runnable.Army;
 import Foundation.WorksP.ArmyWork;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.SliderElement;
@@ -42,12 +44,12 @@ public class ArmyAddWindow extends ClosableWindow{
                 City city = window.getCity();
                 Field field = city.getParent();
                 if (field.getArmyElement() != null) return;
-                ArmyWork work = new ArmyWork(city.getResourceStore());
+                Work work = new ArmyWork();
                 city.getWorks().addWork(work);
-                People warriors = city.getPopulation().getPeopleForWork(window.getAmount(), work.getId());
-                work.setPeople(warriors);
-                Army army = new Army(field.getFieldMapPos(), warriors, city.getMap(), city.getTime());
-                city.getMap().getGameWindowElement().getGameEngine().addRunEntity(army);
+                //People warriors = city.getPopulation().getPeopleForWork(window.getAmount(), work.getId());
+                //work.setPeople(warriors);
+                Army army = new Army(field.getFieldMapPos(), null, city.getMap(), city.getTime());
+                city.getMap().getGameEngine().addRunEntity(army);
                 city.getArmies().addArmy(army);
                 window.close();
             }

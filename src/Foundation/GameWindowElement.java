@@ -3,6 +3,10 @@ package Foundation;
 import Foundation.Elements.ArmyElement;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
+import Windows.ArmyInfoWindow;
+import Windows.CityInfoWindow;
+import Windows.FieldInfoWindow;
+import Windows.WorkPlaceWindows.ManorInfoWindow;
 
 import java.util.ArrayList;
 
@@ -70,18 +74,25 @@ public class GameWindowElement extends WindowElement{
     public void click(Coord point) {
         Field field = gameEngine.getFieldByPos(point);
         if (field == null) return;
-        ((MainWindow)getParent()).addNewFieldInfoWindow(field);
+        //((MainWindow)getParent()).addNewFieldInfoWindow(field);
+        Windows windows = getParent().getParent();
+        FieldInfoWindow fieldInfoWindow = new FieldInfoWindow(windows, field);
+        windows.addSpecialWindow("field info window", fieldInfoWindow);
+
         City city = field.getCity();
         if (city != null){
-            ((MainWindow) getParent()).addNewCityInfoWindow(city);
+            CityInfoWindow cityInfoWindow = new CityInfoWindow(city, windows);
+            windows.addSpecialWindow("element info window", cityInfoWindow);
         }
         ArmyElement armyElement = field.getArmyElement();
         if (armyElement != null){
-            ((MainWindow)getParent()).addNewArmyInfoWindow(armyElement.getArmy());
+            ArmyInfoWindow armyInfoWindow = new ArmyInfoWindow(armyElement.getArmy(), windows);
+            windows.addSpecialWindow("element info window", armyInfoWindow);
         }
         Manor manor = field.getManor();
         if (manor != null){
-            ((MainWindow)getParent()).addNewFarmInfoWindow(manor);
+            ManorInfoWindow manorInfoWindow = new ManorInfoWindow(manor, windows);
+            windows.addSpecialWindow("element info window", manorInfoWindow);
         }
 
       ///  if (f)

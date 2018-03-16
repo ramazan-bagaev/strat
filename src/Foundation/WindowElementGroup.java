@@ -70,7 +70,7 @@ public class WindowElementGroup {
     public void scroll(double delta){
     }
 
-    public void drag(Coord point){
+    public void drag(Coord point, Coord pressedPos, boolean dragBegin){
 
     }
 

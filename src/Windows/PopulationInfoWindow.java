@@ -1,6 +1,8 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.Person.Population;
+import Foundation.Person.PopulationGroup;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.CloseButton;
 import WindowElements.MonitoredBroadcastLabel;

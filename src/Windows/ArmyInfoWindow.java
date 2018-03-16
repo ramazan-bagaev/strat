@@ -1,8 +1,8 @@
 package Windows;
 
-import Foundation.Army;
+import Foundation.Runnable.Army;
 import Foundation.Coord;
-import Foundation.People;
+import Foundation.Person.People;
 import Foundation.Windows;
 import WindowElements.MonitoredBroadcastLabel;
 

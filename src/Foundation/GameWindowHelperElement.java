@@ -6,6 +6,7 @@ import Foundation.Elements.City;
 import Foundation.GameWindowHelper.HelperFieldMap;
 import Foundation.GameWindowHelper.States.HelperState;
 import Foundation.GameWindowHelper.States.StandartState;
+import Foundation.Runnable.Army;
 
 public class GameWindowHelperElement extends WindowElement {
 
@@ -44,6 +45,11 @@ public class GameWindowHelperElement extends WindowElement {
     @Override
     public void hoover(Coord point){
         currentState.hoover(point);
+    }
+
+    @Override
+    public void drag(Coord point, Coord pressedPos, boolean dragBegin){
+
     }
 
     public GameWindowElement getGameWindowElement() {

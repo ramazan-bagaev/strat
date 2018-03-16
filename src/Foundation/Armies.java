@@ -1,6 +1,7 @@
 package Foundation;
 
 import Foundation.Elements.City;
+import Foundation.Runnable.Army;
 
 import java.util.ArrayList;
 

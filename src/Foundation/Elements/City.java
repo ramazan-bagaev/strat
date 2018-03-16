@@ -1,11 +1,13 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.Person.Population;
+import Foundation.Runnable.RunableElement;
 import Images.CityImage;
 
 import java.util.ArrayList;
 
-public class City extends Element {
+public class City extends RunableElement {
 
     public enum SizeType{
         Big, Middle, Small
@@ -77,6 +79,7 @@ public class City extends Element {
         this.name = name;
     }
 
+    @Override
     public void run() {
         resourceStore.run();
         population.run();
@@ -122,7 +125,8 @@ public class City extends Element {
         Manor manor = new Manor(time, field, map, this);
         field.setManor(manor);
         manors.add(manor);
-        map.getGameWindowElement().setShapes();
+        map.getGameEngine().getGameWindowElement().setShapes();
+        map.getGameEngine().addRunEntity(manor);
     }
 
     public void destroy() {

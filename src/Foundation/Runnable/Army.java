@@ -1,13 +1,13 @@
-package Foundation;
+package Foundation.Runnable;
 
+import Foundation.*;
 import Foundation.Elements.Ground;
+import Foundation.Person.People;
 import Utils.PathFinder;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 
-public class Army extends RunEntity {
+public class Army implements RunEntity {
 
     public enum State{
         Standing, Moving, Fighting
@@ -16,8 +16,8 @@ public class Army extends RunEntity {
     private Coord pos;
     private People people;
     private FieldMap fieldMap;
-    private Time time;
 
+    private Time time;
     private PathFinder pathFinder;
     private Coord destination;
     private LinkedList<Coord> path;
@@ -25,10 +25,10 @@ public class Army extends RunEntity {
     private State currentState;
 
     public Army(Coord pos, People people, FieldMap fieldMap, Time time){
+        this.time = time;
         this.pos = new Coord(pos);
         this.people = people;
         this.fieldMap = fieldMap;
-        this.time = time;
         currentState = State.Standing;
         pathFinder = new PathFinder(fieldMap);
         Field field = fieldMap.getFieldByIndex(pos);

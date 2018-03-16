@@ -93,7 +93,7 @@ public class WindowElement extends Broadcaster{
     public void characterInput(char c){
     }
 
-    public void drag(Coord pos){
+    public void drag(Coord pos, Coord pressedPos, boolean dragBegin){
     }
 
     public void setShapes(){
