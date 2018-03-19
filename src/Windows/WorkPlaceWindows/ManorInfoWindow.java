@@ -1,7 +1,7 @@
 package Windows.WorkPlaceWindows;
 
 import Foundation.*;
-import Foundation.Windows;
+import Foundation.GameWindowHelper.States.AddVillageState;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.States.AddManorFieldState;
 import Images.Image;
@@ -13,7 +13,7 @@ public class ManorInfoWindow extends ClosableWindow {
 
     private Manor manor;
 
-    public ManorInfoWindow(Manor manor, Windows parent) {
+    public ManorInfoWindow(Manor manor, Frame parent) {
         super(new Coord(700, 0), new Coord(300, 400), parent);
         this.manor = manor;
 
@@ -24,10 +24,10 @@ public class ManorInfoWindow extends ClosableWindow {
         removeWindowElements();
         addCloseButton();
 
-        Image farmImage = new ManorImage(getPos(), new Coord(100, 100), this);
+        Image farmImage = new ManorImage(new Coord(0, 0), new Coord(100, 100), this);
         addWindowElement(farmImage);
 
-        Button addField = new Button(getPos().add(new Coord(20, 140)), new Coord(100, 20), this, "add field") {
+        Button addField = new Button(new Coord(20, 140), new Coord(100, 20), this, "add field") {
 
             @Override
             public void click(Coord point) {
@@ -38,7 +38,7 @@ public class ManorInfoWindow extends ClosableWindow {
         };
         addWindowElement(addField);
 
-        Button addWork = new Button(getPos().add(new Coord(20, 200)), new Coord(100, 20), this, "add work") {
+        Button addWork = new Button(new Coord(20, 200), new Coord(100, 20), this, "add work") {
 
             @Override
             public void click(Coord point) {
@@ -48,16 +48,30 @@ public class ManorInfoWindow extends ClosableWindow {
 
         addWindowElement(addWork);
 
-        Button showResource = new Button(getPos().add(new Coord(20, 240)), new Coord(150, 20), this, "show resources"){
+        Button showResource = new Button(new Coord(20, 240), new Coord(150, 20), this, "show resources"){
 
             @Override
             public void click(Coord point) {
-                Windows windows = getParent().getParent();
-                windows.addSpecialWindow("resource store window", new ResourceStoreWindow(manor.getResourceStore(), windows));
+                Frame frame = getParent().getParent();
+                frame.addSpecialWindow("resource store window", new ResourceStoreWindow(manor.getResourceStore(), frame));
             }
         };
 
         addWindowElement(showResource);
+
+        Button addVillage = new Button(new Coord(20, 280), new Coord(150, 20), this, "add village"){
+
+            @Override
+            public void click(Coord point) {
+                GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
+                gameWindowHelperElement.clearHelperElements();
+                AddVillageState addVillageState = new AddVillageState(manor, gameWindowHelperElement);
+                gameWindowHelperElement.setState(addVillageState);
+            }
+        };
+
+        addWindowElement(addVillage);
+
 
 
 

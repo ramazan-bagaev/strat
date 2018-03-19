@@ -22,7 +22,7 @@ public class Field {
     private River river;
     private Tree tree;
     private Manor manor;
-    private Farm farm;
+    private Village village;
 
 
     private People people;
@@ -37,7 +37,7 @@ public class Field {
     private Random random;
     private boolean changed;
 
-    public Field(Coord fieldMapPos, Coord globalPos, Random random, FieldMap map, Time time, Ground.GroundType type){
+    public Field(Coord fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
         changed = false;
         this.fieldMapPos = fieldMapPos;
         people = new People(this);
@@ -45,8 +45,8 @@ public class Field {
         setMap(map);
         setRandom(random);
         Ground.GroundType tempType = type;
-        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this, map);
-        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this, map);
+        groundElement = new Ground(tempType, time,this, map);
+        ecosystem = new Ecosystem(time, this, map);
         calculateTimeToIntersect();
     }
 
@@ -65,8 +65,8 @@ public class Field {
         if (randNum == 2) tempType = Ground.GroundType.Water;
         if (randNum == 3) tempType = Ground.GroundType.Mud;
         if (randNum == 4) tempType = Ground.GroundType.Rock;
-        groundElement = new Ground(globalPos.x, globalPos.y, getSize(), tempType, time,this, map);
-        ecosystem = new Ecosystem(globalPos, new Coord(size, size), time, this, map);
+        groundElement = new Ground(tempType, time,this, map);
+        ecosystem = new Ecosystem(time, this, map);
         calculateTimeToIntersect();
     }
 
@@ -198,12 +198,12 @@ public class Field {
         return groundElement.getGroundType();
     }
 
-    public Farm getFarm() {
-        return farm;
+    public Village getVillage() {
+        return village;
     }
 
-    public void setFarm(Farm farm) {
-        this.farm = farm;
+    public void setVillage(Village village) {
+        this.village = village;
     }
 
     public City getOwner() {

@@ -63,6 +63,13 @@ public class Coord {
         return Direction.None;
     }
 
+    public Coord multiply(int alpha){
+        Coord res = new Coord(0, 0);
+        res.x = x*alpha;
+        res.y = y*alpha;
+        return res;
+    }
+
     public double distance(Coord other){
         return Math.sqrt(  Math.pow(other.x - x, 2) + Math.pow(other.y - y, 2));
     }

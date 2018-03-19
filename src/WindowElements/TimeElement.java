@@ -26,8 +26,7 @@ public class TimeElement extends Label {
         String newDay = String.valueOf(time.getDate().day);
         String newMonth = String.valueOf(time.getDate().month);
         String newYear = String.valueOf(time.getDate().year);
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
+        clearBasicShapes();
         day = newDay;
         month = newMonth;
         year = newYear;
@@ -36,8 +35,8 @@ public class TimeElement extends Label {
         if (day.length() != 2) fineDay = "0"+day;
         if (month.length() != 2) fineMonth = "0"+month;
         String time = fineDay + ":" + fineMonth + ":" + year;
-        StringShape stringShape = new StringShape(getPos(), getSize(), time, new Color(Color.Type.Black), getParent().getFont("latin"));
-        basicShapes.addAll(stringShape.getBasicShapes());
+        StringShape stringShape = new StringShape(new Coord(0, 0), getSize(), time, new Color(Color.Type.Black), getParent().getFont("latin"));
+        addBasicShapes(stringShape.getBasicShapes());
     }
 
     public void run(){

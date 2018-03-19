@@ -15,13 +15,12 @@ public abstract class RadioButton extends WindowElement {
     }
 
     public void setShapes(){
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
-        RectangleShape carcas = new RectangleShape(getPos(), getSize(), new Color(Color.Type.Black), false);
-        basicShapes.add(carcas);
-        RectangleShape point = new RectangleShape(getPos().add(new Coord(getSize().x / 4, getSize().y / 4)),
+        clearBasicShapes();
+        RectangleShape carcas = new RectangleShape(new Coord(0, 0), getSize(), new Color(Color.Type.Black), false);
+        addBasicShape(carcas);
+        RectangleShape point = new RectangleShape(new Coord(getSize().x / 4, getSize().y / 4),
                 new Coord(getSize().x / 2, getSize().y / 2), new Color(Color.Type.Black), true);
-        if (checked) basicShapes.add(point);
+        if (checked) addBasicShape(point);
     }
 
     public void check(){

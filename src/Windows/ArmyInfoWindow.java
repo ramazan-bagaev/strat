@@ -1,16 +1,16 @@
 package Windows;
 
+import Foundation.Frame;
 import Foundation.Runnable.Army;
 import Foundation.Coord;
 import Foundation.Person.People;
-import Foundation.Windows;
 import WindowElements.MonitoredBroadcastLabel;
 
 public class ArmyInfoWindow extends ClosableWindow {
 
     public Army army;
 
-    public ArmyInfoWindow(Army army, Windows parent) {
+    public ArmyInfoWindow(Army army, Frame parent) {
         super(new Coord(0, 700), new Coord(300, 300), parent);
 
         this.army = army;
@@ -22,7 +22,7 @@ public class ArmyInfoWindow extends ClosableWindow {
 
         People people = army.getPeople();
 
-        MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10).add(getPos()), new Coord(250, 20), "Army size:",
+        MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10), new Coord(250, 20), "Army size:",
                 people, "amount", this);
 
         addWindowElement(amount);

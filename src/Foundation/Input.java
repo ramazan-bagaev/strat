@@ -6,8 +6,8 @@ public class Input {
     private Keyboard keyboard;
     private Controller controller;
 
-    public Input(Windows windows){
-        cursor = new Cursor(windows, this);
+    public Input(Frame frame){
+        cursor = new Cursor(frame, this);
         keyboard = new Keyboard(this);
         controller = new Controller(this);
     }

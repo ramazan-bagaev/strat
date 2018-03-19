@@ -31,18 +31,19 @@ public class GameWindowElement extends WindowElement{
     }
 
     public void setShapes(){
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
-        basicShapes.add(new RectangleShape(getPos(), getSize(), new Color(Color.Type.Black), false));
+        clearBasicShapes();
+        ArrayList<BasicShape> basicShapes = new ArrayList<>();
+        basicShapes.add(new RectangleShape(new Coord(0, 0), getSize(), new Color(Color.Type.Black), false));
         CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
 
         FieldMap map = gameEngine.getMap();
         int fieldSize = gameEngine.getFieldSize();
 
+
         float zoom = cameraConfiguration.getZoom();
-        int fieldNumber = (int) Math.ceil(20 * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
-        float deltax = cameraConfiguration.getX() / fieldSize;
-        float deltay = cameraConfiguration.getY() / fieldSize;
+        int fieldNumber = (int) Math.ceil((getParent().getSize().x / fieldSize) * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
+        float deltax = (cameraConfiguration.getWorldPos().x) / fieldSize;
+        float deltay = (cameraConfiguration.getWorldPos().y) / fieldSize;
         int deltai = (int)Math.floor(deltax);
         int deltaj = (int)Math.floor(deltay);
 
@@ -68,6 +69,7 @@ public class GameWindowElement extends WindowElement{
             if (element != null) basicShapes.addAll(element.getShapes());
         }*/
         //setBasicShapes(basicShapes);
+        setBasicShapesWithoutShift(basicShapes);
     }
 
     @Override
@@ -75,24 +77,24 @@ public class GameWindowElement extends WindowElement{
         Field field = gameEngine.getFieldByPos(point);
         if (field == null) return;
         //((MainWindow)getParent()).addNewFieldInfoWindow(field);
-        Windows windows = getParent().getParent();
-        FieldInfoWindow fieldInfoWindow = new FieldInfoWindow(windows, field);
-        windows.addSpecialWindow("field info window", fieldInfoWindow);
+        Frame frame = getParent().getParent();
+        FieldInfoWindow fieldInfoWindow = new FieldInfoWindow(frame, field);
+        frame.addSpecialWindow("field info window", fieldInfoWindow);
 
         City city = field.getCity();
         if (city != null){
-            CityInfoWindow cityInfoWindow = new CityInfoWindow(city, windows);
-            windows.addSpecialWindow("element info window", cityInfoWindow);
+            CityInfoWindow cityInfoWindow = new CityInfoWindow(city, frame);
+            frame.addSpecialWindow("element info window", cityInfoWindow);
         }
         ArmyElement armyElement = field.getArmyElement();
         if (armyElement != null){
-            ArmyInfoWindow armyInfoWindow = new ArmyInfoWindow(armyElement.getArmy(), windows);
-            windows.addSpecialWindow("element info window", armyInfoWindow);
+            ArmyInfoWindow armyInfoWindow = new ArmyInfoWindow(armyElement.getArmy(), frame);
+            frame.addSpecialWindow("element info window", armyInfoWindow);
         }
         Manor manor = field.getManor();
         if (manor != null){
-            ManorInfoWindow manorInfoWindow = new ManorInfoWindow(manor, windows);
-            windows.addSpecialWindow("element info window", manorInfoWindow);
+            ManorInfoWindow manorInfoWindow = new ManorInfoWindow(manor, frame);
+            frame.addSpecialWindow("element info window", manorInfoWindow);
         }
 
       ///  if (f)

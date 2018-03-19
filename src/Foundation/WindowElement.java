@@ -21,8 +21,8 @@ public class WindowElement extends Broadcaster{
     }
 
     public WindowElement(Coord pos, Coord size, WindowElementGroup groupParent, Window parent){
-        this.pos = pos;
-        this.size = size;
+        this.pos = new Coord(pos);
+        this.size = new Coord(size);
         setParent(parent);
         setGroupParent(groupParent);
         basicShapes = new ArrayList<>();
@@ -62,17 +62,35 @@ public class WindowElement extends Broadcaster{
     }
 
     public void draw(OpenGLBinder openGLBinder){
-        for (BasicShape basicShape: getBasicShapes()){
+        for (BasicShape basicShape: basicShapes){
             openGLBinder.draw(basicShape);
         }
     }
 
-    public ArrayList<BasicShape> getBasicShapes() {
-        return basicShapes;
+    public void addBasicShape(BasicShape basicShape){
+        basicShape.shift(getShift());
+        basicShapes.add(basicShape);
     }
+
+    public void addBasicShapes(ArrayList<BasicShape> basicShapes){
+        for(BasicShape basicShape: basicShapes){
+            addBasicShape(basicShape);
+        }
+    }
+
+    public void clearBasicShapes(){
+        basicShapes.clear();
+    }
+
+    //public ArrayList<BasicShape> getBasicShapes() {
+    //    return basicShapes;
+    //}
 
     public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
         this.basicShapes = basicShapes;
+        for(BasicShape basicShape: this.basicShapes){
+            basicShape.shift(getShift());
+        }
     }
 
     public WindowElementGroup getGroupParent() {
@@ -93,11 +111,35 @@ public class WindowElement extends Broadcaster{
     public void characterInput(char c){
     }
 
-    public void drag(Coord pos, Coord pressedPos, boolean dragBegin){
+    public boolean drag(Coord pos, Coord pressedPos, boolean dragBegin){
+        return false;
     }
 
     public void setShapes(){
 
+    }
+
+    public Coord getShift(){
+        if (groupParent != null) {
+            Coord shiftP = groupParent.getShift();
+            return shiftP.add(pos);
+        }
+        if (parent == null) return new Coord(pos);
+        Coord shiftP = parent.getShift();
+        return shiftP.add(pos);
+    }
+
+    public void setBasicShapesWithoutShift(ArrayList<BasicShape> basicShapes){
+        this.basicShapes = basicShapes;
+    }
+
+    public ArrayList<BasicShape> getBasicShapesRemoveAndShiftBack(){
+        ArrayList<BasicShape> result = basicShapes;
+        basicShapes = null;
+        for(BasicShape basicShape: result){
+            basicShape.shift(getShift().multiply(-1));
+        }
+        return result;
     }
 
     @Override

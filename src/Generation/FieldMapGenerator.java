@@ -60,9 +60,7 @@ public class FieldMapGenerator {
     private void fillWithWater(){
         for(int i = 0; i < number; i++){
             for(int j = 0; j < number; j++){
-                int x = i * size;
-                int y = j * size;
-                Field field = new Field(new Coord(i, j), new Coord(x, y), random, map, time, Ground.GroundType.Water);
+                Field field = new Field(new Coord(i, j), random, map, time, Ground.GroundType.Water);
                 map.addField(new Coord(i, j), field);
                 info[i][j] = 0;
             }
@@ -89,7 +87,7 @@ public class FieldMapGenerator {
             while (iter < charactSize) {
                 if (que.size() == 0) break;
                 Coord c = que.pop();
-                Field field = new Field(new Coord(c), new Coord(c.x * size, c.y * size), random, map, time, Ground.GroundType.Soil);
+                Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Soil);
                 map.addField(c, field);
                 continent.add(c);
                 info[c.y][c.x] = cnt + 1;
@@ -154,7 +152,7 @@ public class FieldMapGenerator {
                 while (mountGroupNum > 0){
                     if (que.size() == 0) break;
                     Coord c = que.pop();
-                    Field field = new Field(new Coord(c), new Coord(c.x * this.size, c.y * this.size), random, map, time, Ground.GroundType.Rock);
+                    Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Rock);
                     map.addField(c, field);
                     mountain.add(c);
                     info[c.y][c.x] = continents.size() + 1;
@@ -218,7 +216,7 @@ public class FieldMapGenerator {
                 while (desertGroupNum > 0){
                     if (que.size() == 0) break;
                     Coord c = que.pop();
-                    Field field = new Field(new Coord(c), new Coord(c.x * this.size, c.y * this.size), random, map, time, Ground.GroundType.Sand);
+                    Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Sand);
                     map.addField(c, field);
                     info[c.y][c.x] = continents.size() + 2;
 
@@ -461,7 +459,7 @@ public class FieldMapGenerator {
                 while (swampGroupNum > 0){
                     if (que.size() == 0) break;
                     Coord c = que.pop();
-                    Field field = new Field(new Coord(c), new Coord(c.x * this.size, c.y * this.size), random, map, time, Ground.GroundType.Mud);
+                    Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Mud);
                     map.addField(c, field);
                     info[c.y][c.x] = continents.size() + 4;
 

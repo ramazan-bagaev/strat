@@ -7,29 +7,32 @@ import static org.lwjgl.opengl.GL11.*;
 public class Camera {
 
     private CameraConfiguration backgroundConfiguration;
+    private Frame frame;
 
-    public Camera(float x, float y, float sizeX, float sizeY){
-        backgroundConfiguration = new CameraConfiguration(x, y, sizeX, sizeY, false);
+    public Camera(Frame frame){
+        Coord pos = new Coord(frame.getPos());
+        this.frame = frame;
+        backgroundConfiguration = new CameraConfiguration(pos, pos, frame.getSize(),false);
     }
 
     public void takeCameraView(CameraConfiguration cameraConfiguration){
         glLoadIdentity();
-        float x = cameraConfiguration.getX();
-        float y = cameraConfiguration.getY();
-        float sizeX = cameraConfiguration.getSizeX();
-        float sizeY = cameraConfiguration.getSizeY();
+        Coord worldPos = cameraConfiguration.getWorldPos();
+        Coord windowSize = cameraConfiguration.getWindowSize();
         float zoom = cameraConfiguration.getZoom();
-        glOrtho(x,  x + zoom*sizeX, y + zoom*sizeY, y, 1, -1);
+        glOrtho(worldPos.x,  worldPos.x + zoom*windowSize.x, worldPos.y + zoom*windowSize.y, worldPos.y, 1, -1);
+        Coord windowPos = cameraConfiguration.getWindowPos();
+        glViewport(windowPos.x, frame.getSize().y - windowPos.y - windowSize.y , windowSize.x, windowSize.y);
     }
 
     public void takeBackCameraView(){
         glLoadIdentity();
-        float x = backgroundConfiguration.getX();
-        float y = backgroundConfiguration.getY();
-        float sizeX = backgroundConfiguration.getSizeX();
-        float sizeY = backgroundConfiguration.getSizeY();
+        Coord worldPos = backgroundConfiguration.getWorldPos();
+        Coord windowSize = backgroundConfiguration.getWindowSize();
         float zoom = backgroundConfiguration.getZoom();
-        glOrtho(x,x + zoom*sizeX, y + zoom*sizeY, y, 1, -1);
+        glOrtho(worldPos.x,  worldPos.x + zoom*windowSize.x, worldPos.y + zoom*windowSize.y, worldPos.y, 1, -1);
+        Coord windowPos = backgroundConfiguration.getWindowPos();
+        glViewport(windowPos.x, frame.getSize().y - windowPos.y - windowSize.y, windowSize.x, windowSize.y);
     }
 
     public CameraConfiguration getBackgroundConfiguration() {

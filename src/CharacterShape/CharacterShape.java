@@ -117,5 +117,6 @@ public class CharacterShape extends BasicShape {
     }
 
     public void shift(Coord shift){
+        pos = pos.add(shift);
     }
 }

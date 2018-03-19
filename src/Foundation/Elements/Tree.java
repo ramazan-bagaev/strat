@@ -21,10 +21,8 @@ public class Tree extends Element {
 
     public void setShapes(){
         Coord pos = new Coord(getParent().getFieldMapPos());
-        int size = map.getFieldSize();
-        pos.x = pos.x * size;
-        pos.y = pos.y * size;
-        setBasicShapes(new TreeImage(pos, new Coord(size, size), null).getBasicShapes());
+        int size = parent.getSize();
+        setBasicShapes(new TreeImage(new Coord(0, 0), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
     }
 
 }

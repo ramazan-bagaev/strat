@@ -1,5 +1,7 @@
 package Foundation;
 
+import javax.sound.sampled.Line;
+
 public class LineShape extends BasicShape {
 
 
@@ -9,6 +11,14 @@ public class LineShape extends BasicShape {
     private float width;
 
     private final float standartWidth = 1.5f;
+
+    public LineShape(LineShape lineShape){
+        this.posA = lineShape.getPosA();
+        this.posB = lineShape.getPosB();
+        this.width = lineShape.getWidth();
+        setColor(lineShape.getColor());
+        setType(Type.Line);
+    }
 
     public LineShape(Coord a, Coord b){
         super();

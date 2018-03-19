@@ -12,15 +12,14 @@ public class TreeResourceImage extends Image {
     }
 
     public void setShapes(){
-        RectangleShape rectangleShape = new RectangleShape(getPos(), getSize(), new Color(Color.Type.Red), true);
-        RectangleShape rectangleShape1 = new RectangleShape(getPos().add(new Coord(getSize().x / 6, getSize().y/6)),
+        RectangleShape rectangleShape = new RectangleShape(new Coord(0, 0), getSize(), new Color(Color.Type.Red), true);
+        RectangleShape rectangleShape1 = new RectangleShape(new Coord(getSize().x / 6, getSize().y/6),
                 new Coord(2 * getSize().x/3, 2 * getSize().y/3), new Color(Color.Type.Black), false);
-        RectangleShape rectangleShape2 = new RectangleShape(getPos().add(new Coord(getSize().x/3, getSize().y/3)),
+        RectangleShape rectangleShape2 = new RectangleShape(new Coord(getSize().x/3, getSize().y/3),
                 new Coord(getSize().x/3, getSize().y/3), new Color(Color.Type.Black), false);
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
-        basicShapes.add(rectangleShape);
-        basicShapes.add(rectangleShape1);
-        basicShapes.add(rectangleShape2);
+        clearBasicShapes();
+        addBasicShape(rectangleShape);
+        addBasicShape(rectangleShape1);
+        addBasicShape(rectangleShape2);
     }
 }

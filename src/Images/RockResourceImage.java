@@ -12,15 +12,14 @@ public class RockResourceImage extends Image {
     }
 
     public void setShapes(){
-        RectangleShape rectangleShape = new RectangleShape(getPos(), new Coord(getSize().x / 3, 2 * getSize().y/3), new Color(Color.Type.Gray), true);
-        RectangleShape rectangleShape1 = new RectangleShape(getPos().add(new Coord(getSize().x/2, getSize().y/3)),
+        RectangleShape rectangleShape = new RectangleShape(new Coord(0, 0), new Coord(getSize().x / 3, 2 * getSize().y/3), new Color(Color.Type.Gray), true);
+        RectangleShape rectangleShape1 = new RectangleShape(new Coord(getSize().x/2, getSize().y/3),
                 new Coord(getSize().x/3, getSize().y/3), new Color(Color.Type.LightGray));
-        RectangleShape rectangleShape2 = new RectangleShape(getPos().add(new Coord(getSize().x/3, getSize().y/2)),
+        RectangleShape rectangleShape2 = new RectangleShape(new Coord(getSize().x/3, getSize().y/2),
                 new Coord(getSize().x/3,getSize().y/3), new Color(Color.Type.Gray));
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
-        basicShapes.add(rectangleShape);
-        basicShapes.add(rectangleShape1);
-        basicShapes.add(rectangleShape2);
+        clearBasicShapes();
+        addBasicShape(rectangleShape);
+        addBasicShape(rectangleShape1);
+        addBasicShape(rectangleShape2);
     }
 }

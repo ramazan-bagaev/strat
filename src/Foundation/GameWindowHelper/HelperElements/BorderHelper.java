@@ -32,19 +32,19 @@ public class BorderHelper extends HelperElement{
             switch (direction) {
                 case Up:
                     basicShapes.add(new LineShape(pos.add(new Coord(0, 0)), pos.add(new Coord(size.x - 1, 0)), color, width));
-                    addCleats(basicShapes, Coord.Direction.Up);
+                    //addCleats(basicShapes, Coord.Direction.Up);
                     break;
                 case Down:
                     basicShapes.add(new LineShape(pos.add(new Coord(0, size.y - 1)), pos.add(new Coord(size.x - 1, size.y - 1)), color, width));
-                    addCleats(basicShapes, Coord.Direction.Down);
+                   // addCleats(basicShapes, Coord.Direction.Down);
                     break;
                 case Right:
                     basicShapes.add(new LineShape(pos.add(new Coord(size.x - 1, 0)), pos.add(new Coord(size.x - 1, size.y - 1)), color, width));
-                    addCleats(basicShapes, Coord.Direction.Right);
+                    //addCleats(basicShapes, Coord.Direction.Right);
                     break;
                 case Left:
                     basicShapes.add(new LineShape(pos.add(new Coord(0, 0)), pos.add(new Coord(0, size.y - 1)), color, width));
-                    addCleats(basicShapes, Coord.Direction.Left);
+                    //addCleats(basicShapes, Coord.Direction.Left);
                     break;
                 case None:
                     break;

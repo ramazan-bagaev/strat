@@ -11,7 +11,8 @@ public class Label extends WindowElement{
     public Label(Coord pos, Coord size, String text, Window parent){
         super(pos, size, parent);
         Font font = parent.getFont("latin");
-        setStringShape(new StringShape(pos, size, text, new Color(Color.Type.Black), font));
+        StringShape stringShape = new StringShape(new Coord(0, 0), size, text, new Color(Color.Type.Black), font);
+        setStringShape(stringShape);
     }
 
     @Override

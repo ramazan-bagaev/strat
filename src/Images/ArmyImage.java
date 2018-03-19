@@ -17,14 +17,13 @@ public class ArmyImage extends Image{
     }
 
     public void setShapes(){
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
+        clearBasicShapes();
         Coord size = getSize();
         RectangleShape rectangleShape =
-                new RectangleShape(new Coord(size.x/6, 0).add(getPos()), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
+                new RectangleShape(new Coord(size.x/6, 0), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
         RectangleShape rectangleShape1 =
-                new RectangleShape(new Coord(2 * size.x/3, 0).add(getPos()), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
-        basicShapes.add(rectangleShape);
-        basicShapes.add(rectangleShape1);
+                new RectangleShape(new Coord(2 * size.x/3, 0), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
+        addBasicShape(rectangleShape);
+        addBasicShape(rectangleShape1);
     }
 }

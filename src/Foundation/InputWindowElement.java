@@ -35,12 +35,11 @@ public class InputWindowElement extends WindowElement {
 
     @Override
     public void setShapes() {
-        RectangleShape rectangleShape = new RectangleShape(pos, size, new Color(Color.Type.LightGray), true);
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.add(rectangleShape);
+        RectangleShape rectangleShape = new RectangleShape(new Coord(0, 0), size, new Color(Color.Type.LightGray), true);
+        addBasicShape(rectangleShape);
         defaultText = "enter text";
-        setText(new StringShape(pos, size, defaultText, new Color(Color.Type.Black), getParent().getFont("latin")));
-        basicShapes.addAll(text.getBasicShapes());
+        setText(new StringShape(new Coord(0, 0), size, defaultText, new Color(Color.Type.Black), getParent().getFont("latin")));
+        addBasicShapes(text.getBasicShapes());
     }
 
     public StringShape getText() {
@@ -54,10 +53,9 @@ public class InputWindowElement extends WindowElement {
 
     public void renewText(String str){
         setNewText(str);
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
-        basicShapes.add(new RectangleShape(getPos(), getSize(), new Color(Color.Type.LightGray), true));
-        basicShapes.addAll(text.getBasicShapes());
+        clearBasicShapes();
+        addBasicShape(new RectangleShape(new Coord(0, 0), getSize(), new Color(Color.Type.LightGray), true));
+        addBasicShapes(text.getBasicShapes());
     }
 
     public void renewDefaultText() {

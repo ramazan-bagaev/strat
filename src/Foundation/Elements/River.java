@@ -56,65 +56,62 @@ public class River extends Element {
     }
 
     public void setShapes(){
-        ArrayList<BasicShape> shapes = getShapes();
-        shapes.clear();
-        Coord pos = new Coord(getParent().getFieldMapPos());
-        int size = getParent().getSize();
-        pos.x = pos.x * size;
-        pos.y = pos.y * size;
+        ArrayList<BasicShape> shapes = new ArrayList<>();
+        int size = parent.getSize();
         Color color = new Color(Color.Type.Blue);
         if (inStreams.contains(Side.North) || outStream == Side.North){
-            RectangleShape rect = new RectangleShape(pos.add(new Coord(9*size/20, 0)),
+            RectangleShape rect = new RectangleShape(new Coord(9*size/20, 0),
                     new Coord(size/10, size/2), color, false, true);
             shapes.add(rect);
             if (outStream == Side.North){
-                LineShape line1 = new LineShape(pos.add(new Coord(9*size/20, 3*size/8)),
-                        pos.add(new Coord(size/2, size/8)), new Color(Color.Type.Black));
-                LineShape line2 = new LineShape(pos.add(new Coord(11*size/20, 3*size/8)),
-                        pos.add(new Coord(size/2, size/8)), new Color(Color.Type.Black));
+                LineShape line1 = new LineShape(new Coord(9*size/20, 3*size/8),
+                        new Coord(size/2, size/8), new Color(Color.Type.Black));
+                LineShape line2 = new LineShape(new Coord(11*size/20, 3*size/8),
+                        new Coord(size/2, size/8), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
         }
         if (inStreams.contains(Side.South) || outStream == Side.South){
-            RectangleShape rect = new RectangleShape(pos.add(new Coord(9*size/20, size/2)),
+            RectangleShape rect = new RectangleShape(new Coord(9*size/20, size/2),
                     new Coord(size/10, size/2), color, false, true);
             shapes.add(rect);
             if (outStream == Side.South){
-                LineShape line1 = new LineShape(pos.add(new Coord(9*size/20, 5*size/8)),
-                        pos.add(new Coord(size/2, 7*size/8)), new Color(Color.Type.Black));
-                LineShape line2 = new LineShape(pos.add(new Coord(11*size/20, 5*size/8)),
-                        pos.add(new Coord(size/2, 7*size/8)), new Color(Color.Type.Black));
+                LineShape line1 = new LineShape(new Coord(9*size/20, 5*size/8),
+                        new Coord(size/2, 7*size/8), new Color(Color.Type.Black));
+                LineShape line2 = new LineShape(new Coord(11*size/20, 5*size/8),
+                        new Coord(size/2, 7*size/8), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
         }
         if (inStreams.contains(Side.West) || outStream == Side.West){
-            RectangleShape rect = new RectangleShape(pos.add(new Coord(0, 9*size/20)),
+            RectangleShape rect = new RectangleShape(new Coord(0, 9*size/20),
                     new Coord(size/2, size/10), color, false, true);
             shapes.add(rect);
             if (outStream == Side.West){
-                LineShape line1 = new LineShape(pos.add(new Coord(3*size/8, 9*size/20)),
-                        pos.add(new Coord(size/8, size/2)), new Color(Color.Type.Black));
-                LineShape line2 = new LineShape(pos.add(new Coord(3*size/8, 11*size/20)),
-                        pos.add(new Coord(size/8, size/2)), new Color(Color.Type.Black));
+                LineShape line1 = new LineShape(new Coord(3*size/8, 9*size/20),
+                        new Coord(size/8, size/2), new Color(Color.Type.Black));
+                LineShape line2 = new LineShape(new Coord(3*size/8, 11*size/20),
+                        new Coord(size/8, size/2), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
         }
         if (inStreams.contains(Side.East) || outStream == Side.East){
-            RectangleShape rect = new RectangleShape(pos.add(new Coord(size/2, 9*size/20)),
+            RectangleShape rect = new RectangleShape(new Coord(size/2, 9*size/20),
                     new Coord(size/2, size/10), color, false, true);
             shapes.add(rect);
             if (outStream == Side.East){
-                LineShape line1 = new LineShape(pos.add(new Coord(5*size/8, 9*size/20)),
-                        pos.add(new Coord(7*size/8, size/2)), new Color(Color.Type.Black));
-                LineShape line2 = new LineShape(pos.add(new Coord(5*size/8, 11*size/20)),
-                        pos.add(new Coord(7*size/8, size/2)), new Color(Color.Type.Black));
+                LineShape line1 = new LineShape(new Coord(5*size/8, 9*size/20),
+                        new Coord(7*size/8, size/2), new Color(Color.Type.Black));
+                LineShape line2 = new LineShape(new Coord(5*size/8, 11*size/20),
+                        new Coord(7*size/8, size/2), new Color(Color.Type.Black));
                 shapes.add(line1);
                 shapes.add(line2);
             }
         }
+        setBasicShapes(shapes);
         /*if (riverType == RiverType.End){
             RectangleShape rect = new RectangleShape(pos.add(new Coord(size/4, size/4)), new Coord(size/2, size/2),
                     BasicShape.Color.Red, true);

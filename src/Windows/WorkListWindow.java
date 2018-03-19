@@ -8,7 +8,7 @@ public class WorkListWindow extends ClosableWindow {
 
     private City city;
 
-    public WorkListWindow(City city, Windows parent) {
+    public WorkListWindow(City city, Frame parent) {
         super(new Coord(700, 500), new Coord(150, 300), parent);
         this.city = city;
         setElements();
@@ -19,7 +19,7 @@ public class WorkListWindow extends ClosableWindow {
         addCloseButton();
 
 
-        Label manor = new Label(pos.add(new Coord(10, 10)), new Coord(80, 20), "manor", this){
+        Label manor = new Label(new Coord(10, 10), new Coord(80, 20), "manor", this){
 
             @Override
             public void click(Coord point){

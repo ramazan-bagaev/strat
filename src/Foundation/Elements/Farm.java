@@ -17,11 +17,8 @@ public class Farm extends Element {
     public Farm(Manor manor, Time time, Field parent, FieldMap map) {
         super(Type.Farm, time, parent, map);
         this.manor = manor;
-        Coord pos = new Coord(parent.getFieldMapPos());
-        pos.x = pos.x * parent.getSize();
-        pos.y = pos.y * parent.getSize();
-        ArrayList<BasicShape> image = new FarmImage(pos,
-                new Coord(parent.getSize(), parent.getSize()), null).getBasicShapes();
+        ArrayList<BasicShape> image = new FarmImage(new Coord(0, 0),
+                new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack();
         setBasicShapes(image);
         efficiency = 10;
         people = parent.getPeople();

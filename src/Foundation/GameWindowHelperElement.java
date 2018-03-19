@@ -48,8 +48,8 @@ public class GameWindowHelperElement extends WindowElement {
     }
 
     @Override
-    public void drag(Coord point, Coord pressedPos, boolean dragBegin){
-
+    public boolean drag(Coord point, Coord pressedPos, boolean dragBegin){
+        return false;
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -62,30 +62,24 @@ public class GameWindowHelperElement extends WindowElement {
 
 
     public void setShapes(){
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
+        clearBasicShapes();
+        ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.clear();
         CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
 
         int fieldSize = map.getFieldSize();
 
         float zoom = cameraConfiguration.getZoom();
-        int fieldNumber = (int) Math.ceil(20 * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
-        float deltax = cameraConfiguration.getX() / fieldSize;
-        float deltay = cameraConfiguration.getY() / fieldSize;
+        int fieldNumber = (int) Math.ceil(getParent().getParent().getSize().x/fieldSize * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
+        float deltax = cameraConfiguration.getWorldPos().x / fieldSize;
+        float deltay = cameraConfiguration.getWorldPos().y / fieldSize;
         int deltai = (int)Math.floor(deltax);
         int deltaj = (int)Math.floor(deltay);
 
 
         ArrayList<BasicShape> shapes = map.getShapes(new Coord(deltai, deltaj), new Coord(fieldNumber, fieldNumber));
         basicShapes.addAll(shapes);
-    }
-
-    public RectangleShape highlightFieldRectangle(Field field, Color color){
-        int fieldSize = field.getSize();
-        Coord pos = new Coord(field.getFieldMapPos().x * fieldSize, field.getFieldMapPos().y * fieldSize);
-        Coord size = new Coord(fieldSize, fieldSize);
-        RectangleShape rectangleShape = new RectangleShape(pos, size, color, false);
-        return rectangleShape;
+        setBasicShapesWithoutShift(basicShapes);
     }
 
     @Override

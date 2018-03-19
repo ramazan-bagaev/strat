@@ -16,7 +16,7 @@ public class ArmyAddWindow extends ClosableWindow{
 
     private SliderElement sliderElement;
 
-    public ArmyAddWindow(City city, Windows parent) {
+    public ArmyAddWindow(City city, Frame parent) {
         super(new Coord(400, 400), new Coord(200, 200), parent);
         this.city = city;
         setShapes();
@@ -28,15 +28,15 @@ public class ArmyAddWindow extends ClosableWindow{
         Population population = city.getPopulation();
         int amount = population.amountOfNotWorking();
 
-        sliderElement = new SliderElement(new Coord(20, 20).add(getPos()), new Coord(160, 20), true, 0, amount, this);
+        sliderElement = new SliderElement(new Coord(20, 20), new Coord(160, 20), true, 0, amount, this);
         addWindowElement(sliderElement);
 
-        MonitoredBroadcastLabel label = new MonitoredBroadcastLabel(new Coord(10, 50).add(getPos()), new Coord(160, 30), "people:",
+        MonitoredBroadcastLabel label = new MonitoredBroadcastLabel(new Coord(10, 50), new Coord(160, 30), "people:",
                 sliderElement, "number", this);
 
         addWindowElement(label);
 
-        Button button = new Button(new Coord(20, 80).add(getPos()), new Coord(50, 20), this, "add") {
+        Button button = new Button(new Coord(20, 80), new Coord(50, 20), this, "add") {
 
             @Override
             public void click(Coord point) {

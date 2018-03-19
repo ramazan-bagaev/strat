@@ -20,7 +20,7 @@ public class GameEngine {
     public GameEngine(GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
-        map = new FieldMap(10000, 100, this);
+        map = new FieldMap(1000, 50, this);
         time = new Time();
     }
 

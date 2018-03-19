@@ -9,7 +9,7 @@ public class Window {
 
     protected Coord pos;
     protected Coord size;
-    protected Windows parent;
+    protected Frame parent;
     private int id;
     private ArrayList<BasicShape> basicShapes;
 
@@ -22,24 +22,25 @@ public class Window {
     private ArrayList<Integer> windowId;
 
 
-    public Window(Coord pos, Coord size, Windows parent){
+    public Window(Coord pos, Coord size, Frame parent){
         setId(-1);
-        setPos(pos);
-        setSize(size);
+        this.pos = new Coord(pos);
+        this.size = new Coord(size);
         setParent(parent);
         windowElements = new ArrayList<>();
         windowElementGroups = new ArrayList<>();
         basicShapes = new ArrayList<>();
-        basicShapes.add(new RectangleShape(pos, size, new Color(Color.Type.White), true));
-        cameraConfiguration = new CameraConfiguration(0, 0, 1000, 1000, false);
+        RectangleShape background = new RectangleShape(new Coord(0, 0), size, new Color(Color.Type.White), true);
+        addBasicShape(background);
+        cameraConfiguration = new CameraConfiguration(new Coord(0, 0), new Coord(0, 0),  new Coord(1000, 1000), false);
         windowId = new ArrayList<>();
     }
 
-    public Windows getParent() {
+    public Frame getParent() {
         return parent;
     }
 
-    public void setParent(Windows parent) {
+    public void setParent(Frame parent) {
         this.parent = parent;
     }
 
@@ -77,6 +78,9 @@ public class Window {
     }
 
     public boolean contain(Coord point){
+        /*System.out.println(point.x + " point " + point.y);
+        System.out.println(pos.x + " pos " + pos.y);
+        System.out.println(size.x + " size " + size.y);*/
         return point.inRectangle(pos, size);
     }
 
@@ -88,9 +92,9 @@ public class Window {
     public void click2(Coord point){
     }
 
-    public void scroll(double delta, double x, double y){
+    public void scroll(double delta, Coord scrollPos){
         if (cameraConfiguration.isScrollable()) {
-            cameraConfiguration.scroll((int) delta, x - pos.x, y - pos.y);
+            cameraConfiguration.scroll((int) delta, scrollPos.x, scrollPos.y);
             for (WindowElement element : windowElements) {
                 element.setShapes();
             }
@@ -101,7 +105,8 @@ public class Window {
         }
     }
 
-    public void drag(Coord point, Coord pressedPos, boolean dragBegin){
+    public boolean drag(Coord point, Coord pressedPos, boolean dragBegin){
+        return false;
     }
 
     public void hoover(Coord point){
@@ -153,12 +158,19 @@ public class Window {
         camera.takeBackCameraView();
     }
 
-    public ArrayList<BasicShape> getBasicShapes() {
-        return basicShapes;
+    //public ArrayList<BasicShape> getBasicShapes() {
+    //    return basicShapes;
+    //}
+
+    public void addBasicShape(BasicShape basicShape){
+        basicShape.shift(getShift());
+        basicShapes.add(basicShape);
     }
 
     public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
-        this.basicShapes = basicShapes;
+        for(BasicShape basicShape: basicShapes){
+            addBasicShape(basicShape);
+        }
     }
 
     public ArrayList<WindowElementGroup> getWindowElementGroups() {
@@ -186,5 +198,9 @@ public class Window {
 
     public ArrayList<Integer> getWindowId() {
         return windowId;
+    }
+
+    public Coord getShift(){
+        return new Coord(pos);
     }
 }

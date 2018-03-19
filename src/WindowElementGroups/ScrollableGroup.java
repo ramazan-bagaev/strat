@@ -30,7 +30,7 @@ public class ScrollableGroup extends WindowElementGroup{
     }
 
     public void addScrollButton(){
-        Button buttonUp = new Button(new Coord(getSize().x - 15, 0).add(getPos()), new Coord(15, 20), this, getParent(), "up") {
+        Button buttonUp = new Button(new Coord(getSize().x - 15, 0), new Coord(15, 20), this, getParent(), "up") {
             @Override
             public void click(Coord point) {
                 ScrollableGroup scrollableGroup = (ScrollableGroup)getGroupParent();
@@ -38,7 +38,7 @@ public class ScrollableGroup extends WindowElementGroup{
             }
         };
 
-        Button buttonDown = new Button(new Coord(getSize().x - 15, getSize().y - 20).add(getPos()), new Coord(15, 20), this, getParent(), "down") {
+        Button buttonDown = new Button(new Coord(getSize().x - 15, getSize().y - 20), new Coord(15, 20), this, getParent(), "down") {
             @Override
             public void click(Coord point) {
                 ScrollableGroup scrollableGroup = (ScrollableGroup)getGroupParent();

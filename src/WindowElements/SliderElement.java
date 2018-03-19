@@ -10,8 +10,10 @@ public class SliderElement extends WindowElement{
     private int begin;
     private int end;
     private boolean horizontal;
-    private RectangleShape slider;
-    private RectangleShape scale;
+    private Coord sliderPos;
+    private Coord sliderSize;
+    private Coord scalePos;
+    private Coord scaleSize;
     private Coord pressedPos;
 
     public SliderElement(Coord pos, Coord size, boolean horizontal, int begin, int end, Window parent) {
@@ -19,7 +21,7 @@ public class SliderElement extends WindowElement{
         this.begin = begin;
         this.end = end;
         this.horizontal = horizontal;
-        addSliderParts();
+        setSliderParts(new Coord(0, size.y/2 - 5));
     }
 
     public SliderElement(Coord pos, Coord size, boolean horizontal, int begin, int end, WindowElementGroup groupParent, Window parent) {
@@ -27,58 +29,66 @@ public class SliderElement extends WindowElement{
         this.begin = begin;
         this.end = end;
         this.horizontal = horizontal;
-        addSliderParts();
+        setSliderParts(new Coord(0,size.y / 2 - 5 ));
     }
 
-    public void addSliderParts(){
-        Coord pos = getPos();
+    public void setSliderParts(Coord slPos){
         Coord size = getSize();
         Font font = getParent().getFont("latin");
+        sliderPos = new Coord(slPos);
+        sliderSize = new Coord(10, 20);
+        scalePos = new Coord(0, size.y / 2 - 2);
+        scaleSize = new Coord(size.x, 4);
         if (horizontal) {
-            RectangleShape scale = new RectangleShape(pos.add(new Coord(0, size.y / 2 - 2)),
-                    new Coord(size.x, 4), new Color(Color.Type.Black), true);
-            RectangleShape slider = new RectangleShape(pos.add(new Coord(0, size.y / 2 - 5)),
-                    new Coord(10, 20), new Color(Color.Type.LightGray), true);
-            StringShape minVal = new StringShape(pos.add(new Coord(0, size.y/2 - 20)), new Coord(50, 10), String.valueOf(begin),
+            RectangleShape scale = new RectangleShape(new Coord(scalePos),
+                    new Coord(scaleSize), new Color(Color.Type.Black), true);
+            RectangleShape slider = new RectangleShape(new Coord(sliderPos),
+                    new Coord(sliderSize), new Color(Color.Type.LightGray), true);
+            StringShape minVal = new StringShape(new Coord(0, size.y/2 - 20), new Coord(50, 10), String.valueOf(begin),
                     new Color(Color.Type.Black), font);
-            StringShape maxVal = new StringShape(pos.add(new Coord( size.x - 50,size.y/2 - 20)), new Coord(50, 10), String.valueOf(end),
+            StringShape maxVal = new StringShape(new Coord( size.x - 50,size.y/2 - 20), new Coord(50, 10), String.valueOf(end),
                     new Color(Color.Type.Black), font);
-            ArrayList<BasicShape> basicShapes = getBasicShapes();
-            basicShapes.addAll(minVal.getBasicShapes());
-            basicShapes.addAll(maxVal.getBasicShapes());
-            basicShapes.add(scale);
-            basicShapes.add(slider);
-            this.slider = slider;
-            this.scale = scale;
+            clearBasicShapes();
+            addBasicShapes(minVal.getBasicShapes());
+            addBasicShapes(maxVal.getBasicShapes());
+            addBasicShape(scale);
+            addBasicShape(slider);
         }
     }
 
     @Override
-    public void drag(Coord point, Coord pressedPosition, boolean dragBegin){
+    public boolean drag(Coord point, Coord pressedPosition, boolean dragBegin){
         if (pressedPos == null){
             pressedPos = point;
-            return;
+            return true;
         }
-        if (!point.inRectangle(getPos(), getSize())) return;
+        System.out.println(point.x + " point " + point.y);
+        System.out.println(getPos().x + " pos " + getPos().y);
+        System.out.println(getSize().x + " size " + getSize().y);
+        System.out.println();
+        if (!point.inRectangle(new Coord(0, 0), getSize())) return true;
+        System.out.println("pass");
+        System.out.println();
         if (horizontal) {
-            int minX = scale.getPos().x;
-            int maxX = minX + scale.getSize().x + slider.getSize().x;
-            Coord delta = new Coord(point.x - slider.getPos().x - slider.getSize().x/2, 0);
-            Coord newPos = new Coord(slider.getPos().add(delta));
-            if (newPos.x > maxX || newPos.x < minX) return;
-            slider.setPos(newPos);
+            int minX = scalePos.x;
+            int maxX = minX + scaleSize.x + sliderSize.x;
+            Coord delta = new Coord(point.x - sliderPos.x - sliderSize.x/2, 0);
+            Coord newPos = new Coord(sliderPos.add(delta));
+            if (newPos.x > maxX || newPos.x < minX) return true;
+            setSliderParts(newPos);
             pressedPos = point;
         }
+        return true;
     }
 
     @Override
     public void click(Coord point) {
-        if (!point.inRectangle(slider.getPos(), slider.getSize())) return;
+        if (!point.inRectangle(sliderPos, sliderSize)) return;
         pressedPos = point;
     }
 
     public int getNumber(){
-        return (int)(((float)(end - begin))/(float)(getSize().x - slider.getSize().x) * (slider.getPos().x - getPos().x));
+        return (int)(((float)(end - begin))/(float)(getSize().x - sliderSize.x) * (sliderPos.x - getPos().x));
     }
 
     @Override

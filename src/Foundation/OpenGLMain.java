@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL15.glGenBuffers;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -23,7 +24,7 @@ public class OpenGLMain {
     // The window handle
     private long window;
 
-    private Windows windows;
+    private Frame frame;
     private GameEngine gameEngine;
     private OpenGLBinder openGLBinder;
 
@@ -93,12 +94,10 @@ public class OpenGLMain {
 
         FontFactory fontFactory = new FontFactory();
         ArrayList<Font> fonts = fontFactory.getFonts();
-        windows = new Windows(fonts);
-        gameEngine = windows.getGameEngine();
-        MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(windows);
-        windows.addWindow(mainToolbarWindow);
+        frame = new Frame(fonts);
+        gameEngine = frame.getGameEngine();
         openGLBinder = new OpenGLBinder();
-        Input input = windows.getInput();
+        Input input = frame.getInput();
         Cursor cursor = input.getCursor();
         Keyboard keyboard = input.getKeyboard();
         Controller controller = input.getController();
@@ -182,7 +181,6 @@ public class OpenGLMain {
         };
 
         glfwSetCharCallback(window, charCallback);
-
         // Make the window visible
         glfwShowWindow(window);
     }
@@ -212,8 +210,8 @@ public class OpenGLMain {
                 gameEngine.run();
             }
             i++;
-            windows.run();
-            windows.draw(openGLBinder);
+            frame.run();
+            frame.draw(openGLBinder);
 
             glfwSwapBuffers(window); // swap the color buffers
 

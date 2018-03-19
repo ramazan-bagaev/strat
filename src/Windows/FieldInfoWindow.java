@@ -14,7 +14,7 @@ public class FieldInfoWindow extends ClosableWindow{
 
     private Field field;
 
-    public FieldInfoWindow(Windows parent, Field field) {
+    public FieldInfoWindow(Frame parent, Field field) {
         super(new Coord(0,0), new Coord(300, 200), parent);
         setField(field);
     }
@@ -31,22 +31,22 @@ public class FieldInfoWindow extends ClosableWindow{
         if (field == null) return;
         ArmyElement army = field.getArmyElement();
         Ground groundElement = field.getGround();
-        Image groundImage = new GroundImage(getPos(), groundElement.getGroundType(), this);
+        Image groundImage = new GroundImage(new Coord(0, 0), groundElement.getGroundType(), this);
         Image finalImage = groundImage;
         if (field.getCity() != null){
-            Image cityImage = new CityImage(getPos(), field.getCity().getSizeType(), this);
-            finalImage = new Image(groundImage, cityImage, getPos(), this);
+            Image cityImage = new CityImage(new Coord(0, 0), field.getCity().getSizeType(), this);
+            groundImage.add(cityImage);//new Image(groundImage, cityImage, getPos(), this);
         }
         if (army != null) {
-            Image armyImage = new ArmyImage(getPos(), this);
-            finalImage = new Image(groundImage, armyImage, getPos(), this);
+            Image armyImage = new ArmyImage(new Coord(0, 0), this);
+            groundImage.add(armyImage);//new Image(groundImage, armyImage, getPos(), this);
         }
         addWindowElement(finalImage);
 
         // ground type for all field
         //String groundTypeString = groundElement.getValue("groundType");
         //Label groundTypeLabel = new Label(new Coord(10, 55).add(getPos()), new Coord(150, 10), "TYPE: " + groundTypeString, this);
-        StaticBroadcastLabel groundLabel = new StaticBroadcastLabel(new Coord(new Coord(10, 55).add(getPos())), new Coord(150, 10),
+        StaticBroadcastLabel groundLabel = new StaticBroadcastLabel(new Coord(10, 55), new Coord(150, 10),
                 "TYPE:", groundElement, "groundType", this);
         addWindowElement(groundLabel);
 
@@ -58,12 +58,12 @@ public class FieldInfoWindow extends ClosableWindow{
         //ChangableLabel groundResourceCauseAmountLabel = new ChangableLabel(new Coord(200, 75).add(getPos()), new Coord(50, 10),
          //       groundResourceCauseAmountString, groundElement, "resourceCause.capacity", this);
 
-        MonitoredBroadcastLabel groundResourceCauseLabel = new MonitoredBroadcastLabel(new Coord(10, 75).add(getPos()),new Coord(200, 10),
+        MonitoredBroadcastLabel groundResourceCauseLabel = new MonitoredBroadcastLabel(new Coord(10, 75),new Coord(200, 10),
                 "Ground fertility:", groundElement, "resourceCause.capacity", this);
         addWindowElement(groundResourceCauseLabel);
 
 
-        Button ecoButton = new Button(new Coord(10, 115).add(getPos()), new Coord(30, 20),this, "eco") {
+        Button ecoButton = new Button(new Coord(10, 115), new Coord(30, 20),this, "eco") {
             @Override
             public void click(Coord point) {
                 FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();
@@ -73,7 +73,7 @@ public class FieldInfoWindow extends ClosableWindow{
         };
         addWindowElement(ecoButton);
 
-        MonitoredBroadcastLabel peopleNumLabel = new MonitoredBroadcastLabel(new Coord(10, 155).add(getPos()), new Coord(200, 10),
+        MonitoredBroadcastLabel peopleNumLabel = new MonitoredBroadcastLabel(new Coord(10, 155), new Coord(200, 10),
                 "people number:", field.getPeople(), "amount", this);
         addWindowElement(peopleNumLabel);
 
@@ -85,7 +85,7 @@ public class FieldInfoWindow extends ClosableWindow{
 
             //String cityTypeString = city.getValue("sizeType");
             //Label cityTypeLabel = new Label(new Coord(10, 115).add(getPos()), new Coord(300, 10), "City size: " + cityTypeString, this);
-        StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140).add(getPos()), new Coord(300, 10),
+        StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140), new Coord(300, 10),
                 "City size:", city, "sizeType", this);
         addWindowElement(cityLabel);
 

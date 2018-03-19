@@ -57,12 +57,11 @@ public class OpenGLBinder {
                 x1 = x + size.x;
                 y1 = y + size.y;
 
-                //glRectf(x, y, x1, y1);
-                glBegin(GL_QUADS);
+                glBegin(GL_TRIANGLE_STRIP);
                 glVertex3f(x, y, 0);
                 glVertex3f(x , y1, 0);
-                glVertex3f(x1 , y1, 0);
-                glVertex3f(x1, y, 0);
+                glVertex3f(x1 , y, 0);
+                glVertex3f(x1, y1, 0);
                 glEnd();
                 glFlush();
 
@@ -121,6 +120,18 @@ public class OpenGLBinder {
                 glVertex3f(posC.x, posC.y, 0);
                 glEnd();
                 glFlush();
+                break;
+            case Polygone:
+                PolygonShape polygonShape = (PolygonShape)basicShape;
+                ArrayList<Coord> vertices = polygonShape.getVerteces();
+                glColor4f(color.r, color.g, color.b, color.a);
+                glBegin(GL_POLYGON);
+                for(Coord vertix: vertices){
+                    glVertex3f(vertix.x, vertix.y, 0);
+                }
+                glEnd();
+                glFlush();
+                break;
         }
     }
 }

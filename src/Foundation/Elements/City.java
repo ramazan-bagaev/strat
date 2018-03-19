@@ -13,8 +13,6 @@ public class City extends RunableElement {
         Big, Middle, Small
     }
 
-    private Coord pos;
-    private int size;
     private SizeType sizeType;
     private String name;
 
@@ -37,10 +35,6 @@ public class City extends RunableElement {
 
     public City(String name, SizeType sizeType, FieldMap map, Time time, Field parent){
         super(Element.Type.City, time, parent, map);
-        this.pos = new Coord(parent.getFieldMapPos());
-        setSize(map.getFieldSize());
-        pos.x = pos.x * size;
-        pos.y = pos.y * size;
         setSizeType(sizeType);
         setMap(map);
         territory = new ArrayList<>();
@@ -57,7 +51,8 @@ public class City extends RunableElement {
                 field.setOwner(this);
             }
         }
-        setBasicShapes(new CityImage(pos, new Coord(size, size), sizeType, null).getBasicShapes());
+        int size = parent.getSize();
+        setBasicShapes(new CityImage(new Coord(0, 0), new Coord(size, size), sizeType, null).getBasicShapesRemoveAndShiftBack());
         switch (sizeType){
             case Big: {
                 setPopulation(new Population(this,10000)); // magic constant, eee TODO: make something with these constants
@@ -104,10 +99,6 @@ public class City extends RunableElement {
                 }
         }
         return Broadcaster.noResult;
-    }
-
-    public Coord getPos() {
-        return pos;
     }
 
     public String getName() {
@@ -193,13 +184,5 @@ public class City extends RunableElement {
 
     public ArrayList<Coord> getTerritory() {
         return territory;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 }

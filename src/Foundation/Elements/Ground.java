@@ -17,30 +17,6 @@ public class Ground extends Element {
         this.groundType = groundType;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public int getCapacity() {
         return capacity;
     }
@@ -53,20 +29,15 @@ public class Ground extends Element {
         Sand, Water, Soil, Mud, Rock
     }
 
-    private int x;
-    private int y;
-    private int size;
     private int capacity;
     private int maxCapacity;
 
     private GroundType groundType;
 
-    public Ground(int x, int y, int elementSize, GroundType groundType, Time time, Field parent, FieldMap map){
+    public Ground(GroundType groundType, Time time, Field parent, FieldMap map){
         super(Type.Ground, time, parent, map);
         setGroundType(groundType);
-        setX(x);
-        setY(y);
-        setSize(elementSize);
+
 
         int cap = 0;
         int maxCap = 0;
@@ -99,19 +70,21 @@ public class Ground extends Element {
         //ResourceCause fertilityCause = new ResourceCause(Resource.Type.Fertility);
         //setResourceCause(fertilityCause);
 
+        int size = parent.getSize();
         Color color = new Color(Color.Type.White);
         if (getGroundType() == GroundType.Soil) color = new Color(Color.Type.Green);
         if (getGroundType() == GroundType.Sand) color = new Color(Color.Type.Yellow);
         if (getGroundType() == GroundType.Water) color = new Color(Color.Type.Blue);
         if (getGroundType() == GroundType.Mud) color = new Color(Color.Type.Green2);
         if (getGroundType() == GroundType.Rock){
-            ArrayList<BasicShape> shapes = new RockImage(new Coord(getX(), getY()), new Coord(getSize(), getSize()), null).getBasicShapes();
+            ArrayList<BasicShape> shapes = new RockImage(new Coord(0, 0), new Coord(size, size), null)
+                    .getBasicShapesRemoveAndShiftBack();
             for (BasicShape basicShape: shapes){
                 addShape(basicShape);
             }
         }
         else {
-            RectangleShape newShape = new RectangleShape(new Coord(getX(), getY()), new Coord(getSize(), getSize()), color, false,true);
+            RectangleShape newShape = new RectangleShape(new Coord(0, 0), new Coord(size, size), color, false,true);
             addShape(newShape);
         }
     }

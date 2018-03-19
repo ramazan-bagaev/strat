@@ -1,13 +1,13 @@
 package Windows;
 
 import Foundation.Coord;
+import Foundation.Frame;
 import Foundation.Window;
-import Foundation.Windows;
 import WindowElements.CloseButton;
 
 public class ClosableWindow extends Window {
 
-    public ClosableWindow(Coord pos, Coord size, Windows parent) {
+    public ClosableWindow(Coord pos, Coord size, Frame parent) {
         super(pos, size, parent);
         addCloseButton();
     }
@@ -17,7 +17,7 @@ public class ClosableWindow extends Window {
     }
 
     public void addCloseButton(){
-        CloseButton closeButton = new CloseButton(new Coord(getPos().x + getSize().x - 15, getPos().y), new Coord(15, 15), this);
+        CloseButton closeButton = new CloseButton(new Coord(getSize().x - 15, 0), new Coord(15, 15), this);
         addWindowElement(closeButton);
     }
 

@@ -17,11 +17,9 @@ public class Image extends WindowElement {
         super(pos, new Coord(50, 50), parent);
     }
 
-    public Image(Image image1, Image image2, Coord pos, Window parent){
-        super(pos, new Coord(50, 50), parent);
-        ArrayList<BasicShape> shapes = image1.getBasicShapes();
-        shapes.addAll(image2.getBasicShapes());
-        setBasicShapes(shapes);
+    public void add(Image image){
+        ArrayList<BasicShape> imageShape = image.getBasicShapesRemoveAndShiftBack();
+        addBasicShapes(imageShape);
     }
 
     @Override

@@ -1,16 +1,16 @@
 package Windows;
 
 import Foundation.Coord;
+import Foundation.Frame;
 import Foundation.Window;
 import Foundation.WindowElement;
-import Foundation.Windows;
 import WindowElements.TimeElement;
 
 import java.util.ArrayList;
 
 public class MainToolbarWindow extends Window{
 
-    public MainToolbarWindow(Windows parent){
+    public MainToolbarWindow(Frame parent){
         super(new Coord(0, 0), new Coord(1000, 30), parent);
 
         setElements();

@@ -5,7 +5,7 @@ import CharacterShape.Font;
 
 import java.util.ArrayList;
 
-public class StringShape{
+public class StringShape extends BasicShape{
 
     private Font font;
     private String text;

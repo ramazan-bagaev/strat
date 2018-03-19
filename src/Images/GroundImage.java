@@ -37,7 +37,7 @@ public class GroundImage extends Image {
                 color = new Color(Color.Type.Gray);
                 break;
         }
-        RectangleShape newShape = new RectangleShape(new Coord(getPos()), new Coord(getSize()), color, false, true);
+        RectangleShape newShape = new RectangleShape(new Coord(0, 0), new Coord(getSize()), color, false, true);
         groundShapes.add(newShape);
         setBasicShapes(groundShapes);
     }

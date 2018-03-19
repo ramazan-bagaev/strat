@@ -8,7 +8,7 @@ import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 
 import java.util.ArrayList;
 
-public class AddFarmState extends HelperState {
+public class AddVillageState extends HelperState {
 
     private MegaBorderMode megaBorderMode;
     private CoveringFieldMode impossible;
@@ -16,7 +16,7 @@ public class AddFarmState extends HelperState {
 
     private Manor manor;
 
-    public AddFarmState(Manor manor, GameWindowHelperElement gameWindowHelperElement) {
+    public AddVillageState(Manor manor, GameWindowHelperElement gameWindowHelperElement) {
         super(gameWindowHelperElement);
         this.manor = manor;
         impossible = new CoveringFieldMode(gameWindowHelperElement);
@@ -39,7 +39,7 @@ public class AddFarmState extends HelperState {
                 impossible.addCoveringFieldHelper(pos, i);
                 continue;
             }
-            if (field.getFarm() != null){
+            if (field.getVillage() != null){
                 impossible.addCoveringFieldHelper(pos, i);
                 continue;
             }
@@ -66,7 +66,7 @@ public class AddFarmState extends HelperState {
         point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
         if (impossible.isOccupiedBy(point)) return;
         if (possible.isOccupiedBy(point)){
-            manor.createFarm(point);
+            manor.createVillage(point);
             return;
         }
         clearHelperElements();

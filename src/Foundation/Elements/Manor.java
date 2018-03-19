@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Manor extends RunableElement {
 
-    private ArrayList<Coord> farms;
+    private ArrayList<Coord> villages;
 
     private ResourceStore resourceStore;
     private ArrayList<Coord> territory;
@@ -22,11 +22,8 @@ public class Manor extends RunableElement {
         this.resourceStore = new ResourceStore();
         territory = new ArrayList<>();
         territory.add(parent.getFieldMapPos());
-        farms = new ArrayList<>();
-        Coord pos = new Coord(parent.getFieldMapPos());
-        pos.x = pos.x * parent.getSize();
-        pos.y = pos.y * parent.getSize();
-        setBasicShapes(new ManorImage(pos, new Coord(parent.getSize(), parent.getSize()), null).getBasicShapes());
+        villages = new ArrayList<>();
+        setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
     }
 
     public void addTerritory(Coord pos) {
@@ -41,14 +38,14 @@ public class Manor extends RunableElement {
         return city;
     }
 
-    public void createFarm(Coord point){
+    public void createVillage(Coord point){
         System.out.println(city.getTerritory().size());
         if (!territory.contains(point)) return;
         Field field = map.getFieldByIndex(point);
-        if (field.getFarm() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Farm farm = new Farm(this, time, field, map);
-        field.setFarm(farm);
-        farms.add(point);
+        if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
+        Village village = new Village(time, field, map, this);
+        field.setVillage(village);
+        villages.add(point);
         map.getGameEngine().getGameWindowElement().setShapes();
         System.out.println(city.getTerritory().size());
     }
@@ -59,9 +56,9 @@ public class Manor extends RunableElement {
 
     @Override
     public void run() {
-        for(Coord pos: farms){
-            Farm farm = map.getFieldByIndex(pos).getFarm();
-            farm.getWork().doJob();
+        for(Coord pos: villages){
+            Village village = map.getFieldByIndex(pos).getVillage();
+            //village.getWork().doJob();
         }
     }
 }

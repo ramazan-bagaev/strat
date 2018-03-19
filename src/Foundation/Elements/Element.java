@@ -6,33 +6,8 @@ import java.util.ArrayList;
 
 public class Element extends Broadcaster {
 
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public Field getParent() {
-        return parent;
-    }
-
-    public void setParent(Field parent) {
-        this.parent = parent;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    @Override
-    public String getValue(String key) {
-        return Broadcaster.noResult;
-    }
-
     public enum Type{
-        City, Ground, Ecosystem, Army, River, Tree, Manor, Farm
+        City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill
     }
 
     private Type type;
@@ -56,16 +31,53 @@ public class Element extends Broadcaster {
     }
 
 
+    // do not use anywhere except FieldMap!
     public ArrayList<BasicShape> getShapes() {
         return shapes;
     }
 
     public void setBasicShapes(ArrayList<BasicShape> shapes) {
         this.shapes = shapes;
+        for (BasicShape basicShape: this.shapes){
+            basicShape.shift(getShift());
+        }
+    }
+
+    private Coord getShift() {
+        Coord parentShift = parent.getMap().getGameEngine().getGameWindowElement().getShift();
+        Coord parentPos = parent.getFieldMapPos();
+        int parentSize = parent.getSize();
+        return parentShift.add(new Coord(parentPos.x * parentSize, parentPos.y * parentSize));
     }
 
     public void addShape(BasicShape shape){
+        shape.shift(getShift());
         shapes.add(shape);
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Field getParent() {
+        return parent;
+    }
+
+    public void setParent(Field parent) {
+        this.parent = parent;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    @Override
+    public String getValue(String key) {
+        return Broadcaster.noResult;
     }
 
 }

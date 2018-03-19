@@ -10,7 +10,7 @@ public class ResourceStoreWindow extends ClosableWindow {
 
     private ResourceStore resourceStore;
 
-    public ResourceStoreWindow(ResourceStore resourceStore, Windows parent){
+    public ResourceStoreWindow(ResourceStore resourceStore, Frame parent){
         super(new Coord(100, 800), new Coord(300, 100), parent);
         this.resourceStore = resourceStore;
         setElements();
@@ -25,11 +25,11 @@ public class ResourceStoreWindow extends ClosableWindow {
 
         int y = 10;
         for(Resource resource: resourceStore.getResources()){
-            elements.add(new ResourceWindowElement(new Coord(10, y).add(getPos()), new Coord(280, 20), resource, this));
+            elements.add(new ResourceWindowElement(new Coord(10, y), new Coord(280, 20), resource, this));
             y += 20;
         }
 
-        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(0, 10).add(getPos()), 300, 3, 20, this);
+        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(0, 10), 300, 3, 20, this);
         scrollableGroup.setScrollableElements(elements);
         addWindowElementGroup(scrollableGroup);
 

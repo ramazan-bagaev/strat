@@ -99,7 +99,7 @@ public class FieldMap {
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getManor();
                     if (element != null) result.addAll(element.getShapes());
-                    element = field.getFarm();
+                    element = field.getVillage();
                     if (element != null) result.addAll(element.getShapes());
                 }
             }

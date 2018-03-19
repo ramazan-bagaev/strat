@@ -14,7 +14,7 @@ public class Cursor {
     private boolean pressed;
 
     private Input input;
-    private Windows windows;
+    private Frame frame;
 
     private Window activeWindow;
     private WindowElement activeWindowElement;
@@ -22,8 +22,8 @@ public class Cursor {
 
     private WindowElement clickedWindowElement;
 
-    public Cursor(Windows windows, Input input){
-        this.windows = windows;
+    public Cursor(Frame frame, Input input){
+        this.frame = frame;
         this.input = input;
         pressed = false;
         dragEnd = true;
@@ -72,18 +72,20 @@ public class Cursor {
 
     public void renewActive(){
         Coord point = new Coord((int)posX, (int)posY);
-        LinkedList<Window> windowList = windows.getWindows();
+        LinkedList<Window> windowList = frame.getWindows();
         for (int i = windowList.size() - 1; i >= 0; i--){
             Window window = windowList.get(i);
             if (window.contain(point)){
                 activeWindow = window;
+                Coord temp = point.add(window.getShift().multiply(-1));
                 ArrayList<WindowElementGroup> windowElementGroups = window.getWindowElementGroups();
                 for (WindowElementGroup windowElementGroup: windowElementGroups){
-                    if (windowElementGroup.contain(point)){
+                    if (windowElementGroup.contain(temp)){
                         activeWindowElementGroup = windowElementGroup;
                         ArrayList<WindowElement> windowElements = windowElementGroup.getWindowElements();
+                        temp = point.add(windowElementGroup.getShift().multiply(-1));
                         for (WindowElement windowElement: windowElements){
-                            if (windowElement.contain(point)){
+                            if (windowElement.contain(temp)){
                                 activeWindowElement = windowElement;
                                 return;
                             }
@@ -94,9 +96,10 @@ public class Cursor {
                 }
                 activeWindowElementGroup = null;
                 ArrayList<WindowElement> windowElements = window.getWindowElements();
+                temp = point.add(window.getShift().multiply(-1));
                 for (int j = windowElements.size() - 1; j >= 0; j--){
                     WindowElement windowElement = windowElements.get(j);
-                    if (windowElement.contain(point)){
+                    if (windowElement.contain(temp)){
                         activeWindowElement = windowElement;
                         return;
                     }
@@ -149,58 +152,67 @@ public class Cursor {
             return;
         }
         if (activeWindow != null){
-            activeWindow.scroll(delta, posX, posY);
+            activeWindow.scroll(delta, new Coord((int)posX, (int)posY).add(activeWindow.getShift().multiply(-1)));
         }
     }
 
     public void actionWindow(Coord point){
         if (activeWindowElement != null) {
-            activeWindowElement.click(point);
+            activeWindowElement.click(point.add(activeWindowElement.getShift().multiply(-1)));
             clickedWindowElement = activeWindowElement;
             return;
         }
         if (activeWindowElementGroup != null) {
-            activeWindowElementGroup.click(point);
+            activeWindowElementGroup.click(point.add(activeWindowElementGroup.getShift().multiply(-1)));
             return;
         }
         if (activeWindow != null) {
-            activeWindow.click(point);
+            activeWindow.click(point.add(activeWindow.getShift().multiply(-1)));
             return;
         }
     }
 
     public void additionalActionWindow(Coord point){
         if (activeWindowElement != null) {
-            activeWindowElement.click2(point);
+            activeWindowElement.click2(point.add(activeWindowElement.getShift().multiply(-1)));
             clickedWindowElement = activeWindowElement;
             return;
         }
         if (activeWindowElementGroup != null) {
-            activeWindowElementGroup.click2(point);
+            activeWindowElementGroup.click2(point.add(activeWindowElementGroup.getShift().multiply(-1)));
             return;
         }
         if (activeWindow != null) {
-            activeWindow.click2(point);
+            activeWindow.click2(point.add(activeWindow.getShift().multiply(-1)));
             return;
         }
     }
 
     public void drag(Coord point){
-        if (activeWindow != null) {
-            activeWindow.drag(point, pressedPos, dragEnd);
-            dragEnd = false;
-            return;
-        }
         if (activeWindowElement != null) {
-            activeWindowElement.drag(point, pressedPos, dragEnd);
-            dragEnd = false;
-            clickedWindowElement = activeWindowElement;
-            return;
+            boolean dragged = activeWindowElement.drag(point.add(activeWindowElement.getShift().multiply(-1)),
+                    pressedPos.add(activeWindowElement.getShift().multiply(-1)), dragEnd);
+            if (dragged) {
+                dragEnd = false;
+                clickedWindowElement = activeWindowElement;
+                return;
+            }
         }
         if (activeWindowElementGroup != null) {
-            activeWindowElementGroup.drag(point, pressedPos, dragEnd);
-            dragEnd = false;
-            return;
+            boolean dragged = activeWindowElementGroup.drag(point.add(activeWindowElementGroup.getShift().multiply(-1)),
+                    pressedPos.add(activeWindowElementGroup.getShift().multiply(-1)), dragEnd);
+            if (dragged) {
+                dragEnd = false;
+                return;
+            }
+        }
+        if (activeWindow != null) {
+            boolean dragged = activeWindow.drag(point.add(activeWindow.getShift().multiply(-1)),
+                    pressedPos.add(activeWindow.getShift().multiply(-1)), dragEnd);
+            if (dragged) {
+                dragEnd = false;
+                return;
+            }
         }
     }
 

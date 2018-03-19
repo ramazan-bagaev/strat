@@ -1,15 +1,18 @@
 package Foundation;
 
 import CharacterShape.Font;
-import sun.applet.Main;
+import Windows.MainToolbarWindow;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Windows {
+public class Frame {
 
+    private Coord pos;
+    private Coord size;
     private Camera camera;
     private Input input;
     private MainWindow mainWindow;
@@ -19,15 +22,19 @@ public class Windows {
     private ArrayList<Font> fonts;
     private int currentId;
 
-    public Windows(ArrayList<Font> fonts){
+    public Frame(ArrayList<Font> fonts){
+        pos = new Coord(0, 0);
+        size = new Coord(1000, 1000);
         currentId = 0;
         specialWindows = new HashMap<>();
         windows = new LinkedList<>();
         this.fonts = fonts;
-        camera = new Camera(0, 0, 1000, 1000);
+        camera = new Camera(this);
         input = new Input(this);
-        this.mainWindow =  new MainWindow(new Coord(0, 0), new Coord(1000, 1000), this);
+        this.mainWindow =  new MainWindow(pos.add(new Coord(0, 0)), new Coord(1000, 1000), this);
         addWindow(mainWindow);
+        MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(this);
+        addWindow(mainToolbarWindow);
     }
 
     public void addWindow(Window window){
@@ -149,5 +156,13 @@ public class Windows {
             specialWindows.put(string, window);
             addWindow(window);
         }
+    }
+
+    public Coord getSize() {
+        return size;
+    }
+
+    public Coord getPos() {
+        return pos;
     }
 }

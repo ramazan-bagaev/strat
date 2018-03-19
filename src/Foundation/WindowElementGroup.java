@@ -13,11 +13,12 @@ public class WindowElementGroup {
 
     public WindowElementGroup(Coord pos, Coord size, Window parent){
         setParent(parent);
-        setPos(pos);
+        this.pos = new Coord(pos);
+        this.size = new Coord(size);
         setSize(size);
         windowElements = new ArrayList<>();
         basicShapes = new ArrayList<>();
-        basicShapes.add(new RectangleShape(new Coord(pos), new Coord(size), new Color(Color.Type.Black), false));
+        addBasicShape(new RectangleShape(new Coord(0, 0), new Coord(size), new Color(Color.Type.Black), false));
     }
 
     public ArrayList<WindowElement> getWindowElements() {
@@ -70,8 +71,8 @@ public class WindowElementGroup {
     public void scroll(double delta){
     }
 
-    public void drag(Coord point, Coord pressedPos, boolean dragBegin){
-
+    public boolean drag(Coord point, Coord pressedPos, boolean dragBegin){
+        return false;
     }
 
     public void hoover(Coord point){
@@ -88,17 +89,29 @@ public class WindowElementGroup {
         }
     }
 
-    public ArrayList<BasicShape> getBasicShapes() {
-        return basicShapes;
+    //public ArrayList<BasicShape> getBasicShapes() {
+    //    return basicShapes;
+    //}
+
+    public void addBasicShape(BasicShape basicShape){
+        basicShape.shift(getShift());
+        basicShapes.add(basicShape);
     }
 
     public void setBasicShapes(ArrayList<BasicShape> basicShapes) {
-        this.basicShapes = basicShapes;
+        for(BasicShape basicShape: basicShapes){
+            addBasicShape(basicShape);
+        }
     }
 
     public void run(){
         for(WindowElement windowElement: windowElements){
             windowElement.run();
         }
+    }
+
+    public Coord getShift(){
+        Coord shiftP = parent.getShift();
+        return shiftP.add(pos);
     }
 }
