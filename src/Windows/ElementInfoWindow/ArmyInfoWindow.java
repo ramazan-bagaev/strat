@@ -1,10 +1,11 @@
-package Windows;
+package Windows.ElementInfoWindow;
 
 import Foundation.Frame;
 import Foundation.Runnable.Army;
 import Foundation.Coord;
 import Foundation.Person.People;
 import WindowElements.MonitoredBroadcastLabel;
+import Windows.ClosableWindow;
 
 public class ArmyInfoWindow extends ClosableWindow {
 

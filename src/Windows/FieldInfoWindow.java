@@ -8,7 +8,7 @@ import Images.GroundImage;
 import Images.Image;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
-import Windows.WorkPlaceWindows.ManorInfoWindow;
+import Windows.ElementInfoWindow.EcosystemInfoWindow;
 
 public class FieldInfoWindow extends ClosableWindow{
 

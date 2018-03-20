@@ -19,9 +19,9 @@ public class CharacterShape extends BasicShape {
     public CharacterShape(CharacterShape characterShape){
         super();
         setType(Type.Character);
-        setColor(characterShape.getColor());
-        setPos(characterShape.getPos());
-        setSize(characterShape.getSize());
+        setColor(new Color(characterShape.getColor()));
+        setPos(new Coord(characterShape.getPos()));
+        setSize(new Coord(characterShape.getSize()));
         setCharacterId(characterShape.getCharacterId());
         setDefinition(characterShape.getDefinition());
         setFrom(characterShape.getFrom());
@@ -118,5 +118,13 @@ public class CharacterShape extends BasicShape {
 
     public void shift(Coord shift){
         pos = pos.add(shift);
+    }
+
+    @Override
+    public void changeSize(double alpha) {
+        pos.x = (int) (pos.x * alpha);
+        pos.y = (int) (pos.y * alpha);
+        size.x = (int) (size.x * alpha);
+        size.y = (int) (size.y * alpha);
     }
 }

@@ -1,4 +1,4 @@
-package Windows.WorkPlaceWindows;
+package Windows.ElementInfoWindow;
 
 import Foundation.*;
 import Foundation.GameWindowHelper.States.AddVillageState;
@@ -27,7 +27,7 @@ public class ManorInfoWindow extends ClosableWindow {
         Image farmImage = new ManorImage(new Coord(0, 0), new Coord(100, 100), this);
         addWindowElement(farmImage);
 
-        Button addField = new Button(new Coord(20, 140), new Coord(100, 20), this, "add field") {
+        Button addField = new Button(new Coord(20, 120), new Coord(100, 20), this, "add field") {
 
             @Override
             public void click(Coord point) {
@@ -38,17 +38,8 @@ public class ManorInfoWindow extends ClosableWindow {
         };
         addWindowElement(addField);
 
-        Button addWork = new Button(new Coord(20, 200), new Coord(100, 20), this, "add work") {
 
-            @Override
-            public void click(Coord point) {
-                addManorWorkWindow();
-            }
-        };
-
-        addWindowElement(addWork);
-
-        Button showResource = new Button(new Coord(20, 240), new Coord(150, 20), this, "show resources"){
+        Button showResource = new Button(new Coord(20, 160), new Coord(200, 20), this, "show resources"){
 
             @Override
             public void click(Coord point) {
@@ -59,7 +50,7 @@ public class ManorInfoWindow extends ClosableWindow {
 
         addWindowElement(showResource);
 
-        Button addVillage = new Button(new Coord(20, 280), new Coord(150, 20), this, "add village"){
+        Button addVillage = new Button(new Coord(20, 200), new Coord(200, 20), this, "add village"){
 
             @Override
             public void click(Coord point) {
@@ -80,12 +71,5 @@ public class ManorInfoWindow extends ClosableWindow {
     public void setManor(Manor manor){
         this.manor = manor;
         setElements();
-    }
-
-    public void addManorWorkWindow(){
-        for(Window window: getParent().getWindows()){
-            if (window.getClass() == ManorWorkWindow.class) return;
-        }
-        addWindow(new ManorWorkWindow(manor, getParent()));
     }
 }

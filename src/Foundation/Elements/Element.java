@@ -55,6 +55,16 @@ public class Element extends Broadcaster {
         shapes.add(shape);
     }
 
+    public ArrayList<BasicShape> getCopyOfBasicShapesWithoutShift(){
+        ArrayList<BasicShape> copy = new ArrayList<>();
+        for(BasicShape basicShape: shapes){
+            BasicShape copyShape = BasicShape.getCopy(basicShape);
+            copyShape.shift(getShift().multiply(-1));
+            copy.add(copyShape);
+        }
+        return copy;
+    }
+
     public Type getType() {
         return type;
     }

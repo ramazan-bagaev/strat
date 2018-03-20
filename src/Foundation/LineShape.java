@@ -12,11 +12,12 @@ public class LineShape extends BasicShape {
 
     private final float standartWidth = 1.5f;
 
+
     public LineShape(LineShape lineShape){
-        this.posA = lineShape.getPosA();
-        this.posB = lineShape.getPosB();
+        this.posA = new Coord(lineShape.getPosA());
+        this.posB = new Coord(lineShape.getPosB());
         this.width = lineShape.getWidth();
-        setColor(lineShape.getColor());
+        setColor(new Color(lineShape.getColor()));
         setType(Type.Line);
     }
 
@@ -60,6 +61,12 @@ public class LineShape extends BasicShape {
     public void shift(Coord shift) {
         posA = posA.add(shift);
         posB = posB.add(shift);
+    }
+
+    @Override
+    public void changeSize(double alpha) {
+        posA = posA.multiply(alpha);
+        posB = posB.multiply(alpha);
     }
 
     public float getWidth() {

@@ -8,7 +8,7 @@ public class PolygonShape extends BasicShape {
 
     public PolygonShape(ArrayList<Coord> verteces, Color color){
         setColor(color);
-        setType(Type.Polygone);
+        setType(Type.Polygon);
         this.verteces = verteces;
     }
 
@@ -17,6 +17,11 @@ public class PolygonShape extends BasicShape {
         for(Coord vertix: verteces){
             vertix = vertix.add(shift);
         }
+
+    }
+
+    @Override
+    public void changeSize(double alpha) {
 
     }
 

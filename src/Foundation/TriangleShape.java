@@ -14,11 +14,26 @@ public class TriangleShape extends BasicShape {
         posC = new Coord(c);
     }
 
+    public TriangleShape(TriangleShape triangleShape){
+        setColor(new Color(triangleShape.getColor()));
+        setType(Type.Triangle);
+        posA = new Coord(triangleShape.getPosA());
+        posB = new Coord(triangleShape.getPosB());
+        posC = new Coord(triangleShape.getPosC());
+    }
+
     @Override
     public void shift(Coord shift) {
         posA = posA.add(shift);
         posB = posB.add(shift);
         posC = posC.add(shift);
+    }
+
+    @Override
+    public void changeSize(double alpha) {
+        posA = posA.multiply(alpha);
+        posB = posB.multiply(alpha);
+        posC = posC.multiply(alpha);
     }
 
     public Coord getPosA() {

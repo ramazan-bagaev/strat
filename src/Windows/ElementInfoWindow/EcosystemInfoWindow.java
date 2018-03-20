@@ -1,4 +1,4 @@
-package Windows;
+package Windows.ElementInfoWindow;
 
 import Foundation.Coord;
 import Foundation.Elements.Ecosystem;
@@ -7,8 +7,9 @@ import Foundation.Flora.Flora;
 import Foundation.Frame;
 import Foundation.Label;
 import WindowElements.MonitoredBroadcastLabel;
+import Windows.ClosableWindow;
 
-public class EcosystemInfoWindow extends ClosableWindow{
+public class EcosystemInfoWindow extends ClosableWindow {
 
     private Ecosystem ecosystem;
 

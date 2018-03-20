@@ -3,10 +3,12 @@ package Foundation;
 import Foundation.Elements.ArmyElement;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
-import Windows.ArmyInfoWindow;
-import Windows.CityInfoWindow;
+import Foundation.Elements.Village;
+import Windows.ElementInfoWindow.ArmyInfoWindow;
+import Windows.ElementInfoWindow.CityInfoWindow;
+import Windows.ElementInfoWindow.VillageInfoWindow;
 import Windows.FieldInfoWindow;
-import Windows.WorkPlaceWindows.ManorInfoWindow;
+import Windows.ElementInfoWindow.ManorInfoWindow;
 
 import java.util.ArrayList;
 
@@ -41,7 +43,7 @@ public class GameWindowElement extends WindowElement{
 
 
         float zoom = cameraConfiguration.getZoom();
-        int fieldNumber = (int) Math.ceil((getParent().getSize().x / fieldSize) * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
+        int fieldNumber = (int) Math.ceil((getParent().getSize().x / (float)fieldSize) * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
         float deltax = (cameraConfiguration.getWorldPos().x) / fieldSize;
         float deltay = (cameraConfiguration.getWorldPos().y) / fieldSize;
         int deltai = (int)Math.floor(deltax);
@@ -95,6 +97,11 @@ public class GameWindowElement extends WindowElement{
         if (manor != null){
             ManorInfoWindow manorInfoWindow = new ManorInfoWindow(manor, frame);
             frame.addSpecialWindow("element info window", manorInfoWindow);
+        }
+        Village village = field.getVillage();
+        if (village != null){
+            VillageInfoWindow villageInfoWindow = new VillageInfoWindow(village, frame);
+            frame.addSpecialWindow("element info window", villageInfoWindow);
         }
 
       ///  if (f)

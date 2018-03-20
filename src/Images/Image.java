@@ -22,7 +22,9 @@ public class Image extends WindowElement {
         addBasicShapes(imageShape);
     }
 
-    @Override
-    public void click(Coord point) {
+    public Image(Coord pos, Coord size, Window parent, ArrayList<BasicShape> basicShapes){
+        super(pos, size, parent);
+        addBasicShapes(basicShapes);
     }
+
 }

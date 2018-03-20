@@ -13,13 +13,47 @@ public class ManorImage extends Image {
     }
 
     public void setShapes(){
-        RectangleShape rect =
-                new RectangleShape(new Coord(size.x/4, size.y/4), new Coord(size.x/2, 3*size.y/4), new Color(Color.Type.LightGray));
-        LineShape line1 = new LineShape(new Coord(0, 0), size, new Color(Color.Type.Yellow), 4.0f);
-        LineShape line2 = new LineShape(new Coord(size.x, 0), new Coord(0, size.y), new Color(Color.Type.Yellow), 4.0f);
         clearBasicShapes();
+        RectangleShape rect = new RectangleShape(new Coord(3*size.x/10, 3*size.y/10), new Coord(4*size.x/10, 4*size.y/10),
+                new Color(Color.Type.LightGray), false, true);
         addBasicShape(rect);
+
+        rect = new RectangleShape(new Coord(4*size.x/10, 4*size.y/10), new Coord(2*size.x/10, 2*size.y/10),
+                new Color(Color.Type.Red), false, true);
+        addBasicShape(rect);
+
+        rect = new RectangleShape(new Coord(size.x/10, size.y/10), new Coord(size.x/10, size.y/10),
+                new Color(Color.Type.Gray), false, true);
+        addBasicShape(rect);
+
+        rect = new RectangleShape(new Coord(8*size.x/10, size.y/10), new Coord(size.x/10, size.y/10),
+                new Color(Color.Type.Gray), false, true);
+        addBasicShape(rect);
+
+        rect = new RectangleShape(new Coord(size.x/10, 8*size.y/10), new Coord(size.x/10, size.y/10),
+                new Color(Color.Type.Gray), false, true);
+        addBasicShape(rect);
+
+        rect = new RectangleShape(new Coord(8*size.x/10, 8*size.y/10), new Coord(size.x/10, size.y/10),
+                new Color(Color.Type.Gray), false, true);
+        addBasicShape(rect);
+
+        LineShape line1 = new LineShape(new Coord(2*size.x/10, size.y/10), new Coord(8*size.x/10, size.y/10),
+                new Color(Color.Type.Black));
         addBasicShape(line1);
-        addBasicShape(line2);
+
+        line1 = new LineShape(new Coord(size.x/10, 2*size.y/10), new Coord(size.x/10, 8*size.y/10),
+                new Color(Color.Type.Black));
+        addBasicShape(line1);
+
+        line1 = new LineShape(new Coord(2*size.x/10, 9*size.y/10), new Coord(8*size.x/10, 9*size.y/10),
+                new Color(Color.Type.Black));
+        addBasicShape(line1);
+
+        line1 = new LineShape(new Coord(9*size.x/10, 2*size.y/10), new Coord(9*size.x/10, 8*size.y/10),
+                new Color(Color.Type.Black));
+        addBasicShape(line1);
+
+
     }
 }

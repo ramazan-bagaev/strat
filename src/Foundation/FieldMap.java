@@ -2,6 +2,7 @@ package Foundation;
 
 import Foundation.Elements.Element;
 import Foundation.Runnable.SuperField;
+import org.lwjgl.system.CallbackI;
 
 import java.util.*;
 
@@ -82,7 +83,7 @@ public class FieldMap {
 
     public ArrayList<BasicShape> getShapes(Coord index, Coord number){
         ArrayList<BasicShape> result = new ArrayList<>();
-        if ( (number.x * number.y * fieldSize * fieldSize) / (superFieldSize * superFieldSize) < 4){ // show all field that in this window
+        if ( (Math.sqrt(number.x * number.y) * fieldSize ) / superFieldSize < 4){ // show all field that in this window
             for (int i = index.x; i <= number.x + index.x; i++){
                 for (int j = index.y; j <= number.y + index.y; j++){
                     Field field = getFieldByIndex(new Coord(i, j));

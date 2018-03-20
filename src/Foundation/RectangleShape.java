@@ -8,11 +8,23 @@ public class RectangleShape extends BasicShape {
     private Coord size;
 
     private boolean boxes;
+    private boolean filled;
+
+    public RectangleShape(RectangleShape rectangleShape){
+        super();
+        setColor(new Color(rectangleShape.getColor()));
+        setType(Type.Rectangle);
+        setPos(new Coord(rectangleShape.getPos()));
+        setSize(new Coord(rectangleShape.getSize()));
+        filled = rectangleShape.isFilled();
+        boxes = rectangleShape.isBoxes();
+    }
 
     public RectangleShape(Coord pos, Coord size, Color color){
         super();
         setColor(color);
-        setType(Type.FilledRectangle);
+        setType(Type.Rectangle);
+        filled = true;
         setPos(pos);
         setSize(size);
         boxes = true;
@@ -21,8 +33,8 @@ public class RectangleShape extends BasicShape {
     public RectangleShape(Coord pos, Coord size, Color color, boolean filled){
         super();
         setColor(color);
-        if (filled) setType(Type.FilledRectangle);
-        else setType(Type.Rectangle);
+        setType(Type.Rectangle);
+        this.filled = filled;
         setPos(pos);
         setSize(size);
         boxes = true;
@@ -31,11 +43,11 @@ public class RectangleShape extends BasicShape {
     public RectangleShape(Coord pos, Coord size, Color color, boolean boxes, boolean filled){
         super();
         setColor(color);
-        if (filled) setType(Type.FilledRectangle);
-        else setType(Type.Rectangle);
+        setType(Type.Rectangle);
         setPos(pos);
         setSize(size);
         this.boxes = boxes;
+        this.filled = filled;
     }
 
     public Coord getPos() {
@@ -59,7 +71,17 @@ public class RectangleShape extends BasicShape {
         pos = pos.add(shift);
     }
 
+    @Override
+    public void changeSize(double alpha) {
+        pos = pos.multiply(alpha);
+        size = size.multiply(alpha);
+    }
+
     public boolean isBoxes() {
         return boxes;
+    }
+
+    public boolean isFilled() {
+        return filled;
     }
 }

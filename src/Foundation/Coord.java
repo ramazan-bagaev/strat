@@ -63,10 +63,10 @@ public class Coord {
         return Direction.None;
     }
 
-    public Coord multiply(int alpha){
+    public Coord multiply(double alpha){
         Coord res = new Coord(0, 0);
-        res.x = x*alpha;
-        res.y = y*alpha;
+        res.x = (int) (x*alpha);
+        res.y = (int) (y*alpha);
         return res;
     }
 

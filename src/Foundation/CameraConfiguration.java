@@ -55,6 +55,7 @@ public class CameraConfiguration {
         zooms.add(20f);
         zooms.add(30f);
         zooms.add(40f);
+        zooms.add(50f);
 
     }
 

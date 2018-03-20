@@ -1,4 +1,4 @@
-package Windows;
+package Windows.ElementInfoWindow;
 
 import Foundation.*;
 import Foundation.Elements.City;
@@ -8,6 +8,7 @@ import Images.CityImage;
 import Images.Image;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
+import Windows.*;
 
 import java.util.ArrayList;
 

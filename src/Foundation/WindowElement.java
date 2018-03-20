@@ -93,6 +93,16 @@ public class WindowElement extends Broadcaster{
         }
     }
 
+    public ArrayList<BasicShape> getCopyOfBasicShapesWithoutShift(){
+        ArrayList<BasicShape> copy = new ArrayList<>();
+        for(BasicShape basicShape: basicShapes){
+            BasicShape copyShape = BasicShape.getCopy(basicShape);
+            copyShape.shift(getShift().multiply(-1));
+            copy.add(copyShape);
+        }
+        return copy;
+    }
+
     public WindowElementGroup getGroupParent() {
         return groupParent;
     }

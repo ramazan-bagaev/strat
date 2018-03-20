@@ -35,6 +35,13 @@ public class Color {
         setColor(type);
     }
 
+    public Color(Color color){
+        r = color.r;
+        g = color.g;
+        b = color.b;
+        a = color.a;
+    }
+
     private void setColor(Type type){
         switch(type){
             case White:

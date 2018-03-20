@@ -2,15 +2,16 @@ package Windows.WorkPlaceWindows;
 
 import Foundation.*;
 import Foundation.Elements.Manor;
+import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.States.AddVillageState;
 import Foundation.GameWindowHelper.States.AddWorkState;
 import Windows.ClosableWindow;
 
-public class ManorWorkWindow extends ClosableWindow {
+public class VillageWorkWindow extends ClosableWindow {
 
     private Manor manor;
 
-    public ManorWorkWindow(Manor manor, Frame parent) {
+    public VillageWorkWindow(Village village, Frame parent) {
         super(new Coord(700, 500), new Coord(170, 300), parent);
         this.manor = manor;
         setElements();
@@ -20,7 +21,7 @@ public class ManorWorkWindow extends ClosableWindow {
         removeWindowElements();
         addCloseButton();
 
-        Label label = new Label(new Coord(10, 10), new Coord(120, 20), "add Farm", this){
+        Label label = new Label(new Coord(10, 10), new Coord(120, 20), "add farm", this){
 
             @Override
             public void click(Coord point){
@@ -33,7 +34,7 @@ public class ManorWorkWindow extends ClosableWindow {
         };
         addWindowElement(label);
 
-        label = new Label(new Coord(10, 40), new Coord(150, 20), "add Sawmill", this){
+        label = new Label(new Coord(10, 40), new Coord(150, 20), "add sawmill", this){
 
             @Override
             public void click(Coord point){
@@ -46,7 +47,7 @@ public class ManorWorkWindow extends ClosableWindow {
         };
         addWindowElement(label);
 
-        label = new Label(new Coord(10, 70), new Coord(150, 20), "add FishingVillage", this){
+        label = new Label(new Coord(10, 70), new Coord(150, 20), "add fishing work", this){
 
             @Override
             public void click(Coord point){
@@ -59,7 +60,7 @@ public class ManorWorkWindow extends ClosableWindow {
         };
         addWindowElement(label);
 
-        label = new Label(new Coord(10, 100), new Coord(120, 20), "add Mine", this){
+        label = new Label(new Coord(10, 100), new Coord(120, 20), "add mine", this){
 
             @Override
             public void click(Coord point){

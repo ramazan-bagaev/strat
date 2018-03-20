@@ -1,7 +1,6 @@
 package Foundation;
 
 import CharacterShape.CharacterShape;
-import CharacterShape.Font;
 
 import java.util.ArrayList;
 
@@ -37,33 +36,15 @@ public class OpenGLBinder {
                 x1 = x + size.x;
                 y1 = y + size.y;
 
-
-                glBegin(GL_LINE_LOOP);
-                glVertex3f(x, y, 1);
-                glVertex3f(x , y1, 1);
-                glVertex3f(x1 , y1, 1);
-                glVertex3f(x1, y, 1);
-                glEnd();
-                glFlush();
-
-                break;
-            case FilledRectangle:
-                rect = (RectangleShape)basicShape;
-                glColor4f(color.r, color.g, color.b, color.a);
-                pos = rect.getPos();
-                size = rect.getSize();
-                x = pos.x;
-                y = pos.y;
-                x1 = x + size.x;
-                y1 = y + size.y;
-
-                glBegin(GL_TRIANGLE_STRIP);
-                glVertex3f(x, y, 0);
-                glVertex3f(x , y1, 0);
-                glVertex3f(x1 , y, 0);
-                glVertex3f(x1, y1, 0);
-                glEnd();
-                glFlush();
+                if (rect.isFilled()) {
+                    glBegin(GL_TRIANGLE_STRIP);
+                    glVertex3f(x, y, 0);
+                    glVertex3f(x, y1, 0);
+                    glVertex3f(x1, y, 0);
+                    glVertex3f(x1, y1, 0);
+                    glEnd();
+                    glFlush();
+                }
 
                 if (rect.isBoxes()) {
                     glColor3f(0, 0, 0);
@@ -121,13 +102,13 @@ public class OpenGLBinder {
                 glEnd();
                 glFlush();
                 break;
-            case Polygone:
+            case Polygon:
                 PolygonShape polygonShape = (PolygonShape)basicShape;
                 ArrayList<Coord> vertices = polygonShape.getVerteces();
                 glColor4f(color.r, color.g, color.b, color.a);
                 glBegin(GL_POLYGON);
-                for(Coord vertix: vertices){
-                    glVertex3f(vertix.x, vertix.y, 0);
+                for(Coord vertex: vertices){
+                    glVertex3f(vertex.x, vertex.y, 0);
                 }
                 glEnd();
                 glFlush();

@@ -1,9 +1,13 @@
 package Foundation;
 
+import CharacterShape.CharacterShape;
+
+import java.util.ArrayList;
+
 public abstract class BasicShape {
 
     public enum Type{
-        Rectangle, FilledRectangle, Character, Line, Triangle, Polygone
+        Rectangle, Character, Line, Triangle, Polygon
     }
 
 
@@ -40,4 +44,31 @@ public abstract class BasicShape {
     }
 
     public abstract void shift(Coord shift);
+
+    public static BasicShape getCopy(BasicShape basicShape){
+        switch (basicShape.getType()){
+
+            case Rectangle:
+                RectangleShape rec = (RectangleShape)basicShape;
+                RectangleShape copyRec = new RectangleShape(rec);
+                return copyRec;
+            case Character:
+                CharacterShape ch = (CharacterShape)basicShape;
+                CharacterShape copyCh = new CharacterShape(ch);
+                return copyCh;
+            case Line:
+                LineShape ln = (LineShape)basicShape;
+                LineShape copyLn = new LineShape(ln);
+                return copyLn;
+            case Triangle:
+                TriangleShape tr = (TriangleShape)basicShape;
+                TriangleShape copyTr = new TriangleShape(tr);
+                return copyTr;
+            case Polygon:
+                return null;
+        }
+        return null;
+    }
+
+    public abstract void changeSize(double alpha);
 }

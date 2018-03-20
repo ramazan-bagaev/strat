@@ -76,4 +76,12 @@ public class StringShape extends BasicShape{
     public void shift(Coord shift){
         pos = pos.add(shift);
     }
+
+    @Override
+    public void changeSize(double alpha) {
+        pos.x = (int) (pos.x * alpha);
+        pos.y = (int) (pos.y * alpha);
+        size.x = (int) (size.x * alpha);
+        size.y = (int) (size.y * alpha);
+    }
 }
