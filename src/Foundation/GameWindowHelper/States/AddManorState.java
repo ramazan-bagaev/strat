@@ -8,7 +8,7 @@ import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import java.util.ArrayList;
 
 
-public class AddWorkState extends HelperState {
+public class AddManorState extends HelperState {
 
     private CoveringFieldMode coveringFieldMode;
     private ArrayList<Coord> possible;
@@ -16,7 +16,7 @@ public class AddWorkState extends HelperState {
     private City city;
 
 
-    public AddWorkState(GameWindowHelperElement gameWindowHelperElement, City city) {
+    public AddManorState(GameWindowHelperElement gameWindowHelperElement, City city) {
         super(gameWindowHelperElement);
         this.city = city;
         possible = new ArrayList<>();
@@ -76,8 +76,6 @@ public class AddWorkState extends HelperState {
 
     @Override
     public void hoover(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
-        Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByPos(point);
     }
 
     @Override

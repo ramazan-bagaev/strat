@@ -1,5 +1,7 @@
 package Foundation;
 
+import java.util.ArrayList;
+
 public class Coord {
 
     public int x;
@@ -7,6 +9,32 @@ public class Coord {
 
     public enum Direction{
         Up, Down, Right, Left, None
+    }
+
+    public Coord(Direction direction){
+        switch (direction){
+
+            case Up:
+                x = 0;
+                y = -1;
+                break;
+            case Down:
+                x = 0;
+                y = 1;
+                break;
+            case Right:
+                x = 1;
+                y = 0;
+                break;
+            case Left:
+                x = -1;
+                y = 0;
+                break;
+            case None:
+                x = 0;
+                y = 0;
+                break;
+        }
     }
 
     public Coord(int x, int y){
@@ -33,6 +61,15 @@ public class Coord {
     public boolean isNeighbor(Coord point){
         if (Math.abs(x - point.x) + Math.abs(y - point.y) == 1) return true;
         return false;
+    }
+
+    public static ArrayList<Direction> getAllDirections(){
+        ArrayList<Direction> directions = new ArrayList<>();
+        directions.add(Direction.Up);
+        directions.add(Direction.Down);
+        directions.add(Direction.Right);
+        directions.add(Direction.Left);
+        return directions;
     }
 
     @Override

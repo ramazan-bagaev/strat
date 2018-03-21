@@ -16,9 +16,7 @@ public class ResourceWindowElement extends ScrollableElement {
     public String getNewText(){
         String result = "";
         result += resource.getValue("type") + " ";
-        if (resource.getType() == Resource.Type.Food) {
-            result += resource.getValue("foodType") + " ";
-        }
+        result += resource.getValue("name") + " ";
         result += resource.getValue("amount");
         return result;
     }

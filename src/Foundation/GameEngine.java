@@ -20,7 +20,7 @@ public class GameEngine {
     public GameEngine(GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
-        map = new FieldMap(100, 50, this);
+        map = new FieldMap(100, 500, this);
         time = new Time();
     }
 
@@ -28,7 +28,7 @@ public class GameEngine {
         runEntities = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
-        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 1000, this);
+        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
         //map = new FieldMap();
         time = new Time();
         setFieldSize(fieldSize);

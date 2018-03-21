@@ -18,7 +18,7 @@ public class GameWindowElement extends WindowElement{
 
     public GameWindowElement(Coord pos, Coord size, Window parent){
         super(pos, size, parent);
-        gameEngine = new GameEngine(50, 100, this);
+        gameEngine = new GameEngine(100, 100, this);
         setGameEngine(gameEngine);
         setBasicShapes(new ArrayList<>());
         setShapes();

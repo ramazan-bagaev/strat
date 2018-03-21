@@ -10,27 +10,19 @@ import java.util.ArrayList;
 public class Farm extends Element {
 
     private Work work;
-    private Manor manor;
+    private Village village;
     private People people;
     private int efficiency;
 
-    public Farm(Manor manor, Time time, Field parent, FieldMap map) {
+    public Farm(Village village, Time time, Field parent, FieldMap map) {
         super(Type.Farm, time, parent, map);
-        this.manor = manor;
+        this.village = village;
         ArrayList<BasicShape> image = new FarmImage(new Coord(0, 0),
                 new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack();
         setBasicShapes(image);
         efficiency = 10;
         people = parent.getPeople();
-        work = new FarmWork(manor, this);
-    }
-
-    public Manor getManor() {
-        return manor;
-    }
-
-    public void setManor(Manor manor) {
-        this.manor = manor;
+        work = new FarmWork(village, this);
     }
 
     public People getPeople() {
@@ -43,5 +35,13 @@ public class Farm extends Element {
 
     public Work getWork() {
         return work;
+    }
+
+    public Village getVillage() {
+        return village;
+    }
+
+    public void setVillage(Village village) {
+        this.village = village;
     }
 }

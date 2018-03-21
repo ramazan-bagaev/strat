@@ -2,6 +2,7 @@ package Foundation.WorksP;
 
 import Foundation.Elements.Farm;
 import Foundation.Elements.Manor;
+import Foundation.Elements.Village;
 import Foundation.Resource;
 import Foundation.Work;
 
@@ -9,8 +10,8 @@ public class FarmWork extends Work {
 
     private Farm farm;
 
-    public FarmWork(Manor manor, Farm farm) {
-        super(manor.getResourceStore());
+    public FarmWork(Village village, Farm farm) {
+        super(village.getResourceStore());
         this.farm = farm;
     }
 

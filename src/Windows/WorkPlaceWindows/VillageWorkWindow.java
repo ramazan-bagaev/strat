@@ -1,19 +1,17 @@
 package Windows.WorkPlaceWindows;
 
 import Foundation.*;
-import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
-import Foundation.GameWindowHelper.States.AddVillageState;
-import Foundation.GameWindowHelper.States.AddWorkState;
+import Foundation.GameWindowHelper.States.*;
 import Windows.ClosableWindow;
 
 public class VillageWorkWindow extends ClosableWindow {
 
-    private Manor manor;
+    private Village village;
 
     public VillageWorkWindow(Village village, Frame parent) {
         super(new Coord(700, 500), new Coord(170, 300), parent);
-        this.manor = manor;
+        this.village = village;
         setElements();
     }
 
@@ -27,8 +25,8 @@ public class VillageWorkWindow extends ClosableWindow {
             public void click(Coord point){
                 GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
                 gameWindowHelperElement.clearHelperElements();
-                AddVillageState addVillageState = new AddVillageState(manor, gameWindowHelperElement);
-                gameWindowHelperElement.setState(addVillageState);
+                AddFarmState addFarmState = new AddFarmState(village, gameWindowHelperElement);
+                gameWindowHelperElement.setState(addFarmState);
                 close();
             }
         };
@@ -40,21 +38,21 @@ public class VillageWorkWindow extends ClosableWindow {
             public void click(Coord point){
                 GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
                 gameWindowHelperElement.clearHelperElements();
-                AddWorkState addWorkState = new AddWorkState(gameWindowHelperElement, null);
-                gameWindowHelperElement.setState(addWorkState);
+                AddSawmillState addSawmillState = new AddSawmillState(village, gameWindowHelperElement);
+                gameWindowHelperElement.setState(addSawmillState);
                 close();
             }
         };
         addWindowElement(label);
 
-        label = new Label(new Coord(10, 70), new Coord(150, 20), "add fishing work", this){
+        label = new Label(new Coord(10, 70), new Coord(150, 20), "add trawler", this){
 
             @Override
             public void click(Coord point){
                 GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
                 gameWindowHelperElement.clearHelperElements();
-                AddWorkState addWorkState = new AddWorkState(gameWindowHelperElement, null);
-                gameWindowHelperElement.setState(addWorkState);
+                AddTrawlerState addTrawlerState = new AddTrawlerState(village, gameWindowHelperElement);
+                gameWindowHelperElement.setState(addTrawlerState);
                 close();
             }
         };
@@ -66,8 +64,8 @@ public class VillageWorkWindow extends ClosableWindow {
             public void click(Coord point){
                 GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
                 gameWindowHelperElement.clearHelperElements();
-                AddWorkState addWorkState = new AddWorkState(gameWindowHelperElement, null);
-                gameWindowHelperElement.setState(addWorkState);
+                AddMineState addMineState = new AddMineState(village, gameWindowHelperElement);
+                gameWindowHelperElement.setState(addMineState);
                 close();
             }
         };

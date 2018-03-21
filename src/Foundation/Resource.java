@@ -35,6 +35,15 @@ public class Resource extends Broadcaster{
         switch (key){
             case "amount":
                 return String.valueOf(amount);
+            case "type":
+                switch (type){
+                    case Food:
+                        return "food";
+                    case Material:
+                        return "material";
+                }
+            case "name":
+                return name;
         }
         return Broadcaster.noResult;
     }

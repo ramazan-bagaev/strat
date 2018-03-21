@@ -39,7 +39,6 @@ public class Manor extends RunableElement {
     }
 
     public void createVillage(Coord point){
-        System.out.println(city.getTerritory().size());
         if (!territory.contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
@@ -47,7 +46,7 @@ public class Manor extends RunableElement {
         field.setVillage(village);
         villages.add(point);
         map.getGameEngine().getGameWindowElement().setShapes();
-        System.out.println(city.getTerritory().size());
+        map.getGameEngine().getGameWindowElement().getGameEngine().addRunEntity(village);
     }
 
     public ResourceStore getResourceStore() {

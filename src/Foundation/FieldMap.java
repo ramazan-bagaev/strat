@@ -94,13 +94,21 @@ public class FieldMap {
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getArmyElement();
                     if (element != null) result.addAll(element.getShapes());
-                    element = field.getRiver();
-                    if (element != null) result.addAll(element.getShapes());
                     element = field.getTree();
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getManor();
                     if (element != null) result.addAll(element.getShapes());
                     element = field.getVillage();
+                    if (element != null) result.addAll(element.getShapes());
+                    element = field.getRiver();
+                    if (element != null) result.addAll(element.getShapes());
+                    element = field.getFarm();
+                    if (element != null) result.addAll(element.getShapes());
+                    element = field.getSawmill();
+                    if (element != null) result.addAll(element.getShapes());
+                    element = field.getTrawler();
+                    if (element != null) result.addAll(element.getShapes());
+                    element = field.getMine();
                     if (element != null) result.addAll(element.getShapes());
                 }
             }

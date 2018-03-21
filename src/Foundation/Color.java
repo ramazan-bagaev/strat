@@ -7,43 +7,43 @@ public class Color {
     public float b;
     public float a;
 
-    public enum Type{
-        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray
+    public enum Type {
+        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray, Green3, Yellow2, Brown
     }
 
-    public Color(float r, float b, float g){
+    public Color(float r, float b, float g) {
         this.r = r;
         this.g = g;
         this.b = b;
         this.a = 1;
     }
 
-    public Color(float r, float b, float g, float a){
+    public Color(float r, float b, float g, float a) {
         this.r = r;
         this.g = g;
         this.b = b;
         this.a = a;
     }
 
-    public Color(Type type, float a){
+    public Color(Type type, float a) {
         this.a = a;
         setColor(type);
     }
 
-    public Color(Type type){
+    public Color(Type type) {
         this.a = 1;
         setColor(type);
     }
 
-    public Color(Color color){
+    public Color(Color color) {
         r = color.r;
         g = color.g;
         b = color.b;
         a = color.a;
     }
 
-    private void setColor(Type type){
-        switch(type){
+    private void setColor(Type type) {
+        switch (type) {
             case White:
                 r = 1;
                 g = 1;
@@ -74,10 +74,20 @@ public class Color {
                 g = 1;
                 b = 0;
                 break;
+            case Yellow2:
+                r = 0.8f;
+                g = 0.8f;
+                b = 0;
+                break;
             case Green2:
                 r = 0.2f;
                 g = 0.6f;
                 b = 0.2f;
+                break;
+            case Green3:
+                r = 0f;
+                g = 0.5f;
+                b = 0f;
                 break;
             case Gray:
                 r = 0.4f;
@@ -89,10 +99,15 @@ public class Color {
                 g = 0.6f;
                 b = 0.6f;
                 break;
+            case Brown:
+                r = 0.5f;
+                g = 0.35f;
+                b = 0.31f;
+                break;
         }
     }
 
-    public Color lighter(){
-        return new Color(9*r/10, 9*g/10, 9*b/10, a);
+    public Color lighter() {
+        return new Color(9 * r / 10, 9 * g / 10, 9 * b / 10, a);
     }
 }

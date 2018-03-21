@@ -23,6 +23,10 @@ public class Field {
     private Tree tree;
     private Manor manor;
     private Village village;
+    private Farm farm;
+    private Sawmill sawmill;
+    private Trawler trawler;
+    private Mine mine;
 
 
     private People people;
@@ -245,5 +249,37 @@ public class Field {
 
     public People getPeople() {
         return people;
+    }
+
+    public Farm getFarm() {
+        return farm;
+    }
+
+    public void setFarm(Farm farm) {
+        this.farm = farm;
+    }
+
+    public void setSawmill(Sawmill sawmill) {
+        this.sawmill = sawmill;
+    }
+
+    public Sawmill getSawmill() {
+        return sawmill;
+    }
+
+    public Trawler getTrawler() {
+        return trawler;
+    }
+
+    public void setTrawler(Trawler trawler) {
+        this.trawler = trawler;
+    }
+
+    public Mine getMine() {
+        return mine;
+    }
+
+    public void setMine(Mine mine) {
+        this.mine = mine;
     }
 }

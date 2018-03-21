@@ -2,6 +2,7 @@ package Windows.ElementInfoWindow;
 
 import Foundation.*;
 import Foundation.Elements.City;
+import Foundation.GameWindowHelper.States.AddManorState;
 import Foundation.GameWindowHelper.States.HelperState;
 import Foundation.GameWindowHelper.States.StandartState;
 import Images.CityImage;
@@ -49,13 +50,16 @@ public class CityInfoWindow extends ClosableWindow {
         };
         addWindowElement(cityPopulationLabel);
 
-        Button addWork = new Button(new Coord(10, 160), new Coord(150, 20), this, "add work") {
+        Button addWork = new Button(new Coord(10, 160), new Coord(150, 20), this, "add manor") {
 
 
             @Override
             public void click(Coord point) {
-                Frame frame = getParent().getParent();
-                frame.addSpecialWindow("work list window", new WorkListWindow(city, frame));
+                GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
+                gameWindowHelperElement.clearHelperElements();
+                AddManorState addManorState = new AddManorState(gameWindowHelperElement, city);
+                gameWindowHelperElement.setState(addManorState);
+                close();
             }
         };
 

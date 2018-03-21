@@ -22,7 +22,7 @@ public class Tree extends Element {
     public void setShapes(){
         Coord pos = new Coord(getParent().getFieldMapPos());
         int size = parent.getSize();
-        setBasicShapes(new TreeImage(new Coord(0, 0), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
+        setBasicShapes(new TreeImage(new Coord(0, 0), new Coord(size, size), parent.getRandom(), null).getBasicShapesRemoveAndShiftBack());
     }
 
 }

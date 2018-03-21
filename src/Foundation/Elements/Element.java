@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Element extends Broadcaster {
 
     public enum Type{
-        City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill
+        City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill, Trawler, Mine
     }
 
     private Type type;
