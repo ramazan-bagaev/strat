@@ -1,6 +1,10 @@
 package Foundation;
 
-import CharacterShape.Font;
+import Foundation.BasicShapes.CharacterShape.Font;
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
+import Foundation.BasicShapes.StringShape;
+import Utils.Coord;
 
 import java.util.ArrayList;
 

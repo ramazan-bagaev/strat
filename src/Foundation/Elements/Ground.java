@@ -1,8 +1,10 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Elements.Element;
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
 import Images.RockImage;
+import Utils.Coord;
 
 import java.util.ArrayList;
 

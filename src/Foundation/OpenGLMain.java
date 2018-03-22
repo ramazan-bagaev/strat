@@ -1,9 +1,9 @@
 package Foundation;
 
-import Windows.MainToolbarWindow;
+import Utils.Coord;
 
-import CharacterShape.Font;
-import CharacterShape.FontFactory;
+import Foundation.BasicShapes.CharacterShape.Font;
+import Foundation.BasicShapes.CharacterShape.FontFactory;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;

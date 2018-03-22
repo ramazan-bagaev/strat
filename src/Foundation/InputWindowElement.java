@@ -1,6 +1,8 @@
 package Foundation;
 
-import java.util.ArrayList;
+import Foundation.BasicShapes.RectangleShape;
+import Foundation.BasicShapes.StringShape;
+import Utils.Coord;
 
 public class InputWindowElement extends WindowElement {
 

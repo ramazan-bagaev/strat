@@ -1,19 +1,22 @@
 package Foundation;
 
+import Utils.Coord;
+
 public class MainWindow extends Window{
 
     private GameWindowElement gameWindowElement;
     private GameWindowHelperElement gameWindowHelperElement;
 
+    private MainWindowCameraConfiguration cameraConfiguration;
+
     public MainWindow(Coord pos, Coord size, Frame parent){
         super(pos, size, parent);
         getParent().getInput().getController().setActiveWindow(this);
+        cameraConfiguration = new MainWindowCameraConfiguration(new Coord(getShift()), new Coord(size));
         gameWindowElement = new GameWindowElement(new Coord(0, 0), size, this);
         addWindowElement(gameWindowElement);
         gameWindowHelperElement = new GameWindowHelperElement(gameWindowElement);
         addWindowElement(gameWindowHelperElement);
-        CameraConfiguration cameraConfiguration = new CameraConfiguration(new Coord(0, 0) ,new Coord(getShift()), new Coord(size), true);
-        setCameraConfiguration(cameraConfiguration);
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -28,11 +31,13 @@ public class MainWindow extends Window{
         return gameWindowHelperElement;
     }
 
+    public MainWindowCameraConfiguration getCameraConfiguration() {
+        return cameraConfiguration;
+    }
 
 
 
     public void moveGameWindow(Coord delta){
-        CameraConfiguration cameraConfiguration = getCameraConfiguration();
         cameraConfiguration.move(delta);
         gameWindowElement.setShapes();
         gameWindowHelperElement.setShapes();
@@ -40,7 +45,6 @@ public class MainWindow extends Window{
 
     @Override
     public boolean drag(Coord pos, Coord pressedPos, boolean dragBegin){
-        CameraConfiguration cameraConfiguration = getCameraConfiguration();
         cameraConfiguration.drag(pos, pressedPos, dragBegin);
         gameWindowElement.setShapes();
         gameWindowHelperElement.setShapes();
@@ -66,5 +70,22 @@ public class MainWindow extends Window{
             case None:
                 break;
         }
+    }
+
+    @Override
+    public void scroll(double delta, Coord pos){
+        cameraConfiguration.scroll(delta, pos);
+        gameWindowHelperElement.setShapes();
+        gameWindowElement.setShapes();
+    }
+
+    @Override
+    public void draw(OpenGLBinder openGLBinder){
+        Camera camera = getParent().getCamera();
+        CameraConfiguration currentConfiguration = camera.getCurrentConfiguration();
+        camera.takeCameraView(cameraConfiguration);
+        gameWindowElement.draw(openGLBinder);
+        gameWindowHelperElement.draw(openGLBinder);
+        camera.takeCameraView(currentConfiguration);
     }
 }

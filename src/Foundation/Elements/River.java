@@ -1,6 +1,11 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.LineShape;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -113,12 +118,12 @@ public class River extends Element {
         }
         setBasicShapes(shapes);
         /*if (riverType == RiverType.End){
-            RectangleShape rect = new RectangleShape(pos.add(new Coord(size/4, size/4)), new Coord(size/2, size/2),
+            RectangleShape rect = new RectangleShape(pos.add(new Index(size/4, size/4)), new Index(size/2, size/2),
                     BasicShape.Color.Red, true);
             shapes.add(rect);
         }
         if (riverType == RiverType.Begin){
-            RectangleShape rect = new RectangleShape(pos.add(new Coord(size/4, size/4)), new Coord(size/2, size/2),
+            RectangleShape rect = new RectangleShape(pos.add(new Index(size/4, size/4)), new Index(size/2, size/2),
                     BasicShape.Color.White, true);
             shapes.add(rect);
         }*/
@@ -133,11 +138,11 @@ public class River extends Element {
         this.nextPiece = nextPiece;
     }
 
-    public static Side convert(Coord.Direction direction){
-        if (direction == Coord.Direction.Down) return Side.South;
-        if (direction == Coord.Direction.Up) return Side.North;
-        if (direction == Coord.Direction.Left) return Side.West;
-        if (direction == Coord.Direction.Right) return Side.East;
+    public static Side convert(Index.Direction direction){
+        if (direction == Index.Direction.Down) return Side.South;
+        if (direction == Index.Direction.Up) return Side.North;
+        if (direction == Index.Direction.Left) return Side.West;
+        if (direction == Index.Direction.Right) return Side.East;
         return Side.North;
     }
 }

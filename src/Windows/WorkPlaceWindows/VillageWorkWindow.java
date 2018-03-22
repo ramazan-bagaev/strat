@@ -3,6 +3,7 @@ package Windows.WorkPlaceWindows;
 import Foundation.*;
 import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.States.*;
+import Utils.Coord;
 import Windows.ClosableWindow;
 
 public class VillageWorkWindow extends ClosableWindow {

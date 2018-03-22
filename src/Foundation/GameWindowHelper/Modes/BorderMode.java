@@ -1,7 +1,7 @@
 package Foundation.GameWindowHelper.Modes;
 
 import Foundation.Color;
-import Foundation.Coord;
+import Utils.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.BorderHelper;
 import Foundation.GameWindowHelper.HelperField;
@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 public class BorderMode extends Mode{
 
-    private ArrayList<Coord> territory;
+    private ArrayList<Index> territory;
     private Color color;
     private float width;
 
     private ArrayList<BorderHelper> borderHelpers;
 
-    public BorderMode(GameWindowHelperElement gameWindowHelperElement, ArrayList<Coord> territory, Color color, float width) {
+    public BorderMode(GameWindowHelperElement gameWindowHelperElement, ArrayList<Index> territory, Color color, float width) {
         super(gameWindowHelperElement);
         this.territory = territory;
         this.color = color;
@@ -27,12 +27,12 @@ public class BorderMode extends Mode{
 
     @Override
     public void putHelpers() {
-        for(Coord pos: territory){
-            ArrayList<Coord.Direction> directions = new ArrayList<>();
-            if (!territory.contains(pos.add(new Coord(0, 1)))) directions.add(Coord.Direction.Down);
-            if (!territory.contains(pos.add(new Coord(0, -1)))) directions.add(Coord.Direction.Up);
-            if (!territory.contains(pos.add(new Coord(1, 0)))) directions.add(Coord.Direction.Right);
-            if (!territory.contains(pos.add(new Coord(-1, 0)))) directions.add(Coord.Direction.Left);
+        for(Index pos: territory){
+            ArrayList<Index.Direction> directions = new ArrayList<>();
+            if (!territory.contains(pos.add(new Index(0, 1)))) directions.add(Index.Direction.Down);
+            if (!territory.contains(pos.add(new Index(0, -1)))) directions.add(Index.Direction.Up);
+            if (!territory.contains(pos.add(new Index(1, 0)))) directions.add(Index.Direction.Right);
+            if (!territory.contains(pos.add(new Index(-1, 0)))) directions.add(Index.Direction.Left);
             if (directions.size() == 0) continue;
 
             Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByIndex(pos);
@@ -54,7 +54,7 @@ public class BorderMode extends Mode{
     @Override
     public void removeHelpers() {
         for(BorderHelper borderHelper: borderHelpers){
-            HelperField helperField = borderHelper.getParentField();
+            HelperField helperField = borderHelper.getParent();
             helperField.removeBorderHelper(borderHelper);
             if (helperField.isEmpty()) helperField.delete();
         }

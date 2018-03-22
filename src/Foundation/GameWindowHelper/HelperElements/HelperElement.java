@@ -1,33 +1,59 @@
 package Foundation.GameWindowHelper.HelperElements;
 
-import Foundation.BasicShape;
-import Foundation.Coord;
+import Foundation.BasicShapes.BasicShape;
+import Utils.Index;
 import Foundation.GameWindowHelper.HelperField;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
 public abstract class HelperElement {
 
-    private ArrayList<BasicShape> basicShapes;
+    private ArrayList<BasicShape> shapes;
 
-    protected HelperField parentField;
-    protected Coord pos;
+    protected HelperField parent;
     protected Coord size;
 
     public HelperElement(HelperField helperField){
-        basicShapes = new ArrayList<>();
-        parentField = helperField;
-        pos = new Coord(helperField.getPos());
-        size = new Coord(helperField.getSize());
-        pos.x = pos.x * size.x;
-        pos.y = pos.y * size.y;
+        shapes = new ArrayList<>();
+        parent = helperField;
+        Index index = helperField.getPos();
+        size = new Coord(helperField.getSize().x, helperField.getSize().y);
     }
 
     public ArrayList<BasicShape> getBasicShapes(){
-        return basicShapes;
+        return shapes;
     }
 
-    public HelperField getParentField() {
-        return parentField;
+    public void setBasicShapes(ArrayList<BasicShape> shapes) {
+        this.shapes = shapes;
+        for (BasicShape basicShape: this.shapes){
+            basicShape.shift(getShift());
+        }
+    }
+
+    private Coord getShift() {
+        Coord parentShift = parent.getMap().getParent().getShift();
+        Index pos = parent.getPos();
+        return parentShift.add(new Coord(pos.x * size.x, pos.y * size.y));
+    }
+
+    public void addShape(BasicShape shape){
+        shape.shift(getShift());
+        shapes.add(shape);
+    }
+
+    public ArrayList<BasicShape> getCopyOfBasicShapesWithoutShift(){
+        ArrayList<BasicShape> copy = new ArrayList<>();
+        for(BasicShape basicShape: shapes){
+            BasicShape copyShape = BasicShape.getCopy(basicShape);
+            copyShape.shift(getShift().multiply(-1));
+            copy.add(copyShape);
+        }
+        return copy;
+    }
+
+    public HelperField getParent() {
+        return parent;
     }
 }

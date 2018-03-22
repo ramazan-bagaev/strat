@@ -1,6 +1,6 @@
 package Foundation.GameWindowHelper.Modes;
 
-import Foundation.Coord;
+import Utils.Index;
 import Foundation.GameWindowHelper.HelperElements.ChoosenFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
@@ -15,25 +15,25 @@ public class ChoosenFieldMode extends Mode {
 
     @Override
     public void putHelpers() {
-        Coord point = new Coord(0, 0);
+        Index point = new Index(0, 0);
         HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(point);
         if (helperField == null){
             helperField = new HelperField(gameWindowHelperElement.getMap().getFieldMap().getFieldByIndex(point), gameWindowHelperElement.getMap());
             helperField.getMap().addByIndex(point, helperField);
         }
-        choosenFieldHelper = new ChoosenFieldHelper(helperField);
+        choosenFieldHelper = new ChoosenFieldHelper(point, helperField);
         helperField.setChoosenFieldHelper(choosenFieldHelper);
 
     }
 
     @Override
     public void removeHelpers() {
-        HelperField helperField = choosenFieldHelper.getParentField();
+        HelperField helperField = choosenFieldHelper.getParent();
         helperField.setChoosenFieldHelper(null);
         if (helperField.isEmpty()) helperField.delete();
     }
 
-    public void setNewPos(Coord pos){
+    public void setNewPos(Index pos){
         choosenFieldHelper.setNewPos(pos);
     }
 }

@@ -1,49 +1,43 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Person.Population;
+import Foundation.Person.People;
+import Foundation.Person.Person;
 import Foundation.Runnable.RunableElement;
+import Generation.NameGenerator;
 import Images.CityImage;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
 public class City extends RunableElement {
 
-    public enum SizeType{
-        Big, Middle, Small
-    }
-
-    private SizeType sizeType;
     private String name;
 
     private int id;
 
     private ResourceStore resourceStore;
-    private Population population;
+    private People people;
     private Works works;
     private Armies armies;
 
-    private ArrayList<Coord> territory;
-
-    public ArrayList<Manor> getManors() {
-        return manors;
-    }
+    private ArrayList<Index> territory;
 
     private ArrayList<Manor> manors;
 
     private FieldMap map;
 
-    public City(String name, SizeType sizeType, FieldMap map, Time time, Field parent){
+    public City(String name, FieldMap map, Time time, Field parent){
         super(Element.Type.City, time, parent, map);
-        setSizeType(sizeType);
         setMap(map);
         territory = new ArrayList<>();
         manors = new ArrayList<>();
         int radius = 3;
-        Coord index = getParent().getFieldMapPos();
+        Index index = getParent().getFieldMapPos();
         for(int i = -radius; i <= radius; i++){
             for(int j = -radius; j <= radius; j++){
-                Coord local = index.add(new Coord(j, i));
+                Index local = index.add(new Index(j, i));
                 Field field = map.getFieldByIndex(local);
                 if (field == null) continue;
                 if (field.hasOwner()) continue;
@@ -51,21 +45,20 @@ public class City extends RunableElement {
                 field.setOwner(this);
             }
         }
-        int size = parent.getSize();
-        setBasicShapes(new CityImage(new Coord(0, 0), new Coord(size, size), sizeType, null).getBasicShapesRemoveAndShiftBack());
-        switch (sizeType){
-            case Big: {
-                setPopulation(new Population(this,10000)); // magic constant, eee TODO: make something with these constants
-            }
-            case Middle: {
-                setPopulation(new Population(this, 1000));
-            }
-            case Small:{
-                setPopulation(new Population(this, 400));
-            }
+
+        people = new People(parent);
+
+        NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
+        int population = parent.getRandom().nextInt(100);
+        for(int i = 0; i < population; i++){
+            Person person = new Person(nameGenerator.generate(), parent);
+            people.addPerson(person);
         }
+
+        int size = parent.getSize();
+        setBasicShapes(new CityImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
         resourceStore = new ResourceStore();
-        Resource food = new Resource(Resource.Type.Food, "beginning supply", population.overAllAmount() * 80);
+        Resource food = new Resource(Resource.Type.Food, "beginning supply", people.getAmount() * 80);
         resourceStore.addResource(food);
 
         works = new Works();
@@ -77,7 +70,6 @@ public class City extends RunableElement {
     @Override
     public void run() {
         resourceStore.run();
-        population.run();
         works.run();
     }
 
@@ -87,16 +79,7 @@ public class City extends RunableElement {
         if (!Broadcaster.noResult.equals(result)) return result;
         switch (key){
             case "population":
-                return String.valueOf(population.overAllAmount());
-            case "sizeType":
-                switch (sizeType){
-                    case Big:
-                        return "big";
-                    case Middle:
-                        return "middle";
-                    case Small:
-                        return "small";
-                }
+                return String.valueOf(people.getAmount());
         }
         return Broadcaster.noResult;
     }
@@ -105,11 +88,11 @@ public class City extends RunableElement {
         return name;
     }
 
-    public void addTerritory(Coord pos){
+    public void addTerritory(Index pos){
         territory.add(pos);
     }
 
-    public void createManor(Coord pos){
+    public void createManor(Index pos){
         if (!territory.contains(pos)) return;
         Field field = map.getFieldByIndex(pos);
         if (field.getManor() != null) return;
@@ -121,26 +104,10 @@ public class City extends RunableElement {
     }
 
     public void destroy() {
-        for(Coord pos: territory){
+        for(Index pos: territory){
             Field field = map.getFieldByIndex(pos);
             field.setOwner(null);
         }
-    }
-
-    public SizeType getSizeType() {
-        return sizeType;
-    }
-
-    public void setSizeType(SizeType sizeType) {
-        this.sizeType = sizeType;
-    }
-
-    public Population getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(Population population) {
-        this.population = population;
     }
 
 
@@ -182,7 +149,15 @@ public class City extends RunableElement {
         return armies;
     }
 
-    public ArrayList<Coord> getTerritory() {
+    public ArrayList<Index> getTerritory() {
         return territory;
+    }
+
+    public ArrayList<Manor> getManors() {
+        return manors;
+    }
+
+    public People getPeople() {
+        return people;
     }
 }

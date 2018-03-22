@@ -1,8 +1,8 @@
 package Foundation;
 
-import CharacterShape.Font;
-
-import java.util.ArrayList;
+import Foundation.BasicShapes.CharacterShape.Font;
+import Foundation.BasicShapes.StringShape;
+import Utils.Coord;
 
 public class Label extends WindowElement{
 
@@ -29,11 +29,11 @@ public class Label extends WindowElement{
         setBasicShapes(stringShape.getBasicShapes());
     }
 
-    @Override
+    /*@Override
     public void shift(Coord shift){
         super.shift(shift);
         stringShape.shift(shift);
-    }
+    }*/
 
     @Override
     public void setShapes() {

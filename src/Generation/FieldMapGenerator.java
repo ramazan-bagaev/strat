@@ -5,7 +5,7 @@ import Foundation.Elements.City;
 import Foundation.Elements.Ground;
 import Foundation.Elements.River;
 import Foundation.Elements.Tree;
-import Foundation.Person.Person;
+import Utils.Index;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,17 +16,18 @@ public class FieldMapGenerator {
 
     private int number;
     private int size;
-    final Random random = new Random();
+    private Random random = new Random();
     private FieldMap map;
     private Time time;
     private int[][] info;
 
-    private ArrayList<ArrayList<Coord>> continents;
-    private ArrayList<ArrayList<Coord>> mountains;
+    private ArrayList<ArrayList<Index>> continents;
+    private ArrayList<ArrayList<Index>> mountains;
 
-    public FieldMapGenerator(){
+    public FieldMapGenerator(Random random){
         number = 0;
         size = 0;
+        this.random = random;
         continents = new ArrayList<>();
         mountains = new ArrayList<>();
     }
@@ -60,8 +61,8 @@ public class FieldMapGenerator {
     private void fillWithWater(){
         for(int i = 0; i < number; i++){
             for(int j = 0; j < number; j++){
-                Field field = new Field(new Coord(i, j), random, map, time, Ground.GroundType.Water);
-                map.addField(new Coord(i, j), field);
+                Field field = new Field(new Index(i, j), random, map, time, Ground.GroundType.Water);
+                map.addField(new Index(i, j), field);
                 info[i][j] = 0;
             }
         }
@@ -69,8 +70,8 @@ public class FieldMapGenerator {
 
     private void addContinents(int cNumber, int charactSize){
         for (int cnt = 0; cnt < cNumber; cnt++) {
-            ArrayList<Coord> continent = new ArrayList<>();
-            LinkedList<Coord> que = new LinkedList<>();
+            ArrayList<Index> continent = new ArrayList<>();
+            LinkedList<Index> que = new LinkedList<>();
             int x;
             int y;
             int count = 0;
@@ -82,29 +83,29 @@ public class FieldMapGenerator {
                 count += 1;
             }
 
-            que.push(new Coord(x, y));
+            que.push(new Index(x, y));
             int iter = 0;
             while (iter < charactSize) {
                 if (que.size() == 0) break;
-                Coord c = que.pop();
-                Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Soil);
+                Index c = que.pop();
+                Field field = new Field(new Index(c), random, map, time, Ground.GroundType.Soil);
                 map.addField(c, field);
                 continent.add(c);
                 info[c.y][c.x] = cnt + 1;
                 for (int i = -1; i < 2; i++) {
                     for (int j = -1; j < 2; j++) {
-                        Coord lc = new Coord(i + c.x, j + c.y);
+                        Index lc = new Index(i + c.x, j + c.y);
                         if (lc.x > -1 && lc.x < number && lc.y > -1 && lc.y < number) {
                             if (info[lc.y][lc.x] == 0) info[lc.y][lc.x] = -(cnt+1);
                         }
                     }
                 }
 
-                LinkedList<Coord> local = new LinkedList<>();
+                LinkedList<Index> local = new LinkedList<>();
                 for (int i = -1; i < 2; i++) {
                     for (int j = -1; j < 2; j++) {
                         if (i != 0 && j != 0) continue;
-                        Coord lc = new Coord(i + c.x, j + c.y);
+                        Index lc = new Index(i + c.x, j + c.y);
                         if (lc.x > -1 && lc.x < number && lc.y > -1 && lc.y < number) {
                             if (info[lc.y][lc.x] == 0 || info[lc.y][lc.x] == -(cnt + 1)) local.push(lc);
                         }
@@ -114,7 +115,7 @@ public class FieldMapGenerator {
                 int num = local.size();
                 for (int i = 0; i < num; i++) {
                     int rand = random.nextInt(local.size());
-                    Coord newC = local.get(rand);
+                    Index newC = local.get(rand);
                     local.remove(rand);
                     que.push(newC);
                 }
@@ -125,8 +126,8 @@ public class FieldMapGenerator {
     }
 
     private void addMountains(){
-        for(ArrayList<Coord> continent: continents){
-            ArrayList<Coord> mountain = new ArrayList<>();
+        for(ArrayList<Index> continent: continents){
+            ArrayList<Index> mountain = new ArrayList<>();
             int size = continent.size();
             int number = random.nextInt(size/4 + 1);
 
@@ -134,10 +135,10 @@ public class FieldMapGenerator {
             int banchNum = random.nextInt(size/4 + 1);
 
             while(iter < number){
-                LinkedList<Coord> que = new LinkedList<>();
+                LinkedList<Index> que = new LinkedList<>();
                 int inc = 0;
                 while(true) {
-                    Coord pos = continent.get(random.nextInt(size));
+                    Index pos = continent.get(random.nextInt(size));
                     if (info[pos.y][pos.x] <= continents.size()){
                         que.push(pos);
                         break;
@@ -151,17 +152,17 @@ public class FieldMapGenerator {
                 number -= mountGroupNum;
                 while (mountGroupNum > 0){
                     if (que.size() == 0) break;
-                    Coord c = que.pop();
-                    Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Rock);
+                    Index c = que.pop();
+                    Field field = new Field(new Index(c), random, map, time, Ground.GroundType.Rock);
                     map.addField(c, field);
                     mountain.add(c);
                     info[c.y][c.x] = continents.size() + 1;
 
-                    LinkedList<Coord> local = new LinkedList<>();
+                    LinkedList<Index> local = new LinkedList<>();
                     for (int i = -1; i < 2; i++) {
                         for (int j = -1; j < 2; j++) {
                             if (i != 0 && j != 0) continue;
-                            Coord lc = new Coord(i + c.x, j + c.y);
+                            Index lc = new Index(i + c.x, j + c.y);
                             if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                 if (info[lc.y][lc.x] <= continents.size() && info[lc.y][lc.x] > 0) local.push(lc);
                             }
@@ -171,7 +172,7 @@ public class FieldMapGenerator {
                     int num = local.size();
                     for (int i = 0; i < num; i++) {
                         int rand = random.nextInt(local.size());
-                        Coord newC = local.get(rand);
+                        Index newC = local.get(rand);
                         local.remove(rand);
                         que.push(newC);
                     }
@@ -189,7 +190,7 @@ public class FieldMapGenerator {
     }
 
     private void addDeserts(){
-        for(ArrayList<Coord> continent: continents){
+        for(ArrayList<Index> continent: continents){
 
             int size = continent.size();
             int number = random.nextInt(size/4 + 1);
@@ -198,10 +199,10 @@ public class FieldMapGenerator {
             int banchNum = random.nextInt(size/4 + 1);
 
             while(iter < number){
-                LinkedList<Coord> que = new LinkedList<>();
+                LinkedList<Index> que = new LinkedList<>();
                 int inc = 0;
                 while(true) {
-                    Coord pos = continent.get(random.nextInt(size));
+                    Index pos = continent.get(random.nextInt(size));
                     if (info[pos.y][pos.x] <= continents.size()){
                         que.push(pos);
                         break;
@@ -215,16 +216,16 @@ public class FieldMapGenerator {
                 number -= desertGroupNum;
                 while (desertGroupNum > 0){
                     if (que.size() == 0) break;
-                    Coord c = que.pop();
-                    Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Sand);
+                    Index c = que.pop();
+                    Field field = new Field(new Index(c), random, map, time, Ground.GroundType.Sand);
                     map.addField(c, field);
                     info[c.y][c.x] = continents.size() + 2;
 
-                    LinkedList<Coord> local = new LinkedList<>();
+                    LinkedList<Index> local = new LinkedList<>();
                     for (int i = -1; i < 2; i++) {
                         for (int j = -1; j < 2; j++) {
                             if (i != 0 && j != 0) continue;
-                            Coord lc = new Coord(i + c.x, j + c.y);
+                            Index lc = new Index(i + c.x, j + c.y);
                             if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                 if (info[lc.y][lc.x] <= continents.size() && info[lc.y][lc.x] > 0) local.push(lc);
                             }
@@ -234,7 +235,7 @@ public class FieldMapGenerator {
                     int num = local.size();
                     for (int i = 0; i < num; i++) {
                         int rand = random.nextInt(local.size());
-                        Coord newC = local.get(rand);
+                        Index newC = local.get(rand);
                         local.remove(rand);
                         que.push(newC);
                     }
@@ -252,13 +253,13 @@ public class FieldMapGenerator {
 
     public void addRivers(){
         int countNum = 0;
-        for (ArrayList<Coord> continent: continents) {
+        for (ArrayList<Index> continent: continents) {
             int number = random.nextInt(continent.size()/20 + 1);
             int banchNum = random.nextInt(continent.size()/20 + 1);
             for(int k = 0; k < banchNum; k++) {
                 if (number <= 0) break;
-                LinkedList<Coord> river = new LinkedList<>();
-                HashMap<Coord, Integer> depth = new HashMap<Coord, Integer>();
+                LinkedList<Index> river = new LinkedList<>();
+                HashMap<Index, Integer> depth = new HashMap<Index, Integer>();
 
                 int[][] addit = new int[this.number][this.number];
                 for (int i = 0; i < this.number; i++) {
@@ -267,17 +268,17 @@ public class FieldMapGenerator {
                     }
                 }
 
-                LinkedList<Coord> que = new LinkedList<>();
+                LinkedList<Index> que = new LinkedList<>();
                 int inc = 0;
                 while (inc < continent.size()) {
                     //int index = random.nextInt(continent.size());
-                    //Coord c = continent.get(index);
-                    ArrayList<Coord> mountain = mountains.get(countNum);
+                    //Index c = continent.get(index);
+                    ArrayList<Index> mountain = mountains.get(countNum);
                     if (mountain.size() == 0) break;
-                    Coord c = mountain.get(random.nextInt(mountain.size()));
-                    ArrayList<Coord> cs = new ArrayList<>();
-                    ArrayList<Coord> nc = new ArrayList<>();
-                    HashMap<Coord, Boolean> hist = new HashMap<Coord, Boolean>();
+                    Index c = mountain.get(random.nextInt(mountain.size()));
+                    ArrayList<Index> cs = new ArrayList<>();
+                    ArrayList<Index> nc = new ArrayList<>();
+                    HashMap<Index, Boolean> hist = new HashMap<Index, Boolean>();
                     int mountIndex = 0;
                     while(mountIndex < mountain.size()){
                         mountIndex++;
@@ -285,7 +286,7 @@ public class FieldMapGenerator {
                             for (int j = -1; j < 2; j++) {
                                 if (i != 0 && j != 0) continue;
                                 if (i == 0 && j == 0) continue;
-                                Coord lc = new Coord(i + c.x, j + c.y);
+                                Index lc = new Index(i + c.x, j + c.y);
                                 if (hist.getOrDefault(lc, null) == null) nc.add(lc);
                                 if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                     if (info[lc.y][lc.x] <= continents.size() && info[lc.y][lc.x] > 0){
@@ -311,15 +312,15 @@ public class FieldMapGenerator {
                 inc = 0;
                 while (inc < continent.size()) {
                     if (que.size() == 0) break;
-                    Coord c = que.pop();
+                    Index c = que.pop();
                     if (info[c.y][c.x] <= 0 || info[c.y][c.x] == continents.size() + 3) {
                         int incr = 0;
-                        Coord riverC = new Coord(c);
+                        Index riverC = new Index(c);
                         int minDep = depth.get(c);
                         while(incr < continent.size()){
                             /*for(int ii = 0; ii < number; ii++){
                                 for(int jj = 0; jj < number; jj++){
-                                    System.out.print(depth.getOrDefault(new Coord(jj, ii), -1) + " ");
+                                    System.out.print(depth.getOrDefault(new Index(jj, ii), -1) + " ");
                                 }
                                 System.out.println();
                             }
@@ -327,12 +328,12 @@ public class FieldMapGenerator {
                             incr++;
                             int cur = depth.get(riverC);
                             int nextCur = cur;
-                            ArrayList<Coord> randList = new ArrayList<>();
+                            ArrayList<Index> randList = new ArrayList<>();
                             for (int i = -1; i < 2; i++) {
                                 for (int j = -1; j < 2; j++) {
                                     if (i != 0 && j != 0) continue;
                                     if (i == 0 && j == 0) continue;
-                                    Coord lc = new Coord(i + riverC.x, j + riverC.y);
+                                    Index lc = new Index(i + riverC.x, j + riverC.y);
                                     if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                         if (info[lc.y][lc.x] <= continents.size() && info[lc.y][lc.x] > 0){
                                             int dep = depth.getOrDefault(lc, -1);
@@ -365,12 +366,12 @@ public class FieldMapGenerator {
                         break;
                     }
 
-                    //LinkedList<Coord> local = new LinkedList<>();
+                    //LinkedList<Index> local = new LinkedList<>();
                     for (int i = -1; i < 2; i++) {
                         for (int j = -1; j < 2; j++) {
                             if (i != 0 && j != 0) continue;
                             if (i == 0 && j == 0) continue;
-                            Coord lc = new Coord(i + c.x, j + c.y);
+                            Index lc = new Index(i + c.x, j + c.y);
                             if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                 if (addit[lc.y][lc.x] <= continents.size() || info[lc.y][lc.x] == continents.size() + 3){
                                     que.addLast(lc);
@@ -393,11 +394,11 @@ public class FieldMapGenerator {
 
     }
 
-    public void addRiver(LinkedList<Coord> river, Coord end){
+    public void addRiver(LinkedList<Index> river, Index end){
         if (river.size() == 0) return;
         Field field = map.getFieldByIndex(river.get(0));
         River.Side out, in;
-        Coord next = new Coord(end);
+        Index next = new Index(end);
         if (river.size() != 1) next = river.get(1);
         out = River.convert(river.get(0).whatDirection(next));
 
@@ -425,14 +426,14 @@ public class FieldMapGenerator {
             riv.addInStream(in);
         }
 
-        for (Coord cord : river) {
+        for (Index cord : river) {
             info[cord.y][cord.x] = continents.size() + 3;
         }
 
     }
 
     public void addSwamps(){
-        for(ArrayList<Coord> continent: continents){
+        for(ArrayList<Index> continent: continents){
 
             int size = continent.size();
             int number = random.nextInt(size/4 + 1);
@@ -441,10 +442,10 @@ public class FieldMapGenerator {
             int banchNum = random.nextInt(size/4 + 1);
 
             while(iter < number){
-                LinkedList<Coord> que = new LinkedList<>();
+                LinkedList<Index> que = new LinkedList<>();
                 int inc = 0;
                 while(true) {
-                    Coord pos = continent.get(random.nextInt(size));
+                    Index pos = continent.get(random.nextInt(size));
                     if (info[pos.y][pos.x] <= continents.size()){
                         que.push(pos);
                         break;
@@ -458,16 +459,16 @@ public class FieldMapGenerator {
                 number -= swampGroupNum;
                 while (swampGroupNum > 0){
                     if (que.size() == 0) break;
-                    Coord c = que.pop();
-                    Field field = new Field(new Coord(c), random, map, time, Ground.GroundType.Mud);
+                    Index c = que.pop();
+                    Field field = new Field(new Index(c), random, map, time, Ground.GroundType.Mud);
                     map.addField(c, field);
                     info[c.y][c.x] = continents.size() + 4;
 
-                    LinkedList<Coord> local = new LinkedList<>();
+                    LinkedList<Index> local = new LinkedList<>();
                     for (int i = -1; i < 2; i++) {
                         for (int j = -1; j < 2; j++) {
                             if (i != 0 && j != 0) continue;
-                            Coord lc = new Coord(i + c.x, j + c.y);
+                            Index lc = new Index(i + c.x, j + c.y);
                             if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                 if (info[lc.y][lc.x] <= continents.size() && info[lc.y][lc.x] > 0) local.push(lc);
                             }
@@ -477,7 +478,7 @@ public class FieldMapGenerator {
                     int num = local.size();
                     for (int i = 0; i < num; i++) {
                         int rand = random.nextInt(local.size());
-                        Coord newC = local.get(rand);
+                        Index newC = local.get(rand);
                         local.remove(rand);
                         que.push(newC);
                     }
@@ -494,7 +495,7 @@ public class FieldMapGenerator {
     }
 
     public void addForests(){
-        for(ArrayList<Coord> continent: continents){
+        for(ArrayList<Index> continent: continents){
 
             int size = continent.size();
             int number = random.nextInt(size/4);
@@ -503,10 +504,10 @@ public class FieldMapGenerator {
             int banchNum = random.nextInt(size/4);
 
             while(iter < number){
-                LinkedList<Coord> que = new LinkedList<>();
+                LinkedList<Index> que = new LinkedList<>();
                 int inc = 0;
                 while(true) {
-                    Coord pos = continent.get(random.nextInt(size));
+                    Index pos = continent.get(random.nextInt(size));
                     if (info[pos.y][pos.x] <= continents.size()){
                         que.push(pos);
                         break;
@@ -520,16 +521,16 @@ public class FieldMapGenerator {
                 number -= forestGroupNum;
                 while (forestGroupNum > 0){
                     if (que.size() == 0) break;
-                    Coord c = que.pop();
+                    Index c = que.pop();
                     Field field = map.getFieldByIndex(c);
                     field.setTree(new Tree(time, map, field));
                     info[c.y][c.x] = continents.size() + 5;
 
-                    LinkedList<Coord> local = new LinkedList<>();
+                    LinkedList<Index> local = new LinkedList<>();
                     for (int i = -1; i < 2; i++) {
                         for (int j = -1; j < 2; j++) {
                             if (i != 0 && j != 0) continue;
-                            Coord lc = new Coord(i + c.x, j + c.y);
+                            Index lc = new Index(i + c.x, j + c.y);
                             if (lc.x > -1 && lc.x < this.number && lc.y > -1 && lc.y < this.number) {
                                 if (info[lc.y][lc.x] <= continents.size() && info[lc.y][lc.x] > 0) local.push(lc);
                             }
@@ -539,7 +540,7 @@ public class FieldMapGenerator {
                     int num = local.size();
                     for (int i = 0; i < num; i++) {
                         int rand = random.nextInt(local.size());
-                        Coord newC = local.get(rand);
+                        Index newC = local.get(rand);
                         local.remove(rand);
                         que.push(newC);
                     }
@@ -556,20 +557,20 @@ public class FieldMapGenerator {
     }
 
     public void addCities(){
-        for (ArrayList<Coord> continent: continents){
+        NameGenerator nameGenerator = new NameGenerator(random);
+        for (ArrayList<Index> continent: continents){
 
             int size = continent.size();
             int number = random.nextInt(size/1000 + 1);
 
             int count = 0;
             while (count < continent.size()) {
-                Coord pos = continent.get(random.nextInt(continent.size()));
+                Index pos = continent.get(random.nextInt(continent.size()));
                 if (info[pos.y][pos.x] > 0 && info[pos.y][pos.x] <= continents.size()) {
                     Field field = map.getFieldByIndex(pos);
                     if (field.getOwner() != null) continue;
-                    City city = new City("city", City.SizeType.Big, map, time, field);
+                    City city = new City(nameGenerator.generate(), map, time, field);
                     field.setCity(city);
-                    addPeopleAround(city);
                     field.getMap().getGameEngine().addRunEntity(city);
                     info[pos.y][pos.x] = continents.size() + 6;
                     number--;
@@ -581,44 +582,6 @@ public class FieldMapGenerator {
         }
     }
 
-    public void addPeopleAround(City city){
-        ArrayList<Coord> territory = city.getTerritory();
-        int num;
-        for (Coord pos: territory){
-            Field field = map.getFieldByIndex(pos);
-            if (field.getCity() != null){
-                num = random.nextInt(100);
-                for(int i = 0; i < num; i++){
-                    Person person = new Person(field);
-                }
-            }
-            if (field.getGroundType() == Ground.GroundType.Water) continue;
-            if (field.getGroundType() == Ground.GroundType.Rock){
-                num = random.nextInt(3);
-                for(int i = 0; i < num; i++){
-                    Person person = new Person(field);
-                }
-            }
-            if (field.getGroundType() == Ground.GroundType.Mud){
-                num = random.nextInt(5);
-                for(int i = 0; i < num; i++){
-                    Person person = new Person(field);
-                }
-            }
-            if (field.getGroundType() == Ground.GroundType.Sand){
-                num = random.nextInt(7);
-                for(int i = 0; i < num; i++){
-                    Person person = new Person(field);
-                }
-            }
-            if (field.getGroundType() == Ground.GroundType.Soil){
-                num = random.nextInt(50);
-                for(int i = 0; i < num; i++){
-                    Person person = new Person(field);
-                }
-            }
-        }
-    }
 
 
 }

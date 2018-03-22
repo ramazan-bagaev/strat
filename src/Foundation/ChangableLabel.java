@@ -1,6 +1,7 @@
 package Foundation;
 
-import java.util.ArrayList;
+import Foundation.BasicShapes.StringShape;
+import Utils.Coord;
 
 public class ChangableLabel extends Label{
 

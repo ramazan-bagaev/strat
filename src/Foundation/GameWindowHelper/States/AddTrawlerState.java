@@ -1,9 +1,10 @@
 package Foundation.GameWindowHelper.States;
 
 import Foundation.*;
-import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -12,8 +13,8 @@ public class AddTrawlerState extends HelperState {
 
     private CoveringFieldMode coveringFieldMode;
 
-    private ArrayList<Coord> possible;
-    private ArrayList<Coord> impossible;
+    private ArrayList<Index> possible;
+    private ArrayList<Index> impossible;
 
 
     public AddTrawlerState(Village village, GameWindowHelperElement gameWindowHelperElement) {
@@ -27,10 +28,10 @@ public class AddTrawlerState extends HelperState {
     }
 
     private void init(){
-        ArrayList<Coord> availableWater = village.getAvailableWater();
+        ArrayList<Index> availableWater = village.getAvailableWater();
         System.out.println("available");
-        for(Coord c: availableWater) System.out.println(c.x + " " + c.y);
-        for(Coord local: village.getManor().getTerritory())
+        for(Index c: availableWater) System.out.println(c.x + " " + c.y);
+        for(Index local: village.getManor().getTerritory())
         {
             if (!availableWater.contains(local)){
                 coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Red, 0.5f));
@@ -45,12 +46,13 @@ public class AddTrawlerState extends HelperState {
 
     @Override
     public void click(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
-        point.x = point.x / gameWindowHelperElement.getMap().getFieldSize();
-        point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
-        if (impossible.contains(point)) return;
-        if (possible.contains(point)) {
-            village.createTrawler(point);
+        point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
+        Index index = new Index(0, 0);
+        index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
+        index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
+        if (impossible.contains(index)) return;
+        if (possible.contains(index)) {
+            village.createTrawler(index);
             return;
         }
         gameWindowHelperElement.clearHelperElements();

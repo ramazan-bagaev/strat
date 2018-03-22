@@ -1,9 +1,11 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.BasicShapes.BasicShape;
 import Foundation.Person.People;
 import Foundation.WorksP.FarmWork;
 import Images.FarmImage;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -21,7 +23,7 @@ public class Farm extends Element {
                 new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack();
         setBasicShapes(image);
         efficiency = 10;
-        people = parent.getPeople();
+        people = village.getPeople();
         work = new FarmWork(village, this);
     }
 

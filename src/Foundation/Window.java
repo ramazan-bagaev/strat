@@ -1,7 +1,9 @@
 package Foundation;
 
-import CharacterShape.Font;
-import WindowElementGroups.ScrollableGroup;
+import Foundation.BasicShapes.CharacterShape.Font;
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -12,8 +14,6 @@ public class Window {
     protected Frame parent;
     private int id;
     private ArrayList<BasicShape> basicShapes;
-
-    private CameraConfiguration cameraConfiguration;
 
     private ArrayList<WindowElement> windowElements;
 
@@ -32,7 +32,6 @@ public class Window {
         basicShapes = new ArrayList<>();
         RectangleShape background = new RectangleShape(new Coord(0, 0), size, new Color(Color.Type.White), true);
         addBasicShape(background);
-        cameraConfiguration = new CameraConfiguration(new Coord(0, 0), new Coord(0, 0),  new Coord(1000, 1000), false);
         windowId = new ArrayList<>();
     }
 
@@ -93,16 +92,6 @@ public class Window {
     }
 
     public void scroll(double delta, Coord scrollPos){
-        if (cameraConfiguration.isScrollable()) {
-            cameraConfiguration.scroll((int) delta, scrollPos.x, scrollPos.y);
-            for (WindowElement element : windowElements) {
-                element.setShapes();
-            }
-            /*if (getClass() == MainWindow.class){
-                MainWindow mainWindow = (MainWindow)this;
-                mainWindow.getGameWindowElement().setShapes(); // TODO: you know (no)
-            }*/
-        }
     }
 
     public boolean drag(Coord point, Coord pressedPos, boolean dragBegin){
@@ -143,8 +132,6 @@ public class Window {
     }
 
     public void draw(OpenGLBinder openGLBinder){
-        Camera camera = getParent().getCamera();
-        camera.takeCameraView(cameraConfiguration);
         for(BasicShape basicShape: basicShapes){
             openGLBinder.draw(basicShape);
         }
@@ -155,7 +142,6 @@ public class Window {
         for (WindowElementGroup windowElementGroup: windowElementGroups){
             windowElementGroup.draw(openGLBinder);
         }
-        camera.takeBackCameraView();
     }
 
     //public ArrayList<BasicShape> getBasicShapes() {
@@ -183,14 +169,6 @@ public class Window {
 
     public void addWindowElementGroup(WindowElementGroup windowElementGroup){
         windowElementGroups.add(windowElementGroup);
-    }
-
-    public void setCameraConfiguration(CameraConfiguration cameraConfiguration){
-        this.cameraConfiguration = cameraConfiguration;
-    }
-
-    public CameraConfiguration getCameraConfiguration(){
-        return cameraConfiguration;
     }
 
     public void handleAction(Controller.Action action){

@@ -1,36 +1,39 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Elements.City;
-import Foundation.Elements.Element;
+import Foundation.Person.People;
 import Foundation.Runnable.RunableElement;
 import Images.ManorImage;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
 public class Manor extends RunableElement {
 
-    private ArrayList<Coord> villages;
+    private ArrayList<Index> villages;
 
+    private People people;
     private ResourceStore resourceStore;
-    private ArrayList<Coord> territory;
+    private ArrayList<Index> territory;
     private City city;
 
     public Manor(Time time, Field parent, FieldMap map, City city) {
         super(Type.Manor, time, parent, map);
         this.city = city;
         this.resourceStore = new ResourceStore();
+        this.people = city.getPeople();
         territory = new ArrayList<>();
         territory.add(parent.getFieldMapPos());
         villages = new ArrayList<>();
         setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
     }
 
-    public void addTerritory(Coord pos) {
+    public void addTerritory(Index pos) {
         territory.add(pos);
     }
 
-    public ArrayList<Coord> getTerritory() {
+    public ArrayList<Index> getTerritory() {
         return territory;
     }
 
@@ -38,7 +41,7 @@ public class Manor extends RunableElement {
         return city;
     }
 
-    public void createVillage(Coord point){
+    public void createVillage(Index point){
         if (!territory.contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
@@ -55,9 +58,13 @@ public class Manor extends RunableElement {
 
     @Override
     public void run() {
-        for(Coord pos: villages){
+        for(Index pos: villages){
             Village village = map.getFieldByIndex(pos).getVillage();
             //village.getWork().doJob();
         }
+    }
+
+    public People getPeople() {
+        return people;
     }
 }

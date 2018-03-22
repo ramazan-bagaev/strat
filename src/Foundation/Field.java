@@ -1,16 +1,15 @@
 package Foundation;
 
 import Foundation.Elements.*;
-import Foundation.Person.People;
-import Foundation.Person.Person;
 import Foundation.Runnable.Army;
+import Utils.Index;
 
 import java.util.Random;
 
 
 public class Field {
 
-    private Coord fieldMapPos;
+    private Index fieldMapPos;
     private int size;
 
     private City owner;
@@ -29,8 +28,6 @@ public class Field {
     private Mine mine;
 
 
-    private People people;
-
     private Time time;
 
     private FieldMap map;
@@ -41,10 +38,9 @@ public class Field {
     private Random random;
     private boolean changed;
 
-    public Field(Coord fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
+    public Field(Index fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
         changed = false;
         this.fieldMapPos = fieldMapPos;
-        people = new People(this);
         size = map.getFieldSize();
         setMap(map);
         setRandom(random);
@@ -54,10 +50,9 @@ public class Field {
         calculateTimeToIntersect();
     }
 
-    public Field(Coord fieldMapPos, Coord globalPos, int size, Random random, FieldMap map, Time time){
+    public Field(Index fieldMapPos, int size, Random random, FieldMap map, Time time){
         changed = false;
         this.fieldMapPos = fieldMapPos;
-        people = new People(this);
         setSize(size);
         setMap(map);
         setRandom(random);
@@ -116,12 +111,8 @@ public class Field {
         this.random = random;
     }
 
-    public Coord getFieldMapPos() {
+    public Index getFieldMapPos() {
         return fieldMapPos;
-    }
-
-    public void setFieldMapPos(Coord fieldMapPos) {
-        this.fieldMapPos = fieldMapPos;
     }
 
     public Ecosystem getEcosystem() {
@@ -132,24 +123,12 @@ public class Field {
         return city;
     }
 
-    public boolean isChanged() {
-        return changed;
-    }
-
-    public void setChanged(boolean changed){
-        this.changed = changed;
-    }
-
     public ArmyElement getArmyElement(){
         return armyElement;
     }
 
     public void setArmyElement(ArmyElement armyElement) {
         this.armyElement = armyElement;
-    }
-
-    public Date getTimeToIntersect() {
-        return timeToIntersect;
     }
 
     public River getRiver() {
@@ -236,19 +215,6 @@ public class Field {
     public void removerArmy(){
         armyElement = null;
         map.getGameEngine().getGameWindowElement().setShapes();
-    }
-
-    public void addPerson(Person person){
-        people.addPerson(person);
-    }
-
-    public void removePerson(Person person){
-        people.removePerson(person);
-    }
-
-
-    public People getPeople() {
-        return people;
     }
 
     public Farm getFarm() {

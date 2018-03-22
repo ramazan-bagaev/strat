@@ -3,13 +3,14 @@ package Foundation.GameWindowHelper.Modes;
 import Foundation.*;
 import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
+import Utils.Index;
 
 import java.util.ArrayList;
 
 public class CoveringFieldMode extends Mode{
 
     private ArrayList<CoveringFieldHelper> coveringFieldHelpers;
-    private ArrayList<Coord> coords;
+    private ArrayList<Index> indices;
 
     public CoveringFieldMode(GameWindowHelperElement gameWindowHelperElement) {
         super(gameWindowHelperElement);
@@ -18,23 +19,23 @@ public class CoveringFieldMode extends Mode{
     @Override
     public void putHelpers() {
         coveringFieldHelpers = new ArrayList<>();
-        coords = new ArrayList<>();
+        indices = new ArrayList<>();
     }
 
     @Override
     public void removeHelpers() {
         for(CoveringFieldHelper coveringFieldHelper: coveringFieldHelpers){
-            HelperField helperField = coveringFieldHelper.getParentField();
+            HelperField helperField = coveringFieldHelper.getParent();
             helperField.setCoveringFieldHelper(null);
             if (helperField.isEmpty()) helperField.delete();
         }
         coveringFieldHelpers.clear();
     }
 
-    public void addCoveringFieldHelper(Coord pos, Color color){
+    public void addCoveringFieldHelper(Index pos, Color color){
         Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByIndex(pos);
         if (field == null) return;
-        if (coords.contains(pos)) return;
+        if (indices.contains(pos)) return;
         HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(pos);
         if (helperField == null){
             helperField = new HelperField(field, gameWindowHelperElement.getMap());
@@ -44,19 +45,19 @@ public class CoveringFieldMode extends Mode{
         coveringFieldHelpers.add(coveringFieldHelper);
         helperField.setCoveringFieldHelper(coveringFieldHelper);
         gameWindowHelperElement.getGameWindowElement().setShapes();
-        coords.add(pos);
+        indices.add(pos);
     }
 
-    public void removeCoveringFieldHelper(Coord pos){
-        if (!coords.contains(pos)) return;
+    public void removeCoveringFieldHelper(Index pos){
+        if (!indices.contains(pos)) return;
         HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(pos);
         CoveringFieldHelper coveringFieldHelper = helperField.getCoveringFieldHelper();
         helperField.setCoveringFieldHelper(null);
         coveringFieldHelpers.remove(coveringFieldHelper);
-        coords.remove(pos);
+        indices.remove(pos);
     }
 
-    public boolean isOccupiedBy(Coord pos){
-        return coords.contains(pos);
+    public boolean isOccupiedBy(Index pos){
+        return indices.contains(pos);
     }
 }

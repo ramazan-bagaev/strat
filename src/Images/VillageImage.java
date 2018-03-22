@@ -1,10 +1,12 @@
 package Images;
 
 import Foundation.*;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.RandomAccess;
 
 public class VillageImage extends Image {
 
@@ -19,55 +21,55 @@ public class VillageImage extends Image {
     public void setShapes(){
         clearBasicShapes();
         Coord size = getSize();
-        /*TriangleShape roof = new TriangleShape(new Coord(size.x/10, 2*size.y/10), new Coord(2*size.x/10, size.y/10),
-                new Coord(3*size.x/10, 2*size.y/10), new Color(Color.Type.Yellow));
+        /*TriangleShape roof = new TriangleShape(new Index(size.x/10, 2*size.y/10), new Index(2*size.x/10, size.y/10),
+                new Index(3*size.x/10, 2*size.y/10), new Color(Color.Type.Yellow));
 
-        RectangleShape body = new RectangleShape(new Coord(size.x/10, 2*size.y/10), new Coord(size.x/5, size.y /10),
+        RectangleShape body = new RectangleShape(new Index(size.x/10, 2*size.y/10), new Index(size.x/5, size.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);
 
-        roof = new TriangleShape(new Coord(7*size.x/10, 2*size.y/10), new Coord(8*size.x/10, size.y/10),
-                new Coord(9*size.x/10, 2*size.y/10), new Color(Color.Type.Yellow));
+        roof = new TriangleShape(new Index(7*size.x/10, 2*size.y/10), new Index(8*size.x/10, size.y/10),
+                new Index(9*size.x/10, 2*size.y/10), new Color(Color.Type.Yellow));
 
-        body = new RectangleShape(new Coord(7*size.x/10, 2*size.y/10), new Coord(size.x/5, size.y /10),
+        body = new RectangleShape(new Index(7*size.x/10, 2*size.y/10), new Index(size.x/5, size.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);
 
-        roof = new TriangleShape(new Coord(size.x/10, 8* size.y/10), new Coord(2*size.x/10, 7*size.y/10),
-                new Coord(3*size.x/10, 8*size.y/10), new Color(Color.Type.Yellow));
+        roof = new TriangleShape(new Index(size.x/10, 8* size.y/10), new Index(2*size.x/10, 7*size.y/10),
+                new Index(3*size.x/10, 8*size.y/10), new Color(Color.Type.Yellow));
 
-        body = new RectangleShape(new Coord(size.x/10, 8*size.y/10), new Coord(size.x/5, size.y /10),
+        body = new RectangleShape(new Index(size.x/10, 8*size.y/10), new Index(size.x/5, size.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);
 
-        roof = new TriangleShape(new Coord(7*size.x/10, 8* size.y/10), new Coord(8*size.x/10, 7*size.y/10),
-                new Coord(9*size.x/10, 8*size.y/10), new Color(Color.Type.Yellow));
+        roof = new TriangleShape(new Index(7*size.x/10, 8* size.y/10), new Index(8*size.x/10, 7*size.y/10),
+                new Index(9*size.x/10, 8*size.y/10), new Color(Color.Type.Yellow));
 
-        body = new RectangleShape(new Coord(7*size.x/10, 8*size.y/10), new Coord(size.x/5, size.y /10),
+        body = new RectangleShape(new Index(7*size.x/10, 8*size.y/10), new Index(size.x/5, size.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);*/
 
-        ArrayList<Coord> ocupied = new ArrayList<>();
+        ArrayList<Index> ocupied = new ArrayList<>();
         int number = 10;
 
         for(int i = 0; i < number; i++){
             int x = random.nextInt(10);
             int y = random.nextInt(10);
-            Coord xy = new Coord(x, y);
+            Index xy = new Index(x, y);
             if (ocupied.contains(xy)) continue;
             ocupied.add(xy);
-            ocupied.add(xy.add(new Coord(0,1)));
-            ocupied.add(xy.add(new Coord(0,-1)));
-            ocupied.add(xy.add(new Coord(1,0)));
-            ocupied.add(xy.add(new Coord(-1,0)));
-            ocupied.add(xy.add(new Coord(1,1)));
-            ocupied.add(xy.add(new Coord(1,-1)));
-            ocupied.add(xy.add(new Coord(-1,1)));
-            ocupied.add(xy.add(new Coord(-1,-1)));
+            ocupied.add(xy.add(new Index(0,1)));
+            ocupied.add(xy.add(new Index(0,-1)));
+            ocupied.add(xy.add(new Index(1,0)));
+            ocupied.add(xy.add(new Index(-1,0)));
+            ocupied.add(xy.add(new Index(1,1)));
+            ocupied.add(xy.add(new Index(1,-1)));
+            ocupied.add(xy.add(new Index(-1,1)));
+            ocupied.add(xy.add(new Index(-1,-1)));
 
             Coord newPos = new Coord(x*size.x/10, y*size.y/10);
             RectangleShape rectangleShape = new RectangleShape(newPos, new Coord(size.x/10, size.y/10),

@@ -1,45 +1,52 @@
 package Foundation.GameWindowHelper.HelperElements;
 
 import Foundation.*;
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.HelperFieldMap;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
 public class ChoosenFieldHelper extends HelperElement {
 
+    private Index pos;
 
-    public ChoosenFieldHelper(HelperField helperField) {
+    public ChoosenFieldHelper(Index pos, HelperField helperField) {
         super(helperField);
+        this.pos = pos;
         setShapes();
     }
 
     public void setShapes(){
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
+        ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.clear();
-        RectangleShape rectangleShape = new RectangleShape(new Coord(pos), new Coord(size), new Color(Color.Type.Red), false);
+        RectangleShape rectangleShape = new RectangleShape(new Coord(), new Coord(size.x, size.y), new Color(Color.Type.Red), false);
         basicShapes.add(rectangleShape);
+        setBasicShapes(basicShapes);
         //getParentField().getMap().getParent().setShapes();
     }
 
-    public void setNewPos(Coord pos) {
-        if (getParentField().getMap().getFieldMap().getFieldByPos(pos) == null) return;
+    public void setNewPos(Index pos) {
+        if (getParent().getMap().getFieldMap().getFieldByIndex(pos) == null) return;
         if (pos.equals(this.pos)) return;
-        HelperField helperField = parentField;
+        HelperField helperField = parent;
         helperField.setChoosenFieldHelper(null);
         if (helperField.isEmpty()){
-            getParentField().getMap().addByPos(this.pos, null);
+            getParent().getMap().addByIndex(this.pos, null);
         }
         HelperFieldMap map = helperField.getMap();
-        HelperField newHelperField = map.getFieldByPos(pos);
+        HelperField newHelperField = map.getFieldByIndex(pos);
         if (newHelperField == null){
-            newHelperField = new HelperField(map.getFieldMap().getFieldByPos(pos), map);
-            map.addByPos(pos, newHelperField);
+            newHelperField = new HelperField(map.getFieldMap().getFieldByIndex(pos), map);
+            map.addByIndex(pos, newHelperField);
         }
-        this.pos = new Coord((pos.x / size.x)*size.x, (pos.y / size.y)* size.y);
-        this.parentField = newHelperField;
+        this.pos = new Index(pos);
+        this.parent = newHelperField;
         newHelperField.setChoosenFieldHelper(this);
         setShapes();
-        parentField.getMap().getParent().setShapes();
+        parent.getMap().getParent().setShapes();
     }
 }

@@ -1,8 +1,9 @@
 package Images;
 
 import Foundation.*;
-
-import java.util.ArrayList;
+import Foundation.BasicShapes.LineShape;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Coord;
 
 public class ManorImage extends Image {
 

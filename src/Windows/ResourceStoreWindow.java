@@ -1,8 +1,10 @@
 package Windows;
 
 import Foundation.*;
+import Utils.Coord;
 import WindowElementGroups.ScrollableGroup;
-import WindowElements.ResourceWindowElement;
+import WindowElements.ResourceScrollElement;
+import WindowElements.ScrollableElement;
 
 import java.util.ArrayList;
 
@@ -21,19 +23,19 @@ public class ResourceStoreWindow extends ClosableWindow {
         removeWindowElements();
         addCloseButton();
 
-        ArrayList<WindowElement> elements = new ArrayList<>();
+        ArrayList<ScrollableElement> elements = new ArrayList<>();
 
         int y = 10;
         for(Resource resource: resourceStore.getResources()){
-            elements.add(new ResourceWindowElement(new Coord(10, y), new Coord(280, 20), resource, this));
+            elements.add(new ResourceScrollElement(new Coord(10, y), new Coord(280, 20), resource, this));
             y += 20;
         }
 
-        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(0, 10), 300, 3, 20, this);
+        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(0, 10), new Coord(280, 100), this);
         scrollableGroup.setScrollableElements(elements);
         addWindowElementGroup(scrollableGroup);
 
-        //MonitoredBroadcastLabel foodAmount = new MonitoredBroadcastLabel(getPos().add(new Coord(10, 10)), new Coord(180, 20),
+        //MonitoredBroadcastLabel foodAmount = new MonitoredBroadcastLabel(getPos().add(new Index(10, 10)), new Index(180, 20),
         //        "food:", food, "capacity", this);
 
         //addWindowElement(foodAmount);

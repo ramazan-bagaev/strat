@@ -1,8 +1,8 @@
 package Windows.ElementInfoWindow;
 
-import Foundation.BasicShape;
+import Foundation.BasicShapes.BasicShape;
 import Foundation.Button;
-import Foundation.Coord;
+import Utils.Coord;
 import Foundation.Elements.Village;
 import Foundation.Frame;
 import Images.Image;

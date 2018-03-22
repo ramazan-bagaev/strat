@@ -1,10 +1,7 @@
 package Foundation.GameWindowHelper.States;
 
-
-import Foundation.Coord;
 import Foundation.GameWindowHelperElement;
-
-import java.util.ArrayList;
+import Utils.Coord;
 
 public abstract class HelperState {
 

@@ -1,6 +1,7 @@
 package Foundation;
 
-import CharacterShape.Font;
+import Foundation.BasicShapes.CharacterShape.Font;
+import Utils.Coord;
 import Windows.MainToolbarWindow;
 
 
@@ -22,6 +23,8 @@ public class Frame {
     private ArrayList<Font> fonts;
     private int currentId;
 
+    private CameraConfiguration cameraConfiguration;
+
     public Frame(ArrayList<Font> fonts){
         pos = new Coord(0, 0);
         size = new Coord(1000, 1000);
@@ -29,7 +32,8 @@ public class Frame {
         specialWindows = new HashMap<>();
         windows = new LinkedList<>();
         this.fonts = fonts;
-        camera = new Camera(this);
+        cameraConfiguration = new CameraConfiguration(pos, size);
+        camera = new Camera(this, cameraConfiguration);
         input = new Input(this);
         this.mainWindow =  new MainWindow(pos.add(new Coord(0, 0)), new Coord(1000, 1000), this);
         addWindow(mainWindow);

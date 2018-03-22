@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.Person.People;
 import Foundation.WorksP.TrawlerWork;
 import Images.TrawlerImage;
+import Utils.Coord;
 
 public class Trawler extends Element {
 

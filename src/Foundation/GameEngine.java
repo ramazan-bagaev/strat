@@ -2,6 +2,7 @@ package Foundation;
 
 import Foundation.Runnable.RunEntity;
 import Generation.FieldMapGenerator;
+import Utils.Coord;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -27,7 +28,7 @@ public class GameEngine {
     public GameEngine(int fieldSize, int fieldNumber, GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
-        FieldMapGenerator fieldMapGenerator = new FieldMapGenerator();
+        FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
         map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
         //map = new FieldMap();
         time = new Time();

@@ -1,6 +1,7 @@
 package Foundation;
 
 import Images.Image;
+import Utils.Index;
 
 public class Resource extends Broadcaster{
 
@@ -26,7 +27,7 @@ public class Resource extends Broadcaster{
         return type;
     }
 
-    public Image getImage(Coord pos, Coord size, Window parent){
+    public Image getImage(Index pos, Index size, Window parent){
         return null;
     }
 

@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.Person.People;
 import Foundation.WorksP.MineWork;
 import Images.MineImage;
+import Utils.Coord;
 
 public class Mine extends Element {
 

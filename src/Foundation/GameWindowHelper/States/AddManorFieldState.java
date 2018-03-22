@@ -1,11 +1,12 @@
 package Foundation.GameWindowHelper.States;
 
 import Foundation.Color;
-import Foundation.Coord;
+import Utils.Index;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.GameWindowHelperElement;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class AddManorFieldState extends HelperState {
     private CoveringFieldMode farmTerritory;
     private CoveringFieldMode possibleTerritory;
 
-    private ArrayList<Coord> maxTerritory;
+    private ArrayList<Index> maxTerritory;
 
     public AddManorFieldState(GameWindowHelperElement gameWindowHelperElement, Manor manor) {
         super(gameWindowHelperElement);
@@ -33,26 +34,26 @@ public class AddManorFieldState extends HelperState {
         megaBorderMode.putHelpers();
         this.manor = manor;
         initMaxTerritory();
-        ArrayList<Coord> currentTerritory = manor.getTerritory();
+        ArrayList<Index> currentTerritory = manor.getTerritory();
         initFarmTerritory(currentTerritory);
     }
 
     private void initMaxTerritory(){
         maxTerritory = new ArrayList<>();
         ArrayList<Manor> manors = manor.getCity().getManors();
-        ArrayList<Coord> otherManors = new ArrayList<>();
+        ArrayList<Index> otherManors = new ArrayList<>();
         for (Manor man: manors) {
             if (man.equals(manor)) continue;
             otherManors.addAll(man.getTerritory());
         }
-        ArrayList<Coord> candidates = manor.getCity().getTerritory();
-        for (Coord candidate: candidates){
+        ArrayList<Index> candidates = manor.getCity().getTerritory();
+        for (Index candidate: candidates){
             if (otherManors.contains(candidate)) continue;
             maxTerritory.add(candidate);
         }
     }
 
-    public void addFarmTerritory(Coord pos){
+    public void addFarmTerritory(Index pos){
         if (!possibleTerritory.isOccupiedBy(pos)) return;
         possibleTerritory.removeCoveringFieldHelper(pos);
         farmTerritory.addCoveringFieldHelper(pos, new Color(Color.Type.Black, 0.5f));
@@ -60,22 +61,22 @@ public class AddManorFieldState extends HelperState {
         refreshPossibleTerritory(pos);
     }
 
-    public void initFarmTerritory(ArrayList<Coord> currentTerritory){
-        for (Coord pos: currentTerritory){
+    public void initFarmTerritory(ArrayList<Index> currentTerritory){
+        for (Index pos: currentTerritory){
             farmTerritory.addCoveringFieldHelper(pos, new Color(Color.Type.Black, 0.5f));
             refreshPossibleTerritory(pos);
         }
 
     }
 
-    public void refreshPossibleTerritory(Coord pos){
-        addPossibleTerritory(pos.add(new Coord(0, 1)));
-        addPossibleTerritory(pos.add(new Coord(1, 0)));
-        addPossibleTerritory(pos.add(new Coord(-1, 0)));
-        addPossibleTerritory(pos.add(new Coord(0, -1)));
+    public void refreshPossibleTerritory(Index pos){
+        addPossibleTerritory(pos.add(new Index(0, 1)));
+        addPossibleTerritory(pos.add(new Index(1, 0)));
+        addPossibleTerritory(pos.add(new Index(-1, 0)));
+        addPossibleTerritory(pos.add(new Index(0, -1)));
     }
 
-    public void addPossibleTerritory(Coord pos){
+    public void addPossibleTerritory(Index pos){
         if (farmTerritory.isOccupiedBy(pos)) return;
         if (!maxTerritory.contains(pos)) return;
         possibleTerritory.addCoveringFieldHelper(pos, new Color(Color.Type.White, 0.5f));
@@ -84,14 +85,15 @@ public class AddManorFieldState extends HelperState {
 
     @Override
     public void click(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
-        point.x = point.x / gameWindowHelperElement.getMap().getFieldSize();
-        point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
-        if (possibleTerritory.isOccupiedBy(point)){
-            addFarmTerritory(point);
+        point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
+        Index index = new Index(0, 0);
+        index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
+        index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
+        if (possibleTerritory.isOccupiedBy(index)){
+            addFarmTerritory(index);
             return;
         }
-        if (!farmTerritory.isOccupiedBy(point)){
+        if (!farmTerritory.isOccupiedBy(index)){
             clearHelperElements();
             gameWindowHelperElement.setStandartState();
         }

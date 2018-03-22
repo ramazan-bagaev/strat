@@ -1,6 +1,10 @@
 package Images;
 
 import Foundation.*;
+import Foundation.BasicShapes.LineShape;
+import Foundation.BasicShapes.RectangleShape;
+import Foundation.BasicShapes.TriangleShape;
+import Utils.Coord;
 
 public class TrawlerImage extends Image{
 

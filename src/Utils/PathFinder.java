@@ -1,22 +1,20 @@
 package Utils;
 
-import Foundation.Coord;
 import Foundation.Elements.Ground;
 import Foundation.Field;
 import Foundation.FieldMap;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 public class PathFinder {
 
-    private HashMap<Coord, Integer> map; /// hash map : Coord -> {1, 0}; if 0 - is could be used as part of path, 0 - vice versa
+    private HashMap<Index, Integer> map; /// hash map : Index -> {1, 0}; if 0 - is could be used as part of path, 0 - vice versa
 
-    private LinkedList<Coord> que;
-    private HashMap<Coord, Integer> depth;
-    private ArrayList<Coord> used;
+    private LinkedList<Index> que;
+    private HashMap<Index, Integer> depth;
+    private ArrayList<Index> used;
 
     public PathFinder(FieldMap fieldMap){
         que = new LinkedList<>();
@@ -27,7 +25,7 @@ public class PathFinder {
         initMap(fieldMap);
     }
 
-    public PathFinder(HashMap<Coord, Integer> map){
+    public PathFinder(HashMap<Index, Integer> map){
         this.map = map;
         que = new LinkedList<>();
         depth = new HashMap<>();
@@ -48,18 +46,18 @@ public class PathFinder {
         }
     }
 
-    public LinkedList<Coord> getPath(Coord from, Coord to){
+    public LinkedList<Index> getPath(Index from, Index to){
         que.clear();
         used.clear();
         depth.clear();
-        LinkedList<Coord> path = new LinkedList<>();
+        LinkedList<Index> path = new LinkedList<>();
         que.addFirst(from);
         depth.put(from, 0);
         used.add(from);
         int number = map.size();//4 * Math.abs((from.x - to.x)*(from.y - to.y));
         while(number > 0) {
             if (que.size() == 0) break;
-            Coord curPos = que.pop();
+            Index curPos = que.pop();
 
             if (curPos.equals(to)){
 
@@ -73,7 +71,7 @@ public class PathFinder {
                         for (int j = -1; j < 2; j++) {
                             if (i != 0 && j != 0) continue;
                             if (i == 0 && j == 0) continue;
-                            Coord lc = new Coord(i + curPos.x, j + curPos.y);
+                            Index lc = new Index(i + curPos.x, j + curPos.y);
                             nextDep = depth.getOrDefault(lc, -1);
                             if (nextDep == dep - 1){
                                 path.addFirst(lc);
@@ -90,12 +88,12 @@ public class PathFinder {
                 return null;
             }
 
-            ArrayList<Coord> arr = new ArrayList<>();
+            ArrayList<Index> arr = new ArrayList<>();
             for (int i = -1; i < 2; i++) {
                 for (int j = -1; j < 2; j++) {
                     if (i != 0 && j != 0) continue;
                     if (i == 0 && j == 0) continue;
-                    Coord lc = new Coord(j + curPos.x, i + curPos.y);
+                    Index lc = new Index(j + curPos.x, i + curPos.y);
                     if (map.getOrDefault(lc, 1) == 1) continue;
                     if (depth.getOrDefault(lc, -1) > depth.get(curPos) + 1) depth.put(lc, depth.get(curPos) + 1);
                     if (!used.contains(lc)) {
@@ -106,7 +104,7 @@ public class PathFinder {
                 }
             }
 
-            for (Coord c: arr) que.add(c);
+            for (Index c: arr) que.add(c);
 
 
             number--;

@@ -3,15 +3,12 @@ package Windows.ElementInfoWindow;
 import Foundation.*;
 import Foundation.Elements.City;
 import Foundation.GameWindowHelper.States.AddManorState;
-import Foundation.GameWindowHelper.States.HelperState;
-import Foundation.GameWindowHelper.States.StandartState;
 import Images.CityImage;
 import Images.Image;
+import Utils.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.*;
-
-import java.util.ArrayList;
 
 public class CityInfoWindow extends ClosableWindow {
 
@@ -33,7 +30,7 @@ public class CityInfoWindow extends ClosableWindow {
         removeWindowElements();
         addCloseButton();
 
-        Image cityImage = new CityImage(new Coord(0, 0), new Coord(100, 100), city.getSizeType(), this);
+        Image cityImage = new CityImage(new Coord(0, 0), new Coord(100, 100), this);
         addWindowElement(cityImage);
 
         StaticBroadcastLabel citySizeLabel = new StaticBroadcastLabel(new Coord(10, 120), new Coord(150, 10), "Type:",
@@ -45,7 +42,7 @@ public class CityInfoWindow extends ClosableWindow {
             @Override
             public void click(Coord point) {
                 Frame frame = getParent().getParent();
-                frame.addSpecialWindow("population group window", new PopulationInfoWindow(getCity().getPopulation(), frame));
+                frame.addSpecialWindow("population group window", new PopulationInfoWindow(getCity().getPeople(), frame));
             }
         };
         addWindowElement(cityPopulationLabel);

@@ -3,6 +3,7 @@ package Foundation.Runnable;
 import Foundation.*;
 import Foundation.Elements.Ground;
 import Foundation.Person.People;
+import Utils.Index;
 import Utils.PathFinder;
 
 import java.util.LinkedList;
@@ -13,20 +14,20 @@ public class Army implements RunEntity {
         Standing, Moving, Fighting
     }
 
-    private Coord pos;
+    private Index pos;
     private People people;
     private FieldMap fieldMap;
 
     private Time time;
     private PathFinder pathFinder;
-    private Coord destination;
-    private LinkedList<Coord> path;
+    private Index destination;
+    private LinkedList<Index> path;
 
     private State currentState;
 
-    public Army(Coord pos, People people, FieldMap fieldMap, Time time){
+    public Army(Index pos, People people, FieldMap fieldMap, Time time){
         this.time = time;
-        this.pos = new Coord(pos);
+        this.pos = new Index(pos);
         this.people = people;
         this.fieldMap = fieldMap;
         currentState = State.Standing;
@@ -35,7 +36,7 @@ public class Army implements RunEntity {
         field.createAndAddArmy(this);
     }
 
-    public void action(Coord pos){
+    public void action(Index pos){
         Field field = fieldMap.getFieldByIndex(pos);
         if (field.getCity() != null){
             return;
@@ -46,7 +47,7 @@ public class Army implements RunEntity {
         move(pos);
     }
 
-    public void move(Coord destination){
+    public void move(Index destination){
         path = null;
         Field field = fieldMap.getFieldByIndex(destination);
         if (field == null) return;
@@ -61,10 +62,10 @@ public class Army implements RunEntity {
 
     }
 
-    public void moveToNeighbor(Coord destination){
+    public void moveToNeighbor(Index destination){
         Field oldField = fieldMap.getFieldByIndex(pos);
         oldField.removerArmy();
-        pos = new Coord(destination);
+        pos = new Index(destination);
         Field field = fieldMap.getFieldByIndex(pos);
         field.createAndAddArmy(this);
     }
@@ -73,7 +74,7 @@ public class Army implements RunEntity {
         return people;
     }
 
-    public Coord getPos() {
+    public Index getPos() {
         return pos;
     }
 
@@ -85,7 +86,7 @@ public class Army implements RunEntity {
     public void run() {
         if (path != null){
             if (path.size() == 0) return;
-            Coord destination = path.getFirst();
+            Index destination = path.getFirst();
             path.removeFirst();
             moveToNeighbor(destination);
         }

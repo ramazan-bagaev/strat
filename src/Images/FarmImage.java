@@ -1,9 +1,9 @@
 package Images;
 
 import Foundation.*;
-import org.w3c.dom.css.Rect;
-
-import java.util.ArrayList;
+import Foundation.BasicShapes.RectangleShape;
+import Foundation.BasicShapes.TriangleShape;
+import Utils.Coord;
 
 public class FarmImage extends Image {
 
@@ -22,24 +22,24 @@ public class FarmImage extends Image {
                 new Color(Color.Type.Gray), false, true);
         addBasicShape(rectangleShape);
 
-        //rectangleShape = new RectangleShape(new Coord(9*size.x/20,3*size.y/10), new Coord(size.x/10,size.y/10),
+        //rectangleShape = new RectangleShape(new Index(9*size.x/20,3*size.y/10), new Index(size.x/10,size.y/10),
         //        new Color(Color.Type.Gray), false, true);
         //addBasicShape(rectangleShape);
 
         TriangleShape triangleShape = new TriangleShape(new Coord(size.x/2, 3* size.y/10),
-                new Coord(3*size.x/10,size.y/10), new Coord(5*size.x/20, 3*size.y/20), new Color(Color.Type.Red));
+                new Coord(3*size.x/10,size.y/10), new Coord(5*size.x/20, 3*size.y/20), new Color(Color.Type.Brown));
         addBasicShape(triangleShape);
 
         triangleShape = new TriangleShape(new Coord(size.x/2, 3* size.y/10),
-                new Coord(5*size.x/20, size.y/2), new Coord(3*size.x/10, 11*size.y/20), new Color(Color.Type.Red));
+                new Coord(5*size.x/20, size.y/2), new Coord(3*size.x/10, 11*size.y/20), new Color(Color.Type.Brown));
         addBasicShape(triangleShape);
 
         triangleShape = new TriangleShape(new Coord(size.x/2, 3* size.y/10),
-                new Coord(7*size.x/10, size.y/10), new Coord(15*size.x/20, 3*size.y/20), new Color(Color.Type.Red));
+                new Coord(7*size.x/10, size.y/10), new Coord(15*size.x/20, 3*size.y/20), new Color(Color.Type.Brown));
         addBasicShape(triangleShape);
 
         triangleShape = new TriangleShape(new Coord(size.x/2, 3* size.y/10),
-                new Coord(15*size.x/20, size.y/2), new Coord(7*size.x/10, 11*size.y/20), new Color(Color.Type.Red));
+                new Coord(15*size.x/20, size.y/2), new Coord(7*size.x/10, 11*size.y/20), new Color(Color.Type.Brown));
         addBasicShape(triangleShape);
 
     }

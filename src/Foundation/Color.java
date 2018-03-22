@@ -100,9 +100,9 @@ public class Color {
                 b = 0.6f;
                 break;
             case Brown:
-                r = 0.5f;
-                g = 0.35f;
-                b = 0.31f;
+                r = 0.54f;
+                g = 0.27f;
+                b = 0.07f;
                 break;
         }
     }

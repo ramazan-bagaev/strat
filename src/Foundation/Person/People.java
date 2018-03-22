@@ -8,8 +8,10 @@ import java.util.ArrayList;
 public class People extends Broadcaster {
 
     private ArrayList<Person> people;
+    private Field field;
 
     public People(Field field){
+        this.field = field;
         people = new ArrayList<>();
     }
 
@@ -25,6 +27,10 @@ public class People extends Broadcaster {
         people.remove(person);
     }
 
+    public ArrayList<Person> getPersonArray(){
+        return people;
+    }
+
     @Override
     public String getValue(String key) {
         switch (key){
@@ -32,5 +38,9 @@ public class People extends Broadcaster {
                 return String.valueOf(getAmount());
         }
         return Broadcaster.noResult;
+    }
+
+    public Field getField() {
+        return field;
     }
 }

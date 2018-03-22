@@ -1,9 +1,13 @@
 package Foundation;
 
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
 import Foundation.Elements.ArmyElement;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
+import Utils.Index;
+import Utils.Coord;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
 import Windows.ElementInfoWindow.CityInfoWindow;
 import Windows.ElementInfoWindow.VillageInfoWindow;
@@ -15,9 +19,11 @@ import java.util.ArrayList;
 public class GameWindowElement extends WindowElement{
 
     private GameEngine gameEngine;
+    private MainWindow mainWindow;
 
-    public GameWindowElement(Coord pos, Coord size, Window parent){
+    public GameWindowElement(Coord pos, Coord size, MainWindow parent){
         super(pos, size, parent);
+        this.mainWindow = parent;
         gameEngine = new GameEngine(100, 100, this);
         setGameEngine(gameEngine);
         setBasicShapes(new ArrayList<>());
@@ -32,28 +38,33 @@ public class GameWindowElement extends WindowElement{
         this.gameEngine = gameEngine;
     }
 
+
+    public MainWindow getMainWindow() {
+        return mainWindow;
+    }
+
+
     public void setShapes(){
         clearBasicShapes();
         ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.add(new RectangleShape(new Coord(0, 0), getSize(), new Color(Color.Type.Black), false));
-        CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
+        MainWindowCameraConfiguration cameraConfiguration = mainWindow.getCameraConfiguration();
 
         FieldMap map = gameEngine.getMap();
         int fieldSize = gameEngine.getFieldSize();
 
-
         float zoom = cameraConfiguration.getZoom();
         int fieldNumber = (int) Math.ceil((getParent().getSize().x / (float)fieldSize) * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
-        float deltax = (cameraConfiguration.getWorldPos().x) / fieldSize;
-        float deltay = (cameraConfiguration.getWorldPos().y) / fieldSize;
+        double deltax = (cameraConfiguration.getWorldCameraPos().x) / fieldSize;
+        double deltay = (cameraConfiguration.getWorldCameraPos().y) / fieldSize;
         int deltai = (int)Math.floor(deltax);
         int deltaj = (int)Math.floor(deltay);
 
-        ArrayList<BasicShape> shapes = map.getShapes(new Coord(deltai, deltaj), new Coord(fieldNumber, fieldNumber));
+        ArrayList<BasicShape> shapes = map.getShapes(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber));
         basicShapes.addAll(shapes);
        /* for (int i = deltai; i <= fieldNumber + deltai; i++){
             for (int j = deltaj; j <= fieldNumber + deltaj; j++){
-                Field field = map.getFieldByIndex(new Coord(i, j));
+                Field field = map.getFieldByIndex(new Index(i, j));
                 if (field == null) continue;
                 Element element = field.getGround();
                 if (element != null) basicShapes.addAll(element.getShapes());
@@ -71,7 +82,7 @@ public class GameWindowElement extends WindowElement{
             if (element != null) basicShapes.addAll(element.getShapes());
         }*/
         //setBasicShapes(basicShapes);
-        setBasicShapesWithoutShift(basicShapes);
+        setBasicShapes(basicShapes);
     }
 
     @Override
@@ -109,31 +120,6 @@ public class GameWindowElement extends WindowElement{
 
     @Override
     public void run(){
-        CameraConfiguration cameraConfiguration = getParent().getCameraConfiguration();
-        FieldMap map = gameEngine.getMap();
-        int fieldSize = gameEngine.getFieldSize();
 
-        float zoom = cameraConfiguration.getZoom();
-        int fieldNumber = (int) Math.ceil(20 * zoom) + 1;
-
-        /*float deltax = cameraConfiguration.getX() / fieldSize;
-        float deltay = cameraConfiguration.getY() / fieldSize;
-        int deltai = 0;
-        int deltaj = 0;
-        if (deltax < 0) deltai = (int)Math.floor(deltax);
-        if (deltax >= 0) deltai = (int)Math.floor(deltax);
-        if (deltay < 0) deltaj = (int)Math.floor(deltay);
-        if (deltay >= 0) deltaj = (int)Math.floor(deltay);
-        for (int i = deltai; i <= fieldNumber + deltai; i++) {
-            for (int j = deltaj; j <= fieldNumber + deltaj; j++) {
-                Field field = map.getFieldByIndex(new Coord(i, j));
-                if (field == null) continue;
-                if (field.isChanged()){
-                    setShapes();
-                    field.setChanged(false);
-                    return;
-                }
-            }
-        }*/
     }
 }

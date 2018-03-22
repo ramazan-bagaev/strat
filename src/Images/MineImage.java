@@ -1,8 +1,8 @@
 package Images;
 
 import Foundation.Color;
-import Foundation.Coord;
-import Foundation.RectangleShape;
+import Utils.Coord;
+import Foundation.BasicShapes.RectangleShape;
 import Foundation.Window;
 
 public class MineImage extends Image{

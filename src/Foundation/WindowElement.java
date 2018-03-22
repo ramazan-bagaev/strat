@@ -1,5 +1,8 @@
 package Foundation;
 
+import Foundation.BasicShapes.BasicShape;
+import Utils.Coord;
+
 import java.util.ArrayList;
 
 public class WindowElement extends Broadcaster{
@@ -125,10 +128,6 @@ public class WindowElement extends Broadcaster{
         return false;
     }
 
-    public void setShapes(){
-
-    }
-
     public Coord getShift(){
         if (groupParent != null) {
             Coord shiftP = groupParent.getShift();
@@ -150,6 +149,10 @@ public class WindowElement extends Broadcaster{
             basicShape.shift(getShift().multiply(-1));
         }
         return result;
+    }
+
+    public void setShapes(){
+
     }
 
     @Override

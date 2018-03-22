@@ -1,8 +1,12 @@
 package Foundation.Runnable;
 
 import Foundation.*;
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
 import Foundation.Elements.City;
 import Foundation.Elements.Ground;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -11,13 +15,13 @@ public class SuperField implements RunEntity {
     private Time time;
     private FieldMap fieldMap;
 
-    private Coord globalPos;
+    private Index pos;
     private int size;
 
     private int numberOfWaterField;
     private int numberOfSoilField;
 
-    private ArrayList<Coord> cityPos;
+    private ArrayList<Index> cityPos;
 
     private ArrayList<Field> fields;
 
@@ -25,9 +29,9 @@ public class SuperField implements RunEntity {
 
     private int isWater; // 1 - water, 0 - ground
 
-    public SuperField(Coord globalPos, FieldMap fieldMap, Time time){
+    public SuperField(Index pos, FieldMap fieldMap, Time time){
         this.time = time;
-        this.globalPos = new Coord(globalPos);
+        this.pos = new Index(pos);
         this.size = fieldMap.getSuperFieldSize();
         this.fieldMap = fieldMap;
         this.fields = new ArrayList<>();
@@ -36,7 +40,7 @@ public class SuperField implements RunEntity {
         this.numberOfWaterField = 0;
         this.basicShapes = new ArrayList<>();
         this.isWater = 1;
-        basicShapes.add(new RectangleShape(globalPos, new Coord(size, size), new Color(Color.Type.Blue), true));
+        basicShapes.add(new RectangleShape(new Coord(pos.x*size, pos.y*size), new Coord(size, size), new Color(Color.Type.Blue), true));
     }
 
     public void addField(Field field){
@@ -60,7 +64,7 @@ public class SuperField implements RunEntity {
             else {
                 color = new Color(Color.Type.Green);
             }
-            RectangleShape newShape = new RectangleShape(globalPos, new Coord(size, size), color, true);
+            RectangleShape newShape = new RectangleShape(new Coord(pos.x*size, pos.y * size), new Coord(size, size), color, true);
             basicShapes.add(newShape);
         }
     }

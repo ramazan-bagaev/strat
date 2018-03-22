@@ -1,6 +1,7 @@
 package Foundation.GameWindowHelper;
 
-import Foundation.Coord;
+import Foundation.BasicShapes.BasicShape;
+import Utils.Index;
 import Foundation.*;
 import Foundation.GameWindowHelper.HelperElements.BorderHelper;
 import Foundation.GameWindowHelper.HelperElements.ChoosenFieldHelper;
@@ -12,8 +13,8 @@ import java.util.ArrayList;
 
 public class HelperField {
 
-    private Coord pos;
-    private Coord size;
+    private Index pos;
+    private Index size;
     private HelperFieldMap map;
 
 
@@ -25,7 +26,7 @@ public class HelperField {
     public HelperField(Field field, HelperFieldMap map){
         this.map = map;
         pos = field.getFieldMapPos();
-        size = new Coord(field.getSize(), field.getSize());
+        size = new Index(field.getSize(), field.getSize());
         borderHelpers = new ArrayList<>();
     }
 
@@ -65,11 +66,11 @@ public class HelperField {
         return coveringFieldHelper;
     }
 
-    public Coord getSize() {
+    public Index getSize() {
         return size;
     }
 
-    public Coord getPos() {
+    public Index getPos() {
         return pos;
     }
 

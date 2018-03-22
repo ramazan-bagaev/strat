@@ -1,9 +1,8 @@
 package WindowElements;
 
-import CharacterShape.CharacterShape;
 import Foundation.*;
-
-import java.util.ArrayList;
+import Foundation.BasicShapes.StringShape;
+import Utils.Coord;
 
 public class TimeElement extends Label {
 

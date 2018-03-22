@@ -1,6 +1,8 @@
 package Foundation;
 
-import CharacterShape.CharacterShape;
+import Foundation.BasicShapes.CharacterShape.CharacterShape;
+import Foundation.BasicShapes.*;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -15,10 +17,10 @@ public class OpenGLBinder {
     public void draw(BasicShape basicShape){
         RectangleShape rect;
         Color color = basicShape.getColor();
-        float x;
-        float y;
-        float x1;
-        float y1;
+        double x;
+        double y;
+        double x1;
+        double y1;
         Coord pos;
         Coord size;
         Coord posA;
@@ -38,21 +40,21 @@ public class OpenGLBinder {
 
                 if (rect.isFilled()) {
                     glBegin(GL_TRIANGLE_STRIP);
-                    glVertex3f(x, y, 0);
-                    glVertex3f(x, y1, 0);
-                    glVertex3f(x1, y, 0);
-                    glVertex3f(x1, y1, 0);
+                    glVertex3d(x, y, 0);
+                    glVertex3d(x, y1, 0);
+                    glVertex3d(x1, y, 0);
+                    glVertex3d(x1, y1, 0);
                     glEnd();
                     glFlush();
+                    glColor3f(0, 0, 0);
                 }
 
                 if (rect.isBoxes()) {
-                    glColor3f(0, 0, 0);
                     glBegin(GL_LINE_LOOP);
-                    glVertex3f(x, y, 1);
-                    glVertex3f(x, y1, 1);
-                    glVertex3f(x1, y1, 1);
-                    glVertex3f(x1, y, 1);
+                    glVertex3d(x, y, 1);
+                    glVertex3d(x, y1, 1);
+                    glVertex3d(x1, y1, 1);
+                    glVertex3d(x1, y, 1);
                     glEnd();
                     glFlush();
                 }
@@ -68,8 +70,8 @@ public class OpenGLBinder {
                     Coord from = characterShape.getFrom(i);
                     Coord to = characterShape.getTo(i);
                     glBegin(GL_LINES);
-                    glVertex3f(pos.x + from.x * (size.x / 100f), pos.y + from.y * (size.y / 100f), 1);
-                    glVertex3f(pos.x + to.x * (size.x / 100f), pos.y + to.y * (size.y / 100f), 1);
+                    glVertex3d(pos.x + from.x * (size.x / 100), pos.y + from.y * (size.y / 100), 1);
+                    glVertex3d(pos.x + to.x * (size.x / 100), pos.y + to.y * (size.y / 100), 1);
                     glEnd();
                     glFlush();
                 }
@@ -83,8 +85,8 @@ public class OpenGLBinder {
                 posA = lineShape.getPosA();
                 posB = lineShape.getPosB();
                 glBegin(GL_LINES);
-                glVertex3f(posA.x, posA.y, 0);
-                glVertex3f(posB.x, posB.y, 0);
+                glVertex3d(posA.x, posA.y, 0);
+                glVertex3d(posB.x, posB.y, 0);
                 glEnd();
                 glFlush();
                 glLineWidth(width);
@@ -96,9 +98,9 @@ public class OpenGLBinder {
                 posC = triangleShape.getPosC();
                 glBegin(GL_TRIANGLES);
                 glColor4f(color.r, color.g, color.b, color.a);
-                glVertex3f(posA.x, posA.y, 0);
-                glVertex3f(posB.x, posB.y, 0);
-                glVertex3f(posC.x, posC.y, 0);
+                glVertex3d(posA.x, posA.y, 0);
+                glVertex3d(posB.x, posB.y, 0);
+                glVertex3d(posC.x, posC.y, 0);
                 glEnd();
                 glFlush();
                 break;
@@ -108,7 +110,7 @@ public class OpenGLBinder {
                 glColor4f(color.r, color.g, color.b, color.a);
                 glBegin(GL_POLYGON);
                 for(Coord vertex: vertices){
-                    glVertex3f(vertex.x, vertex.y, 0);
+                    glVertex3d(vertex.x, vertex.y, 0);
                 }
                 glEnd();
                 glFlush();

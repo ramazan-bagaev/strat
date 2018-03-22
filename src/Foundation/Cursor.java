@@ -1,12 +1,13 @@
 package Foundation;
 
+import Utils.Coord;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Cursor {
 
-    private double posX;
-    private double posY;
+    private Coord pos;
     private boolean posChanged;
     private Coord pressedPos;
     private boolean dragEnd;
@@ -23,6 +24,7 @@ public class Cursor {
     private WindowElement clickedWindowElement;
 
     public Cursor(Frame frame, Input input){
+        pos = new Coord(0, 0);
         this.frame = frame;
         this.input = input;
         pressed = false;
@@ -30,28 +32,20 @@ public class Cursor {
     }
 
     public void posRenew(double x, double y){
-        if (x != posX){
-            posX = x;
+        if (x != pos.x){
+            pos.x = x;
             posChanged = true;
         }
-        if (y != posY){
-            posY = y;
+        if (y != pos.y){
+            pos.y = y;
             posChanged = true;
         }
-        Coord point = new Coord((int)x, (int)y);
+        Coord point = new Coord(x, y);
         if (posChanged){
             if (pressed) drag(point);
             renewActive();
         }
         if (activeWindow != null) activeWindow.hoover(point);
-    }
-
-    public double getPosX() {
-        return posX;
-    }
-
-    public double getPosY() {
-        return posY;
     }
 
     public Window getActiveWindow() {
@@ -71,19 +65,18 @@ public class Cursor {
     }
 
     public void renewActive(){
-        Coord point = new Coord((int)posX, (int)posY);
         LinkedList<Window> windowList = frame.getWindows();
         for (int i = windowList.size() - 1; i >= 0; i--){
             Window window = windowList.get(i);
-            if (window.contain(point)){
+            if (window.contain(pos)){
                 activeWindow = window;
-                Coord temp = point.add(window.getShift().multiply(-1));
+                Coord temp = pos.add(window.getShift().multiply(-1));
                 ArrayList<WindowElementGroup> windowElementGroups = window.getWindowElementGroups();
                 for (WindowElementGroup windowElementGroup: windowElementGroups){
                     if (windowElementGroup.contain(temp)){
                         activeWindowElementGroup = windowElementGroup;
                         ArrayList<WindowElement> windowElements = windowElementGroup.getWindowElements();
-                        temp = point.add(windowElementGroup.getShift().multiply(-1));
+                        temp = pos.add(windowElementGroup.getShift().multiply(-1));
                         for (WindowElement windowElement: windowElements){
                             if (windowElement.contain(temp)){
                                 activeWindowElement = windowElement;
@@ -96,7 +89,7 @@ public class Cursor {
                 }
                 activeWindowElementGroup = null;
                 ArrayList<WindowElement> windowElements = window.getWindowElements();
-                temp = point.add(window.getShift().multiply(-1));
+                temp = pos.add(window.getShift().multiply(-1));
                 for (int j = windowElements.size() - 1; j >= 0; j--){
                     WindowElement windowElement = windowElements.get(j);
                     if (windowElement.contain(temp)){
@@ -152,7 +145,7 @@ public class Cursor {
             return;
         }
         if (activeWindow != null){
-            activeWindow.scroll(delta, new Coord((int)posX, (int)posY).add(activeWindow.getShift().multiply(-1)));
+            activeWindow.scroll(delta, new Coord(pos).add(activeWindow.getShift().multiply(-1)));
         }
     }
 

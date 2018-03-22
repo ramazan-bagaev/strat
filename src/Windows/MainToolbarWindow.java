@@ -1,6 +1,6 @@
 package Windows;
 
-import Foundation.Coord;
+import Utils.Coord;
 import Foundation.Frame;
 import Foundation.Window;
 import Foundation.WindowElement;

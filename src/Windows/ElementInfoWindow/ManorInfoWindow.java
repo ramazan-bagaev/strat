@@ -6,6 +6,7 @@ import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.States.AddManorFieldState;
 import Images.Image;
 import Images.ManorImage;
+import Utils.Coord;
 import Windows.ClosableWindow;
 import Windows.ResourceStoreWindow;
 

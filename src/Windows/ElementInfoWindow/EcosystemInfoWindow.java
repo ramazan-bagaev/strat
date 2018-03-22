@@ -1,11 +1,11 @@
 package Windows.ElementInfoWindow;
 
-import Foundation.Coord;
 import Foundation.Elements.Ecosystem;
 import Foundation.Fauna.Fauna;
 import Foundation.Flora.Flora;
 import Foundation.Frame;
 import Foundation.Label;
+import Utils.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 

@@ -3,6 +3,7 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.Runnable.Army;
 import Images.ArmyImage;
+import Utils.Coord;
 
 public class ArmyElement extends Element{
 
@@ -12,7 +13,7 @@ public class ArmyElement extends Element{
         super(Type.Army, time, parent, map);
         this.army = army;
         int size = parent.getSize();
-        setBasicShapes(new ArmyImage(new Coord(0, 0), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
+        setBasicShapes(new ArmyImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
     }
 
     public Army getArmy() {

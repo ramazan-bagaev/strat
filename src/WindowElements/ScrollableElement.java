@@ -1,11 +1,9 @@
 package WindowElements;
 
-import Foundation.Coord;
+import Utils.Coord;
 import Foundation.Label;
-import Foundation.StringShape;
+import Foundation.BasicShapes.StringShape;
 import Foundation.Window;
-
-import java.util.ArrayList;
 
 public abstract class ScrollableElement extends Label{
 

@@ -1,10 +1,10 @@
 package Foundation.GameWindowHelper.HelperElements;
 
-import Foundation.BasicShape;
+import Foundation.BasicShapes.BasicShape;
 import Foundation.Color;
-import Foundation.Coord;
 import Foundation.GameWindowHelper.HelperField;
-import Foundation.RectangleShape;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -19,9 +19,9 @@ public class CoveringFieldHelper extends HelperElement {
     }
 
     public void setShapes(){
-        ArrayList<BasicShape> basicShapes = getBasicShapes();
-        basicShapes.clear();
-        RectangleShape rectangleShape = new RectangleShape(new Coord(pos), new Coord(size), color, false, true);
+        ArrayList<BasicShape> basicShapes = new ArrayList<>();
+        RectangleShape rectangleShape = new RectangleShape(new Coord(), new Coord(size.x, size.y), color, false, true);
         basicShapes.add(rectangleShape);
+        setBasicShapes(basicShapes);
     }
 }

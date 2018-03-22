@@ -1,8 +1,8 @@
 package Images;
 
 import Foundation.*;
-
-import java.util.ArrayList;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Coord;
 
 public class SawmillImage extends Image{
 

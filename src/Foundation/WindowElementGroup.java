@@ -1,5 +1,9 @@
 package Foundation;
 
+import Foundation.BasicShapes.BasicShape;
+import Foundation.BasicShapes.RectangleShape;
+import Utils.Coord;
+
 import java.util.ArrayList;
 
 public class WindowElementGroup {

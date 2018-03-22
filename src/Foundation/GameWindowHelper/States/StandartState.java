@@ -6,6 +6,8 @@ import Foundation.GameWindowHelper.Modes.ChoosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.Runnable.Army;
+import Utils.Index;
+import Utils.Coord;
 
 public class StandartState extends HelperState {
 
@@ -28,7 +30,7 @@ public class StandartState extends HelperState {
 
     @Override
     public void click(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
+        point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
 
         Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByPos(point);
         if (field != null) {
@@ -40,8 +42,10 @@ public class StandartState extends HelperState {
                 return;
             }
         }
-
-        choosenFieldMode.setNewPos(point);
+        Index index = new Index(0, 0);
+        index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
+        index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
+        choosenFieldMode.setNewPos(index);
 
         gameWindowHelperElement.getGameWindowElement().click(point);
     }

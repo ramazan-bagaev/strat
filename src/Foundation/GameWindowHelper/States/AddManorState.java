@@ -2,8 +2,10 @@ package Foundation.GameWindowHelper.States;
 
 import Foundation.*;
 import Foundation.Elements.City;
-import Foundation.Elements.Ground;
+import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -11,8 +13,8 @@ import java.util.ArrayList;
 public class AddManorState extends HelperState {
 
     private CoveringFieldMode coveringFieldMode;
-    private ArrayList<Coord> possible;
-    private ArrayList<Coord> impossible;
+    private ArrayList<Index> possible;
+    private ArrayList<Index> impossible;
     private City city;
 
 
@@ -28,8 +30,14 @@ public class AddManorState extends HelperState {
 
     public void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
-        for(Coord local: city.getTerritory())
+        ArrayList<Manor> manors = city.getManors();
+        ArrayList<Index> otherManors = new ArrayList<>();
+        for (Manor manor: manors){
+            otherManors.addAll(manor.getTerritory());
+        }
+        for(Index local: city.getTerritory())
         {
+            if (otherManors.contains(local)) continue;
             Field field = fieldMap.getFieldByIndex(local);
             if (field == null) continue;
             if (field.getCity() != null){
@@ -46,11 +54,6 @@ public class AddManorState extends HelperState {
                 impossible.add(local);
                 continue;
             }
-            if (field.getGroundType() != Ground.GroundType.Soil){
-                coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Red, 0.5f));
-                impossible.add(local);
-                continue;
-            }
             coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Blue, 0.5f));
             possible.add(local);
         }
@@ -58,12 +61,13 @@ public class AddManorState extends HelperState {
 
     @Override
     public void click(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
-        point.x = point.x / gameWindowHelperElement.getMap().getFieldSize();
-        point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
-        if (impossible.contains(point)) return;
-        if (possible.contains(point)) {
-            city.createManor(point);
+        point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
+        Index index = new Index(0, 0);
+        index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
+        index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
+        if (impossible.contains(index)) return;
+        if (possible.contains(index)) {
+            city.createManor(index);
         }
         gameWindowHelperElement.clearHelperElements();
         gameWindowHelperElement.setStandartState();

@@ -1,9 +1,10 @@
 package WindowElements;
 
-import CharacterShape.Font;
+import Foundation.BasicShapes.CharacterShape.Font;
 import Foundation.*;
-
-import java.util.ArrayList;
+import Foundation.BasicShapes.RectangleShape;
+import Foundation.BasicShapes.StringShape;
+import Utils.Coord;
 
 public class SliderElement extends WindowElement{
 
@@ -46,7 +47,7 @@ public class SliderElement extends WindowElement{
                     new Coord(sliderSize), new Color(Color.Type.LightGray), true);
             StringShape minVal = new StringShape(new Coord(0, size.y/2 - 20), new Coord(50, 10), String.valueOf(begin),
                     new Color(Color.Type.Black), font);
-            StringShape maxVal = new StringShape(new Coord( size.x - 50,size.y/2 - 20), new Coord(50, 10), String.valueOf(end),
+            StringShape maxVal = new StringShape(new Coord(size.x - 50,size.y/2 - 20), new Coord(50, 10), String.valueOf(end),
                     new Color(Color.Type.Black), font);
             clearBasicShapes();
             addBasicShapes(minVal.getBasicShapes());
@@ -70,8 +71,8 @@ public class SliderElement extends WindowElement{
         System.out.println("pass");
         System.out.println();
         if (horizontal) {
-            int minX = scalePos.x;
-            int maxX = minX + scaleSize.x + sliderSize.x;
+            double minX = scalePos.x;
+            double maxX = minX + scaleSize.x + sliderSize.x;
             Coord delta = new Coord(point.x - sliderPos.x - sliderSize.x/2, 0);
             Coord newPos = new Coord(sliderPos.add(delta));
             if (newPos.x > maxX || newPos.x < minX) return true;

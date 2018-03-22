@@ -1,41 +1,36 @@
 package Foundation;
 
-import java.util.ArrayList;
+import Utils.Coord;
 
 import static org.lwjgl.opengl.GL11.*;
 
 public class Camera {
 
-    private CameraConfiguration backgroundConfiguration;
+    private CameraConfiguration currentConfiguration;
     private Frame frame;
 
-    public Camera(Frame frame){
+    public Camera(Frame frame, CameraConfiguration cameraConfiguration){
         Coord pos = new Coord(frame.getPos());
         this.frame = frame;
-        backgroundConfiguration = new CameraConfiguration(pos, pos, frame.getSize(),false);
+        this.currentConfiguration = cameraConfiguration;
+        //backgroundConfiguration = new CameraConfiguration(pos, pos, frame.getSize(),false);
     }
 
     public void takeCameraView(CameraConfiguration cameraConfiguration){
         glLoadIdentity();
-        Coord worldPos = cameraConfiguration.getWorldPos();
-        Coord windowSize = cameraConfiguration.getWindowSize();
-        float zoom = cameraConfiguration.getZoom();
-        glOrtho(worldPos.x,  worldPos.x + zoom*windowSize.x, worldPos.y + zoom*windowSize.y, worldPos.y, 1, -1);
-        Coord windowPos = cameraConfiguration.getWindowPos();
-        glViewport(windowPos.x, frame.getSize().y - windowPos.y - windowSize.y , windowSize.x, windowSize.y);
+        currentConfiguration = cameraConfiguration;
+        Coord worldCameraPos = cameraConfiguration.getWorldCameraPos();
+        Coord worldCameraSize = cameraConfiguration.getWorldCameraSize();
+        Coord windowCameraPos = cameraConfiguration.getWindowCameraPos();
+        Coord windowCameraSize = cameraConfiguration.getWindowCameraSize();
+        //float zoom = cameraConfiguration.getZoom();
+        //glOrtho(worldPos.x,  worldPos.x + zoom*windowSize.x, worldPos.y + zoom*windowSize.y, worldPos.y, 1, -1);
+        glOrtho(worldCameraPos.x,worldCameraPos.x + worldCameraSize.x, worldCameraPos.y + worldCameraSize.y, worldCameraPos.y, 1, -1);
+        glViewport((int)(windowCameraPos.x), (int)(frame.getSize().y - windowCameraPos.y - windowCameraSize.y) ,
+                (int)(windowCameraSize.x), (int)(windowCameraSize.y));
     }
 
-    public void takeBackCameraView(){
-        glLoadIdentity();
-        Coord worldPos = backgroundConfiguration.getWorldPos();
-        Coord windowSize = backgroundConfiguration.getWindowSize();
-        float zoom = backgroundConfiguration.getZoom();
-        glOrtho(worldPos.x,  worldPos.x + zoom*windowSize.x, worldPos.y + zoom*windowSize.y, worldPos.y, 1, -1);
-        Coord windowPos = backgroundConfiguration.getWindowPos();
-        glViewport(windowPos.x, frame.getSize().y - windowPos.y - windowSize.y, windowSize.x, windowSize.y);
-    }
-
-    public CameraConfiguration getBackgroundConfiguration() {
-        return backgroundConfiguration;
+    public CameraConfiguration getCurrentConfiguration() {
+        return currentConfiguration;
     }
 }

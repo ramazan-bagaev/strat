@@ -1,6 +1,9 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.BasicShapes.BasicShape;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -44,10 +47,9 @@ public class Element extends Broadcaster {
     }
 
     private Coord getShift() {
-        Coord parentShift = parent.getMap().getGameEngine().getGameWindowElement().getShift();
-        Coord parentPos = parent.getFieldMapPos();
+        Index mapPos = new Index(parent.getFieldMapPos());
         int parentSize = parent.getSize();
-        return parentShift.add(new Coord(parentPos.x * parentSize, parentPos.y * parentSize));
+        return new Coord(mapPos.x * parentSize, mapPos.y * parentSize);
     }
 
     public void addShape(BasicShape shape){

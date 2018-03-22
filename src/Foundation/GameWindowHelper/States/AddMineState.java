@@ -4,6 +4,8 @@ import Foundation.*;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -12,8 +14,8 @@ public class AddMineState extends HelperState {
 
     private CoveringFieldMode coveringFieldMode;
 
-    private ArrayList<Coord> possible;
-    private ArrayList<Coord> impossible;
+    private ArrayList<Index> possible;
+    private ArrayList<Index> impossible;
 
 
     public AddMineState(Village village, GameWindowHelperElement gameWindowHelperElement) {
@@ -28,7 +30,7 @@ public class AddMineState extends HelperState {
 
     private void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
-        for(Coord local: village.getManor().getTerritory())
+        for(Index local: village.getManor().getTerritory())
         {
             Field field = fieldMap.getFieldByIndex(local);
             if (field == null) continue;
@@ -45,12 +47,13 @@ public class AddMineState extends HelperState {
 
     @Override
     public void click(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
-        point.x = point.x / gameWindowHelperElement.getMap().getFieldSize();
-        point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
-        if (impossible.contains(point)) return;
-        if (possible.contains(point)) {
-            village.createMine(point);
+        point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
+        Index index = new Index(0 ,0);
+        index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
+        index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
+        if (impossible.contains(index)) return;
+        if (possible.contains(index)) {
+            village.createMine(index);
             return;
         }
         gameWindowHelperElement.clearHelperElements();

@@ -3,9 +3,9 @@ package Windows;
 import Foundation.*;
 import Foundation.Elements.City;
 import Foundation.Person.People;
-import Foundation.Person.Population;
 import Foundation.Runnable.Army;
 import Foundation.WorksP.ArmyWork;
+import Utils.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.SliderElement;
 
@@ -25,8 +25,8 @@ public class ArmyAddWindow extends ClosableWindow{
     public void setShapes(){
         removeWindowElements();
         addCloseButton();
-        Population population = city.getPopulation();
-        int amount = population.amountOfNotWorking();
+        People people = city.getPeople();
+        int amount = people.getAmount();
 
         sliderElement = new SliderElement(new Coord(20, 20), new Coord(160, 20), true, 0, amount, this);
         addWindowElement(sliderElement);

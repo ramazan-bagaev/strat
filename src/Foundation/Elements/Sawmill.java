@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.Person.People;
 import Foundation.WorksP.SawmillWork;
 import Images.SawmillImage;
+import Utils.Coord;
 
 public class Sawmill extends Element{
 
@@ -19,7 +20,7 @@ public class Sawmill extends Element{
         setBasicShapes(new SawmillImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
         efficiency = 10;
-        people = parent.getPeople();
+        people = village.getPeople();
         work = new SawmillWork(village, this);
     }
 

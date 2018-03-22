@@ -5,6 +5,7 @@ import Foundation.Elements.City;
 import Foundation.GameWindowHelper.HelperElements.CityInfoHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.HelperFieldMap;
+import Utils.Index;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class CityInfoMode extends Mode {
             CityInfoHelper cityInfoHelper = new CityInfoHelper(city, helperField);
             cityInfoHelpers.add(cityInfoHelper);
             helperField.setCityInfoHelper(cityInfoHelper);
-            Coord pos = field.getFieldMapPos();
+            Index pos = field.getFieldMapPos();
             map.addByIndex(pos, helperField);
         }
     }
@@ -36,9 +37,9 @@ public class CityInfoMode extends Mode {
     @Override
     public void removeHelpers() {
         for(CityInfoHelper cityInfoHelper: cityInfoHelpers){
-            HelperField helperField = cityInfoHelper.getParentField();
+            HelperField helperField = cityInfoHelper.getParent();
             helperField.setCityInfoHelper(null);
-            if (cityInfoHelper.getParentField().isEmpty()) helperField.delete();
+            if (cityInfoHelper.getParent().isEmpty()) helperField.delete();
         }
         cityInfoHelpers.clear();
     }

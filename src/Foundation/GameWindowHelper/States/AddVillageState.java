@@ -5,6 +5,8 @@ import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
+import Utils.Index;
+import Utils.Coord;
 
 import java.util.ArrayList;
 
@@ -29,11 +31,11 @@ public class AddVillageState extends HelperState {
     }
 
     public void init(){
-        ArrayList<Coord> territory = manor.getTerritory();
+        ArrayList<Index> territory = manor.getTerritory();
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         Color p = new Color(Color.Type.White, 0.5f);
         Color i = new Color(Color.Type.Red, 0.5f);
-        for(Coord pos: territory){
+        for(Index pos: territory){
             Field field = fieldMap.getFieldByIndex(pos);
             if (field.getManor() != null){
                 impossible.addCoveringFieldHelper(pos, i);
@@ -61,12 +63,13 @@ public class AddVillageState extends HelperState {
 
     @Override
     public void click(Coord point) {
-        point = gameWindowHelperElement.getParent().getCameraConfiguration().transform(point);
-        point.x = point.x / gameWindowHelperElement.getMap().getFieldSize();
-        point.y = point.y / gameWindowHelperElement.getMap().getFieldSize();
-        if (impossible.isOccupiedBy(point)) return;
-        if (possible.isOccupiedBy(point)){
-            manor.createVillage(point);
+        point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
+        Index index = new Index(0 ,0);
+        index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
+        index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
+        if (impossible.isOccupiedBy(index)) return;
+        if (possible.isOccupiedBy(index)){
+            manor.createVillage(index);
             return;
         }
         clearHelperElements();
