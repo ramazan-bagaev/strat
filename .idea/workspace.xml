@@ -2,271 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="360a330c-dad6-4b8e-837d-e5cb5d393a2b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Foundation/MainWindowCameraConfiguration.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Generation/NameGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Windows/CityPeopleDistributionWindow.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Images/PersonImage.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/WindowElementGroups/PeopleElementGroup.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledRow.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableRow.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/PersonInfoWindow.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/CharacterShape/CharacterShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/CharacterShape/Font.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/CharacterShape/FontFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShape$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShape$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Button.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Button.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Camera.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Camera.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/CameraConfiguration.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/CameraConfiguration.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/ChangableLabel.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/ChangableLabel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Color.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Color.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Coord$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Coord$Direction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Coord.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Cursor.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Cursor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/ArmyElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/ArmyElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/City$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/City$SizeType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/CharacterShape/CharacterShape.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/CharacterShape/CharacterShape.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/StringShape.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/StringShape.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/City.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/City.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Element$Type.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Element$Type.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Element.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Element.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Farm.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Farm.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground$GroundType.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground$GroundType.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Manor.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Manor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Mine.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Mine.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River$RiverType.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River$RiverType.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River$Side.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River$Side.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Sawmill.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Sawmill.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Trawler.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Trawler.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Tree.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Tree.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Village.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Village.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Field$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Field$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Field.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Field.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/FieldMap.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/FieldMap.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Frame.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Frame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameEngine.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameEngine.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/BorderHelper$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/BorderHelper$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/BorderHelper.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/BorderHelper.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/HelperElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/HelperElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperField.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperField.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperFieldMap.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperFieldMap.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderMode.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderMode.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/ChoosenFieldMode.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/ChoosenFieldMode.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/CityInfoMode.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/CityInfoMode.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/CoveringFieldMode.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/CoveringFieldMode.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddFarmState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddFarmState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddManorFieldState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddManorFieldState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddManorState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddManorState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddMineState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddMineState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddSawmillState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddSawmillState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddTrawlerState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddTrawlerState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddVillageState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddVillageState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/ArmyControllingState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/ArmyControllingState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/HelperState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/HelperState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/StandartState.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/StandartState.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelperElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelperElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/InputWindowElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/InputWindowElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Label.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Label.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/LineShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/People.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Person/People.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Person.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Person.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Population.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/PopulationGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/PolygonShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/RectangleShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$Type.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$Type.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Resource.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Army$State.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Army$State.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Army.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Army.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/SuperField.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/SuperField.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/StringShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/TriangleShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElement.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElement.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElementGroup.class" afterPath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElementGroup.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Generation/FieldMapGenerator.class" afterPath="$PROJECT_DIR$/out/production/strat/Generation/FieldMapGenerator.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/ArmyImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/ArmyImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/CityImage$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/CityImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/CityImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/FarmImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/FarmImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/FoodResourceImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/FoodResourceImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/GroundImage$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/GroundImage$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/GroundImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/GroundImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/Image.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/Image.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/ManorImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/ManorImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/MineImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/MineImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/RockImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/RockImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/RockResourceImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/RockResourceImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/SawmillImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/SawmillImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TrawlerImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/TrawlerImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TreeImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/TreeImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TreeResourceImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/TreeResourceImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/VillageImage.class" afterPath="$PROJECT_DIR$/out/production/strat/Images/VillageImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/PathFinder.class" afterPath="$PROJECT_DIR$/out/production/strat/Utils/PathFinder.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PopulationAllGroup.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PopulationAllGroup.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PopulationAllGroup.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup$1.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup$2.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup$2.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/CloseButton.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/CloseButton.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/MonitoredBroadcastLabel.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/MonitoredBroadcastLabel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/PopulationMonitoredLabel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/RadioButton.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/RadioButton.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ResourceWindowElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ScrollableElement.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/ScrollableElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/SliderElement.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/SliderElement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroupCameraConfiguration.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroupCameraConfiguration.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/PersonScrolledElement.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ResourceScrollElement.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ScrollableElement.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/StaticBroadcastLabel.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/StaticBroadcastLabel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/TimeElement.class" afterPath="$PROJECT_DIR$/out/production/strat/WindowElements/TimeElement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ClosableWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ClosableWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ArmyInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ArmyInfoWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$2.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$3.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$4.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/EcosystemInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/EcosystemInfoWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$2.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$3.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$2.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/MainToolbarWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/MainToolbarWindow.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/PopulationInfoWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/PopulationInfoWindow.class" />
       <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ResourceStoreWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/ResourceStoreWindow.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$1.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$2.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$3.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$4.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow.class" afterPath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow.class" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterShape/CharacterShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterShape/Font.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterShape/FontFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Button.java" afterPath="$PROJECT_DIR$/src/Foundation/Button.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Camera.java" afterPath="$PROJECT_DIR$/src/Foundation/Camera.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/CameraConfiguration.java" afterPath="$PROJECT_DIR$/src/Foundation/CameraConfiguration.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/ChangableLabel.java" afterPath="$PROJECT_DIR$/src/Foundation/ChangableLabel.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Color.java" afterPath="$PROJECT_DIR$/src/Foundation/Color.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Coord.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Cursor.java" afterPath="$PROJECT_DIR$/src/Foundation/Cursor.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/ArmyElement.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/ArmyElement.java" />
+      <change beforePath="$PROJECT_DIR$/res/fonts.xml" afterPath="$PROJECT_DIR$/res/fonts.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/CharacterShape.java" afterPath="$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/CharacterShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/StringShape.java" afterPath="$PROJECT_DIR$/src/Foundation/BasicShapes/StringShape.java" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/City.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/City.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Element.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Element.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Farm.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Farm.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Ground.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Ground.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Manor.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Manor.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Mine.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Mine.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/River.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/River.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Sawmill.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Sawmill.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Trawler.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Trawler.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Tree.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Tree.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Village.java" afterPath="$PROJECT_DIR$/src/Foundation/Elements/Village.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Field.java" afterPath="$PROJECT_DIR$/src/Foundation/Field.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/FieldMap.java" afterPath="$PROJECT_DIR$/src/Foundation/FieldMap.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Frame.java" afterPath="$PROJECT_DIR$/src/Foundation/Frame.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameEngine.java" afterPath="$PROJECT_DIR$/src/Foundation/GameEngine.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/BorderHelper.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/BorderHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/HelperElement.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/HelperElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperField.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperField.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderMode.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/ChoosenFieldMode.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/ChoosenFieldMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/CityInfoMode.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/CityInfoMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/CoveringFieldMode.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/CoveringFieldMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddFarmState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddFarmState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorFieldState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorFieldState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddMineState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddMineState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddSawmillState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddSawmillState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddTrawlerState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddTrawlerState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddVillageState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddVillageState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/ArmyControllingState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/ArmyControllingState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/HelperState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/HelperState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/StandartState.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/StandartState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" afterPath="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/InputWindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/InputWindowElement.java" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/Label.java" afterPath="$PROJECT_DIR$/src/Foundation/Label.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/LineShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/MainWindow.java" afterPath="$PROJECT_DIR$/src/Foundation/MainWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" afterPath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Person/People.java" afterPath="$PROJECT_DIR$/src/Foundation/Person/People.java" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/Person/Person.java" afterPath="$PROJECT_DIR$/src/Foundation/Person/Person.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Person/Population.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Person/PopulationGroup.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/PolygonShape.java" afterPath="$PROJECT_DIR$/src/Foundation/BasicShapes/PolygonShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/RectangleShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Resource.java" afterPath="$PROJECT_DIR$/src/Foundation/Resource.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/Army.java" afterPath="$PROJECT_DIR$/src/Foundation/Runnable/Army.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/SuperField.java" afterPath="$PROJECT_DIR$/src/Foundation/Runnable/SuperField.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/StringShape.java" afterPath="$PROJECT_DIR$/src/Foundation/BasicShapes/StringShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/TriangleShape.java" afterPath="$PROJECT_DIR$/src/Foundation/BasicShapes/TriangleShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Window.java" afterPath="$PROJECT_DIR$/src/Foundation/Window.java" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/WindowElement.java" afterPath="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
       <change beforePath="$PROJECT_DIR$/src/Foundation/WindowElementGroup.java" afterPath="$PROJECT_DIR$/src/Foundation/WindowElementGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" afterPath="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/ArmyImage.java" afterPath="$PROJECT_DIR$/src/Images/ArmyImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/CityImage.java" afterPath="$PROJECT_DIR$/src/Images/CityImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/FarmImage.java" afterPath="$PROJECT_DIR$/src/Images/FarmImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/FoodResourceImage.java" afterPath="$PROJECT_DIR$/src/Images/FoodResourceImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/GroundImage.java" afterPath="$PROJECT_DIR$/src/Images/GroundImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/Image.java" afterPath="$PROJECT_DIR$/src/Images/Image.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/ManorImage.java" afterPath="$PROJECT_DIR$/src/Images/ManorImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/MineImage.java" afterPath="$PROJECT_DIR$/src/Images/MineImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/RockImage.java" afterPath="$PROJECT_DIR$/src/Images/RockImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/RockResourceImage.java" afterPath="$PROJECT_DIR$/src/Images/RockResourceImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/SawmillImage.java" afterPath="$PROJECT_DIR$/src/Images/SawmillImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/TrawlerImage.java" afterPath="$PROJECT_DIR$/src/Images/TrawlerImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/TreeImage.java" afterPath="$PROJECT_DIR$/src/Images/TreeImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/TreeResourceImage.java" afterPath="$PROJECT_DIR$/src/Images/TreeResourceImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Images/VillageImage.java" afterPath="$PROJECT_DIR$/src/Images/VillageImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/PathFinder.java" afterPath="$PROJECT_DIR$/src/Utils/PathFinder.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/PopulationAllGroup.java" afterPath="$PROJECT_DIR$/src/WindowElementGroups/PopulationAllGroup.java" />
+      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/PopulationAllGroup.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java" afterPath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/CloseButton.java" afterPath="$PROJECT_DIR$/src/WindowElements/CloseButton.java" />
+      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java" afterPath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java" />
       <change beforePath="$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java" afterPath="$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/PopulationMonitoredLabel.java" afterPath="$PROJECT_DIR$/src/WindowElements/PersonScrolledElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/RadioButton.java" afterPath="$PROJECT_DIR$/src/WindowElements/RadioButton.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/ResourceWindowElement.java" afterPath="$PROJECT_DIR$/src/WindowElements/ResourceScrollElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/ScrollableElement.java" afterPath="$PROJECT_DIR$/src/WindowElements/ScrollableElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/SliderElement.java" afterPath="$PROJECT_DIR$/src/WindowElements/SliderElement.java" />
+      <change beforePath="$PROJECT_DIR$/src/WindowElements/PersonScrolledElement.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/WindowElements/ResourceScrollElement.java" afterPath="$PROJECT_DIR$/src/WindowElements/ScrollElements/ResourceScrollElement.java" />
+      <change beforePath="$PROJECT_DIR$/src/WindowElements/ScrollableElement.java" afterPath="$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableElement.java" />
       <change beforePath="$PROJECT_DIR$/src/WindowElements/StaticBroadcastLabel.java" afterPath="$PROJECT_DIR$/src/WindowElements/StaticBroadcastLabel.java" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/TimeElement.java" afterPath="$PROJECT_DIR$/src/WindowElements/TimeElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ArmyAddWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ArmyAddWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ClosableWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ClosableWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/ArmyInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/ArmyInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/CityInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/CityInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/EcosystemInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/EcosystemInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/ManorInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/ManorInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/VillageInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/VillageInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/FieldInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/FieldInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/MainToolbarWindow.java" afterPath="$PROJECT_DIR$/src/Windows/MainToolbarWindow.java" />
       <change beforePath="$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java" afterPath="$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java" />
       <change beforePath="$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java" afterPath="$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/WorkPlaceWindows/VillageWorkWindow.java" afterPath="$PROJECT_DIR$/src/Windows/WorkPlaceWindows/VillageWorkWindow.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -281,102 +56,111 @@
       <file leaf-file-name="ScrollableGroup.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="80" column="46" lean-forward="false" selection-start-line="80" selection-start-column="46" selection-end-line="80" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PopulationInfoWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="47" column="98" lean-forward="true" selection-start-line="47" selection-start-column="98" selection-end-line="47" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameWindowHelperElement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-349">
-              <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScrollableGroupCameraConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="People.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Person/People.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Person.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Person/Person.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrawlerWork.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/WorksP/TrawlerWork.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Elements/City.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="58" column="113" lean-forward="false" selection-start-line="58" selection-start-column="113" selection-end-line="58" selection-end-column="113" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CityPeopleDistributionWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Windows/CityPeopleDistributionWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="1260">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#208#209#0" expanded="true" />
-                <element signature="e#248#249#0" expanded="true" />
+                <element signature="e#3957#3958#0" expanded="true" />
+                <element signature="e#3996#3997#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Foundation/Elements/Mine.java">
+      <file leaf-file-name="PeopleElementGroup.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/PeopleElementGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+            <state relative-caret-position="216">
+              <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2087">
+              <caret line="157" column="38" lean-forward="false" selection-start-line="157" selection-start-column="38" selection-end-line="157" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScrollableElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScrollableRow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableRow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#510#511#0" expanded="true" />
+                <element signature="e#537#538#0" expanded="true" />
+                <element signature="e#593#594#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonScrolledRow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledRow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="446">
+              <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#462#463#0" expanded="true" />
+                <element signature="e#491#492#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WindowElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MonitoredBroadcastLabel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaticBroadcastLabel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WindowElements/StaticBroadcastLabel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Label.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -410,42 +194,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Foundation/FieldMap.java" />
-        <option value="$PROJECT_DIR$/src/Utils/CoordF.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameEngine.java" />
-        <option value="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" />
-        <option value="$PROJECT_DIR$/src/Generation/NameGenerator.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Camera.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddFarmState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/StandartState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddMineState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddTrawlerState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorFieldState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddVillageState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddSawmillState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/ArmyControllingState.java" />
         <option value="$PROJECT_DIR$/src/WindowElements/ResourceScrollElement.java" />
         <option value="$PROJECT_DIR$/src/WindowElements/PersonMonitoredLabel.java" />
-        <option value="$PROJECT_DIR$/src/WindowElements/PersonScrolledElement.java" />
-        <option value="$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java" />
         <option value="$PROJECT_DIR$/src/WindowElementGroups/PopulationAllGroup.java" />
         <option value="$PROJECT_DIR$/src/Foundation/MainWindowCameraConfiguration.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Element.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Label.java" />
         <option value="$PROJECT_DIR$/src/Foundation/CameraConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Frame.java" />
         <option value="$PROJECT_DIR$/src/Windows/FieldInfoWindow.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/WindowElementGroup.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Window.java" />
         <option value="$PROJECT_DIR$/src/Foundation/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Village.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Manor.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Elements/City.java" />
         <option value="$PROJECT_DIR$/src/Images/Image.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Farm.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/ArmyElement.java" />
@@ -456,11 +216,35 @@
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Ground.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Mine.java" />
         <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" />
-        <option value="$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java" />
-        <option value="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java" />
-        <option value="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java" />
         <option value="$PROJECT_DIR$/src/Windows/CityPeopleDistributionWindow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Elements/City.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/PersonScrolledElement.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/BasicShapes/StringShape.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/CharacterShape.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" />
+        <option value="$PROJECT_DIR$/res/fonts.xml" />
+        <option value="$PROJECT_DIR$/src/Windows/PeopleInfoWindow.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/ScrollElements/ResourceScrollElement.java" />
+        <option value="$PROJECT_DIR$/src/WindowElementGroups/PoepleElementGroup.java" />
+        <option value="$PROJECT_DIR$/src/Images/PersonImage.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledElement.java" />
+        <option value="$PROJECT_DIR$/src/Windows/ElementInfoWindow/PersonInfoWindow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WindowElementGroup.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableRowElement.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableElement.java" />
+        <option value="$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Person/Person.java" />
+        <option value="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableRow.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Camera.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/Label.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/StaticBroadcastLabel.java" />
+        <option value="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
+        <option value="$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledRow.java" />
+        <option value="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java" />
+        <option value="$PROJECT_DIR$/src/WindowElementGroups/PeopleElementGroup.java" />
       </list>
     </option>
   </component>
@@ -498,22 +282,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -529,6 +297,11 @@
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
               <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -536,6 +309,21 @@
               <item name="strat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="BasicShapes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="BasicShapes" type="462c0819:PsiDirectoryNode" />
+              <item name="CharacterShape" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
@@ -585,7 +373,21 @@
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
               <item name="strat" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="WindowElements" type="462c0819:PsiDirectoryNode" />
+              <item name="ScrollElements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Windows" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Windows" type="462c0819:PsiDirectoryNode" />
+              <item name="ElementInfoWindow" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
@@ -596,6 +398,22 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -606,7 +424,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;System.out&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ramazan/Documents/prog/strat/src/WindowElements/ScrollElements/ScrollableRow.java&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;System.out&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
@@ -764,6 +582,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="215" y="203" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -773,7 +592,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -813,193 +632,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/StandartState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="32" column="55" lean-forward="false" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddMineState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="49" column="55" lean-forward="false" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddTrawlerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="48" column="55" lean-forward="false" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorFieldState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="87" column="55" lean-forward="false" selection-start-line="87" selection-start-column="55" selection-end-line="87" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddVillageState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="65" column="55" lean-forward="false" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddSawmillState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="49" column="55" lean-forward="false" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/ArmyControllingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Cursor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="132" column="9" lean-forward="false" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowElements/ResourceScrollElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="51" lean-forward="false" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollableElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="33" column="98" lean-forward="false" selection-start-line="33" selection-start-column="98" selection-end-line="33" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/PopulationAllGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowElements/PersonScrolledElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/MainWindowCameraConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Elements/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Windows/ElementInfoWindow/EcosystemInfoWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="35" column="7" lean-forward="false" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding>
-            <element signature="e#999#1000#0" expanded="false" />
-            <element signature="e#1059#1060#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/CameraConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="193" column="32" lean-forward="true" selection-start-line="193" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-486">
-          <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/GameEngine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-36">
@@ -1021,48 +653,6 @@
         <state relative-caret-position="162">
           <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElementGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-944">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="157" column="38" lean-forward="true" selection-start-line="157" selection-start-column="38" selection-end-line="157" selection-end-column="38" />
-          <folding>
-            <element signature="e#4039#4040#0" expanded="false" />
-            <element signature="e#4081#4082#0" expanded="false" />
-            <element signature="e#4484#4485#0" expanded="false" />
-            <element signature="e#4515#4516#0" expanded="false" />
-            <element signature="e#4545#4546#0" expanded="false" />
-            <element signature="e#4582#4583#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="92" column="39" lean-forward="true" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
-          <folding>
-            <element signature="e#2616#2617#0" expanded="false" />
-            <element signature="e#2650#2651#0" expanded="false" />
-            <element signature="e#2716#2717#0" expanded="false" />
-            <element signature="e#2762#2763#0" expanded="false" />
-            <element signature="e#3057#3058#0" expanded="false" />
-            <element signature="e#3085#3086#0" expanded="false" />
-            <element signature="e#3458#3459#0" expanded="false" />
-            <element signature="e#3504#3505#0" expanded="false" />
-            <element signature="e#3885#3886#0" expanded="false" />
-            <element signature="e#3912#3913#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1159,40 +749,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Elements/Mine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="306">
           <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="47" column="98" lean-forward="true" selection-start-line="47" selection-start-column="98" selection-end-line="47" selection-end-column="98" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-349">
+        <state relative-caret-position="342">
           <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="80" column="46" lean-forward="false" selection-start-line="80" selection-start-column="46" selection-end-line="80" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1208,23 +774,80 @@
     <entry file="file://$PROJECT_DIR$/src/Foundation/WorksP/TrawlerWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/PeopleDistribution.java" />
     <entry file="file://$PROJECT_DIR$/src/Foundation/Elements/City.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="58" column="113" lean-forward="false" selection-start-line="58" selection-start-column="113" selection-end-line="58" selection-end-column="113" />
+        <state relative-caret-position="515">
+          <caret line="66" column="77" lean-forward="false" selection-start-line="66" selection-start-column="77" selection-end-line="66" selection-end-column="77" />
+          <folding>
+            <element signature="e#2994#2995#0" expanded="false" />
+            <element signature="e#3021#3022#0" expanded="false" />
+            <element signature="e#3063#3064#0" expanded="false" />
+            <element signature="e#3097#3098#0" expanded="false" />
+            <element signature="e#3712#3713#0" expanded="false" />
+            <element signature="e#3738#3739#0" expanded="false" />
+            <element signature="e#3778#3779#0" expanded="false" />
+            <element signature="e#3808#3809#0" expanded="false" />
+            <element signature="e#3855#3856#0" expanded="false" />
+            <element signature="e#3891#3892#0" expanded="false" />
+            <element signature="e#3956#3957#0" expanded="false" />
+            <element signature="e#4006#4007#0" expanded="false" />
+            <element signature="e#4033#4034#0" expanded="false" />
+            <element signature="e#4058#4059#0" expanded="false" />
+            <element signature="e#4091#4092#0" expanded="false" />
+            <element signature="e#4119#4120#0" expanded="false" />
+            <element signature="e#4150#4151#0" expanded="false" />
+            <element signature="e#4178#4179#0" expanded="false" />
+            <element signature="e#4219#4220#0" expanded="false" />
+            <element signature="e#4253#4254#0" expanded="false" />
+            <element signature="e#4286#4287#0" expanded="false" />
+            <element signature="e#4315#4316#0" expanded="false" />
+            <element signature="e#4361#4362#0" expanded="false" />
+            <element signature="e#4393#4394#0" expanded="false" />
+            <element signature="e#4436#4437#0" expanded="false" />
+            <element signature="e#4465#4466#0" expanded="false" />
+            <element signature="e#4498#4499#0" expanded="false" />
+            <element signature="e#4527#4528#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/BasicShapes/StringShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Windows/PeopleDistribution.java">
+    <entry file="file://$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/CharacterShape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="352">
+          <caret line="125" column="5" lean-forward="false" selection-start-line="125" selection-start-column="5" selection-end-line="125" selection-end-column="5" />
+          <folding>
+            <element signature="e#2966#2967#0" expanded="false" />
+            <element signature="e#2994#2995#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="193" column="32" lean-forward="true" selection-start-line="193" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/fonts.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1234,17 +857,249 @@
         <state relative-caret-position="90">
           <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#208#209#0" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#208#209#0" expanded="false" />
+            <element signature="e#248#249#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/PeopleInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/ResourceScrollElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/OpenGLBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/PersonImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/PopulationAllGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="33" column="42" lean-forward="false" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Foundation/Person/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="586">
+          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+          <folding>
+            <element signature="e#438#439#0" expanded="false" />
+            <element signature="e#465#466#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#525#526#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ElementInfoWindow/PersonInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/ElementInfoWindow/CityInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="44" column="77" lean-forward="false" selection-start-line="44" selection-start-column="77" selection-end-line="44" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="29" column="70" lean-forward="true" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
+          <folding>
+            <element signature="e#1490#1491#0" expanded="false" />
+            <element signature="e#1533#1534#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/CameraConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding>
+            <element signature="e#1273#1274#0" expanded="false" />
+            <element signature="e#1300#1301#0" expanded="false" />
+            <element signature="e#1358#1359#0" expanded="false" />
+            <element signature="e#1410#1411#0" expanded="false" />
+            <element signature="e#1527#1528#0" expanded="false" />
+            <element signature="e#1561#1562#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElementGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1088">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/Coord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2087">
+          <caret line="157" column="38" lean-forward="false" selection-start-line="157" selection-start-column="38" selection-end-line="157" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/StaticBroadcastLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Foundation/WindowElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding>
+            <element signature="e#3957#3958#0" expanded="true" />
+            <element signature="e#3996#3997#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowElementGroups/PeopleElementGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
           <folding />
         </state>
       </provider>

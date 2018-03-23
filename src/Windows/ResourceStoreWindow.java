@@ -3,8 +3,8 @@ package Windows;
 import Foundation.*;
 import Utils.Coord;
 import WindowElementGroups.ScrollableGroup;
-import WindowElements.ResourceScrollElement;
-import WindowElements.ScrollableElement;
+import WindowElements.ScrollElements.ResourceScrollElement;
+import WindowElements.ScrollElements.ScrollableElement;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class ResourceStoreWindow extends ClosableWindow {
         }
 
         ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(0, 10), new Coord(280, 100), this);
-        scrollableGroup.setScrollableElements(elements);
+       // scrollableGroup.setScrollableElements(elements);
         addWindowElementGroup(scrollableGroup);
 
         //MonitoredBroadcastLabel foodAmount = new MonitoredBroadcastLabel(getPos().add(new Index(10, 10)), new Index(180, 20),

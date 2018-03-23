@@ -22,7 +22,7 @@ public class ScrollableGroupCameraConfiguration extends CameraConfiguration{
         super(worldCameraPos, worldCameraSize, windowCameraPos, windowCameraSize);
         this.minY = minY;
         this.maxY = maxY;
-        yPos = windowCameraPos.y;
+        yPos = worldCameraPos.y;
     }
 
     public void scroll(double delta){
@@ -39,7 +39,26 @@ public class ScrollableGroupCameraConfiguration extends CameraConfiguration{
         this.minY = minY;
     }
 
+    public double getMaxY(){
+        return maxY;
+    }
+
+    public void setWorldCameraPos(Coord worldCameraPos){
+        this.worldCameraPos = worldCameraPos;
+    }
+
     public void setMaxY(double maxY) {
         this.maxY = maxY;
+    }
+
+    public void increaseMaxY(double delta){
+        this.maxY += delta;
+    }
+
+    @Override
+    public Coord transform(Coord pos){
+        Coord newPos = new Coord(pos);
+        newPos.y+= worldCameraPos.y - yPos;
+        return newPos;
     }
 }

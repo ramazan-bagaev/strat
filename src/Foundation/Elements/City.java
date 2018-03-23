@@ -51,7 +51,20 @@ public class City extends RunableElement {
         NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
         int population = parent.getRandom().nextInt(100);
         for(int i = 0; i < population; i++){
-            Person person = new Person(nameGenerator.generate(), parent);
+            Person.Kasta kast = Person.Kasta.Low;
+            int kastNum = parent.getRandom().nextInt(3);
+            switch (kastNum){
+                case 0:
+                    kast = Person.Kasta.Low;
+                    break;
+                case 1:
+                    kast = Person.Kasta.Middle;
+                    break;
+                case 2:
+                    kast = Person.Kasta.High;
+                    break;
+            }
+            Person person = new Person(nameGenerator.generate(), parent, kast);
             people.addPerson(person);
         }
 

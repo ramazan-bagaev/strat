@@ -13,6 +13,8 @@ public class CharacterShape extends BasicShape {
     private ArrayList<Coord> from;
     private ArrayList<Coord> to;
 
+    private float width;
+
     private Coord pos;
     private Coord size;
 
@@ -26,6 +28,7 @@ public class CharacterShape extends BasicShape {
         setDefinition(characterShape.getDefinition());
         setFrom(characterShape.getFrom());
         setTo(characterShape.getTo());
+        width = characterShape.width;
     }
 
     public CharacterShape(int characterId){
@@ -37,6 +40,7 @@ public class CharacterShape extends BasicShape {
         setCharacterId(characterId);
         from = new ArrayList<>();
         to = new ArrayList<>();
+        width = 0.8f;
     }
 
     public CharacterShape(int characterId, String definition){
@@ -49,6 +53,7 @@ public class CharacterShape extends BasicShape {
         setDefinition(definition);
         from = new ArrayList<>();
         to = new ArrayList<>();
+        width = 0.8f;
     }
 
     public void addLine(Coord fromCoord, Coord toCoord){
@@ -118,6 +123,10 @@ public class CharacterShape extends BasicShape {
 
     public void shift(Coord shift){
         pos = pos.add(shift);
+    }
+
+    public float getWidth() {
+        return width;
     }
 
     @Override

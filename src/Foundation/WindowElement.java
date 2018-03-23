@@ -27,7 +27,7 @@ public class WindowElement extends Broadcaster{
         this.pos = new Coord(pos);
         this.size = new Coord(size);
         setParent(parent);
-        setGroupParent(groupParent);
+        this.groupParent = groupParent;
         basicShapes = new ArrayList<>();
     }
 
@@ -110,9 +110,9 @@ public class WindowElement extends Broadcaster{
         return groupParent;
     }
 
-    public void setGroupParent(WindowElementGroup groupParent) {
-        this.groupParent = groupParent;
-    }
+    //public void setGroupParent(WindowElementGroup groupParent) {
+    //    this.groupParent = groupParent;
+    //}
 
     public void shift(Coord shift){
         pos = getPos().add(shift);

@@ -1,4 +1,4 @@
-package WindowElements;
+package WindowElements.ScrollElements;
 
 import Foundation.*;
 import Utils.Coord;

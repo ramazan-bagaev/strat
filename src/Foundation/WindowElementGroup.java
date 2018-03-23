@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class WindowElementGroup {
 
-    private Coord pos;
-    private Coord size;
+    protected Coord pos;
+    protected Coord size;
 
     private Window parent;
     private ArrayList<WindowElement> windowElements;

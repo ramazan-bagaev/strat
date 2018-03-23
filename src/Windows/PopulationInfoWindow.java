@@ -2,15 +2,11 @@ package Windows;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.Person.Person;
 import Utils.Coord;
+import WindowElementGroups.PeopleElementGroup;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.CloseButton;
 import WindowElements.MonitoredBroadcastLabel;
-import WindowElements.PersonScrolledElement;
-import WindowElements.ScrollableElement;
-
-import java.util.ArrayList;
 
 public class PopulationInfoWindow extends ClosableWindow{
 
@@ -41,7 +37,7 @@ public class PopulationInfoWindow extends ClosableWindow{
                 "Man populaion:", people, "manAmount", this);
         addWindowElement(manAmount);
 
-        ArrayList<ScrollableElement> populationMonitoredLabels = new ArrayList<>();
+        /*ArrayList<ScrollableElement> populationMonitoredLabels = new ArrayList<>();
         int index = 0;
         int scrollEl = 20;
         for (Person person: people.getPersonArray()){
@@ -51,7 +47,16 @@ public class PopulationInfoWindow extends ClosableWindow{
             populationMonitoredLabels.add(personScrolledElement);
         }
 
-        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(10, 70), new Coord(390, 300), populationMonitoredLabels, this);
+        ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(10, 70), new Coord(390, 300), populationMonitoredLabels, this);*/
+
+
+        ScrollableGroup scrollableGroup = new PeopleElementGroup(new Coord(10, 90), new Coord(390, 300), people, this);
         addWindowElementGroup(scrollableGroup);
+        double x = scrollableGroup.getScrollWindowSize().x;
+        Label label = new Label(new Coord(10, 70), new Coord(x/2 -10, 20), "name", this);
+        addWindowElement(label);
+        label = new Label(new Coord(x/2+10, 70), new Coord(x/2 -10, 20), "kasta", this);
+        addWindowElement(label);
+
     }
 }

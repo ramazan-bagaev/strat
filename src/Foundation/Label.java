@@ -15,6 +15,13 @@ public class Label extends WindowElement{
         setStringShape(stringShape);
     }
 
+    public Label(Coord pos, Coord size, String text, WindowElementGroup windowElementGroup, Window parent){
+        super(pos, size, windowElementGroup, parent);
+        Font font = parent.getFont("latin");
+        StringShape stringShape = new StringShape(new Coord(0, 0), size, text, new Color(Color.Type.Black), font);
+        setStringShape(stringShape);
+    }
+
     @Override
     public void click(Coord point) {
         return;

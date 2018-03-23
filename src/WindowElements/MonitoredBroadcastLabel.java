@@ -20,7 +20,18 @@ public class MonitoredBroadcastLabel extends Label{
         StringShape stringShape = getStringShape();
         stringShape.setText(text + " " + broadcaster.getValue(key));
         setStringShape(stringShape);
+    }
 
+    public MonitoredBroadcastLabel(Coord pos, Coord size, String text, Broadcaster broadcaster, String key, WindowElementGroup windowElementGroup,
+                                   Window parent) {
+        super(pos, size, text, windowElementGroup, parent);
+        setPreText(text);
+        setBroadcaster(broadcaster);
+        setKey(key);
+        setOldText(broadcaster.getValue(key));
+        StringShape stringShape = getStringShape();
+        stringShape.setText(text + " " + broadcaster.getValue(key));
+        setStringShape(stringShape);
     }
 
     @Override

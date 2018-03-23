@@ -8,14 +8,28 @@ public class Person extends Broadcaster{
     private Field field;
     private String name;
 
+    private Kasta kasta;
 
-    private enum Kasta{
-        
+
+    public enum Kasta{
+        Low, Middle, High
     }
 
-    public Person(String name, Field field){
+    public Person(String name, Field field, Kasta kasta){
         this.field = field;
         this.name = name;
+        this.kasta = kasta;
+    }
+
+
+
+    public String getName() {
+        return name;
+    }
+
+
+    public Kasta getKasta() {
+        return kasta;
     }
 
 
@@ -24,6 +38,16 @@ public class Person extends Broadcaster{
         switch (key){
             case "name":
                 return name;
+            case "kasta":
+                switch (kasta){
+
+                    case Low:
+                        return "low";
+                    case Middle:
+                        return "middle";
+                    case High:
+                        return "high";
+                }
         }
         return noResult;
     }

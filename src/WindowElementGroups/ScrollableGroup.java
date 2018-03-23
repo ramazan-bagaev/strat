@@ -2,32 +2,47 @@ package WindowElementGroups;
 
 import Foundation.*;
 import Utils.Coord;
-import WindowElements.ScrollableElement;
+import WindowElements.ScrollElements.ScrollableRow;
 
 import java.util.ArrayList;
 
 public class ScrollableGroup extends WindowElementGroup{
 
-    private ArrayList<ScrollableElement> scrollableElements;
-    private ScrollableGroupCameraConfiguration cameraConfiguration;
+    protected ArrayList<ScrollableRow> scrollableRows;
+    protected ScrollableGroupCameraConfiguration cameraConfiguration;
+
+    protected Coord scrollWindowSize;
 
     public ScrollableGroup(Coord pos, Coord size, Window parent){
         super(pos, size, parent);
-        cameraConfiguration = new ScrollableGroupCameraConfiguration(new Coord(getShift()), getSize(),
-                new Coord(getShift()), getSize(), 0, 0);
+        scrollableRows = new ArrayList<>();
+        scrollWindowSize = new Coord(size.add(new Coord(-20,0)));
+        cameraConfiguration = new ScrollableGroupCameraConfiguration(getShift(), scrollWindowSize,
+                getShift(), scrollWindowSize, 0, 0);
         addScrollButton();
     }
 
-    public ScrollableGroup(Coord pos, Coord size, ArrayList<ScrollableElement> scrollableElements, Window parent) {
+    public ScrollableGroup(Coord pos, Coord size, Coord scrollWindowSize, Window parent){
         super(pos, size, parent);
-        cameraConfiguration = new ScrollableGroupCameraConfiguration(new Coord(getShift()), getSize(),
-                new Coord(getShift()), getSize(), 0, scrollableElements.size()*20);
-        setScrollableElements(scrollableElements);
+        scrollableRows = new ArrayList<>();
+        this.scrollWindowSize = new Coord(scrollWindowSize);
+        cameraConfiguration = new ScrollableGroupCameraConfiguration(getShift(), scrollWindowSize,
+                getShift(), scrollWindowSize, 0, 0);
+        addScrollButton();
+    }
+
+    public ScrollableGroup(Coord pos, Coord size, ArrayList<ScrollableRow> scrollableRows, Window parent) {
+        super(pos, size, parent);
+        this.scrollableRows = new ArrayList<>();
+        scrollWindowSize = new Coord(size.add(new Coord(-20,0)));
+        cameraConfiguration = new ScrollableGroupCameraConfiguration(getShift(), scrollWindowSize,
+                getShift(), scrollWindowSize, 0, scrollableRows.size()*20);
+        setScrollableRows(scrollableRows);
         addScrollButton();
     }
 
     public void addScrollButton(){
-        Button buttonUp = new Button(new Coord(getSize().x - 15, 0), new Coord(15, 20), this, getParent(), "up") {
+        Button buttonUp = new Button(new Coord(getSize().x - 20, 0), new Coord(20, 20), this, getParent(), "u") {
             @Override
             public void click(Coord point) {
                 ScrollableGroup scrollableGroup = (ScrollableGroup)getGroupParent();
@@ -35,7 +50,8 @@ public class ScrollableGroup extends WindowElementGroup{
             }
         };
 
-        Button buttonDown = new Button(new Coord(getSize().x - 15, getSize().y - 20), new Coord(15, 20), this, getParent(), "down") {
+        Button buttonDown = new Button(new Coord(getSize().x - 20, getSize().y - 20), new Coord(20, 20), this,
+                getParent(), "d") {
             @Override
             public void click(Coord point) {
                 ScrollableGroup scrollableGroup = (ScrollableGroup)getGroupParent();
@@ -52,25 +68,26 @@ public class ScrollableGroup extends WindowElementGroup{
         Camera camera = getParent().getParent().getCamera();
         CameraConfiguration currentCameraConfiguration = camera.getCurrentConfiguration();
         camera.takeCameraView(cameraConfiguration);
-        for (ScrollableElement scrollableElement: scrollableElements){
-            scrollableElement.draw(openGLBinder);
+        for (ScrollableRow scrollableRow : scrollableRows){
+            scrollableRow.draw(openGLBinder);
         }
         camera.takeCameraView(currentCameraConfiguration);
-
     }
 
 
-    public ArrayList<ScrollableElement> getScrollableElements() {
-        return scrollableElements;
+    public ArrayList<ScrollableRow> getScrollableRows() {
+        return scrollableRows;
     }
 
-    public void setScrollableElements(ArrayList<ScrollableElement> scrollableElements) {
-        this.scrollableElements = scrollableElements;
-        cameraConfiguration.setMaxY(scrollableElements.size()*20);
+    public void addScrollableRow(ScrollableRow scrollableRow){
+        scrollableRow.shift(new Coord(0, cameraConfiguration.getMaxY()));
+        scrollableRows.add(scrollableRow);
+        cameraConfiguration.increaseMaxY(scrollableRow.getSize().y + 10);
+    }
 
-        for(WindowElement windowElement: scrollableElements){
-            windowElement.setGroupParent(this);
-        }
+    public void setScrollableRows(ArrayList<ScrollableRow> scrollableRows) {
+        this.scrollableRows = scrollableRows;
+        cameraConfiguration.setMaxY(scrollableRows.size()*20);
     }
 
     public void changePosition(int delta){
@@ -78,15 +95,19 @@ public class ScrollableGroup extends WindowElementGroup{
     }
 
     public void scroll(double delta){
-        cameraConfiguration.moveCamera(delta*20);
+        cameraConfiguration.moveCamera(delta*30);
     }
 
     public void run(){
         super.run();
 
-        for (ScrollableElement scrollableElement: scrollableElements){
-            scrollableElement.run();
+        for (ScrollableRow scrollableRow : scrollableRows){
+            scrollableRow.run();
         }
+    }
+
+    public Coord getScrollWindowSize() {
+        return scrollWindowSize;
     }
 
     //public int getClickedIndex(Coord point){

@@ -61,8 +61,8 @@ public class StringShape extends BasicShape {
         for (int i = 0; i < text.length(); i++){
             CharacterShape newShape = font.getCharacterShapeByDef(String.valueOf(text.charAt(i)));
             if (newShape == null) continue;
-            Coord newPos = new Coord(getPos().x + i * (getSize().x/len), getPos().y);
-            Coord newSize = new Coord(getSize().x / len, getSize().y);
+            Coord newPos = new Coord(getPos().x + i * getSize().y, getPos().y);
+            Coord newSize = new Coord(getSize().y, getSize().y);
             newShape.setPos(newPos);
             newShape.setSize(newSize);
             newShape.setColor(color);
