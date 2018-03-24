@@ -10,7 +10,6 @@ public class Person extends Broadcaster{
 
     private Kasta kasta;
 
-
     public enum Kasta{
         Low, Middle, High
     }
@@ -30,6 +29,14 @@ public class Person extends Broadcaster{
 
     public Kasta getKasta() {
         return kasta;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
     }
 
 

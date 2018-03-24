@@ -57,10 +57,10 @@ public class StringShape extends BasicShape {
 
     public ArrayList<BasicShape> getBasicShapes(){
         ArrayList<BasicShape> result = new ArrayList<>();
-        int len = text.length();
         for (int i = 0; i < text.length(); i++){
             CharacterShape newShape = font.getCharacterShapeByDef(String.valueOf(text.charAt(i)));
             if (newShape == null) continue;
+            if ((i+1)*getSize().y > size.x)  return result;
             Coord newPos = new Coord(getPos().x + i * getSize().y, getPos().y);
             Coord newSize = new Coord(getSize().y, getSize().y);
             newShape.setPos(newPos);

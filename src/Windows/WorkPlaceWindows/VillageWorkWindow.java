@@ -20,7 +20,7 @@ public class VillageWorkWindow extends ClosableWindow {
         removeWindowElements();
         addCloseButton();
 
-        Label label = new Label(new Coord(10, 10), new Coord(120, 20), "add farm", this){
+        Button button = new Button(new Coord(10, 10), new Coord(120, 20), "add farm", this){
 
             @Override
             public void click(Coord point){
@@ -31,9 +31,9 @@ public class VillageWorkWindow extends ClosableWindow {
                 close();
             }
         };
-        addWindowElement(label);
+        addWindowElement(button);
 
-        label = new Label(new Coord(10, 40), new Coord(150, 20), "add sawmill", this){
+        button = new Button(new Coord(10, 40), new Coord(150, 20),"add sawmill", this){
 
             @Override
             public void click(Coord point){
@@ -44,9 +44,9 @@ public class VillageWorkWindow extends ClosableWindow {
                 close();
             }
         };
-        addWindowElement(label);
+        addWindowElement(button);
 
-        label = new Label(new Coord(10, 70), new Coord(150, 20), "add trawler", this){
+        button = new Button(new Coord(10, 70), new Coord(150, 20), "add trawler", this){
 
             @Override
             public void click(Coord point){
@@ -57,9 +57,9 @@ public class VillageWorkWindow extends ClosableWindow {
                 close();
             }
         };
-        addWindowElement(label);
+        addWindowElement(button);
 
-        label = new Label(new Coord(10, 100), new Coord(120, 20), "add mine", this){
+        button = new Button(new Coord(10, 100), new Coord(120, 20), "add mine", this){
 
             @Override
             public void click(Coord point){
@@ -70,6 +70,6 @@ public class VillageWorkWindow extends ClosableWindow {
                 close();
             }
         };
-        addWindowElement(label);
+        addWindowElement(button);
     }
 }

@@ -8,27 +8,30 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-abstract public class Button extends WindowElement {
+public class Button extends WindowElement {
 
     private StringShape text;
     private RectangleShape carcas;
+    private double delta = 0.1;
 
-    public Button(Coord pos, Coord size, Window parent, String str){
+    public Button(Coord pos, Coord size, String str, Window parent){
         super(pos, size, parent);
         Font font = parent.getFont("latin");
-        text = new StringShape(new Coord(size.x/4, size.y /4), new Coord(size.x/ 2, size.y /2), str, new Color(Color.Type.Black), font);
-        carcas = new RectangleShape(new Coord(0, 0), size, new Color(Color.Type.White), true);
+        double sizeX = str.length() * size.y/2;
+        text = new StringShape(new Coord(sizeX * delta, size.y/4), new Coord(sizeX, size.y/2), str, new Color(Color.Type.Black), font);
+        carcas = new RectangleShape(new Coord(0, 0), new Coord(sizeX*(1+2*delta), size.y), new Color(Color.Type.White), true);
         ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.add(carcas);
         basicShapes.addAll(text.getBasicShapes());
         setBasicShapes(basicShapes);
     }
 
-    public Button(Coord pos, Coord size, WindowElementGroup groupParent, Window parent, String str){
+    public Button(Coord pos, Coord size, WindowElementGroup groupParent, String str, Window parent){
         super(pos, size, groupParent, parent);
         Font font = parent.getFont("latin");
-        text = new StringShape(new Coord(size.x/4, size.y /4), new Coord(size.x/ 2, size.y /2), str, new Color(Color.Type.Black), font);
-        carcas = new RectangleShape(new Coord(0, 0), size, new Color(Color.Type.White), true);
+        double sizeX = str.length() * size.y;
+        text = new StringShape(new Coord(sizeX * delta, size.y/4), new Coord(sizeX, size.y/2), str, new Color(Color.Type.Black), font);
+        carcas = new RectangleShape(new Coord(0, 0), new Coord(sizeX*(1+2*delta), size.y), new Color(Color.Type.White), true);
         ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.add(carcas);
         basicShapes.addAll(text.getBasicShapes());
@@ -49,5 +52,17 @@ abstract public class Button extends WindowElement {
 
     public void setCarcas(RectangleShape carcas) {
         this.carcas = carcas;
+    }
+
+    @Override
+    public void activate(){
+        super.activate();
+        carcas.setColor(new Color(Color.Type.Snow));
+    }
+
+    @Override
+    public void deactivate(){
+        super.deactivate();
+        carcas.setColor(new Color(Color.Type.White));
     }
 }

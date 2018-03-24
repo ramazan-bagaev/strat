@@ -11,6 +11,18 @@ public class MonitoredBroadcastLabel extends Label{
     private Broadcaster broadcaster;
     private String key;
 
+
+    public MonitoredBroadcastLabel(Coord pos, Coord size, Broadcaster broadcaster, String key, WindowElementGroup windowElementGroup,
+                                   Window parent) {
+        super(pos, size, "", windowElementGroup, parent);
+        setBroadcaster(broadcaster);
+        setKey(key);
+        setOldText(broadcaster.getValue(key));
+        StringShape stringShape = getStringShape();
+        stringShape.setText(broadcaster.getValue(key));
+        setStringShape(stringShape);
+    }
+
     public MonitoredBroadcastLabel(Coord pos, Coord size, String text, Broadcaster broadcaster, String key, Window parent) {
         super(pos, size, text, parent);
         setPreText(text);
@@ -44,7 +56,8 @@ public class MonitoredBroadcastLabel extends Label{
         if (!oldText.equals(newText)){
             oldText = newText;
             StringShape stringShape = getStringShape();
-            stringShape.setText(preText + " " + newText);
+            if (preText == null) stringShape.setText(newText);
+            else stringShape.setText(preText + " " + newText);
             setStringShape(stringShape);
         }
     }

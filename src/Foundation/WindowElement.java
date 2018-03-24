@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class WindowElement extends Broadcaster{
 
+    protected boolean active;
+
     protected Coord pos;
     protected Coord size;
 
@@ -17,6 +19,7 @@ public class WindowElement extends Broadcaster{
 
 
     public WindowElement(Coord pos, Coord size, Window parent){
+        this.active = false;
         this.pos = new Coord(pos);
         this.size = new Coord(size);
         setParent(parent);
@@ -24,6 +27,7 @@ public class WindowElement extends Broadcaster{
     }
 
     public WindowElement(Coord pos, Coord size, WindowElementGroup groupParent, Window parent){
+        this.active = false;
         this.pos = new Coord(pos);
         this.size = new Coord(size);
         setParent(parent);
@@ -58,6 +62,14 @@ public class WindowElement extends Broadcaster{
     }
 
     public void hoover(Coord point){
+    }
+
+    public void activate(){
+        active = true;
+    }
+
+    public void deactivate(){
+        active = false;
     }
 
     public void run(){

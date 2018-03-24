@@ -42,7 +42,7 @@ public class ScrollableGroup extends WindowElementGroup{
     }
 
     public void addScrollButton(){
-        Button buttonUp = new Button(new Coord(getSize().x - 20, 0), new Coord(20, 20), this, getParent(), "u") {
+        Button buttonUp = new Button(new Coord(getSize().x - 20, 0), new Coord(20, 20), this, "u", getParent()) {
             @Override
             public void click(Coord point) {
                 ScrollableGroup scrollableGroup = (ScrollableGroup)getGroupParent();
@@ -50,8 +50,7 @@ public class ScrollableGroup extends WindowElementGroup{
             }
         };
 
-        Button buttonDown = new Button(new Coord(getSize().x - 20, getSize().y - 20), new Coord(20, 20), this,
-                getParent(), "d") {
+        Button buttonDown = new Button(new Coord(getSize().x - 20, getSize().y - 20), new Coord(20, 20), this,"d", getParent()) {
             @Override
             public void click(Coord point) {
                 ScrollableGroup scrollableGroup = (ScrollableGroup)getGroupParent();
@@ -108,6 +107,11 @@ public class ScrollableGroup extends WindowElementGroup{
 
     public Coord getScrollWindowSize() {
         return scrollWindowSize;
+    }
+
+    public void initCameraConfiguration(){
+        cameraConfiguration.setMaxY(10);
+        cameraConfiguration.setWorldCameraPos(getShift());
     }
 
     //public int getClickedIndex(Coord point){

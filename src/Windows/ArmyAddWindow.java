@@ -36,7 +36,7 @@ public class ArmyAddWindow extends ClosableWindow{
 
         addWindowElement(label);
 
-        Button button = new Button(new Coord(20, 80), new Coord(50, 20), this, "add") {
+        Button button = new Button(new Coord(20, 80), new Coord(50, 20), "add", this) {
 
             @Override
             public void click(Coord point) {

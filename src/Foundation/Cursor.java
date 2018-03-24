@@ -31,6 +31,18 @@ public class Cursor {
         dragEnd = true;
     }
 
+    public void run(){
+        if (activeWindowElement != null){
+            activeWindowElement.hoover(pos.add(activeWindowElement.getShift().multiply(-1)));
+        }
+        if (activeWindowElementGroup != null){
+            activeWindowElementGroup.hoover(pos.add(activeWindowElementGroup.getShift().multiply(-1)));
+        }
+        if (activeWindow != null){
+            activeWindow.hoover(pos.add(activeWindow.getShift().multiply(-1)));
+        }
+    }
+
     public void posRenew(double x, double y){
         if (x != pos.x){
             pos.x = x;
@@ -45,7 +57,19 @@ public class Cursor {
             if (pressed) drag(point);
             renewActive();
         }
-        if (activeWindow != null) activeWindow.hoover(point);
+
+        if (activeWindowElement != null){
+            activeWindowElement.hoover(pos.add(activeWindowElement.getShift().multiply(-1)));
+            return;
+        }
+        if (activeWindowElementGroup != null){
+            activeWindowElementGroup.hoover(pos.add(activeWindowElementGroup.getShift().multiply(-1)));
+            return;
+        }
+        if (activeWindow != null){
+            activeWindow.hoover(pos.add(activeWindow.getShift().multiply(-1)));
+            return;
+        }
     }
 
     public Window getActiveWindow() {
@@ -53,7 +77,12 @@ public class Cursor {
     }
 
     public void setActiveWindow(Window activeWindow) {
-        this.activeWindow = activeWindow;
+
+        if (this.activeWindow != activeWindow) {
+            if (this.activeWindow != null) this.activeWindow.deactivate();
+            this.activeWindow = activeWindow;
+            if (this.activeWindow != null) this.activeWindow.activate();
+        }
     }
 
     public WindowElement getActiveWindowElement() {
@@ -61,7 +90,11 @@ public class Cursor {
     }
 
     public void setActiveWindowElement(WindowElement activeWindowElement) {
-        this.activeWindowElement = activeWindowElement;
+        if (this.activeWindowElement != activeWindowElement) {
+            if (this.activeWindowElement != null) this.activeWindowElement.deactivate();
+            this.activeWindowElement = activeWindowElement;
+            if (this.activeWindowElement != null) this.activeWindowElement.activate();
+        }
     }
 
     public void renewActive(){
@@ -69,35 +102,35 @@ public class Cursor {
         for (int i = windowList.size() - 1; i >= 0; i--){
             Window window = windowList.get(i);
             if (window.contain(pos)){
-                activeWindow = window;
+                setActiveWindow(window);
                 Coord temp = pos.add(window.getShift().multiply(-1));
                 ArrayList<WindowElementGroup> windowElementGroups = window.getWindowElementGroups();
                 for (WindowElementGroup windowElementGroup: windowElementGroups){
                     if (windowElementGroup.contain(temp)){
-                        activeWindowElementGroup = windowElementGroup;
+                        setActiveWindowElementGroup(windowElementGroup);
                         ArrayList<WindowElement> windowElements = windowElementGroup.getWindowElements();
                         temp = pos.add(windowElementGroup.getShift().multiply(-1));
                         for (WindowElement windowElement: windowElements){
                             if (windowElement.contain(temp)){
-                                activeWindowElement = windowElement;
+                                setActiveWindowElement(windowElement);
                                 return;
                             }
                         }
-                        activeWindowElement = null;
+                        setActiveWindowElement(null);
                         return;
                     }
                 }
-                activeWindowElementGroup = null;
+                setActiveWindowElementGroup(null);
                 ArrayList<WindowElement> windowElements = window.getWindowElements();
                 temp = pos.add(window.getShift().multiply(-1));
                 for (int j = windowElements.size() - 1; j >= 0; j--){
                     WindowElement windowElement = windowElements.get(j);
                     if (windowElement.contain(temp)){
-                        activeWindowElement = windowElement;
+                        setActiveWindowElement(windowElement);
                         return;
                     }
                 }
-                activeWindowElement = null;
+                setActiveWindowElement(null);
                 return;
             }
         }
@@ -108,7 +141,11 @@ public class Cursor {
     }
 
     public void setActiveWindowElementGroup(WindowElementGroup activeWindowElementGroup) {
-        this.activeWindowElementGroup = activeWindowElementGroup;
+        if (this.activeWindowElementGroup != activeWindowElementGroup) {
+            if (this.activeWindowElementGroup != null) this.activeWindowElementGroup.deactivate();
+            this.activeWindowElementGroup = activeWindowElementGroup;
+            if (this.activeWindowElementGroup != null) this.activeWindowElementGroup.activate();
+        }
     }
 
     public void click(Coord point, boolean pressed, int button){

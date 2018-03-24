@@ -2,6 +2,7 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
+import Foundation.Person.Person;
 import Foundation.Runnable.RunableElement;
 import Images.VillageImage;
 import Utils.Index;
@@ -15,6 +16,7 @@ public class Village extends RunableElement{
     private ResourceStore resourceStore;
 
     private Manor manor;
+    private Person steward;
     private People people;
 
     private ArrayList<Index> farms;
@@ -24,11 +26,13 @@ public class Village extends RunableElement{
 
     private ArrayList<Index> availableWater;
 
-    public Village(Time time, Field parent, FieldMap map, Manor manor) {
+    public Village(Time time, Field parent, FieldMap map, Person steward, Manor manor) {
         super(Type.Village, time, parent, map);
         this.manor = manor;
         this.resourceStore = new ResourceStore();
-       // this.people = manor.getP;
+        people = new People(parent);
+        this.steward = steward;
+        people.addPerson(steward);
         farms = new ArrayList<>();
         sawmills = new ArrayList<>();
         trawlers = new ArrayList<>();
@@ -90,6 +94,14 @@ public class Village extends RunableElement{
         return resourceStore;
     }
 
+    public void addPeople(ArrayList<Person> people){
+        this.people.addPeople(people);
+    }
+
+    public void removePerson(Person person){
+        this.people.removePerson(person);
+    }
+
     public void markAvailableWater(){
         availableWater.clear();
         Index pos = parent.getFieldMapPos();
@@ -97,21 +109,13 @@ public class Village extends RunableElement{
         LinkedList<Index> que = new LinkedList<>();
         que.addFirst(pos);
         territory.remove(pos);
-        System.out.println("territory");
-        for(Index c: manor.getTerritory()) System.out.println(c.x + " " + c.y);
-        System.out.println("begin " + pos.x + " " + pos.y);
         while(que.size() != 0){
-            System.out.println("new step");
             Index curPos = que.pop();
-            System.out.println(curPos.x + " curPos" + curPos.y);
             for(Index.Direction direction: Index.getAllDirections()) {
                 Index newPos = curPos.add(new Index(direction));
-                System.out.println(newPos.x + " newPos" + newPos.y);
                 //if (!manor.getTerritory().contains(newPos)) continue;
                 if (!territory.contains(newPos)) continue;
-                System.out.println("never been here");
                 if (map.getFieldByIndex(newPos).getGroundType() == Ground.GroundType.Water) {
-                    System.out.println("it is water!");
                     que.add(newPos);
                     availableWater.add(newPos);
                     territory.remove(newPos);

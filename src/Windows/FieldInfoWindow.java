@@ -64,7 +64,7 @@ public class FieldInfoWindow extends ClosableWindow{
         addWindowElement(groundResourceCauseLabel);
 
 
-        Button ecoButton = new Button(new Coord(10, 115), new Coord(30, 20),this, "eco") {
+        Button ecoButton = new Button(new Coord(10, 115), new Coord(30, 20),"eco", this) {
             @Override
             public void click(Coord point) {
                 FieldInfoWindow fieldInfoWindow = (FieldInfoWindow) getParent();

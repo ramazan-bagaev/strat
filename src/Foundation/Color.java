@@ -8,7 +8,7 @@ public class Color {
     public float a;
 
     public enum Type {
-        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray, Green3, Yellow2, Brown
+        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray, Green3, Yellow2, Brown, Snow
     }
 
     public Color(float r, float b, float g) {
@@ -104,6 +104,10 @@ public class Color {
                 g = 0.27f;
                 b = 0.07f;
                 break;
+            case Snow:
+                r = 0.90f;
+                g = 0.90f;
+                b = 0.90f;
         }
     }
 

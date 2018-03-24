@@ -3,6 +3,8 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.Person.People;
 import Foundation.Person.Person;
+import Foundation.Runnable.AI.Actor;
+import Foundation.Runnable.AI.CityActor;
 import Foundation.Runnable.RunableElement;
 import Generation.NameGenerator;
 import Images.CityImage;
@@ -16,6 +18,8 @@ public class City extends RunableElement {
     private String name;
 
     private int id;
+
+    private CityActor actor;
 
     private ResourceStore resourceStore;
     private People people;
@@ -68,6 +72,10 @@ public class City extends RunableElement {
             people.addPerson(person);
         }
 
+        Person king = new Person(nameGenerator.generate(), parent, Person.Kasta.High);
+        people.addPerson(king);
+        actor = new CityActor(king, this, time);
+        parent.getMap().getGameEngine().addRunEntity(actor);
         int size = parent.getSize();
         setBasicShapes(new CityImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
         resourceStore = new ResourceStore();
@@ -105,11 +113,12 @@ public class City extends RunableElement {
         territory.add(pos);
     }
 
-    public void createManor(Index pos){
+    public void createManor(Index pos, Person lord){
         if (!territory.contains(pos)) return;
         Field field = map.getFieldByIndex(pos);
         if (field.getManor() != null) return;
-        Manor manor = new Manor(time, field, map, this);
+        removePerson(lord);
+        Manor manor = new Manor(time, field, map, this, lord);
         field.setManor(manor);
         manors.add(manor);
         map.getGameEngine().getGameWindowElement().setShapes();
@@ -123,6 +132,9 @@ public class City extends RunableElement {
         }
     }
 
+    public void removePerson(Person person){
+        people.removePerson(person);
+    }
 
 
     public FieldMap getMap() {

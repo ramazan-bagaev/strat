@@ -2,6 +2,7 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
+import Foundation.Person.Person;
 import Foundation.Runnable.RunableElement;
 import Images.ManorImage;
 import Utils.Index;
@@ -13,6 +14,7 @@ public class Manor extends RunableElement {
 
     private ArrayList<Index> villages;
 
+    private Person lord;
     private People people;
     private ResourceStore resourceStore;
     private ArrayList<Index> territory;
@@ -22,7 +24,20 @@ public class Manor extends RunableElement {
         super(Type.Manor, time, parent, map);
         this.city = city;
         this.resourceStore = new ResourceStore();
-        this.people = city.getPeople();
+        this.people = new People(parent);
+        territory = new ArrayList<>();
+        territory.add(parent.getFieldMapPos());
+        villages = new ArrayList<>();
+        setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
+    }
+
+    public Manor(Time time, Field parent, FieldMap map, City city, Person lord) {
+        super(Type.Manor, time, parent, map);
+        this.city = city;
+        this.lord = lord;
+        this.people = new People(parent);
+        this.people.addPerson(lord);
+        this.resourceStore = new ResourceStore();
         territory = new ArrayList<>();
         territory.add(parent.getFieldMapPos());
         villages = new ArrayList<>();
@@ -41,11 +56,12 @@ public class Manor extends RunableElement {
         return city;
     }
 
-    public void createVillage(Index point){
+    public void createVillage(Index point, Person steward){
         if (!territory.contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Village village = new Village(time, field, map, this);
+        people.removePerson(steward);
+        Village village = new Village(time, field, map, steward, this);
         field.setVillage(village);
         villages.add(point);
         map.getGameEngine().getGameWindowElement().setShapes();
@@ -66,5 +82,22 @@ public class Manor extends RunableElement {
 
     public People getPeople() {
         return people;
+    }
+
+    public Person getLord() {
+        return lord;
+    }
+
+    public void setLord(Person lord) {
+        this.lord = lord;
+        people.addPerson(lord);
+    }
+
+    public void addPeople(ArrayList<Person> people){
+        this.people.addPeople(people);
+    }
+
+    public void removePerson(Person person){
+        people.removePerson(person);
     }
 }

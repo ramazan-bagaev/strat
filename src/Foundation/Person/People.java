@@ -20,11 +20,22 @@ public class People extends Broadcaster {
     }
 
     public void addPerson(Person person){
+        if (people.contains(person)) return;
         people.add(person);
     }
 
+    public void addPeople(ArrayList<Person> people){
+        for(Person person: people){
+            person.setField(field);
+            addPerson(person);
+        }
+    }
+
     public void removePerson(Person person){
-        people.remove(person);
+        if (people.contains(person)){
+            people.remove(person);
+            person.setField(null);
+        }
     }
 
     public ArrayList<Person> getPersonArray(){
@@ -42,5 +53,15 @@ public class People extends Broadcaster {
 
     public Field getField() {
         return field;
+    }
+
+    public Person getLord(){
+        ArrayList<Person> lords = new ArrayList<>();
+        for(Person person: people){
+            if (person.getKasta() == Person.Kasta.High) lords.add(person);
+        }
+        if (lords.size() == 0) return null;
+        int index = getField().getRandom().nextInt(lords.size());
+        return lords.get(index);
     }
 }

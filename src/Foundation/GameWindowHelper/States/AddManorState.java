@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Foundation.Person.Person;
 import Utils.Index;
 import Utils.Coord;
 
@@ -16,11 +17,13 @@ public class AddManorState extends HelperState {
     private ArrayList<Index> possible;
     private ArrayList<Index> impossible;
     private City city;
+    private Person lord;
 
 
-    public AddManorState(GameWindowHelperElement gameWindowHelperElement, City city) {
+    public AddManorState(GameWindowHelperElement gameWindowHelperElement, City city, Person lord) {
         super(gameWindowHelperElement);
         this.city = city;
+        this.lord = lord;
         possible = new ArrayList<>();
         impossible = new ArrayList<>();
         coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
@@ -67,7 +70,7 @@ public class AddManorState extends HelperState {
         index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
         if (impossible.contains(index)) return;
         if (possible.contains(index)) {
-            city.createManor(index);
+            city.createManor(index, lord);
         }
         gameWindowHelperElement.clearHelperElements();
         gameWindowHelperElement.setStandartState();

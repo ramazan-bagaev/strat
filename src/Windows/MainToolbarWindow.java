@@ -20,7 +20,7 @@ public class MainToolbarWindow extends Window{
         ArrayList<WindowElement> windowElements = getWindowElements();
         windowElements.clear();
 
-        TimeElement timeElement = new TimeElement(new Coord(900, 0), new Coord(100, 30), getParent().getGameEngine().getTime(), this);
+        TimeElement timeElement = new TimeElement(new Coord(800, 0), new Coord(100, 20), getParent().getGameEngine().getTime(), this);
         windowElements.add(timeElement);
     }
 }

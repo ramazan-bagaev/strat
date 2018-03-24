@@ -5,6 +5,7 @@ import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
+import Foundation.Person.Person;
 import Utils.Index;
 import Utils.Coord;
 
@@ -17,10 +18,12 @@ public class AddVillageState extends HelperState {
     private CoveringFieldMode possible;
 
     private Manor manor;
+    private Person steward;
 
-    public AddVillageState(Manor manor, GameWindowHelperElement gameWindowHelperElement) {
+    public AddVillageState(Manor manor, Person steward, GameWindowHelperElement gameWindowHelperElement) {
         super(gameWindowHelperElement);
         this.manor = manor;
+        this.steward = steward;
         impossible = new CoveringFieldMode(gameWindowHelperElement);
         possible = new CoveringFieldMode(gameWindowHelperElement);
         megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
@@ -69,7 +72,7 @@ public class AddVillageState extends HelperState {
         index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
         if (impossible.isOccupiedBy(index)) return;
         if (possible.isOccupiedBy(index)){
-            manor.createVillage(index);
+            manor.createVillage(index, steward);
             return;
         }
         clearHelperElements();

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class WindowElementGroup {
 
+    protected boolean active;
+
     protected Coord pos;
     protected Coord size;
 
@@ -19,6 +21,7 @@ public class WindowElementGroup {
         setParent(parent);
         this.pos = new Coord(pos);
         this.size = new Coord(size);
+        this.active = false;
         setSize(size);
         windowElements = new ArrayList<>();
         basicShapes = new ArrayList<>();
@@ -81,6 +84,14 @@ public class WindowElementGroup {
 
     public void hoover(Coord point){
 
+    }
+
+    public void activate(){
+        active = true;
+    }
+
+    public void deactivate(){
+        active = false;
     }
 
 

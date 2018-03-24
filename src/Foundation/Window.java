@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class Window {
 
+    protected boolean active;
+
     protected Coord pos;
     protected Coord size;
     protected Frame parent;
@@ -26,6 +28,7 @@ public class Window {
         setId(-1);
         this.pos = new Coord(pos);
         this.size = new Coord(size);
+        this.active = false;
         setParent(parent);
         windowElements = new ArrayList<>();
         windowElementGroups = new ArrayList<>();
@@ -99,9 +102,14 @@ public class Window {
     }
 
     public void hoover(Coord point){
-        for(WindowElement element: windowElements){
-            element.hoover(point);
-        }
+    }
+
+    public void activate(){
+        active = true;
+    }
+
+    public void deactivate(){
+        active = false;
     }
 
     public void addWindow(Window window){

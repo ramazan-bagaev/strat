@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.Person.People;
 import Utils.Coord;
 import WindowElementGroups.PeopleElementGroup;
+import WindowElementGroups.PeopleInfoElementGroup;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.CloseButton;
 import WindowElements.MonitoredBroadcastLabel;
@@ -50,12 +51,12 @@ public class PopulationInfoWindow extends ClosableWindow{
         ScrollableGroup scrollableGroup = new ScrollableGroup(new Coord(10, 70), new Coord(390, 300), populationMonitoredLabels, this);*/
 
 
-        ScrollableGroup scrollableGroup = new PeopleElementGroup(new Coord(10, 90), new Coord(390, 300), people, this);
+        ScrollableGroup scrollableGroup = new PeopleInfoElementGroup(new Coord(10, 100), new Coord(390, 300), people, this);
         addWindowElementGroup(scrollableGroup);
         double x = scrollableGroup.getScrollWindowSize().x;
-        Label label = new Label(new Coord(10, 70), new Coord(x/2 -10, 20), "name", this);
+        Label label = new Label(new Coord(15, 70), new Coord(x/2 - 5, 20), "name", this);
         addWindowElement(label);
-        label = new Label(new Coord(x/2+10, 70), new Coord(x/2 -10, 20), "kasta", this);
+        label = new Label(new Coord(x/2+20, 70), new Coord(x/2 -5, 20), "kasta", this);
         addWindowElement(label);
 
     }

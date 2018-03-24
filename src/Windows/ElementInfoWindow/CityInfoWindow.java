@@ -2,13 +2,13 @@ package Windows.ElementInfoWindow;
 
 import Foundation.*;
 import Foundation.Elements.City;
-import Foundation.GameWindowHelper.States.AddManorState;
 import Images.CityImage;
 import Images.Image;
 import Utils.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.*;
+import Windows.IntermediatWindows.ChooseOnePerson.ChooseManorLordWindow;
 
 public class CityInfoWindow extends ClosableWindow {
 
@@ -47,22 +47,18 @@ public class CityInfoWindow extends ClosableWindow {
         };
         addWindowElement(cityPopulationLabel);
 
-        Button addWork = new Button(new Coord(10, 160), new Coord(150, 20), this, "add manor") {
+        Button addWork = new Button(new Coord(10, 160), new Coord(150, 20), "add manor", this) {
 
 
             @Override
             public void click(Coord point) {
-                GameWindowHelperElement gameWindowHelperElement = getParent().getParent().getMainWindow().getGameWindowHelperElement();
-                gameWindowHelperElement.clearHelperElements();
-                AddManorState addManorState = new AddManorState(gameWindowHelperElement, city);
-                gameWindowHelperElement.setState(addManorState);
-                close();
+                getParent().getParent().addSpecialWindow("population group window", new ChooseManorLordWindow(city, getParent().getParent()));
             }
         };
 
         addWindowElement(addWork);
 
-        Button addArmy = new Button(new Coord(10, 180), new Coord(150, 20), this, "add army") {
+        Button addArmy = new Button(new Coord(10, 180), new Coord(150, 20),"add army", this) {
             @Override
             public void click(Coord point) {
                 Frame frame = getParent().getParent();
@@ -72,7 +68,7 @@ public class CityInfoWindow extends ClosableWindow {
 
         addWindowElement(addArmy);
 
-        Button openResourceStore = new Button(new Coord(10, 200), new Coord(200, 20), this, "resources") {
+        Button openResourceStore = new Button(new Coord(10, 200), new Coord(200, 20),"resources", this) {
             @Override
             public void click(Coord point) {
                 Frame frame = getParent().getParent();
