@@ -1,12 +1,13 @@
 package Foundation;
 
+import Utils.Broadcaster;
 import Utils.Content;
 import Utils.Index;
 import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class Territory extends Broadcaster{
+public class Territory implements Broadcaster {
 
     protected Content territoryContent;
 

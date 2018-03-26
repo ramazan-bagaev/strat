@@ -1,13 +1,13 @@
 package Foundation.Flora;
 
-import Foundation.Broadcaster;
+import Utils.Broadcaster;
 import Foundation.Elements.Ecosystem;
 import Foundation.Elements.Ground;
 import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class Flora extends Broadcaster{
+public class Flora implements Broadcaster{
 
     private Ecosystem ecosystem;
     private Ground ground;

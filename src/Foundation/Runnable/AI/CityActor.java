@@ -115,7 +115,7 @@ public class CityActor extends Actor {
             giveRandomManorTerritory();
             return;
         }
-        if (rand <= 95) {
+        if (rand <= 90) {
             giveRandomManorPeople();
             return;
         }

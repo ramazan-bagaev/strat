@@ -77,5 +77,21 @@ public class CityInfoWindow extends ClosableWindow {
         };
 
         addWindowElement(openResourceStore);
+        if (city.getCountry() != null) {
+            StaticBroadcastLabel countryName = new StaticBroadcastLabel(new Coord(10, 240), new Coord(200, 10), "country: ", city.getCountry(),
+                    "name", this){
+
+                @Override
+                public void click(Coord point){
+                    Frame frame = getParent().getParent();
+                    frame.addSpecialWindow("country info window", new CountryInfoWindow(city.getCountry(), frame));
+                }
+            };
+            addWindowElement(countryName);
+        }
+        else{
+            Label noCountry = new Label(new Coord(10, 240), new Coord(200, 10), "no country", this);
+            addWindowElement(noCountry);
+        }
     }
 }

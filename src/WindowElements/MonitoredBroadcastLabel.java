@@ -2,10 +2,9 @@ package WindowElements;
 
 import Foundation.*;
 import Foundation.BasicShapes.StringShape;
+import Utils.Broadcaster;
 import Utils.Coord;
 import Utils.Subscription;
-
-import java.util.ArrayList;
 
 public class MonitoredBroadcastLabel extends Label{
 

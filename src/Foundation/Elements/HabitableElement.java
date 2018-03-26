@@ -1,15 +1,12 @@
 package Foundation.Elements;
 
-import Foundation.Field;
-import Foundation.FieldMap;
+import Foundation.*;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
-import Foundation.ResourceStore;
-import Foundation.Runnable.RunableElement;
-import Foundation.Time;
+import Foundation.Runnable.RunnableElement;
 
-public abstract class HabitableElement extends RunableElement {
+public abstract class HabitableElement extends RunnableElement {
 
     protected ResourceStore resourceStore;
     protected Society society;
@@ -18,6 +15,7 @@ public abstract class HabitableElement extends RunableElement {
         super(type, time, parent, map);
         society = new Society(this);
         resourceStore = new ResourceStore();
+        parent.getMap().getGameEngine().addRunEntity(this);
     }
 
     public void removePerson(Person person){
@@ -35,6 +33,17 @@ public abstract class HabitableElement extends RunableElement {
 
     public Society getSociety() {
         return society;
+    }
+
+    @Override
+    public void run(){
+        int amount = society.getAmount();
+        for(Resource resource: resourceStore.getResources()){
+            if (resource.getType() == Resource.Type.Food){
+                amount -= resource.consume(amount);
+                if (amount == 0) return;
+            }
+        }
     }
 
 

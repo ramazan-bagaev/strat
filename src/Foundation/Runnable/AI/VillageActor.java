@@ -107,6 +107,6 @@ public class VillageActor extends Actor {
             createRandomWork();
             return;
         }
-        //giveRandomWorkPeople();
+        giveRandomWorkPeople();
     }
 }

@@ -1,15 +1,13 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Foundation.Runnable.AI.CityActor;
-import Foundation.Runnable.RunableElement;
+import Foundation.Runnable.Country;
 import Generation.NameGenerator;
 import Images.CityImage;
 import Utils.Index;
 import Utils.Coord;
-import Utils.Subscription;
 
 import java.util.ArrayList;
 
@@ -29,6 +27,8 @@ public class City extends HabitableElement {
 
     private FieldMap map;
 
+    private Country country;
+
     public City(String name, FieldMap map, Time time, Field parent){
         super(Element.Type.City, time, parent, map);
         setMap(map);
@@ -46,7 +46,6 @@ public class City extends HabitableElement {
                 field.setOwner(this);
             }
         }
-
 
         NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
         int population = parent.getRandom().nextInt(100);
@@ -83,6 +82,7 @@ public class City extends HabitableElement {
 
     @Override
     public void run() {
+        super.run();
         for (Manor manor : manors) {
             ArrayList<Resource> resources = manor.getPartOfResource(0.3);
             for(Resource resource: resources){
@@ -97,6 +97,7 @@ public class City extends HabitableElement {
 
     public void addTerritory(Index pos){
         territory.add(pos);
+        parent.getMap().getFieldByIndex(pos).setOwner(this);
     }
 
     public void createManor(Index pos, Person lord){
@@ -148,5 +149,13 @@ public class City extends HabitableElement {
 
     public ArrayList<Manor> getManors() {
         return manors;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 }

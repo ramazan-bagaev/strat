@@ -1,11 +1,11 @@
 package Foundation.Fauna;
 
-import Foundation.Broadcaster;
+import Utils.Broadcaster;
 import Foundation.Resource;
 
 import java.util.ArrayList;
 
-public abstract class Animal extends Broadcaster{
+public abstract class Animal implements Broadcaster{
 
     private int consumtionStage; // from 1 to 2
     protected int amount;

@@ -13,7 +13,7 @@ public class Trawler extends WorkElement {
 
 
     public Trawler(Village village, People people, Time time, Field parent, FieldMap map) {
-        super(Type.Trawler, people, time, parent, map);
+        super(Type.Trawler, people, village, time, parent, map);
 
         this.village = village;
 

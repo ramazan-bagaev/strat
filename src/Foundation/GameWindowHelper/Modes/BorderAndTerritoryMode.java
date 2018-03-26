@@ -1,38 +1,38 @@
 package Foundation.GameWindowHelper.Modes;
 
 import Foundation.Color;
+import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
+import Foundation.Territory;
 import Utils.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.BorderHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
 public class BorderAndTerritoryMode extends Mode {
 
-    private ArrayList<Index> territory;
+    private Subscription territorySubscription;
+
+    private Territory territory;
     private Color color;
     private float width;
 
     private ArrayList<BorderHelper> borderHelpers;
-    private CoveringFieldMode coveringFieldMode;
+    private ArrayList<CoveringFieldHelper> coveringFieldHelpers;
 
-    public BorderAndTerritoryMode(GameWindowHelperElement gameWindowHelperElement, ArrayList<Index> territory, Color color, float width) {
+    public BorderAndTerritoryMode(GameWindowHelperElement gameWindowHelperElement, Territory territory, Color color, float width) {
         super(gameWindowHelperElement);
         this.territory = territory;
         this.color = color;
         this.width = width;
-        borderHelpers = new ArrayList<>();
-        coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
+
     }
 
-    @Override
-    public void putHelpers() {
-        coveringFieldMode.putHelpers();
-        Color trans = new Color(color.r, color.b, color.g, 0.5f);
-        for(Index pos: territory){
-            coveringFieldMode.addCoveringFieldHelper(pos, trans);
+    public void init(){
+        for(Index pos: territory.getTerritory()){
             ArrayList<Index.Direction> directions = new ArrayList<>();
             if (!territory.contains(pos.add(new Index(0, 1)))) directions.add(Index.Direction.Down);
             if (!territory.contains(pos.add(new Index(0, -1)))) directions.add(Index.Direction.Up);
@@ -50,9 +50,44 @@ public class BorderAndTerritoryMode extends Mode {
                         gameWindowHelperElement.getMap());
                 helperField.getMap().addByIndex(pos, helperField);
             }
+            CoveringFieldHelper coveringFieldHelper = new CoveringFieldHelper(helperField, color);
+            helperField.setCoveringFieldHelper(coveringFieldHelper);
+            coveringFieldHelpers.add(coveringFieldHelper);
             BorderHelper borderHelper = new BorderHelper(helperField, directions, color, width);
             helperField.addBorderHelper(borderHelper);
+            borderHelpers.add(borderHelper);
         }
+    }
+
+    @Override
+    public void putHelpers() {
+        borderHelpers = new ArrayList<>();
+        coveringFieldHelpers = new ArrayList<>();
+        territorySubscription = new Subscription() {
+            @Override
+            public void changed() {
+                renewHelpers();
+            }
+        };
+        territory.subscribe("territory", territorySubscription);
+        init();
+    }
+
+
+    public void renewHelpers(){
+        for(BorderHelper borderHelper: borderHelpers){
+            HelperField helperField = borderHelper.getParent();
+            helperField.removeBorderHelper(borderHelper);
+            if (helperField.isEmpty()) helperField.delete();
+        }
+        for(CoveringFieldHelper coveringFieldHelper: coveringFieldHelpers){
+            HelperField helperField = coveringFieldHelper.getParent();
+            helperField.setCoveringFieldHelper(null);
+            if (helperField.isEmpty()) helperField.delete();
+        }
+        borderHelpers.clear();
+        coveringFieldHelpers.clear();
+        init();
     }
 
     @Override
@@ -62,7 +97,13 @@ public class BorderAndTerritoryMode extends Mode {
             helperField.removeBorderHelper(borderHelper);
             if (helperField.isEmpty()) helperField.delete();
         }
+        for(CoveringFieldHelper coveringFieldHelper: coveringFieldHelpers){
+            HelperField helperField = coveringFieldHelper.getParent();
+            helperField.setCoveringFieldHelper(null);
+            if (helperField.isEmpty()) helperField.delete();
+        }
         borderHelpers.clear();
-        coveringFieldMode.removeHelpers();
+        coveringFieldHelpers.clear();
+        territory.unsubscribe("territory", territorySubscription);
     }
 }

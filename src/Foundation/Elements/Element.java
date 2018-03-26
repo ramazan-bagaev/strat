@@ -2,13 +2,14 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
+import Utils.Broadcaster;
 import Utils.Index;
 import Utils.Coord;
 import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class Element extends Broadcaster {
+public class Element implements Broadcaster {
 
     public enum Type{
         City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill, Trawler, Mine

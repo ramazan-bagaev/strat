@@ -1,11 +1,12 @@
 package Foundation;
 
 import Images.Image;
+import Utils.Broadcaster;
 import Utils.Content;
 import Utils.Index;
 import Utils.Subscription;
 
-public class Resource extends Broadcaster{
+public class Resource implements Broadcaster {
 
     public enum Type{
         Food, Material

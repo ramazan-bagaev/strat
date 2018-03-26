@@ -1,9 +1,10 @@
 package Foundation;
 
+import Utils.Broadcaster;
 import Utils.Content;
 import Utils.Subscription;
 
-public class Time extends Broadcaster{
+public class Time implements Broadcaster {
 
     private Content dateContent;
 

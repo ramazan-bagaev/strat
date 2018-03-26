@@ -17,7 +17,7 @@ public class Farm extends WorkElement {
 
 
     public Farm(Village village, People people, Time time, Field parent, FieldMap map) {
-        super(Type.Farm, people, time, parent, map);
+        super(Type.Farm, people, village, time, parent, map);
         this.village = village;
         ArrayList<BasicShape> image = new FarmImage(new Coord(0, 0),
                 new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack();

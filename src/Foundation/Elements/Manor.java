@@ -1,11 +1,8 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Foundation.Runnable.AI.ManorActor;
-import Foundation.Runnable.RunableElement;
 import Images.ManorImage;
 import Utils.Index;
 import Utils.Coord;
@@ -72,6 +69,7 @@ public class Manor extends HabitableElement {
 
     @Override
     public void run() {
+        super.run();
         for(Index pos: villages){
             Village village = map.getFieldByIndex(pos).getVillage();
             ArrayList<Resource> resources = village.getPartOfResource(0.9);

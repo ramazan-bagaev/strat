@@ -91,7 +91,7 @@ public class SuperField implements RunEntity {
 
     @Override  // RunEntity method
     public void run() {
-
+        System.out.println("chyl");
     }
 
 }

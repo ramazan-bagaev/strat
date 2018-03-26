@@ -1,14 +1,12 @@
 package Foundation.Person;
 
-import Foundation.Broadcaster;
+import Utils.Broadcaster;
 import Foundation.Elements.HabitableElement;
-import Foundation.Field;
-import Utils.Content;
 import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class Society extends Broadcaster {
+public class Society implements Broadcaster {
 
 
 

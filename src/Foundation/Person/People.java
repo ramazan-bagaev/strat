@@ -1,13 +1,12 @@
 package Foundation.Person;
 
-import Foundation.Broadcaster;
-import Foundation.Field;
+import Utils.Broadcaster;
 import Utils.Content;
 import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class People extends Broadcaster{
+public class People implements Broadcaster{
 
     protected Content amountContent;
 

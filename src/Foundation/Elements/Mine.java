@@ -12,7 +12,7 @@ public class Mine extends WorkElement {
     private Village village;
 
     public Mine(Village village, People people, Time time, Field parent, FieldMap map) {
-        super(Type.Mine, people, time, parent, map);
+        super(Type.Mine, people, village, time, parent, map);
 
         this.village = village;
 

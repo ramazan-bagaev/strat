@@ -2,11 +2,8 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Foundation.Runnable.AI.VillageActor;
-import Foundation.Runnable.RunableElement;
-import Foundation.WorksP.Work;
 import Images.VillageImage;
 import Utils.Content;
 import Utils.Index;
@@ -170,6 +167,7 @@ public class Village extends HabitableElement{
 
     @Override
     public void run() {
+        super.run();
         for(WorkElement workElement: workElements) workElement.getWork().doJob();
     }
 

@@ -1,11 +1,10 @@
 package Foundation.Person;
 
-import Foundation.Broadcaster;
-import Foundation.Field;
+import Utils.Broadcaster;
 import Foundation.WorksP.Work;
 import Utils.Subscription;
 
-public class Person extends Broadcaster{
+public class Person implements Broadcaster{
 
     private Society society;
     private String name;
@@ -53,7 +52,7 @@ public class Person extends Broadcaster{
     }
 
 
-    @Override
+
     public String getValue(String key) {
         switch (key){
             case "name":

@@ -1,12 +1,13 @@
 package Foundation;
 
 import Foundation.BasicShapes.BasicShape;
+import Utils.Broadcaster;
 import Utils.Coord;
 import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class WindowElement extends Broadcaster{
+public class WindowElement implements Broadcaster {
 
     protected boolean active;
 

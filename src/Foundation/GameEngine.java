@@ -1,5 +1,6 @@
 package Foundation;
 
+import Foundation.Runnable.Country;
 import Foundation.Runnable.RunEntity;
 import Generation.FieldMapGenerator;
 import Utils.Coord;
@@ -12,6 +13,8 @@ public class GameEngine {
 
     private Time time;
 
+    private ArrayList<Country> countries;
+
     private GameWindowElement gameWindowElement;
     private FieldMap map;
     private int fieldSize;
@@ -23,6 +26,7 @@ public class GameEngine {
     public GameEngine(GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
         newRunEntity = new ArrayList<>();
+        countries = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         map = new FieldMap(100, 500, this);
         time = new Time();
@@ -31,18 +35,22 @@ public class GameEngine {
     public GameEngine(int fieldSize, int fieldNumber, GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
         newRunEntity = new ArrayList<>();
+        countries = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
         map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
         //map = new FieldMap();
         time = new Time();
         setFieldSize(fieldSize);
+        runEntities.addAll(newRunEntity);
         //generateRandomField(fieldNumber);
     }
 
 
     public void run(){
         time.nextDay();
+        runEntities.addAll(newRunEntity);
+        newRunEntity.clear();
         Iterator<RunEntity> iterator = runEntities.iterator();
         while (iterator.hasNext()){
             RunEntity runEntity = iterator.next();
@@ -88,5 +96,13 @@ public class GameEngine {
 
     public GameWindowElement getGameWindowElement() {
         return gameWindowElement;
+    }
+
+    public void setCountries(ArrayList<Country> countries){
+        this.countries = countries;
+    }
+
+    public ArrayList<Country> getCountries() {
+        return countries;
     }
 }

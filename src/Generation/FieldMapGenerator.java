@@ -5,24 +5,25 @@ import Foundation.Elements.City;
 import Foundation.Elements.Ground;
 import Foundation.Elements.River;
 import Foundation.Elements.Tree;
+import Foundation.Person.Person;
+import Foundation.Runnable.Country;
 import Utils.Index;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
 
 public class FieldMapGenerator {
 
     private int number;
     private int size;
-    private Random random = new Random();
+    private Random random;
     private FieldMap map;
     private Time time;
     private int[][] info;
 
+
     private ArrayList<ArrayList<Index>> continents;
     private ArrayList<ArrayList<Index>> mountains;
+    private ArrayList<City> cities;
 
     public FieldMapGenerator(Random random){
         number = 0;
@@ -55,6 +56,8 @@ public class FieldMapGenerator {
         addForests();
         System.out.println("add cities...");
         addCities();
+        System.out.println("add countries");
+        addCountries();
         return map;
     }
 
@@ -556,8 +559,43 @@ public class FieldMapGenerator {
         }
     }
 
+    public void addCountries(){
+        ArrayList<Country> countries = new ArrayList<>();
+        int amount = random.nextInt(5) + 1;
+        int cityAmount = cities.size();
+        ArrayList<Integer> indexes = new ArrayList<>();
+        indexes.add(0);
+        for (int i = 0; i < amount-1; i++){
+            int index = random.nextInt(cityAmount);
+            boolean added = false;
+            for(int j = 0; j < indexes.size(); j++){
+                if (indexes.get(j) < index) continue;
+                indexes.add(j, index);
+                added = true;
+                break;
+            }
+            if (added) continue;
+            indexes.add(index);
+        }
+        indexes.add(cityAmount);
+        NameGenerator nameGenerator = new NameGenerator(random);
+        for(int i = 0; i < amount; i++){
+            ArrayList<City> countryCities = new ArrayList<>();
+            for (int j = indexes.get(i); j < indexes.get(i + 1); j++) countryCities.add(cities.get(j));
+            if (countryCities.size() == 0) continue;
+            City capital = countryCities.get(random.nextInt(countryCities.size()));
+            Person king = new Person(nameGenerator.generate(), null, Person.Kasta.Royal);
+            capital.getSociety().addPerson(king);
+            Country country = new Country(nameGenerator.generate(), king, capital);
+            for(City city: countryCities) country.addCity(city);
+            countries.add(country);
+        }
+        map.getGameEngine().setCountries(countries);
+    }
+
     public void addCities(){
         NameGenerator nameGenerator = new NameGenerator(random);
+        cities = new ArrayList<>();
         for (ArrayList<Index> continent: continents){
 
             int size = continent.size();
@@ -571,6 +609,7 @@ public class FieldMapGenerator {
                     Field field = map.getFieldByIndex(pos);
                     if (field.getOwner() == null) {
                         City city = new City(nameGenerator.generate(), map, time, field);
+                        cities.add(city);
                         field.setCity(city);
                         field.getMap().getGameEngine().addRunEntity(city);
                         info[pos.y][pos.x] = continents.size() + 6;
