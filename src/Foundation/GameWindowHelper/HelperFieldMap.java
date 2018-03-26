@@ -2,6 +2,7 @@ package Foundation.GameWindowHelper;
 
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
+import Utils.Coord;
 import Utils.Index;
 
 import java.util.ArrayList;
@@ -30,8 +31,8 @@ public class HelperFieldMap {
         return map.getOrDefault(index, null);
     }
 
-    public HelperField getFieldByPos(Index pos){
-        return map.getOrDefault(new Index(pos.x/fieldSize, pos.y/fieldSize), null);
+    public HelperField getFieldByPos(Coord pos){
+        return map.getOrDefault(new Index((int)(pos.x/fieldSize), (int)(pos.y/fieldSize)), null);
     }
 
     public ArrayList<BasicShape> getShapes(Index index, Index number){

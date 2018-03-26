@@ -1,10 +1,8 @@
 package Foundation.WorksP;
 
 import Foundation.Elements.Farm;
-import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
 import Foundation.Resource;
-import Foundation.Work;
 
 public class FarmWork extends Work {
 

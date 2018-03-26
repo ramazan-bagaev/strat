@@ -1,9 +1,9 @@
 package Windows.ElementInfoWindow;
 
 import Foundation.Frame;
+import Foundation.Person.Society;
 import Foundation.Runnable.Army;
 import Utils.Coord;
-import Foundation.Person.People;
 import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 
@@ -21,10 +21,10 @@ public class ArmyInfoWindow extends ClosableWindow {
 
     public void setShapes(){
 
-        People people = army.getPeople();
+        Society society = army.getSociety();
 
         MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10), new Coord(250, 20), "Army size:",
-                people, "amount", this);
+                society, "amount", this);
 
         addWindowElement(amount);
 

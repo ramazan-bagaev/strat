@@ -131,7 +131,7 @@ public class Window {
 
     public void run(){
         for(WindowElement windowElement: windowElements){
-            windowElement.run();
+        //    windowElement.run();
         }
 
         for (WindowElementGroup windowElementGroup: windowElementGroups){

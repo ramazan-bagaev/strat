@@ -9,7 +9,7 @@ public class ResourceStoreWindow extends ClosableWindow {
     private ResourceStore resourceStore;
 
     public ResourceStoreWindow(ResourceStore resourceStore, Frame parent){
-        super(new Coord(100, 600), new Coord(400, 100), parent);
+        super(new Coord(100, 600), new Coord(400, 150), parent);
         this.resourceStore = resourceStore;
         setElements();
     }
@@ -20,7 +20,7 @@ public class ResourceStoreWindow extends ClosableWindow {
         addCloseButton();
 
 
-        ResourceElementGroup resourceElementGroup = new ResourceElementGroup(new Coord(10, 10),
+        ResourceElementGroup resourceElementGroup = new ResourceElementGroup(new Coord(10, 30),
                 new Coord(390, 90), resourceStore, this);
        // scrollableGroup.setScrollableElements(elements);
         addWindowElementGroup(resourceElementGroup);

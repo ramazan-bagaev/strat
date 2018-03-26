@@ -2,22 +2,33 @@ package Foundation.Person;
 
 import Foundation.Broadcaster;
 import Foundation.Field;
+import Foundation.WorksP.Work;
+import Utils.Subscription;
 
 public class Person extends Broadcaster{
 
-    private Field field;
+    private Society society;
     private String name;
+    private Work work;
 
     private Kasta kasta;
 
-    public enum Kasta{
-        Low, Middle, High
+    public Work getWork() {
+        return work;
     }
 
-    public Person(String name, Field field, Kasta kasta){
-        this.field = field;
+    public void setWork(Work work) {
+        this.work = work;
+    }
+
+    public enum Kasta{
+        Low, Middle, High, Royal
+    }
+
+    public Person(String name, Society society, Kasta kasta){
         this.name = name;
         this.kasta = kasta;
+        this.society = society;
     }
 
 
@@ -31,12 +42,14 @@ public class Person extends Broadcaster{
         return kasta;
     }
 
-    public Field getField() {
-        return field;
+
+
+    public Society getSociety() {
+        return society;
     }
 
-    public void setField(Field field) {
-        this.field = field;
+    public void setSociety(Society society){
+        this.society = society;
     }
 
 
@@ -54,8 +67,20 @@ public class Person extends Broadcaster{
                         return "middle";
                     case High:
                         return "high";
+                    case Royal:
+                        return "royal";
                 }
         }
         return noResult;
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+
     }
 }

@@ -1,12 +1,9 @@
 package Foundation.GameWindowHelper;
 
 import Foundation.BasicShapes.BasicShape;
+import Foundation.GameWindowHelper.HelperElements.*;
 import Utils.Index;
 import Foundation.*;
-import Foundation.GameWindowHelper.HelperElements.BorderHelper;
-import Foundation.GameWindowHelper.HelperElements.ChoosenFieldHelper;
-import Foundation.GameWindowHelper.HelperElements.CityInfoHelper;
-import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
 
 import java.util.ArrayList;
 
@@ -22,12 +19,14 @@ public class HelperField {
     private ChoosenFieldHelper choosenFieldHelper;
     private CoveringFieldHelper coveringFieldHelper;
     private ArrayList<BorderHelper> borderHelpers;
+    private ArrayList<HelperElement> helperElements;
 
     public HelperField(Field field, HelperFieldMap map){
         this.map = map;
         pos = field.getFieldMapPos();
         size = new Index(field.getSize(), field.getSize());
         borderHelpers = new ArrayList<>();
+        helperElements = new ArrayList<>();
     }
 
     public HelperFieldMap getMap() {
@@ -43,6 +42,9 @@ public class HelperField {
             if (borderHelper != null) {
                 result.addAll(borderHelper.getBasicShapes());
             }
+        }
+        for (HelperElement helperElement: helperElements){
+            result.addAll(helperElement.getBasicShapes());
         }
         return result;
     }
@@ -79,6 +81,7 @@ public class HelperField {
         if (cityInfoHelper != null) return false;
         if (coveringFieldHelper != null) return false;
         if (borderHelpers.size() != 0) return false;
+        if (helperElements.size() != 0) return false;
         return true;
     }
 
@@ -93,5 +96,13 @@ public class HelperField {
 
     public void removeBorderHelper(BorderHelper borderHelper) {
         borderHelpers.remove(borderHelper);
+    }
+
+    public void addHelperElement(HelperElement helperElement){
+        helperElements.add(helperElement);
+    }
+
+    public void removeHelperElement(HelperElement helperElement){
+        helperElements.remove(helperElement);
     }
 }

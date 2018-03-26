@@ -3,7 +3,6 @@ package Windows.IntermediatWindows.ChooseManyPeople;
 import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
 import Foundation.Frame;
-import Foundation.Person.People;
 import Foundation.Person.Person;
 
 public class ChooseVillagePeopleWindow extends ChooseManyPeopleWindow {
@@ -12,7 +11,7 @@ public class ChooseVillagePeopleWindow extends ChooseManyPeopleWindow {
     private Village village;
 
     public ChooseVillagePeopleWindow(Village village, Frame parent) {
-        super(village.getManor().getPeople(), parent);
+        super(village.getManor().getSociety().getPeople(), parent);
 
         this.village = village;
         this.manor = village.getManor();
@@ -25,7 +24,7 @@ public class ChooseVillagePeopleWindow extends ChooseManyPeopleWindow {
 
     @Override
     public void choosePeople() {
-        for(Person person: submittedPeople){
+        for(Person person: submittedPeople.getPersonArray()){
             manor.removePerson(person);
         }
         village.addPeople(submittedPeople);

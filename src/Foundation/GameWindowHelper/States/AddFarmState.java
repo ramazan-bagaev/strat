@@ -23,16 +23,13 @@ public class AddFarmState extends HelperState {
         super(gameWindowHelperElement);
         this.village = village;
         coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
-        coveringFieldMode.putHelpers();
         possible = new ArrayList<>();
         impossible = new ArrayList<>();
-        init();
-
     }
 
     private void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
-        for(Index local: village.getManor().getTerritory())
+        for(Index local: village.getManor().getTerritory().getTerritory())
         {
             Field field = fieldMap.getFieldByIndex(local);
             if (field == null) continue;
@@ -63,6 +60,12 @@ public class AddFarmState extends HelperState {
             coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Blue, 0.5f));
             possible.add(local);
         }
+    }
+
+    @Override
+    public void putHelperElements() {
+        coveringFieldMode.putHelpers();
+        init();
     }
 
     @Override

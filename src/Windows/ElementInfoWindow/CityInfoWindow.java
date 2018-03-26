@@ -38,11 +38,11 @@ public class CityInfoWindow extends ClosableWindow {
         addWindowElement(citySizeLabel);
 
         MonitoredBroadcastLabel cityPopulationLabel = new MonitoredBroadcastLabel(new Coord(10, 140), new Coord(200, 10),
-                "Population:", city, "population", this) {
+                "Population:", city.getSociety().getPeople(), "amount", this) {
             @Override
             public void click(Coord point) {
                 Frame frame = getParent().getParent();
-                frame.addSpecialWindow("population group window", new PopulationInfoWindow(getCity().getPeople(), frame));
+                frame.addSpecialWindow("population group window", new PopulationInfoWindow(getCity().getSociety(), frame));
             }
         };
         addWindowElement(cityPopulationLabel);

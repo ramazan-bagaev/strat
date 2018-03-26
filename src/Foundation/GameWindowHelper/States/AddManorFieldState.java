@@ -1,6 +1,7 @@
 package Foundation.GameWindowHelper.States;
 
 import Foundation.Color;
+import Foundation.Territory;
 import Utils.Index;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
@@ -22,32 +23,36 @@ public class AddManorFieldState extends HelperState {
     private CoveringFieldMode farmTerritory;
     private CoveringFieldMode possibleTerritory;
 
-    private ArrayList<Index> maxTerritory;
+    private Territory maxTerritory;
 
     public AddManorFieldState(GameWindowHelperElement gameWindowHelperElement, Manor manor) {
         super(gameWindowHelperElement);
         farmTerritory = new CoveringFieldMode(gameWindowHelperElement);
         possibleTerritory = new CoveringFieldMode(gameWindowHelperElement);
         megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
+        this.manor = manor;
+    }
+
+    @Override
+    public void putHelperElements(){
         farmTerritory.putHelpers();
         possibleTerritory.putHelpers();
         megaBorderMode.putHelpers();
-        this.manor = manor;
         initMaxTerritory();
-        ArrayList<Index> currentTerritory = manor.getTerritory();
+        Territory currentTerritory = new Territory(manor.getTerritory());
         initFarmTerritory(currentTerritory);
     }
 
     private void initMaxTerritory(){
-        maxTerritory = new ArrayList<>();
+        maxTerritory = new Territory();
         ArrayList<Manor> manors = manor.getCity().getManors();
-        ArrayList<Index> otherManors = new ArrayList<>();
+        Territory otherManors = new Territory();
         for (Manor man: manors) {
             if (man.equals(manor)) continue;
-            otherManors.addAll(man.getTerritory());
+            otherManors.add(man.getTerritory());
         }
-        ArrayList<Index> candidates = manor.getCity().getTerritory();
-        for (Index candidate: candidates){
+        Territory candidates = new Territory(manor.getCity().getTerritory());
+        for (Index candidate: candidates.getTerritory()){
             if (otherManors.contains(candidate)) continue;
             maxTerritory.add(candidate);
         }
@@ -61,8 +66,8 @@ public class AddManorFieldState extends HelperState {
         refreshPossibleTerritory(pos);
     }
 
-    public void initFarmTerritory(ArrayList<Index> currentTerritory){
-        for (Index pos: currentTerritory){
+    public void initFarmTerritory(Territory currentTerritory){
+        for (Index pos: currentTerritory.getTerritory()){
             farmTerritory.addCoveringFieldHelper(pos, new Color(Color.Type.Black, 0.5f));
             refreshPossibleTerritory(pos);
         }

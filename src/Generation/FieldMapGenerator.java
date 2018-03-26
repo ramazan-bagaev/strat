@@ -561,22 +561,24 @@ public class FieldMapGenerator {
         for (ArrayList<Index> continent: continents){
 
             int size = continent.size();
-            int number = random.nextInt(size/1000 + 1);
+            int number = random.nextInt(size/100 + 1);
+            System.out.println(number + " - rand");
 
             int count = 0;
             while (count < continent.size()) {
                 Index pos = continent.get(random.nextInt(continent.size()));
                 if (info[pos.y][pos.x] > 0 && info[pos.y][pos.x] <= continents.size()) {
                     Field field = map.getFieldByIndex(pos);
-                    if (field.getOwner() != null) continue;
-                    City city = new City(nameGenerator.generate(), map, time, field);
-                    field.setCity(city);
-                    field.getMap().getGameEngine().addRunEntity(city);
-                    info[pos.y][pos.x] = continents.size() + 6;
-                    number--;
+                    if (field.getOwner() == null) {
+                        City city = new City(nameGenerator.generate(), map, time, field);
+                        field.setCity(city);
+                        field.getMap().getGameEngine().addRunEntity(city);
+                        info[pos.y][pos.x] = continents.size() + 6;
+                        number--;
+                    }
                 }
                 count++;
-                if (number == 0) break;
+                if (number <= 0) break;
             }
 
         }

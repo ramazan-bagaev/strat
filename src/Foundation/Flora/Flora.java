@@ -3,6 +3,7 @@ package Foundation.Flora;
 import Foundation.Broadcaster;
 import Foundation.Elements.Ecosystem;
 import Foundation.Elements.Ground;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,16 @@ public class Flora extends Broadcaster{
         switch (key){
         }
         return Broadcaster.noResult;
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+
     }
 
     public ArrayList<Plant> getPlants() {

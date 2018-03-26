@@ -12,7 +12,7 @@ public class ChooseManorPeopleWindow extends ChooseManyPeopleWindow {
     private Manor manor;
 
     public ChooseManorPeopleWindow(Manor manor, Frame parent) {
-        super(manor.getCity().getPeople(), parent);
+        super(manor.getCity().getSociety().getPeople(), parent);
 
         this.city = manor.getCity();
         this.manor = manor;
@@ -27,7 +27,7 @@ public class ChooseManorPeopleWindow extends ChooseManyPeopleWindow {
 
     @Override
     public void choosePeople() {
-        for(Person person: submittedPeople){
+        for(Person person: submittedPeople.getPersonArray()){
             city.removePerson(person);
         }
         manor.addPeople(submittedPeople);

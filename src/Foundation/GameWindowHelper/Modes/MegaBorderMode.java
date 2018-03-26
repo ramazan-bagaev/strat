@@ -17,7 +17,6 @@ public class MegaBorderMode extends Mode {
     public MegaBorderMode(GameWindowHelperElement gameWindowHelperElement) {
         super(gameWindowHelperElement);
         borderModes = new ArrayList<>();
-        init();
     }
 
     public void init(){
@@ -41,6 +40,7 @@ public class MegaBorderMode extends Mode {
 
     @Override
     public void putHelpers() {
+        init();
         for(BorderMode borderMode: borderModes){
             borderMode.putHelpers();
         }
@@ -51,5 +51,6 @@ public class MegaBorderMode extends Mode {
         for(BorderMode borderMode: borderModes){
             borderMode.removeHelpers();
         }
+        borderModes.clear();
     }
 }

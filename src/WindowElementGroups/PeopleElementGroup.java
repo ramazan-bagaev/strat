@@ -1,14 +1,11 @@
 package WindowElementGroups;
 
-import Foundation.Button;
-import Foundation.Label;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Foundation.Window;
 import Utils.Coord;
 import WindowElements.ScrollElements.PersonScrolledRow;
-import WindowElements.ScrollElements.ScrollableRow;
-import Windows.ElementInfoWindow.PersonInfoWindow;
 
 import java.util.ArrayList;
 

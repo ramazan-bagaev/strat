@@ -2,7 +2,9 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
+import Foundation.Runnable.AI.ManorActor;
 import Foundation.Runnable.RunableElement;
 import Images.ManorImage;
 import Utils.Index;
@@ -10,22 +12,21 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-public class Manor extends RunableElement {
+public class Manor extends HabitableElement {
+
 
     private ArrayList<Index> villages;
 
     private Person lord;
-    private People people;
-    private ResourceStore resourceStore;
-    private ArrayList<Index> territory;
+    private Territory territory;
     private City city;
+
+    private ManorActor actor;
 
     public Manor(Time time, Field parent, FieldMap map, City city) {
         super(Type.Manor, time, parent, map);
         this.city = city;
-        this.resourceStore = new ResourceStore();
-        this.people = new People(parent);
-        territory = new ArrayList<>();
+        territory = new Territory();
         territory.add(parent.getFieldMapPos());
         villages = new ArrayList<>();
         setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
@@ -35,10 +36,10 @@ public class Manor extends RunableElement {
         super(Type.Manor, time, parent, map);
         this.city = city;
         this.lord = lord;
-        this.people = new People(parent);
-        this.people.addPerson(lord);
-        this.resourceStore = new ResourceStore();
-        territory = new ArrayList<>();
+        this.actor = new ManorActor(lord, this, getTime());
+        parent.getMap().getGameEngine().addRunEntity(actor);
+        society.addPerson(lord);
+        territory = new Territory();
         territory.add(parent.getFieldMapPos());
         villages = new ArrayList<>();
         setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
@@ -48,7 +49,7 @@ public class Manor extends RunableElement {
         territory.add(pos);
     }
 
-    public ArrayList<Index> getTerritory() {
+    public Territory getTerritory() {
         return territory;
     }
 
@@ -60,7 +61,7 @@ public class Manor extends RunableElement {
         if (!territory.contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        people.removePerson(steward);
+        society.removePerson(steward);
         Village village = new Village(time, field, map, steward, this);
         field.setVillage(village);
         villages.add(point);
@@ -68,20 +69,14 @@ public class Manor extends RunableElement {
         map.getGameEngine().getGameWindowElement().getGameEngine().addRunEntity(village);
     }
 
-    public ResourceStore getResourceStore() {
-        return resourceStore;
-    }
 
     @Override
     public void run() {
         for(Index pos: villages){
             Village village = map.getFieldByIndex(pos).getVillage();
-            //village.getWork().doJob();
+            ArrayList<Resource> resources = village.getPartOfResource(0.9);
+            for(Resource resource: resources) resourceStore.addResource(resource);
         }
-    }
-
-    public People getPeople() {
-        return people;
     }
 
     public Person getLord() {
@@ -90,14 +85,22 @@ public class Manor extends RunableElement {
 
     public void setLord(Person lord) {
         this.lord = lord;
-        people.addPerson(lord);
+        society.addPerson(lord);
     }
 
-    public void addPeople(ArrayList<Person> people){
-        this.people.addPeople(people);
+    public ArrayList<Resource> getPartOfResource(double part){
+        if (part > 1) part = 1;
+        if (part < 0) part = 0;
+        ArrayList<Resource> result = new ArrayList<>();
+        for(Resource resource: resourceStore.getResources()){
+            Resource share = resource.getResource((int) (resource.getAmount()*part));
+            result.add(share);
+        }
+        return result;
     }
 
-    public void removePerson(Person person){
-        people.removePerson(person);
+
+    public ArrayList<Index> getVillages() {
+        return villages;
     }
 }

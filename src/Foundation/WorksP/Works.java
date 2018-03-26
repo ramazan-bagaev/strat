@@ -1,4 +1,6 @@
-package Foundation;
+package Foundation.WorksP;
+
+import Foundation.WorksP.Work;
 
 import java.util.ArrayList;
 

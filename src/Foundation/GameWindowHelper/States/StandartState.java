@@ -21,11 +21,14 @@ public class StandartState extends HelperState {
         cityInfoMode = new CityInfoMode(gameWindowHelperElement);
         choosenFieldMode = new ChoosenFieldMode(gameWindowHelperElement);
         megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
+    }
+
+    @Override
+    public void putHelperElements() {
         cityInfoMode.putHelpers();
         choosenFieldMode.putHelpers();
         megaBorderMode.putHelpers();
     }
-
 
 
     @Override

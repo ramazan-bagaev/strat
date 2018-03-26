@@ -2,10 +2,9 @@ package Windows.IntermediatWindows.ChooseOnePerson;
 
 import Foundation.Button;
 import Foundation.Frame;
-import Foundation.GameWindowHelper.States.AddManorState;
-import Foundation.GameWindowHelperElement;
 import Foundation.Label;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Utils.Coord;
 import WindowElementGroups.PeopleElementGroup;

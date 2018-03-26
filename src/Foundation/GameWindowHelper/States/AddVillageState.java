@@ -27,18 +27,14 @@ public class AddVillageState extends HelperState {
         impossible = new CoveringFieldMode(gameWindowHelperElement);
         possible = new CoveringFieldMode(gameWindowHelperElement);
         megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
-        impossible.putHelpers();
-        possible.putHelpers();
-        megaBorderMode.putHelpers();
-        init();
     }
 
     public void init(){
-        ArrayList<Index> territory = manor.getTerritory();
+        Territory territory = manor.getTerritory();
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         Color p = new Color(Color.Type.White, 0.5f);
         Color i = new Color(Color.Type.Red, 0.5f);
-        for(Index pos: territory){
+        for(Index pos: territory.getTerritory()){
             Field field = fieldMap.getFieldByIndex(pos);
             if (field.getManor() != null){
                 impossible.addCoveringFieldHelper(pos, i);
@@ -65,6 +61,14 @@ public class AddVillageState extends HelperState {
     }
 
     @Override
+    public void putHelperElements() {
+        impossible.putHelpers();
+        possible.putHelpers();
+        megaBorderMode.putHelpers();
+        init();
+    }
+
+    @Override
     public void click(Coord point) {
         point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
         Index index = new Index(0 ,0);
@@ -73,7 +77,6 @@ public class AddVillageState extends HelperState {
         if (impossible.isOccupiedBy(index)) return;
         if (possible.isOccupiedBy(index)){
             manor.createVillage(index, steward);
-            return;
         }
         clearHelperElements();
         gameWindowHelperElement.setStandartState();

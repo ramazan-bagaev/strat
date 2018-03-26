@@ -2,11 +2,10 @@ package Windows.IntermediatWindows.ChooseManyPeople;
 
 import Foundation.Button;
 import Foundation.Color;
-import Foundation.Elements.City;
-import Foundation.Elements.Manor;
 import Foundation.Frame;
 import Foundation.Label;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Utils.Coord;
 import WindowElementGroups.PeopleElementGroup;
@@ -18,14 +17,14 @@ import java.util.ArrayList;
 
 public abstract class ChooseManyPeopleWindow extends ClosableWindow{
 
-    protected ArrayList<Person> submittedPeople;
+    protected People submittedPeople;
 
     protected People people;
 
     public ChooseManyPeopleWindow(People people, Frame parent) {
         super(new Coord(300, 400), new Coord(400, 400), parent);
 
-        submittedPeople = new ArrayList<>();
+        submittedPeople = new People();
         this.people = people;
 
         setElements();
@@ -60,11 +59,11 @@ public abstract class ChooseManyPeopleWindow extends ClosableWindow{
                     PersonScrolledRow personScrolledRow = (PersonScrolledRow)scrollableRow;
                     Person person = personScrolledRow.getPerson();
                     if (!submittedPeople.contains(person)){
-                        submittedPeople.add(person);
+                        submittedPeople.addPerson(person);
                         personScrolledRow.setColor(new Color(Color.Type.LightGray));
                     }
                     else{
-                        submittedPeople.remove(person);
+                        submittedPeople.removePerson(person);
                         personScrolledRow.setColor(new Color(Color.Type.White));
                     }
                 }

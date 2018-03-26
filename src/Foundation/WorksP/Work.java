@@ -1,12 +1,13 @@
-package Foundation;
+package Foundation.WorksP;
 
 import Foundation.Elements.City;
+import Foundation.Elements.WorkElement;
+import Foundation.ResourceStore;
 
 public abstract class Work {
 
     protected ResourceStore resourceStore;
     private int id;
-    private Type type;
 
     public Work(ResourceStore resourceStore){
         this.resourceStore = resourceStore;
@@ -22,8 +23,4 @@ public abstract class Work {
         this.id = id;
     }
 
-
-    public enum Type{
-        Hunting, Gathering
-    }
 }

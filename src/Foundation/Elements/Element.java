@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Utils.Index;
 import Utils.Coord;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
@@ -90,6 +91,16 @@ public class Element extends Broadcaster {
     @Override
     public String getValue(String key) {
         return Broadcaster.noResult;
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+
     }
 
 }

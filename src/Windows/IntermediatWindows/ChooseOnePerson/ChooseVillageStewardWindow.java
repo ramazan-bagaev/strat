@@ -4,7 +4,6 @@ import Foundation.Elements.Manor;
 import Foundation.Frame;
 import Foundation.GameWindowHelper.States.AddVillageState;
 import Foundation.GameWindowHelperElement;
-import Foundation.Person.People;
 import Foundation.Person.Person;
 
 public class ChooseVillageStewardWindow extends ChooseOnePersonWindow {
@@ -12,7 +11,7 @@ public class ChooseVillageStewardWindow extends ChooseOnePersonWindow {
     private Manor manor;
 
     public ChooseVillageStewardWindow(Manor manor, Frame parent) {
-        super(manor.getPeople(), parent);
+        super(manor.getSociety().getPeople(), parent);
         this.manor = manor;
     }
 

@@ -10,7 +10,7 @@ public class ChooseManorLordWindow extends ChooseOnePersonWindow {
     private City city;
 
     public ChooseManorLordWindow(City city, Frame parent) {
-        super(city.getPeople(), parent);
+        super(city.getSociety().getPeople(), parent);
         this.city = city;
     }
 

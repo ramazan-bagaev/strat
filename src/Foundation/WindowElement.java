@@ -2,6 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.BasicShape;
 import Utils.Coord;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
@@ -72,9 +73,9 @@ public class WindowElement extends Broadcaster{
         active = false;
     }
 
-    public void run(){
-        return;
-    }
+    //public void run(){
+    //    return;
+    //}
 
     public void draw(OpenGLBinder openGLBinder){
         for (BasicShape basicShape: basicShapes){
@@ -170,5 +171,15 @@ public class WindowElement extends Broadcaster{
     @Override
     public String getValue(String key) {
         return null;
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+
     }
 }

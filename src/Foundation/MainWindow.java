@@ -17,6 +17,7 @@ public class MainWindow extends Window{
         addWindowElement(gameWindowElement);
         gameWindowHelperElement = new GameWindowHelperElement(gameWindowElement);
         addWindowElement(gameWindowHelperElement);
+        gameWindowHelperElement.renewState();
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -45,6 +46,8 @@ public class MainWindow extends Window{
 
     @Override
     public boolean drag(Coord pos, Coord pressedPos, boolean dragBegin){
+        boolean res = gameWindowHelperElement.drag(pos, pressedPos, dragBegin);
+        if (res) return true;
         cameraConfiguration.drag(pos, pressedPos, dragBegin);
         gameWindowElement.setShapes();
         gameWindowHelperElement.setShapes();

@@ -2,6 +2,7 @@ package WindowElementGroups;
 
 import Foundation.Button;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Foundation.Window;
 import Utils.Coord;

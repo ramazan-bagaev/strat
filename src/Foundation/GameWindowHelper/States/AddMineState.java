@@ -22,15 +22,13 @@ public class AddMineState extends HelperState {
         super(gameWindowHelperElement);
         this.village = village;
         coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
-        coveringFieldMode.putHelpers();
         possible = new ArrayList<>();
         impossible = new ArrayList<>();
-        init();
     }
 
     private void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
-        for(Index local: village.getManor().getTerritory())
+        for(Index local: village.getManor().getTerritory().getTerritory())
         {
             Field field = fieldMap.getFieldByIndex(local);
             if (field == null) continue;
@@ -44,6 +42,12 @@ public class AddMineState extends HelperState {
         }
     }
 
+
+    @Override
+    public void putHelperElements() {
+        coveringFieldMode.putHelpers();
+        init();
+    }
 
     @Override
     public void click(Coord point) {

@@ -7,7 +7,7 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-public abstract class HelperElement {
+public class HelperElement {
 
     private ArrayList<BasicShape> shapes;
 
@@ -17,7 +17,7 @@ public abstract class HelperElement {
     public HelperElement(HelperField helperField){
         shapes = new ArrayList<>();
         parent = helperField;
-        Index index = helperField.getPos();
+        //Index index = helperField.getPos();
         size = new Coord(helperField.getSize().x, helperField.getSize().y);
     }
 

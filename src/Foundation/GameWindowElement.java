@@ -118,8 +118,4 @@ public class GameWindowElement extends WindowElement{
       ///  if (f)
     }
 
-    @Override
-    public void run(){
-
-    }
 }

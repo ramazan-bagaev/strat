@@ -3,7 +3,6 @@ package Foundation.WorksP;
 import Foundation.Elements.Trawler;
 import Foundation.Elements.Village;
 import Foundation.Resource;
-import Foundation.Work;
 
 public class TrawlerWork extends Work {
 

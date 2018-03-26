@@ -78,7 +78,7 @@ public class SuperField implements RunEntity {
         City city = field.getCity();
         if (city != null) System.out.println("Danger!!! at SuperField deleteField method"); // should delete this field info from cityPos
         if (city != null){
-            city.destroy();
+            /// here will be city destroy method
         }
         if (field.getGroundType() == Ground.GroundType.Water){
             numberOfWaterField--;

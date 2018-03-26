@@ -2,43 +2,43 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
+import Foundation.Runnable.AI.VillageActor;
 import Foundation.Runnable.RunableElement;
+import Foundation.WorksP.Work;
 import Images.VillageImage;
+import Utils.Content;
 import Utils.Index;
 import Utils.Coord;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Village extends RunableElement{
+public class Village extends HabitableElement{
 
-    private ResourceStore resourceStore;
-
+    private Content workContent;
     private Manor manor;
     private Person steward;
-    private People people;
 
-    private ArrayList<Index> farms;
-    private ArrayList<Index> sawmills;
-    private ArrayList<Index> trawlers;
-    private ArrayList<Index> mines;
+    private VillageActor actor;
+    private ArrayList<WorkElement> workElements;
 
-    private ArrayList<Index> availableWater;
+
+    private Territory availableWater;
 
     public Village(Time time, Field parent, FieldMap map, Person steward, Manor manor) {
         super(Type.Village, time, parent, map);
         this.manor = manor;
-        this.resourceStore = new ResourceStore();
-        people = new People(parent);
         this.steward = steward;
-        people.addPerson(steward);
-        farms = new ArrayList<>();
-        sawmills = new ArrayList<>();
-        trawlers = new ArrayList<>();
-        availableWater = new ArrayList<>();
-        mines = new ArrayList<>();
+        workElements = new ArrayList<>();
+        actor = new VillageActor(steward, this, time);
+        parent.getMap().getGameEngine().addRunEntity(actor);
+        society.addPerson(steward);
+        availableWater = new Territory();
         int size = parent.getSize();
+        workContent = new Content();
         setBasicShapes(new VillageImage(new Coord(0, 0), new Coord(size, size), parent.getRandom(), null).getBasicShapesRemoveAndShiftBack());
     }
 
@@ -46,9 +46,10 @@ public class Village extends RunableElement{
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getFarm() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Farm farm = new Farm(this, time, field, map);
+        Farm farm = new Farm(this, new People(), time, field, map);
         field.setFarm(farm);
-        farms.add(point);
+        workElements.add(farm);
+        workContent.changed();
         map.getGameEngine().getGameWindowElement().setShapes();
     }
 
@@ -56,9 +57,10 @@ public class Village extends RunableElement{
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getSawmill() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Sawmill sawmill = new Sawmill(this, time, field, map);
+        Sawmill sawmill = new Sawmill(this, new People(), time, field, map);
         field.setSawmill(sawmill);
-        sawmills.add(point);
+        workElements.add(sawmill);
+        workContent.changed();
         map.getGameEngine().getGameWindowElement().setShapes();
     }
 
@@ -66,9 +68,10 @@ public class Village extends RunableElement{
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getTrawler() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Trawler trawler = new Trawler(this, time, field, map);
+        Trawler trawler = new Trawler(this, new People(), time, field, map);
         field.setTrawler(trawler);
-        trawlers.add(point);
+        workElements.add(trawler);
+        workContent.changed();
         map.getGameEngine().getGameWindowElement().setShapes();
     }
 
@@ -76,9 +79,10 @@ public class Village extends RunableElement{
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getMine() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Mine mine = new Mine(this, time, field, map);
+        Mine mine = new Mine(this, new People(), time, field, map);
         field.setMine(mine);
-        mines.add(point);
+        workElements.add(mine);
+        workContent.changed();
         map.getGameEngine().getGameWindowElement().setShapes();
     }
 
@@ -86,26 +90,10 @@ public class Village extends RunableElement{
         return manor;
     }
 
-    public People getPeople() {
-        return people;
-    }
-
-    public ResourceStore getResourceStore() {
-        return resourceStore;
-    }
-
-    public void addPeople(ArrayList<Person> people){
-        this.people.addPeople(people);
-    }
-
-    public void removePerson(Person person){
-        this.people.removePerson(person);
-    }
-
     public void markAvailableWater(){
         availableWater.clear();
         Index pos = parent.getFieldMapPos();
-        ArrayList<Index> territory = new ArrayList<>(manor.getTerritory());
+        Territory territory = new Territory(manor.getTerritory());
         LinkedList<Index> que = new LinkedList<>();
         que.addFirst(pos);
         territory.remove(pos);
@@ -125,28 +113,81 @@ public class Village extends RunableElement{
         }
     }
 
-    public ArrayList<Index> getAvailableWater() {
+    public Territory getAvailableWater() {
         markAvailableWater();
         return availableWater;
     }
 
+    public ArrayList<Resource> getPartOfResource(double part){
+        if (part > 1) part = 1;
+        if (part < 0) part = 0;
+        ArrayList<Resource> result = new ArrayList<>();
+        for(Resource resource: resourceStore.getResources()){
+            Resource share = resource.getResource((int) (resource.getAmount()*part));
+            result.add(share);
+        }
+        return result;
+    }
+
+    public ArrayList<WorkElement> getWorkElements() {
+        return workElements;
+    }
+
+    public void removeWorkers(int number, Index index){
+        for(WorkElement workElement: workElements){
+            if (workElement.getParent().getFieldMapPos().equals(index)){
+                workElement.removeRandomPeople(number);
+                return;
+            }
+        }
+    }
+
+    public void addWorkers(int number, Index index){
+        for(WorkElement workElement: workElements){
+            if (workElement.getParent().getFieldMapPos().equals(index)){
+                People people = society.getPeople();
+                LinkedList<Person> rightPeople = new LinkedList<>();
+                for(Person person: people.getPersonArray()){
+                    if (person.getWork() != null) continue;
+                    rightPeople.add(person);
+                }
+                if (rightPeople.size() == 0) return;
+                People resultPeople = new People();
+                if (number > rightPeople.size()) number = rightPeople.size();
+                if (number <= 0) return;
+                for(int i = 0; i < number; i++){
+                    int ind = getParent().getRandom().nextInt(rightPeople.size());
+                    Person person = rightPeople.get(ind);
+                    resultPeople.addPerson(person);
+                    rightPeople.remove(person);
+                }
+                workElement.addPeople(resultPeople);
+                return;
+            }
+        }
+    }
+
+
     @Override
     public void run() {
-        for(Index pos: farms){
-            Farm farm = map.getFieldByIndex(pos).getFarm();
-            farm.getWork().doJob();
+        for(WorkElement workElement: workElements) workElement.getWork().doJob();
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription){
+        switch (key){
+            case "work":
+                workContent.subscribe(subscription);
+                break;
         }
-        for(Index pos: sawmills){
-            Sawmill sawmill = map.getFieldByIndex(pos).getSawmill();
-            sawmill.getWork().doJob();
-        }
-        for(Index pos: trawlers){
-            Trawler trawler = map.getFieldByIndex(pos).getTrawler();
-            trawler.getWork().doJob();
-        }
-        for(Index pos: mines){
-            Mine mine = map.getFieldByIndex(pos).getMine();
-            mine.getWork().doJob();
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription){
+        switch (key){
+            case "work":
+                workContent.unsubscribe(subscription);
+                break;
         }
     }
 }

@@ -1,6 +1,11 @@
 package Foundation;
 
-public class Time {
+import Utils.Content;
+import Utils.Subscription;
+
+public class Time extends Broadcaster{
+
+    private Content dateContent;
 
     private Date date;
     private boolean isNewWeek;
@@ -9,6 +14,7 @@ public class Time {
 
     public Time(){
         date = new Date();
+        dateContent = new Content();
     }
 
     public void nextDay(){
@@ -36,6 +42,7 @@ public class Time {
             isNewYear = false;
             isNewMonth = false;
         }
+        dateContent.changed();
     }
 
     public boolean isNewWeek(){
@@ -54,4 +61,32 @@ public class Time {
         return date;
     }
 
+    @Override
+    public String getValue(String key) {
+        switch (key){
+            case "day":
+                return String.valueOf(date.day);
+            case "month":
+                return String.valueOf(date.month);
+            case "year":
+                return String.valueOf(date.year);
+        }
+        return noResult;
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+        switch (key){
+            case "time":
+                dateContent.subscribe(subscription);
+        }
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+        switch (key){
+            case "time":
+                dateContent.unsubscribe(subscription);
+        }
+    }
 }

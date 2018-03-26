@@ -2,17 +2,25 @@ package Foundation.Person;
 
 import Foundation.Broadcaster;
 import Foundation.Field;
+import Utils.Content;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class People extends Broadcaster {
+public class People extends Broadcaster{
+
+    protected Content amountContent;
 
     private ArrayList<Person> people;
-    private Field field;
 
-    public People(Field field){
-        this.field = field;
+    public People(People people) {
+        this.people = new ArrayList<>(people.getPersonArray());
+        amountContent = new Content();
+    }
+
+    public People(){
         people = new ArrayList<>();
+        amountContent = new Content();
     }
 
     public int getAmount(){
@@ -22,24 +30,31 @@ public class People extends Broadcaster {
     public void addPerson(Person person){
         if (people.contains(person)) return;
         people.add(person);
+        amountContent.changed();
     }
 
-    public void addPeople(ArrayList<Person> people){
-        for(Person person: people){
-            person.setField(field);
-            addPerson(person);
+    public void addPeople(People people){
+        for(Person person: people.getPersonArray()){
+            if (this.people.contains(person)) return;
+            this.people.add(person);
         }
+        amountContent.changed();
     }
 
     public void removePerson(Person person){
         if (people.contains(person)){
             people.remove(person);
-            person.setField(null);
+            amountContent.changed();
         }
     }
 
     public ArrayList<Person> getPersonArray(){
         return people;
+    }
+
+
+    public boolean contains(Person person){
+        return people.contains(person);
     }
 
     @Override
@@ -51,17 +66,21 @@ public class People extends Broadcaster {
         return Broadcaster.noResult;
     }
 
-    public Field getField() {
-        return field;
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+        switch (key){
+            case "amount":
+                amountContent.subscribe(subscription);
+                break;
+        }
     }
 
-    public Person getLord(){
-        ArrayList<Person> lords = new ArrayList<>();
-        for(Person person: people){
-            if (person.getKasta() == Person.Kasta.High) lords.add(person);
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+        switch (key){
+            case "amount":
+                amountContent.unsubscribe(subscription);
+                break;
         }
-        if (lords.size() == 0) return null;
-        int index = getField().getRandom().nextInt(lords.size());
-        return lords.get(index);
     }
 }

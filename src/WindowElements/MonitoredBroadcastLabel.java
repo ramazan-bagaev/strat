@@ -3,9 +3,13 @@ package WindowElements;
 import Foundation.*;
 import Foundation.BasicShapes.StringShape;
 import Utils.Coord;
+import Utils.Subscription;
+
+import java.util.ArrayList;
 
 public class MonitoredBroadcastLabel extends Label{
 
+    private Subscription subscription;
     private String preText;
     private String oldText;
     private Broadcaster broadcaster;
@@ -21,6 +25,14 @@ public class MonitoredBroadcastLabel extends Label{
         StringShape stringShape = getStringShape();
         stringShape.setText(broadcaster.getValue(key));
         setStringShape(stringShape);
+        subscription = new Subscription() {
+
+            @Override
+            public void changed() {
+                renew();
+            }
+        };
+        broadcaster.subscribe(key, subscription);
     }
 
     public MonitoredBroadcastLabel(Coord pos, Coord size, String text, Broadcaster broadcaster, String key, Window parent) {
@@ -32,6 +44,14 @@ public class MonitoredBroadcastLabel extends Label{
         StringShape stringShape = getStringShape();
         stringShape.setText(text + " " + broadcaster.getValue(key));
         setStringShape(stringShape);
+        subscription = new Subscription() {
+
+            @Override
+            public void changed() {
+                renew();
+            }
+        };
+        broadcaster.subscribe(key, subscription);
     }
 
     public MonitoredBroadcastLabel(Coord pos, Coord size, String text, Broadcaster broadcaster, String key, WindowElementGroup windowElementGroup,
@@ -44,6 +64,14 @@ public class MonitoredBroadcastLabel extends Label{
         StringShape stringShape = getStringShape();
         stringShape.setText(text + " " + broadcaster.getValue(key));
         setStringShape(stringShape);
+        subscription = new Subscription() {
+
+            @Override
+            public void changed() {
+                renew();
+            }
+        };
+        broadcaster.subscribe(key, subscription);
     }
 
     @Override
@@ -92,10 +120,5 @@ public class MonitoredBroadcastLabel extends Label{
 
     public void setPreText(String preText) {
         this.preText = preText;
-    }
-
-    @Override
-    public void run(){
-        renew();
     }
 }

@@ -21,17 +21,13 @@ public class AddTrawlerState extends HelperState {
         super(gameWindowHelperElement);
         this.village = village;
         coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
-        coveringFieldMode.putHelpers();
         possible = new ArrayList<>();
         impossible = new ArrayList<>();
-        init();
     }
 
     private void init(){
-        ArrayList<Index> availableWater = village.getAvailableWater();
-        System.out.println("available");
-        for(Index c: availableWater) System.out.println(c.x + " " + c.y);
-        for(Index local: village.getManor().getTerritory())
+        Territory availableWater = village.getAvailableWater();
+        for(Index local: village.getManor().getTerritory().getTerritory())
         {
             if (!availableWater.contains(local)){
                 coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Red, 0.5f));
@@ -43,6 +39,12 @@ public class AddTrawlerState extends HelperState {
         }
     }
 
+
+    @Override
+    public void putHelperElements() {
+        coveringFieldMode.putHelpers();
+        init();
+    }
 
     @Override
     public void click(Coord point) {

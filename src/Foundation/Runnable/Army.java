@@ -2,7 +2,7 @@ package Foundation.Runnable;
 
 import Foundation.*;
 import Foundation.Elements.Ground;
-import Foundation.Person.People;
+import Foundation.Person.Society;
 import Utils.Index;
 import Utils.PathFinder;
 
@@ -15,7 +15,7 @@ public class Army implements RunEntity {
     }
 
     private Index pos;
-    private People people;
+    private Society society;
     private FieldMap fieldMap;
 
     private Time time;
@@ -25,10 +25,10 @@ public class Army implements RunEntity {
 
     private State currentState;
 
-    public Army(Index pos, People people, FieldMap fieldMap, Time time){
+    public Army(Index pos, Society society, FieldMap fieldMap, Time time){
         this.time = time;
         this.pos = new Index(pos);
-        this.people = people;
+        this.society = society;
         this.fieldMap = fieldMap;
         currentState = State.Standing;
         pathFinder = new PathFinder(fieldMap);
@@ -70,8 +70,8 @@ public class Army implements RunEntity {
         field.createAndAddArmy(this);
     }
 
-    public People getPeople() {
-        return people;
+    public Society getSociety() {
+        return society;
     }
 
     public Index getPos() {

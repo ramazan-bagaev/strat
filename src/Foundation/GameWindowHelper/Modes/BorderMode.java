@@ -1,33 +1,36 @@
 package Foundation.GameWindowHelper.Modes;
 
 import Foundation.Color;
+import Foundation.Territory;
 import Utils.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.BorderHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
 public class BorderMode extends Mode{
 
-    private ArrayList<Index> territory;
+    private Subscription territorySubscription;
+
+    private Territory territory;
     private Color color;
     private float width;
 
     private ArrayList<BorderHelper> borderHelpers;
 
-    public BorderMode(GameWindowHelperElement gameWindowHelperElement, ArrayList<Index> territory, Color color, float width) {
+    public BorderMode(GameWindowHelperElement gameWindowHelperElement, Territory territory, Color color, float width) {
         super(gameWindowHelperElement);
         this.territory = territory;
         this.color = color;
         this.width = width;
-        borderHelpers = new ArrayList<>();
+
     }
 
-    @Override
-    public void putHelpers() {
-        for(Index pos: territory){
+    public void init(){
+        for(Index pos: territory.getTerritory()){
             ArrayList<Index.Direction> directions = new ArrayList<>();
             if (!territory.contains(pos.add(new Index(0, 1)))) directions.add(Index.Direction.Down);
             if (!territory.contains(pos.add(new Index(0, -1)))) directions.add(Index.Direction.Up);
@@ -52,6 +55,30 @@ public class BorderMode extends Mode{
     }
 
     @Override
+    public void putHelpers() {
+        borderHelpers = new ArrayList<>();
+        territorySubscription = new Subscription() {
+            @Override
+            public void changed() {
+                renewHelpers();
+            }
+        };
+        territory.subscribe("territory", territorySubscription);
+        init();
+    }
+
+
+    public void renewHelpers(){
+        for(BorderHelper borderHelper: borderHelpers){
+            HelperField helperField = borderHelper.getParent();
+            helperField.removeBorderHelper(borderHelper);
+            if (helperField.isEmpty()) helperField.delete();
+        }
+        borderHelpers.clear();
+        init();
+    }
+
+    @Override
     public void removeHelpers() {
         for(BorderHelper borderHelper: borderHelpers){
             HelperField helperField = borderHelper.getParent();
@@ -59,5 +86,6 @@ public class BorderMode extends Mode{
             if (helperField.isEmpty()) helperField.delete();
         }
         borderHelpers.clear();
+        territory.unsubscribe("territory", territorySubscription);
     }
 }

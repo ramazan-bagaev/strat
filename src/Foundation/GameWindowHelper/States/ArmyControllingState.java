@@ -23,10 +23,14 @@ public class ArmyControllingState extends HelperState {
         cityInfoMode = new CityInfoMode(gameWindowHelperElement);
         choosenFieldMode = new ChoosenFieldMode(gameWindowHelperElement);
         megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
+        this.army = army;
+    }
+
+    @Override
+    public void putHelperElements() {
         cityInfoMode.putHelpers();
         choosenFieldMode.putHelpers();
         megaBorderMode.putHelpers();
-        this.army = army;
         choosenFieldMode.setNewPos(army.getPos());
     }
 

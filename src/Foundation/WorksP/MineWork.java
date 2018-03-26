@@ -3,7 +3,6 @@ package Foundation.WorksP;
 import Foundation.Elements.Mine;
 import Foundation.Elements.Village;
 import Foundation.Resource;
-import Foundation.Work;
 
 public class MineWork extends Work {
 

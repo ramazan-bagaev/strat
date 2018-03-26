@@ -1,19 +1,19 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.Person.Person;
-import Foundation.Runnable.AI.Actor;
 import Foundation.Runnable.AI.CityActor;
 import Foundation.Runnable.RunableElement;
 import Generation.NameGenerator;
 import Images.CityImage;
 import Utils.Index;
 import Utils.Coord;
+import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class City extends RunableElement {
+public class City extends HabitableElement {
 
     private String name;
 
@@ -21,12 +21,9 @@ public class City extends RunableElement {
 
     private CityActor actor;
 
-    private ResourceStore resourceStore;
-    private People people;
-    private Works works;
     private Armies armies;
 
-    private ArrayList<Index> territory;
+    private Territory territory;
 
     private ArrayList<Manor> manors;
 
@@ -35,7 +32,7 @@ public class City extends RunableElement {
     public City(String name, FieldMap map, Time time, Field parent){
         super(Element.Type.City, time, parent, map);
         setMap(map);
-        territory = new ArrayList<>();
+        territory = new Territory();
         manors = new ArrayList<>();
         int radius = 3;
         Index index = getParent().getFieldMapPos();
@@ -50,7 +47,6 @@ public class City extends RunableElement {
             }
         }
 
-        people = new People(parent);
 
         NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
         int population = parent.getRandom().nextInt(100);
@@ -68,21 +64,18 @@ public class City extends RunableElement {
                     kast = Person.Kasta.High;
                     break;
             }
-            Person person = new Person(nameGenerator.generate(), parent, kast);
-            people.addPerson(person);
+            Person person = new Person(nameGenerator.generate(), null, kast);
+            society.addPerson(person);
         }
 
-        Person king = new Person(nameGenerator.generate(), parent, Person.Kasta.High);
-        people.addPerson(king);
+        Person king = new Person(nameGenerator.generate(), null, Person.Kasta.Royal);
+        society.addPerson(king);
         actor = new CityActor(king, this, time);
         parent.getMap().getGameEngine().addRunEntity(actor);
         int size = parent.getSize();
         setBasicShapes(new CityImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
-        resourceStore = new ResourceStore();
-        Resource food = new Resource(Resource.Type.Food, "beginning supply", people.getAmount() * 80);
+        Resource food = new Resource(Resource.Type.Food, "beginning supply", society.getAmount() * 80);
         resourceStore.addResource(food);
-
-        works = new Works();
 
         armies = new Armies(this);
         this.name = name;
@@ -90,19 +83,12 @@ public class City extends RunableElement {
 
     @Override
     public void run() {
-        resourceStore.run();
-        works.run();
-    }
-
-    @Override
-    public String getValue(String key){
-        String result = super.getValue(key);
-        if (!Broadcaster.noResult.equals(result)) return result;
-        switch (key){
-            case "population":
-                return String.valueOf(people.getAmount());
+        for (Manor manor : manors) {
+            ArrayList<Resource> resources = manor.getPartOfResource(0.3);
+            for(Resource resource: resources){
+                resourceStore.addResource(resource);
+            }
         }
-        return Broadcaster.noResult;
     }
 
     public String getName() {
@@ -125,16 +111,12 @@ public class City extends RunableElement {
         map.getGameEngine().addRunEntity(manor);
     }
 
-    public void destroy() {
+    /*public void destroy() {
         for(Index pos: territory){
             Field field = map.getFieldByIndex(pos);
             field.setOwner(null);
         }
-    }
-
-    public void removePerson(Person person){
-        people.removePerson(person);
-    }
+    }*/
 
 
     public FieldMap getMap() {
@@ -145,13 +127,6 @@ public class City extends RunableElement {
         this.map = map;
     }
 
-    public ResourceStore getResourceStore() {
-        return resourceStore;
-    }
-
-    public void setResourceStore(ResourceStore resourceStore) {
-        this.resourceStore = resourceStore;
-    }
 
 
     public int getId() {
@@ -162,27 +137,16 @@ public class City extends RunableElement {
         this.id = id;
     }
 
-    public Works getWorks() {
-        return works;
-    }
-
-    public void setWorks(Works works) {
-        this.works = works;
-    }
 
     public Armies getArmies() {
         return armies;
     }
 
-    public ArrayList<Index> getTerritory() {
+    public Territory getTerritory() {
         return territory;
     }
 
     public ArrayList<Manor> getManors() {
         return manors;
-    }
-
-    public People getPeople() {
-        return people;
     }
 }

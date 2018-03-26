@@ -27,18 +27,16 @@ public class AddManorState extends HelperState {
         possible = new ArrayList<>();
         impossible = new ArrayList<>();
         coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
-        coveringFieldMode.putHelpers();
-        init();
     }
 
     public void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         ArrayList<Manor> manors = city.getManors();
-        ArrayList<Index> otherManors = new ArrayList<>();
+        Territory otherManors = new Territory();
         for (Manor manor: manors){
-            otherManors.addAll(manor.getTerritory());
+            otherManors.add(manor.getTerritory());
         }
-        for(Index local: city.getTerritory())
+        for(Index local: city.getTerritory().getTerritory())
         {
             if (otherManors.contains(local)) continue;
             Field field = fieldMap.getFieldByIndex(local);
@@ -60,6 +58,12 @@ public class AddManorState extends HelperState {
             coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Blue, 0.5f));
             possible.add(local);
         }
+    }
+
+    @Override
+    public void putHelperElements() {
+        coveringFieldMode.putHelpers();
+        init();
     }
 
     @Override

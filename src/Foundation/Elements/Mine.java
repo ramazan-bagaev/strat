@@ -2,26 +2,22 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
+import Foundation.Person.Society;
 import Foundation.WorksP.MineWork;
 import Images.MineImage;
 import Utils.Coord;
 
-public class Mine extends Element {
+public class Mine extends WorkElement {
 
     private Village village;
-    private Work work;
-    private People people;
-    private int efficiency;
 
-    public Mine(Village village, Time time, Field parent, FieldMap map) {
-        super(Type.Mine, time, parent, map);
+    public Mine(Village village, People people, Time time, Field parent, FieldMap map) {
+        super(Type.Mine, people, time, parent, map);
 
         this.village = village;
 
         setBasicShapes(new MineImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
-        efficiency = 10;
-        people = village.getPeople();
         work = new MineWork(village, this);
     }
 
@@ -29,15 +25,4 @@ public class Mine extends Element {
         return village;
     }
 
-    public People getPeople() {
-        return people;
-    }
-
-    public int getEfficiency() {
-        return efficiency;
-    }
-
-    public Work getWork() {
-        return work;
-    }
 }

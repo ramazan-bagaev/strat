@@ -3,9 +3,11 @@ package WindowElements;
 import Foundation.*;
 import Foundation.BasicShapes.StringShape;
 import Utils.Coord;
+import Utils.Subscription;
 
 public class TimeElement extends Label {
 
+    private Subscription dateSubscription;
     private String day;
     private String month;
     private String year;
@@ -17,8 +19,14 @@ public class TimeElement extends Label {
         day = String.valueOf(time.getDate().day);
         month = String.valueOf(time.getDate().month);
         year = String.valueOf(time.getDate().year);
-
         setShapes();
+        dateSubscription = new Subscription() {
+            @Override
+            public void changed() {
+                setShapes();
+            }
+        };
+        time.subscribe("time", dateSubscription);
     }
 
     public void setShapes(){
@@ -36,13 +44,6 @@ public class TimeElement extends Label {
         String time = fineDay + ":" + fineMonth + ":" + year;
         StringShape stringShape = new StringShape(new Coord(0, 0), getSize(), time, new Color(Color.Type.Black), getParent().getFont("latin"));
         addBasicShapes(stringShape.getBasicShapes());
-    }
-
-    public void run(){
-        String newDay = String.valueOf(time.getDate().day);
-        if (!newDay.equals(day)){
-            setShapes();
-        }
     }
 
 }

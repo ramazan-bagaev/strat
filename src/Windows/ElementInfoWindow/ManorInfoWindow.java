@@ -1,7 +1,6 @@
 package Windows.ElementInfoWindow;
 
 import Foundation.*;
-import Foundation.GameWindowHelper.States.AddVillageState;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.States.AddManorFieldState;
 import Images.Image;
@@ -33,7 +32,7 @@ public class ManorInfoWindow extends ClosableWindow {
         Image farmImage = new ManorImage(new Coord(0, 0), new Coord(100, 100), this);
         addWindowElement(farmImage);
 
-        Button givePeople = new Button(new Coord(110, 20), new Coord(170, 20), "give people", this){
+        Button givePeople = new Button(new Coord(110, 20), new Coord(170, 20), "give society", this){
 
             @Override
             public void click(Coord point){
@@ -90,11 +89,11 @@ public class ManorInfoWindow extends ClosableWindow {
         addWindowElement(label);
 
         MonitoredBroadcastLabel manorPopulationLabel = new MonitoredBroadcastLabel(new Coord(20, 280), new Coord(200, 10),
-                "Population:", manor.getPeople(), "amount", this) {
+                "Population:", manor.getSociety(), "amount", this) {
             @Override
             public void click(Coord point) {
                 Frame frame = getParent().getParent();
-                frame.addSpecialWindow("population group window", new PopulationInfoWindow(manor.getPeople(), frame));
+                frame.addSpecialWindow("population group window", new PopulationInfoWindow(manor.getSociety(), frame));
             }
         };
         addWindowElement(manorPopulationLabel);

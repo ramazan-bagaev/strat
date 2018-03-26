@@ -25,7 +25,7 @@ public class GameWindowHelperElement extends WindowElement {
         setGameWindowElement(gameWindowElement);
         map = new HelperFieldMap(gameWindowElement.getGameEngine().getMap(), this);
         setBasicShapes(new ArrayList<>());
-        currentState = new StandartState(this);
+        setStandartState();
     }
 
     @Override
@@ -45,7 +45,7 @@ public class GameWindowHelperElement extends WindowElement {
 
     @Override
     public boolean drag(Coord point, Coord pressedPos, boolean dragBegin){
-        return false;
+        return currentState.drag(point, pressedPos, dragBegin);
     }
 
     public GameWindowElement getGameWindowElement() {
@@ -78,10 +78,6 @@ public class GameWindowHelperElement extends WindowElement {
         setBasicShapes(basicShapes);
     }
 
-    @Override
-    public void run(){
-    }
-
     public HelperFieldMap getMap() {
         return map;
     }
@@ -92,11 +88,13 @@ public class GameWindowHelperElement extends WindowElement {
 
     public void setState(HelperState helperState){
         currentState = helperState;
+        currentState.putHelperElements();
         setShapes();
     }
 
     public void setStandartState(){
         currentState = new StandartState(this);
+        currentState.putHelperElements();
         setShapes();
     }
 
@@ -106,5 +104,10 @@ public class GameWindowHelperElement extends WindowElement {
 
     public MainWindow getMainWindow() {
         return mainWindow;
+    }
+
+    public void renewState(){
+        currentState.clearHelperElements();
+        currentState.putHelperElements();
     }
 }

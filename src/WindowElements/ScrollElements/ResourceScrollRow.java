@@ -35,7 +35,7 @@ public class ResourceScrollRow extends ScrollableRow {
     @Override
     public void run(){
         for(WindowElement windowElement: rowElements){
-            windowElement.run();
+            //windowElement.run();
         }
     }
 }

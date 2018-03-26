@@ -1,15 +1,17 @@
 package Foundation;
 
 import Images.Image;
+import Utils.Content;
 import Utils.Index;
+import Utils.Subscription;
 
 public class Resource extends Broadcaster{
-
-
 
     public enum Type{
         Food, Material
     }
+
+    protected Content amountContent;
 
 
     protected String name;
@@ -21,6 +23,7 @@ public class Resource extends Broadcaster{
         this.amount = amount;
         this.type = type;
         this.name = name;
+        amountContent = new Content();
     }
 
     public Type getType() {
@@ -49,13 +52,34 @@ public class Resource extends Broadcaster{
         return Broadcaster.noResult;
     }
 
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+        switch (key){
+            case "amount":
+                amountContent.subscribe(subscription);
+                break;
+        }
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+        switch (key){
+            case "amount":
+                amountContent.unsubscribe(subscription);
+                break;
+        }
+    }
+
     public boolean sameAs(Resource resource){
         if (this.type == resource.type && this.name.equals(resource.name)) return true;
         return false;
     }
 
     public Resource getResource(int amount){
-        return new Resource(type, name, getRealAmount(amount));
+        int realAmount = getRealAmount(amount);
+        this.amount -= realAmount;
+        amountContent.changed();
+        return new Resource(type, name, realAmount);
     }
 
     public int getRealAmount(int amount){
@@ -65,12 +89,16 @@ public class Resource extends Broadcaster{
     }
 
     public void increaseAmount(int delta){
-        if (delta > 0) amount += delta;
+        if (delta > 0){
+            amount += delta;
+            amountContent.changed();
+        }
     }
 
     public int consume(int amount){
         amount = getRealAmount(amount);
         this.amount -= amount;
+        amountContent.changed();
         return amount;
     }
 
@@ -80,6 +108,7 @@ public class Resource extends Broadcaster{
 
     public void setAmount(int amount) {
         this.amount = amount;
+        amountContent.changed();
     }
 
     public String getName() {
