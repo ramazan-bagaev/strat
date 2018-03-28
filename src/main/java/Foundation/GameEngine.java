@@ -58,7 +58,7 @@ public class GameEngine {
         }
         runEntities.addAll(newRunEntity);
         newRunEntity.clear();
-        //gameWindowElement.getMainWindow().getGameWindowHelperElement().setShapes();
+        gameWindowElement.getMainWindow().getGameWindowHelperElement().setShapes();
         //gameWindowElement.getMainWindow().getGameWindowHelperElement().renewState();
         //gameWindowElement.setShapes();
        // for(Field field: map.getValues()){

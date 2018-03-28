@@ -8,6 +8,7 @@ import Foundation.GameWindowHelper.HelperElements.BorderHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
 import Utils.Subscription;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 
@@ -69,6 +70,8 @@ public class BorderMode extends Mode{
 
 
     public void renewHelpers(){
+        TimeMeasurer timeMeasurer = new TimeMeasurer();
+        timeMeasurer.start("renew border");
         for(BorderHelper borderHelper: borderHelpers){
             HelperField helperField = borderHelper.getParent();
             helperField.removeBorderHelper(borderHelper);
@@ -76,6 +79,7 @@ public class BorderMode extends Mode{
         }
         borderHelpers.clear();
         init();
+        timeMeasurer.stop(5);
     }
 
     @Override

@@ -4,6 +4,7 @@ import Utils.Coord;
 
 import Foundation.BasicShapes.CharacterShape.Font;
 import Foundation.BasicShapes.CharacterShape.FontFactory;
+import Utils.TimeMeasurer;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
@@ -213,7 +214,6 @@ public class OpenGLMain {
             i++;
             frame.run();
             frame.draw(openGLBinder);
-
             glfwSwapBuffers(window); // swap the color buffers
 
 

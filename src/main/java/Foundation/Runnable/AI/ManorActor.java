@@ -11,6 +11,7 @@ import Foundation.Person.Person;
 import Foundation.Territory;
 import Foundation.Time;
 import Utils.Index;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,10 +23,16 @@ public class ManorActor extends Actor{
 
     private Random random;
 
+    LinkedList<Person> rightPeople;
+
+    TimeMeasurer timeMeasurer;
+
     public ManorActor(Person actorPerson, Manor manor, Time time) {
         super(actorPerson, time);
         this.manor = manor;
         this.random = manor.getParent().getRandom();
+        rightPeople = new LinkedList<>();
+        timeMeasurer = new TimeMeasurer();
     }
 
     public void createRandomVillage(){
@@ -59,17 +66,17 @@ public class ManorActor extends Actor{
         Village village = field.getVillage();
         Society society = manor.getSociety();
         ArrayList<Person> peo = society.getPeople().getPersonArray();
-        LinkedList<Person> rigthPeople = new LinkedList<>();
+        rightPeople.clear();
         for (Person person: peo){
-            if (person.getKasta() == Person.Kasta.Low) rigthPeople.add(person);
+            if (person.getKasta() == Person.Kasta.Low) rightPeople.add(person);
         }
-        if (rigthPeople.size() == 0) return;
-        int randInt = random.nextInt(rigthPeople.size());
+        if (rightPeople.size() == 0) return;
+        int randInt = random.nextInt(rightPeople.size());
         People villagePeople = new People();
         for(int i = 0; i < randInt; i++){
-            int randIndex = random.nextInt(rigthPeople.size());
-            Person person = rigthPeople.get(randIndex);
-            rigthPeople.remove(person);
+            int randIndex = random.nextInt(rightPeople.size());
+            Person person = rightPeople.get(randIndex);
+            rightPeople.remove(person);
             villagePeople.addPerson(person);
             manor.removePerson(person);
         }
@@ -82,7 +89,9 @@ public class ManorActor extends Actor{
             createRandomVillage();
             return;
         }
-        if (time.getDate().weekDay != 1) return;
+        if (time.getDate().weekDay != 1){
+            return;
+        }
         int rand = random.nextInt(100);
         if (rand < 90){
             giveRandomVillagePeople();

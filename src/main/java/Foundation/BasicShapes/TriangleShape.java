@@ -25,6 +25,27 @@ public class TriangleShape extends BasicShape {
         posC = new Coord(triangleShape.getPosC());
     }
 
+    public void initMesh(){
+        if (mesh != null){
+            mesh.cleanUp();
+        }
+        double[] positions = new double[12];
+        double[] color = new double[16];
+        int[] indices = new int[6];
+
+        positions[0] = posA.x;
+        positions[1] = posA.y;
+        positions[2] = posA.z;
+
+        positions[3] = posB.x;
+        positions[4] = posB.y;
+        positions[5] = posB.z;
+
+        positions[6] = posC.x;
+        positions[7] = posC.y;
+        positions[8] = posC.z;
+    }
+
     @Override
     public void shift(Coord shift) {
         posA = posA.add(shift);

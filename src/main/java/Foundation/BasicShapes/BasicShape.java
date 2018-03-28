@@ -2,6 +2,7 @@ package Foundation.BasicShapes;
 
 import Foundation.BasicShapes.CharacterShape.CharacterShape;
 import Foundation.Color;
+import Graphic.Mesh;
 import Utils.Coord;
 
 public abstract class BasicShape {
@@ -12,8 +13,9 @@ public abstract class BasicShape {
 
 
     private Type type;
-    private Color color;
+    protected Color color;
 
+    protected Mesh mesh;
 
     public BasicShape() {
         setType(Type.Rectangle);
@@ -71,4 +73,8 @@ public abstract class BasicShape {
     }
 
     public abstract void changeSize(double alpha);
+
+    public void render(){
+        mesh.render();
+    }
 }

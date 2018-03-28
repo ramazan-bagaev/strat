@@ -14,7 +14,9 @@ public class Content {
     }
 
     public void changed(){
-        for(Subscription subscription : subscriptions) subscription.changed();
+        for(Subscription subscription : subscriptions){
+            subscription.changed();
+        }
     }
 
     public int getId(){

@@ -11,6 +11,7 @@ import Foundation.Territory;
 import Foundation.Time;
 import Foundation.Field;
 import Utils.Index;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,17 +22,28 @@ public class CityActor extends Actor {
     private City city;
     private Random random;
 
+    TimeMeasurer timeMeasurer;
+
+    Territory freeFields;
+    Territory notFree;
+    LinkedList<Person> rightPeople;
+
     public CityActor(Person actorPerson, City city, Time time) {
         super(actorPerson, time);
         this.city = city;
         this.random = city.getParent().getRandom();
+
+        freeFields = new Territory();
+        notFree = new Territory();
+        rightPeople = new LinkedList<>();
+        timeMeasurer = new TimeMeasurer();
     }
 
     public void createRandomManor(){
         Society society = city.getSociety();
         FieldMap fieldMap = city.getMap();
-        Territory freeFields = new Territory();
-        Territory notFree = new Territory();
+        freeFields.clear();
+        notFree.clear();
         for (Manor manor: city.getManors()){
             notFree.add(manor.getTerritory());
         }
@@ -61,22 +73,22 @@ public class CityActor extends Actor {
         Territory cityTerritory = city.getTerritory();
         Manor manor = manors.get(random.nextInt(manors.size()));
         Territory territory = manor.getTerritory();
-        Territory availableTerritory = new Territory();
-        Territory notAvailableTerritory = new Territory();
+        freeFields.clear();
+        notFree.clear();
         for (Manor man: manors){
-            notAvailableTerritory.add(man.getTerritory());
+            notFree.add(man.getTerritory());
         }
         for(Index index: territory.getTerritory()){
             for (Index.Direction direction: Index.getAllDirections()){
                 Index newIndex = index.add(new Index(direction));
                 if (!cityTerritory.contains(newIndex)) continue;
-                if (notAvailableTerritory.contains(newIndex)) continue;
+                if (notFree.contains(newIndex)) continue;
                 if (city.getMap().getFieldByIndex(newIndex).getCity() != null) continue;
-                availableTerritory.add(newIndex);
+                freeFields.add(newIndex);
             }
         }
-        if (availableTerritory.size() == 0) return;
-        Index randIndex = availableTerritory.getTerritory().get(random.nextInt(availableTerritory.size()));
+        if (freeFields.size() == 0) return;
+        Index randIndex = freeFields.getTerritory().get(random.nextInt(freeFields.size()));
         manor.addTerritory(randIndex);
     }
 
@@ -86,17 +98,17 @@ public class CityActor extends Actor {
         Manor manor = manors.get(random.nextInt(manors.size()));
         Society society = city.getSociety();
         ArrayList<Person> peo = society.getPeople().getPersonArray();
-        LinkedList<Person> rigthPeople = new LinkedList<>();
+        rightPeople.clear();
         for (Person person: peo){
-            if (person.getKasta() != Person.Kasta.High && person.getKasta() != Person.Kasta.Royal) rigthPeople.add(person);
+            if (person.getKasta() != Person.Kasta.High && person.getKasta() != Person.Kasta.Royal) rightPeople.add(person);
         }
-        if (rigthPeople.size() == 0) return;
-        int randInt = random.nextInt(rigthPeople.size());
+        if (rightPeople.size() == 0) return;
+        int randInt = random.nextInt(rightPeople.size());
         People peopleForManor = new People();
         for(int i = 0; i < randInt; i++){
-            int randIndex = random.nextInt(rigthPeople.size());
-            Person person = rigthPeople.get(randIndex);
-            rigthPeople.remove(person);
+            int randIndex = random.nextInt(rightPeople.size());
+            Person person = rightPeople.get(randIndex);
+            rightPeople.remove(person);
             peopleForManor.addPerson(person);
             city.removePerson(person);
         }
@@ -109,7 +121,9 @@ public class CityActor extends Actor {
             createRandomManor();
             return;
         }
-        if (time.getDate().weekDay != 1) return;
+        if (time.getDate().weekDay != 1){
+            return;
+        }
         int rand = random.nextInt(100);
         if (rand <= 45){
             giveRandomManorTerritory();

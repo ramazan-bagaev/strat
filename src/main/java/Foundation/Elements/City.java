@@ -8,6 +8,7 @@ import Generation.NameGenerator;
 import Images.CityImage;
 import Utils.Index;
 import Utils.Coord;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class City extends HabitableElement {
     private FieldMap map;
 
     private Country country;
+
 
     public City(String name, FieldMap map, Time time, Field parent){
         super(Element.Type.City, time, parent, map);
@@ -50,18 +52,16 @@ public class City extends HabitableElement {
         NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
         int population = parent.getRandom().nextInt(100);
         for(int i = 0; i < population; i++){
-            Person.Kasta kast = Person.Kasta.Low;
-            int kastNum = parent.getRandom().nextInt(3);
-            switch (kastNum){
-                case 0:
-                    kast = Person.Kasta.Low;
-                    break;
-                case 1:
-                    kast = Person.Kasta.Middle;
-                    break;
-                case 2:
-                    kast = Person.Kasta.High;
-                    break;
+            Person.Kasta kast;// = Person.Kasta.Low;
+            int kastNum = parent.getRandom().nextInt(100);
+            if (kastNum < 70){
+                kast = Person.Kasta.Low;
+            }
+            else if (kastNum < 90){
+                kast = Person.Kasta.Middle;
+            }
+            else{
+                kast = Person.Kasta.High;
             }
             Person person = new Person(nameGenerator.generate(), null, kast);
             society.addPerson(person);
@@ -98,6 +98,7 @@ public class City extends HabitableElement {
     public void addTerritory(Index pos){
         territory.add(pos);
         parent.getMap().getFieldByIndex(pos).setOwner(this);
+        country.addTerritory(pos);
     }
 
     public void createManor(Index pos, Person lord){

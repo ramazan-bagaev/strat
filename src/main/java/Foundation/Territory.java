@@ -1,9 +1,6 @@
 package Foundation;
 
-import Utils.Broadcaster;
-import Utils.Content;
-import Utils.Index;
-import Utils.Subscription;
+import Utils.*;
 
 import java.util.ArrayList;
 
@@ -63,6 +60,30 @@ public class Territory implements Broadcaster {
 
     public int size(){
         return territory.size();
+    }
+
+    public Territory antiIntersect(Territory otherTerritory){
+        Territory result = new Territory();
+        for(Index index: otherTerritory.getTerritory()){
+            if (!contains(index)) result.add(index);
+        }
+        return result;
+    }
+
+    public Territory intersect(Territory otherTerritory){
+        Territory result = new Territory();
+        for(Index index: otherTerritory.getTerritory()){
+            if (contains(index)) result.add(index);
+        }
+        return result;
+    }
+
+    public void addOrRemove(Territory territory){
+        for(Index index: territory.getTerritory()){
+            if (this.territory.contains(index)) this.territory.remove(index);
+            else this.territory.add(index);
+        }
+        if (territory.size() != 0) territoryContent.changed();
     }
 
     @Override

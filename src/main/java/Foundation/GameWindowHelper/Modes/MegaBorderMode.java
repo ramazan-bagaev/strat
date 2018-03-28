@@ -11,12 +11,10 @@ import java.util.Random;
 public class MegaBorderMode extends Mode {
 
     private ArrayList<BorderMode> borderModes;
-    private ArrayList<BorderAndTerritoryMode> borderAndTerritoryModes;
 
     public MegaBorderMode(GameWindowHelperElement gameWindowHelperElement) {
         super(gameWindowHelperElement);
         borderModes = new ArrayList<>();
-        borderAndTerritoryModes = new ArrayList<>();
     }
 
     public void init(){

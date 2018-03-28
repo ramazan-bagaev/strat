@@ -2,420 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="360a330c-dad6-4b8e-837d-e5cb5d393a2b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jwjgl.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/TimeMeasurer.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Armies.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/BasicShape$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/BasicShape$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/BasicShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/CharacterShape/CharacterShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/CharacterShape/Font.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/CharacterShape/FontFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/LineShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/PolygonShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/RectangleShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/StringShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/BasicShapes/TriangleShape.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Button.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Camera.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/CameraConfiguration.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Climate.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Color$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Color$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Color.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Controller$Action.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Controller.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Cursor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Date.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/ArmyElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/City.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ecosystem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Element$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Element.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Farm.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground$GroundType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Ground.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/HabitableElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Manor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Mine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River$RiverType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River$Side.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/River.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Sawmill.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Trawler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Tree.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/Village.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Elements/WorkElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Fauna/Animal.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Fauna/Fauna.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Fauna/Herbivores.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Field$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Field.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/FieldMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Flora/Berry.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Flora/Flora.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Flora/Plant.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Flora/Tree.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Frame.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameEngine.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/BorderHelper$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/BorderHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/HelperElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperElements/HistogramHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/HelperFieldMap.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderMode$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/BorderMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/ChoosenFieldMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/CityInfoMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/CoveringFieldMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/MegaBorderMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/Mode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/VillagePeopleDistributionMode$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/Modes/VillagePeopleDistributionMode.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddFarmState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddManorFieldState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddManorState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddMineState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddSawmillState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddTrawlerState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/AddVillageState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/ArmyControllingState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/HelperState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/StandartState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelper/States/VillagePeopleDistributionState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/GameWindowHelperElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Input.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/InputWindowElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Keyboard.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Label.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/MainWindowCameraConfiguration.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLBinder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/OpenGLMain.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/People.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Person$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Person$Kasta.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Person.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Person/Society.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Resource.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/ResourceStore.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/AI/Actor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/AI/CityActor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/AI/CountryActor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/AI/ManorActor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/AI/StupidActor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/AI/VillageActor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Army$State.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Army.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Country$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/Country.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/RunEntity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/RunnableElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Runnable/SuperField.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Territory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Time.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/Window.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WindowElementGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/ArmyWork.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/FarmWork.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/MineWork.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/SawmillWork.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/TrawlerWork.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/Work.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Foundation/WorksP/Works.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Generation/FieldMapGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Generation/NameGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/ArmyImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/CityImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/FarmImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/FoodResourceImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/GroundImage$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/GroundImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/Image.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/ManorImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/MineImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/PersonImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/RockImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/RockResourceImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/SawmillImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TrawlerImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TreeImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/TreeResourceImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Images/VillageImage.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Broadcaster.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Content.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Coord.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Index$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Index$Direction.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Index.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Matrix.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/PathFinder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Subscription.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Utils/Vector.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleElementGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleInfoElementGroup$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleInfoElementGroup$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleInfoElementGroup$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleInfoElementGroup$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleInfoElementGroup$Type.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/PeopleInfoElementGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ResourceElementGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElementGroups/ScrollableGroupCameraConfiguration.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/BackgroundElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/CloseButton.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/MonitoredBroadcastLabel$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/MonitoredBroadcastLabel$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/MonitoredBroadcastLabel$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/MonitoredBroadcastLabel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/RadioButton.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ScrollElements/PersonScrolledRow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ScrollElements/ResourceScrollRow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/ScrollElements/ScrollableRow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/SliderElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/StaticBroadcastLabel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/TimeElement$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/WindowElements/TimeElement.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ArmyAddWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ClosableWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ArmyInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CityInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/CountryInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/EcosystemInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/ManorInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/PersonInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ElementInfoWindow/VillageInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/FieldInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseManyPeople/ChooseManorPeopleWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseManyPeople/ChooseVillagePeopleWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseOnePerson/ChooseManorLordWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseOnePerson/ChooseOnePersonWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseOnePerson/ChooseOnePersonWindow$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseOnePerson/ChooseOnePersonWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/IntermediatWindows/ChooseOnePerson/ChooseVillageStewardWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/MainToolbarWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/PopulationInfoWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/ResourceStoreWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/strat/Windows/WorkPlaceWindows/VillageWorkWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Armies.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/BasicShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/CharacterShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/Font.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/CharacterShape/FontFactory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/LineShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/PolygonShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/RectangleShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/StringShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/BasicShapes/TriangleShape.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Button.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Camera.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/CameraConfiguration.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Climate.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Color.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Controller.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Cursor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Date.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/ArmyElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/City.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Ecosystem.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Element.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Farm.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Ground.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/HabitableElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Manor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Mine.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/River.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Sawmill.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Trawler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Tree.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/Village.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Elements/WorkElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Fauna/Animal.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Fauna/Fauna.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Fauna/Herbivores.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Field.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/FieldMap.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Flora/Berry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Flora/Flora.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Flora/Plant.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Flora/Tree.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Frame.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameEngine.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/BorderHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/ChoosenFieldHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/HelperElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperElements/HistogramHelper.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperField.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/ChoosenFieldMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/CityInfoMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/CoveringFieldMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/MegaBorderMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/Mode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/VillagePeopleDistributionMode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddFarmState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorFieldState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddManorState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddMineState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddSawmillState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddTrawlerState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/AddVillageState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/ArmyControllingState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/HelperState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/StandartState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/VillagePeopleDistributionState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Input.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/InputWindowElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Keyboard.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Label.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/MainWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/MainWindowCameraConfiguration.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/OpenGLBinder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Person/People.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Person/Person.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Person/Society.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Resource.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/ResourceStore.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/AI/Actor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/AI/CityActor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/AI/CountryActor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/AI/ManorActor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/AI/StupidActor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/AI/VillageActor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/Army.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/Country.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/RunEntity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/RunnableElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Runnable/SuperField.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Territory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Time.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/Window.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WindowElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WindowElementGroup.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/ArmyWork.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/FarmWork.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/MineWork.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/SawmillWork.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/TrawlerWork.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/Work.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Foundation/WorksP/Works.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Generation/FieldMapGenerator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Generation/NameGenerator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/ArmyImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/CityImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/FarmImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/FoodResourceImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/GroundImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/Image.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/ManorImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/MineImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/PersonImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/RockImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/RockResourceImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/SawmillImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/TrawlerImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/TreeImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/TreeResourceImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Images/VillageImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Broadcaster.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Content.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Coord.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Index.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Matrix.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/PathFinder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Subscription.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Vector.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/PeopleElementGroup.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/PeopleInfoElementGroup.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/ResourceElementGroup.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroup.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElementGroups/ScrollableGroupCameraConfiguration.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/BackgroundElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/CloseButton.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/MonitoredBroadcastLabel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/RadioButton.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/ScrollElements/PersonScrolledRow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/ScrollElements/ResourceScrollRow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/ScrollElements/ScrollableRow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/SliderElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/StaticBroadcastLabel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/WindowElements/TimeElement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ArmyAddWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ClosableWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/ArmyInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/CityInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/CountryInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/EcosystemInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/ManorInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/PersonInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ElementInfoWindow/VillageInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/FieldInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/IntermediatWindows/ChooseManyPeople/ChooseManorPeopleWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/IntermediatWindows/ChooseManyPeople/ChooseVillagePeopleWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/IntermediatWindows/ChooseOnePerson/ChooseManorLordWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/IntermediatWindows/ChooseOnePerson/ChooseOnePersonWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/IntermediatWindows/ChooseOnePerson/ChooseVillageStewardWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/MainToolbarWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/PopulationInfoWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ResourceStoreWindow.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/WorkPlaceWindows/VillageWorkWindow.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/LineShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/LineShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/RectangleShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/RectangleShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/TriangleShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/TriangleShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/MegaBorderMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/MegaBorderMode.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Person/People.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Person/People.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CityActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CityActor.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CountryActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CountryActor.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/ManorActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/ManorActor.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/VillageActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/VillageActor.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Territory.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Territory.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Content.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/Content.java" />
       <change beforePath="$PROJECT_DIR$/strat.iml" afterPath="$PROJECT_DIR$/strat.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -429,63 +35,110 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OpenGLMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java">
+      <file leaf-file-name="TimeMeasurer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/TimeMeasurer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3330">
-              <caret line="208" column="21" lean-forward="false" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
+            <state relative-caret-position="532">
+              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#131#132#0" expanded="true" />
+                <element signature="e#161#162#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Flora.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Flora/Flora.java">
+      <file leaf-file-name="CountryActor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CountryActor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="622">
+              <caret line="55" column="22" lean-forward="false" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="City.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="105" column="47" lean-forward="true" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Territory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Territory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="694">
+              <caret line="85" column="62" lean-forward="true" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+              <folding>
+                <element signature="e#2325#2326#0" expanded="true" />
+                <element signature="e#2356#2357#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Country.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+              <folding>
+                <element signature="e#1250#1251#0" expanded="true" />
+                <element signature="e#1286#1287#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BorderAndTerritoryMode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1008">
+              <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MegaBorderMode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/MegaBorderMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Content.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Content.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BorderMode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="80" column="15" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Herbivores.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Fauna/Herbivores.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="16" column="54" lean-forward="false" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Frame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FontFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/FontFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -521,26 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/BorderMode.java" />
-        <option value="$PROJECT_DIR$/src/Utils/Subscription.java" />
-        <option value="$PROJECT_DIR$/src/Utils/Content.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/HelperState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelperElement.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/HelperFieldMap.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/VillagePeopleDistributionMode.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/States/VillagePeopleDistributionState.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Elements/Farm.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Elements/Mine.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Elements/Sawmill.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Elements/Trawler.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/WorksP/FarmWork.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Runnable/AI/VillageActor.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Elements/WorkElement.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Broadcaster.java" />
-        <option value="$PROJECT_DIR$/src/Utils/Broadcaster.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/Person/Person.java" />
-        <option value="$PROJECT_DIR$/src/Foundation/WindowElement.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Elements/Element.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Time.java" />
         <option value="$PROJECT_DIR$/src/Foundation/Territory.java" />
@@ -568,10 +201,30 @@
         <option value="$PROJECT_DIR$/src/Foundation/GameWindowHelper/Modes/MegaBorderMode.java" />
         <option value="$PROJECT_DIR$/src/Foundation/OpenGLMain.java" />
         <option value="$PROJECT_DIR$/.idea/compiler.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/FontFactory.java" />
         <option value="$PROJECT_DIR$/res/fonts.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Graphic/ShaderProgram.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Graphic/Mesh.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicShape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/TriangleShape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Graphic/HelloWorld.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/LineShape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/RectangleShape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Person/People.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CityActor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/ManorActor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/VillageActor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Content.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/TimeMeasurer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/MegaBorderMode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CountryActor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Territory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" />
       </list>
     </option>
   </component>
@@ -615,24 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -676,11 +312,109 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="BasicShapes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="Elements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
+              <item name="Modes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="Person" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="Runnable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="Runnable" type="462c0819:PsiDirectoryNode" />
+              <item name="AI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Graphic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -690,7 +424,7 @@
     <property name="project.structure.side.proportion" value="0.48505747" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ramazan/Documents/prog/strat/src/WindowElements/ScrollElements/ScrollableRow.java&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;System.out&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ramazan/Documents/prog/strat/src/main/java/Foundation/Runnable/Country.java&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;System.out&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
@@ -858,23 +592,25 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22964959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -882,9 +618,7 @@
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -904,223 +638,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/WindowElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Territory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Person/Society.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Person/People.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Resource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Fauna/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WindowElements/StaticBroadcastLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/CountryInfoWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/CityInfoWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Broadcaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="169" column="20" lean-forward="false" selection-start-line="169" selection-start-column="20" selection-end-line="169" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Farm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/RunEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/RunnableElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/SuperField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="12" column="15" lean-forward="true" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/HabitableElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldMapGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10188">
-          <caret line="575" column="13" lean-forward="false" selection-start-line="575" selection-start-column="13" selection-end-line="575" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/Actor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="36" column="72" lean-forward="false" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CityActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1548">
-          <caret line="97" column="40" lean-forward="false" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CountryActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="89" column="5" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="89" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="54" column="58" lean-forward="false" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Foundation/TheQuadExampleDrawElements.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/MegaBorderMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw.jar!/org/lwjgl/glfw/GLFWKeyCallbackI.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1213,16 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3330">
-          <caret line="208" column="21" lean-forward="false" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Flora/Flora.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1257,8 +764,298 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        <state relative-caret-position="558">
+          <caret line="106" column="42" lean-forward="false" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicMesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-738">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/PolygonMesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/CharacterMesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Graphic/ShaderProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1034">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Graphic/Mesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+          <folding>
+            <element signature="e#2392#2393#0" expanded="false" />
+            <element signature="e#2426#2427#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/OpenGLBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/PolygonShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/StringShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-440">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Graphic/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="140" column="35" lean-forward="true" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#1873#1874#0" expanded="false" />
+            <element signature="e#1902#1903#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/LineShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/RectangleShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding>
+            <element signature="e#2631#2632#0" expanded="false" />
+            <element signature="e#2657#2658#0" expanded="false" />
+            <element signature="e#2694#2695#0" expanded="false" />
+            <element signature="e#2724#2725#0" expanded="false" />
+            <element signature="e#2754#2755#0" expanded="false" />
+            <element signature="e#2781#2782#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#2852#2853#0" expanded="false" />
+            <element signature="e#2904#2905#0" expanded="false" />
+            <element signature="e#2940#2941#0" expanded="false" />
+            <element signature="e#3108#3109#0" expanded="false" />
+            <element signature="e#3136#3137#0" expanded="false" />
+            <element signature="e#3169#3170#0" expanded="false" />
+            <element signature="e#3198#3199#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/TriangleShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Person/People.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/MeasurementHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="31" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/Actor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CityActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="118" column="32" lean-forward="false" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/ManorActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="99" column="30" lean-forward="false" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/VillageActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="111" column="32" lean-forward="false" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="209" column="24" lean-forward="false" selection-start-line="209" selection-start-column="24" selection-end-line="209" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/HabitableElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/TimeMeasurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+          <folding>
+            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#161#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Content.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/MegaBorderMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="80" column="15" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/CountryActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="55" column="22" lean-forward="false" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Territory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="85" column="62" lean-forward="true" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+          <folding>
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2356#2357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          <folding>
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="105" column="47" lean-forward="true" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
           <folding />
         </state>
       </provider>

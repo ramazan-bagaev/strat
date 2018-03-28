@@ -7,9 +7,9 @@ import Foundation.Field;
 import Foundation.FieldMap;
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Foundation.Person.Society;
 import Foundation.Time;
 import Utils.Index;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,15 +21,27 @@ public class VillageActor extends Actor {
 
     private Random random;
 
+    ArrayList<Index> freeFields;
+    People peopleForWork;
+    LinkedList<Person> rightPeople;
+    People resultPeople;
+
+    TimeMeasurer timeMeasurer;
+
     public VillageActor(Person actorPerson, Village village, Time time) {
         super(actorPerson, time);
         this.village = village;
         this.random = village.getParent().getRandom();
+        freeFields = new ArrayList<>();
+        peopleForWork = new People();
+        rightPeople = new LinkedList<>();
+        resultPeople = new People();
+        timeMeasurer = new TimeMeasurer();
     }
 
     public void createRandomWork(){
         FieldMap fieldMap = village.getParent().getMap();
-        ArrayList<Index> freeFields = new ArrayList<>();
+        freeFields.clear();
         for(Index index: village.getManor().getTerritory().getTerritory()){
             Field field = fieldMap.getFieldByIndex(index);
             if (field.getGroundType() == Ground.GroundType.Mud) continue;
@@ -74,22 +86,22 @@ public class VillageActor extends Actor {
         WorkElement workElement = workElements.get(random.nextInt(workElements.size()));
         //Field field = manor.getParent().getMap().getFieldByIndex(villageIndex);
         //Village village = field.getVillage();
-        People peopleForWork = new People();
+        peopleForWork.clear();
         People villagePeople = village.getSociety().getPeople();
         for(Person person: villagePeople.getPersonArray()){
             if (person.getWork() == null) peopleForWork.addPerson(person);
         }
-        LinkedList<Person> rigthPeople = new LinkedList<>();
+        rightPeople.clear();
         for (Person person: peopleForWork.getPersonArray()){
-            if (person.getKasta() == Person.Kasta.Low) rigthPeople.add(person);
+            if (person.getKasta() == Person.Kasta.Low) rightPeople.add(person);
         }
-        if (rigthPeople.size() == 0) return;
-        int randInt = random.nextInt(rigthPeople.size());
-        People resultPeople = new People();
+        if (rightPeople.size() == 0) return;
+        int randInt = random.nextInt(rightPeople.size());
+        resultPeople.clear();
         for(int i = 0; i < randInt; i++){
-            int randIndex = random.nextInt(rigthPeople.size());
-            Person person = rigthPeople.get(randIndex);
-            rigthPeople.remove(person);
+            int randIndex = random.nextInt(rightPeople.size());
+            Person person = rightPeople.get(randIndex);
+            rightPeople.remove(person);
             resultPeople.addPerson(person);
             person.setWork(workElement.getWork());
         }

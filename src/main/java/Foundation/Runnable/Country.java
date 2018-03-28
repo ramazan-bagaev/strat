@@ -5,7 +5,9 @@ import Foundation.Person.Person;
 import Foundation.Runnable.AI.CountryActor;
 import Foundation.Territory;
 import Utils.Broadcaster;
+import Utils.Index;
 import Utils.Subscription;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 
@@ -13,7 +15,6 @@ public class Country implements RunEntity, Broadcaster {
 
     private String name;
 
-    private ArrayList<Subscription> subscriptions;
 
     private ArrayList<City> cities;
     private City capital;
@@ -28,7 +29,7 @@ public class Country implements RunEntity, Broadcaster {
     public Country(String name, Person king, City capital){
         this.name = name;
         cities = new ArrayList<>();
-        subscriptions = new ArrayList<>();
+        //subscriptions = new ArrayList<>();
         territory = new Territory();
         this.king = king;
         actor = new CountryActor(king, this, capital.getTime());
@@ -42,20 +43,10 @@ public class Country implements RunEntity, Broadcaster {
         city.setCountry(this);
         cities.add(city);
         territory.add(city.getTerritory());
-        Subscription subscription = new Subscription() {
-            @Override
-            public void changed() {
-                renewTerritory();
-            }
-        };
-        city.getTerritory().subscribe("territory", subscription);
     }
 
-    public void renewTerritory(){
-        territory.clear();
-        for(City city: cities){
-            territory.add(city.getTerritory());
-        }
+    public void addTerritory(Index index){
+        territory.add(index);
     }
 
     public Territory getTerritory() {

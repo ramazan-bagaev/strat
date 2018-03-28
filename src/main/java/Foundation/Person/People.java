@@ -47,6 +47,11 @@ public class People implements Broadcaster{
         }
     }
 
+    public void clear(){
+        people.clear();
+        amountContent.changed();
+    }
+
     public ArrayList<Person> getPersonArray(){
         return people;
     }
