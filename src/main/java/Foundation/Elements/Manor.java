@@ -2,7 +2,9 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.Person;
-import Foundation.Runnable.AI.ManorActor;
+import Foundation.Runnable.AI.AI;
+import Foundation.Runnable.AI.StupidAI.StupidManorAI;
+import Foundation.Runnable.Actors.ManorActor;
 import Images.ManorImage;
 import Utils.Index;
 import Utils.Coord;
@@ -33,8 +35,10 @@ public class Manor extends HabitableElement {
         super(Type.Manor, time, parent, map);
         this.city = city;
         this.lord = lord;
-        this.actor = new ManorActor(lord, this, getTime());
-        parent.getMap().getGameEngine().addRunEntity(actor);
+        this.actor = new ManorActor(lord, this);
+        AI manorAI = new StupidManorAI(actor, time);
+        actor.setAi(manorAI);
+        parent.getMap().getGameEngine().addRunEntity(manorAI);
         society.addPerson(lord);
         territory = new Territory();
         territory.add(parent.getFieldMapPos());

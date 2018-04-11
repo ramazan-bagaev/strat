@@ -1,42 +1,43 @@
-package Foundation.Runnable.AI;
+package Foundation.Runnable.AI.StupidAI;
 
 import Foundation.Elements.City;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
+import Foundation.Field;
 import Foundation.FieldMap;
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
+import Foundation.Person.Society;
+import Foundation.Runnable.AI.AI;
+import Foundation.Runnable.Actors.CityActor;
 import Foundation.Territory;
 import Foundation.Time;
-import Foundation.Field;
 import Utils.Index;
-import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class CityActor extends Actor {
+public class StupidCityAI extends AI{
 
+    private CityActor cityActor;
     private City city;
     private Random random;
+    private Time time;
 
-    TimeMeasurer timeMeasurer;
+    private Territory freeFields;
+    private Territory notFree;
+    private LinkedList<Person> rightPeople;
 
-    Territory freeFields;
-    Territory notFree;
-    LinkedList<Person> rightPeople;
-
-    public CityActor(Person actorPerson, City city, Time time) {
-        super(actorPerson, time);
-        this.city = city;
+    public StupidCityAI(CityActor cityActor, Time time){
+        this.cityActor = cityActor;
+        this.city = cityActor.getCity();
         this.random = city.getParent().getRandom();
+        this.time = time;
 
         freeFields = new Territory();
         notFree = new Territory();
         rightPeople = new LinkedList<>();
-        timeMeasurer = new TimeMeasurer();
     }
 
     public void createRandomManor(){
@@ -61,7 +62,7 @@ public class CityActor extends Actor {
         Index index = freeFields.getTerritory().get(ranInd);
         Person lord = society.getLord();
         if (lord != null){
-            city.createManor(index, lord);
+            cityActor.createManor(index, lord);
             return;
         }
 
@@ -89,7 +90,7 @@ public class CityActor extends Actor {
         }
         if (freeFields.size() == 0) return;
         Index randIndex = freeFields.getTerritory().get(random.nextInt(freeFields.size()));
-        manor.addTerritory(randIndex);
+        cityActor.addManorTerritory(randIndex, manor);
     }
 
     public void giveRandomManorPeople(){
@@ -110,9 +111,8 @@ public class CityActor extends Actor {
             Person person = rightPeople.get(randIndex);
             rightPeople.remove(person);
             peopleForManor.addPerson(person);
-            city.removePerson(person);
         }
-        manor.addPeople(peopleForManor);
+        cityActor.addManorPeople(peopleForManor, manor);
     }
 
     @Override
@@ -135,4 +135,5 @@ public class CityActor extends Actor {
         }
         createRandomManor();
     }
+
 }

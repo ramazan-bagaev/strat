@@ -2,8 +2,9 @@ package Windows;
 
 import Foundation.*;
 import Foundation.Elements.City;
+import Foundation.Person.People;
 import Foundation.Person.Society;
-import Foundation.Runnable.Army;
+import Foundation.Army.Army;
 import Foundation.WorksP.ArmyWork;
 import Foundation.WorksP.Work;
 import Utils.Coord;
@@ -46,9 +47,8 @@ public class ArmyAddWindow extends ClosableWindow{
                 Field field = city.getParent();
                 if (field.getArmyElement() != null) return;
                 Work work = new ArmyWork();
-                //Society warriors = city.getPopulation().getPeopleForWork(window.getAmount(), work.getId());
-                //work.setSociety(warriors);
-                Army army = new Army(field.getFieldMapPos(), null, city.getMap(), city.getTime());
+                People people = city.getSociety().getPeople();
+                Army army = new Army(field.getFieldMapPos(), people, city.getMap(), city.getTime());
                 city.getMap().getGameEngine().addRunEntity(army);
                 city.getArmies().addArmy(army);
                 window.close();

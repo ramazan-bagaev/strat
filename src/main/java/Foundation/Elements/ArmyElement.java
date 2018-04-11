@@ -1,9 +1,12 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.Runnable.Army;
+import Foundation.Army.Army;
+import Foundation.BasicShapes.BasicShape;
 import Images.ArmyImage;
 import Utils.Coord;
+
+import java.util.ArrayList;
 
 public class ArmyElement extends Element{
 

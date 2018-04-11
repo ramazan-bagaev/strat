@@ -133,4 +133,14 @@ public class FieldMap {
     public GameEngine getGameEngine() {
         return gameEngine;
     }
+
+    public void drawDynamicDrawable(Index index, Index number, OpenGLBinder openGLBinder){
+        for (int i = index.x; i <= number.x + index.x; i++) {
+            for (int j = index.y; j <= number.y + index.y; j++) {
+                Field field = getFieldByIndex(new Index(i, j));
+                if (field == null) continue;
+                field.drawDynamicDrawable(openGLBinder);
+            }
+        }
+    }
 }

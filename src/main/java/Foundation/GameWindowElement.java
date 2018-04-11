@@ -21,6 +21,7 @@ public class GameWindowElement extends WindowElement{
     private GameEngine gameEngine;
     private MainWindow mainWindow;
 
+
     public GameWindowElement(Coord pos, Coord size, MainWindow parent){
         super(pos, size, parent);
         this.mainWindow = parent;
@@ -116,6 +117,24 @@ public class GameWindowElement extends WindowElement{
         }
 
       ///  if (f)
+    }
+
+    @Override
+    public void draw(OpenGLBinder openGLBinder){
+        super.draw(openGLBinder);
+
+
+        FieldMap map = gameEngine.getMap();
+        int fieldSize = gameEngine.getFieldSize();
+        MainWindowCameraConfiguration cameraConfiguration = mainWindow.getCameraConfiguration();
+
+        float zoom = cameraConfiguration.getZoom();
+        int fieldNumber = (int) Math.ceil((getParent().getSize().x / (float)fieldSize) * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
+        double deltax = (cameraConfiguration.getWorldCameraPos().x) / fieldSize;
+        double deltay = (cameraConfiguration.getWorldCameraPos().y) / fieldSize;
+        int deltai = (int)Math.floor(deltax);
+        int deltaj = (int)Math.floor(deltay);
+        map.drawDynamicDrawable(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber), openGLBinder);
     }
 
 }

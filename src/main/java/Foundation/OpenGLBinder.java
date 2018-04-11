@@ -2,7 +2,11 @@ package Foundation;
 
 import Foundation.BasicShapes.CharacterShape.CharacterShape;
 import Foundation.BasicShapes.*;
+import Graphic.ShaderProgram;
+import Graphic.Transformation;
 import Utils.Coord;
+import Utils.StringLoader;
+import org.joml.Matrix4f;
 
 import java.util.ArrayList;
 
@@ -10,11 +14,28 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class OpenGLBinder {
 
-    public OpenGLBinder(){
+    //private Transformation transformation;
+    //private ShaderProgram shaderProgram;
 
+    public OpenGLBinder(){
+       /* transformation = new Transformation();
+        shaderProgram = new ShaderProgram();
+        StringLoader loader = new StringLoader();
+        shaderProgram.createVertexShader(loader.get("src/main/resources/shaders/vertex.vs"));
+        shaderProgram.createFragmentShader(loader.get("src/main/resources/shaders/fragment.fs"));
+        shaderProgram.link();
+
+        try {
+            shaderProgram.createUniform("worldMatrix");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
     }
 
     public void draw(BasicShape basicShape){
+       /* Matrix4f worldMatrix = transformation.getWorldMatrix(basicShape.getPos(), basicShape.getRotation(), basicShape.getScale());
+        shaderProgram.bind();
+        shaderProgram.setUniform("worldMatrix", worldMatrix);*/
         RectangleShape rect;
         Color color = basicShape.getColor();
         double x;
@@ -90,6 +111,8 @@ public class OpenGLBinder {
                 glEnd();
                 glFlush();
                 glLineWidth(width);
+
+
                 break;
             case Triangle:
                 TriangleShape triangleShape = (TriangleShape)basicShape;
@@ -116,5 +139,6 @@ public class OpenGLBinder {
                 glFlush();
                 break;
         }
+        //shaderProgram.unbind();
     }
 }

@@ -1,4 +1,4 @@
-package Foundation.Runnable.AI;
+package Foundation.Runnable.AI.StupidAI;
 
 import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
@@ -6,34 +6,35 @@ import Foundation.Elements.Village;
 import Foundation.Field;
 import Foundation.FieldMap;
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
+import Foundation.Person.Society;
+import Foundation.Runnable.AI.AI;
+import Foundation.Runnable.Actors.ManorActor;
 import Foundation.Territory;
 import Foundation.Time;
 import Utils.Index;
-import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class ManorActor extends Actor{
+public class StupidManorAI extends AI{
 
+    private ManorActor manorActor;
     private Manor manor;
-
     private Random random;
+    private Time time;
 
-    LinkedList<Person> rightPeople;
+    private LinkedList<Person> rightPeople;
 
-    TimeMeasurer timeMeasurer;
-
-    public ManorActor(Person actorPerson, Manor manor, Time time) {
-        super(actorPerson, time);
-        this.manor = manor;
-        this.random = manor.getParent().getRandom();
+    public StupidManorAI(ManorActor manorActor, Time time){
+        this.manorActor = manorActor;
+        this.manor = manorActor.getManor();
+        random = manor.getParent().getRandom();
         rightPeople = new LinkedList<>();
-        timeMeasurer = new TimeMeasurer();
+        this.time = time;
     }
+
 
     public void createRandomVillage(){
         Society society = manor.getSociety();
@@ -53,7 +54,7 @@ public class ManorActor extends Actor{
         Index index = freeFields.getTerritory().get(ranInd);
         Person steward = society.getSteward();
         if (steward != null){
-            manor.createVillage(index, steward);
+            manorActor.createVillage(index, steward);
             return;
         }
     }
@@ -78,9 +79,8 @@ public class ManorActor extends Actor{
             Person person = rightPeople.get(randIndex);
             rightPeople.remove(person);
             villagePeople.addPerson(person);
-            manor.removePerson(person);
         }
-        village.addPeople(villagePeople);
+        manorActor.addVillagePeople(villagePeople, village);
     }
 
     @Override

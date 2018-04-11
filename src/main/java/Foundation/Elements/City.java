@@ -2,13 +2,14 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.Person;
-import Foundation.Runnable.AI.CityActor;
+import Foundation.Runnable.AI.AI;
+import Foundation.Runnable.AI.StupidAI.StupidCityAI;
+import Foundation.Runnable.Actors.CityActor;
 import Foundation.Runnable.Country;
 import Generation.NameGenerator;
 import Images.CityImage;
 import Utils.Index;
 import Utils.Coord;
-import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 
@@ -69,8 +70,12 @@ public class City extends HabitableElement {
 
         Person king = new Person(nameGenerator.generate(), null, Person.Kasta.Royal);
         society.addPerson(king);
-        actor = new CityActor(king, this, time);
-        parent.getMap().getGameEngine().addRunEntity(actor);
+
+        actor = new CityActor(king, this);
+        AI cityAI = new StupidCityAI(actor, getTime());
+        actor.setAi(cityAI);
+        parent.getMap().getGameEngine().addRunEntity(cityAI);
+
         int size = parent.getSize();
         setBasicShapes(new CityImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
         Resource food = new Resource(Resource.Type.Food, "beginning supply", society.getAmount() * 80);

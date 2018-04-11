@@ -1,6 +1,6 @@
 package Foundation.GameWindowHelper.States;
 
-import Foundation.Runnable.Army;
+import Foundation.Army.Army;
 import Utils.Index;
 import Foundation.Elements.ArmyElement;
 import Foundation.Field;

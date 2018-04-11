@@ -1,9 +1,10 @@
 package Foundation;
 
 import Foundation.Elements.*;
-import Foundation.Runnable.Army;
+import Foundation.Army.Army;
 import Utils.Index;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -13,6 +14,8 @@ public class Field {
     private int size;
 
     private City owner;
+
+    private ArrayList<DynamicDrawable> dynamicDrawables;
 
     private Ground groundElement;
     private Ecosystem ecosystem;
@@ -44,19 +47,21 @@ public class Field {
         size = map.getFieldSize();
         setMap(map);
         setRandom(random);
+        dynamicDrawables = new ArrayList<>();
         Ground.GroundType tempType = type;
         groundElement = new Ground(tempType, time,this, map);
         ecosystem = new Ecosystem(time, this, map);
         calculateTimeToIntersect();
     }
 
-    public Field(Index fieldMapPos, int size, Random random, FieldMap map, Time time){
+    /*public Field(Index fieldMapPos, int size, Random random, FieldMap map, Time time){
         changed = false;
         this.fieldMapPos = fieldMapPos;
         setSize(size);
         setMap(map);
         setRandom(random);
         this.time = time;
+        dynamicDrawables = new ArrayList<>();
         int randNum = random.nextInt(5);
         Ground.GroundType tempType = Ground.GroundType.Soil;
         if (randNum == 0) tempType = Ground.GroundType.Soil;
@@ -67,7 +72,7 @@ public class Field {
         groundElement = new Ground(tempType, time,this, map);
         ecosystem = new Ecosystem(time, this, map);
         calculateTimeToIntersect();
-    }
+    }*/
 
     public void calculateTimeToIntersect(){
         int days = 0;
@@ -247,5 +252,21 @@ public class Field {
 
     public void setMine(Mine mine) {
         this.mine = mine;
+    }
+
+    public ArrayList<DynamicDrawable> getDynamicDrawables() {
+        return dynamicDrawables;
+    }
+
+    public void removeDynamicDrawable(DynamicDrawable dynamicDrawable){
+        dynamicDrawables.remove(dynamicDrawable);
+    }
+
+    public void addDynamicDrawable(DynamicDrawable dynamicDrawable){
+        dynamicDrawables.add(dynamicDrawable);
+    }
+
+    public void drawDynamicDrawable(OpenGLBinder openGLBinder){
+        for(DynamicDrawable dynamicDrawable: dynamicDrawables) dynamicDrawable.draw(openGLBinder);
     }
 }

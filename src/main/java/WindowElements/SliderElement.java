@@ -64,13 +64,7 @@ public class SliderElement extends WindowElement{
             pressedPos = point;
             return true;
         }
-        System.out.println(point.x + " point " + point.y);
-        System.out.println(getPos().x + " pos " + getPos().y);
-        System.out.println(getSize().x + " size " + getSize().y);
-        System.out.println();
         if (!point.inRectangle(new Coord(0, 0), getSize())) return true;
-        System.out.println("pass");
-        System.out.println();
         if (horizontal) {
             double minX = scalePos.x;
             double maxX = minX + scaleSize.x + sliderSize.x;

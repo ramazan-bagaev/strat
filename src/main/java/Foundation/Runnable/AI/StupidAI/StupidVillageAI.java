@@ -1,4 +1,4 @@
-package Foundation.Runnable.AI;
+package Foundation.Runnable.AI.StupidAI;
 
 import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
@@ -7,6 +7,8 @@ import Foundation.Field;
 import Foundation.FieldMap;
 import Foundation.Person.People;
 import Foundation.Person.Person;
+import Foundation.Runnable.AI.AI;
+import Foundation.Runnable.Actors.VillageActor;
 import Foundation.Time;
 import Utils.Index;
 import Utils.TimeMeasurer;
@@ -15,28 +17,29 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class VillageActor extends Actor {
+public class StupidVillageAI extends AI {
+
+    private VillageActor villageActor;
 
     private Village village;
 
     private Random random;
+    private Time time;
 
-    ArrayList<Index> freeFields;
-    People peopleForWork;
-    LinkedList<Person> rightPeople;
-    People resultPeople;
+    private ArrayList<Index> freeFields;
+    private People peopleForWork;
+    private LinkedList<Person> rightPeople;
+    private People resultPeople;
 
-    TimeMeasurer timeMeasurer;
-
-    public VillageActor(Person actorPerson, Village village, Time time) {
-        super(actorPerson, time);
-        this.village = village;
+    public StupidVillageAI(VillageActor villageActor, Time time){
+        this.time = time;
+        this.villageActor = villageActor;
+        this.village = villageActor.getVillage();
         this.random = village.getParent().getRandom();
         freeFields = new ArrayList<>();
         peopleForWork = new People();
         rightPeople = new LinkedList<>();
         resultPeople = new People();
-        timeMeasurer = new TimeMeasurer();
     }
 
     public void createRandomWork(){
@@ -59,28 +62,28 @@ public class VillageActor extends Actor {
         Field chosedField = fieldMap.getFieldByIndex(index);
         if (chosedField.getGroundType() == Ground.GroundType.Soil){
             if (chosedField.getTree() == null){
-                village.createFarm(index);
+                villageActor.addFarm(index);
                 return;
             }
             if (chosedField.getTree() != null){
-                village.createSawmill(index);
+                villageActor.addSawmill(index);
                 return;
             }
         }
         if (chosedField.getGroundType() == Ground.GroundType.Rock){
-            village.createMine(index);
+            villageActor.addMine(index);
             return;
         }
         if (chosedField.getGroundType() == Ground.GroundType.Water){
             if (village.getAvailableWater().contains(index)){
-                village.createTrawler(index);
+                villageActor.addTrawler(index);
                 return;
             }
         }
     }
 
     public void giveRandomWorkPeople(){
-       // ArrayList<Index> villages = manor.getVillages();
+        // ArrayList<Index> villages = manor.getVillages();
         ArrayList<WorkElement> workElements = village.getWorkElements();
         if (workElements.size() == 0) return;
         WorkElement workElement = workElements.get(random.nextInt(workElements.size()));
@@ -103,9 +106,8 @@ public class VillageActor extends Actor {
             Person person = rightPeople.get(randIndex);
             rightPeople.remove(person);
             resultPeople.addPerson(person);
-            person.setWork(workElement.getWork());
         }
-        workElement.addPeople(resultPeople);
+        villageActor.addWorkPeople(workElement, resultPeople);
     }
 
     @Override

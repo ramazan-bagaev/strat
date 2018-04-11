@@ -1,29 +1,30 @@
-package Foundation.Runnable.AI;
+package Foundation.Runnable.AI.StupidAI;
 
 import Foundation.Elements.City;
 import Foundation.FieldMap;
-import Foundation.Person.Person;
+import Foundation.Runnable.AI.AI;
+import Foundation.Runnable.Actors.CountryActor;
 import Foundation.Runnable.Country;
 import Foundation.Territory;
-import Foundation.Time;
 import Utils.Index;
-import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class CountryActor extends Actor {
+public class StupidCountryAI extends AI {
 
+    private CountryActor countryActor;
     private Country country;
-    private Random random = new Random();
-    Territory countriesTerritory;
-    TimeMeasurer timeMeasurer;
 
-    public CountryActor(Person actorPerson, Country country, Time time) {
-        super(actorPerson, time);
-        this.country = country;
+    private Random random;
+
+    private Territory countriesTerritory;
+
+    public StupidCountryAI(CountryActor countryActor){
+        this.countryActor = countryActor;
+        this.country = countryActor.getCountry();
         countriesTerritory = new Territory();
-        timeMeasurer = new TimeMeasurer();
+        random = new Random();
     }
 
     private void giveRandomCityTerritory(){
@@ -46,16 +47,14 @@ public class CountryActor extends Actor {
             }
         }
         Index index = available.get(random.nextInt(available.size()));
-        city.addTerritory(index);
+        countryActor.addCityTerritory(index, city);
     }
 
     @Override
     public void makeDecision() {
-        timeMeasurer.start("country run");
         int rand = random.nextInt(100);
         if (rand <= 90){
             giveRandomCityTerritory();
-            timeMeasurer.stop(1);
             return;
         }
     }

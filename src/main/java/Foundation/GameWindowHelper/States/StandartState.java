@@ -5,7 +5,7 @@ import Foundation.Elements.ArmyElement;
 import Foundation.GameWindowHelper.Modes.ChoosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
-import Foundation.Runnable.Army;
+import Foundation.Army.Army;
 import Utils.Index;
 import Utils.Coord;
 

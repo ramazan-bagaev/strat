@@ -2,8 +2,12 @@ package Foundation.BasicShapes;
 
 import Foundation.BasicShapes.CharacterShape.CharacterShape;
 import Foundation.Color;
+import Foundation.OpenGLBinder;
 import Graphic.Mesh;
 import Utils.Coord;
+import org.joml.Matrix4f;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 
 public abstract class BasicShape {
 
@@ -74,7 +78,8 @@ public abstract class BasicShape {
 
     public abstract void changeSize(double alpha);
 
-    public void render(){
-        mesh.render();
+
+    public Mesh getMesh() {
+        return mesh;
     }
 }

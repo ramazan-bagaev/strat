@@ -14,10 +14,11 @@ public class LineShape extends BasicShape {
 
     private float width;
 
-    private final float standartWidth = 1.5f;
+    private final float standardWidth = 1.5f;
 
 
     public LineShape(LineShape lineShape){
+        super();
         this.posA = new Coord(lineShape.getPosA());
         this.posB = new Coord(lineShape.getPosB());
         this.width = lineShape.getWidth();
@@ -32,7 +33,7 @@ public class LineShape extends BasicShape {
         setColor(new Color(Color.Type.Black));
         posA = new Coord(a);
         posB = new Coord(b);
-        width = standartWidth;
+        width = standardWidth;
         //initMesh();
     }
 
@@ -42,7 +43,7 @@ public class LineShape extends BasicShape {
         setColor(color);
         posA = new Coord(a);
         posB = new Coord(b);
-        width = standartWidth;
+        width = standardWidth;
        // initMesh();
     }
 
@@ -73,12 +74,12 @@ public class LineShape extends BasicShape {
         double[] pos = new double[6];
         double[] color = new double[8];
         int[] indices = new int[2];
-        pos[0] = posA.x;
-        pos[1] = posA.y;
-        pos[2] = posA.z;
-        pos[3] = posB.x;
-        pos[4] = posB.y;
-        pos[5] = posB.z;
+        pos[0] = 0;
+        pos[1] = 0;
+        pos[2] = 0;
+        pos[3] = 1;
+        pos[4] = 0;
+        pos[5] = 0;
 
         color[0] = this.color.r;
         color[1] = this.color.g;
