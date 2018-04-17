@@ -2,10 +2,12 @@ package Utils;
 
 import java.util.ArrayList;
 
-public class Index {
+public class Index{
 
     public int x;
     public int y;
+
+
 
     public enum Direction{
         Up, Down, Right, Left, None

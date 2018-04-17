@@ -12,6 +12,7 @@ import java.util.Random;
 public class GameEngine {
 
     private Time time;
+    private int incr;
 
     private ArrayList<Country> countries;
 
@@ -28,8 +29,9 @@ public class GameEngine {
         newRunEntity = new ArrayList<>();
         countries = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
-        map = new FieldMap(100, 500, this);
         time = new Time();
+        map = new FieldMap(100, 500, this);
+        incr = 0;
     }
 
     public GameEngine(int fieldSize, int fieldNumber, GameWindowElement gameWindowElement){
@@ -37,18 +39,23 @@ public class GameEngine {
         newRunEntity = new ArrayList<>();
         countries = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
+        time = new Time();
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
         map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
         //map = new FieldMap();
-        time = new Time();
         setFieldSize(fieldSize);
         runEntities.addAll(newRunEntity);
+        incr = 0;
         //generateRandomField(fieldNumber);
     }
 
 
     public void run(){
-        time.nextDay();
+        incr++;
+        if (incr >= 30){
+            time.nextDay();
+            incr = 0;
+        }
         runEntities.addAll(newRunEntity);
         newRunEntity.clear();
         Iterator<RunEntity> iterator = runEntities.iterator();

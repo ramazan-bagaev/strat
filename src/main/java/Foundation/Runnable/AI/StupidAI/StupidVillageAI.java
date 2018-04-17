@@ -1,5 +1,6 @@
 package Foundation.Runnable.AI.StupidAI;
 
+import Foundation.Date;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
 import Foundation.Elements.WorkElement;
@@ -25,6 +26,7 @@ public class StupidVillageAI extends AI {
 
     private Random random;
     private Time time;
+    private Date previousDate;
 
     private ArrayList<Index> freeFields;
     private People peopleForWork;
@@ -40,6 +42,7 @@ public class StupidVillageAI extends AI {
         peopleForWork = new People();
         rightPeople = new LinkedList<>();
         resultPeople = new People();
+        previousDate = new Date(time.getDate());
     }
 
     public void createRandomWork(){
@@ -116,6 +119,8 @@ public class StupidVillageAI extends AI {
             createRandomWork();
             return;
         }
+        if (time.getDate().sameAs(previousDate)) return;
+        previousDate.setDate(time.getDate());
         int rand = random.nextInt(100);
         if (rand < 50){
             createRandomWork();

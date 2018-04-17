@@ -104,7 +104,7 @@ public class Territory implements Broadcaster {
     public void unsubscribe(String key, Subscription subscription) {
         switch (key){
             case "territory":
-                territoryContent.subscribe(subscription);
+                territoryContent.unsubscribe(subscription);
                 break;
         }
     }

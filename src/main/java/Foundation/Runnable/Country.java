@@ -34,7 +34,7 @@ public class Country implements RunEntity, Broadcaster {
         territory = new Territory();
         this.king = king;
         actor = new CountryActor(king, this);
-        AI countryAI = new StupidCountryAI(actor);
+        AI countryAI = new StupidCountryAI(actor, capital.getTime());
         actor.setAi(countryAI);
         this.capital = capital;
         capital.getParent().getMap().getGameEngine().addRunEntity(this);

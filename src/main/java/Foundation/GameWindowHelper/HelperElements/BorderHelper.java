@@ -11,9 +11,6 @@ import java.util.ArrayList;
 
 public class BorderHelper extends HelperElement{
 
-    private final int ro = 5;
-    private final int wi = 20;
-
     private Color color;
     private ArrayList<Index.Direction> directions;
     private float width;
@@ -33,19 +30,15 @@ public class BorderHelper extends HelperElement{
             switch (direction) {
                 case Up:
                     basicShapes.add(new LineShape(new Coord(0, 0), new Coord(size.x - 1, 0), color, width));
-                    //addCleats(basicShapes, Index.Direction.Up);
                     break;
                 case Down:
                     basicShapes.add(new LineShape(new Coord(0, size.y - 1), new Coord(size.x - 1, size.y - 1), color, width));
-                   // addCleats(basicShapes, Index.Direction.Down);
                     break;
                 case Right:
                     basicShapes.add(new LineShape(new Coord(size.x - 1, 0), new Coord(size.x - 1, size.y - 1), color, width));
-                    //addCleats(basicShapes, Index.Direction.Right);
                     break;
                 case Left:
                     basicShapes.add(new LineShape(new Coord(0, 0), new Coord(0, size.y - 1), color, width));
-                    //addCleats(basicShapes, Index.Direction.Left);
                     break;
                 case None:
                     break;

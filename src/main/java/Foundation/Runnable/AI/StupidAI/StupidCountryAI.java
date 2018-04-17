@@ -1,11 +1,13 @@
 package Foundation.Runnable.AI.StupidAI;
 
+import Foundation.Date;
 import Foundation.Elements.City;
 import Foundation.FieldMap;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.Actors.CountryActor;
 import Foundation.Runnable.Country;
 import Foundation.Territory;
+import Foundation.Time;
 import Utils.Index;
 
 import java.util.ArrayList;
@@ -20,11 +22,16 @@ public class StupidCountryAI extends AI {
 
     private Territory countriesTerritory;
 
-    public StupidCountryAI(CountryActor countryActor){
+    private Time time;
+    private Date previousDate;
+
+    public StupidCountryAI(CountryActor countryActor, Time time){
         this.countryActor = countryActor;
         this.country = countryActor.getCountry();
         countriesTerritory = new Territory();
         random = new Random();
+        this.time = time;
+        this.previousDate = new Date(time.getDate());
     }
 
     private void giveRandomCityTerritory(){
@@ -46,12 +53,15 @@ public class StupidCountryAI extends AI {
                 available.add(newIndex);
             }
         }
+        if (available.size() == 0) return;
         Index index = available.get(random.nextInt(available.size()));
         countryActor.addCityTerritory(index, city);
     }
 
     @Override
     public void makeDecision() {
+        if (time.getDate().sameAs(previousDate)) return;
+        previousDate.setDate(time.getDate());
         int rand = random.nextInt(100);
         if (rand <= 90){
             giveRandomCityTerritory();

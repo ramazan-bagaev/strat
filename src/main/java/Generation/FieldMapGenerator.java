@@ -36,7 +36,7 @@ public class FieldMapGenerator {
     public FieldMap generate(int number, int size, int superFieldSize, GameEngine gameEngine)
     {
         map = new FieldMap(superFieldSize, size, gameEngine);
-        time = new Time();
+        time = gameEngine.getTime();
         this.number = number;
         this.size = size;
         info = new int[number][number];

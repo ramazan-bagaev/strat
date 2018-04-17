@@ -13,17 +13,26 @@ import java.util.ArrayList;
 public class ChoosenFieldHelper extends HelperElement {
 
     private Index pos;
+    private Color color;
 
     public ChoosenFieldHelper(Index pos, HelperField helperField) {
         super(helperField);
         this.pos = pos;
+        color = new Color(Color.Type.Red);
+        setShapes();
+    }
+
+    public ChoosenFieldHelper(Index pos, Color color, HelperField helperField){
+        super(helperField);
+        this.pos = pos;
+        this.color = color;
         setShapes();
     }
 
     public void setShapes(){
         ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.clear();
-        RectangleShape rectangleShape = new RectangleShape(new Coord(), new Coord(size.x, size.y), new Color(Color.Type.Red), false);
+        RectangleShape rectangleShape = new RectangleShape(new Coord(), new Coord(size.x, size.y), color, false);
         basicShapes.add(rectangleShape);
         setBasicShapes(basicShapes);
         //getParentField().getMap().getParent().setShapes();

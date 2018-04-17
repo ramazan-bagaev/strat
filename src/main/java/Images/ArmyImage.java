@@ -20,9 +20,9 @@ public class ArmyImage extends Image{
         clearBasicShapes();
         Coord size = getSize();
         RectangleShape rectangleShape =
-                new RectangleShape(new Coord(size.x/6, 0), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
+                new RectangleShape(new Coord(size.x/6, 5*size.y/6), new Coord(2*size.x/3, size.y/6), new Color(Color.Type.Black), true);
         RectangleShape rectangleShape1 =
-                new RectangleShape(new Coord(2 * size.x/3, 0), new Coord(size.x/6, size.y), new Color(Color.Type.Black), true);
+                new RectangleShape(new Coord(size.x/3, size.y/3), new Coord(size.x/3, size.y/2), new Color(Color.Type.Black), true);
         addBasicShape(rectangleShape);
         addBasicShape(rectangleShape1);
     }

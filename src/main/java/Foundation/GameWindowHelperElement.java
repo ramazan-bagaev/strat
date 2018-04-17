@@ -110,4 +110,22 @@ public class GameWindowHelperElement extends WindowElement {
         currentState.clearHelperElements();
         currentState.putHelperElements();
     }
+
+    @Override
+    public void draw(OpenGLBinder openGLBinder){
+        super.draw(openGLBinder);
+
+
+        HelperFieldMap map = getMap();
+        int fieldSize = map.getFieldSize();
+        MainWindowCameraConfiguration cameraConfiguration = mainWindow.getCameraConfiguration();
+
+        float zoom = cameraConfiguration.getZoom();
+        int fieldNumber = (int) Math.ceil((getParent().getSize().x / (float)fieldSize) * zoom) + 1; // TODO: here magic constant, that is depend on size of window, make size related api
+        double deltax = (cameraConfiguration.getWorldCameraPos().x) / fieldSize;
+        double deltay = (cameraConfiguration.getWorldCameraPos().y) / fieldSize;
+        int deltai = (int)Math.floor(deltax);
+        int deltaj = (int)Math.floor(deltay);
+        map.drawDynamicDrawable(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber), openGLBinder);
+    }
 }

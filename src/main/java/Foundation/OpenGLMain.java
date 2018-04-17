@@ -207,14 +207,10 @@ public class OpenGLMain {
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-            if (i > 90){
-                i = 0;
-                gameEngine.run();
-            }
-            i++;
-            frame.run();
+            gameEngine.run();
             frame.draw(openGLBinder);
-            glfwSwapBuffers(window); // swap the color buffers
+            glfwSwapBuffers(window);
+            // swap the color buffers
 
 
 

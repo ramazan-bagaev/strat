@@ -14,6 +14,8 @@ public class HelperField {
     private Index size;
     private HelperFieldMap map;
 
+    private ArrayList<DynamicDrawable> dynamicDrawables;
+
 
     private CityInfoHelper cityInfoHelper;
     private ChoosenFieldHelper choosenFieldHelper;
@@ -27,6 +29,7 @@ public class HelperField {
         size = new Index(field.getSize(), field.getSize());
         borderHelpers = new ArrayList<>();
         helperElements = new ArrayList<>();
+        dynamicDrawables = new ArrayList<>();
     }
 
     public HelperFieldMap getMap() {
@@ -104,5 +107,9 @@ public class HelperField {
 
     public void removeHelperElement(HelperElement helperElement){
         helperElements.remove(helperElement);
+    }
+
+    public void drawDynamicDrawable(OpenGLBinder openGLBinder){
+        for(DynamicDrawable dynamicDrawable: dynamicDrawables) dynamicDrawable.draw(openGLBinder);
     }
 }

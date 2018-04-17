@@ -71,4 +71,14 @@ public class HelperFieldMap {
     public Collection<HelperField> getValues(){
         return map.values();
     }
+
+    public void drawDynamicDrawable(Index index, Index number, OpenGLBinder openGLBinder){
+        for (int i = index.x; i <= number.x + index.x; i++) {
+            for (int j = index.y; j <= number.y + index.y; j++) {
+                HelperField field = getFieldByIndex(new Index(i, j));
+                if (field == null) continue;
+                field.drawDynamicDrawable(openGLBinder);
+            }
+        }
+    }
 }

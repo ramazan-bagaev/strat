@@ -8,6 +8,7 @@ import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.Army.Army;
 import Utils.Index;
 import Utils.Coord;
+import Windows.ElementInfoWindow.ArmyInfoWindow;
 
 public class StandartState extends HelperState {
 
@@ -42,6 +43,8 @@ public class StandartState extends HelperState {
                 Army army = armyElement.getArmy();
                 gameWindowHelperElement.clearHelperElements();
                 gameWindowHelperElement.setState(new ArmyControllingState(gameWindowHelperElement, army));
+                ArmyInfoWindow armyInfoWindow = new ArmyInfoWindow(army, gameWindowHelperElement.getMainWindow().getParent());
+                gameWindowHelperElement.getMainWindow().getParent().addSpecialWindow("element info window", armyInfoWindow);
                 return;
             }
         }

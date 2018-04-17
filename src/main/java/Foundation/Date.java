@@ -35,6 +35,13 @@ public class Date {
         this.weekDay = weekDay;
     }
 
+    public Date(Date date){
+        this.day = date.day;
+        this.weekDay = date.weekDay;
+        this.month = date.month;
+        this.year = date.year;
+    }
+
     public boolean sameAs(Date date){
         return (day == date.day && month == date.month && year == date.year);
     }
@@ -45,4 +52,16 @@ public class Date {
         int year = this.year + date.year + month / 13;
         return new Date(day, month, year, weekDay);
     }
+
+    public void setDate(Date date){
+        this.day = date.day;
+        this.weekDay = date.weekDay;
+        this.month = date.month;
+        this.year = date.year;
+    }
+
+    public void print(String text){
+        System.out.println(text + ": day = " + day + "; month = " +  month + "; year = " + year);
+    }
+
 }

@@ -1,17 +1,14 @@
 package Foundation.Runnable.AI.StupidAI;
 
+import Foundation.*;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
-import Foundation.Field;
-import Foundation.FieldMap;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.Actors.ManorActor;
-import Foundation.Territory;
-import Foundation.Time;
 import Utils.Index;
 
 import java.util.ArrayList;
@@ -24,6 +21,7 @@ public class StupidManorAI extends AI{
     private Manor manor;
     private Random random;
     private Time time;
+    private Date previousDate;
 
     private LinkedList<Person> rightPeople;
 
@@ -33,6 +31,7 @@ public class StupidManorAI extends AI{
         random = manor.getParent().getRandom();
         rightPeople = new LinkedList<>();
         this.time = time;
+        previousDate = new Date(time.getDate());
     }
 
 
@@ -89,9 +88,11 @@ public class StupidManorAI extends AI{
             createRandomVillage();
             return;
         }
+        if (time.getDate().sameAs(previousDate)) return;
         if (time.getDate().weekDay != 1){
             return;
         }
+        previousDate.setDate(time.getDate());
         int rand = random.nextInt(100);
         if (rand < 90){
             giveRandomVillagePeople();

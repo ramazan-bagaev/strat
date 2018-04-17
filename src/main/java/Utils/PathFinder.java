@@ -74,7 +74,7 @@ public class PathFinder {
                             Index lc = new Index(i + curPos.x, j + curPos.y);
                             nextDep = depth.getOrDefault(lc, -1);
                             if (nextDep == dep - 1){
-                                path.addFirst(lc);
+                                if (nextDep != 0) path.addFirst(lc);
                                 curPos = lc;
                                 break;
                             }

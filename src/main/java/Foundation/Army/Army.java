@@ -6,29 +6,24 @@ import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
 import Foundation.Runnable.RunEntity;
-import Utils.Coord;
-import Utils.Index;
-import Utils.PathFinder;
+import Utils.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 
-public class Army implements RunEntity {
+public class Army implements RunEntity, Broadcaster {
 
-    private final int MAX_WIDTH = 5;
 
-    public final double X_D;
 
-    private final int MAX_LENGTH = 4;
-
-    public final double Y_D;
 
     public enum State{
         Standing, Moving, Fighting
     }
 
-    private ArrayList<ArmyAtom> armyList;
+    private Content movingProgressContent;
+    private Content posContent;
+
 
     private Index pos;
     private People people;
@@ -40,6 +35,8 @@ public class Army implements RunEntity {
     private Index destination;
     private LinkedList<Index> path;
 
+    private int movingProgress;
+
     private State currentState;
 
     public Army(Index pos, People people, FieldMap fieldMap, Time time){
@@ -47,36 +44,14 @@ public class Army implements RunEntity {
         this.pos = new Index(pos);
         this.people = people;
         this.fieldMap = fieldMap;
-        this.armyList = new ArrayList<>();
-        X_D = fieldMap.getFieldSize()/2 / MAX_WIDTH;
-        Y_D = fieldMap.getFieldSize()/2 / MAX_LENGTH;
-        initArmyList();
+        movingProgressContent = new Content();
+        posContent = new Content();
         currentState = State.Standing;
         pathFinder = new PathFinder(fieldMap);
         Field field = fieldMap.getFieldByIndex(pos);
         field.createAndAddArmy(this);
     }
 
-    private void initArmyList(){
-        ArrayList<Person> personArray = people.getPersonArray();
-        int size = personArray.size();
-        if (size > MAX_WIDTH * MAX_LENGTH) size = MAX_WIDTH * MAX_LENGTH;
-        if (size == 0) return;
-        int x = 0;
-        int y = 0;
-        Coord corner = new Coord(fieldMap.getFieldSize()/4, fieldMap.getFieldSize()/4);
-        for(Person person: personArray){
-            ArmyAtom armyAtom = new ArmyAtom(this, pos, corner.add(new Coord(x*X_D, y*Y_D)));
-            Index index = new Index(x, y);
-            armyAtom.setArmyPosIndex(index);
-            armyList.add(armyAtom);
-            x++;
-            if (x == MAX_WIDTH){
-                x = 0;
-                y++;
-            }
-        }
-    }
 
     public void action(Index pos){
         Field field = fieldMap.getFieldByIndex(pos);
@@ -99,12 +74,18 @@ public class Army implements RunEntity {
 
     }
 
-    public void moveToNeighbor(Index destination){
+    public void moveToNeighbor(Index localDestination){
         Field oldField = fieldMap.getFieldByIndex(pos);
         oldField.removerArmy();
-        pos = new Index(destination);
+        pos = new Index(localDestination);
+        posContent.changed();
         Field field = fieldMap.getFieldByIndex(pos);
         field.createAndAddArmy(this);
+        movingProgressContent.changed();
+        movingProgress = 0;
+        if (destination.equals(pos)){
+            path = null;
+        }
     }
 
     public People getPeople(){
@@ -122,19 +103,53 @@ public class Army implements RunEntity {
 
     public void setPath(){
         path = pathFinder.getPath(pos, destination);
+        movingProgress = 0;
+        movingProgressContent.changed();
     }
 
-    public ArrayList<ArmyAtom> getArmyList() {
-        return armyList;
+    public int getMovingProgress() {
+        return movingProgress;
     }
 
     @Override
     public void run() {
         if (path != null){
+            movingProgress+=1;
+            movingProgressContent.changed();
+            if (movingProgress < 100) return;
             if (path.size() == 0) return;
             Index destination = path.getFirst();
             path.removeFirst();
             moveToNeighbor(destination);
+        }
+    }
+
+    @Override
+    public String getValue(String key) {
+        return noResult;
+    }
+
+    @Override
+    public void subscribe(String key, Subscription subscription) {
+        switch (key){
+            case "movingProgress":
+                movingProgressContent.subscribe(subscription);
+                break;
+            case "pos":
+                posContent.subscribe(subscription);
+                break;
+        }
+    }
+
+    @Override
+    public void unsubscribe(String key, Subscription subscription) {
+        switch (key){
+            case "movingProgress":
+                movingProgressContent.unsubscribe(subscription);
+                break;
+            case "pos":
+                posContent.unsubscribe(subscription);
+                break;
         }
     }
 }
