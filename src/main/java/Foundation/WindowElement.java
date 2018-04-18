@@ -114,7 +114,7 @@ public class WindowElement implements Broadcaster {
         ArrayList<BasicShape> copy = new ArrayList<>();
         for(BasicShape basicShape: basicShapes){
             BasicShape copyShape = BasicShape.getCopy(basicShape);
-            copyShape.shift(getShift().multiply(-1));
+            //copyShape.shift(getShift().multiply(-1));
             copy.add(copyShape);
         }
         return copy;
