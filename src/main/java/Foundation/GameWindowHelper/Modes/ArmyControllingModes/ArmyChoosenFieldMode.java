@@ -21,7 +21,7 @@ public class ArmyChoosenFieldMode extends Mode {
     }
 
     public void init(){
-        Index point = army.getPos();
+        Index point = army.getFieldPos();
         HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(point);
         if (helperField == null){
             helperField = new HelperField(gameWindowHelperElement.getMap().getFieldMap().getFieldByIndex(point), gameWindowHelperElement.getMap());

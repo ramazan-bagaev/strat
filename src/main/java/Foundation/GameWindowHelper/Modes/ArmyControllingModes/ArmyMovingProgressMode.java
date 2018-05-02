@@ -2,14 +2,10 @@ package Foundation.GameWindowHelper.Modes.ArmyControllingModes;
 
 import Foundation.Army.Army;
 import Foundation.GameWindowHelper.HelperElements.ArmyMovingProgressHelper;
-import Foundation.GameWindowHelper.HelperElements.ProgressHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
-import Utils.Index;
 import Utils.Subscription;
-
-import java.util.ArrayList;
 
 public class ArmyMovingProgressMode extends Mode {
 
@@ -25,13 +21,13 @@ public class ArmyMovingProgressMode extends Mode {
     }
 
     public void init(){
-        HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(army.getPos());
+        HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(army.getFieldPos());
         if (helperField == null){
-            helperField = new HelperField(gameWindowHelperElement.getMap().getFieldMap().getFieldByIndex(army.getPos()), gameWindowHelperElement.getMap());
-            helperField.getMap().addByIndex(army.getPos(), helperField);
+            helperField = new HelperField(gameWindowHelperElement.getMap().getFieldMap().getFieldByIndex(army.getFieldPos()), gameWindowHelperElement.getMap());
+            helperField.getMap().addByIndex(army.getFieldPos(), helperField);
         }
         progress = army.getMovingProgress();
-        progressHelper = new ArmyMovingProgressHelper(helperField, progress);
+        progressHelper = new ArmyMovingProgressHelper(helperField, army.getState(), army.getMovingProgress());
         helperField.addHelperElement(progressHelper);
     }
 

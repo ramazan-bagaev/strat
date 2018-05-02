@@ -17,7 +17,7 @@ public class HelperElement {
     public HelperElement(HelperField helperField){
         shapes = new ArrayList<>();
         parent = helperField;
-        //Index index = helperField.getPos();
+        //Index index = helperField.getFieldPos();
         size = new Coord(helperField.getSize().x, helperField.getSize().y);
     }
 
@@ -43,6 +43,13 @@ public class HelperElement {
         shapes.add(shape);
     }
 
+    public void addShapes(ArrayList<BasicShape> basicShapes){
+        for(BasicShape basicShape: basicShapes){
+            basicShape.shift(getShift());
+            shapes.add(basicShape);
+        }
+    }
+
     public ArrayList<BasicShape> getCopyOfBasicShapesWithoutShift(){
         ArrayList<BasicShape> copy = new ArrayList<>();
         for(BasicShape basicShape: shapes){
@@ -51,6 +58,10 @@ public class HelperElement {
             copy.add(copyShape);
         }
         return copy;
+    }
+
+    public void clearBasicShapes(){
+        shapes.clear();
     }
 
     public HelperField getParent() {

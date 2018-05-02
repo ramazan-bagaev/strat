@@ -1,15 +1,10 @@
 package Foundation.GameWindowHelper.States;
 
 import Foundation.Army.Army;
-import Foundation.GameWindowHelper.Modes.ArmyControllingModes.ArmyChoosenFieldMode;
-import Foundation.GameWindowHelper.Modes.ArmyControllingModes.ArmyHooveringMode;
-import Foundation.GameWindowHelper.Modes.ArmyControllingModes.ArmyMovingDirectionMode;
-import Foundation.GameWindowHelper.Modes.ArmyControllingModes.ArmyMovingProgressMode;
-import Foundation.GameWindowHelper.Modes.DirectionMode;
+import Foundation.Elements.ArmyFieldElement;
+import Foundation.GameWindowHelper.Modes.ArmyControllingModes.*;
 import Utils.Index;
-import Foundation.Elements.ArmyElement;
 import Foundation.Field;
-import Foundation.GameWindowHelper.Modes.ChoosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.GameWindowHelperElement;
@@ -24,6 +19,7 @@ public class ArmyControllingState extends HelperState {
     private ArmyMovingProgressMode armyMovingProgressMode;
     private ArmyMovingDirectionMode armyMovingDirectionMode;
     private ArmyHooveringMode armyHooveringMode;
+    private ArmyBattleMode armyBattleMode;
 
     private Army army;
 
@@ -35,6 +31,7 @@ public class ArmyControllingState extends HelperState {
         armyMovingProgressMode = new ArmyMovingProgressMode(gameWindowHelperElement, army);
         armyMovingDirectionMode = new ArmyMovingDirectionMode(gameWindowHelperElement, army);
         armyHooveringMode = new ArmyHooveringMode(gameWindowHelperElement, null);
+        armyBattleMode = new ArmyBattleMode(gameWindowHelperElement, army);
         this.army = army;
     }
 
@@ -46,7 +43,8 @@ public class ArmyControllingState extends HelperState {
         armyMovingProgressMode.putHelpers();
         armyMovingDirectionMode.putHelpers();
         armyHooveringMode.putHelpers();
-        choosenFieldMode.setNewPos(army.getPos());
+        armyBattleMode.putHelpers();
+        choosenFieldMode.setNewPos(army.getFieldPos());
     }
 
     @Override
@@ -56,7 +54,7 @@ public class ArmyControllingState extends HelperState {
 
         Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByPos(point);
         if (field != null) {
-            ArmyElement armyElement = field.getArmyElement();
+            ArmyFieldElement armyElement = field.getArmyElement();
             if (armyElement != null) {
                 Army newArmy = armyElement.getArmy();
                 if (!this.army.equals(newArmy)){
@@ -111,6 +109,7 @@ public class ArmyControllingState extends HelperState {
         armyMovingProgressMode.removeHelpers();
         armyMovingDirectionMode.removeHelpers();
         armyHooveringMode.removeHelpers();
+        armyBattleMode.removeHelpers();
     }
 
     @Override
@@ -119,15 +118,22 @@ public class ArmyControllingState extends HelperState {
 
     public void setArmy(Army army){
         this.army = army;
+
         choosenFieldMode.removeHelpers();
         choosenFieldMode = new ArmyChoosenFieldMode(gameWindowHelperElement, army);
         choosenFieldMode.putHelpers();
+
         armyMovingProgressMode.removeHelpers();
         armyMovingProgressMode = new ArmyMovingProgressMode(gameWindowHelperElement, army);
         armyMovingProgressMode.putHelpers();
+
         armyMovingDirectionMode.removeHelpers();
         armyMovingDirectionMode = new ArmyMovingDirectionMode(gameWindowHelperElement, army);
         armyMovingDirectionMode.putHelpers();
+
+        armyBattleMode.removeHelpers();
+        armyBattleMode = new ArmyBattleMode(gameWindowHelperElement, army);
+        armyBattleMode.putHelpers();
     }
 
 

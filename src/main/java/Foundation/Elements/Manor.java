@@ -11,7 +11,7 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-public class Manor extends HabitableElement {
+public class Manor extends HabitableFieldElement {
 
 
     private ArrayList<Index> villages;

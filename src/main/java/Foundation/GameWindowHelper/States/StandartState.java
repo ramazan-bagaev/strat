@@ -1,7 +1,7 @@
 package Foundation.GameWindowHelper.States;
 
 import Foundation.*;
-import Foundation.Elements.ArmyElement;
+import Foundation.Elements.ArmyFieldElement;
 import Foundation.GameWindowHelper.Modes.ChoosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
@@ -38,7 +38,7 @@ public class StandartState extends HelperState {
 
         Field field = gameWindowHelperElement.getMap().getFieldMap().getFieldByPos(point);
         if (field != null) {
-            ArmyElement armyElement = field.getArmyElement();
+            ArmyFieldElement armyElement = field.getArmyElement();
             if (armyElement != null) {
                 Army army = armyElement.getArmy();
                 gameWindowHelperElement.clearHelperElements();

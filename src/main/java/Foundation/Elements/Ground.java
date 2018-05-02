@@ -9,7 +9,7 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-public class Ground extends Element {
+public class Ground extends FieldElement {
 
 
     public GroundType getGroundType() {

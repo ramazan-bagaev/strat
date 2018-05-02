@@ -4,14 +4,14 @@ import Foundation.*;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
-import Foundation.Runnable.RunnableElement;
+import Foundation.Runnable.RunnableFieldElement;
 
-public abstract class HabitableElement extends RunnableElement {
+public abstract class HabitableFieldElement extends RunnableFieldElement {
 
     protected ResourceStore resourceStore;
     protected Society society;
 
-    public HabitableElement(Type type, Time time, Field parent, FieldMap map) {
+    public HabitableFieldElement(Type type, Time time, Field parent, FieldMap map) {
         super(type, time, parent, map);
         society = new Society(this);
         resourceStore = new ResourceStore();

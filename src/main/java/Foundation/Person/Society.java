@@ -1,7 +1,7 @@
 package Foundation.Person;
 
+import Foundation.Elements.HabitableFieldElement;
 import Utils.Broadcaster;
-import Foundation.Elements.HabitableElement;
 import Utils.Subscription;
 
 import java.util.ArrayList;
@@ -11,9 +11,9 @@ public class Society implements Broadcaster {
 
 
     protected People people;
-    protected HabitableElement habitat;
+    protected HabitableFieldElement habitat;
 
-    public Society(HabitableElement habitat){
+    public Society(HabitableFieldElement habitat){
         people = new People();
         this.habitat = habitat;
     }

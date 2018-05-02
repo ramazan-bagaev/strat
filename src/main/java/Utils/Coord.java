@@ -30,8 +30,18 @@ public class Coord {
         this.z = z;
     }
 
+    public Coord(Index index){
+        this.x = index.x;
+        this.y = index.y;
+        this.z = 0;
+    }
+
     public Coord add(Coord pos){
         return new Coord(this.x + pos.x, this.y + pos.y, this.z + pos.z);
+    }
+
+    public Coord minus(Coord pos){
+        return new Coord(this.x - pos.x, this.y -pos.y, this.z - pos.z);
     }
 
     public Coord multiply(double alpha){

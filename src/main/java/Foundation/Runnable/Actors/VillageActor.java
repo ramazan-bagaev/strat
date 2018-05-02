@@ -1,19 +1,11 @@
 package Foundation.Runnable.Actors;
 
-import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
-import Foundation.Elements.WorkElement;
-import Foundation.Field;
-import Foundation.FieldMap;
+import Foundation.Elements.WorkFieldElement;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Time;
 import Utils.Index;
-import Utils.TimeMeasurer;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Random;
 
 public class VillageActor extends Actor {
 
@@ -45,7 +37,7 @@ public class VillageActor extends Actor {
         village.createTrawler(pos);
     }
 
-    public void addWorkPeople(WorkElement workElement, People people){
+    public void addWorkPeople(WorkFieldElement workElement, People people){
         workElement.addPeople(people);
     }
 }

@@ -2,14 +2,13 @@ package Foundation.GameWindowHelper.Modes;
 
 import Foundation.Color;
 import Foundation.Elements.Village;
-import Foundation.Elements.WorkElement;
+import Foundation.Elements.WorkFieldElement;
 import Foundation.GameWindowHelper.HelperElements.HistogramHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
 import Foundation.Person.Person;
 import Utils.Index;
 import Utils.Subscription;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.ArrayList;
 
@@ -28,9 +27,9 @@ public class VillagePeopleDistributionMode extends Mode {
     }
 
     public void init(){
-        ArrayList<WorkElement> workElements = village.getWorkElements();
+        ArrayList<WorkFieldElement> workElements = village.getWorkElements();
         int total = village.getSociety().getAmount();
-        for(WorkElement workElement: workElements){
+        for(WorkFieldElement workElement: workElements){
             int number = workElement.getPeople().getAmount();
             Index index = workElement.getParent().getFieldMapPos();
             HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(index);

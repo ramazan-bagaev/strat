@@ -30,33 +30,33 @@ public class FieldInfoWindow extends ClosableWindow{
         addCloseButton();
 
         if (field == null) return;
-        ArmyElement army = field.getArmyElement();
+        ArmyFieldElement army = field.getArmyElement();
         Ground groundElement = field.getGround();
         Image groundImage = new GroundImage(new Coord(0, 0), groundElement.getGroundType(), this);
         Image finalImage = groundImage;
         if (field.getCity() != null){
             Image cityImage = new CityImage(new Coord(0, 0), this);
-            groundImage.add(cityImage);//new Image(groundImage, cityImage, getPos(), this);
+            groundImage.add(cityImage);//new Image(groundImage, cityImage, getFieldPos(), this);
         }
         if (army != null) {
             Image armyImage = new ArmyImage(new Coord(0, 0), this);
-            groundImage.add(armyImage);//new Image(groundImage, armyImage, getPos(), this);
+            groundImage.add(armyImage);//new Image(groundImage, armyImage, getFieldPos(), this);
         }
         addWindowElement(finalImage);
 
         // ground type for all field
         //String groundTypeString = groundElement.getValue("groundType");
-        //Label groundTypeLabel = new Label(new Index(10, 55).add(getPos()), new Index(150, 10), "TYPE: " + groundTypeString, this);
+        //Label groundTypeLabel = new Label(new Index(10, 55).add(getFieldPos()), new Index(150, 10), "TYPE: " + groundTypeString, this);
         StaticBroadcastLabel groundLabel = new StaticBroadcastLabel(new Coord(10, 55), new Coord(150, 10),
                 "TYPE:", groundElement, "groundType", this);
         addWindowElement(groundLabel);
 
         // ground type resource cause amount of fertility
 
-        //Label groundFertilutyLabel = new Label(new Index(10, 75).add(getPos()),new Index(150, 10), "Ground fertility:", this);
+        //Label groundFertilutyLabel = new Label(new Index(10, 75).add(getFieldPos()),new Index(150, 10), "Ground fertility:", this);
         //addWindowElement(groundFertilutyLabel);
         //String groundResourceCauseAmountString = groundElement.getValue("resourceCause.capacity");
-        //ChangableLabel groundResourceCauseAmountLabel = new ChangableLabel(new Index(200, 75).add(getPos()), new Index(50, 10),
+        //ChangableLabel groundResourceCauseAmountLabel = new ChangableLabel(new Index(200, 75).add(getFieldPos()), new Index(50, 10),
          //       groundResourceCauseAmountString, groundElement, "resourceCause.capacity", this);
 
         MonitoredBroadcastLabel groundResourceCauseLabel = new MonitoredBroadcastLabel(new Coord(10, 75),new Coord(200, 10),
@@ -81,22 +81,22 @@ public class FieldInfoWindow extends ClosableWindow{
         if (city == null) return;
 
             //String cityTypeString = city.getValue("sizeType");
-            //Label cityTypeLabel = new Label(new Index(10, 115).add(getPos()), new Index(300, 10), "City size: " + cityTypeString, this);
+            //Label cityTypeLabel = new Label(new Index(10, 115).add(getFieldPos()), new Index(300, 10), "City size: " + cityTypeString, this);
         StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140), new Coord(300, 10),
                 "City size:", city, "sizeType", this);
         addWindowElement(cityLabel);
 
-            /*Label cityPopulationLabel = new Label(new Index(10, 135).add(getPos()),new Index(150, 10), "City population:", this);
+            /*Label cityPopulationLabel = new Label(new Index(10, 135).add(getFieldPos()),new Index(150, 10), "City population:", this);
             addWindowElement(cityPopulationLabel);
             String cityPopulationString = city.getValue("population");
-            ChangableLabel cityPopulationChangableLabel = new ChangableLabel(new Index(200, 135).add(getPos()), new Index(50, 10),
+            ChangableLabel cityPopulationChangableLabel = new ChangableLabel(new Index(200, 135).add(getFieldPos()), new Index(50, 10),
                     cityPopulationString, city, "population", this);
             addWindowElement(cityPopulationChangableLabel);
 
-            Label cityFoodLabel = new Label(new Index(10, 155).add(getPos()), new Index(150, 10), "City food:", this);
+            Label cityFoodLabel = new Label(new Index(10, 155).add(getFieldPos()), new Index(150, 10), "City food:", this);
             addWindowElement(cityFoodLabel);
             String cityFoodString = city.getValue("food");
-            ChangableLabel cityFoodChangableLabel = new ChangableLabel(new Index(200, 155).add(getPos()), new Index(50, 10),
+            ChangableLabel cityFoodChangableLabel = new ChangableLabel(new Index(200, 155).add(getFieldPos()), new Index(50, 10),
                     cityFoodString, city, "food", this);
             addWindowElement(cityFoodChangableLabel);*/
     }

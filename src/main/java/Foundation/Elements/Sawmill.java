@@ -2,12 +2,11 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.WorksP.SawmillWork;
 import Images.SawmillImage;
 import Utils.Coord;
 
-public class Sawmill extends WorkElement{
+public class Sawmill extends WorkFieldElement {
 
     private Village village;
 

@@ -9,7 +9,7 @@ import Utils.Subscription;
 
 import java.util.ArrayList;
 
-public class Element implements Broadcaster {
+public class FieldElement implements Broadcaster {
 
     public enum Type{
         City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill, Trawler, Mine
@@ -22,7 +22,7 @@ public class Element implements Broadcaster {
 
     private ArrayList<BasicShape> shapes;
 
-    public Element(Type type, Time time, Field parent, FieldMap map){
+    public FieldElement(Type type, Time time, Field parent, FieldMap map){
         this.shapes = new ArrayList<>();
         this.time = time;
         this.map = map;
@@ -44,18 +44,12 @@ public class Element implements Broadcaster {
     public void setBasicShapes(ArrayList<BasicShape> shapes) {
         this.shapes = shapes;
         for (BasicShape basicShape: this.shapes){
-            basicShape.shift(getShift());
+            basicShape.shift(parent.getShift());
         }
     }
 
-    private Coord getShift() {
-        Index mapPos = new Index(parent.getFieldMapPos());
-        int parentSize = parent.getSize();
-        return new Coord(mapPos.x * parentSize, mapPos.y * parentSize);
-    }
-
     public void addShape(BasicShape shape){
-        shape.shift(getShift());
+        shape.shift(parent.getShift());
         shapes.add(shape);
     }
 
@@ -63,7 +57,7 @@ public class Element implements Broadcaster {
         ArrayList<BasicShape> copy = new ArrayList<>();
         for(BasicShape basicShape: shapes){
             BasicShape copyShape = BasicShape.getCopy(basicShape);
-            copyShape.shift(getShift().multiply(-1));
+            copyShape.shift(parent.getShift().multiply(-1));
             copy.add(copyShape);
         }
         return copy;

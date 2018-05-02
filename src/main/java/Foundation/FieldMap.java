@@ -1,7 +1,9 @@
 package Foundation;
 
 import Foundation.BasicShapes.BasicShape;
-import Foundation.Elements.Element;
+import Foundation.Elements.ArmyFieldElement;
+import Foundation.Elements.FieldElement;
+import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.SuperField;
 import Utils.Index;
 import Utils.Coord;
@@ -84,33 +86,54 @@ public class FieldMap {
 
     public ArrayList<BasicShape> getShapes(Index index, Index number){
         ArrayList<BasicShape> result = new ArrayList<>();
+        if (number.x < 4){
+            for (int i = index.x; i <= number.x + index.x; i++) {
+                for (int j = index.y; j <= number.y + index.y; j++) {
+                    Field field = getFieldByIndex(new Index(i, j));
+                    if (field == null) continue;
+
+                    FieldElement fieldElement = field.getGround();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+
+                    ArmyFieldElement armyElement = field.getArmyElement();
+                    if (armyElement != null) result.addAll(armyElement.getFormationShapes());
+
+                    for (FieldObject fieldObject : field.getFieldObjects()) {
+                        result.addAll(fieldObject.getBasicShapes());
+                    }
+                }
+            }
+            return result;
+        }
         if ( (Math.sqrt(number.x * number.y) * fieldSize ) / superFieldSize < 4){ // show all field that in this window
             for (int i = index.x; i <= number.x + index.x; i++){
                 for (int j = index.y; j <= number.y + index.y; j++){
                     Field field = getFieldByIndex(new Index(i, j));
                     if (field == null) continue;
-                    Element element = field.getGround();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getCity();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getArmyElement();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getTree();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getManor();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getVillage();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getRiver();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getFarm();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getSawmill();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getTrawler();
-                    if (element != null) result.addAll(element.getShapes());
-                    element = field.getMine();
-                    if (element != null) result.addAll(element.getShapes());
+                    FieldElement fieldElement = field.getGround();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getCity();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getArmyElement();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getTree();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getManor();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getVillage();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getRiver();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getFarm();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getSawmill();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getTrawler();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getMine();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+
+
                 }
             }
         }

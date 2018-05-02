@@ -33,7 +33,7 @@ public class OpenGLBinder {
     }
 
     public void draw(BasicShape basicShape){
-       /* Matrix4f worldMatrix = transformation.getWorldMatrix(basicShape.getPos(), basicShape.getRotation(), basicShape.getScale());
+       /* Matrix4f worldMatrix = transformation.getWorldMatrix(basicShape.getFieldPos(), basicShape.getRotation(), basicShape.getScale());
         shaderProgram.bind();
         shaderProgram.setUniform("worldMatrix", worldMatrix);*/
         RectangleShape rect;

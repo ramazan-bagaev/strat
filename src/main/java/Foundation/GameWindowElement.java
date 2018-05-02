@@ -2,7 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
-import Foundation.Elements.ArmyElement;
+import Foundation.Elements.ArmyFieldElement;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
@@ -67,7 +67,7 @@ public class GameWindowElement extends WindowElement{
             for (int j = deltaj; j <= fieldNumber + deltaj; j++){
                 Field field = map.getFieldByIndex(new Index(i, j));
                 if (field == null) continue;
-                Element element = field.getGround();
+                FieldElement element = field.getGround();
                 if (element != null) basicShapes.addAll(element.getShapes());
                 element = field.getCity();
                 if (element != null) basicShapes.addAll(element.getShapes());
@@ -77,7 +77,7 @@ public class GameWindowElement extends WindowElement{
         }*/
 
         /*for (Field field: map.getValues()){
-            Element element = field.getGround();
+            FieldElement element = field.getGround();
             if (element != null) basicShapes.addAll(element.getShapes());
             element = field.getAdditionalElement();
             if (element != null) basicShapes.addAll(element.getShapes());
@@ -100,7 +100,7 @@ public class GameWindowElement extends WindowElement{
             CityInfoWindow cityInfoWindow = new CityInfoWindow(city, frame);
             frame.addSpecialWindow("element info window", cityInfoWindow);
         }
-        ArmyElement armyElement = field.getArmyElement();
+        ArmyFieldElement armyElement = field.getArmyElement();
         if (armyElement != null){
             ArmyInfoWindow armyInfoWindow = new ArmyInfoWindow(armyElement.getArmy(), frame);
             frame.addSpecialWindow("element info window", armyInfoWindow);

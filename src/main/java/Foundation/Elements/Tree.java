@@ -6,7 +6,7 @@ import Foundation.Time;
 import Images.TreeImage;
 import Utils.Coord;
 
-public class Tree extends Element {
+public class Tree extends FieldElement {
 
 
     private FieldMap map;

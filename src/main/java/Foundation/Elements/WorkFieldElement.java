@@ -7,7 +7,7 @@ import Foundation.Person.Person;
 import Foundation.Time;
 import Foundation.WorksP.Work;
 
-public abstract class WorkElement extends Element{
+public abstract class WorkFieldElement extends FieldElement {
 
     protected People people;
     protected Work work;
@@ -15,14 +15,14 @@ public abstract class WorkElement extends Element{
     private double distance;
     private int efficiency;
 
-    public WorkElement(Type type, People people, Village village, Time time, Field parent, FieldMap map){
+    public WorkFieldElement(Type type, People people, Village village, Time time, Field parent, FieldMap map){
         super(type, time, parent, map);
         this.people = people;
         this.efficiency = 10;
         distance = (int)village.getParent().getFieldMapPos().distance(parent.getFieldMapPos());
     }
 
-    public WorkElement(Type type, People people, Time time, Field parent, FieldMap map) {
+    public WorkFieldElement(Type type, People people, Time time, Field parent, FieldMap map) {
         super(type, time, parent, map);
         this.people = people;
         this.efficiency = 10;

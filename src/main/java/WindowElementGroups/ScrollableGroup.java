@@ -115,6 +115,6 @@ public class ScrollableGroup extends WindowElementGroup{
     }
 
     //public int getClickedIndex(Coord point){
-    //    return (int) (bottomIndex + (point.y - getPos().y)/rowHeight);
+    //    return (int) (bottomIndex + (point.y - getFieldPos().y)/rowHeight);
    // }
 }

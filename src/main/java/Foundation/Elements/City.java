@@ -13,7 +13,7 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-public class City extends HabitableElement {
+public class City extends HabitableFieldElement {
 
     private String name;
 
@@ -33,7 +33,7 @@ public class City extends HabitableElement {
 
 
     public City(String name, FieldMap map, Time time, Field parent){
-        super(Element.Type.City, time, parent, map);
+        super(FieldElement.Type.City, time, parent, map);
         setMap(map);
         territory = new Territory();
         manors = new ArrayList<>();

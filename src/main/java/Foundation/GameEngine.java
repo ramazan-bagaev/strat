@@ -1,5 +1,6 @@
 package Foundation;
 
+import Foundation.Army.Battle;
 import Foundation.Runnable.Country;
 import Foundation.Runnable.RunEntity;
 import Generation.FieldMapGenerator;
@@ -23,11 +24,16 @@ public class GameEngine {
 
     private ArrayList<RunEntity> runEntities;
     private ArrayList<RunEntity> newRunEntity;
+    private ArrayList<RunEntity> onDeleteEntity;
+
+    private ArrayList<Battle> battles;
 
     public GameEngine(GameWindowElement gameWindowElement){
         runEntities = new ArrayList<>();
         newRunEntity = new ArrayList<>();
+        onDeleteEntity = new ArrayList<>();
         countries = new ArrayList<>();
+        battles = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         time = new Time();
         map = new FieldMap(100, 500, this);
@@ -38,6 +44,7 @@ public class GameEngine {
         runEntities = new ArrayList<>();
         newRunEntity = new ArrayList<>();
         countries = new ArrayList<>();
+        onDeleteEntity = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         time = new Time();
         FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
@@ -56,13 +63,16 @@ public class GameEngine {
             time.nextDay();
             incr = 0;
         }
-        runEntities.addAll(newRunEntity);
-        newRunEntity.clear();
         Iterator<RunEntity> iterator = runEntities.iterator();
         while (iterator.hasNext()){
             RunEntity runEntity = iterator.next();
             runEntity.run();
         }
+
+        runEntities.removeAll(onDeleteEntity);
+        onDeleteEntity.clear();
+
+
         runEntities.addAll(newRunEntity);
         newRunEntity.clear();
         gameWindowElement.getMainWindow().getGameWindowHelperElement().setShapes();
@@ -101,6 +111,10 @@ public class GameEngine {
         newRunEntity.add(runEntity);
     }
 
+    public void removeRunEntity(RunEntity runEntity){
+        onDeleteEntity.add(runEntity);
+    }
+
     public GameWindowElement getGameWindowElement() {
         return gameWindowElement;
     }
@@ -111,5 +125,15 @@ public class GameEngine {
 
     public ArrayList<Country> getCountries() {
         return countries;
+    }
+
+    public void addBattle(Battle battle){
+        battles.add(battle);
+        addRunEntity(battle);
+    }
+
+    public void removeBattle(Battle battle){
+        battles.remove(battle);
+        removeRunEntity(battle);
     }
 }

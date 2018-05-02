@@ -1,7 +1,10 @@
 package Foundation;
 
+import Foundation.Cell.CellMap;
 import Foundation.Elements.*;
 import Foundation.Army.Army;
+import Foundation.FieldObjects.FieldObject;
+import Utils.Coord;
 import Utils.Index;
 
 import java.util.ArrayList;
@@ -12,6 +15,8 @@ public class Field {
 
     private Index fieldMapPos;
     private int size;
+    private int cellSize;
+    private int formationUnitSize;
 
     private City owner;
 
@@ -20,7 +25,7 @@ public class Field {
     private Ground groundElement;
     private Ecosystem ecosystem;
     private City city;
-    private ArmyElement armyElement;
+    private ArmyFieldElement armyElement;
     private River river;
     private Tree tree;
     private Manor manor;
@@ -30,6 +35,8 @@ public class Field {
     private Trawler trawler;
     private Mine mine;
 
+    private ArrayList<FieldObject> fieldObjects;
+    private CellMap cellMap;
 
     private Time time;
 
@@ -39,11 +46,13 @@ public class Field {
     private Date timeToIntersect;
 
     private Random random;
-    private boolean changed;
 
     public Field(Index fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
-        changed = false;
         this.fieldMapPos = fieldMapPos;
+        cellMap = new CellMap(this);
+        cellSize = 100;
+        formationUnitSize = 10; // TODO: get rid of constants
+        fieldObjects = new ArrayList<>();
         size = map.getFieldSize();
         setMap(map);
         setRandom(random);
@@ -128,11 +137,12 @@ public class Field {
         return city;
     }
 
-    public ArmyElement getArmyElement(){
+    public ArmyFieldElement getArmyElement(){
         return armyElement;
     }
 
-    public void setArmyElement(ArmyElement armyElement) {
+    public void setArmyElement(ArmyFieldElement armyElement) {
+        if (this.armyElement != null) this.armyElement.clear();
         this.armyElement = armyElement;
     }
 
@@ -212,7 +222,7 @@ public class Field {
     }
 
     public void createAndAddArmy(Army army){
-        ArmyElement armyElement = new ArmyElement(time, this, map, army);
+        ArmyFieldElement armyElement = new ArmyFieldElement(time, this, map, army);
         setArmyElement(armyElement);
         map.getGameEngine().getGameWindowElement().setShapes();
     }
@@ -268,5 +278,29 @@ public class Field {
 
     public void drawDynamicDrawable(OpenGLBinder openGLBinder){
         for(DynamicDrawable dynamicDrawable: dynamicDrawables) dynamicDrawable.draw(openGLBinder);
+    }
+
+    public Coord getShift(){
+        return new Coord(fieldMapPos.x * size, fieldMapPos.y * size);
+    }
+
+    public CellMap getCellMap() {
+        return cellMap;
+    }
+
+    public int getCellSize() {
+        return cellSize;
+    }
+
+    public ArrayList<FieldObject> getFieldObjects() {
+        return fieldObjects;
+    }
+
+    public int getFormationUnitSize() {
+        return formationUnitSize;
+    }
+
+    public void setFormationUnitSize(int formationUnitSize) {
+        this.formationUnitSize = formationUnitSize;
     }
 }

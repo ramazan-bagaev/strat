@@ -1,9 +1,12 @@
 package Windows.ElementInfoWindow;
 
+import Foundation.Button;
 import Foundation.Frame;
 import Foundation.Person.People;
 import Foundation.Army.Army;
 import Utils.Coord;
+import Utils.Index;
+import WindowElements.ArmyFormationControlElement;
 import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 
@@ -11,22 +14,43 @@ public class ArmyInfoWindow extends ClosableWindow {
 
     public Army army;
 
+    private ArmyFormationControlElement controlElement;
+
     public ArmyInfoWindow(Army army, Frame parent) {
-        super(new Coord(0, 700), new Coord(300, 300), parent);
+        super(new Coord(0, 500), new Coord(500, 500), parent);
 
         this.army = army;
 
         setShapes();
     }
 
+    @Override
     public void setShapes(){
 
-        People people = army.getPeople();
+        removeWindowElements();
+        addCloseButton();
 
-        MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10), new Coord(250, 20), "Army size:",
+        controlElement = new ArmyFormationControlElement(army,
+                new Coord(10, 10), new Coord(400, 400), this);
+
+        addWindowElement(controlElement);
+
+        Button rightDirection = new Button(new Coord(430, 60), new Coord(70, 20), "right", this){
+
+            @Override
+            public void click(Coord point){
+                controlElement.changeFormationDirection(Index.Direction.Right);
+            }
+        };
+
+        addWindowElement(rightDirection);
+
+        //People people = army.getPeople();
+
+        /*MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10), new Coord(280, 20), "Army size:",
                 people, "amount", this);
 
-        addWindowElement(amount);
+        addWindowElement(amount);*/
 
     }
 

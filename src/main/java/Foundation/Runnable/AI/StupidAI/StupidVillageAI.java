@@ -3,7 +3,7 @@ package Foundation.Runnable.AI.StupidAI;
 import Foundation.Date;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
-import Foundation.Elements.WorkElement;
+import Foundation.Elements.WorkFieldElement;
 import Foundation.Field;
 import Foundation.FieldMap;
 import Foundation.Person.People;
@@ -12,7 +12,6 @@ import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.Actors.VillageActor;
 import Foundation.Time;
 import Utils.Index;
-import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -87,9 +86,9 @@ public class StupidVillageAI extends AI {
 
     public void giveRandomWorkPeople(){
         // ArrayList<Index> villages = manor.getVillages();
-        ArrayList<WorkElement> workElements = village.getWorkElements();
+        ArrayList<WorkFieldElement> workElements = village.getWorkElements();
         if (workElements.size() == 0) return;
-        WorkElement workElement = workElements.get(random.nextInt(workElements.size()));
+        WorkFieldElement workElement = workElements.get(random.nextInt(workElements.size()));
         //Field field = manor.getParent().getMap().getFieldByIndex(villageIndex);
         //Village village = field.getVillage();
         peopleForWork.clear();

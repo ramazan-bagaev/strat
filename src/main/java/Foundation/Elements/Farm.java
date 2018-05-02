@@ -3,15 +3,13 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.Person.People;
-import Foundation.Person.Society;
-import Foundation.Person.Person;
 import Foundation.WorksP.FarmWork;
 import Images.FarmImage;
 import Utils.Coord;
 
 import java.util.ArrayList;
 
-public class Farm extends WorkElement {
+public class Farm extends WorkFieldElement {
 
     private Village village;
 

@@ -2,12 +2,11 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.WorksP.MineWork;
 import Images.MineImage;
 import Utils.Coord;
 
-public class Mine extends WorkElement {
+public class Mine extends WorkFieldElement {
 
     private Village village;
 

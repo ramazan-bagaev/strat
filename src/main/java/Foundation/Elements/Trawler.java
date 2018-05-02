@@ -2,12 +2,11 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.WorksP.TrawlerWork;
 import Images.TrawlerImage;
 import Utils.Coord;
 
-public class Trawler extends WorkElement {
+public class Trawler extends WorkFieldElement {
 
     private Village village;
 

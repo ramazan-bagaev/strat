@@ -12,13 +12,8 @@ public class Person implements Broadcaster{
 
     private Kasta kasta;
 
-    public Work getWork() {
-        return work;
-    }
+    private boolean alive;
 
-    public void setWork(Work work) {
-        this.work = work;
-    }
 
     public enum Kasta{
         Low, Middle, High, Royal
@@ -28,6 +23,7 @@ public class Person implements Broadcaster{
         this.name = name;
         this.kasta = kasta;
         this.society = society;
+        this.alive = true;
     }
 
 
@@ -51,7 +47,21 @@ public class Person implements Broadcaster{
         this.society = society;
     }
 
+    public Work getWork() {
+        return work;
+    }
 
+    public void setWork(Work work) {
+        this.work = work;
+    }
+
+    public void kill() {
+        alive = false;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
 
     public String getValue(String key) {
         switch (key){

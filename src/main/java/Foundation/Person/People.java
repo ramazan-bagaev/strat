@@ -5,6 +5,7 @@ import Utils.Content;
 import Utils.Subscription;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class People implements Broadcaster{
 
@@ -45,6 +46,15 @@ public class People implements Broadcaster{
             people.remove(person);
             amountContent.changed();
         }
+    }
+
+    public void clearDead(){
+        Iterator<Person> iter = people.iterator();
+        while(iter.hasNext()){
+            Person person = iter.next();
+            if (!person.isAlive()) iter.remove();
+        }
+        amountContent.changed();
     }
 
     public void clear(){

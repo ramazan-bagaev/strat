@@ -52,7 +52,7 @@ public class FontFactory {
                     Node character = characterList.item(j);
                     //System.out.print("2\n");
                     //System.out.println("Name2 : " + attrNode.getNodeName());
-                    //Element eCharacter = (Element) character;
+                    //FieldElement eCharacter = (FieldElement) character;
                     NamedNodeMap characterAttrMap = character.getAttributes();
                     //System.out.print("3 +" + characterAttr + "\n");
                     if (characterAttrMap == null) continue;
@@ -68,7 +68,7 @@ public class FontFactory {
                     NodeList lineList = character.getChildNodes();
                     for (int k = 0; k < lineList.getLength(); k++) {
                         Node line = lineList.item(k);
-                        //Element eLine = (Element) line;
+                        //FieldElement eLine = (FieldElement) line;
                         NamedNodeMap lineAttrMap = line.getAttributes();
                         if (lineAttrMap == null) continue;
                         int x1 = 0;

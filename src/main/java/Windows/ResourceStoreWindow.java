@@ -25,7 +25,7 @@ public class ResourceStoreWindow extends ClosableWindow {
        // scrollableGroup.setScrollableElements(elements);
         addWindowElementGroup(resourceElementGroup);
 
-        //MonitoredBroadcastLabel foodAmount = new MonitoredBroadcastLabel(getPos().add(new Index(10, 10)), new Index(180, 20),
+        //MonitoredBroadcastLabel foodAmount = new MonitoredBroadcastLabel(getFieldPos().add(new Index(10, 10)), new Index(180, 20),
         //        "food:", food, "capacity", this);
 
         //addWindowElement(foodAmount);

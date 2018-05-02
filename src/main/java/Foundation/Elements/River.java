@@ -9,7 +9,7 @@ import Utils.Coord;
 
 import java.util.ArrayList;
 
-public class River extends Element {
+public class River extends FieldElement {
 
 
 

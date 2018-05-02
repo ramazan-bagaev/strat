@@ -189,4 +189,8 @@ public class Window {
     public Coord getShift(){
         return new Coord(pos);
     }
+
+    public void setShapes(){
+
+    }
 }

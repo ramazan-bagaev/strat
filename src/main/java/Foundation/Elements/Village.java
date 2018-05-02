@@ -15,14 +15,14 @@ import Utils.Subscription;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Village extends HabitableElement{
+public class Village extends HabitableFieldElement {
 
     private Content workContent;
     private Manor manor;
     private Person steward;
 
     private VillageActor actor;
-    private ArrayList<WorkElement> workElements;
+    private ArrayList<WorkFieldElement> workElements;
 
 
     private Territory availableWater;
@@ -130,12 +130,12 @@ public class Village extends HabitableElement{
         return result;
     }
 
-    public ArrayList<WorkElement> getWorkElements() {
+    public ArrayList<WorkFieldElement> getWorkElements() {
         return workElements;
     }
 
     public void removeWorkers(int number, Index index){
-        for(WorkElement workElement: workElements){
+        for(WorkFieldElement workElement: workElements){
             if (workElement.getParent().getFieldMapPos().equals(index)){
                 workElement.removeRandomPeople(number);
                 return;
@@ -144,7 +144,7 @@ public class Village extends HabitableElement{
     }
 
     public void addWorkers(int number, Index index){
-        for(WorkElement workElement: workElements){
+        for(WorkFieldElement workElement: workElements){
             if (workElement.getParent().getFieldMapPos().equals(index)){
                 People people = society.getPeople();
                 LinkedList<Person> rightPeople = new LinkedList<>();
@@ -172,7 +172,7 @@ public class Village extends HabitableElement{
     @Override
     public void run() {
         super.run();
-        for(WorkElement workElement: workElements) workElement.getWork().doJob();
+        for(WorkFieldElement workElement: workElements) workElement.getWork().doJob();
     }
 
     @Override

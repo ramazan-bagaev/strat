@@ -56,7 +56,7 @@ public class Index{
     public Index minus(Index other){ return new Index(this.x - other.x, this.y - other.y); }
 
     public boolean inRectangle(Index pos, Index size){
-        return ((pos.x < x) && ((pos.x + size.x) > x) && (pos.y < y) && ((pos.y + size.y) > y));
+        return ((pos.x <= x) && ((pos.x + size.x) > x) && (pos.y <= y) && ((pos.y + size.y) > y));
 
     }
 
@@ -118,5 +118,22 @@ public class Index{
         result.x = this.x;
         result.y = this.y;
         return result;
+    }
+
+    public static Direction turnRight(Direction direction){
+        switch (direction){
+
+            case Up:
+                return Direction.Right;
+            case Down:
+                return Direction.Left;
+            case Right:
+                return Direction.Down;
+            case Left:
+                return Direction.Up;
+            case None:
+                return Direction.None;
+        }
+        return Direction.None;
     }
 }

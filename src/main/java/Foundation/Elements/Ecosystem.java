@@ -4,7 +4,7 @@ import Foundation.*;
 import Foundation.Fauna.Fauna;
 import Foundation.Flora.Flora;
 
-public class Ecosystem extends Element {
+public class Ecosystem extends FieldElement {
 
     private Fauna fauna;
     private Flora flora;

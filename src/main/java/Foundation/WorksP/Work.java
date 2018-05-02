@@ -1,7 +1,5 @@
 package Foundation.WorksP;
 
-import Foundation.Elements.City;
-import Foundation.Elements.WorkElement;
 import Foundation.ResourceStore;
 
 public abstract class Work {

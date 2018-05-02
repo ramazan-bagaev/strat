@@ -69,7 +69,7 @@ public class SliderElement extends WindowElement{
             double minX = scalePos.x;
             double maxX = minX + scaleSize.x + sliderSize.x;
             Coord delta = new Coord(point.x - sliderPos.x - sliderSize.x/2, 0);
-            Coord newPos = new Coord(sliderPos.add(delta));
+            Coord newPos = sliderPos.add(delta);
             if (newPos.x > maxX || newPos.x < minX) return true;
             setSliderParts(newPos);
             pressedPos = point;
