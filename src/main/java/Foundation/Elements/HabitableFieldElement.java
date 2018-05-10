@@ -4,6 +4,8 @@ import Foundation.*;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
+import Foundation.Recources.Resource;
+import Foundation.Recources.ResourceStore;
 import Foundation.Runnable.RunnableFieldElement;
 
 public abstract class HabitableFieldElement extends RunnableFieldElement {

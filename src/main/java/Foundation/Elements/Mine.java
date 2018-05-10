@@ -17,7 +17,7 @@ public class Mine extends WorkFieldElement {
 
         setBasicShapes(new MineImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
-        work = new MineWork(village, this);
+        work = new MineWork(people, village, this);
     }
 
     public Village getVillage() {

@@ -84,9 +84,9 @@ public class FieldMap {
         return superFieldSize;
     }
 
-    public ArrayList<BasicShape> getShapes(Index index, Index number){
+    public ArrayList<BasicShape> getShapes(Index index, Index number, MainWindowCameraConfiguration.Mode mode){
         ArrayList<BasicShape> result = new ArrayList<>();
-        if (number.x < 4){
+        if (mode == MainWindowCameraConfiguration.Mode.Detailed){
             for (int i = index.x; i <= number.x + index.x; i++) {
                 for (int j = index.y; j <= number.y + index.y; j++) {
                     Field field = getFieldByIndex(new Index(i, j));
@@ -103,26 +103,25 @@ public class FieldMap {
                     }
                 }
             }
-            return result;
         }
-        if ( (Math.sqrt(number.x * number.y) * fieldSize ) / superFieldSize < 4){ // show all field that in this window
+        if ( mode == MainWindowCameraConfiguration.Mode.Normal){ // show all field that in this window
             for (int i = index.x; i <= number.x + index.x; i++){
                 for (int j = index.y; j <= number.y + index.y; j++){
                     Field field = getFieldByIndex(new Index(i, j));
                     if (field == null) continue;
                     FieldElement fieldElement = field.getGround();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
-                    fieldElement = field.getCity();
+                    fieldElement = field.getRiver();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
-                    fieldElement = field.getArmyElement();
+                    fieldElement = field.getRoad();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getCity();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
                     fieldElement = field.getTree();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
                     fieldElement = field.getManor();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
                     fieldElement = field.getVillage();
-                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
-                    fieldElement = field.getRiver();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
                     fieldElement = field.getFarm();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
@@ -132,12 +131,14 @@ public class FieldMap {
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
                     fieldElement = field.getMine();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
+                    fieldElement = field.getArmyElement();
+                    if (fieldElement != null) result.addAll(fieldElement.getShapes());
 
 
                 }
             }
         }
-        else{ // show super fields
+        if (mode == MainWindowCameraConfiguration.Mode.SuperBlock){ // show super fields
             Index supIndex = new Index(index.x * fieldSize / superFieldSize, index.y * fieldSize / superFieldSize);
             int xnum = (int)Math.ceil((double) (number.x * fieldSize) / superFieldSize);
             int ynum = (int)Math.ceil((double) (number.y * fieldSize) / superFieldSize);

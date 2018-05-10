@@ -1,6 +1,6 @@
 package Foundation.Flora;
 
-import Foundation.Resource;
+import Foundation.Recources.Resource;
 
 import java.util.ArrayList;
 

@@ -61,7 +61,7 @@ public class GameWindowElement extends WindowElement{
         int deltai = (int)Math.floor(deltax);
         int deltaj = (int)Math.floor(deltay);
 
-        ArrayList<BasicShape> shapes = map.getShapes(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber));
+        ArrayList<BasicShape> shapes = map.getShapes(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber), cameraConfiguration.getMode());
         basicShapes.addAll(shapes);
        /* for (int i = deltai; i <= fieldNumber + deltai; i++){
             for (int j = deltaj; j <= fieldNumber + deltaj; j++){

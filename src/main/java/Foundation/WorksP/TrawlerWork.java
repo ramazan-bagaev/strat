@@ -2,22 +2,25 @@ package Foundation.WorksP;
 
 import Foundation.Elements.Trawler;
 import Foundation.Elements.Village;
-import Foundation.Resource;
+import Foundation.Person.People;
+import Foundation.Recources.Resource;
 
-public class TrawlerWork extends Work {
+public class TrawlerWork extends ResourceExtractingWork {
 
     private Trawler trawler;
 
-    public TrawlerWork(Village village, Trawler trawler) {
-        super(village.getResourceStore());
+    public TrawlerWork(People people, Village village, Trawler trawler) {
+        super(village.getResourceStore(), people);
         this.trawler = trawler;
     }
 
     @Override
-    public void doJob() {
-        int amount = trawler.getPeople().getAmount();
-        int coef = trawler.getEfficiency();
-        Resource resource = new Resource(Resource.Type.Food, "fish", amount * coef);
-        resourceStore.addResource(resource);
+    public Resource getResource(int amount) {
+        return new Resource(Resource.Type.Food, "fish", amount);
+    }
+
+    @Override
+    public int getEfficiency() {
+        return trawler.getEfficiency();
     }
 }

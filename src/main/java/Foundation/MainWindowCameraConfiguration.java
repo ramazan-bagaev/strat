@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class MainWindowCameraConfiguration extends CameraConfiguration {
 
+    public enum Mode{
+        SuperBlock, Normal, Detailed
+    }
+
+
     private boolean applied;
     private Coord draggedPos;
 
@@ -101,6 +106,13 @@ public class MainWindowCameraConfiguration extends CameraConfiguration {
         double fx = (coord.x * getZoom() + worldCameraPos.x);
         double fy = (coord.y * getZoom() + worldCameraPos.y);
         return new Coord(fx, fy);
+    }
+
+    public Mode getMode(){
+        float zoom = getZoom();
+        if (zoom >= 10) return Mode.SuperBlock;
+        if (zoom >= 0.5) return Mode.Normal;
+        return Mode.Detailed;
     }
 
     @Override

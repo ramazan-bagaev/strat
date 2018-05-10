@@ -1,5 +1,6 @@
-package Foundation;
+package Foundation.Recources;
 
+import Foundation.Window;
 import Images.Image;
 import Utils.Broadcaster;
 import Utils.Content;
@@ -19,6 +20,12 @@ public class Resource implements Broadcaster {
     protected int amount;
     private Type type;
 
+    public Resource(ResourceConfiguration resourceConfiguration, int amount){
+        this.amount = amount;
+        this.type = resourceConfiguration.type;
+        this.name = resourceConfiguration.name;
+        amountContent = new Content();
+    }
 
     public Resource(Type type, String name, int amount){
         this.amount = amount;

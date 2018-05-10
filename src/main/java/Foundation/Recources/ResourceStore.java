@@ -1,4 +1,6 @@
-package Foundation;
+package Foundation.Recources;
+
+import Foundation.Recources.Resource;
 
 import java.util.ArrayList;
 import java.util.Iterator;

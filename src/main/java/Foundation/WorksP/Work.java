@@ -1,17 +1,15 @@
 package Foundation.WorksP;
 
-import Foundation.ResourceStore;
+import Foundation.Person.People;
 
 public abstract class Work {
 
-    protected ResourceStore resourceStore;
+    protected People people;
     private int id;
 
-    public Work(ResourceStore resourceStore){
-        this.resourceStore = resourceStore;
+    public Work(People people){
+        this.people = people;
     }
-
-    public abstract void doJob();
 
     public int getId(){
         return id;
@@ -20,5 +18,7 @@ public abstract class Work {
     public void setId(int id) {
         this.id = id;
     }
+
+    public abstract void doJob();
 
 }

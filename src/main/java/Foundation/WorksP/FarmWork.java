@@ -2,22 +2,25 @@ package Foundation.WorksP;
 
 import Foundation.Elements.Farm;
 import Foundation.Elements.Village;
-import Foundation.Resource;
+import Foundation.Person.People;
+import Foundation.Recources.Resource;
 
-public class FarmWork extends Work {
+public class FarmWork extends ResourceExtractingWork {
 
     private Farm farm;
 
-    public FarmWork(Village village, Farm farm) {
-        super(village.getResourceStore());
+    public FarmWork(People people, Village village, Farm farm) {
+        super(village.getResourceStore(), people);
         this.farm = farm;
     }
 
     @Override
-    public void doJob() {
-        int amount = farm.getPeople().getAmount();
-        int coef = farm.getEfficiency();
-        Resource resource = new Resource(Resource.Type.Food, "wheat", amount * coef);
-        resourceStore.addResource(resource);
+    public Resource getResource(int amount) {
+        return new Resource(Resource.Type.Food, "wheat", amount);
+    }
+
+    @Override
+    public int getEfficiency() {
+        return farm.getEfficiency();
     }
 }

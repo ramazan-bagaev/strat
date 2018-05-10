@@ -34,6 +34,7 @@ public class Field {
     private Sawmill sawmill;
     private Trawler trawler;
     private Mine mine;
+    private Road road;
 
     private ArrayList<FieldObject> fieldObjects;
     private CellMap cellMap;
@@ -262,6 +263,14 @@ public class Field {
 
     public void setMine(Mine mine) {
         this.mine = mine;
+    }
+
+    public void setRoad(Road road){
+        this.road = road;
+    }
+
+    public Road getRoad(){
+        return road;
     }
 
     public ArrayList<DynamicDrawable> getDynamicDrawables() {

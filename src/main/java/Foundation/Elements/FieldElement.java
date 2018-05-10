@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class FieldElement implements Broadcaster {
 
     public enum Type{
-        City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill, Trawler, Mine
+        City, Ground, Ecosystem, Army, River, Tree, Manor, Village, Farm, Sawmill, Trawler, Mine, Road
     }
 
     private Type type;

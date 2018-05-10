@@ -1,6 +1,6 @@
 package Foundation.Fauna;
 
-import Foundation.Resource;
+import Foundation.Recources.Resource;
 import Utils.Subscription;
 
 import java.util.ArrayList;

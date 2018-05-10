@@ -2,6 +2,7 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.Person;
+import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidCityAI;
 import Foundation.Runnable.Actors.CityActor;
@@ -12,6 +13,7 @@ import Utils.Index;
 import Utils.Coord;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class City extends HabitableFieldElement {
 
@@ -83,6 +85,17 @@ public class City extends HabitableFieldElement {
 
         armies = new Armies(this);
         this.name = name;
+
+        Random random = parent.getRandom();
+        ArrayList<Index.Direction> dir = new ArrayList<>();
+        for (Index.Direction direction: Index.getAllDirections()) {
+            if (random.nextBoolean()) dir.add(direction);
+        }
+        Field field = map.getFieldByIndex(parent.getFieldMapPos().add(new Index(random.nextInt(4)-2, random.nextInt(4)-2)));
+        if (field != null) {
+            Road road = new Road(time, field, map, dir);
+            field.setRoad(road);
+        }
     }
 
     @Override

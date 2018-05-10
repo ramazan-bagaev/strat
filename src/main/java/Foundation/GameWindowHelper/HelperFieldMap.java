@@ -35,15 +35,24 @@ public class HelperFieldMap {
         return map.getOrDefault(new Index((int)(pos.x/fieldSize), (int)(pos.y/fieldSize)), null);
     }
 
-    public ArrayList<BasicShape> getShapes(Index index, Index number){
+    public ArrayList<BasicShape> getShapes(Index index, Index number, MainWindowCameraConfiguration.Mode mode){
         ArrayList<BasicShape> result = new ArrayList<>();
-        for (int i = index.x; i <= number.x + index.x; i++){
-            for (int j = index.y; j <= number.y + index.y; j++){
-                HelperField field = getFieldByIndex(new Index(i, j));
-                if (field == null) continue;
-                result.addAll(field.getShapes());
+
+        if ( mode == MainWindowCameraConfiguration.Mode.Detailed){
+        }
+        if (mode == MainWindowCameraConfiguration.Mode.Normal) {
+            for (int i = index.x; i <= number.x + index.x; i++) {
+                for (int j = index.y; j <= number.y + index.y; j++) {
+                    HelperField field = getFieldByIndex(new Index(i, j));
+                    if (field == null) continue;
+                    result.addAll(field.getShapes());
+                }
             }
         }
+        if (mode == MainWindowCameraConfiguration.Mode.SuperBlock){
+
+        }
+
         return result;
     }
 

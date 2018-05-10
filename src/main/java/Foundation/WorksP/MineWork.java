@@ -2,22 +2,25 @@ package Foundation.WorksP;
 
 import Foundation.Elements.Mine;
 import Foundation.Elements.Village;
-import Foundation.Resource;
+import Foundation.Person.People;
+import Foundation.Recources.Resource;
 
-public class MineWork extends Work {
+public class MineWork extends ResourceExtractingWork {
 
     private Mine mine;
 
-    public MineWork(Village village, Mine mine) {
-        super(village.getResourceStore());
+    public MineWork(People people, Village village, Mine mine) {
+        super(village.getResourceStore(), people);
         this.mine = mine;
     }
 
     @Override
-    public void doJob() {
-        int amount = mine.getPeople().getAmount();
-        int coef = mine.getEfficiency();
-        Resource resource = new Resource(Resource.Type.Material, "stone", amount * coef);
-        resourceStore.addResource(resource);
+    public Resource getResource(int amount) {
+        return new Resource(Resource.Type.Material, "stone", amount);
+    }
+
+    @Override
+    public int getEfficiency() {
+        return mine.getEfficiency();
     }
 }

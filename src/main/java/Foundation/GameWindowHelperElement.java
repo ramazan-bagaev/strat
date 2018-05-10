@@ -73,7 +73,7 @@ public class GameWindowHelperElement extends WindowElement {
         int deltaj = (int)Math.floor(deltay);
 
 
-        ArrayList<BasicShape> shapes = map.getShapes(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber));
+        ArrayList<BasicShape> shapes = map.getShapes(new Index(deltai, deltaj), new Index(fieldNumber, fieldNumber), cameraConfiguration.getMode());
         basicShapes.addAll(shapes);
         setBasicShapes(basicShapes);
     }

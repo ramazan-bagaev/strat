@@ -6,6 +6,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Camera {
 
+
     private CameraConfiguration currentConfiguration;
     private Frame frame;
 

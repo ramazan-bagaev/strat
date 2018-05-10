@@ -3,6 +3,7 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.Person.People;
 import Foundation.Person.Person;
+import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidVillageAI;
 import Foundation.Runnable.Actors.VillageActor;

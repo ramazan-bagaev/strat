@@ -1,7 +1,7 @@
 package Foundation.Fauna;
 
 import Utils.Broadcaster;
-import Foundation.Resource;
+import Foundation.Recources.Resource;
 
 import java.util.ArrayList;
 

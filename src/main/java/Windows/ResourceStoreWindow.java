@@ -1,6 +1,7 @@
 package Windows;
 
 import Foundation.*;
+import Foundation.Recources.ResourceStore;
 import Utils.Coord;
 import WindowElementGroups.ResourceElementGroup;
 

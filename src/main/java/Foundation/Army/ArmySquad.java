@@ -20,6 +20,7 @@ public class ArmySquad {
     }
 
     public static ArmySquad RandomArmySquad(People people){
+        if (people.getAmount() == 0) return null;
         Person officer = people.getPersonArray().get(new Random().nextInt(people.getAmount()));
         ArmySquad armySquad = new ArmySquad(officer, people);
         return armySquad;

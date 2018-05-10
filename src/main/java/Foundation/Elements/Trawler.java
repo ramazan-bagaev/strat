@@ -18,7 +18,7 @@ public class Trawler extends WorkFieldElement {
 
         setBasicShapes(new TrawlerImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
-        work = new TrawlerWork(village, this);
+        work = new TrawlerWork(people, village, this);
     }
 
     public Village getVillage() {

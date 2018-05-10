@@ -17,7 +17,7 @@ public class Sawmill extends WorkFieldElement {
         setBasicShapes(new SawmillImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
 
-        work = new SawmillWork(village, this);
+        work = new SawmillWork(people, village, this);
     }
 
     public Village getVillage() {

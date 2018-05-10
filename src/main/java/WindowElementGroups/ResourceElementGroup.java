@@ -1,7 +1,7 @@
 package WindowElementGroups;
 
-import Foundation.Resource;
-import Foundation.ResourceStore;
+import Foundation.Recources.Resource;
+import Foundation.Recources.ResourceStore;
 import Foundation.Window;
 import Utils.Coord;
 import WindowElements.ScrollElements.ResourceScrollRow;
