@@ -400,32 +400,32 @@ public class FieldMapGenerator {
     public void addRiver(LinkedList<Index> river, Index end){
         if (river.size() == 0) return;
         Field field = map.getFieldByIndex(river.get(0));
-        River.Side out, in;
+        Index.Direction out, in;
         Index next = new Index(end);
         if (river.size() != 1) next = river.get(1);
-        out = River.convert(river.get(0).whatDirection(next));
+        out = river.get(0).whatDirection(next);
 
         River riv = new River(time, map, field, out);
         field.setRiver(riv);
 
         for (int i = 1; i < river.size() - 1; i++) {
             field = map.getFieldByIndex(river.get(i));
-            in = River.convert(river.get(i).whatDirection(river.get(i - 1)));
-            out = River.convert(river.get(i).whatDirection(river.get(i + 1)));
+            in = river.get(i).whatDirection(river.get(i - 1));
+            out = river.get(i).whatDirection(river.get(i + 1));
             riv = new River(time, map, field, in, out, River.RiverType.Middle);
             field.setRiver(riv);
         }
         if (river.size() > 1) {
             field = map.getFieldByIndex(river.get(river.size() - 1));
-            in = River.convert(river.get(river.size() - 1).whatDirection(river.get(river.size() - 2)));
-            out = River.convert(river.get(river.size() - 1).whatDirection(end));
+            in = river.get(river.size() - 1).whatDirection(river.get(river.size() - 2));
+            out = river.get(river.size() - 1).whatDirection(end);
             riv = new River(time, map, field, in, out, River.RiverType.End);
             field.setRiver(riv);
         }
         field = map.getFieldByIndex(end);
         riv = field.getRiver();
         if (riv != null){
-            in = River.convert(end.whatDirection(river.get(river.size() - 1)));
+            in = end.whatDirection(river.get(river.size() - 1));
             riv.addInStream(in);
         }
 

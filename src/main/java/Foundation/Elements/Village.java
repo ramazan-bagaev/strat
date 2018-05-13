@@ -1,12 +1,15 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.FieldObjects.PeasantHouseObject;
+import Foundation.FieldObjects.StewardBuildingObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidVillageAI;
 import Foundation.Runnable.Actors.VillageActor;
+import Generation.NameGenerator;
 import Images.VillageImage;
 import Utils.Content;
 import Utils.Index;
@@ -15,6 +18,7 @@ import Utils.Subscription;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Village extends HabitableFieldElement {
 
@@ -28,20 +32,68 @@ public class Village extends HabitableFieldElement {
 
     private Territory availableWater;
 
-    public Village(Time time, Field parent, FieldMap map, Person steward, Manor manor) {
+    public static Village constructEmptyVillageWithSteward(Time time, Field parent, FieldMap map, Person steward, Manor manor){
+        Village res = new Village(time, parent, map, manor);
+        res.steward = steward;
+        res.society.addPerson(steward);
+        res.fillField();
+        return res;
+    }
+
+    public static Village constructVillageWithRandomPeople(Time time, Field parent, FieldMap map, Manor manor){
+        Village res = new Village(time, parent, map, manor);
+        res.addRandomPeople();
+        res.fillField();
+        return res;
+    }
+
+    private Village(Time time, Field parent, FieldMap map, Manor manor) {
         super(Type.Village, time, parent, map);
         this.manor = manor;
-        this.steward = steward;
         workElements = new ArrayList<>();
+        //addRandomPeople();
         actor = new VillageActor(steward, this, time);
         AI villageAI = new StupidVillageAI(actor, time);
         actor.setAi(villageAI);
         parent.getMap().getGameEngine().addRunEntity(villageAI);
-        society.addPerson(steward);
         availableWater = new Territory();
         int size = parent.getSize();
         workContent = new Content();
+        //fillField();
         setBasicShapes(new VillageImage(new Coord(0, 0), new Coord(size, size), parent.getRandom(), null).getBasicShapesRemoveAndShiftBack());
+    }
+
+    public void addRandomPeople(){
+        NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
+        steward = new Person(nameGenerator.generate(), null, Person.Kasta.Middle);
+        society.addPerson(steward);
+        Random random = parent.getRandom();
+        int amount = random.nextInt(100);
+        for(int i = 0; i < amount; i++){
+            Person person = new Person(nameGenerator.generate(), null, Person.Kasta.Low);
+            society.addPerson(person);
+        }
+    }
+
+    public void fillField(){
+        Random random = parent.getRandom();
+        int cellAmount = parent.getCellAmount();
+
+        int x = random.nextInt(cellAmount);
+        int y = random.nextInt(cellAmount);
+        StewardBuildingObject stewardBuildingObject = new StewardBuildingObject(parent, new Index(x, y));
+        parent.addFieldObject(stewardBuildingObject);
+        People people = society.getPeople();
+        ArrayList<Person> personArray = people.getPersonArray();
+        for(int i = 0; i < society.getAmount(); i++){
+            x = random.nextInt(cellAmount);
+            y = random.nextInt(cellAmount);
+            int sizeX = random.nextInt(3)+1;
+            int sizeY = random.nextInt(3)+1;
+
+            PeasantHouseObject peasantHouseObject = new PeasantHouseObject(parent, new Index(x, y), new Index(sizeX, sizeY));
+            parent.addFieldObject(peasantHouseObject);
+        }
     }
 
     public void createFarm(Index point){

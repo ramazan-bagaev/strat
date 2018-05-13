@@ -98,7 +98,7 @@ public class FieldMap {
                     ArmyFieldElement armyElement = field.getArmyElement();
                     if (armyElement != null) result.addAll(armyElement.getFormationShapes());
 
-                    for (FieldObject fieldObject : field.getFieldObjects()) {
+                    for (FieldObject fieldObject : field.getFieldObjects().getArray()) {
                         result.addAll(fieldObject.getBasicShapes());
                     }
                 }

@@ -1,7 +1,6 @@
 package Foundation.FieldObjects;
 
 import Foundation.BasicShapes.BasicShape;
-import Foundation.Cell.Cell;
 import Foundation.Field;
 import Utils.Coord;
 import Utils.Index;
@@ -24,6 +23,7 @@ public abstract class FieldObject {
         this.parent = parent;
         this.cellPos = cellPos;
         this.size = size;
+        basicShapes = new ArrayList<>();
     }
 
     public Field getParent() {
@@ -52,15 +52,15 @@ public abstract class FieldObject {
     }
 
     public Coord getShift(){
-        int size = parent.getCellSize();
+        double size = parent.getCellSize();
         return parent.getShift().add(new Coord(cellPos.x * size, cellPos.y * size));
     }
 
     public boolean isIntersects(FieldObject other){
         Index a1 = cellPos;
-        Index a2 = cellPos.add(size).minus(new Index(-1, -1));
+        Index a2 = cellPos.add(size).minus(new Index(1, 1));
         Index b1 = other.cellPos;
-        Index b2 = other.cellPos.add(other.size).minus(new Index(-1, -1));
+        Index b2 = other.cellPos.add(other.size).minus(new Index(1, 1));
         if (a1.x > b2.x) return false;
         if (a2.x < b1.x) return false;
         if (a1.y > b2.y) return false;
@@ -70,9 +70,9 @@ public abstract class FieldObject {
 
     public boolean isIntersects(Index pos, Index size){
         Index a1 = this.cellPos;
-        Index a2 = this.cellPos.add(this.size).minus(new Index(-1, -1));
+        Index a2 = this.cellPos.add(this.size).minus(new Index(1, 1));
         Index b1 = pos;
-        Index b2 = pos.add(size).minus(new Index(-1, -1));
+        Index b2 = pos.add(size).minus(new Index(1, 1));
         if (a1.x > b2.x) return false;
         if (a2.x < b1.x) return false;
         if (a1.y > b2.y) return false;

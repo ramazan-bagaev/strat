@@ -102,6 +102,23 @@ public class Index{
         return Direction.None;
     }
 
+    public static Direction opposite(Index.Direction direction){
+        switch (direction){
+
+            case Up:
+                return Direction.Down;
+            case Down:
+                return Direction.Up;
+            case Right:
+                return Direction.Left;
+            case Left:
+                return Direction.Right;
+            case None:
+                break;
+        }
+        return Direction.None;
+    }
+
     public Index multiply(double alpha){
         Index res = new Index(0, 0);
         res.x = (int) (x*alpha);

@@ -4,6 +4,7 @@ import Foundation.Cell.CellMap;
 import Foundation.Elements.*;
 import Foundation.Army.Army;
 import Foundation.FieldObjects.FieldObject;
+import Foundation.FieldObjects.FieldObjects;
 import Utils.Coord;
 import Utils.Index;
 
@@ -15,7 +16,8 @@ public class Field {
 
     private Index fieldMapPos;
     private int size;
-    private int cellSize;
+    private int cellAmount;
+    private double cellSize;
     private int formationUnitSize;
 
     private City owner;
@@ -36,7 +38,7 @@ public class Field {
     private Mine mine;
     private Road road;
 
-    private ArrayList<FieldObject> fieldObjects;
+    private FieldObjects fieldObjects;
     private CellMap cellMap;
 
     private Time time;
@@ -51,10 +53,11 @@ public class Field {
     public Field(Index fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
         this.fieldMapPos = fieldMapPos;
         cellMap = new CellMap(this);
-        cellSize = 100;
+        cellAmount = 100;
         formationUnitSize = 10; // TODO: get rid of constants
-        fieldObjects = new ArrayList<>();
+        fieldObjects = new FieldObjects(this);
         size = map.getFieldSize();
+        cellSize = (double)(size) / (double)(cellAmount);
         setMap(map);
         setRandom(random);
         dynamicDrawables = new ArrayList<>();
@@ -297,11 +300,11 @@ public class Field {
         return cellMap;
     }
 
-    public int getCellSize() {
-        return cellSize;
+    public int getCellAmount() {
+        return cellAmount;
     }
 
-    public ArrayList<FieldObject> getFieldObjects() {
+    public FieldObjects getFieldObjects() {
         return fieldObjects;
     }
 
@@ -311,5 +314,21 @@ public class Field {
 
     public void setFormationUnitSize(int formationUnitSize) {
         this.formationUnitSize = formationUnitSize;
+    }
+
+    public double getCellSize() {
+        return cellSize;
+    }
+
+    public void addFieldObject(FieldObject fieldObject){
+        fieldObjects.addFieldObject(fieldObject);
+    }
+
+    public boolean isFree(Index pos, Index size){
+        return fieldObjects.isFree(pos, size);
+    }
+
+    public boolean isFree(FieldObject fieldObject){
+        return fieldObjects.isFree(fieldObject);
     }
 }

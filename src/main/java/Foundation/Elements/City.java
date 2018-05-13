@@ -1,6 +1,10 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.FieldObjects.CityHouseObject;
+import Foundation.FieldObjects.LivingBuildingObject;
+import Foundation.FieldObjects.MarketObject;
+import Foundation.FieldObjects.PalaceObject;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
@@ -53,7 +57,7 @@ public class City extends HabitableFieldElement {
         }
 
         NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
-        int population = parent.getRandom().nextInt(100);
+        int population = parent.getRandom().nextInt(1000);
         for(int i = 0; i < population; i++){
             Person.Kasta kast;// = Person.Kasta.Low;
             int kastNum = parent.getRandom().nextInt(100);
@@ -91,11 +95,57 @@ public class City extends HabitableFieldElement {
         for (Index.Direction direction: Index.getAllDirections()) {
             if (random.nextBoolean()) dir.add(direction);
         }
-        Field field = map.getFieldByIndex(parent.getFieldMapPos().add(new Index(random.nextInt(4)-2, random.nextInt(4)-2)));
+        // Field field = map.getFieldByIndex(parent.getFieldMapPos().add(new Index(random.nextInt(4)-2, random.nextInt(4)-2)));
+        Field field = parent;
         if (field != null) {
             Road road = new Road(time, field, map, dir);
             field.setRoad(road);
         }
+
+        fillCity();
+
+    }
+
+    public void fillCity(){
+        Field field = getParent();
+        Random random = field.getRandom();
+        int cellAmount = field.getCellAmount();
+        int x = random.nextInt(cellAmount);
+        int y = random.nextInt(cellAmount);
+        PalaceObject palaceObject = new PalaceObject(getParent(), new Index(x, y));
+        field.addFieldObject(palaceObject);
+
+        int populace = society.getAmount();
+        int k = 0;
+        while(true){
+            k++;
+            x = random.nextInt(cellAmount);
+            y = random.nextInt(cellAmount);
+            int sizeX = random.nextInt(3) + 1;
+            int sizeY = random.nextInt(3) + 1;
+            Index pos = new Index(x, y);
+            Index size = new Index(sizeX, sizeY);
+            if (field.isFree(pos, size)) {
+                populace -= sizeX * sizeY;
+                field.addFieldObject(new CityHouseObject(field, pos, size));
+            }
+            if (populace <= 0) break;
+            if (k > 100) break;
+        }
+
+
+        k = 0;
+        while(true){
+            x = random.nextInt(cellAmount);
+            y = random.nextInt(cellAmount);
+            Index pos = new Index(x, y);
+            if (field.isFree(pos, new Index(4, 4))) {
+                field.addFieldObject(new MarketObject(field, pos));
+                break;
+            }
+            if (k > 100) break;
+        }
+
     }
 
     @Override

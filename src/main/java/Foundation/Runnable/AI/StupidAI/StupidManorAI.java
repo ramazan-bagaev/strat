@@ -58,7 +58,7 @@ public class StupidManorAI extends AI{
         }
     }
 
-    public void giveRandomVillagePeople(){
+    /*public void giveRandomVillagePeople(){
         ArrayList<Index> villages = manor.getVillages();
         if (villages.size() == 0) return;
         Index villageIndex = villages.get(random.nextInt(villages.size()));
@@ -80,7 +80,7 @@ public class StupidManorAI extends AI{
             villagePeople.addPerson(person);
         }
         manorActor.addVillagePeople(villagePeople, village);
-    }
+    }*/
 
     @Override
     public void makeDecision() {
@@ -95,7 +95,7 @@ public class StupidManorAI extends AI{
         previousDate.setDate(time.getDate());
         int rand = random.nextInt(100);
         if (rand < 90){
-            giveRandomVillagePeople();
+            //giveRandomVillagePeople();
             return;
         }
         createRandomVillage();

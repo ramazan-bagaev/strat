@@ -35,12 +35,12 @@ public class ManorActor extends Actor {
         manor.createVillage(pos, steward);
     }
 
-    public void addVillagePeople(People people, Village village){
+    /*public void addVillagePeople(People people, Village village){
         for(Person person: people.getPersonArray()){
             manor.removePerson(person);
         }
         village.addPeople(people);
-    }
+    }*/
 
 
 }

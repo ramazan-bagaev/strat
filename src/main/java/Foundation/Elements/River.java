@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
+import Foundation.FieldObjects.NaturalObjects.WaterFlowObject;
 import Utils.Index;
 import Utils.Coord;
 
@@ -17,45 +18,102 @@ public class River extends FieldElement {
         Begin, End, Middle
     }
 
-    public enum Side{
-        North, East, West, South
-    }
-
     private River nextPiece;
     private RiverType riverType;
 
-    private ArrayList<Side> inStreams;
-    private Side outStream;
+    private ArrayList<Index.Direction> inStreams;
+    private Index.Direction outStream;
 
-    public River(Time time, FieldMap map, Field parent, ArrayList<Side> in, Side out, RiverType type) {
+    public River(Time time, FieldMap map, Field parent, ArrayList<Index.Direction> in, Index.Direction out, RiverType type) {
         super(Type.River, time, parent, map);
         inStreams = in;
         outStream = out;
         riverType = type;
+        fillField();
         setShapes();
     }
 
-    public River(Time time, FieldMap map, Field parent, Side in, Side out, RiverType type) {
+    public River(Time time, FieldMap map, Field parent, Index.Direction in, Index.Direction out, RiverType type) {
         super(Type.River, time, parent, map);
         inStreams = new ArrayList<>();
         inStreams.add(in);
         outStream = out;
         riverType = type;
+        fillField();
         setShapes();
     }
 
-    public River(Time time, FieldMap map, Field parent, Side out) {
+    public River(Time time, FieldMap map, Field parent, Index.Direction out) {
         super(Type.River, time, parent, map);
         this.map = map;
         inStreams = new ArrayList<>();
         outStream = out;
         riverType = RiverType.Begin;
+        fillField();
         setShapes();
     }
 
-    public void addInStream(Side side){
-        if (outStream != side && !inStreams.contains(side)){
-            inStreams.add(side);
+    public void fillField(){
+        Field field = getParent();
+        int cellAmount = field.getCellAmount();
+
+        field.addFieldObject(new WaterFlowObject(field, new Index(cellAmount/2-1, cellAmount/2-1), new Index(2, 2), inStreams, outStream));
+        for(Index.Direction direction: inStreams){
+            switch (direction){
+
+                case Up:
+                    field.addFieldObject(new WaterFlowObject(field,
+                            new Index(cellAmount/2-1, 0), new Index(2, cellAmount/2 - 1),
+                            direction, Index.opposite(direction)));
+                    break;
+                case Down:
+                    field.addFieldObject(new WaterFlowObject(field,
+                            new Index(cellAmount/2-1, cellAmount/2+1), new Index(2, cellAmount/2 - 1),
+                            direction, Index.opposite(direction)));
+                    break;
+                case Right:
+                    field.addFieldObject(new WaterFlowObject(field,
+                            new Index(cellAmount/2+1, cellAmount/2-1), new Index(cellAmount/2-1, 2),
+                            direction, Index.opposite(direction)));
+                    break;
+                case Left:
+                    field.addFieldObject(new WaterFlowObject(field,
+                            new Index(0, cellAmount/2-1), new Index(cellAmount/2-1, 2),
+                            direction, Index.opposite(direction)));
+                    break;
+                case None:
+                    break;
+            }
+        }
+        switch (outStream){
+            case Up:
+                field.addFieldObject(new WaterFlowObject(field,
+                        new Index(cellAmount/2-1, 0), new Index(2, cellAmount/2 - 1),
+                        outStream, Index.opposite(outStream)));
+                break;
+            case Down:
+                field.addFieldObject(new WaterFlowObject(field,
+                        new Index(cellAmount/2-1, cellAmount/2+1), new Index(2, cellAmount/2 - 1),
+                        outStream, Index.opposite(outStream)));
+                break;
+            case Right:
+                field.addFieldObject(new WaterFlowObject(field,
+                        new Index(cellAmount/2+1, cellAmount/2-1), new Index(cellAmount/2-1, 2),
+                        outStream, Index.opposite(outStream)));
+                break;
+            case Left:
+                field.addFieldObject(new WaterFlowObject(field,
+                        new Index(0, cellAmount/2-1), new Index(cellAmount/2-1, 2),
+                        outStream, Index.opposite(outStream)));
+                break;
+            case None:
+                break;
+        }
+    }
+
+    public void addInStream(Index.Direction direction){
+        if (outStream != direction && !inStreams.contains(direction)){
+            inStreams.add(direction);
         }
         setShapes();
     }
@@ -64,11 +122,11 @@ public class River extends FieldElement {
         ArrayList<BasicShape> shapes = new ArrayList<>();
         int size = parent.getSize();
         Color color = new Color(Color.Type.Blue);
-        if (inStreams.contains(Side.North) || outStream == Side.North){
+        if (inStreams.contains(Index.Direction.Up) || outStream == Index.Direction.Up){
             RectangleShape rect = new RectangleShape(new Coord(9*size/20, 0),
                     new Coord(size/10, size/2), color, false, true);
             shapes.add(rect);
-            if (outStream == Side.North){
+            if (outStream == Index.Direction.Up){
                 LineShape line1 = new LineShape(new Coord(9*size/20, 3*size/8),
                         new Coord(size/2, size/8), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(new Coord(11*size/20, 3*size/8),
@@ -77,11 +135,11 @@ public class River extends FieldElement {
                 shapes.add(line2);
             }
         }
-        if (inStreams.contains(Side.South) || outStream == Side.South){
+        if (inStreams.contains(Index.Direction.Down) || outStream == Index.Direction.Down){
             RectangleShape rect = new RectangleShape(new Coord(9*size/20, size/2),
                     new Coord(size/10, size/2), color, false, true);
             shapes.add(rect);
-            if (outStream == Side.South){
+            if (outStream == Index.Direction.Down){
                 LineShape line1 = new LineShape(new Coord(9*size/20, 5*size/8),
                         new Coord(size/2, 7*size/8), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(new Coord(11*size/20, 5*size/8),
@@ -90,11 +148,11 @@ public class River extends FieldElement {
                 shapes.add(line2);
             }
         }
-        if (inStreams.contains(Side.West) || outStream == Side.West){
+        if (inStreams.contains(Index.Direction.Left) || outStream == Index.Direction.Left){
             RectangleShape rect = new RectangleShape(new Coord(0, 9*size/20),
                     new Coord(size/2, size/10), color, false, true);
             shapes.add(rect);
-            if (outStream == Side.West){
+            if (outStream == Index.Direction.Left){
                 LineShape line1 = new LineShape(new Coord(3*size/8, 9*size/20),
                         new Coord(size/8, size/2), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(new Coord(3*size/8, 11*size/20),
@@ -103,11 +161,11 @@ public class River extends FieldElement {
                 shapes.add(line2);
             }
         }
-        if (inStreams.contains(Side.East) || outStream == Side.East){
+        if (inStreams.contains(Index.Direction.Right) || outStream == Index.Direction.Right){
             RectangleShape rect = new RectangleShape(new Coord(size/2, 9*size/20),
                     new Coord(size/2, size/10), color, false, true);
             shapes.add(rect);
-            if (outStream == Side.East){
+            if (outStream == Index.Direction.Right){
                 LineShape line1 = new LineShape(new Coord(5*size/8, 9*size/20),
                         new Coord(7*size/8, size/2), new Color(Color.Type.Black));
                 LineShape line2 = new LineShape(new Coord(5*size/8, 11*size/20),
@@ -138,11 +196,4 @@ public class River extends FieldElement {
         this.nextPiece = nextPiece;
     }
 
-    public static Side convert(Index.Direction direction){
-        if (direction == Index.Direction.Down) return Side.South;
-        if (direction == Index.Direction.Up) return Side.North;
-        if (direction == Index.Direction.Left) return Side.West;
-        if (direction == Index.Direction.Right) return Side.East;
-        return Side.North;
-    }
 }
