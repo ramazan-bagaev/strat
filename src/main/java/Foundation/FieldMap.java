@@ -101,6 +101,10 @@ public class FieldMap {
                     for (FieldObject fieldObject : field.getFieldObjects().getArray()) {
                         result.addAll(fieldObject.getBasicShapes());
                     }
+
+                    for (FieldObject fieldObject: field.getFieldObjects().getTempArray()){
+                        result.addAll(fieldObject.getBasicShapes());
+                    }
                 }
             }
         }

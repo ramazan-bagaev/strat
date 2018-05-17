@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /// various object in the Field (house, road)
 
-public abstract class FieldObject {
+public abstract class FieldObject implements FieldObjectType{
 
     protected Field parent;
 
@@ -80,7 +80,50 @@ public abstract class FieldObject {
         return true;
     }
 
+    public boolean isNeighbour(FieldObject fieldObject){
+        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.y) return true;
+        if (cellPos.x + size.x == fieldObject.cellPos.x) return true;
+        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y) return true;
+        if (cellPos.y + size.y == fieldObject.cellPos.y) return true;
+        return false;
+    }
+
+    public boolean contains(Index index){
+        return  (cellPos.x <= index.x && cellPos.x + size.x < index.x &&
+                cellPos.y <= index.y && cellPos.y + size.y < index.y);
+    }
+
+    public Index.Direction getSide(FieldObject fieldObject){
+        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.y) return Index.Direction.Left;
+        if (cellPos.x + size.x == fieldObject.cellPos.x) return Index.Direction.Right;
+        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y) return Index.Direction.Up;
+        if (cellPos.y + size.y == fieldObject.cellPos.y) return Index.Direction.Down;
+        return Index.Direction.None;
+    }
+
+    public Index.Direction getSameSide(FieldObject fieldObject){
+        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.y
+                && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Left;
+        if (cellPos.x + size.x == fieldObject.cellPos.x
+                && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Right;
+        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y
+                && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Up;
+        if (cellPos.y + size.y == fieldObject.cellPos.y
+                && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Down;
+        return Index.Direction.None;
+    }
+
     public abstract void setShapes();
+
+    @Override
+    public boolean isTransportNetObject(){
+        return false;
+    }
+
+    @Override
+    public boolean isBuilding(){
+        return false;
+    }
 
 
 }

@@ -7,7 +7,7 @@ import Foundation.Field;
 import Utils.Coord;
 import Utils.Index;
 
-public class StewardBuildingObject extends FieldObject {
+public class StewardBuildingObject extends LivingBuildingObject {
 
     public StewardBuildingObject(Field parent, Index cellPos) {
         super(parent, cellPos, new Index(3, 3));

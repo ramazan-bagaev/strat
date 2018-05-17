@@ -6,7 +6,7 @@ import Foundation.Field;
 import Utils.Coord;
 import Utils.Index;
 
-public class MarketObject extends FieldObject {
+public class MarketObject extends BuildingObject {
 
     public MarketObject(Field parent, Index cellPos) {
         super(parent, cellPos, new Index(4, 4));

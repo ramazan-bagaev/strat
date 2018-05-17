@@ -10,7 +10,7 @@ import Utils.Index;
 
 import java.util.ArrayList;
 
-public abstract class LivingBuildingObject extends FieldObject {
+public abstract class LivingBuildingObject extends BuildingObject{
 
     protected int capacity;
     protected People people;

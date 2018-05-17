@@ -31,6 +31,10 @@ public class MainWindowCameraConfiguration extends CameraConfiguration {
 
     public void zoomInit(){
         zooms = new ArrayList<>();
+        zooms.add(0.01f);
+        zooms.add(0.03f);
+        zooms.add(0.05f);
+
         zooms.add(0.1f);
         zooms.add(0.2f);
         zooms.add(0.4f);

@@ -28,35 +28,35 @@ public class DirectionHelper extends HelperElement {
         switch (to) {
 
             case Up:
-                lineShape = new LineShape(new Coord(size.x/2, 0), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/2, 0), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(size.x/4, size.y/4), new Coord(size.x/2, 0), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/4, pieceSize.y/4), new Coord(pieceSize.x/2, 0), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(3*size.x/4, size.y/4), new Coord(size.x/2, 0), 2);
+                lineShape = new LineShape(new Coord(3*pieceSize.x/4, pieceSize.y/4), new Coord(pieceSize.x/2, 0), 2);
                 basicShapes.add(lineShape);
                 break;
             case Down:
-                lineShape = new LineShape(new Coord(size.x/2, size.y), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/2, pieceSize.y), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(size.x/4, 3*size.y/4), new Coord(size.x/2, size.y), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/4, 3*pieceSize.y/4), new Coord(pieceSize.x/2, pieceSize.y), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(3*size.x/4, 3*size.y/4), new Coord(size.x/2, size.y), 2);
+                lineShape = new LineShape(new Coord(3*pieceSize.x/4, 3*pieceSize.y/4), new Coord(pieceSize.x/2, pieceSize.y), 2);
                 basicShapes.add(lineShape);
                 break;
             case Right:
-                lineShape = new LineShape(new Coord(size.x, size.y/2), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x, pieceSize.y/2), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(3*size.x/4, size.y/4), new Coord(size.x, size.y/2), 2);
+                lineShape = new LineShape(new Coord(3*pieceSize.x/4, pieceSize.y/4), new Coord(pieceSize.x, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(size.x, size.y/2), new Coord(3*size.x/4, 3*size.y/4), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x, pieceSize.y/2), new Coord(3*pieceSize.x/4, 3*pieceSize.y/4), 2);
                 basicShapes.add(lineShape);
                 break;
             case Left:
-                lineShape = new LineShape(new Coord(0, size.y/2), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(0, pieceSize.y/2), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(size.x/4, size.y/4), new Coord(0, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/4, pieceSize.y/4), new Coord(0, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
-                lineShape = new LineShape(new Coord(size.x/4, 3*size.y/4), new Coord(0, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/4, 3*pieceSize.y/4), new Coord(0, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
                 break;
             case None:
@@ -66,19 +66,19 @@ public class DirectionHelper extends HelperElement {
         switch (from) {
 
             case Up:
-                lineShape = new LineShape(new Coord(size.x/2, 0), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/2, 0), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
                 break;
             case Down:
-                lineShape = new LineShape(new Coord(size.x/2, size.y), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x/2, pieceSize.y), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
                 break;
             case Right:
-                lineShape = new LineShape(new Coord(size.x, size.y/2), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(pieceSize.x, pieceSize.y/2), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
                 break;
             case Left:
-                lineShape = new LineShape(new Coord(0, size.y/2), new Coord(size.x/2, size.y/2), 2);
+                lineShape = new LineShape(new Coord(0, pieceSize.y/2), new Coord(pieceSize.x/2, pieceSize.y/2), 2);
                 basicShapes.add(lineShape);
                 break;
             case None:

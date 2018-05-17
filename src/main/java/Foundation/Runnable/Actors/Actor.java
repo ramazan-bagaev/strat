@@ -17,5 +17,8 @@ public abstract class Actor{
     public void setAi(AI ai){
         this.ai = ai;
     }
+    public AI getAi(){
+        return ai;
+    }
 
 }

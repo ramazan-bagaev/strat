@@ -1,16 +1,19 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.FieldObjects.ManorObject;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidManorAI;
 import Foundation.Runnable.Actors.ManorActor;
+import Generation.NameGenerator;
 import Images.ManorImage;
 import Utils.Index;
 import Utils.Coord;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Manor extends HabitableFieldElement {
 
@@ -23,7 +26,14 @@ public class Manor extends HabitableFieldElement {
 
     private ManorActor actor;
 
-    public Manor(Time time, Field parent, FieldMap map, City city) {
+    public static Manor constructManorWithRandomPeople(Time time, Field parent, FieldMap map, City city){
+        Manor res = new Manor(time, parent, map, city);
+        res.addRandomPeople();
+        res.fillField();
+        return res;
+    }
+
+    private Manor(Time time, Field parent, FieldMap map, City city) {
         super(Type.Manor, time, parent, map);
         this.city = city;
         territory = new Territory();
@@ -32,19 +42,34 @@ public class Manor extends HabitableFieldElement {
         setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
     }
 
-    public Manor(Time time, Field parent, FieldMap map, City city, Person lord) {
+    private Manor(Time time, Field parent, FieldMap map, City city, Person lord) {
         super(Type.Manor, time, parent, map);
         this.city = city;
         this.lord = lord;
-        this.actor = new ManorActor(lord, this);
-        AI manorAI = new StupidManorAI(actor, time);
-        actor.setAi(manorAI);
-        parent.getMap().getGameEngine().addRunEntity(manorAI);
+
         society.addPerson(lord);
         territory = new Territory();
         territory.add(parent.getFieldMapPos());
         villages = new ArrayList<>();
         setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
+    }
+
+    public void addRandomPeople(){
+        NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
+        lord = new Person(nameGenerator.generate(), null, Person.Kasta.High);
+        society.addPerson(lord);
+        Random random = parent.getRandom();
+        int amount = random.nextInt(100);
+        for(int i = 0; i < amount; i++){
+            Person person = new Person(nameGenerator.generate(), null, Person.Kasta.Low);
+            society.addPerson(person);
+        }
+    }
+
+    public void fillField(){
+        int cellAmount = parent.getCellAmount();
+        ManorObject manorObject = new ManorObject(parent, new Index(cellAmount/2 -3, cellAmount/2 - 3));
+        parent.addFieldObject(manorObject);
     }
 
     public void addTerritory(Index pos) {
@@ -90,6 +115,14 @@ public class Manor extends HabitableFieldElement {
     public void setLord(Person lord) {
         this.lord = lord;
         society.addPerson(lord);
+        if (actor != null) {
+            AI ai = actor.getAi();
+            parent.getMap().getGameEngine().removeRunEntity(ai);
+        }
+        this.actor = new ManorActor(lord, this);
+        AI manorAI = new StupidManorAI(actor, time);
+        actor.setAi(manorAI);
+        parent.getMap().getGameEngine().addRunEntity(manorAI);
     }
 
     public ArrayList<Resource> getPartOfResource(double part){

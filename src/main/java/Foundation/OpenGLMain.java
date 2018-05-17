@@ -74,7 +74,7 @@ public class OpenGLMain {
             IntBuffer pWidth = stack.mallocInt(1); // int*
             IntBuffer pHeight = stack.mallocInt(1); // int*
 
-            // Get the window size passed to glfwCreateWindow
+            // Get the window pieceSize passed to glfwCreateWindow
             glfwGetWindowSize(window, pWidth, pHeight);
 
             // Get the resolution of the primary monitor

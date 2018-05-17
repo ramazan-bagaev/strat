@@ -81,9 +81,9 @@ public class FieldInfoWindow extends ClosableWindow{
         if (city == null) return;
 
             //String cityTypeString = city.getValue("sizeType");
-            //Label cityTypeLabel = new Label(new Index(10, 115).add(getFieldPos()), new Index(300, 10), "City size: " + cityTypeString, this);
+            //Label cityTypeLabel = new Label(new Index(10, 115).add(getFieldPos()), new Index(300, 10), "City pieceSize: " + cityTypeString, this);
         StaticBroadcastLabel cityLabel = new StaticBroadcastLabel(new Coord(10, 140), new Coord(300, 10),
-                "City size:", city, "sizeType", this);
+                "City pieceSize:", city, "sizeType", this);
         addWindowElement(cityLabel);
 
             /*Label cityPopulationLabel = new Label(new Index(10, 135).add(getFieldPos()),new Index(150, 10), "City population:", this);

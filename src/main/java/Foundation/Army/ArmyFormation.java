@@ -157,12 +157,12 @@ public class ArmyFormation implements Broadcaster{
 
 
     public void turnClockWise(Index index){
-        //if ((index.x - size.x/2)*(index.y - size.y/2) > 0){
+        //if ((index.x - pieceSize.x/2)*(index.y - pieceSize.y/2) > 0){
             int temp = index.x;
             index.x = size.y - index.y;
             index.y = temp;
         //}
-        //else index.y = size.y - index.y;
+        //else index.y = pieceSize.y - index.y;
     }
 
     public boolean isFreeZone(Index pos, Index squadSize){

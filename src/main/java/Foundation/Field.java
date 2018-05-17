@@ -67,10 +67,10 @@ public class Field {
         calculateTimeToIntersect();
     }
 
-    /*public Field(Index fieldMapPos, int size, Random random, FieldMap map, Time time){
+    /*public Field(Index fieldMapPos, int pieceSize, Random random, FieldMap map, Time time){
         changed = false;
         this.fieldMapPos = fieldMapPos;
-        setSize(size);
+        setSize(pieceSize);
         setMap(map);
         setRandom(random);
         this.time = time;

@@ -82,7 +82,7 @@ public class Window {
     public boolean contain(Coord point){
         /*System.out.println(point.x + " point " + point.y);
         System.out.println(pos.x + " pos " + pos.y);
-        System.out.println(size.x + " size " + size.y);*/
+        System.out.println(pieceSize.x + " pieceSize " + pieceSize.y);*/
         return point.inRectangle(pos, size);
     }
 

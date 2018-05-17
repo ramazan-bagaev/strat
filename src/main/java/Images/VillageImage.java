@@ -21,34 +21,34 @@ public class VillageImage extends Image {
     public void setShapes(){
         clearBasicShapes();
         Coord size = getSize();
-        /*TriangleShape roof = new TriangleShape(new Index(size.x/10, 2*size.y/10), new Index(2*size.x/10, size.y/10),
-                new Index(3*size.x/10, 2*size.y/10), new Color(Color.Type.Yellow));
+        /*TriangleShape roof = new TriangleShape(new Index(pieceSize.x/10, 2*pieceSize.y/10), new Index(2*pieceSize.x/10, pieceSize.y/10),
+                new Index(3*pieceSize.x/10, 2*pieceSize.y/10), new Color(Color.Type.Yellow));
 
-        RectangleShape body = new RectangleShape(new Index(size.x/10, 2*size.y/10), new Index(size.x/5, size.y /10),
+        RectangleShape body = new RectangleShape(new Index(pieceSize.x/10, 2*pieceSize.y/10), new Index(pieceSize.x/5, pieceSize.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);
 
-        roof = new TriangleShape(new Index(7*size.x/10, 2*size.y/10), new Index(8*size.x/10, size.y/10),
-                new Index(9*size.x/10, 2*size.y/10), new Color(Color.Type.Yellow));
+        roof = new TriangleShape(new Index(7*pieceSize.x/10, 2*pieceSize.y/10), new Index(8*pieceSize.x/10, pieceSize.y/10),
+                new Index(9*pieceSize.x/10, 2*pieceSize.y/10), new Color(Color.Type.Yellow));
 
-        body = new RectangleShape(new Index(7*size.x/10, 2*size.y/10), new Index(size.x/5, size.y /10),
+        body = new RectangleShape(new Index(7*pieceSize.x/10, 2*pieceSize.y/10), new Index(pieceSize.x/5, pieceSize.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);
 
-        roof = new TriangleShape(new Index(size.x/10, 8* size.y/10), new Index(2*size.x/10, 7*size.y/10),
-                new Index(3*size.x/10, 8*size.y/10), new Color(Color.Type.Yellow));
+        roof = new TriangleShape(new Index(pieceSize.x/10, 8* pieceSize.y/10), new Index(2*pieceSize.x/10, 7*pieceSize.y/10),
+                new Index(3*pieceSize.x/10, 8*pieceSize.y/10), new Color(Color.Type.Yellow));
 
-        body = new RectangleShape(new Index(size.x/10, 8*size.y/10), new Index(size.x/5, size.y /10),
+        body = new RectangleShape(new Index(pieceSize.x/10, 8*pieceSize.y/10), new Index(pieceSize.x/5, pieceSize.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);
 
-        roof = new TriangleShape(new Index(7*size.x/10, 8* size.y/10), new Index(8*size.x/10, 7*size.y/10),
-                new Index(9*size.x/10, 8*size.y/10), new Color(Color.Type.Yellow));
+        roof = new TriangleShape(new Index(7*pieceSize.x/10, 8* pieceSize.y/10), new Index(8*pieceSize.x/10, 7*pieceSize.y/10),
+                new Index(9*pieceSize.x/10, 8*pieceSize.y/10), new Color(Color.Type.Yellow));
 
-        body = new RectangleShape(new Index(7*size.x/10, 8*size.y/10), new Index(size.x/5, size.y /10),
+        body = new RectangleShape(new Index(7*pieceSize.x/10, 8*pieceSize.y/10), new Index(pieceSize.x/5, pieceSize.y /10),
                 new Color(Color.Type.LightGray), false, true);
         addBasicShape(roof);
         addBasicShape(body);*/

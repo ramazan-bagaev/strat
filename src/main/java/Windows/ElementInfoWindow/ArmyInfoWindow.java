@@ -47,7 +47,7 @@ public class ArmyInfoWindow extends ClosableWindow {
 
         //People people = army.getPeople();
 
-        /*MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10), new Coord(280, 20), "Army size:",
+        /*MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(10, 10), new Coord(280, 20), "Army pieceSize:",
                 people, "amount", this);
 
         addWindowElement(amount);*/

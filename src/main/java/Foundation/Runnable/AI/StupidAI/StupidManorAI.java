@@ -60,8 +60,8 @@ public class StupidManorAI extends AI{
 
     /*public void giveRandomVillagePeople(){
         ArrayList<Index> villages = manor.getVillages();
-        if (villages.size() == 0) return;
-        Index villageIndex = villages.get(random.nextInt(villages.size()));
+        if (villages.pieceSize() == 0) return;
+        Index villageIndex = villages.get(random.nextInt(villages.pieceSize()));
         Field field = manor.getParent().getMap().getFieldByIndex(villageIndex);
         Village village = field.getVillage();
         Society society = manor.getSociety();
@@ -70,11 +70,11 @@ public class StupidManorAI extends AI{
         for (Person person: peo){
             if (person.getKasta() == Person.Kasta.Low) rightPeople.add(person);
         }
-        if (rightPeople.size() == 0) return;
-        int randInt = random.nextInt(rightPeople.size());
+        if (rightPeople.pieceSize() == 0) return;
+        int randInt = random.nextInt(rightPeople.pieceSize());
         People villagePeople = new People();
         for(int i = 0; i < randInt; i++){
-            int randIndex = random.nextInt(rightPeople.size());
+            int randIndex = random.nextInt(rightPeople.pieceSize());
             Person person = rightPeople.get(randIndex);
             rightPeople.remove(person);
             villagePeople.addPerson(person);

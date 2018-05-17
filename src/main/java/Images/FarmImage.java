@@ -22,7 +22,7 @@ public class FarmImage extends Image {
                 new Color(Color.Type.Gray), false, true);
         addBasicShape(rectangleShape);
 
-        //rectangleShape = new RectangleShape(new Index(9*size.x/20,3*size.y/10), new Index(size.x/10,size.y/10),
+        //rectangleShape = new RectangleShape(new Index(9*pieceSize.x/20,3*pieceSize.y/10), new Index(pieceSize.x/10,pieceSize.y/10),
         //        new Color(Color.Type.Gray), false, true);
         //addBasicShape(rectangleShape);
 

@@ -176,12 +176,12 @@ public class River extends FieldElement {
         }
         setBasicShapes(shapes);
         /*if (riverType == RiverType.End){
-            RectangleShape rect = new RectangleShape(pos.add(new Index(size/4, size/4)), new Index(size/2, size/2),
+            RectangleShape rect = new RectangleShape(pos.add(new Index(pieceSize/4, pieceSize/4)), new Index(pieceSize/2, pieceSize/2),
                     BasicShape.Color.Red, true);
             shapes.add(rect);
         }
         if (riverType == RiverType.Begin){
-            RectangleShape rect = new RectangleShape(pos.add(new Index(size/4, size/4)), new Index(size/2, size/2),
+            RectangleShape rect = new RectangleShape(pos.add(new Index(pieceSize/4, pieceSize/4)), new Index(pieceSize/2, pieceSize/2),
                     BasicShape.Color.White, true);
             shapes.add(rect);
         }*/

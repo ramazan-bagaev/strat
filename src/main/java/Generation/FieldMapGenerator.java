@@ -274,7 +274,7 @@ public class FieldMapGenerator {
                 LinkedList<Index> que = new LinkedList<>();
                 int inc = 0;
                 while (inc < continent.size()) {
-                    //int index = random.nextInt(continent.size());
+                    //int index = random.nextInt(continent.pieceSize());
                     //Index c = continent.get(index);
                     ArrayList<Index> mountain = mountains.get(countNum);
                     if (mountain.size() == 0) break;
@@ -386,7 +386,7 @@ public class FieldMapGenerator {
                     }
 
                     //river.push(c);
-                    //addit[c.y][c.x] = continents.size() + 3;
+                    //addit[c.y][c.x] = continents.pieceSize() + 3;
                 }
             }
             countNum++;

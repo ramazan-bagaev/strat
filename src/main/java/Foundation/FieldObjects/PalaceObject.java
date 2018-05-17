@@ -6,7 +6,7 @@ import Foundation.Field;
 import Utils.Coord;
 import Utils.Index;
 
-public class PalaceObject extends FieldObject {
+public class PalaceObject extends LivingBuildingObject {
 
     public PalaceObject(Field parent, Index cellPos) {
         super(parent, cellPos, new Index(8, 4));

@@ -1,10 +1,7 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.FieldObjects.CityHouseObject;
-import Foundation.FieldObjects.LivingBuildingObject;
-import Foundation.FieldObjects.MarketObject;
-import Foundation.FieldObjects.PalaceObject;
+import Foundation.FieldObjects.*;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
@@ -102,49 +99,45 @@ public class City extends HabitableFieldElement {
             field.setRoad(road);
         }
 
-        fillCity();
+        fillField();
 
     }
 
-    public void fillCity(){
+    public void fillField() {
         Field field = getParent();
+        FieldObjects fieldObjects = field.getFieldObjects();
         Random random = field.getRandom();
         int cellAmount = field.getCellAmount();
-        int x = random.nextInt(cellAmount);
-        int y = random.nextInt(cellAmount);
-        PalaceObject palaceObject = new PalaceObject(getParent(), new Index(x, y));
-        field.addFieldObject(palaceObject);
-
+        Index pos = field.getFieldObjects().getPosForBuilding(new Index(8, 4));
+        if (pos != null) {
+            PalaceObject palaceObject = new PalaceObject(getParent(), pos);
+            fieldObjects.addBuilding(palaceObject);
+        }
         int populace = society.getAmount();
         int k = 0;
         while(true){
             k++;
-            x = random.nextInt(cellAmount);
-            y = random.nextInt(cellAmount);
+            //x = random.nextInt(cellAmount);
+            //y = random.nextInt(cellAmount);
             int sizeX = random.nextInt(3) + 1;
             int sizeY = random.nextInt(3) + 1;
-            Index pos = new Index(x, y);
+            //Index pos = new Index(x, y);
             Index size = new Index(sizeX, sizeY);
-            if (field.isFree(pos, size)) {
+            //OccupationPiece piece = field.getFieldObjects().getMinSpace(size);
+            pos = field.getFieldObjects().getPosForBuilding(size);
+            if (pos != null){
                 populace -= sizeX * sizeY;
-                field.addFieldObject(new CityHouseObject(field, pos, size));
+                fieldObjects.addBuilding(new CityHouseObject(field, pos, size));
             }
             if (populace <= 0) break;
             if (k > 100) break;
         }
 
 
-        k = 0;
-        while(true){
-            x = random.nextInt(cellAmount);
-            y = random.nextInt(cellAmount);
-            Index pos = new Index(x, y);
-            if (field.isFree(pos, new Index(4, 4))) {
-                field.addFieldObject(new MarketObject(field, pos));
-                break;
-            }
-            if (k > 100) break;
-        }
+
+        Index size = new Index(4, 4);
+        pos = fieldObjects.getPosForBuilding(size);
+        if (pos != null) fieldObjects.addBuilding(new MarketObject(field, pos));
 
     }
 
@@ -173,8 +166,8 @@ public class City extends HabitableFieldElement {
         if (!territory.contains(pos)) return;
         Field field = map.getFieldByIndex(pos);
         if (field.getManor() != null) return;
-        removePerson(lord);
-        Manor manor = new Manor(time, field, map, this, lord);
+        //removePerson(lord);
+        Manor manor = Manor.constructManorWithRandomPeople(time, field, map, this);//new Manor(time, field, map, this, lord);
         field.setManor(manor);
         manors.add(manor);
         map.getGameEngine().getGameWindowElement().setShapes();

@@ -1,6 +1,7 @@
 package Foundation.Elements;
 
 import Foundation.*;
+import Foundation.FieldObjects.OccupationPiece;
 import Foundation.FieldObjects.PeasantHouseObject;
 import Foundation.FieldObjects.StewardBuildingObject;
 import Foundation.Person.People;
@@ -34,8 +35,7 @@ public class Village extends HabitableFieldElement {
 
     public static Village constructEmptyVillageWithSteward(Time time, Field parent, FieldMap map, Person steward, Manor manor){
         Village res = new Village(time, parent, map, manor);
-        res.steward = steward;
-        res.society.addPerson(steward);
+        res.setSteward(steward);
         res.fillField();
         return res;
     }
@@ -52,10 +52,6 @@ public class Village extends HabitableFieldElement {
         this.manor = manor;
         workElements = new ArrayList<>();
         //addRandomPeople();
-        actor = new VillageActor(steward, this, time);
-        AI villageAI = new StupidVillageAI(actor, time);
-        actor.setAi(villageAI);
-        parent.getMap().getGameEngine().addRunEntity(villageAI);
         availableWater = new Territory();
         int size = parent.getSize();
         workContent = new Content();
@@ -65,8 +61,8 @@ public class Village extends HabitableFieldElement {
 
     public void addRandomPeople(){
         NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
-        steward = new Person(nameGenerator.generate(), null, Person.Kasta.Middle);
-        society.addPerson(steward);
+        Person steward = new Person(nameGenerator.generate(), null, Person.Kasta.Middle);
+        setSteward(steward);
         Random random = parent.getRandom();
         int amount = random.nextInt(100);
         for(int i = 0; i < amount; i++){
@@ -86,14 +82,24 @@ public class Village extends HabitableFieldElement {
         People people = society.getPeople();
         ArrayList<Person> personArray = people.getPersonArray();
         for(int i = 0; i < society.getAmount(); i++){
-            x = random.nextInt(cellAmount);
-            y = random.nextInt(cellAmount);
             int sizeX = random.nextInt(3)+1;
             int sizeY = random.nextInt(3)+1;
+            Index size = new Index(sizeX, sizeY);
+            OccupationPiece piece = parent.getFieldObjects().getMinSpace(size);
+            if (piece == null) continue;
 
-            PeasantHouseObject peasantHouseObject = new PeasantHouseObject(parent, new Index(x, y), new Index(sizeX, sizeY));
+            PeasantHouseObject peasantHouseObject = new PeasantHouseObject(parent, new Index(piece.pos), size);
             parent.addFieldObject(peasantHouseObject);
         }
+    }
+
+    public void setSteward(Person steward){
+        this.steward = steward;
+        society.addPerson(steward);
+        actor = new VillageActor(steward, this, time);
+        AI villageAI = new StupidVillageAI(actor, time);
+        actor.setAi(villageAI);
+        parent.getMap().getGameEngine().addRunEntity(villageAI);
     }
 
     public void createFarm(Index point){

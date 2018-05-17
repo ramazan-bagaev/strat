@@ -153,4 +153,19 @@ public class Index{
         }
         return Direction.None;
     }
+
+    public static boolean isVertical(Direction direction){
+        switch (direction){
+
+            case Up:
+            case Down:
+                return true;
+            case Right:
+            case Left:
+                return false;
+            case None:
+                break;
+        }
+        return false;
+    }
 }

@@ -65,12 +65,12 @@ public class TreeImage extends Image {
             Index xy = new Index(x, y);
             if (ocupied.contains(xy)) continue;
             ocupied.add(xy);
-            Index newPos = new Index(x*size.x/10, y*size.y/10);
-            RectangleShape rectangleShape = new RectangleShape(newPos.add(new Index(2*size.x/100,2*size.y/100)),
-                    new Index(6*size.x/100, 6*size.y/100),
+            Index newPos = new Index(x*pieceSize.x/10, y*pieceSize.y/10);
+            RectangleShape rectangleShape = new RectangleShape(newPos.add(new Index(2*pieceSize.x/100,2*pieceSize.y/100)),
+                    new Index(6*pieceSize.x/100, 6*pieceSize.y/100),
                     new Color(Color.Type.Green2), false, true);
             addBasicShape(rectangleShape);
-            rectangleShape = new RectangleShape(newPos.add(new Index(4*size.x/100, 4*size.y/100)), new Index(2*size.x/100, 2*size.y/100),
+            rectangleShape = new RectangleShape(newPos.add(new Index(4*pieceSize.x/100, 4*pieceSize.y/100)), new Index(2*pieceSize.x/100, 2*pieceSize.y/100),
                     new Color(Color.Type.Green));
             addBasicShape(rectangleShape);
         }*/
