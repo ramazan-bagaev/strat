@@ -7,15 +7,23 @@ import java.util.ArrayList;
 
 public abstract class BuildingObject extends FieldObject{
 
-    private ArrayList<FieldObject> transportNetObjects;
+    private ArrayList<TransportNetObject> transportNetObjects;
 
     public BuildingObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
         transportNetObjects = new ArrayList<>();
     }
 
-    public void addTranportNetObject(TransportNetObject transportNetObject){
+    public void addTransportNetObject(TransportNetObject transportNetObject){
         transportNetObjects.add(transportNetObject);
+    }
+
+    public void removeTransportNetObject(TransportNetObject transportNetObject){
+        transportNetObjects.remove(transportNetObject);
+    }
+
+    public ArrayList<TransportNetObject> getTransportNetObjects() {
+        return transportNetObjects;
     }
 
     @Override

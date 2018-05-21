@@ -25,6 +25,14 @@ public class OccupationPiece extends FieldObject {
         setShapes();
     }
 
+    public OccupationPiece(FieldObject fieldObject){
+        super(fieldObject.parent, new Index(fieldObject.cellPos), new Index(fieldObject.size));
+        this.pos = cellPos;
+        this.pieceSize = size;
+        transportNetObjects = new ArrayList<>();
+        setShapes();
+    }
+
     public boolean tryUnite(OccupationPiece piece){
         Index.Direction direction = getSameSide(piece);
         if (direction == Index.Direction.None) return false;
@@ -65,15 +73,24 @@ public class OccupationPiece extends FieldObject {
     }*/
 
     public Index.Direction getNeighbour(OccupationPiece piece){
-        if (pos.x == piece.pos.x + piece.pieceSize.y) return Index.Direction.Left;
-        if (pos.x + pieceSize.x == piece.pos.x) return Index.Direction.Right;
-        if (pos.y == piece.pos.y + piece.pieceSize.y) return Index.Direction.Up;
-        if (pos.y + pieceSize.y == piece.pos.y) return Index.Direction.Down;
+        if (    pos.x == piece.pos.x + piece.pieceSize.x
+                && piece.pos.y + piece.pieceSize.y > pos.y
+                && piece.pos.y < pos.y + pieceSize.y) return Index.Direction.Left;
+
+        if (pos.x + pieceSize.x == piece.pos.x
+                && piece.pos.y + piece.pieceSize.y > pos.y
+                && piece.pos.y < pos.y + pieceSize.y) return Index.Direction.Right;
+        if (pos.y == piece.pos.y + piece.pieceSize.y
+                && piece.pos.x + piece.pieceSize.x > pos.x
+                && piece.pos.x < pos.x + pieceSize.x) return Index.Direction.Up;
+        if (pos.y + pieceSize.y == piece.pos.y
+                && piece.pos.x + piece.pieceSize.x > pos.x
+                && piece.pos.x < pos.x + pieceSize.x) return Index.Direction.Down;
         return Index.Direction.None;
     }
 
     public Index.Direction getSameSide(OccupationPiece piece){
-        if (pos.x == piece.pos.x + piece.pieceSize.y && pos.y == piece.pos.y && pieceSize.y == piece.pieceSize.y) return Index.Direction.Left;
+        if (pos.x == piece.pos.x + piece.pieceSize.x && pos.y == piece.pos.y && pieceSize.y == piece.pieceSize.y) return Index.Direction.Left;
         if (pos.x + pieceSize.x == piece.pos.x && pos.y == piece.pos.y && pieceSize.y == piece.pieceSize.y) return Index.Direction.Right;
         if (pos.y == piece.pos.y + piece.pieceSize.y && pos.x == piece.pos.x && pieceSize.x == piece.pieceSize.x) return Index.Direction.Up;
         if (pos.y + pieceSize.y == piece.pos.y && pos.x == piece.pos.x && pieceSize.x == piece.pieceSize.x) return Index.Direction.Down;
@@ -84,11 +101,15 @@ public class OccupationPiece extends FieldObject {
         transportNetObjects.add(transportNetObject);
     }
 
+    public void removeTransportNetObject(TransportNetObject transportNetObject){
+        transportNetObjects.remove(transportNetObject);
+    }
+
     public ArrayList<TransportNetObject> getTransportNetObject(){
         return transportNetObjects;
     }
 
-    public Index getSpaceWithIncludedPos(Index spaceSize, Index includedPos){
+    public Index getFirstSpaceWithIncludedPos(Index spaceSize, Index includedPos){
         Index res = new Index(0, 0);
 
         for(int i = -spaceSize.y + 1; i <= spaceSize.y - 1; i++){
@@ -99,6 +120,23 @@ public class OccupationPiece extends FieldObject {
             }
         }
         return null;
+    }
+
+    public Index getRandomSpaceWithIncludedPos(Index spaceSize, Index includedPos){
+        Index res = new Index(0, 0);
+        Index finalRes = null;
+
+        for(int i = -spaceSize.y + 1; i <= spaceSize.y - 1; i++){
+            res.y = i + includedPos.y;
+            for(int j = -spaceSize.x + 1; j <= spaceSize.x - 1; j++){
+                res.x = j + includedPos.x;
+                if (contains(res, spaceSize)){
+                    finalRes = res;
+                    if (parent.getRandom().nextBoolean()) return res;
+                }
+            }
+        }
+        return finalRes;
     }
 
     @Override

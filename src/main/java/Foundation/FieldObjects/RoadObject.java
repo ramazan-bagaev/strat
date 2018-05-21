@@ -40,6 +40,17 @@ public class RoadObject extends TransportNetObject implements TransportNetEdge{
         }
     }
 
+    public void removeNode(TransportNetNode node){
+        if (first == node){
+            first = null;
+            return;
+        }
+        if (second == node){
+            second = null;
+            return;
+        }
+    }
+
     public boolean isVertical(){
         return vertical;
     }

@@ -2,9 +2,9 @@ package Foundation.FieldObjects;
 
 import Foundation.Field;
 import Utils.Index;
+import Utils.Interval;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -38,63 +38,23 @@ public class FieldObjects {
     }
 
     public Index getPosForBuilding(Index size){
+        Index finalRes = null;
         ArrayList<OccupationPiece> freePieces = getFreeSpace(size);
         for(OccupationPiece piece: freePieces){
             ArrayList<TransportNetObject> netObjects = piece.getTransportNetObject();
             for(TransportNetObject netObject: netObjects){
-                if (netObject.isNode()){
-                    CrossRoadObject cross = (CrossRoadObject)netObject;
-                    Index.Direction side = cross.getSide(piece);
-                    Index iter = new Index(0, 0);
-                    switch (side){
-
-                        case Up:
-                            iter.y = cross.cellPos.y - 1;
-                            for(int i = cross.cellPos.x; i < cross.cellPos.x + cross.size.x; i++){
-                                iter.x = i;
-                                Index res = piece.getSpaceWithIncludedPos(size, iter);
-                                if (res != null) {
-                                    return res;
-                                }
-                            }
-                            break;
-                        case Down:
-                            iter.y = cross.cellPos.y + cross.size.y;
-                            for(int i = cross.cellPos.x; i < cross.cellPos.x + cross.size.x; i++){
-                                iter.x = i;
-                                Index res = piece.getSpaceWithIncludedPos(size, iter);
-                                if (res != null){
-                                    return res;
-                                }
-                            }
-                            break;
-                        case Right:
-                            iter.x = cross.cellPos.x + cross.size.x;
-                            for(int i = cross.cellPos.y; i < cross.cellPos.y + cross.size.y; i++){
-                                iter.y = i;
-                                Index res = piece.getSpaceWithIncludedPos(size, iter);
-                                if (res != null){
-                                    return res;
-                                }
-                            }
-                            break;
-                        case Left:
-                            iter.x = cross.cellPos.x - 1;
-                            for(int i = cross.cellPos.y; i < cross.cellPos.y + cross.size.y; i++){
-                                iter.y = i;
-                                Index res = piece.getSpaceWithIncludedPos(size, iter);
-                                if (res != null){
-                                    return res;
-                                }
-                            }
-                            break;
-                        case None:
-                            break;
-                    }
+                if (netObject.isEdge()){
+                    if (((RoadObject)netObject).getLength() < 5) continue;
+                }
+                Index res = getNetObjectNeighborPosForBuilding(piece, size, netObject);
+                if (res != null){
+                    finalRes = res;
+                    return res;
+                    //if (parent.getRandom().nextInt(100) > 35) return finalRes;
                 }
             }
         }
-        return null;
+        return finalRes;
     }
 
     public OccupationPiece getMinSpace(Index size){
@@ -139,7 +99,7 @@ public class FieldObjects {
 
     public boolean isFree(Index pos, Index size){
         int cellAmount = parent.getCellAmount();
-        if (!(pos.x >= 0 && pos.x + size.x < cellAmount && pos.y >= 0 && pos.x + size.y < cellAmount)) return false;
+        if (!(pos.x >= 0 && pos.x + size.x <= cellAmount && pos.y >= 0 && pos.y + size.y <= cellAmount)) return false;
         for(FieldObject object: fieldObjects){
             if (object.isIntersects(pos, size)) return false;
         }
@@ -164,12 +124,24 @@ public class FieldObjects {
                return;
            }
         }
+        for(FieldObject object: fieldObjects){
+            if (object.isTransportNetObject()){
+                TransportNetObject netObject = (TransportNetObject)object;
+                piece.addTransportNetObject(netObject);
+            }
+        }
         notOccupiedPieces.add(piece);
     }
 
     public void addBuilding(BuildingObject building){
         if (!isFree(building)) return;
         addFieldObject(building);
+        linkBuildingWithTransportNet(building);
+        //addRoadAroundBuilding(building);
+
+    }
+
+    public void addRoadAroundBuilding(BuildingObject building){
         Index pos = building.cellPos;
         Index size = building.size;
         RoadObject road = new RoadObject(parent, pos.add(new Index(-1, 0)), new Index(1, size.y), true);
@@ -190,6 +162,96 @@ public class FieldObjects {
         addTransportNetElement(cross);
     }
 
+    public void linkBuildingWithTransportNet(BuildingObject buildingObject){
+        boolean wasConnected = false;
+        for(FieldObject object: fieldObjects){
+            if (!object.isNeighbour(buildingObject)) continue;
+            if (object.isTransportNetObject()) {
+                TransportNetObject netObject = (TransportNetObject)object;
+                buildingObject.addTransportNetObject(netObject);
+                if (netObject.isNode()){
+                    CrossRoadObject cross = (CrossRoadObject)netObject;
+                    cross.addLinkedBuilding(buildingObject);
+                    wasConnected = true;
+                }
+            }
+        }
+        if (wasConnected) return;
+        RoadObject lastRoad = null;
+        for(TransportNetObject netObject: buildingObject.getTransportNetObjects()){
+            if (netObject.isEdge()){
+                RoadObject road = (RoadObject)netObject;
+                int length = road.getLength();
+                if (length >= 5){
+                    Interval intersect = road.getSideIntersection(buildingObject, 2);
+                    if (intersect == null) continue;
+                    if (road.isVertical()){
+                        intersect.shift(-road.cellPos.y);
+                    }
+                    else {
+                        intersect.shift(-road.cellPos.x);
+                    }
+                    if (intersect.length() <= 0) continue;
+                    lastRoad = road;
+                    if (parent.getRandom().nextBoolean()){
+                        int position = parent.getRandom().nextInt(intersect.length()) + intersect.first;
+                        splitRoad(road, position);
+                        return;
+                    }
+                }
+            }
+        }
+        if (lastRoad != null){
+            Interval intersect = lastRoad.getSideIntersection(buildingObject, 2);
+            if (lastRoad.isVertical()){
+                intersect.shift(-lastRoad.cellPos.y);
+                intersect.first += 2;
+            }
+            else {
+                intersect.shift(-lastRoad.cellPos.x);
+                intersect.second += 2;
+            }
+            if (intersect.length() > 0) {
+                splitRoad(lastRoad, parent.getRandom().nextInt(intersect.length()) + intersect.first);
+                return;
+            }
+        }
+        System.out.println("fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    }
+
+    public void splitRoad(RoadObject road, int position){
+        removeTransportNetObject(road);
+        Index firstRoadSize = new Index(0, 0);
+        Index crossPos = new Index(road.cellPos);
+        Index crossSize = new Index(1, 1);
+        Index secondRoadPos = new Index(0, 0);
+        Index secondRoadSize = new Index(road.size);
+        if (road.isVertical()){
+            firstRoadSize.x = road.getCapacity();
+            firstRoadSize.y = position;
+            crossPos.y += position;
+            crossSize.x = road.getCapacity();
+            secondRoadPos.x = crossPos.x;
+            secondRoadPos.y = crossPos.y + 1;
+            secondRoadSize.y -= (position + 1);
+        }
+        else{
+            firstRoadSize.y = road.getCapacity();
+            firstRoadSize.x = position;
+            crossPos.x += position;
+            crossSize.y = road.getCapacity();
+            secondRoadPos.x = crossPos.x + 1;
+            secondRoadPos.y = crossPos.y;
+            secondRoadSize.x -= (position + 1);
+        }
+        RoadObject newRoad = new RoadObject(parent, new Index(road.cellPos), firstRoadSize, road.isVertical());
+        addTransportNetElement(newRoad);
+        CrossRoadObject newCross = new CrossRoadObject(parent, crossPos, crossSize);
+        addTransportNetElement(newCross);
+        newRoad = new RoadObject(parent, secondRoadPos, secondRoadSize, road.isVertical());
+        addTransportNetElement(newRoad);
+    }
+
     public void addTransportNetElement(TransportNetObject transportNetObject){
         if (!isFree(transportNetObject)) return;
         addFieldObject(transportNetObject);
@@ -202,7 +264,7 @@ public class FieldObjects {
             if (!object.isNeighbour(transportNetObject)) continue;
             if (object.isBuilding()){
                 BuildingObject building = (BuildingObject)object;
-                building.addTranportNetObject(transportNetObject);
+                building.addTransportNetObject(transportNetObject);
                 if (transportNetObject.isNode()){
                     CrossRoadObject crossRoadObject = (CrossRoadObject)transportNetObject;
                     crossRoadObject.addLinkedBuilding(building);
@@ -214,6 +276,7 @@ public class FieldObjects {
                     CrossRoadObject cross = (CrossRoadObject)netObject;
                     RoadObject road = (RoadObject)transportNetObject;
                     Index.Direction side = cross.getSameSide(road);
+                    if (side == Index.Direction.None) continue;
                     if (Index.isVertical(side) == road.isVertical()){
                         cross.addEdge(road);
                         road.setNode(cross);
@@ -223,12 +286,117 @@ public class FieldObjects {
                     CrossRoadObject cross = (CrossRoadObject)transportNetObject;
                     RoadObject road = (RoadObject)netObject;
                     Index.Direction side = cross.getSameSide(road);
+                    if (side == Index.Direction.None) continue;
                     if (Index.isVertical(side) == road.isVertical()){
                         cross.addEdge(road);
                         road.setNode(cross);
                     }
                 }
             }
+        }
+    }
+
+    public void removeTransportNetObject(TransportNetObject netObject){
+        removeFieldObject(netObject);
+
+        for(OccupationPiece piece: notOccupiedPieces){
+            if (piece.isNeighbour(netObject)) piece.removeTransportNetObject(netObject);
+        }
+
+        for(FieldObject object: fieldObjects){
+            if (!object.isNeighbour(netObject)) continue;
+            if (object.isBuilding()){
+                BuildingObject building = (BuildingObject)object;
+                building.removeTransportNetObject(netObject);
+            }
+            if (object.isTransportNetObject()){
+                TransportNetObject iterNetObject = (TransportNetObject)object;
+                if (iterNetObject.isEdge() && netObject.isNode()){
+                    RoadObject road = (RoadObject)iterNetObject;
+                    CrossRoadObject cross = (CrossRoadObject)netObject;
+                    road.removeNode(cross);
+                    cross.removeEdge(road);
+                }
+                if (iterNetObject.isNode() && netObject.isEdge()){
+                    RoadObject road = (RoadObject)netObject;
+                    CrossRoadObject cross = (CrossRoadObject)iterNetObject;
+                    road.removeNode(cross);
+                    cross.removeEdge(road);
+                }
+            }
+        }
+    }
+
+    public Index getNetObjectNeighborPosForBuilding(OccupationPiece piece, Index size, TransportNetObject netObject){
+        Index finalRes = null;
+        Index.Direction side = netObject.getSide(piece);
+        Index iter = new Index(0, 0);
+        int shift = 0;
+        if (netObject.isEdge()) shift = 2;
+        switch (side) {
+
+            case Up:
+                iter.y = netObject.cellPos.y - 1;
+                for (int i = netObject.cellPos.x + shift; i < netObject.cellPos.x + netObject.size.x - shift; i++) {
+                    if (i >= piece.pos.x + piece.pieceSize.x) break;
+                    iter.x = i;
+                    Index res = piece.getFirstSpaceWithIncludedPos(size, iter);
+                    if (res != null) {
+                        finalRes = res;
+                        return res;
+                        //if (parent.getRandom().nextInt(100 + i) > 35) return res;
+                    }
+                }
+                break;
+            case Down:
+                iter.y = netObject.cellPos.y + netObject.size.y;
+                for (int i = netObject.cellPos.x + shift; i < netObject.cellPos.x + netObject.size.x - shift; i++) {
+                    if (i >= piece.pos.x + piece.pieceSize.x) break;
+                    iter.x = i;
+                    Index res = piece.getFirstSpaceWithIncludedPos(size, iter);
+                    if (res != null) {
+                        finalRes = res;
+                        return res;
+                        //if (parent.getRandom().nextInt(100 + i) > 35) return res;
+                    }
+                }
+                break;
+            case Right:
+                iter.x = netObject.cellPos.x + netObject.size.x;
+                for (int i = netObject.cellPos.y + shift; i < netObject.cellPos.y + netObject.size.y - shift; i++) {
+                    if (i >= piece.pos.y + piece.pieceSize.y) break;
+                    iter.y = i;
+                    Index res = piece.getFirstSpaceWithIncludedPos(size, iter);
+                    if (res != null) {
+                        finalRes = res;
+                        return res;
+                        //if (parent.getRandom().nextInt(100 + i) > 35) return res;
+                    }
+                }
+                break;
+            case Left:
+                iter.x = netObject.cellPos.x - 1;
+                for (int i = netObject.cellPos.y + shift; i < netObject.cellPos.y + netObject.size.y - shift; i++) {
+                    if (i >= piece.pos.y + piece.pieceSize.y) break;
+                    iter.y = i;
+                    Index res = piece.getFirstSpaceWithIncludedPos(size, iter);
+                    if (res != null) {
+                        finalRes = res;
+                        return res;
+                        //if (parent.getRandom().nextInt(100 + i) > 35) return res;
+                    }
+                }
+                break;
+            case None:
+                break;
+        }
+        return finalRes;
+    }
+
+    public void removeFieldObject(FieldObject object){
+        if (fieldObjects.contains(object)){
+            fieldObjects.remove(object);
+            addNotOccupiedPiece(new OccupationPiece(object));
         }
     }
 

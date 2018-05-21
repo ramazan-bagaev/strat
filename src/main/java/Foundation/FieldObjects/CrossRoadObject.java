@@ -38,6 +38,14 @@ public class CrossRoadObject extends TransportNetObject implements TransportNetN
         setShapes();
     }
 
+    public void removeEdge(RoadObject road){
+        edges.remove(road);
+        Index.Direction side = getSameSide(road);
+        if (side == Index.Direction.None) return;
+        directions.remove(side);
+        setShapes();
+    }
+
     public ArrayList<Index.Direction> getDirections() {
         return directions;
     }

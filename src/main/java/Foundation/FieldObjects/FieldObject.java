@@ -4,6 +4,7 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.Field;
 import Utils.Coord;
 import Utils.Index;
+import Utils.Interval;
 
 import java.util.ArrayList;
 
@@ -81,10 +82,18 @@ public abstract class FieldObject implements FieldObjectType{
     }
 
     public boolean isNeighbour(FieldObject fieldObject){
-        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.y) return true;
-        if (cellPos.x + size.x == fieldObject.cellPos.x) return true;
-        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y) return true;
-        if (cellPos.y + size.y == fieldObject.cellPos.y) return true;
+        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.x
+                && fieldObject.cellPos.y + fieldObject.size.y > cellPos.y
+                && fieldObject.cellPos.y < cellPos.y + size.y) return true;
+        if (cellPos.x + size.x == fieldObject.cellPos.x
+                && fieldObject.cellPos.y + fieldObject.size.y > cellPos.y
+                && fieldObject.cellPos.y < cellPos.y + size.y) return true;
+        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y
+                && fieldObject.cellPos.x + fieldObject.size.x > cellPos.x
+                && fieldObject.cellPos.x < cellPos.x + size.x) return true;
+        if (cellPos.y + size.y == fieldObject.cellPos.y
+                && fieldObject.cellPos.x + fieldObject.size.x > cellPos.x
+                && fieldObject.cellPos.x < cellPos.x + size.x) return true;
         return false;
     }
 
@@ -94,15 +103,23 @@ public abstract class FieldObject implements FieldObjectType{
     }
 
     public Index.Direction getSide(FieldObject fieldObject){
-        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.y) return Index.Direction.Left;
-        if (cellPos.x + size.x == fieldObject.cellPos.x) return Index.Direction.Right;
-        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y) return Index.Direction.Up;
-        if (cellPos.y + size.y == fieldObject.cellPos.y) return Index.Direction.Down;
+        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.x
+                && fieldObject.cellPos.y + fieldObject.size.y > cellPos.y
+                && fieldObject.cellPos.y < cellPos.y + size.y) return Index.Direction.Left;
+        if (cellPos.x + size.x == fieldObject.cellPos.x
+                && fieldObject.cellPos.y + fieldObject.size.y > cellPos.y
+                && fieldObject.cellPos.y < cellPos.y + size.y) return Index.Direction.Right;
+        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y
+                && fieldObject.cellPos.x + fieldObject.size.x > cellPos.x
+                && fieldObject.cellPos.x < cellPos.x + size.x) return Index.Direction.Up;
+        if (cellPos.y + size.y == fieldObject.cellPos.y
+                && fieldObject.cellPos.x + fieldObject.size.x > cellPos.x
+                && fieldObject.cellPos.x < cellPos.x + size.x) return Index.Direction.Down;
         return Index.Direction.None;
     }
 
     public Index.Direction getSameSide(FieldObject fieldObject){
-        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.y
+        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.x
                 && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Left;
         if (cellPos.x + size.x == fieldObject.cellPos.x
                 && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Right;
@@ -111,6 +128,74 @@ public abstract class FieldObject implements FieldObjectType{
         if (cellPos.y + size.y == fieldObject.cellPos.y
                 && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Down;
         return Index.Direction.None;
+    }
+
+    public Interval getSideIntersection(FieldObject fieldObject){
+        if ((cellPos.x == fieldObject.cellPos.x + fieldObject.size.x)
+                && (fieldObject.cellPos.y + fieldObject.size.y > cellPos.y)
+                && (fieldObject.cellPos.y < cellPos.y + size.y)) {
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.y, cellPos.y),
+                    Math.min(fieldObject.cellPos.y + fieldObject.size.y, cellPos.y + size.y));
+            return interval;
+        }
+        if ((cellPos.x + size.x == fieldObject.cellPos.x)
+                && (fieldObject.cellPos.y + fieldObject.size.y > cellPos.y)
+                && (fieldObject.cellPos.y < cellPos.y + size.y)){
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.y, cellPos.y),
+                    Math.min(fieldObject.cellPos.y + fieldObject.size.y, cellPos.y + size.y));
+            return interval;
+        }
+
+        if ((cellPos.y == fieldObject.cellPos.y + fieldObject.size.y)
+                && (fieldObject.cellPos.x + fieldObject.size.x > cellPos.x)
+                && (fieldObject.cellPos.x < cellPos.y + size.x)) {
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.y, cellPos.y),
+                    Math.min(fieldObject.cellPos.y + fieldObject.size.y, cellPos.y + size.y));
+            return interval;
+        }
+
+        if ((cellPos.y + size.y == fieldObject.cellPos.y)
+                && (fieldObject.cellPos.x + fieldObject.size.x > cellPos.x)
+                && (fieldObject.cellPos.x < cellPos.y + size.x)) {
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.y, cellPos.y),
+                    Math.min(fieldObject.cellPos.y + fieldObject.size.y, cellPos.y + size.y));
+            return interval;
+        }
+        return null;
+    }
+
+    public Interval getSideIntersection(FieldObject fieldObject, int shift){
+        if ((cellPos.x == fieldObject.cellPos.x + fieldObject.size.x)
+                && (fieldObject.cellPos.y + fieldObject.size.y > cellPos.y + shift)
+                && (fieldObject.cellPos.y < cellPos.y + size.y - shift)) {
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.y, cellPos.y + shift),
+                    Math.min(fieldObject.cellPos.y + fieldObject.size.y, cellPos.y + size.y - shift));
+            return interval;
+        }
+        if ((cellPos.x + size.x == fieldObject.cellPos.x)
+                && (fieldObject.cellPos.y + fieldObject.size.y > cellPos.y + shift)
+                && (fieldObject.cellPos.y < cellPos.y + size.y - shift)){
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.y, cellPos.y + shift),
+                    Math.min(fieldObject.cellPos.y + fieldObject.size.y, cellPos.y + size.y - shift));
+            return interval;
+        }
+
+        if ((cellPos.y == fieldObject.cellPos.y + fieldObject.size.y)
+                && (fieldObject.cellPos.x + fieldObject.size.x > cellPos.x + shift)
+                && (fieldObject.cellPos.x < cellPos.x + size.x - shift)) {
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.x, cellPos.x+ shift),
+                    Math.min(fieldObject.cellPos.x + fieldObject.size.x, cellPos.x + size.x - shift));
+            return interval;
+        }
+
+        if ((cellPos.y + size.y == fieldObject.cellPos.y)
+                && (fieldObject.cellPos.x + fieldObject.size.x > cellPos.x + shift)
+                && (fieldObject.cellPos.x < cellPos.x + size.x - shift)) {
+            Interval interval = new Interval(Math.max(fieldObject.cellPos.x, cellPos.x + shift),
+                    Math.min(fieldObject.cellPos.x + fieldObject.size.x, cellPos.x + size.x - shift));
+            return interval;
+        }
+        return null;
     }
 
     public abstract void setShapes();

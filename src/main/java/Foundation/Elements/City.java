@@ -90,7 +90,9 @@ public class City extends HabitableFieldElement {
         Random random = parent.getRandom();
         ArrayList<Index.Direction> dir = new ArrayList<>();
         for (Index.Direction direction: Index.getAllDirections()) {
-            if (random.nextBoolean()) dir.add(direction);
+            if (random.nextBoolean()){
+                if (direction != Index.Direction.None) dir.add(direction);
+            }
         }
         // Field field = map.getFieldByIndex(parent.getFieldMapPos().add(new Index(random.nextInt(4)-2, random.nextInt(4)-2)));
         Field field = parent;
@@ -98,7 +100,6 @@ public class City extends HabitableFieldElement {
             Road road = new Road(time, field, map, dir);
             field.setRoad(road);
         }
-
         fillField();
 
     }
@@ -119,8 +120,8 @@ public class City extends HabitableFieldElement {
             k++;
             //x = random.nextInt(cellAmount);
             //y = random.nextInt(cellAmount);
-            int sizeX = random.nextInt(3) + 1;
-            int sizeY = random.nextInt(3) + 1;
+            int sizeX = random.nextInt(3) + 2;
+            int sizeY = random.nextInt(3) + 2;
             //Index pos = new Index(x, y);
             Index size = new Index(sizeX, sizeY);
             //OccupationPiece piece = field.getFieldObjects().getMinSpace(size);
