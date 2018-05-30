@@ -57,7 +57,7 @@ public class CrossRoadObject extends TransportNetObject implements TransportNetN
         double shift = 0.2;
 
         RectangleShape rectangleShape = new RectangleShape(new Coord(shift, shift),
-                new Coord(cellSize*size.x - 2*shift, cellSize*size.y - 2*shift), new Color(Color.Type.Gray), false, true);
+                new Coord(cellSize*size.x - 2*shift, cellSize*size.y - 2*shift), new Color(Color.Type.Red), false, true);
 
         addBasicShape(rectangleShape);
 

@@ -98,8 +98,8 @@ public abstract class FieldObject implements FieldObjectType{
     }
 
     public boolean contains(Index index){
-        return  (cellPos.x <= index.x && cellPos.x + size.x < index.x &&
-                cellPos.y <= index.y && cellPos.y + size.y < index.y);
+        return  (cellPos.x <= index.x && cellPos.x + size.x > index.x &&
+                cellPos.y <= index.y && cellPos.y + size.y > index.y);
     }
 
     public Index.Direction getSide(FieldObject fieldObject){

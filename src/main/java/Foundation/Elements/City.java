@@ -105,6 +105,7 @@ public class City extends HabitableFieldElement {
     }
 
     public void fillField() {
+        //System.out.println("city " + name);
         Field field = getParent();
         FieldObjects fieldObjects = field.getFieldObjects();
         Random random = field.getRandom();

@@ -168,4 +168,21 @@ public class Index{
         }
         return false;
     }
+
+    public static Index getUnitIndex(Direction direction){
+        switch (direction){
+
+            case Up:
+                return new Index(0, -1);
+            case Down:
+                return new Index(0, 1);
+            case Right:
+                return new Index(1, 0);
+            case Left:
+                return new Index(-1, 0);
+            case None:
+                return new Index(0, 0);
+        }
+        return null;
+    }
 }

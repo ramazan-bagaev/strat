@@ -1,6 +1,7 @@
 package Foundation.FieldObjects;
 
 import Foundation.Field;
+import Foundation.TransportInfrostructure.TransportNetNode;
 import Utils.Index;
 import Utils.Interval;
 
@@ -79,6 +80,13 @@ public class FieldObjects {
         return null;
     }
 
+    public OccupationPiece getSpace(Index pos){
+        for(OccupationPiece piece: notOccupiedPieces){
+            if (piece.contains(pos)) return piece;
+        }
+        return null;
+    }
+
     public void splitPiece(OccupationPiece piece, Index pos, Index size){
         notOccupiedPieces.remove(piece);
         int sizeX1 = pos.x - piece.pos.x;
@@ -99,10 +107,18 @@ public class FieldObjects {
 
     public boolean isFree(Index pos, Index size){
         int cellAmount = parent.getCellAmount();
+       // System.out.println("start isFree func");
         if (!(pos.x >= 0 && pos.x + size.x <= cellAmount && pos.y >= 0 && pos.y + size.y <= cellAmount)) return false;
+       // System.out.println("in boundaries");
         for(FieldObject object: fieldObjects){
-            if (object.isIntersects(pos, size)) return false;
+            if (object.isIntersects(pos, size)){
+                //System.out.println("intersects object :(");
+                //System.out.println("pos " + object.cellPos.x + ", " + object.cellPos.y);
+                //System.out.println("size " + object.size.x + ", " + object.size.y);
+                return false;
+            }
         }
+       // System.out.println("is free return true");
         return true;
     }
 
@@ -111,8 +127,14 @@ public class FieldObjects {
     }
 
     public void addFieldObject(FieldObject fieldObject){
+        //System.out.println("add field object");
         OccupationPiece piece = getSpace(fieldObject.cellPos, fieldObject.size);
-        if (piece == null) return;
+        if (piece == null){
+            //System.out.println("failed add field object!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //System.out.println("object: pos=(" + fieldObject.cellPos.x + "," + fieldObject.cellPos.y + "); size=(" +
+               //     fieldObject.size.x + "," + fieldObject.size.y + ")");
+            return;
+        }
         splitPiece(piece, fieldObject.cellPos, fieldObject.size);
         fieldObjects.add(fieldObject);
     }
@@ -138,6 +160,7 @@ public class FieldObjects {
         addFieldObject(building);
         linkBuildingWithTransportNet(building);
         //addRoadAroundBuilding(building);
+        if (parent.getRandom().nextBoolean()) prolongTransportSystem();
 
     }
 
@@ -194,7 +217,7 @@ public class FieldObjects {
                     if (intersect.length() <= 0) continue;
                     lastRoad = road;
                     if (parent.getRandom().nextBoolean()){
-                        int position = parent.getRandom().nextInt(intersect.length()) + intersect.first;
+                        int position = parent.getRandom().nextInt(intersect.length()) + intersect.first - 1;
                         splitRoad(road, position);
                         return;
                     }
@@ -205,18 +228,17 @@ public class FieldObjects {
             Interval intersect = lastRoad.getSideIntersection(buildingObject, 2);
             if (lastRoad.isVertical()){
                 intersect.shift(-lastRoad.cellPos.y);
-                intersect.first += 2;
+                //intersect.first += 2;
             }
             else {
                 intersect.shift(-lastRoad.cellPos.x);
-                intersect.second += 2;
+                //intersect.second += 2;
             }
             if (intersect.length() > 0) {
                 splitRoad(lastRoad, parent.getRandom().nextInt(intersect.length()) + intersect.first);
                 return;
             }
         }
-        System.out.println("fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public void splitRoad(RoadObject road, int position){
@@ -252,8 +274,12 @@ public class FieldObjects {
         addTransportNetElement(newRoad);
     }
 
-    public void addTransportNetElement(TransportNetObject transportNetObject){
-        if (!isFree(transportNetObject)) return;
+    public boolean addTransportNetElement(TransportNetObject transportNetObject){
+        //System.out.println("add transport element");
+        if (!isFree(transportNetObject)){
+            //System.out.println("failed add transport element");
+            return false;
+        }
         addFieldObject(transportNetObject);
         for(OccupationPiece piece: notOccupiedPieces){
             if(piece.isNeighbour(transportNetObject)){
@@ -294,6 +320,86 @@ public class FieldObjects {
                 }
             }
         }
+        return true;
+    }
+
+    public void prolongTransportSystem(){
+        for(FieldObject object: fieldObjects){
+            if (!object.isTransportNetObject()) continue;
+            TransportNetObject netObject = (TransportNetObject)object;
+            if (!netObject.isNode()) continue;
+            //System.out.println("new node");
+            CrossRoadObject cross = (CrossRoadObject) netObject;
+            ArrayList<Index.Direction> directions = cross.getDirections();
+            for(Index.Direction direction: Index.getAllDirections()){
+                if (!directions.contains(direction)){
+                    //System.out.println("new direction");
+                    if (prolongTransportNode(cross, direction)){
+                       // System.out.println("prolong completed");
+                        return;
+                    }
+                    //System.out.println("couldn't prolong");
+                }
+            }
+        }
+
+    }
+
+    public boolean prolongTransportNode(CrossRoadObject cross, Index.Direction direction){
+        int width;
+        int height;
+        //System.out.println("prolong node");
+        //System.out.println("cross: pos=(" + cross.cellPos.x + "," + cross.cellPos.y + "); size=(" +
+            //    cross.size.x + "," + cross.size.y + ")");
+        Index spacePos = cross.cellPos.add(Index.getUnitIndex(direction));
+        //System.out.println("space pos: " + spacePos.x + " " + spacePos.y);
+        OccupationPiece piece = getSpace(spacePos);
+        if (piece == null) return false;
+        //System.out.println("piece not null; pos=(" + piece.cellPos.x + "," + piece.cellPos.y + "); size=(" +
+          //     piece.size.x + "," + piece.size.y + ")");
+        boolean success;
+        switch (direction){
+
+            case Up:
+                width = cross.size.x;
+                height = parent.getRandom().nextInt(piece.size.y)+1;
+                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(0, -height)),
+                        new Index(width, height), true));
+                if (!success) return false;
+                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(0, -height - 1)),
+                        new Index(width, 1)));
+                break;
+            case Down:
+                width = cross.size.x;
+                height = parent.getRandom().nextInt(piece.size.y)+1;
+                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(0, cross.size.y)),
+                        new Index(width, height), true));
+                if (!success) return false;
+                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(0, cross.size.y + height)),
+                        new Index(width, 1)));
+                break;
+            case Right:
+                width = cross.size.y;
+                height = parent.getRandom().nextInt(piece.size.x)+1;
+                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(cross.size.x, 0)),
+                        new Index(height, width), false));
+                if (!success) return false;
+                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(cross.size.x + height, 0)),
+                        new Index(1, width)));
+                break;
+            case Left:
+                width = cross.size.y;
+                height = parent.getRandom().nextInt(piece.size.x)+1;
+                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(-height, 0)),
+                        new Index(height, width), false));
+                if (!success) return false;
+                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(-height - 1, 0)),
+                        new Index(1, width)));
+                break;
+            case None:
+                break;
+        }
+        return true;
     }
 
     public void removeTransportNetObject(TransportNetObject netObject){
