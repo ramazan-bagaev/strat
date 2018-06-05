@@ -3,7 +3,6 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.Person.People;
-import Foundation.WorksP.FarmWork;
 import Images.FarmImage;
 import Utils.Coord;
 
@@ -20,7 +19,7 @@ public class Farm extends WorkFieldElement {
         ArrayList<BasicShape> image = new FarmImage(new Coord(0, 0),
                 new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack();
         setBasicShapes(image);
-        work = new FarmWork(people, village, this);
+        //work = new FarmWork(people, village, this);
     }
 
 

@@ -4,9 +4,8 @@ import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.VillagePeopleDistributionMode;
 import Foundation.GameWindowHelperElement;
+import Foundation.MainWindowCameraConfiguration;
 import Utils.Coord;
-
-import java.util.ArrayList;
 
 public class VillagePeopleDistributionState extends HelperState {
 
@@ -22,21 +21,28 @@ public class VillagePeopleDistributionState extends HelperState {
     }
 
     @Override
+    public boolean isProperMode(){
+        return (gameWindowHelperElement.getParent().getParent().getMode() == MainWindowCameraConfiguration.Mode.Normal);
+    }
+
+    @Override
     public void putHelperElements() {
         villagePeopleDistributionMode.putHelpers();
     }
 
     @Override
     public void click(Coord point) {
+        if (!isProperMode()) return;
         point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
         if (gameWindowHelperElement.getMap().getFieldByPos(point) == null){
             gameWindowHelperElement.clearHelperElements();
-            gameWindowHelperElement.setStandartState();
+            gameWindowHelperElement.setStandardState();
         }
     }
 
     @Override
     public boolean drag(Coord point, Coord pressedPos, boolean dragBegin){
+        if (!isProperMode()) return false;
         if (dragBegin){
             clicked = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(pressedPos);
         }

@@ -1,15 +1,13 @@
 package Foundation.Elements;
 
 import Foundation.BasicShapes.BasicShape;
-import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
 import Foundation.FieldMap;
-import Foundation.FieldObjects.CrossRoadObject;
-import Foundation.FieldObjects.FieldObject;
+import Foundation.FieldObjects.TransportObjects.PavementRoadCrossObject;
 import Foundation.FieldObjects.FieldObjects;
-import Foundation.FieldObjects.RoadObject;
+import Foundation.FieldObjects.TransportObjects.PavementRoadObject;
 import Foundation.Time;
 import Utils.Coord;
 import Utils.Index;
@@ -32,24 +30,24 @@ public class Road extends FieldElement{
         FieldObjects fieldObject = field.getFieldObjects();
         int cellAmount = field.getCellAmount();
 
-        fieldObject.addTransportNetElement(new CrossRoadObject(field, new Index(cellAmount/2-1, cellAmount/2-1), new Index(2, 2)));
+        fieldObject.addTransportNetElement(new PavementRoadCrossObject(field, new Index(cellAmount/2-1, cellAmount/2-1), new Index(2, 2)));
         for(Index.Direction direction: sides){
             switch (direction){
 
                 case Up:
-                    fieldObject.addTransportNetElement(new RoadObject(field,
+                    fieldObject.addTransportNetElement(new PavementRoadObject(field,
                             new Index(cellAmount/2-1, 0), new Index(2, cellAmount/2 - 1), true));
                     break;
                 case Down:
-                    fieldObject.addTransportNetElement(new RoadObject(field,
+                    fieldObject.addTransportNetElement(new PavementRoadObject(field,
                             new Index(cellAmount/2-1, cellAmount/2+1), new Index(2, cellAmount/2 - 1), true));
                     break;
                 case Right:
-                    fieldObject.addTransportNetElement(new RoadObject(field,
+                    fieldObject.addTransportNetElement(new PavementRoadObject(field,
                             new Index(cellAmount/2+1, cellAmount/2-1), new Index(cellAmount/2-1, 2), false));
                     break;
                 case Left:
-                    fieldObject.addTransportNetElement(new RoadObject(field,
+                    fieldObject.addTransportNetElement(new PavementRoadObject(field,
                             new Index(0, cellAmount/2-1), new Index(cellAmount/2-1, 2), false));
                     break;
                 case None:

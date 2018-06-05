@@ -1,9 +1,10 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.FieldObjects.OccupationPiece;
+import Foundation.FieldObjects.TransportObjects.PavementRoadCrossObject;
 import Foundation.FieldObjects.PeasantHouseObject;
 import Foundation.FieldObjects.StewardBuildingObject;
+import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
@@ -64,33 +65,62 @@ public class Village extends HabitableFieldElement {
         Person steward = new Person(nameGenerator.generate(), null, Person.Kasta.Middle);
         setSteward(steward);
         Random random = parent.getRandom();
-        int amount = random.nextInt(100);
+        int amount = random.nextInt(300);
         for(int i = 0; i < amount; i++){
             Person person = new Person(nameGenerator.generate(), null, Person.Kasta.Low);
             society.addPerson(person);
         }
     }
 
+    public void addFirstRoadPiece(){
+        int cellAmount = parent.getCellAmount();
+        int x = cellAmount/2 - 1;
+        int y = cellAmount/2 - 1;
+        Index pos = new Index(x, y);
+        Index size = new Index(2, 2);
+        PrimingRoadCrossObject primingRoadCrossObject = new PrimingRoadCrossObject(parent, pos, size);
+        parent.getFieldObjects().addTransportNetElement(primingRoadCrossObject);
+        parent.getFieldObjects().prolongTransportSystem();
+        parent.getFieldObjects().prolongTransportSystem();
+    }
+
     public void fillField(){
+        addFirstRoadPiece();
         Random random = parent.getRandom();
         int cellAmount = parent.getCellAmount();
 
         int x = random.nextInt(cellAmount);
         int y = random.nextInt(cellAmount);
-        StewardBuildingObject stewardBuildingObject = new StewardBuildingObject(parent, new Index(x, y));
-        parent.addFieldObject(stewardBuildingObject);
+        Index stPos = parent.getFieldObjects().getPosForBuilding(new Index(3,3));
+        if (stPos != null) {
+            StewardBuildingObject stewardBuildingObject = new StewardBuildingObject(parent, stPos);
+            parent.getFieldObjects().addBuilding(stewardBuildingObject);
+        }
         People people = society.getPeople();
         ArrayList<Person> personArray = people.getPersonArray();
-        for(int i = 0; i < society.getAmount(); i++){
-            int sizeX = random.nextInt(3)+1;
-            int sizeY = random.nextInt(3)+1;
+        int populace = people.getAmount()-1;
+        int k = 0;
+        while(populace >= 0){
+            int sizeX = random.nextInt(3)+3;
+            int sizeY = random.nextInt(3)+3;
             Index size = new Index(sizeX, sizeY);
-            OccupationPiece piece = parent.getFieldObjects().getMinSpace(size);
-            if (piece == null) continue;
-
-            PeasantHouseObject peasantHouseObject = new PeasantHouseObject(parent, new Index(piece.pos), size);
-            parent.addFieldObject(peasantHouseObject);
+            Index pos = parent.getFieldObjects().getPosForBuilding(size);
+            if (pos != null){
+                PeasantHouseObject peasantHouseObject = new PeasantHouseObject(parent, pos, size);
+                int peasantNum = random.nextInt(4) + 3;
+                for(int i = 0; i < peasantNum; i++){
+                    peasantHouseObject.addPerson(personArray.get(populace));
+                    populace--;
+                    if (populace < 0) break;
+                }
+                peasantHouseObject.distributeWork();
+                parent.getFieldObjects().addBuilding(peasantHouseObject);
+            }
+            k++;
+            if (k > 500) break;
+            //if (populace < 0) break;
         }
+        System.out.println("populace " + populace);
     }
 
     public void setSteward(Person steward){
@@ -231,7 +261,7 @@ public class Village extends HabitableFieldElement {
     @Override
     public void run() {
         super.run();
-        for(WorkFieldElement workElement: workElements) workElement.getWork().doJob();
+        //for(WorkFieldElement workElement: workElements) workElement.getWork().doJob();
     }
 
     @Override

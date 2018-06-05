@@ -4,6 +4,7 @@ import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
+import Foundation.Window;
 import Utils.Coord;
 import Utils.Index;
 
@@ -23,5 +24,10 @@ public class WaterObject extends FieldObject{
         RectangleShape rectangleShape = new RectangleShape(new Coord(), new Coord(cellSize * size.x, cellSize * size.y),
                 new Color(Color.Type.Blue), false, true);
         addBasicShape(rectangleShape);
+    }
+
+    @Override
+    public Window getInfoWindow() {
+        return null;
     }
 }

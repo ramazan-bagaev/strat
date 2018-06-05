@@ -1,7 +1,7 @@
 package Foundation.Person;
 
+import Foundation.Works.Work;
 import Utils.Broadcaster;
-import Foundation.WorksP.Work;
 import Utils.Subscription;
 
 public class Person implements Broadcaster{

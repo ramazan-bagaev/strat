@@ -2,7 +2,6 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.WorksP.TrawlerWork;
 import Images.TrawlerImage;
 import Utils.Coord;
 
@@ -18,7 +17,7 @@ public class Trawler extends WorkFieldElement {
 
         setBasicShapes(new TrawlerImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
-        work = new TrawlerWork(people, village, this);
+        //work = new TrawlerWork(people, village, this);
     }
 
     public Village getVillage() {

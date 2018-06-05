@@ -2,6 +2,9 @@ package Foundation.FieldObjects;
 
 import Foundation.BasicShapes.BasicShape;
 import Foundation.Field;
+import Foundation.GameWindowHelper.Modes.Mode;
+import Foundation.GameWindowHelperElement;
+import Foundation.Window;
 import Utils.Coord;
 import Utils.Index;
 import Utils.Interval;
@@ -29,6 +32,14 @@ public abstract class FieldObject implements FieldObjectType{
 
     public Field getParent() {
         return parent;
+    }
+
+    public Index getCellPos(){
+        return cellPos;
+    }
+
+    public Index getSize(){
+        return size;
     }
 
     public ArrayList<BasicShape> getBasicShapes(){
@@ -200,6 +211,12 @@ public abstract class FieldObject implements FieldObjectType{
 
     public abstract void setShapes();
 
+    public abstract Window getInfoWindow();
+
+    public Mode getModeOnClick(GameWindowHelperElement gameWindowHelperElement){
+        return null;
+    }
+
     @Override
     public boolean isTransportNetObject(){
         return false;
@@ -209,6 +226,7 @@ public abstract class FieldObject implements FieldObjectType{
     public boolean isBuilding(){
         return false;
     }
+
 
 
 }

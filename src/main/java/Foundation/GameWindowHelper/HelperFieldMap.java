@@ -2,6 +2,7 @@ package Foundation.GameWindowHelper;
 
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
+import Foundation.GameWindowHelper.FieldObjectHelperElements.InFieldHelperElement;
 import Utils.Coord;
 import Utils.Index;
 
@@ -37,13 +38,29 @@ public class HelperFieldMap {
 
     public ArrayList<BasicShape> getShapes(Index index, Index number, MainWindowCameraConfiguration.Mode mode){
         ArrayList<BasicShape> result = new ArrayList<>();
-
+        Index iter = new Index(0, 0);
         if ( mode == MainWindowCameraConfiguration.Mode.Detailed){
+            for (int i = index.x; i <= number.x + index.x; i++) {
+                for (int j = index.y; j <= number.y + index.y; j++) {
+                    iter.x = i;
+                    iter.y = j;
+                    HelperField field = getFieldByIndex(iter);
+                    if (field == null) continue;
+                    result.addAll(field.getShapes());
+
+                    ArrayList<InFieldHelperElement> inFieldHelpers = field.getInFieldHelperElements();
+                    for(InFieldHelperElement helper: inFieldHelpers){
+                        result.addAll(helper.getBasicShapes());
+                    }
+                }
+            }
         }
         if (mode == MainWindowCameraConfiguration.Mode.Normal) {
             for (int i = index.x; i <= number.x + index.x; i++) {
                 for (int j = index.y; j <= number.y + index.y; j++) {
-                    HelperField field = getFieldByIndex(new Index(i, j));
+                    iter.x = i;
+                    iter.y = j;
+                    HelperField field = getFieldByIndex(iter);
                     if (field == null) continue;
                     result.addAll(field.getShapes());
                 }
@@ -82,9 +99,12 @@ public class HelperFieldMap {
     }
 
     public void drawDynamicDrawable(Index index, Index number, OpenGLBinder openGLBinder){
+        Index iter = new Index(0, 0);
         for (int i = index.x; i <= number.x + index.x; i++) {
             for (int j = index.y; j <= number.y + index.y; j++) {
-                HelperField field = getFieldByIndex(new Index(i, j));
+                iter.x = i;
+                iter.y = j;
+                HelperField field = getFieldByIndex(iter);
                 if (field == null) continue;
                 field.drawDynamicDrawable(openGLBinder);
             }

@@ -2,6 +2,7 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.FieldObjects.*;
+import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
@@ -116,6 +117,7 @@ public class City extends HabitableFieldElement {
             fieldObjects.addBuilding(palaceObject);
         }
         int populace = society.getAmount();
+        ArrayList<Person> people = society.getPeople().getPersonArray();
         int k = 0;
         while(true){
             k++;
@@ -128,8 +130,13 @@ public class City extends HabitableFieldElement {
             //OccupationPiece piece = field.getFieldObjects().getMinSpace(size);
             pos = field.getFieldObjects().getPosForBuilding(size);
             if (pos != null){
-                populace -= sizeX * sizeY;
-                fieldObjects.addBuilding(new CityHouseObject(field, pos, size));
+                LivingBuildingObject buildingObject = new CityHouseObject(field, pos, size);
+                for(int i = 0; i < sizeX * sizeY; i++){
+                    populace--;
+                    if (populace < 0) break;
+                    buildingObject.addPerson(people.get(populace));
+                }
+                fieldObjects.addBuilding(buildingObject);
             }
             if (populace <= 0) break;
             if (k > 100) break;

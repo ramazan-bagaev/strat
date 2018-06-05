@@ -3,6 +3,7 @@ package Foundation.GameWindowHelper.States;
 import Foundation.Army.Army;
 import Foundation.Elements.ArmyFieldElement;
 import Foundation.GameWindowHelper.Modes.ArmyControllingModes.*;
+import Foundation.MainWindowCameraConfiguration;
 import Utils.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
@@ -36,6 +37,11 @@ public class ArmyControllingState extends HelperState {
     }
 
     @Override
+    public boolean isProperMode(){
+        return (gameWindowHelperElement.getParent().getParent().getMode() == MainWindowCameraConfiguration.Mode.Normal);
+    }
+
+    @Override
     public void putHelperElements() {
         cityInfoMode.putHelpers();
         choosenFieldMode.putHelpers();
@@ -49,6 +55,7 @@ public class ArmyControllingState extends HelperState {
 
     @Override
     public void click(Coord point) {
+        if (!isProperMode()) return;
         point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
 
 
@@ -75,7 +82,7 @@ public class ArmyControllingState extends HelperState {
         gameWindowHelperElement.getGameWindowElement().click(point);
 
         gameWindowHelperElement.clearHelperElements();
-        gameWindowHelperElement.setStandartState();
+        gameWindowHelperElement.setStandardState();
     }
 
     @Override
@@ -115,6 +122,7 @@ public class ArmyControllingState extends HelperState {
     @Override
     public void run() {
     }
+
 
     public void setArmy(Army army){
         this.army = army;

@@ -18,6 +18,8 @@ public class Frame {
     private Input input;
     private MainWindow mainWindow;
 
+    //private HashMap<Window, MainWindowCameraConfiguration.Mode> modes;
+
     private HashMap<String, Window> specialWindows;
     private LinkedList<Window> windows;
     private ArrayList<Font> fonts;
@@ -30,6 +32,7 @@ public class Frame {
         size = new Coord(1000, 1000);
         currentId = 0;
         specialWindows = new HashMap<>();
+        //modes = new HashMap<>();
         windows = new LinkedList<>();
         this.fonts = fonts;
         cameraConfiguration = new CameraConfiguration(pos, size);
@@ -44,6 +47,7 @@ public class Frame {
     public void addWindow(Window window){
         window.setId(getNewId());
         windows.add(window);
+        //if (!allScale) modes.put(window, mainWindow.getCameraConfiguration().getMode());
     }
 
 
@@ -56,6 +60,7 @@ public class Frame {
                 for(Integer sucId: win.getWindowId()) removeWindow(sucId);
                 windows.remove(win);
                 removeSpecialWindow(win);
+                //modes.put(win, null);
                 return;
             }
         }
@@ -116,7 +121,9 @@ public class Frame {
     }
 
     public void draw(OpenGLBinder openGLBinder){
+        MainWindowCameraConfiguration.Mode mode = mainWindow.getCameraConfiguration().getMode();
         for(Window window: windows){
+            //if (modes.getOrDefault(window, mode) == mode)
             window.draw(openGLBinder);
         }
     }
@@ -169,4 +176,18 @@ public class Frame {
     public Coord getPos() {
         return pos;
     }
+
+    public MainWindowCameraConfiguration.Mode getMode(){
+        return mainWindow.getCameraConfiguration().getMode();
+    }
+
+    //public MainWindowCameraConfiguration.Mode getModeForWindow(Window window){
+    //    return modes.getOrDefault(window, null);
+    //}
+
+   // public boolean isSameModeAs(Window window){
+       // MainWindowCameraConfiguration.Mode windowMode = getModeForWindow(window);
+       // if (windowMode == null) return true;
+        //return (getMode() == getModeForWindow(window));
+   // }
 }

@@ -2,7 +2,6 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.WorksP.SawmillWork;
 import Images.SawmillImage;
 import Utils.Coord;
 
@@ -17,7 +16,7 @@ public class Sawmill extends WorkFieldElement {
         setBasicShapes(new SawmillImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
 
-        work = new SawmillWork(people, village, this);
+        //work = new SawmillWork(people, village, this);
     }
 
     public Village getVillage() {

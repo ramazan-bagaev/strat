@@ -1,6 +1,7 @@
 package Foundation.GameWindowHelper;
 
 import Foundation.BasicShapes.BasicShape;
+import Foundation.GameWindowHelper.FieldObjectHelperElements.InFieldHelperElement;
 import Foundation.GameWindowHelper.HelperElements.*;
 import Utils.Index;
 import Foundation.*;
@@ -13,15 +14,19 @@ public class HelperField {
     private Index pos;
     private Index size;
     private HelperFieldMap map;
+    private Field field;
 
     private ArrayList<DynamicDrawable> dynamicDrawables;
 
 
     private CityInfoHelper cityInfoHelper;
-    private ChoosenFieldHelper choosenFieldHelper;
+    private ChosenFieldHelper chosenFieldHelper;
     private CoveringFieldHelper coveringFieldHelper;
     private ArrayList<BorderHelper> borderHelpers;
     private ArrayList<HelperElement> helperElements;
+
+
+    private ArrayList<InFieldHelperElement> inFieldHelperElements;
 
     public HelperField(Field field, HelperFieldMap map){
         this.map = map;
@@ -29,7 +34,13 @@ public class HelperField {
         size = new Index(field.getSize(), field.getSize());
         borderHelpers = new ArrayList<>();
         helperElements = new ArrayList<>();
+        inFieldHelperElements = new ArrayList<>();
         dynamicDrawables = new ArrayList<>();
+        this.field = field;
+    }
+
+    public Field getField() {
+        return field;
     }
 
     public HelperFieldMap getMap() {
@@ -39,7 +50,7 @@ public class HelperField {
     public ArrayList<BasicShape> getShapes(){
         ArrayList<BasicShape> result = new ArrayList<>();
         if (cityInfoHelper != null) result.addAll(cityInfoHelper.getBasicShapes());
-        if (choosenFieldHelper != null) result.addAll(choosenFieldHelper.getBasicShapes());
+        if (chosenFieldHelper != null) result.addAll(chosenFieldHelper.getBasicShapes());
         if (coveringFieldHelper != null) result.addAll(coveringFieldHelper.getBasicShapes());
         for(BorderHelper borderHelper: borderHelpers) {
             if (borderHelper != null) {
@@ -57,8 +68,8 @@ public class HelperField {
         getMap().getParent().setShapes();
     }
 
-    public void setChoosenFieldHelper(ChoosenFieldHelper choosenFieldHelper){
-        this.choosenFieldHelper = choosenFieldHelper;
+    public void setChosenFieldHelper(ChosenFieldHelper chosenFieldHelper){
+        this.chosenFieldHelper = chosenFieldHelper;
         getMap().getParent().setShapes();
     }
 
@@ -79,12 +90,25 @@ public class HelperField {
         return pos;
     }
 
+    public ArrayList<InFieldHelperElement> getInFieldHelperElements() {
+        return inFieldHelperElements;
+    }
+
+    public void addInFieldHelperElement(InFieldHelperElement helperElement){
+        inFieldHelperElements.add(helperElement);
+    }
+
+    public void removeInFieldHelperElement(InFieldHelperElement helperElement){
+        inFieldHelperElements.remove(helperElement);
+    }
+
     public boolean isEmpty(){
-        if (choosenFieldHelper != null) return false;
+        if (chosenFieldHelper != null) return false;
         if (cityInfoHelper != null) return false;
         if (coveringFieldHelper != null) return false;
         if (borderHelpers.size() != 0) return false;
         if (helperElements.size() != 0) return false;
+        if (inFieldHelperElements.size() != 0) return false;
         return true;
     }
 

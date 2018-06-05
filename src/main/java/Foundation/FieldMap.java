@@ -36,6 +36,12 @@ public class FieldMap {
         return getFieldByIndex(index);
     }
 
+    public FieldObject getFieldObjectByPos(Coord coord){
+        //Index fieldMapIndex = new Index((int)(coord.x / fieldSize), (int)(coord.y / fieldSize));
+        Index fieldIndex = new Index((int)(coord.x % fieldSize), (int)(coord.y % fieldSize));
+        return getFieldByPos(coord).getFieldObject(fieldIndex);
+    }
+
     public SuperField getSuperFieldByIndex(Index index){
         return superFieldMap.getOrDefault(index, null);
     }
@@ -86,10 +92,13 @@ public class FieldMap {
 
     public ArrayList<BasicShape> getShapes(Index index, Index number, MainWindowCameraConfiguration.Mode mode){
         ArrayList<BasicShape> result = new ArrayList<>();
+        Index iter = new Index(0, 0);
         if (mode == MainWindowCameraConfiguration.Mode.Detailed){
             for (int i = index.x; i <= number.x + index.x; i++) {
                 for (int j = index.y; j <= number.y + index.y; j++) {
-                    Field field = getFieldByIndex(new Index(i, j));
+                    iter.x = i;
+                    iter.y = j;
+                    Field field = getFieldByIndex(iter);
                     if (field == null) continue;
 
                     FieldElement fieldElement = field.getGround();
@@ -111,7 +120,9 @@ public class FieldMap {
         if ( mode == MainWindowCameraConfiguration.Mode.Normal){ // show all field that in this window
             for (int i = index.x; i <= number.x + index.x; i++){
                 for (int j = index.y; j <= number.y + index.y; j++){
-                    Field field = getFieldByIndex(new Index(i, j));
+                    iter.x = i;
+                    iter.y = j;
+                    Field field = getFieldByIndex(iter);
                     if (field == null) continue;
                     FieldElement fieldElement = field.getGround();
                     if (fieldElement != null) result.addAll(fieldElement.getShapes());
@@ -149,7 +160,9 @@ public class FieldMap {
             Index supNumber = new Index(xnum, ynum);
             for (int i = supIndex.x; i <= supNumber.x + supIndex.x; i++){
                 for (int j = supIndex.y; j <= supNumber.y + supIndex.y; j++){
-                    SuperField superField = getSuperFieldByIndex(new Index(i, j));
+                    iter.x = i;
+                    iter.y = j;
+                    SuperField superField = getSuperFieldByIndex(iter);
                     if (superField == null) continue;
                     result.addAll(superField.getShapes());
                 }
@@ -163,9 +176,12 @@ public class FieldMap {
     }
 
     public void drawDynamicDrawable(Index index, Index number, OpenGLBinder openGLBinder){
+        Index iter = new Index(0, 0);
         for (int i = index.x; i <= number.x + index.x; i++) {
             for (int j = index.y; j <= number.y + index.y; j++) {
-                Field field = getFieldByIndex(new Index(i, j));
+                iter.x = i;
+                iter.y = j;
+                Field field = getFieldByIndex(iter);
                 if (field == null) continue;
                 field.drawDynamicDrawable(openGLBinder);
             }

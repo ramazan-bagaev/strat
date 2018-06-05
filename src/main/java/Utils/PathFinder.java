@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class PathFinder {
+public abstract class PathFinder {
 
     private HashMap<Index, Integer> map; /// hash map : Index -> {1, 0}; if 0 - is could be used as part of path, 0 - vice versa
 
@@ -33,9 +33,9 @@ public class PathFinder {
         used = new ArrayList<>();
     }
 
-    public void initMap(FieldMap fieldMap){
+    private void initMap(FieldMap fieldMap){
         for (Field field: fieldMap.getValues()){
-            if (field.getGroundType() == Ground.GroundType.Rock || field.getGroundType() == Ground.GroundType.Water){
+            /*if (field.getGroundType() == Ground.GroundType.Rock || field.getGroundType() == Ground.GroundType.Water){
                 map.put(field.getFieldMapPos(), 1);
                 continue;
             }
@@ -43,7 +43,8 @@ public class PathFinder {
                 map.put(field.getFieldMapPos(), 2);
                 continue;
             }
-            map.put(field.getFieldMapPos(), 0);
+            map.put(field.getFieldMapPos(), 0);*/
+            map.put(field.getFieldMapPos(), getMapRepresentationForField(field));
         }
     }
 
@@ -182,5 +183,7 @@ public class PathFinder {
 
         return null;
     }
+
+    public abstract int getMapRepresentationForField(Field field);
 
 }

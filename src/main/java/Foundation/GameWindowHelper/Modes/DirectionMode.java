@@ -78,4 +78,5 @@ public class DirectionMode extends Mode{
     public void removeHelpers() {
         cleanHelpers();
     }
+
 }

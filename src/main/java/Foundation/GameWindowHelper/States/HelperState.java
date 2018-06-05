@@ -1,5 +1,6 @@
 package Foundation.GameWindowHelper.States;
 
+import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
 import Utils.Coord;
 
@@ -9,6 +10,10 @@ public abstract class HelperState {
 
     public HelperState(GameWindowHelperElement gameWindowHelperElement){
         this.gameWindowHelperElement = gameWindowHelperElement;
+    }
+
+    public boolean isProperMode(){
+        return true;
     }
 
     public abstract void putHelperElements();

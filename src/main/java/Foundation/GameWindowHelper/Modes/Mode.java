@@ -2,7 +2,7 @@ package Foundation.GameWindowHelper.Modes;
 
 import Foundation.GameWindowHelperElement;
 
-public abstract class Mode {
+public abstract class Mode{
 
     protected GameWindowHelperElement gameWindowHelperElement;
 

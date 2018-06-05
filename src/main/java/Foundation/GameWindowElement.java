@@ -6,6 +6,10 @@ import Foundation.Elements.ArmyFieldElement;
 import Foundation.Elements.City;
 import Foundation.Elements.Manor;
 import Foundation.Elements.Village;
+import Foundation.FieldObjects.BuildingObject;
+import Foundation.FieldObjects.FieldObject;
+import Foundation.FieldObjects.LivingBuildingObject;
+import Foundation.GameWindowHelper.Modes.Mode;
 import Utils.Index;
 import Utils.Coord;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
@@ -88,6 +92,21 @@ public class GameWindowElement extends WindowElement{
 
     @Override
     public void click(Coord point) {
+        MainWindowCameraConfiguration.Mode mode = mainWindow.getParent().getMode();
+        if (mode == MainWindowCameraConfiguration.Mode.Normal) clickForNormalMode(point);
+        if (mode == MainWindowCameraConfiguration.Mode.Detailed) clickForDetailedMode(point);
+    }
+
+    public void clickForDetailedMode(Coord point){
+        FieldObject fieldObject = gameEngine.getFieldObjectByPos(point);
+        if (fieldObject == null) return;
+        Frame frame = getParent().getParent();
+        Window infoWindow = fieldObject.getInfoWindow();
+        if (infoWindow == null) return;
+        frame.addSpecialWindow("element info window", infoWindow);
+    }
+
+    public void clickForNormalMode(Coord point){
         Field field = gameEngine.getFieldByPos(point);
         if (field == null) return;
         //((MainWindow)getParent()).addNewFieldInfoWindow(field);
@@ -115,8 +134,6 @@ public class GameWindowElement extends WindowElement{
             VillageInfoWindow villageInfoWindow = new VillageInfoWindow(village, frame);
             frame.addSpecialWindow("element info window", villageInfoWindow);
         }
-
-      ///  if (f)
     }
 
     @Override

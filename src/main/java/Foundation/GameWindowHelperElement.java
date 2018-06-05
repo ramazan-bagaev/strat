@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.GameWindowHelper.HelperFieldMap;
 import Foundation.GameWindowHelper.States.HelperState;
-import Foundation.GameWindowHelper.States.StandartState;
+import Foundation.GameWindowHelper.States.StandardState;
 import Utils.Index;
 import Utils.Coord;
 
@@ -25,7 +25,7 @@ public class GameWindowHelperElement extends WindowElement {
         setGameWindowElement(gameWindowElement);
         map = new HelperFieldMap(gameWindowElement.getGameEngine().getMap(), this);
         setBasicShapes(new ArrayList<>());
-        setStandartState();
+        setStandardState();
     }
 
     @Override
@@ -92,8 +92,8 @@ public class GameWindowHelperElement extends WindowElement {
         setShapes();
     }
 
-    public void setStandartState(){
-        currentState = new StandartState(this);
+    public void setStandardState(){
+        currentState = new StandardState(this);
         currentState.putHelperElements();
         setShapes();
     }

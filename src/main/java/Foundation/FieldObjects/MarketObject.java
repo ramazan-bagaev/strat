@@ -3,6 +3,7 @@ package Foundation.FieldObjects;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
+import Foundation.Window;
 import Utils.Coord;
 import Utils.Index;
 
@@ -43,5 +44,10 @@ public class MarketObject extends BuildingObject {
                 new Coord(size.x * cellSize/4, size.y * cellSize/4), new Color(Color.Type.LightGray), true, true);
 
         addBasicShape(rectangleShape);
+    }
+
+    @Override
+    public Window getInfoWindow() {
+        return null;
     }
 }

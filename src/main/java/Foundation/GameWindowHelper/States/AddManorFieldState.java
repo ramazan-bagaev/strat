@@ -1,6 +1,7 @@
 package Foundation.GameWindowHelper.States;
 
 import Foundation.Color;
+import Foundation.MainWindowCameraConfiguration;
 import Foundation.Territory;
 import Utils.Index;
 import Foundation.Elements.Manor;
@@ -31,6 +32,11 @@ public class AddManorFieldState extends HelperState {
         possibleTerritory = new CoveringFieldMode(gameWindowHelperElement);
         megaBorderMode = new MegaBorderMode(gameWindowHelperElement);
         this.manor = manor;
+    }
+
+    @Override
+    public boolean isProperMode(){
+        return (gameWindowHelperElement.getParent().getParent().getMode() == MainWindowCameraConfiguration.Mode.Normal);
     }
 
     @Override
@@ -90,6 +96,7 @@ public class AddManorFieldState extends HelperState {
 
     @Override
     public void click(Coord point) {
+        if (!isProperMode()) return;
         point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
         Index index = new Index(0, 0);
         index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
@@ -100,7 +107,7 @@ public class AddManorFieldState extends HelperState {
         }
         if (!farmTerritory.isOccupiedBy(index)){
             clearHelperElements();
-            gameWindowHelperElement.setStandartState();
+            gameWindowHelperElement.setStandardState();
         }
     }
 

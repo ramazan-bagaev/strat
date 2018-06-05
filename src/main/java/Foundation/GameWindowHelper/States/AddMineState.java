@@ -26,6 +26,11 @@ public class AddMineState extends HelperState {
         impossible = new ArrayList<>();
     }
 
+    @Override
+    public boolean isProperMode(){
+        return (gameWindowHelperElement.getParent().getParent().getMode() == MainWindowCameraConfiguration.Mode.Normal);
+    }
+
     private void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         for(Index local: village.getManor().getTerritory().getTerritory())
@@ -61,7 +66,7 @@ public class AddMineState extends HelperState {
             return;
         }
         gameWindowHelperElement.clearHelperElements();
-        gameWindowHelperElement.setStandartState();
+        gameWindowHelperElement.setStandardState();
     }
 
     @Override

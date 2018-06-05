@@ -1,7 +1,7 @@
 package Foundation.FieldObjects;
 
 import Foundation.Field;
-import Foundation.TransportInfrostructure.TransportNetNode;
+import Foundation.FieldObjects.TransportObjects.*;
 import Utils.Index;
 import Utils.Interval;
 
@@ -45,7 +45,7 @@ public class FieldObjects {
             ArrayList<TransportNetObject> netObjects = piece.getTransportNetObject();
             for(TransportNetObject netObject: netObjects){
                 if (netObject.isEdge()){
-                    if (((RoadObject)netObject).getLength() < 5) continue;
+                    if (((TransportNetEdgeObject)netObject).getLength() < 5) continue;
                 }
                 Index res = getNetObjectNeighborPosForBuilding(piece, size, netObject);
                 if (res != null){
@@ -126,6 +126,13 @@ public class FieldObjects {
         return isFree(fieldObject.cellPos, fieldObject.size);
     }
 
+    public FieldObject getFieldObject(Index index){
+        for(FieldObject fieldObject: fieldObjects){
+            if (fieldObject.contains(index)) return fieldObject;
+        }
+        return null;
+    }
+
     public void addFieldObject(FieldObject fieldObject){
         //System.out.println("add field object");
         OccupationPiece piece = getSpace(fieldObject.cellPos, fieldObject.size);
@@ -164,26 +171,26 @@ public class FieldObjects {
 
     }
 
-    public void addRoadAroundBuilding(BuildingObject building){
+    /*public void addRoadAroundBuilding(BuildingObject building){
         Index pos = building.cellPos;
         Index size = building.size;
-        RoadObject road = new RoadObject(parent, pos.add(new Index(-1, 0)), new Index(1, size.y), true);
+        TransportNetEdgeObject road = new PavementRoadObject(parent, pos.add(new Index(-1, 0)), new Index(1, size.y), true);
         addTransportNetElement(road);
-        CrossRoadObject cross = new CrossRoadObject(parent, pos.add(new Index(-1, -1)), new Index(1, 1));
+        PavementRoadCrossObject cross = new PavementRoadCrossObject(parent, pos.add(new Index(-1, -1)), new Index(1, 1));
         addTransportNetElement(cross);
-        road = new RoadObject(parent, pos.add(new Index(0, -1)), new Index(size.x, 1), false);
+        road = new PavementRoadObject(parent, pos.add(new Index(0, -1)), new Index(size.x, 1), false);
         addTransportNetElement(road);
-        cross = new CrossRoadObject(parent, pos.add(new Index(size.x, -1)), new Index(1, 1));
+        cross = new PavementRoadCrossObject(parent, pos.add(new Index(size.x, -1)), new Index(1, 1));
         addTransportNetElement(cross);
-        road = new RoadObject(parent, pos.add(new Index(size.x, 0)), new Index(1, size.y), true);
+        road = new PavementRoadObject(parent, pos.add(new Index(size.x, 0)), new Index(1, size.y), true);
         addTransportNetElement(road);
-        cross = new CrossRoadObject(parent, pos.add(new Index(size.x, size.y)), new Index(1, 1));
+        cross = new PavementRoadCrossObject(parent, pos.add(new Index(size.x, size.y)), new Index(1, 1));
         addTransportNetElement(cross);
-        road = new RoadObject(parent, pos.add(new Index(0, size.y)), new Index(size.x, 1), false);
+        road = new PavementRoadObject(parent, pos.add(new Index(0, size.y)), new Index(size.x, 1), false);
         addTransportNetElement(road);
-        cross = new CrossRoadObject(parent, pos.add(new Index(-1, size.y)), new Index(1, 1));
+        cross = new PavementRoadCrossObject(parent, pos.add(new Index(-1, size.y)), new Index(1, 1));
         addTransportNetElement(cross);
-    }
+    }*/
 
     public void linkBuildingWithTransportNet(BuildingObject buildingObject){
         boolean wasConnected = false;
@@ -193,17 +200,18 @@ public class FieldObjects {
                 TransportNetObject netObject = (TransportNetObject)object;
                 buildingObject.addTransportNetObject(netObject);
                 if (netObject.isNode()){
-                    CrossRoadObject cross = (CrossRoadObject)netObject;
+                    TransportNetNodeObject cross = (TransportNetNodeObject) netObject;
                     cross.addLinkedBuilding(buildingObject);
+                    buildingObject.setTransportNetEntranceNode(cross);
                     wasConnected = true;
                 }
             }
         }
         if (wasConnected) return;
-        RoadObject lastRoad = null;
+        TransportNetEdgeObject lastRoad = null;
         for(TransportNetObject netObject: buildingObject.getTransportNetObjects()){
             if (netObject.isEdge()){
-                RoadObject road = (RoadObject)netObject;
+                TransportNetEdgeObject road = (TransportNetEdgeObject) netObject;
                 int length = road.getLength();
                 if (length >= 5){
                     Interval intersect = road.getSideIntersection(buildingObject, 2);
@@ -218,7 +226,8 @@ public class FieldObjects {
                     lastRoad = road;
                     if (parent.getRandom().nextBoolean()){
                         int position = parent.getRandom().nextInt(intersect.length()) + intersect.first - 1;
-                        splitRoad(road, position);
+                        TransportNetNodeObject cross = splitRoad(road, position);
+                        buildingObject.setTransportNetEntranceNode(cross);
                         return;
                     }
                 }
@@ -235,13 +244,14 @@ public class FieldObjects {
                 //intersect.second += 2;
             }
             if (intersect.length() > 0) {
-                splitRoad(lastRoad, parent.getRandom().nextInt(intersect.length()) + intersect.first);
+                TransportNetNodeObject cross = splitRoad(lastRoad, parent.getRandom().nextInt(intersect.length()) + intersect.first);
+                buildingObject.setTransportNetEntranceNode(cross);
                 return;
             }
         }
     }
 
-    public void splitRoad(RoadObject road, int position){
+    public TransportNetNodeObject splitRoad(TransportNetEdgeObject road, int position){
         removeTransportNetObject(road);
         Index firstRoadSize = new Index(0, 0);
         Index crossPos = new Index(road.cellPos);
@@ -266,12 +276,17 @@ public class FieldObjects {
             secondRoadPos.y = crossPos.y;
             secondRoadSize.x -= (position + 1);
         }
-        RoadObject newRoad = new RoadObject(parent, new Index(road.cellPos), firstRoadSize, road.isVertical());
+        TransportNetEdgeObject newRoad = TransportNetEdgeObject.createRoadWithSameType(road,
+                parent, new Index(road.cellPos), firstRoadSize, road.isVertical());
         addTransportNetElement(newRoad);
-        CrossRoadObject newCross = new CrossRoadObject(parent, crossPos, crossSize);
+
+        TransportNetNodeObject newCross = TransportNetNodeObject.createRoadCrossWithSameType(road,
+                parent, crossPos, crossSize);
         addTransportNetElement(newCross);
-        newRoad = new RoadObject(parent, secondRoadPos, secondRoadSize, road.isVertical());
+
+        newRoad = TransportNetEdgeObject.createRoadWithSameType(road, parent, secondRoadPos, secondRoadSize, road.isVertical());
         addTransportNetElement(newRoad);
+        return newCross;
     }
 
     public boolean addTransportNetElement(TransportNetObject transportNetObject){
@@ -292,15 +307,15 @@ public class FieldObjects {
                 BuildingObject building = (BuildingObject)object;
                 building.addTransportNetObject(transportNetObject);
                 if (transportNetObject.isNode()){
-                    CrossRoadObject crossRoadObject = (CrossRoadObject)transportNetObject;
-                    crossRoadObject.addLinkedBuilding(building);
+                    TransportNetNodeObject roadCrossObject = (TransportNetNodeObject)transportNetObject;
+                    roadCrossObject.addLinkedBuilding(building);
                 }
             }
             if (object.isTransportNetObject()){
                 TransportNetObject netObject = (TransportNetObject)object;
                 if (netObject.isNode() && transportNetObject.isEdge()){
-                    CrossRoadObject cross = (CrossRoadObject)netObject;
-                    RoadObject road = (RoadObject)transportNetObject;
+                    TransportNetNodeObject cross = (TransportNetNodeObject)netObject;
+                    TransportNetEdgeObject road = (TransportNetEdgeObject)transportNetObject;
                     Index.Direction side = cross.getSameSide(road);
                     if (side == Index.Direction.None) continue;
                     if (Index.isVertical(side) == road.isVertical()){
@@ -309,8 +324,8 @@ public class FieldObjects {
                     }
                 }
                 if (netObject.isEdge() && transportNetObject.isNode()){
-                    CrossRoadObject cross = (CrossRoadObject)transportNetObject;
-                    RoadObject road = (RoadObject)netObject;
+                    TransportNetNodeObject cross = (TransportNetNodeObject)transportNetObject;
+                    TransportNetEdgeObject road = (TransportNetEdgeObject)netObject;
                     Index.Direction side = cross.getSameSide(road);
                     if (side == Index.Direction.None) continue;
                     if (Index.isVertical(side) == road.isVertical()){
@@ -329,7 +344,7 @@ public class FieldObjects {
             TransportNetObject netObject = (TransportNetObject)object;
             if (!netObject.isNode()) continue;
             //System.out.println("new node");
-            CrossRoadObject cross = (CrossRoadObject) netObject;
+            TransportNetNodeObject cross = (TransportNetNodeObject) netObject;
             ArrayList<Index.Direction> directions = cross.getDirections();
             for(Index.Direction direction: Index.getAllDirections()){
                 if (!directions.contains(direction)){
@@ -345,7 +360,7 @@ public class FieldObjects {
 
     }
 
-    public boolean prolongTransportNode(CrossRoadObject cross, Index.Direction direction){
+    public boolean prolongTransportNode(TransportNetNodeObject cross, Index.Direction direction){
         int width;
         int height;
         //System.out.println("prolong node");
@@ -363,38 +378,38 @@ public class FieldObjects {
             case Up:
                 width = cross.size.x;
                 height = parent.getRandom().nextInt(piece.size.y)+1;
-                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(0, -height)),
-                        new Index(width, height), true));
+                success = addTransportNetElement(TransportNetEdgeObject.createRoadWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(0, -height)), new Index(width, height), true));
                 if (!success) return false;
-                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(0, -height - 1)),
-                        new Index(width, 1)));
+                addTransportNetElement(TransportNetNodeObject.createRoadCrossWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(0, -height - 1)), new Index(width, 1)));
                 break;
             case Down:
                 width = cross.size.x;
                 height = parent.getRandom().nextInt(piece.size.y)+1;
-                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(0, cross.size.y)),
-                        new Index(width, height), true));
+                success = addTransportNetElement(TransportNetEdgeObject.createRoadWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(0, cross.size.y)), new Index(width, height), true));
                 if (!success) return false;
-                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(0, cross.size.y + height)),
-                        new Index(width, 1)));
+                addTransportNetElement(TransportNetNodeObject.createRoadCrossWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(0, cross.size.y + height)), new Index(width, 1)));
                 break;
             case Right:
                 width = cross.size.y;
                 height = parent.getRandom().nextInt(piece.size.x)+1;
-                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(cross.size.x, 0)),
-                        new Index(height, width), false));
+                success = addTransportNetElement(TransportNetEdgeObject.createRoadWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(cross.size.x, 0)), new Index(height, width), false));
                 if (!success) return false;
-                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(cross.size.x + height, 0)),
-                        new Index(1, width)));
+                addTransportNetElement(TransportNetNodeObject.createRoadCrossWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(cross.size.x + height, 0)), new Index(1, width)));
                 break;
             case Left:
                 width = cross.size.y;
                 height = parent.getRandom().nextInt(piece.size.x)+1;
-                success = addTransportNetElement(new RoadObject(parent, cross.cellPos.add(new Index(-height, 0)),
-                        new Index(height, width), false));
+                success = addTransportNetElement(TransportNetEdgeObject.createRoadWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(-height, 0)), new Index(height, width), false));
                 if (!success) return false;
-                addTransportNetElement(new CrossRoadObject(parent, cross.cellPos.add(new Index(-height - 1, 0)),
-                        new Index(1, width)));
+                addTransportNetElement(TransportNetNodeObject.createRoadCrossWithSameType(cross,
+                        parent, cross.cellPos.add(new Index(-height - 1, 0)), new Index(1, width)));
                 break;
             case None:
                 break;
@@ -418,14 +433,14 @@ public class FieldObjects {
             if (object.isTransportNetObject()){
                 TransportNetObject iterNetObject = (TransportNetObject)object;
                 if (iterNetObject.isEdge() && netObject.isNode()){
-                    RoadObject road = (RoadObject)iterNetObject;
-                    CrossRoadObject cross = (CrossRoadObject)netObject;
+                    TransportNetEdgeObject road = (TransportNetEdgeObject)iterNetObject;
+                    TransportNetNodeObject cross = (TransportNetNodeObject)netObject;
                     road.removeNode(cross);
                     cross.removeEdge(road);
                 }
                 if (iterNetObject.isNode() && netObject.isEdge()){
-                    RoadObject road = (RoadObject)netObject;
-                    CrossRoadObject cross = (CrossRoadObject)iterNetObject;
+                    TransportNetEdgeObject road = (TransportNetEdgeObject)netObject;
+                    TransportNetNodeObject cross = (TransportNetNodeObject)iterNetObject;
                     road.removeNode(cross);
                     cross.removeEdge(road);
                 }

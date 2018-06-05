@@ -32,6 +32,7 @@ public class Cursor {
     }
 
     public void run(){
+        //if (!frame.isSameModeAs(activeWindow)) return;
         if (activeWindowElement != null){
             activeWindowElement.hoover(pos.add(activeWindowElement.getShift().multiply(-1)));
         }
@@ -177,6 +178,7 @@ public class Cursor {
     }
 
     public void scroll(double delta){
+        //if (!frame.isSameModeAs(activeWindow)) return;
         if (activeWindowElementGroup != null){
             activeWindowElementGroup.scroll(delta);
             return;
@@ -187,6 +189,7 @@ public class Cursor {
     }
 
     public void actionWindow(Coord point){
+        //if (!frame.isSameModeAs(activeWindow)) return;
         if (activeWindowElement != null) {
             activeWindowElement.click(point.add(activeWindowElement.getShift().multiply(-1)));
             clickedWindowElement = activeWindowElement;
@@ -203,6 +206,7 @@ public class Cursor {
     }
 
     public void additionalActionWindow(Coord point){
+        //if (!frame.isSameModeAs(activeWindow)) return;
         if (activeWindowElement != null) {
             activeWindowElement.click2(point.add(activeWindowElement.getShift().multiply(-1)));
             clickedWindowElement = activeWindowElement;
@@ -219,6 +223,7 @@ public class Cursor {
     }
 
     public void drag(Coord point){
+       // if (!frame.isSameModeAs(activeWindow)) return;
         if (activeWindowElement != null) {
             boolean dragged = activeWindowElement.drag(point.add(activeWindowElement.getShift().multiply(-1)),
                     pressedPos.add(activeWindowElement.getShift().multiply(-1)), dragEnd);

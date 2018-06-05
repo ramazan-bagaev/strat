@@ -2,6 +2,8 @@ package Foundation.FieldObjects;
 
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
+import Foundation.FieldObjects.TransportObjects.TransportNetObject;
+import Foundation.Window;
 import Utils.Coord;
 import Utils.Index;
 import Foundation.Field;
@@ -151,6 +153,11 @@ public class OccupationPiece extends FieldObject {
                 new Coord(cellSize* pieceSize.x - 2*shift, cellSize * pieceSize.y - 2*shift),
                 new Color(Color.Type.Black), true, false);
         addBasicShape(rectangleShape);
+    }
+
+    @Override
+    public Window getInfoWindow() {
+        return null;
     }
 
 }

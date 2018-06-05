@@ -1,13 +1,10 @@
 package Windows;
 
 import Foundation.*;
-import Foundation.Army.ArmySquad;
 import Foundation.Elements.City;
 import Foundation.Person.People;
 import Foundation.Person.Society;
 import Foundation.Army.Army;
-import Foundation.WorksP.ArmyWork;
-import Foundation.WorksP.Work;
 import Utils.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.SliderElement;

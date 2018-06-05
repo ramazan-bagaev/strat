@@ -2,7 +2,6 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.Person.People;
-import Foundation.WorksP.MineWork;
 import Images.MineImage;
 import Utils.Coord;
 
@@ -17,7 +16,7 @@ public class Mine extends WorkFieldElement {
 
         setBasicShapes(new MineImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)
                 .getBasicShapesRemoveAndShiftBack());
-        work = new MineWork(people, village, this);
+        //work = new MineWork(people, village, this);
     }
 
     public Village getVillage() {

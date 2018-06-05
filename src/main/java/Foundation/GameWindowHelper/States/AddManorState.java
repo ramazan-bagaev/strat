@@ -29,6 +29,11 @@ public class AddManorState extends HelperState {
         coveringFieldMode = new CoveringFieldMode(gameWindowHelperElement);
     }
 
+    @Override
+    public boolean isProperMode(){
+        return (gameWindowHelperElement.getParent().getParent().getMode() == MainWindowCameraConfiguration.Mode.Normal);
+    }
+
     public void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         ArrayList<Manor> manors = city.getManors();
@@ -68,6 +73,7 @@ public class AddManorState extends HelperState {
 
     @Override
     public void click(Coord point) {
+        if (!isProperMode()) return;
         point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
         Index index = new Index(0, 0);
         index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
@@ -77,7 +83,7 @@ public class AddManorState extends HelperState {
             city.createManor(index, lord);
         }
         gameWindowHelperElement.clearHelperElements();
-        gameWindowHelperElement.setStandartState();
+        gameWindowHelperElement.setStandardState();
     }
 
     @Override

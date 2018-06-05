@@ -61,7 +61,19 @@ public class Army implements RunEntity, Broadcaster, Combatant {
         pathContent = new Content();
         battleContent = new Content();
         state = State.None;
-        pathFinder = new PathFinder(fieldMap);
+        pathFinder = new PathFinder(fieldMap){
+
+            @Override
+            public int getMapRepresentationForField(Field field) {
+                if (field.getGroundType() == Ground.GroundType.Rock || field.getGroundType() == Ground.GroundType.Water){
+                    return 1;
+                }
+                if (field.getArmyElement() != null){
+                    return 2;
+                }
+                return 0;
+            }
+        };
 
     }
 

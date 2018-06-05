@@ -26,6 +26,11 @@ public class AddSawmillState extends HelperState{
         impossible = new ArrayList<>();
     }
 
+    @Override
+    public boolean isProperMode(){
+        return (gameWindowHelperElement.getParent().getParent().getMode() == MainWindowCameraConfiguration.Mode.Normal);
+    }
+
     private void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         for(Index local: village.getManor().getTerritory().getTerritory())
@@ -51,6 +56,7 @@ public class AddSawmillState extends HelperState{
 
     @Override
     public void click(Coord point) {
+        if (!isProperMode()) return;
         point = gameWindowHelperElement.getMainWindow().getCameraConfiguration().transform(point);
         Index index = new Index(0 ,0);
         index.x = (int) (point.x / gameWindowHelperElement.getMap().getFieldSize());
@@ -61,7 +67,7 @@ public class AddSawmillState extends HelperState{
             return;
         }
         gameWindowHelperElement.clearHelperElements();
-        gameWindowHelperElement.setStandartState();
+        gameWindowHelperElement.setStandardState();
     }
 
     @Override

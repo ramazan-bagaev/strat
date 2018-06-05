@@ -331,4 +331,8 @@ public class Field {
     public boolean isFree(FieldObject fieldObject){
         return fieldObjects.isFree(fieldObject);
     }
+
+    public FieldObject getFieldObject(Index index){
+        return fieldObjects.getFieldObject(index);
+    }
 }

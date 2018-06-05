@@ -1,6 +1,7 @@
 package Foundation;
 
 import Foundation.Army.Battle;
+import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.Country;
 import Foundation.Runnable.RunEntity;
 import Generation.FieldMapGenerator;
@@ -101,6 +102,10 @@ public class GameEngine {
 
     public Field getFieldByPos(Coord pos) {
         return map.getFieldByPos(pos);
+    }
+
+    public FieldObject getFieldObjectByPos(Coord pos){
+        return map.getFieldObjectByPos(pos);
     }
 
     public Time getTime() {

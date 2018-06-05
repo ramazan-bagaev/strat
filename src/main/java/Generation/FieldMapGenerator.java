@@ -501,10 +501,10 @@ public class FieldMapGenerator {
         for(ArrayList<Index> continent: continents){
 
             int size = continent.size();
-            int number = random.nextInt(size/4);
+            int number = random.nextInt(size/4 + 1);
 
             int iter = 0;
-            int banchNum = random.nextInt(size/4);
+            int banchNum = random.nextInt(size/4 + 1);
 
             while(iter < number){
                 LinkedList<Index> que = new LinkedList<>();

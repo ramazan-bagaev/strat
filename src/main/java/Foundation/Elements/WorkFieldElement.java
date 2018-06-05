@@ -5,7 +5,7 @@ import Foundation.FieldMap;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Time;
-import Foundation.WorksP.Work;
+import Foundation.Works.Work;
 
 public abstract class WorkFieldElement extends FieldElement {
 
