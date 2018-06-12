@@ -4,7 +4,7 @@ import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.DirectionHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

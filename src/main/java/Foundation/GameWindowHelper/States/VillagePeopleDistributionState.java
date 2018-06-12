@@ -5,7 +5,7 @@ import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.VillagePeopleDistributionMode;
 import Foundation.GameWindowHelperElement;
 import Foundation.MainWindowCameraConfiguration;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class VillagePeopleDistributionState extends HelperState {
 

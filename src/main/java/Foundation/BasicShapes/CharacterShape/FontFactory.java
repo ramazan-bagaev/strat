@@ -1,6 +1,6 @@
 package Foundation.BasicShapes.CharacterShape;
 
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;

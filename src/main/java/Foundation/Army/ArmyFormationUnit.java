@@ -1,6 +1,6 @@
 package Foundation.Army;
 
-import Utils.Index;
+import Utils.Geometry.Index;
 
 public class ArmyFormationUnit {
 

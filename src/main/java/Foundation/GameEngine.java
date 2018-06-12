@@ -4,8 +4,9 @@ import Foundation.Army.Battle;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.Country;
 import Foundation.Runnable.RunEntity;
-import Generation.FieldMapGenerator;
-import Utils.Coord;
+import Generation.TerrainGenerator.FieldMapGeneratorTerrain;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,8 +49,10 @@ public class GameEngine {
         onDeleteEntity = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         time = new Time();
-        FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
-        map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
+        //FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
+        FieldMapGeneratorTerrain generator = new FieldMapGeneratorTerrain(random);
+        //map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
+        map = generator.generate(new Index(fieldNumber, fieldNumber), fieldSize, 2000, this);
         //map = new FieldMap();
         setFieldSize(fieldSize);
         runEntities.addAll(newRunEntity);

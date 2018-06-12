@@ -8,7 +8,7 @@ import Foundation.Runnable.Actors.CountryActor;
 import Foundation.Runnable.Country;
 import Foundation.Territory;
 import Foundation.Time;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.Random;

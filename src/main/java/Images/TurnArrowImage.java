@@ -2,8 +2,8 @@ package Images;
 
 import Foundation.BasicShapes.LineShape;
 import Foundation.Window;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class TurnArrowImage extends Image {
 

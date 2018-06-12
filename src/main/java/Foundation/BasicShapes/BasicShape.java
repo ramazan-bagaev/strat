@@ -2,12 +2,8 @@ package Foundation.BasicShapes;
 
 import Foundation.BasicShapes.CharacterShape.CharacterShape;
 import Foundation.Color;
-import Foundation.OpenGLBinder;
 import Graphic.Mesh;
-import Utils.Coord;
-import org.joml.Matrix4f;
-import org.joml.Vector3d;
-import org.joml.Vector3f;
+import Utils.Geometry.Coord;
 
 public abstract class BasicShape {
 

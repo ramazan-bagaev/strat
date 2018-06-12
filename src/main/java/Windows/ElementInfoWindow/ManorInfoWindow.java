@@ -5,7 +5,7 @@ import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.States.AddManorFieldState;
 import Images.Image;
 import Images.ManorImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.ClosableWindow;

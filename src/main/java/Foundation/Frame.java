@@ -1,7 +1,7 @@
 package Foundation;
 
 import Foundation.BasicShapes.CharacterShape.Font;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Windows.MainToolbarWindow;
 
 

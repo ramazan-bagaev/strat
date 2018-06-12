@@ -1,10 +1,8 @@
 package WindowElements.ScrollElements;
 
-import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Person.Person;
-import Foundation.WindowElement;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.BackgroundElement;
 import WindowElements.StaticBroadcastLabel;

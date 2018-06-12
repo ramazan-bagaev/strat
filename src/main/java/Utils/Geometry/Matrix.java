@@ -1,6 +1,6 @@
-package Utils;
+package Utils.Geometry;
 
-import java.util.ArrayList;
+import Utils.Vector;
 
 public class Matrix {
 

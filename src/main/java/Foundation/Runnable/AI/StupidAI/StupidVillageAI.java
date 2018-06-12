@@ -11,7 +11,7 @@ import Foundation.Person.Person;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.Actors.VillageActor;
 import Foundation.Time;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

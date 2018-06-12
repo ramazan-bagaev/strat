@@ -1,8 +1,8 @@
 package Foundation.Cell;
 
 import Foundation.BasicShapes.BasicShape;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 

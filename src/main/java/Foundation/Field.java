@@ -5,8 +5,8 @@ import Foundation.Elements.*;
 import Foundation.Army.Army;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.FieldObjects;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -50,6 +50,20 @@ public class Field {
 
     private Random random;
 
+    public Field(Index fieldMapPos, Random random, FieldMap map, Time time){
+        this.fieldMapPos = fieldMapPos;
+        cellMap = new CellMap(this);
+        cellAmount = 100;
+        formationUnitSize = 10; // TODO: get rid of constants
+        fieldObjects = new FieldObjects(this);
+        size = map.getFieldSize();
+        cellSize = (double)(size) / (double)(cellAmount);
+        this.map = map;
+        this.random = random;
+        this.time = time;
+        dynamicDrawables = new ArrayList<>();
+    }
+
     public Field(Index fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
         this.fieldMapPos = fieldMapPos;
         cellMap = new CellMap(this);
@@ -58,12 +72,13 @@ public class Field {
         fieldObjects = new FieldObjects(this);
         size = map.getFieldSize();
         cellSize = (double)(size) / (double)(cellAmount);
+        this.time = time;
         setMap(map);
         setRandom(random);
         dynamicDrawables = new ArrayList<>();
         Ground.GroundType tempType = type;
-        groundElement = new Ground(tempType, time,this, map);
-        ecosystem = new Ecosystem(time, this, map);
+        groundElement = new Ground(tempType,this);
+        ecosystem = new Ecosystem(this);
         calculateTimeToIntersect();
     }
 
@@ -192,6 +207,10 @@ public class Field {
         this.map = map;
     }
 
+    public void setGrount(Ground ground){
+        this.groundElement = ground;
+    }
+
     public Ground getGround(){
         return groundElement;
     }
@@ -226,7 +245,7 @@ public class Field {
     }
 
     public void createAndAddArmy(Army army){
-        ArmyFieldElement armyElement = new ArmyFieldElement(time, this, map, army);
+        ArmyFieldElement armyElement = new ArmyFieldElement(this, army);
         setArmyElement(armyElement);
         map.getGameEngine().getGameWindowElement().setShapes();
     }

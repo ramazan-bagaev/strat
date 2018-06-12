@@ -1,9 +1,9 @@
 package Foundation.GameWindowHelper.HelperElements;
 
 import Foundation.BasicShapes.BasicShape;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Foundation.GameWindowHelper.HelperField;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

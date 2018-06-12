@@ -3,7 +3,7 @@ package Foundation.GameWindowHelper.Modes;
 import Foundation.Color;
 import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
 import Foundation.Territory;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.BorderHelper;
 import Foundation.GameWindowHelper.HelperField;

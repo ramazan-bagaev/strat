@@ -4,8 +4,8 @@ import Foundation.Army.Army;
 import Foundation.GameWindowHelper.HelperField;
 import Images.ArrowImage;
 import Images.TurnArrowImage;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class ArmyMovingProgressHelper extends ProgressHelper {
 

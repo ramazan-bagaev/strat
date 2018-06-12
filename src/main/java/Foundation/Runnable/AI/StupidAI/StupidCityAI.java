@@ -9,7 +9,7 @@ import Foundation.Person.Person;
 import Foundation.Person.Society;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.Actors.CityActor;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

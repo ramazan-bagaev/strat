@@ -2,12 +2,10 @@ package Windows.ElementInfoWindow;
 
 import Foundation.Button;
 import Foundation.Frame;
-import Foundation.Person.People;
 import Foundation.Army.Army;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 import WindowElements.ArmyFormationControlElement;
-import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 
 public class ArmyInfoWindow extends ClosableWindow {

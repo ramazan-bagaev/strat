@@ -2,7 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.BasicShape;
 import Utils.Broadcaster;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Utils.Subscription;
 
 import java.util.ArrayList;

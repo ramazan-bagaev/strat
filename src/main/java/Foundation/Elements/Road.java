@@ -4,13 +4,11 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
-import Foundation.FieldMap;
 import Foundation.FieldObjects.TransportObjects.PavementRoadCrossObject;
 import Foundation.FieldObjects.FieldObjects;
 import Foundation.FieldObjects.TransportObjects.PavementRoadObject;
-import Foundation.Time;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 
@@ -18,8 +16,8 @@ public class Road extends FieldElement{
 
     private ArrayList<Index.Direction> sides;
 
-    public Road(Time time, Field parent, FieldMap map, ArrayList<Index.Direction> sides) {
-        super(Type.Road, time, parent, map);
+    public Road(Field parent, ArrayList<Index.Direction> sides) {
+        super(Type.Road, parent);
         this.sides = sides;
         fillField();
         setShapes();

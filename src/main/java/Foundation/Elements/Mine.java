@@ -3,14 +3,14 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.Person.People;
 import Images.MineImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class Mine extends WorkFieldElement {
 
     private Village village;
 
-    public Mine(Village village, People people, Time time, Field parent, FieldMap map) {
-        super(Type.Mine, people, village, time, parent, map);
+    public Mine(Village village, People people, Field parent) {
+        super(Type.Mine, people, village, parent);
 
         this.village = village;
 

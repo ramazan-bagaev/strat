@@ -3,14 +3,8 @@ package Foundation.FieldObjects.TransportObjects;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
-import Foundation.FieldObjects.BuildingObject;
-import Foundation.TransportInfrostructure.TransportNetEdge;
-import Foundation.TransportInfrostructure.TransportNetNode;
-import Foundation.Window;
-import Utils.Coord;
-import Utils.Index;
-
-import java.util.ArrayList;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class PavementRoadCrossObject extends TransportNetNodeObject {
 

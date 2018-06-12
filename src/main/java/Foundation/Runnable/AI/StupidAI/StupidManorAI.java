@@ -3,15 +3,12 @@ package Foundation.Runnable.AI.StupidAI;
 import Foundation.*;
 import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
-import Foundation.Elements.Village;
-import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.Actors.ManorActor;
-import Utils.Index;
+import Utils.Geometry.Index;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 

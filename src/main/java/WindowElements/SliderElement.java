@@ -5,7 +5,7 @@ import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.StringShape;
 import Utils.Broadcaster;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class SliderElement extends WindowElement{
 

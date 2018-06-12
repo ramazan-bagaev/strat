@@ -1,4 +1,4 @@
-package Utils;
+package Utils.Geometry;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,11 @@ public class Index{
 
     public enum Direction{
         Up, Down, Right, Left, None
+    }
+
+    public Index(Coord pos){
+        this.x = (int)pos.x;
+        this.y = (int)pos.y;
     }
 
     public Index(Direction direction){
@@ -54,6 +59,10 @@ public class Index{
     }
 
     public Index minus(Index other){ return new Index(this.x - other.x, this.y - other.y); }
+
+    public double norm(){
+        return Math.sqrt(x*x + y*y);
+    }
 
     public boolean inRectangle(Index pos, Index size){
         return ((pos.x <= x) && ((pos.x + size.x) > x) && (pos.y <= y) && ((pos.y + size.y) > y));
@@ -137,6 +146,18 @@ public class Index{
         return result;
     }
 
+    public int scaralMult(Index vec){
+        return x*vec.x + y*vec.y;
+    }
+
+    public int vectorMult(Index vec){
+        return x*vec.y - y*vec.x;
+    }
+
+    public static boolean onLeft(Index dir1, Index dir2){
+        return (dir1.x * dir2.y - dir1.y * dir2.x <= 0);
+    }
+
     public static Direction turnRight(Direction direction){
         switch (direction){
 
@@ -184,5 +205,9 @@ public class Index{
                 return new Index(0, 0);
         }
         return null;
+    }
+
+    public double projection(Index index){
+        return (double)(this.scaralMult(index)) / (norm());
     }
 }

@@ -5,8 +5,8 @@ import Foundation.Elements.City;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.Person.Person;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

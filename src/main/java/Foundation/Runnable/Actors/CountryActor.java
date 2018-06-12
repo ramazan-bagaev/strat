@@ -1,16 +1,9 @@
 package Foundation.Runnable.Actors;
 
 import Foundation.Elements.City;
-import Foundation.FieldMap;
 import Foundation.Person.Person;
 import Foundation.Runnable.Country;
-import Foundation.Territory;
-import Foundation.Time;
-import Utils.Index;
-import Utils.TimeMeasurer;
-
-import java.util.ArrayList;
-import java.util.Random;
+import Utils.Geometry.Index;
 
 public class CountryActor extends Actor {
 

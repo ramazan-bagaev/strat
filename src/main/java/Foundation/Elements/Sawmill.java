@@ -3,14 +3,14 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.Person.People;
 import Images.SawmillImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class Sawmill extends WorkFieldElement {
 
     private Village village;
 
-    public Sawmill(Village village, People people, Time time, Field parent, FieldMap map) {
-        super(Type.Sawmill, people, village, time, parent, map);
+    public Sawmill(Village village, People people, Field parent) {
+        super(Type.Sawmill, people, village, parent);
         this.village = village;
 
         setBasicShapes(new SawmillImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null)

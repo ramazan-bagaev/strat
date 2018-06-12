@@ -2,11 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.CharacterShape.CharacterShape;
 import Foundation.BasicShapes.*;
-import Graphic.ShaderProgram;
-import Graphic.Transformation;
-import Utils.Coord;
-import Utils.StringLoader;
-import org.joml.Matrix4f;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

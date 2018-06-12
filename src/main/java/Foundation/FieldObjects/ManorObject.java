@@ -4,8 +4,8 @@ import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class ManorObject extends LivingBuildingObject {
 

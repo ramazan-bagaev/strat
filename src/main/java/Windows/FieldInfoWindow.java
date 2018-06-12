@@ -6,7 +6,7 @@ import Images.ArmyImage;
 import Images.CityImage;
 import Images.GroundImage;
 import Images.Image;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.ElementInfoWindow.EcosystemInfoWindow;
@@ -32,6 +32,7 @@ public class FieldInfoWindow extends ClosableWindow{
         if (field == null) return;
         ArmyFieldElement army = field.getArmyElement();
         Ground groundElement = field.getGround();
+        if  (groundElement == null) return;
         Image groundImage = new GroundImage(new Coord(0, 0), groundElement.getGroundType(), this);
         Image finalImage = groundImage;
         if (field.getCity() != null){

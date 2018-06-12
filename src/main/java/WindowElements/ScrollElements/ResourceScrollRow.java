@@ -2,7 +2,7 @@ package WindowElements.ScrollElements;
 
 import Foundation.Recources.Resource;
 import Foundation.WindowElement;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;

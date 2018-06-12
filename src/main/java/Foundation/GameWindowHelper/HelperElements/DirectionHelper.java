@@ -4,9 +4,8 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.LineShape;
 import Foundation.GameWindowHelper.HelperField;
 import Images.ArrowImage;
-import Images.Image;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 

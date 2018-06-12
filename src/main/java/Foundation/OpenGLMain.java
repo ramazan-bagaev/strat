@@ -1,10 +1,9 @@
 package Foundation;
 
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import Foundation.BasicShapes.CharacterShape.Font;
 import Foundation.BasicShapes.CharacterShape.FontFactory;
-import Utils.TimeMeasurer;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
@@ -63,13 +62,13 @@ public class OpenGLMain {
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
 
-        // Setup first key callback. It will be called every time first key is pressed, repeated or released.
+        // Setup firstPlate key callback. It will be called every time firstPlate key is pressed, repeated or released.
         glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
             if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
                 glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
         });
 
-        // Get the thread stack and push first new frame
+        // Get the thread stack and push firstPlate new frame
         try ( MemoryStack stack = stackPush() ) {
             IntBuffer pWidth = stack.mallocInt(1); // int*
             IntBuffer pHeight = stack.mallocInt(1); // int*

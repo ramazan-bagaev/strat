@@ -1,19 +1,15 @@
 package Foundation.Elements;
 
 import Foundation.Field;
-import Foundation.FieldMap;
-import Foundation.Time;
 import Images.TreeImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class Tree extends FieldElement {
 
 
-    private FieldMap map;
 
-    public Tree(Time time, FieldMap map, Field parent) {
-        super(Type.Tree, time, parent, map);
-        this.map = map;
+    public Tree(Field parent) {
+        super(Type.Tree, parent);
         setShapes();
 
     }

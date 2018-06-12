@@ -1,13 +1,10 @@
 package Images;
 
-import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Window;
-import Utils.Coord;
-
-import java.util.ArrayList;
+import Utils.Geometry.Coord;
 
 public class PersonImage extends Image {
 

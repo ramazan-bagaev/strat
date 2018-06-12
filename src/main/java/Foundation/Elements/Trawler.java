@@ -3,15 +3,15 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.Person.People;
 import Images.TrawlerImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class Trawler extends WorkFieldElement {
 
     private Village village;
 
 
-    public Trawler(Village village, People people, Time time, Field parent, FieldMap map) {
-        super(Type.Trawler, people, village, time, parent, map);
+    public Trawler(Village village, People people, Field parent) {
+        super(Type.Trawler, people, village, parent);
 
         this.village = village;
 

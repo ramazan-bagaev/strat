@@ -1,11 +1,8 @@
 package Foundation.GameWindowHelper.FieldObjectHelperElements;
 
 import Foundation.BasicShapes.BasicShape;
-import Foundation.FieldObjects.FieldObject;
-import Foundation.Field;
 import Foundation.GameWindowHelper.HelperField;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

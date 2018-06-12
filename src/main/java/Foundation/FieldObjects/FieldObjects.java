@@ -2,8 +2,8 @@ package Foundation.FieldObjects;
 
 import Foundation.Field;
 import Foundation.FieldObjects.TransportObjects.*;
-import Utils.Index;
-import Utils.Interval;
+import Utils.Geometry.Index;
+import Utils.Geometry.Interval;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -237,11 +237,11 @@ public class FieldObjects {
             Interval intersect = lastRoad.getSideIntersection(buildingObject, 2);
             if (lastRoad.isVertical()){
                 intersect.shift(-lastRoad.cellPos.y);
-                //intersect.first += 2;
+                //intersect.firstPlate += 2;
             }
             else {
                 intersect.shift(-lastRoad.cellPos.x);
-                //intersect.second += 2;
+                //intersect.secondPlate += 2;
             }
             if (intersect.length() > 0) {
                 TransportNetNodeObject cross = splitRoad(lastRoad, parent.getRandom().nextInt(intersect.length()) + intersect.first);

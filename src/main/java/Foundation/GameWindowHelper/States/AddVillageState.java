@@ -6,8 +6,8 @@ import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.Person.Person;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 public class AddVillageState extends HelperState {
 

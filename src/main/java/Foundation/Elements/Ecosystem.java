@@ -10,8 +10,8 @@ public class Ecosystem extends FieldElement {
     private Flora flora;
     private Climate climate;
 
-    public Ecosystem(Time time, Field parent, FieldMap map) {
-        super(Type.Ecosystem, time, parent, map);
+    public Ecosystem(Field parent) {
+        super(Type.Ecosystem, parent);
         climate = new Climate(parent.getGround(), Climate.MID_TEMPERATURE);
         flora = new Flora(this, parent.getGround());
         fauna = new Fauna(this);

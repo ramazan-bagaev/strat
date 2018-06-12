@@ -2,7 +2,7 @@ package Foundation.BasicShapes;
 
 import Foundation.Color;
 import Graphic.Mesh;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import static org.lwjgl.opengl.GL11.GL_LINES;
 

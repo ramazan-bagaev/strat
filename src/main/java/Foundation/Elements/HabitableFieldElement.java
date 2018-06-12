@@ -13,8 +13,8 @@ public abstract class HabitableFieldElement extends RunnableFieldElement {
     protected ResourceStore resourceStore;
     protected Society society;
 
-    public HabitableFieldElement(Type type, Time time, Field parent, FieldMap map) {
-        super(type, time, parent, map);
+    public HabitableFieldElement(Type type, Field parent) {
+        super(type, parent);
         society = new Society(this);
         resourceStore = new ResourceStore();
         parent.getMap().getGameEngine().addRunEntity(this);

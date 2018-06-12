@@ -1,6 +1,6 @@
 package Foundation;
 
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class CameraConfiguration {
 

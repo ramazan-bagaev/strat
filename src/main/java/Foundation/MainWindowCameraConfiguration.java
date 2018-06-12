@@ -1,6 +1,6 @@
 package Foundation;
 
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 
@@ -114,7 +114,7 @@ public class MainWindowCameraConfiguration extends CameraConfiguration {
 
     public Mode getMode(){
         float zoom = getZoom();
-        if (zoom >= 10) return Mode.SuperBlock;
+        if (zoom >= 15) return Mode.SuperBlock;
         if (zoom >= 0.5) return Mode.Normal;
         return Mode.Detailed;
     }

@@ -3,7 +3,7 @@ package Images;
 import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.TriangleShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class FarmImage extends Image {
 

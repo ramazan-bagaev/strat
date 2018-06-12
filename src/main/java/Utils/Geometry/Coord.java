@@ -1,4 +1,4 @@
-package Utils;
+package Utils.Geometry;
 
 public class Coord {
 
@@ -44,8 +44,24 @@ public class Coord {
         return new Coord(this.x - pos.x, this.y -pos.y, this.z - pos.z);
     }
 
+    public double scaralMulti(Coord vec){
+        return x * vec.x + y * vec.y + z * vec.z;
+    }
+
     public Coord multiply(double alpha){
         return new Coord(x*alpha, y*alpha,z*alpha);
+    }
+
+    public Coord projection(Coord vec){
+        return this.multiply(scaralMulti(vec)/Math.pow(norm(),2));
+    }
+
+    public double norm(){
+        return Math.sqrt(x*x + y*y + z*z);
+    }
+
+    public Coord vectorMulti(Coord dir){
+        return new Coord(y*dir.z - z * dir.y, z * dir.x - x * dir.z, x * dir.y - y * dir.x);
     }
 
     public boolean inRectangle(Coord pos, Coord size){

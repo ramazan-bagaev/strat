@@ -4,7 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.TriangleShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class TrawlerImage extends Image{
 

@@ -2,8 +2,7 @@ package Windows;
 
 import Foundation.Frame;
 import Foundation.Recources.ProductStore;
-import Foundation.Window;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.ProductElementGroup;
 
 public class ProductStoreWindow extends ClosableWindow {

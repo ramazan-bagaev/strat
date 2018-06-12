@@ -2,7 +2,7 @@ package Windows.ElementInfoWindow;
 
 import Foundation.Frame;
 import Foundation.Runnable.Country;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.StaticBroadcastLabel;
 import Windows.ClosableWindow;
 

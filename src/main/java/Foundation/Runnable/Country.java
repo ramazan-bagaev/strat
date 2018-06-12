@@ -7,9 +7,8 @@ import Foundation.Runnable.AI.StupidAI.StupidCountryAI;
 import Foundation.Runnable.Actors.CountryActor;
 import Foundation.Territory;
 import Utils.Broadcaster;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Utils.Subscription;
-import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package Utils;
+package Utils.Geometry;
 
 public class Interval {
 

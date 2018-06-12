@@ -4,7 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.TriangleShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

@@ -8,7 +8,7 @@ import Foundation.Recources.ProductStore;
 import Foundation.Works.MeatMakingWork;
 import Foundation.Works.VegetableMakingWork;
 import Foundation.Works.WheatMakingWork;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -4,12 +4,12 @@ import Foundation.Army.Army;
 import Foundation.Elements.ArmyFieldElement;
 import Foundation.GameWindowHelper.Modes.ArmyControllingModes.*;
 import Foundation.MainWindowCameraConfiguration;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.GameWindowHelperElement;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
 
 public class ArmyControllingState extends HelperState {

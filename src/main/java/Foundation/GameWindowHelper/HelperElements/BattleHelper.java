@@ -1,17 +1,13 @@
 package Foundation.GameWindowHelper.HelperElements;
 
-import Foundation.Army.Battle;
 import Foundation.Army.Combatant;
-import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.TriangleShape;
 import Foundation.Color;
 import Foundation.GameWindowHelper.HelperField;
-import Utils.Coord;
-import Utils.Index;
-
-import java.util.ArrayList;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class BattleHelper extends HelperElement{
 

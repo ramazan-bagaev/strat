@@ -2,7 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

@@ -5,8 +5,8 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Elements.City;
 import Foundation.Elements.Ground;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 
@@ -45,12 +45,12 @@ public class SuperField implements RunEntity {
 
     public void addField(Field field){
         fields.add(field);
-        if (field.getGroundType() == Ground.GroundType.Water){
+        //if (field.getGroundType() == Ground.GroundType.Water){
             numberOfWaterField += 1;
-        }
-        else{
-            numberOfSoilField += 1;
-        }
+       // }
+       //else{
+        //    numberOfSoilField += 1;
+       // }
         recalibrate();
     }
 

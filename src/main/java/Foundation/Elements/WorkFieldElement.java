@@ -15,15 +15,15 @@ public abstract class WorkFieldElement extends FieldElement {
     private double distance;
     private int efficiency;
 
-    public WorkFieldElement(Type type, People people, Village village, Time time, Field parent, FieldMap map){
-        super(type, time, parent, map);
+    public WorkFieldElement(Type type, People people, Village village, Field parent){
+        super(type, parent);
         this.people = people;
         this.efficiency = 10;
         distance = (int)village.getParent().getFieldMapPos().distance(parent.getFieldMapPos());
     }
 
-    public WorkFieldElement(Type type, People people, Time time, Field parent, FieldMap map) {
-        super(type, time, parent, map);
+    public WorkFieldElement(Type type, People people, Field parent) {
+        super(type, parent);
         this.people = people;
         this.efficiency = 10;
         distance = 0;

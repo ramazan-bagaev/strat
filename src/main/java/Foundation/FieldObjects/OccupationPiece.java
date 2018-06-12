@@ -4,8 +4,8 @@ import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.FieldObjects.TransportObjects.TransportNetObject;
 import Foundation.Window;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 import Foundation.Field;
 
 import java.util.ArrayList;

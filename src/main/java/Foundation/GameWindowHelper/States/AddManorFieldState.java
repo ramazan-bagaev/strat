@@ -3,12 +3,12 @@ package Foundation.GameWindowHelper.States;
 import Foundation.Color;
 import Foundation.MainWindowCameraConfiguration;
 import Foundation.Territory;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.GameWindowHelperElement;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

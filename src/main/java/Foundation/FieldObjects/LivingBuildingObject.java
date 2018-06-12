@@ -1,17 +1,12 @@
 package Foundation.FieldObjects;
 
-import Foundation.BasicShapes.RectangleShape;
-import Foundation.Color;
 import Foundation.Field;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Recources.ProductStore;
 import Foundation.Window;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Windows.FieldObjectWindow.LivingBuildingInfoWindow;
-
-import java.util.ArrayList;
 
 public abstract class LivingBuildingObject extends BuildingObject{
 

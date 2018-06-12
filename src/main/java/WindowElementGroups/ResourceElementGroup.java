@@ -3,7 +3,7 @@ package WindowElementGroups;
 import Foundation.Recources.Resource;
 import Foundation.Recources.ResourceStore;
 import Foundation.Window;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.ResourceScrollRow;
 
 public class ResourceElementGroup extends ScrollableGroup {

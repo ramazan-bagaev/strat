@@ -3,7 +3,7 @@ package Images;
 import Foundation.*;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class ManorImage extends Image {
 

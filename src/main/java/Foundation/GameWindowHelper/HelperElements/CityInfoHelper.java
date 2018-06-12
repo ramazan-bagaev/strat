@@ -5,7 +5,7 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.StringShape;
 import Foundation.Elements.City;
 import Foundation.GameWindowHelper.HelperField;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

@@ -1,10 +1,9 @@
 package WindowElementGroups;
 
 import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
 import Foundation.Window;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.PersonScrolledRow;
 
 import java.util.ArrayList;

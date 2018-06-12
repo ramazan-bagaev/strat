@@ -5,8 +5,8 @@ import Foundation.Color;
 import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.Window;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class WaterObject extends FieldObject{
 

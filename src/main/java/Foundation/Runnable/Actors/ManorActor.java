@@ -1,21 +1,8 @@
 package Foundation.Runnable.Actors;
 
-import Foundation.Elements.Ground;
 import Foundation.Elements.Manor;
-import Foundation.Elements.Village;
-import Foundation.Field;
-import Foundation.FieldMap;
-import Foundation.Person.People;
-import Foundation.Person.Society;
 import Foundation.Person.Person;
-import Foundation.Territory;
-import Foundation.Time;
-import Utils.Index;
-import Utils.TimeMeasurer;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Random;
+import Utils.Geometry.Index;
 
 public class ManorActor extends Actor {
 

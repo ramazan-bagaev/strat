@@ -2,7 +2,7 @@ package Windows;
 
 import Foundation.*;
 import Foundation.Recources.ResourceStore;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.ResourceElementGroup;
 
 public class ResourceStoreWindow extends ClosableWindow {

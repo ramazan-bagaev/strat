@@ -67,6 +67,7 @@ public class TransportNetPathFinder {
         while(true){
             if (queue.size() == 0) break;
             TransportNetNode node = queue.getFirst();
+            queue.remove(node);
             if (node == finish) return getConstructedPathTo(finish);
             prolongAnalysis(node);
         }

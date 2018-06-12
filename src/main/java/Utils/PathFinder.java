@@ -1,8 +1,8 @@
 package Utils;
 
-import Foundation.Elements.Ground;
 import Foundation.Field;
 import Foundation.FieldMap;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.HashMap;

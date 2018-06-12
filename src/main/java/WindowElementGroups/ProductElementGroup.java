@@ -2,12 +2,9 @@ package WindowElementGroups;
 
 import Foundation.Recources.Product;
 import Foundation.Recources.ProductStore;
-import Foundation.Recources.Resource;
-import Foundation.Recources.ResourceStore;
 import Foundation.Window;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.ProductScrollRow;
-import WindowElements.ScrollElements.ResourceScrollRow;
 
 public class ProductElementGroup extends ScrollableGroup{
 

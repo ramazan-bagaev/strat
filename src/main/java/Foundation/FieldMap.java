@@ -5,8 +5,9 @@ import Foundation.Elements.ArmyFieldElement;
 import Foundation.Elements.FieldElement;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.SuperField;
-import Utils.Index;
-import Utils.Coord;
+import Generation.GeneratedObjects.Continent;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.*;
 
@@ -17,6 +18,9 @@ public class FieldMap {
     private HashMap<Index, Field> map;
     private HashMap<Index, SuperField> superFieldMap;
     private GameEngine gameEngine;
+    private Random random;
+
+    private ArrayList<Continent> continents;
 
     public FieldMap(int superFieldSize, int fieldSize, GameEngine gameEngine)
     {
@@ -25,6 +29,8 @@ public class FieldMap {
         this.superFieldSize = superFieldSize;
         map = new HashMap<>();
         superFieldMap = new HashMap<>();
+        random = new Random();
+        continents = new ArrayList<>();
     }
 
     public Field getFieldByIndex(Index index){
@@ -186,5 +192,17 @@ public class FieldMap {
                 field.drawDynamicDrawable(openGLBinder);
             }
         }
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public ArrayList<Continent> getContinents() {
+        return continents;
+    }
+
+    public void addContinent(Continent continent){
+        continents.add(continent);
     }
 }

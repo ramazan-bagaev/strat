@@ -4,7 +4,7 @@ import Foundation.*;
 import Foundation.Elements.City;
 import Images.CityImage;
 import Images.Image;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.*;

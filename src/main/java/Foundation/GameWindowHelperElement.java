@@ -6,8 +6,8 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.GameWindowHelper.HelperFieldMap;
 import Foundation.GameWindowHelper.States.HelperState;
 import Foundation.GameWindowHelper.States.StandardState;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 public class GameWindowHelperElement extends WindowElement {
 

@@ -9,8 +9,8 @@ import Foundation.Color;
 import Foundation.Window;
 import Foundation.WindowElement;
 import Images.ArrowImage;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 import Utils.Subscription;
 
 public class ArmyFormationControlElement extends WindowElement {

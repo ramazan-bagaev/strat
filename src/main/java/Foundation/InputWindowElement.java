@@ -2,7 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.StringShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class InputWindowElement extends WindowElement {
 

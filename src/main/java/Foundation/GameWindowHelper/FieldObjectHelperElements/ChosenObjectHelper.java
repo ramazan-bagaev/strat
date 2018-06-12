@@ -4,8 +4,8 @@ import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.GameWindowHelper.HelperField;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class ChosenObjectHelper extends ObjectHelperElement{
 

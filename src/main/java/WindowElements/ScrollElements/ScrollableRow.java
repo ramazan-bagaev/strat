@@ -1,7 +1,7 @@
 package WindowElements.ScrollElements;
 
 import Foundation.*;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.ScrollableGroup;
 
 import java.util.ArrayList;

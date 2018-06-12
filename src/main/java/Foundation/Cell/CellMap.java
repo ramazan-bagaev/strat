@@ -1,6 +1,6 @@
 package Foundation.Cell;
 
-import Utils.Index;
+import Utils.Geometry.Index;
 import Foundation.Field;
 
 import java.util.Collection;

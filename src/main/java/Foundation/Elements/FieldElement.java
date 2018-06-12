@@ -3,8 +3,6 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Utils.Broadcaster;
-import Utils.Index;
-import Utils.Coord;
 import Utils.Subscription;
 
 import java.util.ArrayList;
@@ -22,13 +20,12 @@ public class FieldElement implements Broadcaster {
 
     private ArrayList<BasicShape> shapes;
 
-    public FieldElement(Type type, Time time, Field parent, FieldMap map){
+    public FieldElement(Type type, Field parent){
         this.shapes = new ArrayList<>();
-        this.time = time;
-        this.map = map;
-
-        setType(type);
-        setParent(parent);
+        this.time = parent.getTime();
+        this.map = parent.getMap();
+        this.type = type;
+        this.parent = parent;
     }
 
     public void renewResourceCause(){

@@ -5,8 +5,8 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.HelperFieldMap;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

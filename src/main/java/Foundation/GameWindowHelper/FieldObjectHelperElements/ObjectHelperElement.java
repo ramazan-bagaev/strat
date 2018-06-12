@@ -1,10 +1,8 @@
 package Foundation.GameWindowHelper.FieldObjectHelperElements;
 
-import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.GameWindowHelper.HelperField;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
 
 public class ObjectHelperElement extends InFieldHelperElement {
 

@@ -5,7 +5,7 @@ import Foundation.Label;
 import Foundation.Person.Person;
 import Images.Image;
 import Images.PersonImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Windows.ClosableWindow;
 
 public class PersonInfoWindow extends ClosableWindow{

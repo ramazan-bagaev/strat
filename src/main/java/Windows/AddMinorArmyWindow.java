@@ -2,8 +2,7 @@ package Windows;
 
 import Foundation.Elements.Manor;
 import Foundation.Frame;
-import Foundation.Person.People;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class AddMinorArmyWindow extends ClosableWindow {
 

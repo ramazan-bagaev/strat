@@ -3,17 +3,9 @@ package Foundation.FieldObjects;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
-import Foundation.Person.People;
-import Foundation.Person.Person;
-import Foundation.Works.MeatMakingWork;
 import Foundation.Works.Occupation.PeasantOccupation;
-import Foundation.Works.VegetableMakingWork;
-import Foundation.Works.WheatMakingWork;
-import Utils.Coord;
-import Utils.Index;
-
-import java.util.ArrayList;
-import java.util.Random;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class PeasantHouseObject extends LivingBuildingObject{
 

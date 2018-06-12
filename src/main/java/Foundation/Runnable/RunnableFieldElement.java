@@ -7,8 +7,8 @@ import Foundation.Time;
 
 public abstract class RunnableFieldElement extends FieldElement implements RunEntity{
 
-    public RunnableFieldElement(Type type, Time time, Field parent, FieldMap map) {
-        super(type, time, parent, map);
+    public RunnableFieldElement(Type type, Field parent) {
+        super(type, parent);
     }
 
     @Override

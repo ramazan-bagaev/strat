@@ -1,7 +1,7 @@
 package WindowElementGroups;
 
 import Foundation.CameraConfiguration;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class ScrollableGroupCameraConfiguration extends CameraConfiguration{
 

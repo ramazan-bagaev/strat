@@ -4,7 +4,7 @@ import Foundation.Window;
 import Images.Image;
 import Utils.Broadcaster;
 import Utils.Content;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Utils.Subscription;
 
 public class Resource implements Broadcaster {

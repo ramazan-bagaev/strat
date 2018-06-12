@@ -5,7 +5,7 @@ import Foundation.Elements.WorkFieldElement;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Time;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 public class VillageActor extends Actor {
 

@@ -2,10 +2,10 @@ package Foundation.GameWindowHelper.HelperElements;
 
 import Foundation.BasicShapes.BasicShape;
 import Foundation.Color;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.BasicShapes.LineShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

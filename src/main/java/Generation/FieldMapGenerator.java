@@ -7,7 +7,7 @@ import Foundation.Elements.River;
 import Foundation.Elements.Tree;
 import Foundation.Person.Person;
 import Foundation.Runnable.Country;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.*;
 
@@ -405,21 +405,21 @@ public class FieldMapGenerator {
         if (river.size() != 1) next = river.get(1);
         out = river.get(0).whatDirection(next);
 
-        River riv = new River(time, map, field, out);
+        River riv = new River(field, out);
         field.setRiver(riv);
 
         for (int i = 1; i < river.size() - 1; i++) {
             field = map.getFieldByIndex(river.get(i));
             in = river.get(i).whatDirection(river.get(i - 1));
             out = river.get(i).whatDirection(river.get(i + 1));
-            riv = new River(time, map, field, in, out, River.RiverType.Middle);
+            riv = new River(field, in, out, River.RiverType.Middle);
             field.setRiver(riv);
         }
         if (river.size() > 1) {
             field = map.getFieldByIndex(river.get(river.size() - 1));
             in = river.get(river.size() - 1).whatDirection(river.get(river.size() - 2));
             out = river.get(river.size() - 1).whatDirection(end);
-            riv = new River(time, map, field, in, out, River.RiverType.End);
+            riv = new River(field, in, out, River.RiverType.End);
             field.setRiver(riv);
         }
         field = map.getFieldByIndex(end);
@@ -526,7 +526,7 @@ public class FieldMapGenerator {
                     if (que.size() == 0) break;
                     Index c = que.pop();
                     Field field = map.getFieldByIndex(c);
-                    field.setTree(new Tree(time, map, field));
+                    field.setTree(new Tree(field));
                     info[c.y][c.x] = continents.size() + 5;
 
                     LinkedList<Index> local = new LinkedList<>();
@@ -608,7 +608,7 @@ public class FieldMapGenerator {
                 if (info[pos.y][pos.x] > 0 && info[pos.y][pos.x] <= continents.size()) {
                     Field field = map.getFieldByIndex(pos);
                     if (field.getOwner() == null) {
-                        City city = new City(nameGenerator.generate(), map, time, field);
+                        City city = new City(nameGenerator.generate(), field);
                         cities.add(city);
                         field.setCity(city);
                         field.getMap().getGameEngine().addRunEntity(city);

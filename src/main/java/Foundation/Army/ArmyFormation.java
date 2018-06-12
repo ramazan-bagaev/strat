@@ -2,7 +2,7 @@ package Foundation.Army;
 
 import Utils.Broadcaster;
 import Utils.Content;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Utils.Subscription;
 
 import java.util.ArrayList;

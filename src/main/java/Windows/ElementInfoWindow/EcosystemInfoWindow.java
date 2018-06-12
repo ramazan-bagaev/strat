@@ -5,7 +5,7 @@ import Foundation.Fauna.Fauna;
 import Foundation.Flora.Flora;
 import Foundation.Frame;
 import Foundation.Label;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 

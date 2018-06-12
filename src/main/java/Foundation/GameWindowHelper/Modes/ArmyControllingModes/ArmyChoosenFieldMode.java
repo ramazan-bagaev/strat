@@ -6,7 +6,7 @@ import Foundation.GameWindowHelper.HelperElements.ChosenFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Utils.Subscription;
 
 public class ArmyChoosenFieldMode extends Mode {

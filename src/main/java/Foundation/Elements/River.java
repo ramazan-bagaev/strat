@@ -5,8 +5,8 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.FieldObjects.NaturalObjects.WaterFlowObject;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 
@@ -24,8 +24,8 @@ public class River extends FieldElement {
     private ArrayList<Index.Direction> inStreams;
     private Index.Direction outStream;
 
-    public River(Time time, FieldMap map, Field parent, ArrayList<Index.Direction> in, Index.Direction out, RiverType type) {
-        super(Type.River, time, parent, map);
+    public River(Field parent, ArrayList<Index.Direction> in, Index.Direction out, RiverType type) {
+        super(Type.River, parent);
         inStreams = in;
         outStream = out;
         riverType = type;
@@ -33,8 +33,8 @@ public class River extends FieldElement {
         setShapes();
     }
 
-    public River(Time time, FieldMap map, Field parent, Index.Direction in, Index.Direction out, RiverType type) {
-        super(Type.River, time, parent, map);
+    public River(Field parent, Index.Direction in, Index.Direction out, RiverType type) {
+        super(Type.River, parent);
         inStreams = new ArrayList<>();
         inStreams.add(in);
         outStream = out;
@@ -43,9 +43,8 @@ public class River extends FieldElement {
         setShapes();
     }
 
-    public River(Time time, FieldMap map, Field parent, Index.Direction out) {
-        super(Type.River, time, parent, map);
-        this.map = map;
+    public River(Field parent, Index.Direction out) {
+        super(Type.River, parent);
         inStreams = new ArrayList<>();
         outStream = out;
         riverType = RiverType.Begin;

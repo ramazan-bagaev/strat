@@ -3,9 +3,7 @@ package Foundation.FieldObjects.TransportObjects;
 import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.TransportInfrostructure.TransportNetElement;
-import Utils.Index;
-
-import java.util.ArrayList;
+import Utils.Geometry.Index;
 
 public abstract class TransportNetObject extends FieldObject implements TransportNetElement, RoadType {
 

@@ -3,14 +3,13 @@ package Foundation.GameWindowHelper.Modes.ArmyControllingModes;
 import Foundation.Color;
 import Foundation.Elements.Ground;
 import Foundation.Field;
-import Foundation.FieldMap;
 import Foundation.GameWindowHelper.HelperElements.HooveringHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
 import Images.Image;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 public class ArmyHooveringMode extends Mode{
 

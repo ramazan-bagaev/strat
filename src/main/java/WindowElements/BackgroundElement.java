@@ -5,7 +5,7 @@ import Foundation.Color;
 import Foundation.Window;
 import Foundation.WindowElement;
 import Foundation.WindowElementGroup;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class BackgroundElement extends WindowElement {
 

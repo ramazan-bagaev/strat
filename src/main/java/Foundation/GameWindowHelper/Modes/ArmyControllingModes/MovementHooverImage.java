@@ -3,8 +3,8 @@ package Foundation.GameWindowHelper.Modes.ArmyControllingModes;
 import Foundation.BasicShapes.BasicShape;
 import Images.ArrowImage;
 import Images.Image;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 

@@ -3,8 +3,8 @@ package Foundation.GameWindowHelper;
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.GameWindowHelper.FieldObjectHelperElements.InFieldHelperElement;
-import Utils.Coord;
-import Utils.Index;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 import java.util.Collection;

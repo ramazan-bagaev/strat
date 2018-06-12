@@ -1,7 +1,7 @@
 package Foundation.BasicShapes;
 
 import Foundation.Color;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class TriangleShape extends BasicShape {
 

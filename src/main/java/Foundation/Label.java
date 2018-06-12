@@ -2,7 +2,7 @@ package Foundation;
 
 import Foundation.BasicShapes.CharacterShape.Font;
 import Foundation.BasicShapes.StringShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class Label extends WindowElement{
 

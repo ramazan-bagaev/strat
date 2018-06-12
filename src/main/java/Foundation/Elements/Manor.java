@@ -9,8 +9,8 @@ import Foundation.Runnable.AI.StupidAI.StupidManorAI;
 import Foundation.Runnable.Actors.ManorActor;
 import Generation.NameGenerator;
 import Images.ManorImage;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -26,15 +26,15 @@ public class Manor extends HabitableFieldElement {
 
     private ManorActor actor;
 
-    public static Manor constructManorWithRandomPeople(Time time, Field parent, FieldMap map, City city){
-        Manor res = new Manor(time, parent, map, city);
+    public static Manor constructManorWithRandomPeople(Field parent, City city){
+        Manor res = new Manor(parent, city);
         res.addRandomPeople();
         res.fillField();
         return res;
     }
 
-    private Manor(Time time, Field parent, FieldMap map, City city) {
-        super(Type.Manor, time, parent, map);
+    private Manor(Field parent, City city) {
+        super(Type.Manor, parent);
         this.city = city;
         territory = new Territory();
         territory.add(parent.getFieldMapPos());
@@ -42,8 +42,8 @@ public class Manor extends HabitableFieldElement {
         setBasicShapes(new ManorImage(new Coord(0, 0), new Coord(parent.getSize(), parent.getSize()), null).getBasicShapesRemoveAndShiftBack());
     }
 
-    private Manor(Time time, Field parent, FieldMap map, City city, Person lord) {
-        super(Type.Manor, time, parent, map);
+    private Manor(Field parent, City city, Person lord) {
+        super(Type.Manor, parent);
         this.city = city;
         this.lord = lord;
 
@@ -90,7 +90,7 @@ public class Manor extends HabitableFieldElement {
         if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
        // society.removePerson(steward);
         //Village village = Village.constructEmptyVillageWithSteward(time, field, map, steward, this);//new Village(time, field, map, steward, this);
-        Village village = Village.constructVillageWithRandomPeople(time, field, map, this);
+        Village village = Village.constructVillageWithRandomPeople(field, this);
         field.setVillage(village);
         villages.add(point);
         map.getGameEngine().getGameWindowElement().setShapes();

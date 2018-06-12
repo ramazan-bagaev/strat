@@ -2,7 +2,6 @@ package Foundation.Army;
 
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Utils.Index;
 
 import java.util.Random;
 

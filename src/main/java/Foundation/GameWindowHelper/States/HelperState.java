@@ -1,8 +1,7 @@
 package Foundation.GameWindowHelper.States;
 
-import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public abstract class HelperState {
 

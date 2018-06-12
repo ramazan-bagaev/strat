@@ -3,7 +3,7 @@ package Windows;
 import Foundation.Frame;
 import Foundation.Label;
 import Foundation.Person.People;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.PeopleInfoElementGroup;
 import WindowElementGroups.ScrollableGroup;
 

@@ -2,8 +2,8 @@ package Images;
 
 import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 import java.util.Random;

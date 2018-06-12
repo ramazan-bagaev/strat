@@ -3,7 +3,7 @@ package Windows.FieldObjectWindow;
 import Foundation.Button;
 import Foundation.FieldObjects.LivingBuildingObject;
 import Foundation.Frame;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 import Windows.PeopleInfoWindow;

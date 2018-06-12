@@ -1,6 +1,7 @@
 package Foundation;
 
 import Utils.*;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class Territory implements Broadcaster {
 
     protected Content territoryContent;
 
-    private ArrayList<Index> territory;
+    protected ArrayList<Index> territory;
 
     public Territory(Territory territory){
         this.territory = new ArrayList<>();

@@ -1,7 +1,6 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.FieldObjects.TransportObjects.PavementRoadCrossObject;
 import Foundation.FieldObjects.PeasantHouseObject;
 import Foundation.FieldObjects.StewardBuildingObject;
 import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
@@ -14,8 +13,8 @@ import Foundation.Runnable.Actors.VillageActor;
 import Generation.NameGenerator;
 import Images.VillageImage;
 import Utils.Content;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 import Utils.Subscription;
 
 import java.util.ArrayList;
@@ -34,22 +33,22 @@ public class Village extends HabitableFieldElement {
 
     private Territory availableWater;
 
-    public static Village constructEmptyVillageWithSteward(Time time, Field parent, FieldMap map, Person steward, Manor manor){
-        Village res = new Village(time, parent, map, manor);
+    public static Village constructEmptyVillageWithSteward(Field parent, Person steward, Manor manor){
+        Village res = new Village(parent, manor);
         res.setSteward(steward);
         res.fillField();
         return res;
     }
 
-    public static Village constructVillageWithRandomPeople(Time time, Field parent, FieldMap map, Manor manor){
-        Village res = new Village(time, parent, map, manor);
+    public static Village constructVillageWithRandomPeople(Field parent, Manor manor){
+        Village res = new Village(parent, manor);
         res.addRandomPeople();
         res.fillField();
         return res;
     }
 
-    private Village(Time time, Field parent, FieldMap map, Manor manor) {
-        super(Type.Village, time, parent, map);
+    private Village(Field parent, Manor manor) {
+        super(Type.Village, parent);
         this.manor = manor;
         workElements = new ArrayList<>();
         //addRandomPeople();
@@ -136,7 +135,7 @@ public class Village extends HabitableFieldElement {
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getFarm() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Farm farm = new Farm(this, new People(), time, field, map);
+        Farm farm = new Farm(this, new People(), field);
         field.setFarm(farm);
         workElements.add(farm);
         workContent.changed();
@@ -147,7 +146,7 @@ public class Village extends HabitableFieldElement {
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getSawmill() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Sawmill sawmill = new Sawmill(this, new People(), time, field, map);
+        Sawmill sawmill = new Sawmill(this, new People(), field);
         field.setSawmill(sawmill);
         workElements.add(sawmill);
         workContent.changed();
@@ -158,7 +157,7 @@ public class Village extends HabitableFieldElement {
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getTrawler() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Trawler trawler = new Trawler(this, new People(), time, field, map);
+        Trawler trawler = new Trawler(this, new People(), field);
         field.setTrawler(trawler);
         workElements.add(trawler);
         workContent.changed();
@@ -169,7 +168,7 @@ public class Village extends HabitableFieldElement {
         if (!getManor().getTerritory().contains(point)) return;
         Field field = map.getFieldByIndex(point);
         if (field.getMine() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-        Mine mine = new Mine(this, new People(), time, field, map);
+        Mine mine = new Mine(this, new People(), field);
         field.setMine(mine);
         workElements.add(mine);
         workContent.changed();

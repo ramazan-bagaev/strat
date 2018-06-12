@@ -1,7 +1,7 @@
 package Foundation.FieldObjects.NaturalObjects;
 
 import Foundation.Field;
-import Utils.Index;
+import Utils.Geometry.Index;
 
 import java.util.ArrayList;
 

@@ -5,7 +5,7 @@ import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.GameWindowHelper.HelperField;
 import Images.Image;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

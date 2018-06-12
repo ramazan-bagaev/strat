@@ -2,7 +2,6 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.FieldObjects.*;
-import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
@@ -11,8 +10,8 @@ import Foundation.Runnable.Actors.CityActor;
 import Foundation.Runnable.Country;
 import Generation.NameGenerator;
 import Images.CityImage;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,8 +35,8 @@ public class City extends HabitableFieldElement {
     private Country country;
 
 
-    public City(String name, FieldMap map, Time time, Field parent){
-        super(FieldElement.Type.City, time, parent, map);
+    public City(String name, Field parent){
+        super(FieldElement.Type.City, parent);
         setMap(map);
         territory = new Territory();
         manors = new ArrayList<>();
@@ -98,7 +97,7 @@ public class City extends HabitableFieldElement {
         // Field field = map.getFieldByIndex(parent.getFieldMapPos().add(new Index(random.nextInt(4)-2, random.nextInt(4)-2)));
         Field field = parent;
         if (field != null) {
-            Road road = new Road(time, field, map, dir);
+            Road road = new Road(field, dir);
             field.setRoad(road);
         }
         fillField();
@@ -176,7 +175,7 @@ public class City extends HabitableFieldElement {
         Field field = map.getFieldByIndex(pos);
         if (field.getManor() != null) return;
         //removePerson(lord);
-        Manor manor = Manor.constructManorWithRandomPeople(time, field, map, this);//new Manor(time, field, map, this, lord);
+        Manor manor = Manor.constructManorWithRandomPeople(field, this);//new Manor(time, field, map, this, lord);
         field.setManor(manor);
         manors.add(manor);
         map.getGameEngine().getGameWindowElement().setShapes();

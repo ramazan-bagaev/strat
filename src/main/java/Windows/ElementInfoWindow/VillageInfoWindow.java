@@ -4,7 +4,7 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.Button;
 import Foundation.GameWindowHelper.States.VillagePeopleDistributionState;
 import Foundation.GameWindowHelperElement;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Foundation.Elements.Village;
 import Foundation.Frame;
 import Images.Image;

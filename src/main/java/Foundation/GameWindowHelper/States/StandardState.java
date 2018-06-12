@@ -6,16 +6,12 @@ import Foundation.FieldObjects.FieldObject;
 import Foundation.GameWindowHelper.Modes.ChosenFieldMode;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.InFieldMode.ChosenObjectMode;
-import Foundation.GameWindowHelper.Modes.InFieldMode.LinkedToBuildingRoadCoveringMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.Army.Army;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Utils.Index;
-import Utils.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Coord;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class StandardState extends HelperState {
 

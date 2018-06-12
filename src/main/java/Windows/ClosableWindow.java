@@ -1,6 +1,6 @@
 package Windows;
 
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Foundation.Frame;
 import Foundation.Window;
 import WindowElements.CloseButton;

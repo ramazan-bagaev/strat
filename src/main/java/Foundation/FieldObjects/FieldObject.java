@@ -5,9 +5,9 @@ import Foundation.Field;
 import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
 import Foundation.Window;
-import Utils.Coord;
-import Utils.Index;
-import Utils.Interval;
+import Utils.Geometry.Coord;
+import Utils.Geometry.Index;
+import Utils.Geometry.Interval;
 
 import java.util.ArrayList;
 

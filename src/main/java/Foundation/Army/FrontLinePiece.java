@@ -1,7 +1,5 @@
 package Foundation.Army;
 
-import Utils.Index;
-
 public class FrontLinePiece {
 
     public ArmySquad armySquad;

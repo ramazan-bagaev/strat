@@ -7,7 +7,7 @@ import Foundation.Army.ArmyFormationUnit;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Images.ArmyImage;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Utils.Subscription;
 
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ public class ArmyFieldElement extends FieldElement {
 
     private ArrayList<BasicShape> formationShapes;
 
-    public ArmyFieldElement(Time time, Field parent, FieldMap map, Army army) {
-        super(Type.Army, time, parent, map);
+    public ArmyFieldElement(Field parent, Army army) {
+        super(Type.Army, parent);
         this.army = army;
         this.armyLocalFormation = army.getArmyFormation();
         armyFormationSubscription = new Subscription() {

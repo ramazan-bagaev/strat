@@ -1,7 +1,7 @@
 package Images;
 
 import Foundation.BasicShapes.BasicShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Foundation.Window;
 import Foundation.WindowElement;
 

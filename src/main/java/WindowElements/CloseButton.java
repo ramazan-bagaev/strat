@@ -1,7 +1,7 @@
 package WindowElements;
 
 import Foundation.Button;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import Windows.ClosableWindow;
 
 public class CloseButton extends Button {

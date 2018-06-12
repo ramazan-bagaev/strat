@@ -2,7 +2,7 @@ package Windows;
 
 import Foundation.*;
 import Foundation.Person.Society;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 import WindowElementGroups.PeopleInfoElementGroup;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.CloseButton;

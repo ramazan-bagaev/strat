@@ -2,7 +2,7 @@ package Images;
 
 import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 public class SawmillImage extends Image{
 

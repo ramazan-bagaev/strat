@@ -2,7 +2,7 @@ package Foundation.BasicShapes.CharacterShape;
 
 import Foundation.BasicShapes.BasicShape;
 import Foundation.Color;
-import Utils.Coord;
+import Utils.Geometry.Coord;
 
 import java.util.ArrayList;
 

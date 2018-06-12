@@ -7,7 +7,7 @@ import Foundation.GameWindowHelper.HelperElements.HistogramHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelperElement;
 import Foundation.Person.Person;
-import Utils.Index;
+import Utils.Geometry.Index;
 import Utils.Subscription;
 
 import java.util.ArrayList;
