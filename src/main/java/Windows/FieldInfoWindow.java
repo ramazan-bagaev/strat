@@ -52,6 +52,8 @@ public class FieldInfoWindow extends ClosableWindow{
                 "TYPE:", groundElement, "groundType", this);
         addWindowElement(groundLabel);
 
+
+
         // ground type resource cause amount of fertility
 
         //Label groundFertilutyLabel = new Label(new Index(10, 75).add(getFieldPos()),new Index(150, 10), "Ground fertility:", this);
@@ -64,6 +66,9 @@ public class FieldInfoWindow extends ClosableWindow{
                 "Ground fertility:", groundElement, "resourceCause.capacity", this);
         addWindowElement(groundResourceCauseLabel);
 
+        StaticBroadcastLabel heightLabel = new StaticBroadcastLabel(new Coord(10, 95), new Coord(150, 10),
+                "height:", groundElement, "height", this);
+        addWindowElement(heightLabel);
 
         Button ecoButton = new Button(new Coord(10, 115), new Coord(30, 20),"eco", this) {
             @Override

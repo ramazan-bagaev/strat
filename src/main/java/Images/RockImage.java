@@ -10,8 +10,11 @@ import java.util.ArrayList;
 
 public class RockImage extends Image {
 
-    public RockImage(Coord pos, Coord size, Window parent) {
+    private int height;
+
+    public RockImage(Coord pos, Coord size, int height, Window parent) {
         super(pos, size, parent);
+        this.height = height;
         setShapes();
     }
 
@@ -22,7 +25,9 @@ public class RockImage extends Image {
 
     public void setShapes(){
         ArrayList<BasicShape> shapes = new ArrayList<>();
-        RectangleShape rectangleShape = new RectangleShape(new Coord(0, 0), size, new Color(Color.Type.Gray), false, true);
+        Color color = new Color(Color.Type.Gray);
+        color.moreRed(height);
+        RectangleShape rectangleShape = new RectangleShape(new Coord(0, 0), size, color, false, true);
         shapes.add(rectangleShape);
 
         TriangleShape tr1 = new TriangleShape(new Coord(2 *size.x/10, size.y),

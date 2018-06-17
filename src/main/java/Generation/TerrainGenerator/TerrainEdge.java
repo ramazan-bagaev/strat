@@ -33,6 +33,7 @@ public class TerrainEdge {
 
     @Override
     public boolean equals(Object object){
+        if (this == object) return true;
         if (object == null) return false;
         if (object.getClass() != getClass()) return false;
         TerrainEdge edge = (TerrainEdge)object;

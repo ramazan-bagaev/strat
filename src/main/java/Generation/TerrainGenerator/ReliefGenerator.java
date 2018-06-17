@@ -3,6 +3,7 @@ package Generation.TerrainGenerator;
 import Foundation.Elements.Ground;
 import Foundation.Field;
 import Foundation.FieldMap;
+import Generation.FieldMapGenerator;
 import Utils.Boundary.EllipseBoundary;
 import Utils.BypassIterator.FieldMapWidthBypassIterator;
 import Utils.Distribution.EllipseDistribution;
@@ -13,27 +14,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class ReliefGenerator {
+public class ReliefGenerator extends FieldMapGenerator {
 
     private ArrayList<TectonicBoundary> boundaries;
     private HashMap<Plate, Coord> drivingDirections;
     private TerrainMap terrainMap;
     private TerrainMapGenerator terrainMapGenerator;
     private PlateGenerator plateGenerator;
-    private Index size;
-    private FieldMap map;
     private Random random;
 
-    public void generate(FieldMap map, Index size){
-        init(map, size);
+    @Override
+    public void startGeneration() {
         generateTerrainMap();
         findBoundaries();
         generateMountains();
-        //showTectonicPlates();
-        //showBoundaries();
     }
 
-    private void init(FieldMap map, Index size){
+    @Override
+    public void init(FieldMap map, Index size){
         this.size = size;
         this.map = map;
         this.random = map.getRandom();
@@ -51,8 +49,8 @@ public class ReliefGenerator {
 
     private void generateDrivingDirections(){
         for(Plate plate: terrainMap.getPlates()){
-            int x = random.nextInt(5) - 2;
-            int y = random.nextInt(5) - 2;
+            int x = random.nextInt(11) - 5;
+            int y = random.nextInt(11) - 5;
             drivingDirections.put(plate, new Coord(x, y));
         }
     }
@@ -82,16 +80,29 @@ public class ReliefGenerator {
             Index center = edge.getFirst().getPos().add(edge.getSecond().getPos());
             center = center.multiply(0.5);
             edgeDir = edgeDir.multiply(0.5);
-            //norm = norm.multiply(0.5);
+            norm = norm.multiply(0.5);
             EllipseBoundary boundary = new EllipseBoundary(new Coord(center), edgeDir, norm);
             boolean edgeOnFirstPlateLeft = tectonicBoundary.firstPlate.onLeft(edge);
             boolean relOnLeft = (edgeDir.vectorMulti(relDir).z <= 0);
-            if (edgeOnFirstPlateLeft && relOnLeft || !(edgeOnFirstPlateLeft || relOnLeft)) addMountainsWithinBoundary(boundary);
-            else addWaterWithinBoundary(boundary);
+            if (edgeOnFirstPlateLeft && relOnLeft || !(edgeOnFirstPlateLeft || relOnLeft)) higherFieldsWithinBoundary(boundary);
+            else lowerFieldsWithinBoundary(boundary);
         }
     }
 
-    private void addMountainsWithinBoundary(EllipseBoundary boundary){
+    private void higherFieldsWithinBoundary(EllipseBoundary boundary){
+        boundary.increaseVolume(2);
+        changeHeightWithinBoundary(boundary, 10);
+        boundary.increaseVolume(0.5);
+        addRockGroundWithinBoundary(boundary);
+    }
+
+    private void lowerFieldsWithinBoundary(EllipseBoundary boundary){
+        boundary.increaseVolume(2);
+        changeHeightWithinBoundary(boundary, -10);
+        //addWaterWithinBoundary(boundary);
+    }
+
+    private void changeHeightWithinBoundary(EllipseBoundary boundary, int maxDelta){
         FieldMapWidthBypassIterator iter = new FieldMapWidthBypassIterator(map, new Index(boundary.getCenter())) {
             @Override
             public boolean isMapFree(Index index) {
@@ -101,11 +112,15 @@ public class ReliefGenerator {
         EllipseDistribution distribution = new EllipseDistribution(iter, random, boundary);
         ArrayList<Index> positions = distribution.realization();
         for(Index pos: positions){
-            addMountain(pos);
+            double prob = distribution.getProbability(pos);
+            int maxDeltaLocal = (int)(prob*Math.abs(maxDelta));
+            if (maxDeltaLocal == 0) continue;
+            int delta = (int) (Math.signum(maxDelta)*random.nextInt(maxDeltaLocal));
+            changeFieldHeight(pos, delta);
         }
     }
 
-    private void addWaterWithinBoundary(EllipseBoundary boundary){
+    private void addRockGroundWithinBoundary(EllipseBoundary boundary){
         FieldMapWidthBypassIterator iter = new FieldMapWidthBypassIterator(map, new Index(boundary.getCenter())) {
             @Override
             public boolean isMapFree(Index index) {
@@ -115,28 +130,32 @@ public class ReliefGenerator {
         EllipseDistribution distribution = new EllipseDistribution(iter, random, boundary);
         ArrayList<Index> positions = distribution.realization();
         for(Index pos: positions){
-            addWater(pos);
+            addRockGround(pos);
         }
     }
 
-    private void addMountain(Index pos){
+    private void addRockGround(Index pos){
         Field field = map.getFieldByIndex(pos);
         if (field == null){
             //System.out.println("errorrrrrrr");
             return;
         }
-        if (field.getGroundType() == Ground.GroundType.Water) return;
-        field.setGrount(new Ground(Ground.GroundType.Rock, field));
+        if (field.getGroundType() == Ground.GroundType.Water && field.getHeight() < 0) return;
+        field.setGround(new Ground(Ground.GroundType.Rock, field));
     }
 
-    private void addWater(Index pos){
+    private void changeFieldHeight(Index pos, int delta){
         Field field = map.getFieldByIndex(pos);
         if (field == null){
             //System.out.println("errorrrrrrr");
             return;
         }
-        if (field.getGroundType() == Ground.GroundType.Water) return;
-        field.setGrount(new Ground(Ground.GroundType.Water, field));
+        int oldHeight = field.getHeight();
+        field.setHeight(oldHeight + delta);
+        if (field.getGroundType() == Ground.GroundType.Water){
+            if (oldHeight + delta >= 0) addRockGround(pos);
+        }
+
     }
 
     private void addBoundary(Plate first, Plate second, TerrainEdge edge){

@@ -32,6 +32,11 @@ public class EllipseBoundary implements Boundary{
         return dir2;
     }
 
+    public void increaseVolume(double times){
+        dir1 = dir1.multiply(times);
+        dir2 = dir2.multiply(times);
+    }
+
     @Override
     public boolean contains(Index index) {
         local.x = index.x;

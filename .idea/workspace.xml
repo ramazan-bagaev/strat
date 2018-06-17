@@ -2,223 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="360a330c-dad6-4b8e-837d-e5cb5d393a2b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/GeneratedObjects/Continent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/MountainGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/OceanGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/FieldMapGeneratorTerrain.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/LineIterator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/Plate.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/PlateGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TectonicBoundary.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TectonicPlate.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainMap.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainMapGenerator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainNode.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Boundary/Boundary.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Boundary/MapBoundary.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Boundary/RectangleBoundary.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/BypassIterator/BypassIterator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/BypassIterator/FieldMapWidthBypassIterator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Distribution/EllipseDistribution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Distribution/IndexDistribution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Geometry/GeometryShape.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Geometry/Polygon.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Geometry/PolygonTriangulazer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Geometry/Triangle.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CivilizationGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CountryGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/CompleteGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/DesertGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/EnvironmentGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/ForestGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/RiverGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/SwampGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/FieldMapGeneratorOld.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/FieldObjectGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/PersonGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Utils/Rectangle.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Army/Army.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Army/Army.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Army/ArmyFormation.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Army/ArmyFormation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Army/ArmyFormationUnit.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Army/ArmyFormationUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Army/ArmySquad.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Army/ArmySquad.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Army/Combatant.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Army/Combatant.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Army/FrontLinePiece.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Army/FrontLinePiece.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/BasicShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/CharacterShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/CharacterShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/FontFactory.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/CharacterShape/FontFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/LineShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/LineShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/PolygonShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/PolygonShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/RectangleShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/RectangleShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/StringShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/StringShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/TriangleShape.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/BasicShapes/TriangleShape.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Button.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Button.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Camera.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Camera.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/CameraConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/CameraConfiguration.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Cell/Cell.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Cell/Cell.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Cell/CellMap.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Cell/CellMap.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Cursor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Cursor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/ArmyFieldElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/ArmyFieldElement.java" />
+      <change beforePath="$PROJECT_DIR$/res/fonts.xml" afterPath="$PROJECT_DIR$/res/fonts.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Color.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Color.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Ecosystem.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Ecosystem.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Farm.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Farm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/FieldElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/FieldElement.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Ground.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Ground.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/HabitableFieldElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/HabitableFieldElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Mine.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Mine.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/River.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/River.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Road.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Road.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Sawmill.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Sawmill.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Trawler.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Trawler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Tree.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Tree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/WorkFieldElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/WorkFieldElement.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Field.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Field.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldMap.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldMap.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/CityHouseObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/CityHouseObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjects.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjects.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/LivingBuildingObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/LivingBuildingObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/ManorObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/ManorObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/MarketObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/MarketObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/WaterFlowObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/WaterFlowObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/WaterObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/WaterObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/OccupationPiece.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/OccupationPiece.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/PalaceObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/PalaceObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/PeasantHouseObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/PeasantHouseObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/StewardBuildingObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/StewardBuildingObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PavementRoadCrossObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PavementRoadCrossObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PavementRoadObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PavementRoadObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PrimingRoadCrossObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PrimingRoadCrossObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PrimingRoadObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PrimingRoadObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetEdgeObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetEdgeObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetNodeObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetNodeObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Frame.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Frame.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/ChosenObjectHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/ChosenObjectHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/CoveringObjectHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/CoveringObjectHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/InFieldHelperElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/InFieldHelperElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/ObjectHelperElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/FieldObjectHelperElements/ObjectHelperElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/ArmyMovingProgressHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/ArmyMovingProgressHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/BattleHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/BattleHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/BorderHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/BorderHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/ChosenFieldHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/ChosenFieldHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/CityInfoHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/CoveringFieldHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/DirectionHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/DirectionHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/HelperElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/HelperElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/HistogramHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/HistogramHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/HooveringHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/HooveringHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/ProgressHelper.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperElements/ProgressHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperField.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperField.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperFieldMap.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/HelperFieldMap.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ArmyControllingModes/ArmyChoosenFieldMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ArmyControllingModes/ArmyChoosenFieldMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ArmyControllingModes/ArmyHooveringMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ArmyControllingModes/ArmyHooveringMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ArmyControllingModes/MovementHooverImage.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ArmyControllingModes/MovementHooverImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderAndTerritoryMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/BorderMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ChosenFieldMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/ChosenFieldMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/CityInfoMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/CityInfoMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/CoveringFieldMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/CoveringFieldMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/DirectionMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/DirectionMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/VillagePeopleDistributionMode.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/VillagePeopleDistributionMode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddFarmState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddFarmState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddManorFieldState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddManorFieldState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddManorState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddManorState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddMineState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddMineState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddSawmillState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddSawmillState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddTrawlerState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddTrawlerState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddVillageState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddVillageState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/ArmyControllingState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/ArmyControllingState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/HelperState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/HelperState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/StandardState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/StandardState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/VillagePeopleDistributionState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/VillagePeopleDistributionState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelperElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelperElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/InputWindowElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/InputWindowElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Label.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Label.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/MainWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/MainWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/MainWindowCameraConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/MainWindowCameraConfiguration.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/OpenGLBinder.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/OpenGLBinder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/OpenGLMain.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Recources/Resource.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Recources/Resource.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidCityAI.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidCityAI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidCountryAI.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidCountryAI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidManorAI.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidManorAI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidVillageAI.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidVillageAI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/CityActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/CityActor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/CountryActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/CountryActor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/ManorActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/ManorActor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/VillageActor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Actors/VillageActor.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/RunnableFieldElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/RunnableFieldElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/SuperField.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/SuperField.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Territory.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Territory.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/TransportInfrostructure/TransportNetPathFinder.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/TransportInfrostructure/TransportNetPathFinder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Window.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Window.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/WindowElement.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/WindowElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/WindowElementGroup.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/WindowElementGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/PeasantOccupation.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/PeasantOccupation.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Generation/FieldMapGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/FieldMapGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Graphic/HelloWorld.java" afterPath="$PROJECT_DIR$/src/main/java/Graphic/HelloWorld.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Graphic/ShaderProgram.java" afterPath="$PROJECT_DIR$/src/main/java/Graphic/ShaderProgram.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/ArmyImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/ArmyImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/ArrowImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/ArrowImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/CityImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/CityImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/FarmImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/FarmImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/FoodResourceImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/FoodResourceImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/GroundImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/GroundImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/Image.java" afterPath="$PROJECT_DIR$/src/main/java/Images/Image.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/ManorImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/ManorImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/MineImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/MineImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/PersonImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/PersonImage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/FieldMapGeneratorTerrain.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainNode.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainNode.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Images/RockImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/RockImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/RockResourceImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/RockResourceImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/SawmillImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/SawmillImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/TrawlerImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/TrawlerImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/TreeImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/TreeImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/TreeResourceImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/TreeResourceImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/TurnArrowImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/TurnArrowImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Images/VillageImage.java" afterPath="$PROJECT_DIR$/src/main/java/Images/VillageImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Coord.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Index.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Interval.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/Geometry/Interval.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Matrix.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/Geometry/Matrix.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/PathFinder.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/PathFinder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElementGroups/PeopleElementGroup.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElementGroups/PeopleElementGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElementGroups/PeopleInfoElementGroup.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElementGroups/PeopleInfoElementGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ProductElementGroup.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ProductElementGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ResourceElementGroup.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ResourceElementGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ScrollableGroup.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ScrollableGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ScrollableGroupCameraConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElementGroups/ScrollableGroupCameraConfiguration.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/ArmyFormationControlElement.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/ArmyFormationControlElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/BackgroundElement.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/BackgroundElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/CloseButton.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/CloseButton.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/MonitoredBroadcastLabel.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/MonitoredBroadcastLabel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/RadioButton.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/RadioButton.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/PersonScrolledRow.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/PersonScrolledRow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/ProductScrollRow.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/ProductScrollRow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/ResourceScrollRow.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/ResourceScrollRow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/ScrollableRow.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/ScrollElements/ScrollableRow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/SliderElement.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/SliderElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/StaticBroadcastLabel.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/StaticBroadcastLabel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowElements/TimeElement.java" afterPath="$PROJECT_DIR$/src/main/java/WindowElements/TimeElement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/AddMinorArmyWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/AddMinorArmyWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ArmyAddWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ArmyAddWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ClosableWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ClosableWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/ArmyInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/ArmyInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/CityInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/CityInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/CountryInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/CountryInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/EcosystemInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/EcosystemInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/ManorInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/ManorInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/PersonInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/PersonInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/VillageInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ElementInfoWindow/VillageInfoWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java" afterPath="$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Windows/FieldInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/FieldInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/FieldObjectWindow/LivingBuildingInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/FieldObjectWindow/LivingBuildingInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/IntermediatWindows/ChooseManyPeople/ChooseManyPeopleWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/IntermediatWindows/ChooseOnePerson/ChooseOnePersonWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/IntermediatWindows/ChooseOnePerson/ChooseOnePersonWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/MainToolbarWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/MainToolbarWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/PeopleInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/PeopleInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/PopulationInfoWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/PopulationInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ProductStoreWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ProductStoreWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/ResourceStoreWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/ResourceStoreWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Windows/WorkPlaceWindows/VillageWorkWindow.java" afterPath="$PROJECT_DIR$/src/main/java/Windows/WorkPlaceWindows/VillageWorkWindow.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -236,104 +53,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ContinentsGenerator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java">
+      <file leaf-file-name="Polygon.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Polygon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            <state relative-caret-position="72">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReliefGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java">
+      <file leaf-file-name="Boundary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/Boundary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="133" column="27" lean-forward="true" selection-start-line="133" selection-start-column="27" selection-end-line="133" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3788#3789#0" expanded="true" />
-                <element signature="e#3831#3832#0" expanded="true" />
-                <element signature="e#4337#4338#0" expanded="true" />
-                <element signature="e#4380#4381#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TerrainEdge.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-              <folding>
-                <element signature="e#548#549#0" expanded="true" />
-                <element signature="e#576#577#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TectonicPlate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TectonicPlate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="72">
+              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Plate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/Plate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlateGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/PlateGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2455">
-              <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldMapWidthBypassIterator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/BypassIterator/FieldMapWidthBypassIterator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="50" column="9" lean-forward="false" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2368#2369#0" expanded="true" />
-                <element signature="e#2408#2409#0" expanded="true" />
-                <element signature="e#2450#2451#0" expanded="true" />
-                <element signature="e#2504#2505#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Coord.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Coord.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="63" column="92" lean-forward="false" selection-start-line="63" selection-start-column="92" selection-end-line="63" selection-end-column="92" />
-              <folding>
-                <element signature="e#905#906#0" expanded="true" />
-                <element signature="e#961#962#0" expanded="true" />
-                <element signature="e#1102#1103#0" expanded="true" />
-                <element signature="e#1175#1176#0" expanded="true" />
-                <element signature="e#1202#1203#0" expanded="true" />
-                <element signature="e#1251#1252#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -341,26 +76,80 @@
       <file leaf-file-name="EllipseBoundary.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="522">
+              <caret line="36" column="11" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapBoundary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/MapBoundary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RectangleBoundary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/RectangleBoundary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TerrainNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TerrainEdge.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Index.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="92" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FieldObjectPathFinder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="51" column="61" lean-forward="true" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#451#452#0" expanded="true" />
-                <element signature="e#480#481#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#537#538#0" expanded="true" />
-                <element signature="e#567#568#0" expanded="true" />
-                <element signature="e#594#595#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EllipseDistribution.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Distribution/EllipseDistribution.java">
+      <file leaf-file-name="Rectangle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Rectangle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+            <state relative-caret-position="442">
+              <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -407,57 +196,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/WorkFieldElement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Farm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Ground.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Mine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/River.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Road.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Sawmill.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Trawler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Tree.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/FieldMapGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Field.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/SuperField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Windows/FieldInfoWindow.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdgeIterator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/TransportInfrostructure/TransportNetPathFinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/LineIterator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Index.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainMapGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/GeometryShape.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Triangle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Polygon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/GeometryShape.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/Polygon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/Triangle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/Interval.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/Matrix.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/PolygonTriangulazer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/Boundary.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/FieldMapWidthBypassIterator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Boundary.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Boundary/RectangleBoundary.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/IndexDistribution.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Boundary/MapBoundary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/FieldMapGeneratorTerrain.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/PlateGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/Index.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Boundary/Boundary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/BypassIterator/BypassIterator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/BypassIterator/FieldMapWidthBypassIterator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Distribution/IndexDistribution.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/Plate.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Geometry/Coord.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Distribution/EllipseDistribution.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Field.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Windows/FieldInfoWindow.java" />
+        <option value="$PROJECT_DIR$/res/fonts.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Images/RockImage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Color.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/Ground.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/FieldMapGeneratorTerrain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/FieldMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/Generator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainFieldMapGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/MudGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/SwampsGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/SwampGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/DesertGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/GameWindowElement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/FieldMapGeneratorOld.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/EnvironmentGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/ForestGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/RiverGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/PersonGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CivilizationGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/CompleteGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CountryGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Foundation/Elements/River.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/FieldObjectGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Rectangle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java" />
       </list>
     </option>
   </component>
@@ -501,24 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -535,6 +306,11 @@
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
               <item name="strat" type="462c0819:PsiDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
@@ -666,6 +442,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="Person" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
               <item name="Recources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -750,7 +535,42 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Generation" type="462c0819:PsiDirectoryNode" />
+              <item name="CivilizationGenerator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Generation" type="462c0819:PsiDirectoryNode" />
+              <item name="EnvironmentGenerator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Generation" type="462c0819:PsiDirectoryNode" />
+              <item name="GeneratedObjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Generation" type="462c0819:PsiDirectoryNode" />
               <item name="TerrainGenerator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
@@ -867,6 +687,24 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1040,6 +878,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="215" y="203" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1049,9 +888,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5018868" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.49811321" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.49811321" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1061,8 +899,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1071,6 +909,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1082,15 +921,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Utils/Distribution/IndexDistribution.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="139" />
+      <option name="time" value="179" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1119,171 +950,362 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Mine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Color.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="60" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/River.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="46" column="34" lean-forward="false" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Road.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Sawmill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Trawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" column="63" lean-forward="false" selection-start-line="12" selection-start-column="63" selection-end-line="12" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
-          <caret line="171" column="48" lean-forward="false" selection-start-line="171" selection-start-column="48" selection-end-line="171" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/WorkFieldElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="92" column="72" lean-forward="false" selection-start-line="92" selection-start-column="72" selection-end-line="92" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="178" column="64" lean-forward="false" selection-start-line="178" selection-start-column="64" selection-end-line="178" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Climate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+        <state relative-caret-position="208">
+          <caret line="109" column="26" lean-forward="true" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
           <folding>
-            <element signature="e#5664#5665#0" expanded="false" />
+            <element signature="e#2492#2493#0" expanded="false" />
+            <element signature="e#2524#2525#0" expanded="false" />
+            <element signature="e#2562#2563#0" expanded="false" />
+            <element signature="e#2594#2595#0" expanded="false" />
+            <element signature="e#2631#2632#0" expanded="false" />
+            <element signature="e#2663#2664#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/SuperField.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Ground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+        <state relative-caret-position="424">
+          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowElement.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGeneration.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="112" column="46" lean-forward="true" selection-start-line="112" selection-start-column="46" selection-end-line="112" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Windows/FieldInfoWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/TransportInfrostructure/TransportNetPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/FieldElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/TransportInfrostructure/TransportNetPathFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="69" column="31" lean-forward="false" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="216">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="e#8367#8368#0" expanded="false" />
+            <element signature="e#8394#8395#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldMapGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1057">
-          <caret line="265" column="0" lean-forward="true" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/PlateGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/BypassIterator/FieldMapWidthBypassIterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="91" column="28" lean-forward="false" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="156" column="8" lean-forward="false" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4201#4202#0" expanded="false" />
+            <element signature="e#4244#4245#0" expanded="false" />
+            <element signature="e#5023#5024#0" expanded="false" />
+            <element signature="e#5066#5067#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="54" column="50" lean-forward="false" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainMapGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
+        <state relative-caret-position="288">
           <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3239">
+          <caret line="202" column="60" lean-forward="false" selection-start-line="202" selection-start-column="60" selection-end-line="202" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/SwampGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#581#582#0" expanded="false" />
+            <element signature="e#631#632#0" expanded="false" />
+            <element signature="e#678#679#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#1552#1553#0" expanded="false" />
+            <element signature="e#1595#1596#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/DesertGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="31" column="46" lean-forward="true" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#582#583#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="e#678#679#0" expanded="false" />
+            <element signature="e#743#744#0" expanded="false" />
+            <element signature="e#1564#1565#0" expanded="false" />
+            <element signature="e#1607#1608#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/ForestGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#615#616#0" expanded="false" />
+            <element signature="e#667#668#0" expanded="false" />
+            <element signature="e#716#717#0" expanded="false" />
+            <element signature="e#781#782#0" expanded="false" />
+            <element signature="e#1610#1611#0" expanded="false" />
+            <element signature="e#1653#1654#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/EnvironmentGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Person/People.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Person/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Person/Society.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/PersonGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#342#343#0" expanded="false" />
+            <element signature="e#419#420#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldMapGeneratorOld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="590" column="35" lean-forward="true" selection-start-line="590" selection-start-column="35" selection-end-line="590" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CivilizationGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CompleteGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/StupidAI/StupidCountryAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Runnable/Country.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Windows/FieldInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-166">
+          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CountryGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/RiverGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="79" column="21" lean-forward="true" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/River.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="182" column="11" lean-forward="true" selection-start-line="182" selection-start-column="11" selection-end-line="182" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/getNetObjectPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/FieldObjectGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="32" column="41" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/OccupationPiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="99" column="5" lean-forward="true" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1602">
+          <caret line="108" column="5" lean-forward="true" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/GeometryShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Interval.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -1299,81 +1321,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Polygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/EmptyFieldGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Matrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/LineIterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/PolygonTriangulazer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/RectangleBoundary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Ground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Interval.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -1381,18 +1329,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/FieldMapGeneratorTerrain.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Polygon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        <state relative-caret-position="72">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TectonicBoundary.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/Boundary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="72">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="36" column="11" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/MapBoundary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/RectangleBoundary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1400,165 +1388,26 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Index.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#5122#5123#0" expanded="false" />
-            <element signature="e#5188#5189#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/Boundary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="92" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Distribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/BypassIterator/BypassIterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Distribution/IndexDistribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/MapBoundary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#344#345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/BypassIterator/FieldMapWidthBypassIterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="50" column="9" lean-forward="false" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2368#2369#0" expanded="true" />
-            <element signature="e#2408#2409#0" expanded="true" />
-            <element signature="e#2450#2451#0" expanded="true" />
-            <element signature="e#2504#2505#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TectonicPlate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/Plate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Geometry/Coord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="63" column="92" lean-forward="false" selection-start-line="63" selection-start-column="92" selection-end-line="63" selection-end-column="92" />
-          <folding>
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#961#962#0" expanded="true" />
-            <element signature="e#1102#1103#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1251#1252#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/TerrainEdge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="e#548#549#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/PlateGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2455">
-          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Boundary/EllipseBoundary.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Distribution/EllipseDistribution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ReliefGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="133" column="27" lean-forward="true" selection-start-line="133" selection-start-column="27" selection-end-line="133" selection-end-column="27" />
+        <state relative-caret-position="244">
+          <caret line="51" column="61" lean-forward="true" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#3831#3832#0" expanded="true" />
-            <element signature="e#4337#4338#0" expanded="true" />
-            <element signature="e#4380#4381#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/TerrainGenerator/ContinentsGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>

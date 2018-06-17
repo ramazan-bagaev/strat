@@ -29,16 +29,32 @@ public class Ground extends FieldElement {
     public Ground(GroundType groundType, Field parent){
         super(Type.Ground, parent);
         setGroundType(groundType);
+        setShapes();
+    }
 
-
+    public void setShapes(){
         int size = parent.getSize();
         Color color = new Color(Color.Type.White);
-        if (getGroundType() == GroundType.Soil) color = new Color(Color.Type.Green);
-        if (getGroundType() == GroundType.Sand) color = new Color(Color.Type.Yellow);
-        if (getGroundType() == GroundType.Water) color = new Color(Color.Type.Blue);
-        if (getGroundType() == GroundType.Mud) color = new Color(Color.Type.Green2);
+        int height = parent.getHeight();
+        if (getGroundType() == GroundType.Soil){
+            color = new Color(Color.Type.Green);
+            color.moreGreen(height);
+        }
+        if (getGroundType() == GroundType.Sand){
+            color = new Color(Color.Type.Yellow);
+            color.moreBlue(height);
+        }
+        if (getGroundType() == GroundType.Mud){
+            color = new Color(Color.Type.Green2);
+            color.moreGreen(height);
+        }
+        if (getGroundType() == GroundType.Water){
+            color = new Color(Color.Type.Blue);
+            color.moreBlue(-height - 10);
+        }
+
         if (getGroundType() == GroundType.Rock){
-            ArrayList<BasicShape> shapes = new RockImage(new Coord(0, 0), new Coord(size, size), null)
+            ArrayList<BasicShape> shapes = new RockImage(new Coord(0, 0), new Coord(size, size), height, null)
                     .getBasicShapesRemoveAndShiftBack();
             for (BasicShape basicShape: shapes){
                 addShape(basicShape);
@@ -69,7 +85,8 @@ public class Ground extends FieldElement {
                     case Rock:
                         return "Rock";
                 }
-
+            case "height":
+                return String.valueOf(parent.getHeight());
         }
         return Broadcaster.noResult;
     }

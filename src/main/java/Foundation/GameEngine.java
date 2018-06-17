@@ -4,7 +4,9 @@ import Foundation.Army.Battle;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.Country;
 import Foundation.Runnable.RunEntity;
-import Generation.TerrainGenerator.FieldMapGeneratorTerrain;
+import Generation.CompleteGenerator;
+import Generation.FieldMapGenerator;
+import Generation.TerrainGenerator.TerrainGenerator;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 
@@ -49,15 +51,14 @@ public class GameEngine {
         onDeleteEntity = new ArrayList<>();
         this.gameWindowElement = gameWindowElement;
         time = new Time();
-        //FieldMapGenerator fieldMapGenerator = new FieldMapGenerator(random);
-        FieldMapGeneratorTerrain generator = new FieldMapGeneratorTerrain(random);
-        //map =  fieldMapGenerator.generate(fieldNumber, fieldSize, 2000, this);
-        map = generator.generate(new Index(fieldNumber, fieldNumber), fieldSize, 2000, this);
-        //map = new FieldMap();
+
+        FieldMapGenerator generator = new CompleteGenerator();
+        map = new FieldMap(2000, fieldSize, this);
+        generator.generate(map, new Index(fieldNumber, fieldNumber));
+
         setFieldSize(fieldSize);
         runEntities.addAll(newRunEntity);
         incr = 0;
-        //generateRandomField(fieldNumber);
     }
 
 

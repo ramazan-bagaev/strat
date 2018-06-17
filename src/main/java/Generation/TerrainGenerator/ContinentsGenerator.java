@@ -3,6 +3,7 @@ package Generation.TerrainGenerator;
 import Foundation.Elements.Ground;
 import Foundation.FieldMap;
 import Foundation.Field;
+import Generation.FieldMapGenerator;
 import Utils.BypassIterator.FieldMapWidthBypassIterator;
 import Utils.Geometry.Index;
 
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class ContinentsGenerator {
+public class ContinentsGenerator extends FieldMapGenerator {
 
     private ArrayList<Plate> continents;
 
@@ -21,18 +22,16 @@ public class ContinentsGenerator {
     private TerrainMap terrainMap;
     private TerrainMapGenerator terrainMapGenerator;
     private PlateGenerator plateGenerator;
-    private Index size;
-    private FieldMap map;
     private Random random;
 
-
-    public void generate(FieldMap map, Index size){
-        init(map, size);
+    @Override
+    public void startGeneration() {
         generateTerrainMap();
         generateContinentWithTerrainMap();
     }
 
-    private void init(FieldMap map, Index size){
+    @Override
+    public void init(FieldMap map, Index size){
         this.size = size;
         this.map = map;
         this.random = map.getRandom();
@@ -75,7 +74,8 @@ public class ContinentsGenerator {
                 Field field = map.getFieldByIndex(index);
                 if (field == null) continue;
                 if (field.getGround() == null){
-                    field.setGrount(new Ground(type, field));
+                    field.setGround(new Ground(type, field));
+                    if (type == Ground.GroundType.Water) field.setHeight(-10);
                 }
             }
         }
@@ -176,7 +176,8 @@ public class ContinentsGenerator {
             //System.out.println("errorrrrrrr");
             return;
         }
-        field.setGrount(new Ground(type, field));
+        if (type == Ground.GroundType.Water) field.setHeight(-10);
+        field.setGround(new Ground(type, field));
     }
 
     private boolean isFree(Index pos){
@@ -199,7 +200,7 @@ public class ContinentsGenerator {
             for (int x = -1; x < size.x; x++) {
                 iter.x = x;
                 if (isFree(iter)){
-                    fillPosWith(iter, Ground.GroundType.Soil);
+                    fillPosWith(iter, Ground.GroundType.Sand);
                 }
             }
         }

@@ -42,6 +42,7 @@ public class TerrainNode {
 
     @Override
     public boolean equals(Object object){
+        if (this == object) return true;
         if (object == null) return false;
         if (object.getClass() != getClass()) return false;
         TerrainNode node = (TerrainNode)object;

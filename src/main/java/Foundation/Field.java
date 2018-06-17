@@ -47,6 +47,7 @@ public class Field {
 
 
     private Date timeToIntersect;
+    private int height;
 
     private Random random;
 
@@ -55,6 +56,7 @@ public class Field {
         cellMap = new CellMap(this);
         cellAmount = 100;
         formationUnitSize = 10; // TODO: get rid of constants
+        height = 0;
         fieldObjects = new FieldObjects(this);
         size = map.getFieldSize();
         cellSize = (double)(size) / (double)(cellAmount);
@@ -68,6 +70,7 @@ public class Field {
         this.fieldMapPos = fieldMapPos;
         cellMap = new CellMap(this);
         cellAmount = 100;
+        height = 0;
         formationUnitSize = 10; // TODO: get rid of constants
         fieldObjects = new FieldObjects(this);
         size = map.getFieldSize();
@@ -207,7 +210,7 @@ public class Field {
         this.map = map;
     }
 
-    public void setGrount(Ground ground){
+    public void setGround(Ground ground){
         this.groundElement = ground;
     }
 
@@ -353,5 +356,14 @@ public class Field {
 
     public FieldObject getFieldObject(Index index){
         return fieldObjects.getFieldObject(index);
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+        if (groundElement != null) groundElement.setShapes();
     }
 }

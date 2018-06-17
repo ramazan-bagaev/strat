@@ -30,8 +30,6 @@ public class City extends HabitableFieldElement {
 
     private ArrayList<Manor> manors;
 
-    private FieldMap map;
-
     private Country country;
 
 

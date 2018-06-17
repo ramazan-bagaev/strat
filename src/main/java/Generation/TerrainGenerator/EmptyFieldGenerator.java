@@ -2,11 +2,13 @@ package Generation.TerrainGenerator;
 
 import Foundation.FieldMap;
 import Foundation.Field;
+import Generation.FieldMapGenerator;
 import Utils.Geometry.Index;
 
-public class EmptyFieldGenerator {
+public class EmptyFieldGenerator extends FieldMapGenerator {
 
-    public void generate(FieldMap map, Index size){
+    @Override
+    public void startGeneration() {
         fillWithEmptyFields(map, size);
     }
 

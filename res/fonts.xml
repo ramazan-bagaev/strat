@@ -219,6 +219,9 @@
         <Line x1 = "25" y1 = "100" x2 = "25" y2 = "0"></Line>
         <Line x1 = "40" y1 = "50" x2 = "60" y2 = "50"></Line>
     </Character>
+    <Character id = "39" definition= "-">
+        <Line x1 = "25" y1 = "50" x2 = "75" y2 = "50"></Line>
+    </Character>
 
 
 </Font>

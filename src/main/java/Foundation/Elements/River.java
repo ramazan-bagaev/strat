@@ -19,26 +19,23 @@ public class River extends FieldElement {
     }
 
     private River nextPiece;
-    private RiverType riverType;
 
     private ArrayList<Index.Direction> inStreams;
     private Index.Direction outStream;
 
-    public River(Field parent, ArrayList<Index.Direction> in, Index.Direction out, RiverType type) {
+    public River(Field parent, ArrayList<Index.Direction> in, Index.Direction out) {
         super(Type.River, parent);
         inStreams = in;
         outStream = out;
-        riverType = type;
         fillField();
         setShapes();
     }
 
-    public River(Field parent, Index.Direction in, Index.Direction out, RiverType type) {
+    public River(Field parent, Index.Direction in, Index.Direction out) {
         super(Type.River, parent);
         inStreams = new ArrayList<>();
         inStreams.add(in);
         outStream = out;
-        riverType = type;
         fillField();
         setShapes();
     }
@@ -47,7 +44,6 @@ public class River extends FieldElement {
         super(Type.River, parent);
         inStreams = new ArrayList<>();
         outStream = out;
-        riverType = RiverType.Begin;
         fillField();
         setShapes();
     }
@@ -114,6 +110,7 @@ public class River extends FieldElement {
         if (outStream != direction && !inStreams.contains(direction)){
             inStreams.add(direction);
         }
+        fillField();
         setShapes();
     }
 

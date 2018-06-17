@@ -111,7 +111,15 @@ public class Color {
         }
     }
 
-    public Color lighter() {
-        return new Color(9 * r / 10, 9 * g / 10, 9 * b / 10, a);
+    public void moreGreen(int times){
+        g -= times*0.02f;
+    }
+
+    public void moreBlue(int times){
+        b -= times*0.02f;
+    }
+
+    public void moreRed(int times){
+        r -= times*0.02f;
     }
 }

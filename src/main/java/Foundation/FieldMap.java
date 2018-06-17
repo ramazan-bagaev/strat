@@ -19,6 +19,7 @@ public class FieldMap {
     private HashMap<Index, SuperField> superFieldMap;
     private GameEngine gameEngine;
     private Random random;
+    private Time time;
 
     private ArrayList<Continent> continents;
 
@@ -27,6 +28,7 @@ public class FieldMap {
         this.gameEngine = gameEngine;
         this.fieldSize = fieldSize;
         this.superFieldSize = superFieldSize;
+        this.time = gameEngine.getTime();
         map = new HashMap<>();
         superFieldMap = new HashMap<>();
         random = new Random();
@@ -204,5 +206,9 @@ public class FieldMap {
 
     public void addContinent(Continent continent){
         continents.add(continent);
+    }
+
+    public Time getTime() {
+        return time;
     }
 }
