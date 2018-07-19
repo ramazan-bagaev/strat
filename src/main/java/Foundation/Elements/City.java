@@ -2,6 +2,10 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.FieldObjects.*;
+import Foundation.FieldObjects.BuildingObject.CityHouseObject;
+import Foundation.FieldObjects.BuildingObject.LivingBuildingObject;
+import Foundation.FieldObjects.BuildingObject.MarketObject;
+import Foundation.FieldObjects.BuildingObject.PalaceObject;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;

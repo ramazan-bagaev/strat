@@ -1,6 +1,6 @@
 package Foundation.Recources;
 
-import Foundation.FieldObjects.BuildingObject;
+import Foundation.FieldObjects.BuildingObject.BuildingObject;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package Foundation.FieldObjects;
+package Foundation.FieldObjects.BuildingObject;
 
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;

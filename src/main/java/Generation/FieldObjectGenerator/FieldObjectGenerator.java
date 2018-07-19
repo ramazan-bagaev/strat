@@ -27,10 +27,10 @@ public class FieldObjectGenerator extends FieldMapGenerator{
     }
 
     private void fillFieldWithObjects(Field field){
-        if (field.getGroundType() == Ground.GroundType.Rock) ...;
-        if (field.getRiver() != null) ...;
-        if (field.getTree() != null) ...;
-        if (field.getCity() != null) ...;
+        if (field.getGroundType() == Ground.GroundType.Rock) return;
+        if (field.getRiver() != null) return;
+        if (field.getTree() != null) return;
+        if (field.getCity() != null) return;
     }
 
     @Override

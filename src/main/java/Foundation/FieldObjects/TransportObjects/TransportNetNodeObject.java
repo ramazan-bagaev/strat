@@ -1,9 +1,10 @@
 package Foundation.FieldObjects.TransportObjects;
 
 import Foundation.Field;
-import Foundation.FieldObjects.BuildingObject;
+import Foundation.FieldObjects.BuildingObject.BuildingObject;
 import Foundation.Recources.ProductBundle;
 import Foundation.TransportInfrostructure.TransportNetEdge;
+import Foundation.TransportInfrostructure.TransportNetElement;
 import Foundation.TransportInfrostructure.TransportNetNode;
 import Foundation.Window;
 import Utils.Geometry.Index;
@@ -14,7 +15,7 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
 
     protected ArrayList<Index.Direction> directions;
 
-    protected ArrayList<TransportNetEdge> edges;
+    protected ArrayList<TransportNetElement> elements;
 
     protected ArrayList<BuildingObject> linkedBuildings;
 
@@ -23,7 +24,7 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
     public TransportNetNodeObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
         this.directions = new ArrayList<>();
-        edges = new ArrayList<>();
+        elements = new ArrayList<>();
         linkedBuildings = new ArrayList<>();
         bundles = new ArrayList<>();
     }
@@ -33,7 +34,7 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
     }
 
     public void addEdge(TransportNetEdgeObject road){
-        edges.add(road);
+        elements.add(road);
         Index.Direction side = getSameSide(road);
         if (side == Index.Direction.None) return;
         directions.add(side);
@@ -41,7 +42,7 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
     }
 
     public void removeEdge(TransportNetEdgeObject road){
-        edges.remove(road);
+        elements.remove(road);
         Index.Direction side = getSameSide(road);
         if (side == Index.Direction.None) return;
         directions.remove(side);
@@ -70,15 +71,18 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
     }
 
     @Override
-    public ArrayList<TransportNetEdge> getEdges() {
-        return edges;
+    public ArrayList<TransportNetElement> getElements() {
+        return elements;
     }
 
     @Override
     public TransportNetEdge getEdge(TransportNetNode transportNode) {
-        for(TransportNetEdge edge: edges){
-            TransportNetNode node = edge.getOppositeNode(this);
-            if (node != null) return edge;
+        for(TransportNetElement element: elements){
+            if (element.isEdge()){
+                TransportNetEdge edge = (TransportNetEdge)element;
+                TransportNetNode node = edge.getOppositeNode(this);
+                if (node != null) return edge;
+            }
         }
         return null;
     }

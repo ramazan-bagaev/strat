@@ -1,7 +1,10 @@
 package Foundation.FieldObjects;
 
 import Foundation.Field;
+import Foundation.FieldObjects.BuildingObject.BuildingObject;
 import Foundation.FieldObjects.TransportObjects.*;
+import Foundation.Works.Occupation.Occupation;
+import Utils.Boundary.RectangleBoundary;
 import Utils.Geometry.Index;
 import Utils.Geometry.Interval;
 
@@ -87,6 +90,14 @@ public class FieldObjects {
         return null;
     }
 
+    public ArrayList<OccupationPiece> getIntersectedPieces(FieldObject fieldObject){
+        ArrayList<OccupationPiece> pieces = new ArrayList<>();
+        for(OccupationPiece piece: notOccupiedPieces){
+            if (piece.isIntersects(fieldObject)) pieces.add(piece);
+        }
+        return pieces;
+    }
+
     public void splitPiece(OccupationPiece piece, Index pos, Index size){
         notOccupiedPieces.remove(piece);
         int sizeX1 = pos.x - piece.pos.x;
@@ -135,14 +146,14 @@ public class FieldObjects {
 
     public void addFieldObject(FieldObject fieldObject){
         //System.out.println("add field object");
-        OccupationPiece piece = getSpace(fieldObject.cellPos, fieldObject.size);
-        if (piece == null){
-            //System.out.println("failed add field object!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            //System.out.println("object: pos=(" + fieldObject.cellPos.x + "," + fieldObject.cellPos.y + "); size=(" +
-               //     fieldObject.size.x + "," + fieldObject.size.y + ")");
+        if (!isFree(fieldObject)){
             return;
         }
-        splitPiece(piece, fieldObject.cellPos, fieldObject.size);
+        ArrayList<OccupationPiece> pieces = getIntersectedPieces(fieldObject);
+        for(OccupationPiece piece: pieces){
+            RectangleBoundary rect = piece.intersect(fieldObject);
+            splitPiece(piece, rect.getPos(), rect.getSize());
+        }
         fieldObjects.add(fieldObject);
     }
 

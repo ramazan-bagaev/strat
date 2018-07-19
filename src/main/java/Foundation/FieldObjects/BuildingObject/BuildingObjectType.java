@@ -1,4 +1,4 @@
-package Foundation.FieldObjects;
+package Foundation.FieldObjects.BuildingObject;
 
 public interface BuildingObjectType {
 

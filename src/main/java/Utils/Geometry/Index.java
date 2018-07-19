@@ -1,6 +1,7 @@
 package Utils.Geometry;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Index{
 
@@ -80,6 +81,17 @@ public class Index{
         directions.add(Direction.Down);
         directions.add(Direction.Right);
         directions.add(Direction.Left);
+        return directions;
+    }
+
+    public static ArrayList<Direction> getAllDirectionsRandom(Random random){
+        ArrayList<Direction> directions = Index.getAllDirections();
+        while(true){
+            if (random.nextInt(4) == 0) break;
+            Direction dir = directions.get(random.nextInt(4));
+            directions.remove(dir);
+            directions.add(dir);
+        }
         return directions;
     }
 

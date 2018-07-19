@@ -5,6 +5,7 @@ import Foundation.Field;
 import Foundation.GameWindowHelper.Modes.Mode;
 import Foundation.GameWindowHelperElement;
 import Foundation.Window;
+import Utils.Boundary.RectangleBoundary;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 import Utils.Geometry.Interval;
@@ -90,6 +91,17 @@ public abstract class FieldObject implements FieldObjectType{
         if (a1.y > b2.y) return false;
         if (a2.y < b1.y) return false;
         return true;
+    }
+
+    public RectangleBoundary intersect(FieldObject fieldObject){
+        Index a1 = this.cellPos;
+        Index a2 = this.cellPos.add(this.size);
+        Index b1 = fieldObject.getCellPos();
+        Index b2 = fieldObject.getCellPos().add(fieldObject.getSize());
+        Index pos1 = new Index(Math.max(a1.x, b1.x), Math.max(a1.y, b1.y));
+        Index pos2 = new Index(Math.min(a2.x, b2.x), Math.min(a2.y, b2.y));
+        RectangleBoundary rect = new RectangleBoundary(pos1, pos2.minus(pos1));
+        return rect;
     }
 
     public boolean isNeighbour(FieldObject fieldObject){
@@ -224,6 +236,11 @@ public abstract class FieldObject implements FieldObjectType{
 
     @Override
     public boolean isBuilding(){
+        return false;
+    }
+
+    @Override
+    public boolean isNaturalObject(){
         return false;
     }
 

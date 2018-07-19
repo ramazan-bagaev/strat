@@ -1,6 +1,6 @@
 package Foundation.Works.Occupation;
 
-import Foundation.FieldObjects.PeasantHouseObject;
+import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Field;

@@ -1,6 +1,5 @@
 package Foundation.Works;
 
-import Foundation.FieldObjects.BuildingObject;
 import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.Person.People;
 import Foundation.Recources.ProductBundle;

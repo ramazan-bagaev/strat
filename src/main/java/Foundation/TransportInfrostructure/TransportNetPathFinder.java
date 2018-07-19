@@ -22,14 +22,26 @@ public class TransportNetPathFinder {
     }
 
     public void prolongAnalysis(TransportNetNode node){
-        ArrayList<TransportNetEdge> edges = node.getEdges();
-        for(TransportNetEdge edge: edges){
-            TransportNetNode nextNode = edge.getOppositeNode(node);
-            int newDepth = depth.get(node) + edge.getLength();
-            int oldDepth = depth.getOrDefault(nextNode, newDepth + 1);
-            if (oldDepth > newDepth){
-                depth.put(nextNode, newDepth);
-                queue.addLast(nextNode);
+        ArrayList<TransportNetElement> elements = node.getElements();
+        for(TransportNetElement element: elements){
+            if (element.isEdge()) {
+                TransportNetEdge edge = (TransportNetEdge)element;
+                TransportNetNode nextNode = edge.getOppositeNode(node);
+                int newDepth = depth.get(node) + edge.getLength();
+                int oldDepth = depth.getOrDefault(nextNode, newDepth + 1);
+                if (oldDepth > newDepth) {
+                    depth.put(nextNode, newDepth);
+                    queue.addLast(nextNode);
+                }
+            }
+            if (element.isNode()){
+                TransportNetNode nextNode = (TransportNetNode)element;
+                int newDepth = depth.get(node);
+                int oldDepth = depth.getOrDefault(nextNode, newDepth + 1);
+                if (oldDepth > newDepth){
+                    depth.put(nextNode, newDepth);
+                    queue.addLast(nextNode);
+                }
             }
         }
     }
@@ -42,15 +54,26 @@ public class TransportNetPathFinder {
         TransportNetNode curNode = finish;
         while (true){
             if (curDepth == 0) return path;
-            ArrayList<TransportNetEdge> edges = curNode.getEdges();
+            ArrayList<TransportNetElement> elements = curNode.getElements();
             TransportNetNode nextNode = null;
             int minDepth = curDepth;
-            for(TransportNetEdge edge: edges){
-                TransportNetNode node = edge.getOppositeNode(curNode);
-                int nodeDepth = depth.getOrDefault(node, curDepth);
-                if (nodeDepth < minDepth){
-                    nextNode = node;
-                    minDepth = nodeDepth;
+            for(TransportNetElement element: elements){
+                if (element.isEdge()) {
+                    TransportNetEdge edge = (TransportNetEdge)element;
+                    TransportNetNode node = edge.getOppositeNode(curNode);
+                    int nodeDepth = depth.getOrDefault(node, curDepth);
+                    if (nodeDepth < minDepth) {
+                        nextNode = node;
+                        minDepth = nodeDepth;
+                    }
+                }
+                if (element.isNode()){
+                    TransportNetNode node = (TransportNetNode)element;
+                    int nodeDepth = depth.getOrDefault(node, curDepth);
+                    if (nodeDepth < minDepth) {
+                        nextNode = node;
+                        minDepth = nodeDepth;
+                    }
                 }
             }
             if (nextNode == null) break;

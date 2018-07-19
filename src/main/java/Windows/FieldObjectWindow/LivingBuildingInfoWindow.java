@@ -1,7 +1,7 @@
 package Windows.FieldObjectWindow;
 
 import Foundation.Button;
-import Foundation.FieldObjects.LivingBuildingObject;
+import Foundation.FieldObjects.BuildingObject.LivingBuildingObject;
 import Foundation.Frame;
 import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;

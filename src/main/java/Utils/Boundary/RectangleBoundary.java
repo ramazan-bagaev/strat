@@ -4,12 +4,20 @@ import Utils.Geometry.Index;
 
 public class RectangleBoundary implements Boundary {
 
-    private Index pos;
-    private Index size;
+    protected Index pos;
+    protected Index size;
 
     public RectangleBoundary(Index pos, Index size){
         this.pos = pos;
         this.size = size;
+    }
+
+    public Index getPos() {
+        return pos;
+    }
+
+    public Index getSize() {
+        return size;
     }
 
     @Override

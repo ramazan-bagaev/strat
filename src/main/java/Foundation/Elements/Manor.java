@@ -1,7 +1,7 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.FieldObjects.ManorObject;
+import Foundation.FieldObjects.BuildingObject.ManorObject;
 import Foundation.Person.Person;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;

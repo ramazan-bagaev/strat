@@ -8,35 +8,47 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class FieldObjectPathFinder {
+public abstract class FieldObjectPathFinder {
 
     private Field field;
-    private FieldObjects fieldObjects;
-    private int pathWidth;
+    protected FieldObjects fieldObjects;
     private Index start;
-    private Index finish;
 
-    private Rectangle iter;
+    private Index iter;
+    private Index freeIter;
 
-    private ArrayList<Rectangle> path;
+    private ArrayList<Index> path;
 
-    private HashMap<Rectangle, Integer> depth;
-    private LinkedList<Rectangle> queue;
+    private HashMap<Index, Integer> depth;
+    private LinkedList<Index> queue;
+    private LinkedList<Index.Direction> directOrder;
 
     public FieldObjectPathFinder(Field field){
         this.field = field;
         this.fieldObjects = field.getFieldObjects();
         depth = new HashMap<>();
         queue = new LinkedList<>();
-        iter = new Rectangle(new Index(0, 0), new Index(0, 0));
+        directOrder = new LinkedList<>();
+        initNewDirectOrder();
+        iter = new Index(0, 0);
+        freeIter = new Index(1, 1);
     }
 
-    public ArrayList<Rectangle> getPath(int pathWidth, Index start, Index finish){
-        this.pathWidth = pathWidth;
+
+    private void initNewDirectOrder(){
+        directOrder.clear();
+        ArrayList<Index.Direction> directs = Index.getAllDirections();
+        for(int i = 0; i < 4; i++){
+            Index.Direction dir = directs.get(field.getRandom().nextInt(directs.size()));
+            directOrder.add(dir);
+            directs.remove(dir);
+        }
+    }
+
+    public ArrayList<Index> getPath(Index start){
         this.start = start;
-        this.finish = finish;
-        this.iter.size.x = pathWidth;
-        this.iter.size.y = pathWidth;
+        findPath();
+        return path;
     }
 
     private void findPath(){
@@ -44,44 +56,82 @@ public class FieldObjectPathFinder {
         queue.clear();
         depth.clear();
         queue.add(start);
+        depth.put(start, 0);
+        while (true){
+            if (queue.size() == 0) return;
+            Index curPos = queue.getFirst();
+            if (isFinish(curPos)){
+                constructPath(curPos);
+                return;
+            }
+            queue.remove(curPos);
+            visitSurroundings(curPos);
+        }
     }
 
-    private void visitSurroundings(Rectangle curZone){
-        int curDepth = depth.get(curZone);
+    private void constructPath(Index finish){
+        Index curPos = finish;
+        while (true){
+            if (curPos == null) return;
+            path.add(curPos);
+            int curDepth = depth.get(curPos);
+            if (curDepth == 0) return;
+            curPos = getNextPosForPath(curPos);
+            if (field.getRandom().nextInt(100) < 10) initNewDirectOrder();
+        }
+    }
+
+    private Index getNextPosForPath(Index curPos){
+        int curDepth = depth.get(curPos);
+        for(Index.Direction dir: directOrder){
+            if (dir == Index.Direction.None) continue;
+            Index nextPos = getNeighbour(curPos, dir);
+            int newDepth = depth.getOrDefault(nextPos, -1);
+            if (newDepth == -1) continue;
+            if (newDepth + 1 == curDepth) return new Index(nextPos);
+        }
+        return null;
+    }
+
+    private void visitSurroundings(Index curPos){
+        int curDepth = depth.get(curPos);
         for(Index.Direction dir: Index.getAllDirections()){
-            Rectangle neighbour = getNeighbour(curZone, dir);
-            if (neighbour.contains(finish)){
+            if (dir == Index.Direction.None) continue;
+            Index neighbour = getNeighbour(curPos, dir);
+            if (isFinish(neighbour)){
                 queue.addFirst(neighbour);
+                depth.put(neighbour,curDepth + 1);
+                return;
             }
-            int oldDepth = depth.getOrDefault(neighbour, curDepth + pathWidth + 1);
-            if (oldDepth > curDepth + pathWidth){
-                Rectangle newRect = new Rectangle(neighbour);
-                depth.put(newRect, curDepth + pathWidth);
-                queue.add(newRect);
+            if (!isFree(neighbour)) continue;
+            int oldDepth = depth.getOrDefault(neighbour, curDepth + 2);
+            if (oldDepth > curDepth + 1){
+                depth.put(neighbour, curDepth + 1);
+                queue.add(neighbour);
             }
         }
     }
 
-    private Rectangle getNeighbour(Rectangle curZone, Index.Direction dir){
+    private boolean isFree(Index index){
+        return fieldObjects.isFree(index, freeIter);
+    }
+
+    private Index getNeighbour(Index curPos, Index.Direction dir){
         switch (dir){
 
             case Up:
-                iter.pos.x = curZone.pos.x;
-                iter.pos.y = curZone.pos.y - pathWidth;
-                return iter;
+                return new Index(curPos.x, curPos.y - 1);
             case Down:
-                iter.pos.x = curZone.pos.x;
-                iter.pos.y = curZone.pos.y + pathWidth;
-                return iter;
+                return new Index(curPos.x, curPos.y + 1);
             case Right:
-                iter.pos.x = curZone.pos.x + pathWidth;
-                iter.pos.y = curZone.pos.y;
-                return iter;
+                return new Index(curPos.x + 1, curPos.y);
             case Left:
-                iter.pos.x = curZone.pos.x - pathWidth;
-                iter.pos.y = curZone.pos.y;
-                return iter;
+                return new Index(curPos.x - 1, curPos.y);
+            case None:
+                return null;
         }
-        return curZone;
+        return null;
     }
+
+    public abstract boolean isFinish(Index pos);
 }

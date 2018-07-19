@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface TransportNetNode{
 
-    ArrayList<TransportNetEdge> getEdges();
+    ArrayList<TransportNetElement> getElements();
 
     TransportNetEdge getEdge(TransportNetNode transportNode);
 }

@@ -1,8 +1,8 @@
 package Foundation.Elements;
 
 import Foundation.*;
-import Foundation.FieldObjects.PeasantHouseObject;
-import Foundation.FieldObjects.StewardBuildingObject;
+import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
+import Foundation.FieldObjects.BuildingObject.StewardBuildingObject;
 import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;

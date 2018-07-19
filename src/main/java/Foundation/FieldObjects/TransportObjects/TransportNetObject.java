@@ -37,4 +37,9 @@ public abstract class TransportNetObject extends FieldObject implements Transpor
     public boolean isPriming(){
         return false;
     }
+
+    @Override
+    public boolean isWater(){
+        return false;
+    }
 }

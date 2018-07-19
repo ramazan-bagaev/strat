@@ -5,6 +5,7 @@ import Foundation.Elements.River;
 import Foundation.FieldMap;
 import Foundation.Field;
 import Generation.FieldMapGenerator;
+import Generation.FieldObjectGenerator.RiverFieldObjectsGenerator;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;
@@ -15,13 +16,15 @@ import java.util.Random;
 public class RiverGenerator extends FieldMapGenerator {
 
     private Random random;
-    private ArrayList<Index> deadEnd;
-    private ArrayList<Index> currentRiver;
+    private Index insideEnd;
+    private Index insideStart;
 
     private HashMap<Index, Integer> depth;
     private LinkedList<Index> queue;
     private Index iter;
     private ArrayList<Index> startingPoints;
+
+    private RiverFieldObjectsGenerator riverFieldObjectsGenerator;
 
     @Override
     public void startGeneration() {
@@ -100,14 +103,18 @@ public class RiverGenerator extends FieldMapGenerator {
     }
 
     private void addRiverFrom(Index start, Index finish){
-        Index curIndex = finish;
-        Index prevIndex;
+        Index prevIndex = finish;
+        Index curIndex = getNextPosForRiver(prevIndex);
+        Index nextIndex = getNextPosForRiver(curIndex);
+        insideStart = null;
+        insideEnd = null;
         while(true){
-            prevIndex = curIndex;
-            curIndex = getNextPosForRiver(curIndex);
-            addRiverToPos(prevIndex, curIndex);
             if (curIndex == null) return;
             if (curIndex.equals(start)) return;
+            addRiverToPos(prevIndex, curIndex, nextIndex);
+            prevIndex = curIndex;
+            curIndex = nextIndex;
+            nextIndex = getNextPosForRiver(nextIndex);
         }
     }
 
@@ -129,19 +136,43 @@ public class RiverGenerator extends FieldMapGenerator {
         return null;
     }
 
-    private void addRiverToPos(Index prevPos, Index pos){
+    private void addRiverToPos(Index prevPos, Index pos, Index nextPos){
         Field field = map.getFieldByIndex(pos);
         Field prevField = map.getFieldByIndex(prevPos);
         if (field == null) return;
-        if (prevField == null) return;
-        River river = field.getRiver();
-        if (river == null){
-            field.setRiver(new River(field, pos.whatDirection(prevPos)));
+        if (prevField != null) {
+            River river = field.getRiver();
+            if (river == null){
+                field.setRiver(new River(field, pos.whatDirection(prevPos)));
+            }
+            river = prevField.getRiver();
+            if (river != null) {
+                river.addInStream(prevPos.whatDirection(pos));
+            }
         }
-        river = prevField.getRiver();
-        if (river != null){
-            river.addInStream(prevPos.whatDirection(pos));
+
+        initInsideStart(pos, prevPos);
+
+        if (nextPos == null){
+            insideEnd = new Index(random.nextInt(100), random.nextInt(100));
         }
+        else {
+            switch (pos.whatDirection(nextPos)){
+                case Up:
+                    insideEnd = new Index(random.nextInt(100), 0);
+                    break;
+                case Down:
+                    insideEnd = new Index(random.nextInt(100), 99);
+                    break;
+                case Right:
+                    insideEnd = new Index(99, random.nextInt(100));
+                    break;
+                case Left:
+                    insideEnd = new Index(0, random.nextInt(100));
+                    break;
+            }
+        }
+        riverFieldObjectsGenerator.generate(field, insideStart, insideEnd);
     }
 
     @Override
@@ -149,10 +180,10 @@ public class RiverGenerator extends FieldMapGenerator {
         this.map = map;
         this.size = size;
         this.random = map.getRandom();
-        currentRiver = new ArrayList<>();
         queue = new LinkedList<>();
         depth = new HashMap<>();
         iter = new Index(0, 0);
+        riverFieldObjectsGenerator = new RiverFieldObjectsGenerator();
         initStartingPoints();
     }
 
@@ -165,6 +196,48 @@ public class RiverGenerator extends FieldMapGenerator {
                 Field field = map.getFieldByIndex(iter);
                 if (field.getHeight() > 2) startingPoints.add(field.getFieldMapPos());
             }
+        }
+    }
+
+    private void initInsideStart(Index curPos, Index prevPos){
+        if (insideEnd == null){
+            switch (curPos.whatDirection(prevPos)){
+                case Up:
+                    insideStart = new Index(random.nextInt(100), 0);
+                    break;
+                case Down:
+                    insideStart = new Index(random.nextInt(100), 99);
+                    break;
+                case Right:
+                    insideStart = new Index(99, random.nextInt(100));
+                    break;
+                case Left:
+                    insideStart = new Index(0, random.nextInt(100));
+                    break;
+            }
+            return;
+        }
+        int cellAmount = map.getFieldByIndex(curPos).getCellAmount();
+        switch (curPos.whatDirection(prevPos)){
+
+            case Up:
+                insideStart.y = 0;
+                insideStart.x = insideEnd.x;
+                break;
+            case Down:
+                insideStart.y = cellAmount - 1;
+                insideStart.x = insideEnd.x;
+                break;
+            case Right:
+                insideStart.x = cellAmount - 1;
+                insideStart.y = insideEnd.y;
+                break;
+            case Left:
+                insideStart.x = 0;
+                insideStart.y = insideEnd.y;
+                break;
+            case None:
+                break;
         }
     }
 }

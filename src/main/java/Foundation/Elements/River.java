@@ -27,7 +27,7 @@ public class River extends FieldElement {
         super(Type.River, parent);
         inStreams = in;
         outStream = out;
-        fillField();
+        //fillField();
         setShapes();
     }
 
@@ -36,7 +36,7 @@ public class River extends FieldElement {
         inStreams = new ArrayList<>();
         inStreams.add(in);
         outStream = out;
-        fillField();
+        //fillField();
         setShapes();
     }
 
@@ -44,11 +44,11 @@ public class River extends FieldElement {
         super(Type.River, parent);
         inStreams = new ArrayList<>();
         outStream = out;
-        fillField();
+        //fillField();
         setShapes();
     }
 
-    public void fillField(){
+    /*public void fillField(){
         Field field = getParent();
         int cellAmount = field.getCellAmount();
 
@@ -104,13 +104,13 @@ public class River extends FieldElement {
             case None:
                 break;
         }
-    }
+    }*/
 
     public void addInStream(Index.Direction direction){
         if (outStream != direction && !inStreams.contains(direction)){
             inStreams.add(direction);
         }
-        fillField();
+        //fillField();
         setShapes();
     }
 
@@ -192,4 +192,11 @@ public class River extends FieldElement {
         this.nextPiece = nextPiece;
     }
 
+    public ArrayList<Index.Direction> getInStreams() {
+        return inStreams;
+    }
+
+    public Index.Direction getOutStream(){
+        return outStream;
+    }
 }

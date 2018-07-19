@@ -1,7 +1,8 @@
-package Foundation.FieldObjects;
+package Foundation.FieldObjects.BuildingObject;
 
 import Foundation.Color;
 import Foundation.Field;
+import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.FieldObjects.TransportObjects.TransportNetObject;
 import Foundation.GameWindowHelper.Modes.InFieldMode.LinkedToBuildingRoadCoveringMode;
