@@ -4,5 +4,4 @@ public interface RoadType {
 
     boolean isPavement();
     boolean isPriming();
-    boolean isWater();
 }

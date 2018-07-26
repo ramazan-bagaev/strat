@@ -5,6 +5,7 @@ import Foundation.Elements.Tree;
 import Foundation.Field;
 import Foundation.FieldMap;
 import Generation.FieldMapGenerator;
+import Generation.FieldObjectGenerator.ForestObjectGenerator;
 import Utils.Boundary.EllipseBoundary;
 import Utils.BypassIterator.FieldMapWidthBypassIterator;
 import Utils.Distribution.EllipseDistribution;
@@ -18,6 +19,7 @@ public class ForestGenerator extends FieldMapGenerator {
 
     private Random random;
     private double mult;
+    private ForestObjectGenerator forestObjectGenerator;
 
     @Override
     public void startGeneration() {
@@ -61,6 +63,7 @@ public class ForestGenerator extends FieldMapGenerator {
         if (field.getGroundType() == Ground.GroundType.Rock) return;
 
         field.setTree(new Tree(field));
+        forestObjectGenerator.generate(field);
     }
 
     private Index getIndexForForest(){
@@ -82,5 +85,6 @@ public class ForestGenerator extends FieldMapGenerator {
         this.size = size;
         this.random = map.getRandom();
         this.mult = size.x/100;
+        this.forestObjectGenerator = new ForestObjectGenerator();
     }
 }

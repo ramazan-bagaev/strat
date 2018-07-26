@@ -4,6 +4,7 @@ import Foundation.Elements.Ground;
 import Foundation.Field;
 import Foundation.FieldMap;
 import Generation.FieldMapGenerator;
+import Generation.FieldObjectGenerator.MountainRockGeneration;
 import Utils.Boundary.EllipseBoundary;
 import Utils.BypassIterator.FieldMapWidthBypassIterator;
 import Utils.Distribution.EllipseDistribution;
@@ -23,6 +24,8 @@ public class ReliefGenerator extends FieldMapGenerator {
     private PlateGenerator plateGenerator;
     private Random random;
 
+    private MountainRockGeneration mountainRockGeneration;
+
     @Override
     public void startGeneration() {
         generateTerrainMap();
@@ -39,6 +42,7 @@ public class ReliefGenerator extends FieldMapGenerator {
         plateGenerator = new PlateGenerator();
         drivingDirections = new HashMap<>();
         boundaries = new ArrayList<>();
+        mountainRockGeneration = new MountainRockGeneration();
     }
 
     private void generateTerrainMap(){
@@ -142,6 +146,7 @@ public class ReliefGenerator extends FieldMapGenerator {
         }
         if (field.getGroundType() == Ground.GroundType.Water && field.getHeight() < 0) return;
         field.setGround(new Ground(Ground.GroundType.Rock, field));
+        mountainRockGeneration.generate(field);
     }
 
     private void changeFieldHeight(Index pos, int delta){

@@ -33,7 +33,7 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
         linkedBuildings.add(buildingObject);
     }
 
-    public void addEdge(TransportNetEdgeObject road){
+    public void addNetElement(TransportNetObject road){
         elements.add(road);
         Index.Direction side = getSameSide(road);
         if (side == Index.Direction.None) return;
@@ -41,7 +41,7 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
         setShapes();
     }
 
-    public void removeEdge(TransportNetEdgeObject road){
+    public void removeNetElement(TransportNetObject road){
         elements.remove(road);
         Index.Direction side = getSameSide(road);
         if (side == Index.Direction.None) return;

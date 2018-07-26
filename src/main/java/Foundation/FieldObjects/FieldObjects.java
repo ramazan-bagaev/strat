@@ -3,7 +3,6 @@ package Foundation.FieldObjects;
 import Foundation.Field;
 import Foundation.FieldObjects.BuildingObject.BuildingObject;
 import Foundation.FieldObjects.TransportObjects.*;
-import Foundation.Works.Occupation.Occupation;
 import Utils.Boundary.RectangleBoundary;
 import Utils.Geometry.Index;
 import Utils.Geometry.Interval;
@@ -330,7 +329,7 @@ public class FieldObjects {
                     Index.Direction side = cross.getSameSide(road);
                     if (side == Index.Direction.None) continue;
                     if (Index.isVertical(side) == road.isVertical()){
-                        cross.addEdge(road);
+                        cross.addNetElement(road);
                         road.setNode(cross);
                     }
                 }
@@ -340,9 +339,15 @@ public class FieldObjects {
                     Index.Direction side = cross.getSameSide(road);
                     if (side == Index.Direction.None) continue;
                     if (Index.isVertical(side) == road.isVertical()){
-                        cross.addEdge(road);
+                        cross.addNetElement(road);
                         road.setNode(cross);
                     }
+                }
+                if (netObject.isNode() && transportNetObject.isNode()){
+                    TransportNetNodeObject cross1 = (TransportNetNodeObject)transportNetObject;
+                    TransportNetNodeObject cross2 = (TransportNetNodeObject)netObject;
+                    cross1.addNetElement(cross2);
+                    cross2.addNetElement(cross1);
                 }
             }
         }
@@ -447,13 +452,13 @@ public class FieldObjects {
                     TransportNetEdgeObject road = (TransportNetEdgeObject)iterNetObject;
                     TransportNetNodeObject cross = (TransportNetNodeObject)netObject;
                     road.removeNode(cross);
-                    cross.removeEdge(road);
+                    cross.removeNetElement(road);
                 }
                 if (iterNetObject.isNode() && netObject.isEdge()){
                     TransportNetEdgeObject road = (TransportNetEdgeObject)netObject;
                     TransportNetNodeObject cross = (TransportNetNodeObject)iterNetObject;
                     road.removeNode(cross);
-                    cross.removeEdge(road);
+                    cross.removeNetElement(road);
                 }
             }
         }

@@ -16,6 +16,16 @@ public abstract class NaturalObject extends FieldObject implements NaturalObject
     }
 
     @Override
+    public boolean isForestObject(){
+        return false;
+    }
+
+    @Override
+    public boolean isStoneObject(){
+        return false;
+    }
+
+    @Override
     public boolean isNaturalObject(){
         return true;
     }

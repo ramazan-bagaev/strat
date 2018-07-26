@@ -19,7 +19,7 @@ public class Road extends FieldElement{
     public Road(Field parent, ArrayList<Index.Direction> sides) {
         super(Type.Road, parent);
         this.sides = sides;
-        fillField();
+        //fillField();
         setShapes();
     }
 

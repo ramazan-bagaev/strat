@@ -114,7 +114,7 @@ public class City extends HabitableFieldElement {
         int cellAmount = field.getCellAmount();
         Index pos = field.getFieldObjects().getPosForBuilding(new Index(8, 4));
         if (pos != null) {
-            PalaceObject palaceObject = new PalaceObject(getParent(), pos);
+            PalaceObject palaceObject = new PalaceObject(field, pos);
             fieldObjects.addBuilding(palaceObject);
         }
         int populace = society.getAmount();

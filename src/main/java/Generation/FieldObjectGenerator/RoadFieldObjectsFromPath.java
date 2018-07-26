@@ -1,33 +1,34 @@
 package Generation.FieldObjectGenerator;
 
+import Foundation.Field;
 import Foundation.FieldObjects.NaturalObjects.WaterFlowObject;
+import Foundation.FieldObjects.TransportObjects.*;
+import Foundation.TransportInfrostructure.TransportNetNode;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;
-import Foundation.Field;
 
-public class WaterFlowObjectsFromPath {
+public class RoadFieldObjectsFromPath {
 
     private ArrayList<Index> path;
     private Index.Direction curDir;
     private Index curEdgePos;
     private Index curEdgeSize;
-    private ArrayList<WaterFlowObject> waterFlowObjects;
+    private ArrayList<TransportNetObject> transportNetObjects;
     private Field parent;
+    private RoadType roadType;
 
-    public ArrayList<WaterFlowObject> getWaterFlowObjects(ArrayList<Index> path, Field parent){
+    public ArrayList<TransportNetObject> getTransportNetObject(ArrayList<Index> path, Field parent, RoadType roadType){
         this.path = path;
         this.parent = parent;
+        this.roadType = roadType;
         if (path.size() < 2) return null;
-        waterFlowObjects = new ArrayList<>();
-        initNewEdge(path.get(0));
+        transportNetObjects = new ArrayList<>();
         curDir = path.get(0).whatDirection(path.get(1));
-        for(int i = 1; i < path.size(); i++){
-            /*if (curEdgePos == null){
-                initNewEdge(path.get(i));
-                continue;
-            }
-            if (curDir == null){
+        addNewNode(path.get(0));
+        initNewEdge(path.get(1));
+        for(int i = 2; i < path.size(); i++){
+            /*if (curDir == null){
                 curDir = path.get(i-1).whatDirection(path.get(i));
             }*/
             if (path.get(i-1).whatDirection(path.get(i)).equals(curDir)){
@@ -36,7 +37,7 @@ public class WaterFlowObjectsFromPath {
             else {
                 removePosFromCurEdge();
                 addNewEdge();
-                addNewNode(path.get(i-1));
+                addNewNode(path.get(i - 1));
                 initNewEdge(path.get(i));
                 curDir = path.get(i-1).whatDirection(path.get(i));
             }
@@ -47,7 +48,7 @@ public class WaterFlowObjectsFromPath {
             addNewNode(path.get(path.size() - 1));
             curDir = null;
         }
-        return waterFlowObjects;
+        return transportNetObjects;
     }
 
     private void addPosToCurEdge(){
@@ -89,12 +90,13 @@ public class WaterFlowObjectsFromPath {
     }
 
     private void addNewEdge(){
-        if (curEdgeSize.x == 0 || curEdgeSize.y == 0) return;
-
-        waterFlowObjects.add(getNewWaterFlowObject(curEdgePos, curEdgeSize));
+        if (curEdgeSize.x == 0 || curEdgeSize.y == 0){
+            return;
+        }
+        transportNetObjects.add(getNewTransportNetEdge(curEdgePos, curEdgeSize, Index.isVertical(curDir)));
         curEdgePos = null;
         curEdgeSize = null;
-        curDir = null;
+        //curDir = null;
     }
 
     private void initNewEdge(Index pos){
@@ -103,10 +105,26 @@ public class WaterFlowObjectsFromPath {
     }
 
     private void addNewNode(Index curPos){
-        waterFlowObjects.add(getNewWaterFlowObject(curPos, new Index(new Index(1, 1))));
+        transportNetObjects.add(getNewTransportNetNode(curPos, new Index(new Index(1, 1))));
     }
 
-    private WaterFlowObject getNewWaterFlowObject(Index pos, Index size){
-        return new WaterFlowObject(parent, pos, size);
+    private TransportNetEdgeObject getNewTransportNetEdge(Index pos, Index size, boolean vertical){
+        if (roadType.isPavement()){
+            return new PavementRoadObject(parent, new Index(pos), new Index(size), vertical);
+        }
+        if (roadType.isPriming()){
+            return new PrimingRoadObject(parent, new Index(pos), new Index(size), vertical);
+        }
+        return null;
+    }
+
+    private TransportNetNodeObject getNewTransportNetNode(Index pos, Index size){
+        if (roadType.isPavement()){
+            return new PavementRoadCrossObject(parent, new Index(pos), new Index(size));
+        }
+        if (roadType.isPriming()){
+            return new PrimingRoadCrossObject(parent, new Index(pos), new Index(size));
+        }
+        return null;
     }
 }

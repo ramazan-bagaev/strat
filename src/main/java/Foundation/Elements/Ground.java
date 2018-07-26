@@ -52,8 +52,12 @@ public class Ground extends FieldElement {
             color = new Color(Color.Type.Blue);
             color.moreBlue(-height - 10);
         }
-
         if (getGroundType() == GroundType.Rock){
+            color = new Color(Color.Type.Gray);
+            color.moreGreen(height);
+            color.moreRed(height);
+        }
+        /*if (getGroundType() == GroundType.Rock){
             ArrayList<BasicShape> shapes = new RockImage(new Coord(0, 0), new Coord(size, size), height, null)
                     .getBasicShapesRemoveAndShiftBack();
             for (BasicShape basicShape: shapes){
@@ -63,7 +67,9 @@ public class Ground extends FieldElement {
         else {
             RectangleShape newShape = new RectangleShape(new Coord(0, 0), new Coord(size, size), color, false,true);
             addShape(newShape);
-        }
+        }*/
+        RectangleShape newShape = new RectangleShape(new Coord(0, 0), new Coord(size, size), color, false,true);
+        addShape(newShape);
     }
 
 

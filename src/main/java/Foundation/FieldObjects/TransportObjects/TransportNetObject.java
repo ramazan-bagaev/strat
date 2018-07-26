@@ -38,8 +38,4 @@ public abstract class TransportNetObject extends FieldObject implements Transpor
         return false;
     }
 
-    @Override
-    public boolean isWater(){
-        return false;
-    }
 }

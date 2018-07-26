@@ -142,15 +142,31 @@ public abstract class FieldObject implements FieldObjectType{
     }
 
     public Index.Direction getSameSide(FieldObject fieldObject){
-        if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.x
-                && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Left;
-        if (cellPos.x + size.x == fieldObject.cellPos.x
-                && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Right;
-        if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y
-                && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Up;
-        if (cellPos.y + size.y == fieldObject.cellPos.y
-                && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Down;
-        return Index.Direction.None;
+        if (fieldObject.getParent() == parent) {
+            if (cellPos.x == fieldObject.cellPos.x + fieldObject.size.x
+                    && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Left;
+            if (cellPos.x + size.x == fieldObject.cellPos.x
+                    && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Right;
+            if (cellPos.y == fieldObject.cellPos.y + fieldObject.size.y
+                    && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Up;
+            if (cellPos.y + size.y == fieldObject.cellPos.y
+                    && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Down;
+            return Index.Direction.None;
+        }
+        else {
+            int d = parent.getCellAmount();
+            int a = cellPos.x % d;
+            int b = fieldObject.cellPos.x + fieldObject.size.x % d;
+            if (cellPos.x % d == (fieldObject.cellPos.x + fieldObject.size.x) % d
+                    && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Left;
+            if ((cellPos.x + size.x) % d == fieldObject.cellPos.x % d
+                    && cellPos.y == fieldObject.cellPos.y && size.y == fieldObject.size.y) return Index.Direction.Right;
+            if (cellPos.y % d == (fieldObject.cellPos.y + fieldObject.size.y) % d
+                    && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Up;
+            if ((cellPos.y + size.y) % d == fieldObject.cellPos.y % d
+                    && cellPos.x == fieldObject.cellPos.x && size.x == fieldObject.size.x) return Index.Direction.Down;
+            return Index.Direction.None;
+        }
     }
 
     public Interval getSideIntersection(FieldObject fieldObject){
