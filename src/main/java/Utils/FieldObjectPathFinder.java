@@ -15,7 +15,6 @@ public abstract class FieldObjectPathFinder {
     private Index start;
 
     private Index iter;
-    private Index freeIter;
 
     private ArrayList<Index> path;
 
@@ -31,7 +30,6 @@ public abstract class FieldObjectPathFinder {
         directOrder = new LinkedList<>();
         initNewDirectOrder();
         iter = new Index(0, 0);
-        freeIter = new Index(1, 1);
     }
 
 
@@ -88,7 +86,7 @@ public abstract class FieldObjectPathFinder {
             Index nextPos = getNeighbour(curPos, dir);
             int newDepth = depth.getOrDefault(nextPos, -1);
             if (newDepth == -1) continue;
-            if (newDepth + 1 == curDepth) return new Index(nextPos);
+            if (newDepth < curDepth) return new Index(nextPos);
         }
         return null;
     }
@@ -98,22 +96,19 @@ public abstract class FieldObjectPathFinder {
         for(Index.Direction dir: Index.getAllDirections()){
             if (dir == Index.Direction.None) continue;
             Index neighbour = getNeighbour(curPos, dir);
+            int dist = getDistance(neighbour);
             if (isFinish(neighbour)){
                 queue.addFirst(neighbour);
-                depth.put(neighbour,curDepth + 1);
+                depth.put(neighbour,curDepth + dist);
                 return;
             }
             if (!isFree(neighbour)) continue;
-            int oldDepth = depth.getOrDefault(neighbour, curDepth + 2);
-            if (oldDepth > curDepth + 1){
-                depth.put(neighbour, curDepth + 1);
+            int oldDepth = depth.getOrDefault(neighbour, curDepth + dist + 1);
+            if (oldDepth > curDepth + dist){
+                depth.put(neighbour, curDepth + dist);
                 queue.add(neighbour);
             }
         }
-    }
-
-    private boolean isFree(Index index){
-        return fieldObjects.isFree(index, freeIter);
     }
 
     private Index getNeighbour(Index curPos, Index.Direction dir){
@@ -133,5 +128,9 @@ public abstract class FieldObjectPathFinder {
         return null;
     }
 
+    public abstract boolean isFree(Index index);
+
     public abstract boolean isFinish(Index pos);
+
+    public abstract int getDistance(Index pos);
 }

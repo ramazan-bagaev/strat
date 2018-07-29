@@ -1,7 +1,12 @@
 package Foundation.FieldObjects.TransportObjects;
 
+import Foundation.Color;
 import Foundation.Field;
 import Foundation.FieldObjects.BuildingObject.BuildingObject;
+import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
+import Foundation.GameWindowHelper.Modes.InFieldMode.CoveringObjectMode;
+import Foundation.GameWindowHelper.Modes.Mode;
+import Foundation.GameWindowHelperElement;
 import Foundation.Recources.ProductBundle;
 import Foundation.TransportInfrostructure.TransportNetEdge;
 import Foundation.TransportInfrostructure.TransportNetElement;
@@ -100,5 +105,14 @@ public abstract class TransportNetNodeObject extends TransportNetObject implemen
             return new PrimingRoadCrossObject(parent, pos, size);
         }
         return null;
+    }
+
+    @Override
+    public Mode getModeOnClick(GameWindowHelperElement gameWindowHelperElement){
+        ArrayList<TransportNetObject> transportNetObjects = new ArrayList<>();
+        for(TransportNetElement element: elements){
+            transportNetObjects.add((TransportNetObject)element);
+        }
+        return new CoveringObjectMode(gameWindowHelperElement, transportNetObjects, new Color(Color.Type.Yellow, 0.5f));
     }
 }

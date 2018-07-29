@@ -2,6 +2,7 @@ package Foundation.FieldObjects;
 
 import Foundation.Field;
 import Foundation.FieldObjects.BuildingObject.BuildingObject;
+import Foundation.FieldObjects.BuildingObject.GateObject;
 import Foundation.FieldObjects.TransportObjects.*;
 import Utils.Boundary.RectangleBoundary;
 import Utils.Geometry.Index;
@@ -115,10 +116,14 @@ public class FieldObjects {
                 new Index(sizeX2, sizeY1), parent));
     }
 
-    public boolean isFree(Index pos, Index size){
+    public boolean isInBoundary(Index pos, Index size){
         int cellAmount = parent.getCellAmount();
-       // System.out.println("start isFree func");
         if (!(pos.x >= 0 && pos.x + size.x <= cellAmount && pos.y >= 0 && pos.y + size.y <= cellAmount)) return false;
+        return true;
+    }
+
+    public boolean isFree(Index pos, Index size){
+        if (!isInBoundary(pos, size)) return false;
        // System.out.println("in boundaries");
         for(FieldObject object: fieldObjects){
             if (object.isIntersects(pos, size)){
@@ -535,6 +540,33 @@ public class FieldObjects {
             fieldObjects.remove(object);
             addNotOccupiedPiece(new OccupationPiece(object));
         }
+    }
+
+    public void addGateObject(Index pos, boolean verticalWall){
+        Index size = new Index(1, 1);
+        if (!isFree(pos, size)) return;
+        if (verticalWall){
+            if (!isFree(pos.add(new Index(1, 0)), size)) return;
+            if (!isFree(pos.add(new Index(-1, 0)), size)) return;
+            PavementRoadCrossObject cross1 = new PavementRoadCrossObject(parent, pos.add(new Index(1, 0)), size);
+            addTransportNetElement(cross1);
+            PavementRoadCrossObject cross2 = new PavementRoadCrossObject(parent, pos.add(new Index(-1, 0)), size);
+            addTransportNetElement(cross2);
+            cross1.addNetElement(cross2);
+            cross2.addNetElement(cross1);
+        }
+        else {
+            if (!isFree(pos.add(new Index(0, 1)), size)) return;
+            if (!isFree(pos.add(new Index(0, -1)), size)) return;
+            PavementRoadCrossObject cross1 = new PavementRoadCrossObject(parent, pos.add(new Index(0, 1)), size);
+            addTransportNetElement(cross1);
+            PavementRoadCrossObject cross2 = new PavementRoadCrossObject(parent, pos.add(new Index(0, -1)), size);
+            addTransportNetElement(cross2);
+            cross1.addNetElement(cross2);
+            cross2.addNetElement(cross1);
+        }
+        GateObject gateObject = new GateObject(parent, pos, size);
+        addFieldObject(gateObject);
     }
 
     public ArrayList<FieldObject> getArray() {

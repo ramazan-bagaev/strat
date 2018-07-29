@@ -6,6 +6,7 @@ import Foundation.FieldMap;
 import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.FieldObjects;
+import Foundation.FieldObjects.NaturalObjects.NaturalObject;
 import Foundation.FieldObjects.TransportObjects.RoadType;
 import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.FieldObjects.TransportObjects.TransportNetObject;
@@ -76,11 +77,31 @@ public class RoadGenerator{
     }
 
     private void generateRoadFieldObject(Field field, Index localStart, Index localEnd){
+        Index singleSize = new Index(1, 1);
         fieldObjectPathFinder = new FieldObjectPathFinder(field) {
+
+            @Override
+            public boolean isFree(Index index) {
+                if (!fieldObjects.isInBoundary(index, singleSize)) return false;
+                FieldObject fieldObject = fieldObjects.getFieldObject(index);
+                if (fieldObject == null) return true;
+                if (fieldObject.isTransportNetObject()) return true;
+                return false;
+            }
+
             @Override
             public boolean isFinish(Index pos) {
                 return pos.equals(localEnd);
             }
+
+            @Override
+            public int getDistance(Index pos) {
+                FieldObject fieldObject = fieldObjects.getFieldObject(pos);
+                if (fieldObject == null) return 2;
+                if (fieldObject.isTransportNetObject()) return 1;
+                else return 4;
+            }
+
         };
         ArrayList<Index> path = fieldObjectPathFinder.getPath(localStart);
         RoadType roadType = new RoadType() {

@@ -53,6 +53,7 @@ public abstract class BuildingObject extends FieldObject implements BuildingObje
         return false;
     }
 
+
     @Override
     public Mode getModeOnClick(GameWindowHelperElement gameWindowHelperElement){
         LinkedToBuildingRoadCoveringMode mode = new LinkedToBuildingRoadCoveringMode(gameWindowHelperElement,

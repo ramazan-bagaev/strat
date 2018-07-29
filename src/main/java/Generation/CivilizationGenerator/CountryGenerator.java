@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class CountryGenerator extends FieldMapGenerator{
 
+    private CityGenerator cityGenerator;
     private RoadGenerator roadGenerator;
 
     private PersonGenerator personGenerator;
@@ -56,10 +57,7 @@ public class CountryGenerator extends FieldMapGenerator{
     }
 
     private City generateCity(Index pos){
-        Field field = map.getFieldByIndex(pos);
-        String name = nameGenerator.generate();
-        City city = new City(name, field);
-        field.setCity(city);
+        City city = cityGenerator.generatCity(map.getFieldByIndex(pos));
         renewPosForCities(pos);
         generateRoad(city);
         return city;
@@ -102,6 +100,7 @@ public class CountryGenerator extends FieldMapGenerator{
         this.nameGenerator = new NameGenerator(random);
         this.personGenerator = new PersonGenerator(random);
         this.roadGenerator = new RoadGenerator(map);
+        this.cityGenerator = new CityGenerator(random);
         this.iter = new Index(0, 0);
         initPosForCities();
     }

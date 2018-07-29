@@ -31,6 +31,7 @@ public class RoadFieldObjectsFromPath {
             /*if (curDir == null){
                 curDir = path.get(i-1).whatDirection(path.get(i));
             }*/
+            if ()
             if (path.get(i-1).whatDirection(path.get(i)).equals(curDir)){
                 addPosToCurEdge();
             }

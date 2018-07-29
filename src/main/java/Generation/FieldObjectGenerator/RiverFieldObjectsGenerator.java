@@ -43,16 +43,41 @@ public class RiverFieldObjectsGenerator {
     }
 
     private void initPathFinder(){
+        Index singleSize = new Index(1, 1);
         if (finish != null){
             pathFinder = new FieldObjectPathFinder(field) {
+
+                @Override
+                public boolean isFree(Index index) {
+                    return fieldObjects.isFree(index, singleSize);
+                }
+
                 @Override
                 public boolean isFinish(Index pos) {
                     return pos.equals(finish);
+                }
+
+                @Override
+                public int getDistance(Index pos) {
+                    FieldObject fieldObject = fieldObjects.getFieldObject(pos);
+                    if (fieldObject == null) return 2;
+                    if (fieldObject.isNaturalObject()){
+                        NaturalObject naturalObject = (NaturalObject)fieldObject;
+                        if (naturalObject.isWaterObject()) return 1;
+                        return 4;
+                    }
+                    else return 4;
                 }
             };
         }
         else {
             pathFinder = new FieldObjectPathFinder(field) {
+
+                @Override
+                public boolean isFree(Index index) {
+                    return fieldObjects.isFree(index, singleSize);
+                }
+
                 @Override
                 public boolean isFinish(Index pos) {
                     FieldObject fieldObject = fieldObjects.getFieldObject(pos);
@@ -63,6 +88,18 @@ public class RiverFieldObjectsGenerator {
                         }
                     }
                     return false;
+                }
+
+                @Override
+                public int getDistance(Index pos) {
+                    FieldObject fieldObject = fieldObjects.getFieldObject(pos);
+                    if (fieldObject == null) return 2;
+                    if (fieldObject.isNaturalObject()){
+                        NaturalObject naturalObject = (NaturalObject)fieldObject;
+                        if (naturalObject.isWaterObject()) return 1;
+                        return 4;
+                    }
+                    else return 4;
                 }
             };
         }

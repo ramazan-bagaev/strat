@@ -7,6 +7,7 @@ import Foundation.FieldObjects.BuildingObject.LivingBuildingObject;
 import Foundation.FieldObjects.BuildingObject.MarketObject;
 import Foundation.FieldObjects.BuildingObject.PalaceObject;
 import Foundation.Person.Person;
+import Foundation.Person.Society;
 import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidCityAI;
@@ -24,10 +25,6 @@ public class City extends HabitableFieldElement {
 
     private String name;
 
-    private int id;
-
-    private CityActor actor;
-
     private Armies armies;
 
     private Territory territory;
@@ -41,8 +38,10 @@ public class City extends HabitableFieldElement {
         super(FieldElement.Type.City, parent);
         setMap(map);
         territory = new Territory();
+        territory.add(getParent().getFieldMapPos());
+        getParent().setOwner(this);
         manors = new ArrayList<>();
-        int radius = 3;
+        /*int radius = 3;
         Index index = getParent().getFieldMapPos();
         for(int i = -radius; i <= radius; i++){
             for(int j = -radius; j <= radius; j++){
@@ -53,9 +52,9 @@ public class City extends HabitableFieldElement {
                 territory.add(local);
                 field.setOwner(this);
             }
-        }
+        }*/
 
-        NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
+        /*NameGenerator nameGenerator = new NameGenerator(parent.getRandom());
         int population = parent.getRandom().nextInt(1000);
         for(int i = 0; i < population; i++){
             Person.Kasta kast;// = Person.Kasta.Low;
@@ -71,25 +70,26 @@ public class City extends HabitableFieldElement {
             }
             Person person = new Person(nameGenerator.generate(), null, kast);
             society.addPerson(person);
-        }
+        }*/
 
-        Person king = new Person(nameGenerator.generate(), null, Person.Kasta.Royal);
+        /*Person king = new Person(nameGenerator.generate(), null, Person.Kasta.Royal);
         society.addPerson(king);
 
         actor = new CityActor(king, this);
         AI cityAI = new StupidCityAI(actor, getTime());
         actor.setAi(cityAI);
-        parent.getMap().getGameEngine().addRunEntity(cityAI);
+        parent.getMap().getGameEngine().addRunEntity(cityAI);*/
 
         int size = parent.getSize();
         setBasicShapes(new CityImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
+
         Resource food = new Resource(Resource.Type.Food, "beginning supply", society.getAmount() * 80);
         resourceStore.addResource(food);
 
         armies = new Armies(this);
         this.name = name;
 
-        Random random = parent.getRandom();
+        /*Random random = parent.getRandom();
         ArrayList<Index.Direction> dir = new ArrayList<>();
         for (Index.Direction direction: Index.getAllDirections()) {
             if (random.nextBoolean()){
@@ -102,7 +102,7 @@ public class City extends HabitableFieldElement {
             Road road = new Road(field, dir);
             field.setRoad(road);
         }
-        fillField();
+        fillField();*/
 
     }
 
@@ -168,8 +168,10 @@ public class City extends HabitableFieldElement {
 
     public void addTerritory(Index pos){
         territory.add(pos);
-        parent.getMap().getFieldByIndex(pos).setOwner(this);
-        country.addTerritory(pos);
+        Field field = parent.getMap().getFieldByIndex(pos);
+        if (field == null) return;
+        field.setOwner(this);
+        //country.addTerritory(pos);
     }
 
     public void createManor(Index pos, Person lord){
@@ -198,16 +200,6 @@ public class City extends HabitableFieldElement {
 
     public void setMap(FieldMap map) {
         this.map = map;
-    }
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
 
