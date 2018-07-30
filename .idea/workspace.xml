@@ -3,64 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="360a330c-dad6-4b8e-837d-e5cb5d393a2b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/LICENSE" afterPath="$PROJECT_DIR$/libs/jwjgl/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/build.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/build.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/dyncall_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/dyncall_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/glfw_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/glfw_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/jemalloc_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/jemalloc_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/khronos_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/khronos_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-glfw.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-jemalloc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nanovg.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nfd.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-nuklear.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-openal.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-opengl.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-par.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-stb.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd-natives-linux.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd-natives-linux.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-tinyfd.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-vulkan-javadoc.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-vulkan-javadoc.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-vulkan-sources.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-vulkan-sources.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl-vulkan.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl-vulkan.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/lwjgl.jar" afterPath="$PROJECT_DIR$/libs/jwjgl/lwjgl.jar" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/nanovg_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/nanovg_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/nfd_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/nfd_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/openal_soft_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/openal_soft_license.txt" />
-      <change beforePath="$PROJECT_DIR$/libs/jwjgl/tinyfd_license.txt" afterPath="$PROJECT_DIR$/libs/jwjgl/tinyfd_license.txt" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RoadFieldObjectsFromPath.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RoadFieldObjectsFromPath.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -79,114 +22,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1090">
-              <caret line="172" column="13" lean-forward="false" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CityGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CityGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-872">
-              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CountryGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CountryGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-278">
-              <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CityObjectsGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldObjectPathFinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RiverFieldObjectsGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RiverFieldObjectsGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="102" selection-end-column="17" />
-              <folding>
-                <element signature="e#1768#1769#0" expanded="true" />
-                <element signature="e#1853#1854#0" expanded="true" />
-                <element signature="e#2708#2709#0" expanded="true" />
-                <element signature="e#2793#2794#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoadGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/RoadGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="85" column="58" lean-forward="false" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoadFieldObjectsFromPath.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RoadFieldObjectsFromPath.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RoadFieldObjectsFromPath.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+            <state relative-caret-position="-1707">
+              <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="CityObjectsGenerator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6400">
-              <caret line="442" column="19" lean-forward="false" selection-start-line="442" selection-start-column="19" selection-end-line="442" selection-end-column="19" />
+            <state relative-caret-position="-396">
+              <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldObjects.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjects.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="128" column="48" lean-forward="false" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-              <folding>
-                <element signature="e#26463#26464#0" expanded="true" />
-                <element signature="e#26498#26499#0" expanded="true" />
-                <element signature="e#26554#26555#0" expanded="true" />
-                <element signature="e#26594#26595#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -232,7 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Foundation/TransportInfrostructure/TransportNetPathFinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/TransportObjectGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/RiverObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjectType.java" />
@@ -276,13 +126,14 @@
         <option value="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/InFieldMode/LinkedToRoadsToRoadCoveringMode.java" />
         <option value="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetNodeObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CountryGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RiverFieldObjectsGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjects.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/RoadGenerator.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/WindowElements/TimeElement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RoadFieldObjectsFromPath.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java" />
       </list>
     </option>
   </component>
@@ -326,7 +177,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="strat" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -382,170 +249,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Cell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Elements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
               <item name="FieldObjects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="FieldObjects" type="462c0819:PsiDirectoryNode" />
-              <item name="BuildingObject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="FieldObjects" type="462c0819:PsiDirectoryNode" />
-              <item name="NaturalObjects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="FieldObjects" type="462c0819:PsiDirectoryNode" />
-              <item name="TransportObjects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="FieldObjectHelperElements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="Modes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="Modes" type="462c0819:PsiDirectoryNode" />
-              <item name="InFieldMode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="GameWindowHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="States" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Person" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Recources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Runnable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Runnable" type="462c0819:PsiDirectoryNode" />
-              <item name="Actors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="TransportInfrostructure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Works" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
-              <item name="Works" type="462c0819:PsiDirectoryNode" />
-              <item name="Occupation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
@@ -571,25 +275,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Generation" type="462c0819:PsiDirectoryNode" />
-              <item name="EnvironmentGenerator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Generation" type="462c0819:PsiDirectoryNode" />
               <item name="FieldObjectGenerator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Generation" type="462c0819:PsiDirectoryNode" />
-              <item name="GeneratedObjects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strat" type="b2602c69:ProjectViewProjectNode" />
@@ -714,23 +400,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="strat" type="1abcf292:AndroidViewProjectNode" />
-              <item name="strat" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -740,9 +410,9 @@
     <property name="project.structure.side.proportion" value="0.48505747" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Army&#9;PSI&#9;JAVA://Foundation.Army.Army&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;System.out&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="TODO&#9;ACTION&#9;ActivateTODOToolWindow&#10;maven&#9;ACTION&#9;Maven.ShowSettings&#10;Army&#9;PSI&#9;JAVA://Foundation.Army.Army&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;System.out&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;ant &#9;ACTION&#9;ActivateAntBuildToolWindow" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -914,18 +584,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5018868" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924336" sideWeight="0.49811321" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22964959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -936,7 +607,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -976,71 +646,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/ForestGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/EnvironmentGenerator/EnvironmentGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldMapGeneratorOld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9926">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/ForestObjectGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Army/Army.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/PathFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/TransportNetEdgeObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/RoadType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/Road.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/TransportObjects/PavementRoadObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1140,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
           <caret line="57" column="61" lean-forward="false" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,11 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#808#809#0" expanded="false" />
-            <element signature="e#835#836#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1209,11 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#806#807#0" expanded="false" />
-            <element signature="e#833#834#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1221,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,7 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="24" column="38" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="24" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,23 +835,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/InFieldMode/LinkedToRoadsToRoadCoveringMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/InFieldMode/LinkedToRoadsToRoadCoveringMode.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/Modes/InFieldMode/LinkedToBuildingRoadCoveringMode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +864,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CountryGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278">
+        <state relative-caret-position="846">
           <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
           <folding />
         </state>
@@ -1291,17 +872,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CityGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-872">
+        <state relative-caret-position="522">
           <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Elements/City.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1090">
+        <state relative-caret-position="2718">
           <caret line="172" column="13" lean-forward="false" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
           <folding />
         </state>
@@ -1319,55 +900,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RiverFieldObjectsGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="1386">
           <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="102" selection-end-column="17" />
           <folding>
-            <element signature="e#1768#1769#0" expanded="true" />
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#2708#2709#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#1768#1769#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="false" />
+            <element signature="e#2708#2709#0" expanded="false" />
+            <element signature="e#2793#2794#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/FieldObjectPathFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="1764">
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="128" column="48" lean-forward="false" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-          <folding>
-            <element signature="e#26463#26464#0" expanded="true" />
-            <element signature="e#26498#26499#0" expanded="true" />
-            <element signature="e#26554#26555#0" expanded="true" />
-            <element signature="e#26594#26595#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/RoadGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
+        <state relative-caret-position="1188">
           <caret line="85" column="58" lean-forward="false" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
           <folding />
         </state>
@@ -1375,16 +934,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6400">
+        <state relative-caret-position="7956">
           <caret line="442" column="19" lean-forward="false" selection-start-line="442" selection-start-column="19" selection-end-line="442" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="86" column="5" lean-forward="false" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Subscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Content.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Label.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/WindowElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/WindowElements/TimeElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="177" column="5" lean-forward="true" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Broadcaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/FieldObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="263" column="23" lean-forward="true" selection-start-line="263" selection-start-column="23" selection-end-line="263" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/RoadFieldObjectsFromPath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+        <state relative-caret-position="-1707">
+          <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/CityObjectsGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396">
+          <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
           <folding />
         </state>
       </provider>

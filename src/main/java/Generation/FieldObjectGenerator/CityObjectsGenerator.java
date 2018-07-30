@@ -6,6 +6,7 @@ import Foundation.FieldObjects.BuildingObject.WallObject;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.FieldObjects;
 import Foundation.FieldObjects.OccupationPiece;
+import Foundation.FieldObjects.TransportObjects.PavementRoadCrossObject;
 import Foundation.Person.Person;
 import Foundation.Person.Society;
 import Generation.NameGenerator;
@@ -45,10 +46,25 @@ public class CityObjectsGenerator {
         fortressSize = piece.pieceSize.minus(delta.multiply(2));
         fortressPos = piece.pos.add(delta);
 
-        makeWall(new Index(fortressPos), false, fortressSize.x);
-        makeWall(fortressPos.add(new Index(0, 1)), true, fortressSize.y - 1);
-        makeWall(fortressPos.add(new Index(fortressSize.x - 1, 1)), true, fortressSize.y - 1);
-        makeWall(fortressPos.add(new Index(1, fortressSize.y - 1)), false, fortressSize.x - 2);
+        makeTempWall(new Index(fortressPos), false, fortressSize.x);
+        makeTempWall(fortressPos.add(new Index(0, 1)), true, fortressSize.y - 1);
+        makeTempWall(fortressPos.add(new Index(fortressSize.x - 1, 1)), true, fortressSize.y - 1);
+        makeTempWall(fortressPos.add(new Index(1, fortressSize.y - 1)), false, fortressSize.x - 2);
+    }
+
+    private void makeTempWall(Index pos, boolean vertical, int size){
+        if (vertical) {
+            Index gatePos = pos.add(new Index(0, random.nextInt(size - 4) + 2));
+            fieldObjects.addFieldObject(new WallObject(field, pos, new Index(1, gatePos.y - pos.y)));
+            fieldObjects.addTransportNetElement(new PavementRoadCrossObject(field, gatePos, new Index(1, 1)));
+            fieldObjects.addFieldObject(new WallObject(field, gatePos.add(new Index(0, 1)), new Index(1, size - (gatePos.y - pos.y + 1))));
+        }
+        else {
+            Index gatePos = pos.add(new Index(random.nextInt(size - 4) + 2, 0));
+            fieldObjects.addFieldObject(new WallObject(field, pos, new Index(gatePos.x - pos.x, 1)));
+            fieldObjects.addTransportNetElement(new PavementRoadCrossObject(field, gatePos, new Index(1, 1)));
+            fieldObjects.addFieldObject(new WallObject(field, gatePos.add(new Index(1, 0)), new Index(size - (gatePos.x - pos.x + 1), 1)));
+        }
     }
 
     private void makeWall(Index pos, boolean vertical, int size){

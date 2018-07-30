@@ -1,8 +1,10 @@
 package Generation.FieldObjectGenerator;
 
 import Foundation.Field;
+import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.NaturalObjects.WaterFlowObject;
 import Foundation.FieldObjects.TransportObjects.*;
+import Foundation.TransportInfrostructure.TransportNetEdge;
 import Foundation.TransportInfrostructure.TransportNetNode;
 import Utils.Geometry.Index;
 
@@ -32,6 +34,71 @@ public class RoadFieldObjectsFromPath {
                 curDir = path.get(i-1).whatDirection(path.get(i));
             }*/
            // if ()
+            FieldObject curObject = parent.getFieldObject(path.get(i));
+            FieldObject prevObject = parent.getFieldObject(path.get(i - 1));
+            if (curObject != null && prevObject != null){
+                if (curObject.isTransportNetObject()) continue;
+                //WTF!!!!!
+                continue;
+            }
+            if (curObject != null && prevObject == null){
+                if (curObject.isTransportNetObject()) {
+                    if (!path.get(i-1).whatDirection(path.get(i)).equals(curDir)){
+                        removePosFromCurEdge();
+                        addNewEdge();
+                        addNewNode(path.get(i - 1));
+                        continue;
+                    }
+                    TransportNetObject transportNetObject = (TransportNetObject)curObject;
+                    if (transportNetObject.isNode()){
+                        //removePosFromCurEdge();
+                        addNewEdge();
+                        continue;
+                    }
+                    else{
+                        int position = 0;
+                        TransportNetEdgeObject edgeObject = (TransportNetEdgeObject)transportNetObject;
+                        if (edgeObject.isVertical()){
+                            position = path.get(i).y - curObject.getCellPos().y;
+                        }
+                        else {
+                            position = path.get(i).x - curObject.getCellPos().x;
+                        }
+                        parent.getFieldObjects().splitRoad(edgeObject, position);
+                        //removePosFromCurEdge();
+                        addNewEdge();
+                        continue;
+                    }
+                }
+                // WTF!!!!
+                continue;
+            }
+            if (prevObject != null){
+                if (prevObject.isTransportNetObject()) {
+                    TransportNetObject transportNetObject = (TransportNetObject)prevObject;
+                    if (transportNetObject.isNode()){
+                        curDir = path.get(i-1).whatDirection(path.get(i));
+                        initNewEdge(path.get(i));
+                        continue;
+                    }
+                    else{
+                        int position = 0;
+                        TransportNetEdgeObject edgeObject = (TransportNetEdgeObject)transportNetObject;
+                        if (edgeObject.isVertical()){
+                            position = path.get(i - 1).y - prevObject.getCellPos().y;
+                        }
+                        else {
+                            position = path.get(i - 1).x - prevObject.getCellPos().x;
+                        }
+                        parent.getFieldObjects().splitRoad(edgeObject, position);
+                        curDir = path.get(i-1).whatDirection(path.get(i));
+                        initNewEdge(path.get(i));
+                        continue;
+                    }
+                }
+                // WTF!!!!
+                continue;
+            }
             if (path.get(i-1).whatDirection(path.get(i)).equals(curDir)){
                 addPosToCurEdge();
             }
