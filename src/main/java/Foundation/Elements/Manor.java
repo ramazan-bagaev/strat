@@ -33,7 +33,7 @@ public class Manor extends HabitableFieldElement {
         return res;
     }
 
-    private Manor(Field parent, City city) {
+    public Manor(Field parent, City city) {
         super(Type.Manor, parent);
         this.city = city;
         territory = new Territory();

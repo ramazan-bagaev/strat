@@ -1,0 +1,15 @@
+Difficulty levels from 1 (very easy) to 10 (even don't know if it possible) 
+
+- normal scale level: Road (FieldElement) should has proper in and out streams (maybe another visualization) // dif: ~2
+
+- during continent generation, part of map that didn't get any ground type, will get ground type = Soil or Sand. detect this part of map and what should it get // dif: ~4
+
+- large scale level: right now nothing there, add something// dif: ~4
+
+- slow performance on particular scale(somewhere between large and normal). improve // dif: ~9
+
+- duality of FieldObject. For example, how could be created GateFieldObject ? it should be TransportNetNodeObject and BuildingObject simultiniously. maybe change FieldObjectType interface phylosophy.      // dif: ~6
+
+- continent generation: smooth coastline of continents. Right now it just straight line, noise should be added. // dif: ~5 (math knowledge could be usefull)
+
+- road path finder(both field and fieldObject): should be improved, now it create everytime new road, new generator should be able implement new road to existant road net. // dif: ~6

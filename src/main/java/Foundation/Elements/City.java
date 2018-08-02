@@ -171,7 +171,7 @@ public class City extends HabitableFieldElement {
         Field field = parent.getMap().getFieldByIndex(pos);
         if (field == null) return;
         field.setOwner(this);
-        //country.addTerritory(pos);
+        if (country != null) country.addTerritory(pos);
     }
 
     public void createManor(Index pos, Person lord){

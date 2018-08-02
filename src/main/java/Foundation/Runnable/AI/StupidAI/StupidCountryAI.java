@@ -45,7 +45,7 @@ public class StupidCountryAI extends AI {
             countriesTerritory.add(country.getTerritory());
         }
         ArrayList<Index> available = new ArrayList<>();
-        for(Index index: cityTerritory.getTerritory()){
+        for(Index index: cityTerritory.getIndexArray()){
             for(Index.Direction direction: Index.getAllDirections()){
                 Index newIndex = index.add(new Index(direction));
                 if (countriesTerritory.contains(newIndex)) continue;
@@ -60,12 +60,12 @@ public class StupidCountryAI extends AI {
 
     @Override
     public void makeDecision() {
-        if (time.getDate().sameAs(previousDate)) return;
+        /*if (time.getDate().sameAs(previousDate)) return;
         previousDate.setDate(time.getDate());
         int rand = random.nextInt(100);
         if (rand <= 90){
             giveRandomCityTerritory();
             return;
-        }
+        }*/
     }
 }

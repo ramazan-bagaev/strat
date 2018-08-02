@@ -41,7 +41,7 @@ public class AddManorState extends HelperState {
         for (Manor manor: manors){
             otherManors.add(manor.getTerritory());
         }
-        for(Index local: city.getTerritory().getTerritory())
+        for(Index local: city.getTerritory().getIndexArray())
         {
             if (otherManors.contains(local)) continue;
             Field field = fieldMap.getFieldByIndex(local);

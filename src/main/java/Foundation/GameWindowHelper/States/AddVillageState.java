@@ -37,7 +37,7 @@ public class AddVillageState extends HelperState {
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
         Color p = new Color(Color.Type.White, 0.5f);
         Color i = new Color(Color.Type.Red, 0.5f);
-        for(Index pos: territory.getTerritory()){
+        for(Index pos: territory.getIndexArray()){
             Field field = fieldMap.getFieldByIndex(pos);
             if (field.getManor() != null){
                 impossible.addCoveringFieldHelper(pos, i);

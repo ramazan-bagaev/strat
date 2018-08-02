@@ -30,7 +30,7 @@ public class BorderMode extends Mode{
     }
 
     public void init(){
-        for(Index pos: territory.getTerritory()){
+        for(Index pos: territory.getIndexArray()){
             ArrayList<Index.Direction> directions = new ArrayList<>();
             if (!territory.contains(pos.add(new Index(0, 1)))) directions.add(Index.Direction.Down);
             if (!territory.contains(pos.add(new Index(0, -1)))) directions.add(Index.Direction.Up);

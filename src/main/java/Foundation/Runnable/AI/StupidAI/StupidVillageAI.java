@@ -47,7 +47,7 @@ public class StupidVillageAI extends AI {
     public void createRandomWork(){
         FieldMap fieldMap = village.getParent().getMap();
         freeFields.clear();
-        for(Index index: village.getManor().getTerritory().getTerritory()){
+        for(Index index: village.getManor().getTerritory().getIndexArray()){
             Field field = fieldMap.getFieldByIndex(index);
             if (field.getGroundType() == Ground.GroundType.Mud) continue;
             if (field.getVillage() != null) continue;
@@ -114,7 +114,7 @@ public class StupidVillageAI extends AI {
 
     @Override
     public void makeDecision() {
-        if (village.getWorkElements().size() == 0){
+        /*if (village.getWorkElements().size() == 0){
             createRandomWork();
             return;
         }
@@ -125,6 +125,6 @@ public class StupidVillageAI extends AI {
             createRandomWork();
             return;
         }
-        giveRandomWorkPeople();
+        giveRandomWorkPeople();*/
     }
 }
