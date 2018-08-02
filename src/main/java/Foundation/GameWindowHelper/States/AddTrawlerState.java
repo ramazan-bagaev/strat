@@ -32,7 +32,7 @@ public class AddTrawlerState extends HelperState {
 
     private void init(){
         Territory availableWater = village.getAvailableWater();
-        for(Index local: village.getManor().getTerritory().getTerritory())
+        for(Index local: village.getManor().getTerritory().getIndexArray())
         {
             if (!availableWater.contains(local)){
                 coveringFieldMode.addCoveringFieldHelper(local, new Color(Color.Type.Red, 0.5f));

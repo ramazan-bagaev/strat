@@ -58,7 +58,7 @@ public class AddManorFieldState extends HelperState {
             otherManors.add(man.getTerritory());
         }
         Territory candidates = new Territory(manor.getCity().getTerritory());
-        for (Index candidate: candidates.getTerritory()){
+        for (Index candidate: candidates.getIndexArray()){
             if (otherManors.contains(candidate)) continue;
             maxTerritory.add(candidate);
         }
@@ -73,7 +73,7 @@ public class AddManorFieldState extends HelperState {
     }
 
     public void initFarmTerritory(Territory currentTerritory){
-        for (Index pos: currentTerritory.getTerritory()){
+        for (Index pos: currentTerritory.getIndexArray()){
             farmTerritory.addCoveringFieldHelper(pos, new Color(Color.Type.Black, 0.5f));
             refreshPossibleTerritory(pos);
         }

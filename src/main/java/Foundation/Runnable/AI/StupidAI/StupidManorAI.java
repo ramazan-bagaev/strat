@@ -36,7 +36,7 @@ public class StupidManorAI extends AI{
         Society society = manor.getSociety();
         FieldMap fieldMap = manor.getParent().getMap();
         Territory freeFields = new Territory();
-        for(Index index: manor.getTerritory().getTerritory()){
+        for(Index index: manor.getTerritory().getIndexArray()){
             Field field = fieldMap.getFieldByIndex(index);
             if (field.getGroundType() != Ground.GroundType.Soil) continue;
             if (field.getVillage() != null) continue;
@@ -47,7 +47,7 @@ public class StupidManorAI extends AI{
         }
         if (freeFields.size() == 0) return;
         int ranInd = random.nextInt(freeFields.size());
-        Index index = freeFields.getTerritory().get(ranInd);
+        Index index = freeFields.getIndexArray().get(ranInd);
         Person steward = society.getSteward();
         if (steward != null){
             manorActor.createVillage(index, steward);
@@ -81,7 +81,7 @@ public class StupidManorAI extends AI{
 
     @Override
     public void makeDecision() {
-        if (manor.getVillages().size() == 0){
+        /*if (manor.getVillages().size() == 0){
             createRandomVillage();
             return;
         }
@@ -95,6 +95,6 @@ public class StupidManorAI extends AI{
             //giveRandomVillagePeople();
             return;
         }
-        createRandomVillage();
+        createRandomVillage();*/
     }
 }

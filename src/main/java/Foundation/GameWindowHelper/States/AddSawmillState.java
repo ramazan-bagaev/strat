@@ -33,7 +33,7 @@ public class AddSawmillState extends HelperState{
 
     private void init(){
         FieldMap fieldMap = gameWindowHelperElement.getMap().getFieldMap();
-        for(Index local: village.getManor().getTerritory().getTerritory())
+        for(Index local: village.getManor().getTerritory().getIndexArray())
         {
             Field field = fieldMap.getFieldByIndex(local);
             if (field == null) continue;

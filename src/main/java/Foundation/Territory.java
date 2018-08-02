@@ -13,7 +13,7 @@ public class Territory implements Broadcaster {
 
     public Territory(Territory territory){
         this.territory = new ArrayList<>();
-        for(Index index: territory.getTerritory()){
+        for(Index index: territory.getIndexArray()){
             this.territory.add(index);
         }
         territoryContent = new Content();
@@ -36,7 +36,7 @@ public class Territory implements Broadcaster {
     }
 
     public void add(Territory territory){
-        for(Index index: territory.getTerritory()){
+        for(Index index: territory.getIndexArray()){
             if (this.territory.contains(index)) continue;
             this.territory.add(index);
             this.territoryContent.changed();
@@ -51,7 +51,7 @@ public class Territory implements Broadcaster {
         territory.clear();
     }
 
-    public ArrayList<Index> getTerritory(){
+    public ArrayList<Index> getIndexArray(){
         return territory;
     }
 
@@ -65,7 +65,7 @@ public class Territory implements Broadcaster {
 
     public Territory antiIntersect(Territory otherTerritory){
         Territory result = new Territory();
-        for(Index index: otherTerritory.getTerritory()){
+        for(Index index: otherTerritory.getIndexArray()){
             if (!contains(index)) result.add(index);
         }
         return result;
@@ -73,14 +73,14 @@ public class Territory implements Broadcaster {
 
     public Territory intersect(Territory otherTerritory){
         Territory result = new Territory();
-        for(Index index: otherTerritory.getTerritory()){
+        for(Index index: otherTerritory.getIndexArray()){
             if (contains(index)) result.add(index);
         }
         return result;
     }
 
     public void addOrRemove(Territory territory){
-        for(Index index: territory.getTerritory()){
+        for(Index index: territory.getIndexArray()){
             if (this.territory.contains(index)) this.territory.remove(index);
             else this.territory.add(index);
         }

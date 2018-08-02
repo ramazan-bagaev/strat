@@ -47,7 +47,7 @@ public class Village extends HabitableFieldElement {
         return res;
     }
 
-    private Village(Field parent, Manor manor) {
+    public Village(Field parent, Manor manor) {
         super(Type.Village, parent);
         this.manor = manor;
         workElements = new ArrayList<>();
@@ -190,7 +190,7 @@ public class Village extends HabitableFieldElement {
             Index curPos = que.pop();
             for(Index.Direction direction: Index.getAllDirections()) {
                 Index newPos = curPos.add(new Index(direction));
-                //if (!manor.getTerritory().contains(newPos)) continue;
+                //if (!manor.getIndexArray().contains(newPos)) continue;
                 if (!territory.contains(newPos)) continue;
                 if (map.getFieldByIndex(newPos).getGroundType() == Ground.GroundType.Water) {
                     que.add(newPos);

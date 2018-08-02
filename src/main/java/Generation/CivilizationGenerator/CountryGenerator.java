@@ -4,6 +4,9 @@ import Foundation.Elements.Ground;
 import Foundation.Field;
 import Foundation.Elements.City;
 import Foundation.FieldMap;
+import Foundation.FieldObjects.FieldObject;
+import Foundation.FieldObjects.FieldObjects;
+import Foundation.FieldObjects.TransportObjects.TransportNetObject;
 import Foundation.Person.Person;
 import Foundation.Runnable.Country;
 import Generation.FieldMapGenerator;
@@ -18,6 +21,7 @@ public class CountryGenerator extends FieldMapGenerator{
 
     private CityGenerator cityGenerator;
     private RoadGenerator roadGenerator;
+    private ManorGenerator manorGenerator;
 
     private PersonGenerator personGenerator;
     private NameGenerator nameGenerator;
@@ -54,18 +58,48 @@ public class CountryGenerator extends FieldMapGenerator{
             country.addCity(generateCity(newPos));
         }
         countries.add(country);
+        linkCitiesInCountry(country);
+        generateManors(country);
     }
 
     private City generateCity(Index pos){
-        City city = cityGenerator.generatCity(map.getFieldByIndex(pos));
+        City city = cityGenerator.generateCity(map.getFieldByIndex(pos));
         renewPosForCities(pos);
-        generateRoad(city);
+        //generateRoad(city);
         return city;
     }
 
     private void generateRoad(City city){
         Index newPos = city.getParent().getFieldMapPos().add(new Index(random.nextInt(21) - 10, random.nextInt(21) - 10));
         roadGenerator.generateRoad(map.getFieldByIndex(newPos), new Index(50, 50), city.getParent(), new Index(50,50));
+    }
+
+    private void linkCitiesInCountry(Country country){
+        City capital = country.getCapital();
+        Index from = null;
+        FieldObjects fieldObjects = capital.getParent().getFieldObjects();
+        for(FieldObject fieldObject: fieldObjects.getArray()){
+            if (fieldObject.isTransportNetObject()){
+                TransportNetObject netObject = (TransportNetObject)fieldObject;
+                if (netObject.isNode()){
+                    from = netObject.getCellPos();
+                }
+            }
+        }
+        for(City city: country.getCities()){
+            if (city == capital) continue;
+            fieldObjects = city.getParent().getFieldObjects();
+            for(FieldObject fieldObject: fieldObjects.getArray()){
+                if (fieldObject.isTransportNetObject()){
+                    TransportNetObject netObject = (TransportNetObject)fieldObject;
+                    if (netObject.isNode()){
+                        Index to = netObject.getCellPos();
+                        roadGenerator.generateRoad(capital.getParent(), from, city.getParent(), to);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     private Index getCapitalPos(){
@@ -101,6 +135,7 @@ public class CountryGenerator extends FieldMapGenerator{
         this.personGenerator = new PersonGenerator(random);
         this.roadGenerator = new RoadGenerator(map);
         this.cityGenerator = new CityGenerator(random);
+        this.manorGenerator = new ManorGenerator(random);
         this.iter = new Index(0, 0);
         initPosForCities();
     }
@@ -143,6 +178,18 @@ public class CountryGenerator extends FieldMapGenerator{
                 iter.x = x + center.x;
                 posForCities.remove(iter);
             }
+        }
+    }
+
+    private void generateManors(Country country){
+        for(Index index: country.getTerritory().getIndexArray()){
+            Field field = map.getFieldByIndex(index);
+            if (field == null) continue;
+            if (field.getCity() != null) continue;
+            if (field.getGroundType() == Ground.GroundType.Water) continue;
+            if (field.getGroundType() == Ground.GroundType.Rock) continue;
+            if (field.getTree() != null) continue;
+            if (random.nextInt(18) < 1) manorGenerator.generateManor(field);
         }
     }
 

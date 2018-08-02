@@ -30,7 +30,7 @@ public class CityGenerator{
         nameGenerator = new NameGenerator(random);
     }
 
-    public City generatCity(Field field) {
+    public City generateCity(Field field) {
         this.field = field;
         return createCity();
     }

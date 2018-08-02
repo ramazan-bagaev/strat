@@ -48,7 +48,7 @@ public class StupidCityAI extends AI{
         for (Manor manor: city.getManors()){
             notFree.add(manor.getTerritory());
         }
-        for(Index index: city.getTerritory().getTerritory()){
+        for(Index index: city.getTerritory().getIndexArray()){
             if (notFree.contains(index)) continue;
             Field field = fieldMap.getFieldByIndex(index);
             if (field.getGroundType() != Ground.GroundType.Soil && field.getGroundType() != Ground.GroundType.Sand) continue;
@@ -59,7 +59,7 @@ public class StupidCityAI extends AI{
         }
         if (freeFields.size() == 0) return;
         int ranInd = random.nextInt(freeFields.size());
-        Index index = freeFields.getTerritory().get(ranInd);
+        Index index = freeFields.getIndexArray().get(ranInd);
         Person lord = society.getLord();
         if (lord != null){
             cityActor.createManor(index, lord);
@@ -79,7 +79,7 @@ public class StupidCityAI extends AI{
         for (Manor man: manors){
             notFree.add(man.getTerritory());
         }
-        for(Index index: territory.getTerritory()){
+        for(Index index: territory.getIndexArray()){
             for (Index.Direction direction: Index.getAllDirections()){
                 Index newIndex = index.add(new Index(direction));
                 if (!cityTerritory.contains(newIndex)) continue;
@@ -89,7 +89,7 @@ public class StupidCityAI extends AI{
             }
         }
         if (freeFields.size() == 0) return;
-        Index randIndex = freeFields.getTerritory().get(random.nextInt(freeFields.size()));
+        Index randIndex = freeFields.getIndexArray().get(random.nextInt(freeFields.size()));
         cityActor.addManorTerritory(randIndex, manor);
     }
 
@@ -117,7 +117,7 @@ public class StupidCityAI extends AI{
 
     @Override
     public void makeDecision() {
-        if (city.getManors().size() == 0){
+        /*if (city.getManors().size() == 0){
             createRandomManor();
             return;
         }
@@ -135,7 +135,7 @@ public class StupidCityAI extends AI{
             giveRandomManorPeople();
             return;
         }
-        createRandomManor();
+        createRandomManor();*/
     }
 
 }
