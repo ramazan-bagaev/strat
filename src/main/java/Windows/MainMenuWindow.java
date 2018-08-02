@@ -4,7 +4,6 @@ import Utils.Geometry.Coord;
 import Foundation.Frame;
 import Foundation.Window;
 import Foundation.WindowElement;
-import WindowElements.TimeElement;
 import Foundation.Button;
 
 import java.util.ArrayList;
@@ -24,14 +23,14 @@ public class MainMenuWindow extends Window {
         windowElements.clear();
         
         // Добавляю кнопки меню
-        Button playButton = new Button(new Coord(10, 10), new Coord(40, 40), "Start", this){
+        Button playButton = new Button(new Coord(10, 10), new Coord(150, 30), "Start", this){
             @Override
             public void click(Coord point){
                 System.out.println("You've pressed this button");
                         }
         };
         windowElements.add(playButton);
-        Button settingButton = new Button(new Coord(10, 60), new Coord(40, 40), "Settings", this);
+        Button settingButton = new Button(new Coord(10, 60), new Coord(150, 30), "Settings", this);
         windowElements.add(settingButton);
         //playButton.click(playButton.getPos());
         
