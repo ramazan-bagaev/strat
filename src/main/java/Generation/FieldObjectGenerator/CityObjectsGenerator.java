@@ -66,6 +66,11 @@ public class CityObjectsGenerator {
         leftGate = makeTempWall(fortressPos.add(new Index(0, 1)), true, fortressSize.y - 1);
         rightGate = makeTempWall(fortressPos.add(new Index(fortressSize.x - 1, 1)), true, fortressSize.y - 1);
         downGate = makeTempWall(fortressPos.add(new Index(1, fortressSize.y - 1)), false, fortressSize.x - 2);
+
+        field.addEntryPoints(upGate);
+        field.addEntryPoints(leftGate);
+        field.addEntryPoints(rightGate);
+        field.addEntryPoints(downGate);
     }
 
     private Index makeTempWall(Index pos, boolean vertical, int size){
@@ -170,6 +175,7 @@ public class CityObjectsGenerator {
 
         path = fieldObjectPathFinder.getPath(upGate);
         netObjects = roadFieldObjectsFromPath.getTransportNetObject(path, field, roadType);
+        if (netObjects == null) return;
         for(TransportNetObject transportNetObject: netObjects){
             fieldObjects.addTransportNetElement(transportNetObject);
         }

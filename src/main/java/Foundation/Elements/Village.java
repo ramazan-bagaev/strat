@@ -50,6 +50,8 @@ public class Village extends HabitableFieldElement {
     public Village(Field parent, Manor manor) {
         super(Type.Village, parent);
         this.manor = manor;
+        manor.addVillage(this);
+        parent.setVillage(this);
         workElements = new ArrayList<>();
         //addRandomPeople();
         availableWater = new Territory();

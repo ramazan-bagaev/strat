@@ -18,7 +18,7 @@ import java.util.Random;
 public class Manor extends HabitableFieldElement {
 
 
-    private ArrayList<Index> villages;
+    private ArrayList<Village> villages;
 
     private Person lord;
     private Territory territory;
@@ -36,6 +36,8 @@ public class Manor extends HabitableFieldElement {
     public Manor(Field parent, City city) {
         super(Type.Manor, parent);
         this.city = city;
+        parent.setManor(this);
+        city.addManor(this);
         territory = new Territory();
         territory.add(parent.getFieldMapPos());
         villages = new ArrayList<>();
@@ -46,7 +48,8 @@ public class Manor extends HabitableFieldElement {
         super(Type.Manor, parent);
         this.city = city;
         this.lord = lord;
-
+        parent.setManor(this);
+        city.addManor(this);
         society.addPerson(lord);
         territory = new Territory();
         territory.add(parent.getFieldMapPos());
@@ -92,7 +95,7 @@ public class Manor extends HabitableFieldElement {
         //Village village = Village.constructEmptyVillageWithSteward(time, field, map, steward, this);//new Village(time, field, map, steward, this);
         Village village = Village.constructVillageWithRandomPeople(field, this);
         field.setVillage(village);
-        villages.add(point);
+        villages.add(village);
         map.getGameEngine().getGameWindowElement().setShapes();
         map.getGameEngine().getGameWindowElement().getGameEngine().addRunEntity(village);
     }
@@ -101,8 +104,7 @@ public class Manor extends HabitableFieldElement {
     @Override
     public void run() {
         super.run();
-        for(Index pos: villages){
-            Village village = map.getFieldByIndex(pos).getVillage();
+        for(Village village: villages){
             ArrayList<Resource> resources = village.getPartOfResource(0.9);
             for(Resource resource: resources) resourceStore.addResource(resource);
         }
@@ -137,7 +139,11 @@ public class Manor extends HabitableFieldElement {
     }
 
 
-    public ArrayList<Index> getVillages() {
+    public ArrayList<Village> getVillages() {
         return villages;
+    }
+
+    public void addVillage(Village village){
+        villages.add(village);
     }
 }

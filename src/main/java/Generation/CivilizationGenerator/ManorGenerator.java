@@ -7,6 +7,7 @@ import Foundation.Person.People;
 import Foundation.Person.Person;
 import Generation.FieldObjectGenerator.ManorObjectsGenerator;
 import Generation.NameGenerator;
+import Utils.Geometry.Index;
 
 import java.util.Random;
 
@@ -34,7 +35,6 @@ public class ManorGenerator {
         setPopulation(manor);
         setTerritory(manor);
         setFieldObjects();
-        field.setManor(manor);
     }
 
     private void setPopulation(Manor manor){
@@ -59,7 +59,13 @@ public class ManorGenerator {
     }
 
     private void setTerritory(Manor manor){
-
+        Index pos = manor.getParent().getFieldMapPos();
+        for(Index.Direction direction: Index.getAllDirections()){
+            if (random.nextInt(4) > 1) continue;
+            Index newPos = pos.add(Index.getUnitIndex(direction));
+            if (field.getMap().getFieldByIndex(newPos) == null) continue;
+            manor.addTerritory(newPos);
+        }
     }
 
     private void setFieldObjects(){

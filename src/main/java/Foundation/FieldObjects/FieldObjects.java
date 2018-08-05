@@ -367,7 +367,7 @@ public class FieldObjects {
             //System.out.println("new node");
             TransportNetNodeObject cross = (TransportNetNodeObject) netObject;
             ArrayList<Index.Direction> directions = cross.getDirections();
-            for(Index.Direction direction: Index.getAllDirections()){
+            for(Index.Direction direction: Index.getAllDirectionsRandom(parent.getRandom())){
                 if (!directions.contains(direction)){
                     //System.out.println("new direction");
                     if (prolongTransportNode(cross, direction)){

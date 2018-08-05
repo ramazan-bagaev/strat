@@ -41,6 +41,7 @@ public class City extends HabitableFieldElement {
         territory.add(getParent().getFieldMapPos());
         getParent().setOwner(this);
         manors = new ArrayList<>();
+        parent.setCity(this);
         /*int radius = 3;
         Index index = getParent().getFieldMapPos();
         for(int i = -radius; i <= radius; i++){
@@ -221,5 +222,9 @@ public class City extends HabitableFieldElement {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public void addManor(Manor manor){
+        manors.add(manor);
     }
 }

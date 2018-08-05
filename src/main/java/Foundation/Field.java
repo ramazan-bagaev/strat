@@ -45,6 +45,7 @@ public class Field {
 
     private FieldMap map;
 
+    private ArrayList<Index> entryPoints;
 
     private Date timeToIntersect;
     private int height;
@@ -64,6 +65,7 @@ public class Field {
         this.random = random;
         this.time = time;
         dynamicDrawables = new ArrayList<>();
+        entryPoints = new ArrayList<>();
     }
 
     public Field(Index fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
@@ -82,6 +84,7 @@ public class Field {
         Ground.GroundType tempType = type;
         groundElement = new Ground(tempType,this);
         ecosystem = new Ecosystem(this);
+        entryPoints = new ArrayList<>();
         calculateTimeToIntersect();
     }
 
@@ -365,5 +368,14 @@ public class Field {
     public void setHeight(int height) {
         this.height = height;
         if (groundElement != null) groundElement.setShapes();
+    }
+
+    public void addEntryPoints(Index point){
+        entryPoints.add(point);
+    }
+
+    public Index getFirstEntryPoint(){
+        if (entryPoints.size() == 0) return null;
+        return entryPoints.get(0);
     }
 }
