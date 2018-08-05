@@ -18,8 +18,10 @@ public class Button extends WindowElement {
         super(pos, size, parent);
         Font font = parent.getFont("latin");
         double sizeX = str.length() * size.y/2;
-        text = new StringShape(new Coord(sizeX * delta, size.y/4), new Coord(sizeX, size.y/2), str, new Color(Color.Type.Black), font);
+        text = new StringShape(new Coord(sizeX * delta, this.size.y/4), new Coord(sizeX, size.y/2), str, new Color(Color.Type.Black), font);
         carcas = new RectangleShape(new Coord(0, 0), new Coord(sizeX*(1+2*delta), size.y), new Color(Color.Type.White), true);
+        this.size = carcas.getSize();
+        //carcas = new RectangleShape(new Coord(0, 0), new Coord(size), new Color(Color.Type.White), true);
         ArrayList<BasicShape> basicShapes = new ArrayList<>();
         basicShapes.add(carcas);
         basicShapes.addAll(text.getBasicShapes());

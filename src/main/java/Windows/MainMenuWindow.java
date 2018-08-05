@@ -5,6 +5,7 @@ import Foundation.Frame;
 import Foundation.Window;
 import Foundation.WindowElement;
 import Foundation.Button;
+import Foundation.MainWindow;
 
 import java.util.ArrayList;
 /**
@@ -12,8 +13,11 @@ import java.util.ArrayList;
  * @author Nuriklan
  */
 public class MainMenuWindow extends Window {
+    
+    private MainWindow mainWindow;
+    
     public MainMenuWindow(Frame parent){
-        super(new Coord(400, 400), new Coord(400, 400), parent);
+        super(new Coord(0, 0), new Coord(1000, 1000), parent);
         
         setElements();
     }
@@ -26,13 +30,18 @@ public class MainMenuWindow extends Window {
         Button playButton = new Button(new Coord(10, 10), new Coord(150, 30), "Start", this){
             @Override
             public void click(Coord point){
-                System.out.println("You've pressed this button");
+                mainWindow = new MainWindow(new Coord(0, 0), new Coord(1000, 1000), getParent().getParent());
+                getParent().getParent().removeWindow(getParent().getId());
+                addWindow(mainWindow);
+                
                         }
         };
         windowElements.add(playButton);
         Button settingButton = new Button(new Coord(10, 60), new Coord(150, 30), "Settings", this);
         windowElements.add(settingButton);
         //playButton.click(playButton.getPos());
+        
+        
         
     }
     

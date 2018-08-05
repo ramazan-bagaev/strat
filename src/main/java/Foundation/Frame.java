@@ -3,7 +3,9 @@ package Foundation;
 import Foundation.BasicShapes.CharacterShape.Font;
 import Utils.Geometry.Coord;
 import Windows.MainToolbarWindow;
-
+import Foundation.GameEngine;
+import Windows.MainMenuWindow;
+import Foundation.GameWindowElement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +19,9 @@ public class Frame {
     private Camera camera;
     private Input input;
     private MainWindow mainWindow;
+    private GameEngine gameEngine;
+    private MainMenuWindow menuWindow;
+    private GameWindowElement gameWindowElement;
 
     //private HashMap<Window, MainWindowCameraConfiguration.Mode> modes;
 
@@ -38,10 +43,12 @@ public class Frame {
         cameraConfiguration = new CameraConfiguration(pos, size);
         camera = new Camera(this, cameraConfiguration);
         input = new Input(this);
-        this.mainWindow =  new MainWindow(pos.add(new Coord(0, 0)), new Coord(1000, 1000), this);
-        addWindow(mainWindow);
-        MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(this);
-        addWindow(mainToolbarWindow);
+        //this.mainWindow =  new MainWindow(pos.add(new Coord(0, 0)), new Coord(1000, 1000), this);
+        //addWindow(mainWindow);
+        //MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(this);
+        //addWindow(mainToolbarWindow);
+        menuWindow = new MainMenuWindow(this);
+        addWindow(menuWindow);
     }
 
     public void addWindow(Window window){
@@ -115,18 +122,18 @@ public class Frame {
     }
 
     public void run(){
-        for(Window window: windows){
-            window.run();
+        if (getGameEngine() != null){
+            getGameEngine().run();
         }
     }
 
     public void draw(OpenGLBinder openGLBinder){
-        MainWindowCameraConfiguration.Mode mode = mainWindow.getCameraConfiguration().getMode();
+        //MainWindowCameraConfiguration.Mode mode = mainWindow.getCameraConfiguration().getMode();
         for(Window window: windows){
             //if (modes.getOrDefault(window, mode) == mode)
             window.draw(openGLBinder);
-        }
-    }
+        }}
+    
 
 
     public Camera getCamera() {
@@ -148,7 +155,14 @@ public class Frame {
     }
 
     public GameEngine getGameEngine() {
-        return mainWindow.getGameWindowElement().getGameEngine();
+        if (getMainWindow() != null){
+            mainWindow = getMainWindow();
+            gameWindowElement = mainWindow.getGameWindowElement();
+        return gameWindowElement.getGameEngine();
+        }
+        else {
+            return null;
+        }
     }
 
     public void takeOnTop(Window window){
@@ -178,7 +192,7 @@ public class Frame {
     }
 
     public MainWindowCameraConfiguration.Mode getMode(){
-        return mainWindow.getCameraConfiguration().getMode();
+        return getMainWindow().getCameraConfiguration().getMode();
     }
 
     //public MainWindowCameraConfiguration.Mode getModeForWindow(Window window){

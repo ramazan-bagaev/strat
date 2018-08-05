@@ -137,7 +137,7 @@ public class GameWindowElement extends WindowElement{
     public void draw(OpenGLBinder openGLBinder){
         super.draw(openGLBinder);
 
-
+        System.out.println("Yohohohoho");
         FieldMap map = gameEngine.getMap();
         int fieldSize = gameEngine.getFieldSize();
         MainWindowCameraConfiguration cameraConfiguration = mainWindow.getCameraConfiguration();
