@@ -1,17 +1,28 @@
 package Foundation;
 
 import Utils.Geometry.Coord;
+import Foundation.Controller;
+import Foundation.Input;
 
 public class MainWindow extends Window{
 
     private GameWindowElement gameWindowElement;
     private GameWindowHelperElement gameWindowHelperElement;
+    private Frame locFrame;
+    private Controller cont;
+    private Input inp;
 
     private MainWindowCameraConfiguration cameraConfiguration;
 
     public MainWindow(Coord pos, Coord size, Frame parent){
         super(pos, size, parent);
-        getParent().getInput().getController().setActiveWindow(this);
+        locFrame = getParent();
+        if (locFrame == null) {
+            System.out.println("This os OSHIBKA");
+        }
+        inp = locFrame.getInput();
+        cont = inp.getController();
+        cont.setActiveWindow(this);
         cameraConfiguration = new MainWindowCameraConfiguration(new Coord(getShift()), new Coord(size));
         gameWindowElement = new GameWindowElement(new Coord(0, 0), size, this);
         addWindowElement(gameWindowElement);

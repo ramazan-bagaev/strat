@@ -95,7 +95,7 @@ public class OpenGLMain {
         FontFactory fontFactory = new FontFactory();
         ArrayList<Font> fonts = fontFactory.getFonts();
         frame = new Frame(fonts);
-        gameEngine = frame.getGameEngine();
+        //gameEngine = frame.getGameEngine();
         openGLBinder = new OpenGLBinder();
         Input input = frame.getInput();
         Cursor cursor = input.getCursor();
@@ -206,7 +206,8 @@ public class OpenGLMain {
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-            gameEngine.run();
+            //gameEngine.run();
+            frame.run();
             frame.draw(openGLBinder);
             glfwSwapBuffers(window);
             // swap the color buffers
