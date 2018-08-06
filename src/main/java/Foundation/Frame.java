@@ -43,10 +43,6 @@ public class Frame {
         cameraConfiguration = new CameraConfiguration(pos, size);
         camera = new Camera(this, cameraConfiguration);
         input = new Input(this);
-        //this.mainWindow =  new MainWindow(pos.add(new Coord(0, 0)), new Coord(1000, 1000), this);
-        //addWindow(mainWindow);
-        //MainToolbarWindow mainToolbarWindow = new MainToolbarWindow(this);
-        //addWindow(mainToolbarWindow);
         menuWindow = new MainMenuWindow(this);
         addWindow(menuWindow);
     }

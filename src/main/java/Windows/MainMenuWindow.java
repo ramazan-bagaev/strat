@@ -26,7 +26,6 @@ public class MainMenuWindow extends Window {
         ArrayList<WindowElement> windowElements = getWindowElements();
         windowElements.clear();
         
-        // Добавляю кнопки меню
         Button playButton = new Button(new Coord(10, 10), new Coord(150, 30), "Start", this){
             @Override
             public void click(Coord point){
@@ -39,7 +38,6 @@ public class MainMenuWindow extends Window {
         windowElements.add(playButton);
         Button settingButton = new Button(new Coord(10, 60), new Coord(150, 30), "Settings", this);
         windowElements.add(settingButton);
-        //playButton.click(playButton.getPos());
         
         
         
