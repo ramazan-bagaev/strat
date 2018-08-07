@@ -1,5 +1,8 @@
 package Foundation.Person;
 
+import Foundation.Needs.Need;
+import Foundation.Needs.Needs;
+import Foundation.Products.EdibleProduct.EdibleProduct;
 import Foundation.Works.Work;
 import Utils.Broadcaster;
 import Utils.Subscription;
@@ -13,6 +16,11 @@ public class Person implements Broadcaster{
     private Kasta kasta;
 
     private boolean alive;
+
+
+    private Needs essentialNeeds;
+    private Needs comfortNeeds;
+    private Needs luxuryNeeds;
 
 
     public enum Kasta{
@@ -63,6 +71,12 @@ public class Person implements Broadcaster{
         return alive;
     }
 
+    private void initNeeds(){
+        essentialNeeds = new Needs();
+        essentialNeeds.addNeed(new EdibleProduct(5) {});
+    }
+
+    @Override
     public String getValue(String key) {
         switch (key){
             case "name":

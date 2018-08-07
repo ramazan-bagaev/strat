@@ -1,6 +1,7 @@
 package Foundation.FieldObjects.BuildingObject;
 
 import Foundation.Field;
+import Foundation.Person.HouseHold;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Products.ProductStore;
@@ -11,25 +12,21 @@ import Windows.FieldObjectWindow.LivingBuildingInfoWindow;
 public abstract class LivingBuildingObject extends BuildingObject{
 
     protected int capacity;
-    protected People people;
-
-
-    protected ProductStore store;
+    protected HouseHold houseHold;
 
     public LivingBuildingObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
         capacity = size.x * size.y;
-        people = new People();
-        store = new ProductStore(this);
+        houseHold = new HouseHold(new People(), this);
     }
 
     public void addPerson(Person person){
-        people.addPerson(person);
+        houseHold.addPerson(person);
     }
 
 
     public void removePerson(Person person){
-        people.removePerson(person);
+        houseHold.removePerson(person);
     }
 
     public int getCapacity(){
@@ -37,11 +34,11 @@ public abstract class LivingBuildingObject extends BuildingObject{
     }
 
     public People getPeople() {
-        return people;
+        return houseHold.getPeople();
     }
 
     public ProductStore getStore() {
-        return store;
+        return houseHold.getProductStore();
     }
 
 

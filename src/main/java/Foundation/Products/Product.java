@@ -15,8 +15,19 @@ public abstract class Product implements ProductType, Need, Broadcaster{
         amountContent = new Content();
     }
 
+    @Override
     public int getAmount(){
         return amount;
+    }
+
+    @Override
+    public void addAmount(int amount){
+        increase(amount);
+    }
+
+    @Override
+    public void decreaseAmount(int amount){
+        decrease(amount);
     }
 
     public void increase(int amount){
@@ -86,4 +97,5 @@ public abstract class Product implements ProductType, Need, Broadcaster{
     public boolean isApartment(){
         return false;
     }
+
 }

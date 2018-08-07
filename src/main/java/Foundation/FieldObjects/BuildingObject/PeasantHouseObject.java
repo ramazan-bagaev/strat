@@ -10,12 +10,10 @@ import Utils.Geometry.Index;
 public class PeasantHouseObject extends LivingBuildingObject{
 
     private Index housePos;
-    private PeasantOccupation occupation;
 
     public PeasantHouseObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
         housePos = new Index(size.x/2, size.y/2);
-        occupation = new PeasantOccupation(this);
         setShapes();
     }
 
@@ -35,7 +33,7 @@ public class PeasantHouseObject extends LivingBuildingObject{
     }
 
     public void distributeWork(){
-        occupation.initWorks();
-        getParent().getMap().getGameEngine().addRunEntity(occupation);
+       // occupation.initWorks();
+       // getParent().getMap().getGameEngine().addRunEntity(occupation);
     }
 }

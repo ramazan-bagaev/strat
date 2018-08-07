@@ -33,4 +33,8 @@ public class ProductStore {
     public BuildingObject getStorePlace() {
         return storePlace;
     }
+
+    public void setStorePlace(BuildingObject buildingObject){
+        this.storePlace = buildingObject;
+    }
 }
