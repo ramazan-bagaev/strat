@@ -3,7 +3,6 @@ package Foundation.Elements;
 import Foundation.*;
 import Foundation.FieldObjects.BuildingObject.ManorObject;
 import Foundation.Person.Person;
-import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidManorAI;
 import Foundation.Runnable.Actors.ManorActor;
@@ -101,15 +100,6 @@ public class Manor extends HabitableFieldElement {
     }
 
 
-    @Override
-    public void run() {
-        super.run();
-        for(Village village: villages){
-            ArrayList<Resource> resources = village.getPartOfResource(0.9);
-            for(Resource resource: resources) resourceStore.addResource(resource);
-        }
-    }
-
     public Person getLord() {
         return lord;
     }
@@ -125,17 +115,6 @@ public class Manor extends HabitableFieldElement {
         AI manorAI = new StupidManorAI(actor, time);
         actor.setAi(manorAI);
         parent.getMap().getGameEngine().addRunEntity(manorAI);
-    }
-
-    public ArrayList<Resource> getPartOfResource(double part){
-        if (part > 1) part = 1;
-        if (part < 0) part = 0;
-        ArrayList<Resource> result = new ArrayList<>();
-        for(Resource resource: resourceStore.getResources()){
-            Resource share = resource.getResource((int) (resource.getAmount()*part));
-            result.add(share);
-        }
-        return result;
     }
 
 

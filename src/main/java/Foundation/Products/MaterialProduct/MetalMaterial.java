@@ -1,7 +1,6 @@
-package Foundation.Recources.MaterialProduct;
+package Foundation.Products.MaterialProduct;
 
-import Foundation.Recources.MaterialProduct.MaterialProduct;
-import Foundation.Recources.Product;
+import Foundation.Products.Product;
 
 public class MetalMaterial extends MaterialProduct {
 
@@ -10,8 +9,8 @@ public class MetalMaterial extends MaterialProduct {
     }
 
     @Override
-    public boolean isSameAs(Product other) {
-        if (other.isMaterial()){
+    public boolean isSameProductAs(Product other) {
+        if (super.isSameProductAs(other)){
             if (((MaterialProduct)other).isMetal()) return true;
         }
         return false;

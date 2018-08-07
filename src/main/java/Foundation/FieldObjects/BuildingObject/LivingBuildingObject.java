@@ -3,7 +3,7 @@ package Foundation.FieldObjects.BuildingObject;
 import Foundation.Field;
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Foundation.Recources.ProductStore;
+import Foundation.Products.ProductStore;
 import Foundation.Window;
 import Utils.Geometry.Index;
 import Windows.FieldObjectWindow.LivingBuildingInfoWindow;

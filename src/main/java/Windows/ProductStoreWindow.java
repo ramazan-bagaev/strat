@@ -1,7 +1,7 @@
 package Windows;
 
 import Foundation.Frame;
-import Foundation.Recources.ProductStore;
+import Foundation.Products.ProductStore;
 import Utils.Geometry.Coord;
 import WindowElementGroups.ProductElementGroup;
 

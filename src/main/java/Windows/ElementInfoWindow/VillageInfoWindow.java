@@ -12,7 +12,6 @@ import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 import Windows.IntermediatWindows.ChooseManyPeople.ChooseVillagePeopleWindow;
 import Windows.PopulationInfoWindow;
-import Windows.ResourceStoreWindow;
 import Windows.WorkPlaceWindows.VillageWorkWindow;
 
 import java.util.ArrayList;
@@ -73,16 +72,6 @@ public class VillageInfoWindow extends ClosableWindow{
 
         addWindowElement(addWork);
 
-        Button showResource = new Button(new Coord(20, 160), new Coord(200, 20),"show resources", this){
-
-            @Override
-            public void click(Coord point) {
-                Frame frame = getParent().getParent();
-                frame.addSpecialWindow("resource store window", new ResourceStoreWindow(village.getResourceStore(), frame));
-            }
-        };
-
-        addWindowElement(showResource);
 
         MonitoredBroadcastLabel manorPopulationLabel = new MonitoredBroadcastLabel(new Coord(20, 200), new Coord(200, 10),
                 "Population:", village.getSociety(), "amount", this) {

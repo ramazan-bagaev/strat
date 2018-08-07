@@ -1,9 +1,9 @@
 package Foundation.Works;
 
 import Foundation.Person.People;
-import Foundation.Recources.EdibleProduct.VegetableProduct;
-import Foundation.Recources.Product;
-import Foundation.Recources.ProductStore;
+import Foundation.Products.EdibleProduct.VegetableProduct;
+import Foundation.Products.Product;
+import Foundation.Products.ProductStore;
 import Foundation.Works.Occupation.Occupation;
 
 public class VegetableMakingWork extends ProductMakingWork {

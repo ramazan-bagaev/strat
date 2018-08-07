@@ -1,6 +1,6 @@
 package Foundation.Flora;
 
-import Foundation.Recources.Resource;
+import Foundation.Products.Product;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,6 @@ public abstract class Plant {
         return amount;
     }
 
-    public abstract ArrayList<Resource> getResources(int amount);
 
     public abstract boolean isEdible();
 }

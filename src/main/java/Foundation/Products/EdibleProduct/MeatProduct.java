@@ -1,7 +1,7 @@
-package Foundation.Recources.EdibleProduct;
+package Foundation.Products.EdibleProduct;
 
 
-import Foundation.Recources.Product;
+import Foundation.Products.Product;
 
 public class MeatProduct extends EdibleProduct {
 
@@ -10,8 +10,8 @@ public class MeatProduct extends EdibleProduct {
     }
 
     @Override
-    public boolean isSameAs(Product other) {
-        if (other.isEdible()){
+    public boolean isSameProductAs(Product other) {
+        if (super.isSameProductAs(other)){
             if (((EdibleProduct)other).isMeat()) return true;
         }
         return false;

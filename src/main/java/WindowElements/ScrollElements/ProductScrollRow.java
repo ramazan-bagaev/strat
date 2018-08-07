@@ -1,6 +1,6 @@
 package WindowElements.ScrollElements;
 
-import Foundation.Recources.Product;
+import Foundation.Products.Product;
 import Foundation.WindowElement;
 import Utils.Geometry.Coord;
 import WindowElementGroups.ScrollableGroup;

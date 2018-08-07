@@ -1,4 +1,4 @@
-package Foundation.Recources.MaterialProduct;
+package Foundation.Products.MaterialProduct;
 
 public interface MaterialType {
 

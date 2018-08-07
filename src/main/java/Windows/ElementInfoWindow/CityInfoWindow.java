@@ -68,15 +68,6 @@ public class CityInfoWindow extends ClosableWindow {
 
         addWindowElement(addArmy);
 
-        Button openResourceStore = new Button(new Coord(10, 200), new Coord(200, 20),"resources", this) {
-            @Override
-            public void click(Coord point) {
-                Frame frame = getParent().getParent();
-                frame.addSpecialWindow("resource store window", new ResourceStoreWindow(getCity().getResourceStore(), frame));
-            }
-        };
-
-        addWindowElement(openResourceStore);
         if (city.getCountry() != null) {
             StaticBroadcastLabel countryName = new StaticBroadcastLabel(new Coord(10, 240), new Coord(200, 10), "country: ", city.getCountry(),
                     "name", this){

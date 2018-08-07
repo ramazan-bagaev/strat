@@ -1,7 +1,7 @@
 package WindowElementGroups;
 
-import Foundation.Recources.Product;
-import Foundation.Recources.ProductStore;
+import Foundation.Products.Product;
+import Foundation.Products.ProductStore;
 import Foundation.Window;
 import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.ProductScrollRow;

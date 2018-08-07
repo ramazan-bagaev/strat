@@ -1,10 +1,11 @@
-package Foundation.Recources;
+package Foundation.Products;
 
+import Foundation.Needs.Need;
 import Utils.Broadcaster;
 import Utils.Content;
 import Utils.Subscription;
 
-public abstract class Product implements ProductType, Broadcaster{
+public abstract class Product implements ProductType, Need, Broadcaster{
 
     private int amount;
     protected Content amountContent;
@@ -31,9 +32,13 @@ public abstract class Product implements ProductType, Broadcaster{
         amountContent.changed();
     }
 
-    public abstract boolean isSameAs(Product other);
+    public abstract boolean isSameProductAs(Product other);
 
-    public abstract int getWeight();
+    @Override
+    public boolean isSameNeedAs(Need need){
+        if (!need.isProduct()) return false;
+        return isSameProductAs((Product)need);
+    }
 
     @Override
     public boolean isEdible() {
@@ -70,5 +75,15 @@ public abstract class Product implements ProductType, Broadcaster{
                 return String.valueOf(amount);
         }
         return Broadcaster.noResult;
+    }
+
+    @Override
+    public boolean isProduct(){
+        return true;
+    }
+
+    @Override
+    public boolean isApartment(){
+        return false;
     }
 }

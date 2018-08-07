@@ -12,7 +12,6 @@ import Windows.ClosableWindow;
 import Windows.IntermediatWindows.ChooseManyPeople.ChooseManorPeopleWindow;
 import Windows.IntermediatWindows.ChooseOnePerson.ChooseVillageStewardWindow;
 import Windows.PopulationInfoWindow;
-import Windows.ResourceStoreWindow;
 
 public class ManorInfoWindow extends ClosableWindow {
 
@@ -56,16 +55,6 @@ public class ManorInfoWindow extends ClosableWindow {
         addWindowElement(addField);
 
 
-        Button showResource = new Button(new Coord(20, 160), new Coord(200, 20), "show resources", this){
-
-            @Override
-            public void click(Coord point) {
-                Frame frame = getParent().getParent();
-                frame.addSpecialWindow("resource store window", new ResourceStoreWindow(manor.getResourceStore(), frame));
-            }
-        };
-
-        addWindowElement(showResource);
 
         Button addVillage = new Button(new Coord(20, 200), new Coord(200, 20), "add village", this){
 

@@ -47,6 +47,7 @@ public class VillageObjectsGenerator {
     private void generateStewardObject(){
         Index size = new Index(3, 3);
         Index pos = fieldObjects.getPosForBuilding(size);
+        if (pos == null) return;
         StewardBuildingObject stewardBuildingObject = new StewardBuildingObject(field, pos);
         field.addFieldObject(stewardBuildingObject);
     }

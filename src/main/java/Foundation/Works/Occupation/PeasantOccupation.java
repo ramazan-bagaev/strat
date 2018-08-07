@@ -4,7 +4,7 @@ import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Field;
-import Foundation.Recources.ProductStore;
+import Foundation.Products.ProductStore;
 import Foundation.Works.MeatMakingWork;
 import Foundation.Works.VegetableMakingWork;
 import Foundation.Works.WheatMakingWork;

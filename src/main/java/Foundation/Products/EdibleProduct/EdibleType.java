@@ -1,4 +1,4 @@
-package Foundation.Recources.EdibleProduct;
+package Foundation.Products.EdibleProduct;
 
 public interface EdibleType {
 

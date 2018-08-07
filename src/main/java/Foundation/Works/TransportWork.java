@@ -2,8 +2,8 @@ package Foundation.Works;
 
 import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.Person.People;
-import Foundation.Recources.ProductBundle;
-import Foundation.Recources.ProductStore;
+import Foundation.Products.ProductBundle;
+import Foundation.Products.ProductStore;
 import Foundation.TransportInfrostructure.TransportNetNode;
 import Foundation.TransportInfrostructure.TransportNetPath;
 import Foundation.TransportInfrostructure.TransportNetPathFinder;

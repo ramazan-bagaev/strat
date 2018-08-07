@@ -1,7 +1,6 @@
-package Foundation.Recources.MaterialProduct;
+package Foundation.Products.MaterialProduct;
 
-import Foundation.Recources.Product;
-import Utils.Broadcaster;
+import Foundation.Products.Product;
 
 public abstract class MaterialProduct extends Product implements MaterialType {
 
@@ -16,17 +15,18 @@ public abstract class MaterialProduct extends Product implements MaterialType {
     }
 
     @Override
-    public int getWeight(){
-        return 2;
-    }
-
-    @Override
     public boolean isWood() {
         return false;
     }
 
     @Override
     public boolean isMetal() {
+        return false;
+    }
+
+    @Override
+    public boolean isSameProductAs(Product other){
+        if (other.isMaterial()) return true;
         return false;
     }
 

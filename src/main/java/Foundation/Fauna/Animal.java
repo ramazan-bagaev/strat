@@ -1,7 +1,6 @@
 package Foundation.Fauna;
 
 import Utils.Broadcaster;
-import Foundation.Recources.Resource;
 
 import java.util.ArrayList;
 
@@ -35,7 +34,6 @@ public abstract class Animal implements Broadcaster{
         amount = standartAmount;
     }
 
-    public abstract ArrayList<Resource> getResources(int amount);
     public abstract boolean isHuntable();
 
     @Override

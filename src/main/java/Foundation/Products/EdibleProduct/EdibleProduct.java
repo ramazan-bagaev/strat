@@ -1,6 +1,6 @@
-package Foundation.Recources.EdibleProduct;
+package Foundation.Products.EdibleProduct;
 
-import Foundation.Recources.Product;
+import Foundation.Products.Product;
 
 public abstract class EdibleProduct extends Product implements EdibleType {
 
@@ -11,11 +11,6 @@ public abstract class EdibleProduct extends Product implements EdibleType {
     @Override
     public boolean isEdible(){
         return true;
-    }
-
-    @Override
-    public int getWeight(){
-        return 1;
     }
 
     @Override
@@ -40,6 +35,12 @@ public abstract class EdibleProduct extends Product implements EdibleType {
 
     @Override
     public boolean isWheat() {
+        return false;
+    }
+
+    @Override
+    public boolean isSameProductAs(Product other){
+        if (other.isEdible()) return true;
         return false;
     }
 

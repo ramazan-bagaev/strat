@@ -1,4 +1,4 @@
-package Foundation.Recources;
+package Foundation.Products;
 
 public interface ProductType {
 

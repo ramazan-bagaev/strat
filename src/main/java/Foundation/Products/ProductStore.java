@@ -1,4 +1,4 @@
-package Foundation.Recources;
+package Foundation.Products;
 
 import Foundation.FieldObjects.BuildingObject.BuildingObject;
 
@@ -16,7 +16,7 @@ public class ProductStore {
 
     public void addProduct(Product newProduct){
         for(Product product: products){
-            if (product.isSameAs(newProduct)){
+            if (product.isSameProductAs(newProduct)){
                 int amount = newProduct.getAmount();
                 product.increase(amount);
                 newProduct.decrease(amount);

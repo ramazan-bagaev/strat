@@ -1,26 +1,25 @@
-package Foundation.Recources;
+package Foundation.Products;
 
 import java.util.ArrayList;
 
 public class ProductBundle {
 
     private ArrayList<Product> products;
-    private int maxWeight;
-    private int currentWeight;
+    private int maxAmount;
+    private int currentAmount;
 
-    public ProductBundle(int maxWeight){
-        this.maxWeight = maxWeight;
-        this.currentWeight = 0;
+    public ProductBundle(int maxAmount){
+        this.maxAmount = maxAmount;
+        this.currentAmount = 0;
         products = new ArrayList<>();
     }
 
     public void addProduct(Product newProduct){
-        int weight = newProduct.getWeight();
-        if (weight + currentWeight > maxWeight) return;
-        currentWeight+=weight;
+        int amount = newProduct.getAmount();
+        if (amount + currentAmount > maxAmount) return;
+        currentAmount += amount;
         for(Product product: products){
-            if (product.isSameAs(newProduct)){
-                int amount = newProduct.getAmount();
+            if (product.isSameProductAs(newProduct)){
                 product.increase(amount);
                 newProduct.decrease(amount);
                 return;

@@ -6,7 +6,6 @@ import Foundation.FieldObjects.BuildingObject.StewardBuildingObject;
 import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Foundation.Recources.Resource;
 import Foundation.Runnable.AI.AI;
 import Foundation.Runnable.AI.StupidAI.StupidVillageAI;
 import Foundation.Runnable.Actors.VillageActor;
@@ -207,17 +206,6 @@ public class Village extends HabitableFieldElement {
     public Territory getAvailableWater() {
         markAvailableWater();
         return availableWater;
-    }
-
-    public ArrayList<Resource> getPartOfResource(double part){
-        if (part > 1) part = 1;
-        if (part < 0) part = 0;
-        ArrayList<Resource> result = new ArrayList<>();
-        for(Resource resource: resourceStore.getResources()){
-            Resource share = resource.getResource((int) (resource.getAmount()*part));
-            result.add(share);
-        }
-        return result;
     }
 
     public ArrayList<WorkFieldElement> getWorkElements() {

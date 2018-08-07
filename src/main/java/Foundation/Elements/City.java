@@ -7,13 +7,7 @@ import Foundation.FieldObjects.BuildingObject.LivingBuildingObject;
 import Foundation.FieldObjects.BuildingObject.MarketObject;
 import Foundation.FieldObjects.BuildingObject.PalaceObject;
 import Foundation.Person.Person;
-import Foundation.Person.Society;
-import Foundation.Recources.Resource;
-import Foundation.Runnable.AI.AI;
-import Foundation.Runnable.AI.StupidAI.StupidCityAI;
-import Foundation.Runnable.Actors.CityActor;
 import Foundation.Runnable.Country;
-import Generation.NameGenerator;
 import Images.CityImage;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
@@ -84,8 +78,6 @@ public class City extends HabitableFieldElement {
         int size = parent.getSize();
         setBasicShapes(new CityImage(new Coord(), new Coord(size, size), null).getBasicShapesRemoveAndShiftBack());
 
-        Resource food = new Resource(Resource.Type.Food, "beginning supply", society.getAmount() * 80);
-        resourceStore.addResource(food);
 
         armies = new Armies(this);
         this.name = name;
@@ -155,12 +147,6 @@ public class City extends HabitableFieldElement {
     @Override
     public void run() {
         super.run();
-        for (Manor manor : manors) {
-            ArrayList<Resource> resources = manor.getPartOfResource(0.3);
-            for(Resource resource: resources){
-                resourceStore.addResource(resource);
-            }
-        }
     }
 
     public String getName() {
