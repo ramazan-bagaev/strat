@@ -2,16 +2,31 @@ package Foundation.FieldObjects.BuildingObject;
 
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
+import Foundation.Economics.TradeShop;
 import Foundation.Field;
+import Foundation.Products.Product;
+import Foundation.Products.ProductBundle;
+import Foundation.Products.ProductStore;
 import Foundation.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 
+import java.util.ArrayList;
+
 public class MarketObject extends BuildingObject {
+
+    private ArrayList<TradeShop> tradeShops;
 
     public MarketObject(Field parent, Index cellPos) {
         super(parent, cellPos, new Index(4, 4));
+        this.tradeShops = new ArrayList<>();
         setShapes();
+    }
+
+    public TradeShop addTradeShop(ProductStore tradeStore, ProductStore ownerStore){
+        TradeShop tradeShop = new TradeShop(ownerStore, tradeStore, this);
+        tradeShops.add(tradeShop);
+        return tradeShop;
     }
 
     @Override

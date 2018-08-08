@@ -52,6 +52,8 @@ public class Field {
 
     private Random random;
 
+    private FieldCommonInformation info;
+
     public Field(Index fieldMapPos, Random random, FieldMap map, Time time){
         this.fieldMapPos = fieldMapPos;
         cellMap = new CellMap(this);
@@ -66,6 +68,7 @@ public class Field {
         this.time = time;
         dynamicDrawables = new ArrayList<>();
         entryPoints = new ArrayList<>();
+        this.info = new FieldCommonInformation();
     }
 
     public Field(Index fieldMapPos, Random random, FieldMap map, Time time, Ground.GroundType type){
@@ -86,6 +89,7 @@ public class Field {
         ecosystem = new Ecosystem(this);
         entryPoints = new ArrayList<>();
         calculateTimeToIntersect();
+        this.info = new FieldCommonInformation();
     }
 
     /*public Field(Index fieldMapPos, int pieceSize, Random random, FieldMap map, Time time){
@@ -377,5 +381,9 @@ public class Field {
     public Index getFirstEntryPoint(){
         if (entryPoints.size() == 0) return null;
         return entryPoints.get(0);
+    }
+
+    public FieldCommonInformation getInfo() {
+        return info;
     }
 }

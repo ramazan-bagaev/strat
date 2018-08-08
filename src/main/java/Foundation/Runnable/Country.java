@@ -3,8 +3,6 @@ package Foundation.Runnable;
 import Foundation.Elements.City;
 import Foundation.Person.Person;
 import Foundation.Runnable.AI.AI;
-import Foundation.Runnable.AI.StupidAI.StupidCountryAI;
-import Foundation.Runnable.Actors.CountryActor;
 import Foundation.Territory;
 import Utils.Broadcaster;
 import Utils.Geometry.Index;
@@ -24,7 +22,6 @@ public class Country implements RunEntity, Broadcaster {
 
     private Person king;
 
-    private CountryActor actor;
 
     public Country(String name, Person king, City capital){
         this.name = name;
@@ -32,13 +29,9 @@ public class Country implements RunEntity, Broadcaster {
         //subscriptions = new ArrayList<>();
         territory = new Territory();
         this.king = king;
-        actor = new CountryActor(king, this);
-        AI countryAI = new StupidCountryAI(actor, capital.getTime());
-        actor.setAi(countryAI);
         this.capital = capital;
         addCity(capital);
         capital.getParent().getMap().getGameEngine().addRunEntity(this);
-        capital.getParent().getMap().getGameEngine().addRunEntity(countryAI);
     }
 
     public void addCity(City city){

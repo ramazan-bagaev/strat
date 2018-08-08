@@ -37,4 +37,11 @@ public class ProductStore {
     public void setStorePlace(BuildingObject buildingObject){
         this.storePlace = buildingObject;
     }
+
+    public boolean hasProduct(Product product){
+        for(Product storeProduct: products){
+            if (product.isSameProductAs(storeProduct)) return true;
+        }
+        return false;
+    }
 }

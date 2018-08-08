@@ -186,6 +186,7 @@ public class CityObjectsGenerator {
     private void addPalace(){
         Index size = new Index(8, 4);
         Index pos = fieldObjects.getPosForBuilding(size);
+        if (pos == null) return;
         PalaceObject palaceObject = new PalaceObject(field, pos);
         fieldObjects.addBuilding(palaceObject);
     }

@@ -3,7 +3,6 @@ package Foundation.FieldObjects.BuildingObject;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
-import Foundation.Works.Occupation.PeasantOccupation;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 

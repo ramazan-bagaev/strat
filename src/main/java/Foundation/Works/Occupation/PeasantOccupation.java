@@ -23,6 +23,7 @@ public class PeasantOccupation extends Occupation {
 
     public PeasantOccupation(PeasantHouseObject peasantHouse){
         this.peasantHouse = peasantHouse;
+        initWorks();
     }
 
     public void initWorks(){
@@ -42,7 +43,7 @@ public class PeasantOccupation extends Occupation {
 
         square = size.x*size.y - 1;
         int amount = people.getAmount();
-
+        if (amount == 0) return;
         int wheatWorking = amount * wheatFieldSize / square;
         if (wheatWorking == 0 && wheatFieldSize != 0) wheatWorking = 1;
 
@@ -67,6 +68,7 @@ public class PeasantOccupation extends Occupation {
         System.out.println(meatFieldSize + " " + meatWorking);
         System.out.println(vegetableFieldSize + " " + vegetableWorking);
 
+        if (wheatWorking + meatWorking + vegetableWorking != amount) return;
         ArrayList<Person> personArray = people.getPersonArray();
         People wheatPeople = new People();
         for(int i = 0; i < wheatWorking; i++){

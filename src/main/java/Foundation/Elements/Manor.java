@@ -4,8 +4,6 @@ import Foundation.*;
 import Foundation.FieldObjects.BuildingObject.ManorObject;
 import Foundation.Person.Person;
 import Foundation.Runnable.AI.AI;
-import Foundation.Runnable.AI.StupidAI.StupidManorAI;
-import Foundation.Runnable.Actors.ManorActor;
 import Generation.NameGenerator;
 import Images.ManorImage;
 import Utils.Geometry.Index;
@@ -23,7 +21,6 @@ public class Manor extends HabitableFieldElement {
     private Territory territory;
     private City city;
 
-    private ManorActor actor;
 
     public static Manor constructManorWithRandomPeople(Field parent, City city){
         Manor res = new Manor(parent, city);
@@ -107,14 +104,6 @@ public class Manor extends HabitableFieldElement {
     public void setLord(Person lord) {
         this.lord = lord;
         society.addPerson(lord);
-        if (actor != null) {
-            AI ai = actor.getAi();
-            parent.getMap().getGameEngine().removeRunEntity(ai);
-        }
-        this.actor = new ManorActor(lord, this);
-        AI manorAI = new StupidManorAI(actor, time);
-        actor.setAi(manorAI);
-        parent.getMap().getGameEngine().addRunEntity(manorAI);
     }
 
 

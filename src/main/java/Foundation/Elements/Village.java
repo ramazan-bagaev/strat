@@ -7,8 +7,6 @@ import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Runnable.AI.AI;
-import Foundation.Runnable.AI.StupidAI.StupidVillageAI;
-import Foundation.Runnable.Actors.VillageActor;
 import Generation.NameGenerator;
 import Images.VillageImage;
 import Utils.Content;
@@ -26,7 +24,6 @@ public class Village extends HabitableFieldElement {
     private Manor manor;
     private Person steward;
 
-    private VillageActor actor;
     private ArrayList<WorkFieldElement> workElements;
 
 
@@ -126,10 +123,6 @@ public class Village extends HabitableFieldElement {
     public void setSteward(Person steward){
         this.steward = steward;
         society.addPerson(steward);
-        actor = new VillageActor(steward, this, time);
-        AI villageAI = new StupidVillageAI(actor, time);
-        actor.setAi(villageAI);
-        parent.getMap().getGameEngine().addRunEntity(villageAI);
     }
 
     public void createFarm(Index point){

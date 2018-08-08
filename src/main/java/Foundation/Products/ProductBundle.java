@@ -31,4 +31,11 @@ public class ProductBundle {
     public ArrayList<Product> getProducts() {
         return products;
     }
+
+    public boolean hasProduct(Product product){
+        for(Product storeProduct: products){
+            if (product.isSameProductAs(storeProduct)) return true;
+        }
+        return false;
+    }
 }

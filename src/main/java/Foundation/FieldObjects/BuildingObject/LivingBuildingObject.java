@@ -41,6 +41,9 @@ public abstract class LivingBuildingObject extends BuildingObject{
         return houseHold.getProductStore();
     }
 
+    public HouseHold getHouseHold() {
+        return houseHold;
+    }
 
     @Override
     public Window getInfoWindow(){

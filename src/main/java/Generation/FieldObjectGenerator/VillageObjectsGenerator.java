@@ -2,14 +2,11 @@ package Generation.FieldObjectGenerator;
 
 import Foundation.Field;
 import Foundation.FieldObjects.BuildingObject.*;
-import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.FieldObjects;
 import Foundation.FieldObjects.OccupationPiece;
 import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
-import Foundation.FieldObjects.TransportObjects.RoadType;
-import Foundation.FieldObjects.TransportObjects.TransportNetObject;
 import Foundation.Person.Person;
-import Utils.FieldObjectPathFinder;
+import Foundation.Runnable.AI.PeasantHouseHoldAI;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;
@@ -30,6 +27,7 @@ public class VillageObjectsGenerator {
         generateFirstRoads();
         generateStewardObject();
         generateBuildings();
+        generateMarket();
     }
 
     private void generateFirstRoads(){
@@ -73,10 +71,21 @@ public class VillageObjectsGenerator {
                     if (populace < 0) break;
                     buildingObject.addPerson(people.get(populace));
                 }
+                PeasantHouseHoldAI ai = new PeasantHouseHoldAI();
+                ai.setHouseHold(buildingObject.getHouseHold());
                 fieldObjects.addBuilding(buildingObject);
             }
             if (populace <= 0) break;
             if (k > 100) break;
         }
+    }
+
+    private void generateMarket(){
+        Index size = new Index(4, 4);
+        Index pos = fieldObjects.getPosForBuilding(size);
+        if (pos == null) return;
+        MarketObject marketObject = new MarketObject(field, pos);
+        fieldObjects.addBuilding(marketObject);
+        field.getInfo().setMarketObject(marketObject);
     }
 }
