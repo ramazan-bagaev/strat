@@ -3,6 +3,7 @@ package Foundation.FieldObjects.BuildingObject;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Economics.TradeShop;
+import Foundation.Economics.Wallet;
 import Foundation.Field;
 import Foundation.Products.Product;
 import Foundation.Products.ProductBundle;
@@ -23,10 +24,14 @@ public class MarketObject extends BuildingObject {
         setShapes();
     }
 
-    public TradeShop addTradeShop(ProductStore tradeStore, ProductStore ownerStore){
-        TradeShop tradeShop = new TradeShop(ownerStore, tradeStore, this);
+    public TradeShop addTradeShop(ProductBundle goods, Wallet traderWallet){
+        TradeShop tradeShop = new TradeShop(traderWallet, goods, this);
         tradeShops.add(tradeShop);
         return tradeShop;
+    }
+
+    public void removeTradeShop(TradeShop tradeShop){
+        tradeShops.remove(tradeShop);
     }
 
     @Override

@@ -1,14 +1,24 @@
 package Foundation.Runnable.AI;
 
+import Foundation.FieldObjects.BuildingObject.MarketObject;
 import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
 import Foundation.Person.HouseHold;
-import Foundation.Works.Occupation.PeasantOccupation;
+import Foundation.Person.People;
+import Foundation.Person.Person;
+import Foundation.Products.Product;
+import Foundation.Products.ProductBundle;
+import Foundation.Products.ProductStore;
+import Foundation.Works.Occupation.PeasantHouseOccupation;
+import Foundation.Works.Occupation.PeasantTraderOccupation;
+
+import java.util.Iterator;
 
 public class PeasantHouseHoldAI extends AI{
 
     private HouseHold houseHold;
-    private PeasantOccupation peasantOccupation;
+    private PeasantHouseOccupation peasantHouseOccupation;
     private PeasantHouseObject peasantHouseObject;
+    private PeasantTraderOccupation peasantTraderOccupation;
 
     public PeasantHouseHoldAI(){
     }
@@ -17,13 +27,34 @@ public class PeasantHouseHoldAI extends AI{
         if (this.houseHold == null) houseHold.getHouse().getParent().getMap().getGameEngine().addRunEntity(this);
         this.houseHold = houseHold;
         this.peasantHouseObject = (PeasantHouseObject)this.houseHold.getHouse();
-        this.peasantOccupation = new PeasantOccupation(this.peasantHouseObject);
-        houseHold.getHouse().getParent().getMap().getGameEngine().addRunEntity(this.peasantOccupation);
+        this.peasantHouseOccupation = new PeasantHouseOccupation(this.peasantHouseObject);
+    }
+
+    private void tryTrade(){
+        if (peasantTraderOccupation != null) return;
+        ProductStore productStore = houseHold.getProductStore();
+        ProductBundle productBundle = new ProductBundle(100000);
+        Iterator<Product> iterator = productStore.getProducts().iterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            productBundle.addProduct(product);
+            iterator.remove();
+        }
+        MarketObject marketObject = houseHold.getHouse().getParent().getInfo().getMarketObject();
+        if (marketObject == null) return;
+        People people = houseHold.getPeople();
+        if (people.getAmount() == 0) return;
+        Person mainTrader = people.getPersonArray().get(0);
+        peasantTraderOccupation = new PeasantTraderOccupation(houseHold, mainTrader, productBundle, marketObject);
     }
 
     @Override
     public void makeDecision() {
         if (houseHold == null) return;
+        if (peasantTraderOccupation != null) {
+            if (peasantTraderOccupation.allWorksDone()) peasantTraderOccupation = null;
+        }
+        tryTrade();
     }
 
 }

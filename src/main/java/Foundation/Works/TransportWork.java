@@ -1,5 +1,6 @@
 package Foundation.Works;
 
+import Foundation.FieldObjects.BuildingObject.BuildingObject;
 import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.Person.People;
 import Foundation.Products.ProductBundle;
@@ -14,45 +15,42 @@ import java.util.ArrayList;
 public class TransportWork extends Work{
 
     protected ProductBundle bundle;
-    protected ProductStore source;
-    protected ProductStore destination;
+    protected BuildingObject source;
+    protected BuildingObject destination;
     protected TransportNetPath path;
     protected ArrayList<TransportNetNode> visitedNodes;
-    protected int position; // from 0 to visitedNodes.size()
 
-    public TransportWork(People people, Occupation occupation, ProductStore source, ProductStore destination) {
+    public TransportWork(People people, Occupation occupation, BuildingObject source,
+                         BuildingObject destination, ProductBundle productBundle) {
         super(people, occupation);
         this.source = source;
         this.destination = destination;
-        bundle = new ProductBundle(100);
+        this.bundle = productBundle;
         initPath();
     }
 
     public void initPath(){
-        TransportNetNodeObject begin = source.getStorePlace().getTransportNetEntranceNode();
-        TransportNetNodeObject end = source.getStorePlace().getTransportNetEntranceNode();
+        TransportNetNodeObject begin = source.getTransportNetEntranceNode();
+        TransportNetNodeObject end = destination.getTransportNetEntranceNode();
+        if (begin == null || end == null){
+            endStage = -1;
+            return;
+        }
         TransportNetPathFinder pathFinder = new TransportNetPathFinder();
         path = pathFinder.getPath(begin, end);
-        visitedNodes = path.getVisitedNodes(100);
-        position = 0;
-    }
-
-    @Override
-    public int getDuration(){
-        return visitedNodes.size() - 1;
-    }
-
-    @Override
-    public boolean isFinished(){
-        if (getDuration() == 0) return true;
-        return (position == getDuration());
+        if (path == null){
+            endStage = -1;
+            return;
+        }
+        visitedNodes = path.getVisitedNodes(100); // TODO: magic constant
+        endStage = visitedNodes.size() - 1;
     }
 
     @Override
     protected void doMainWork() {
-        TransportNetNodeObject node = (TransportNetNodeObject)visitedNodes.get(position);
+        if (endStage == -1) return;
+        TransportNetNodeObject node = (TransportNetNodeObject)visitedNodes.get(stage);
         node.removeBundle(bundle);
-        position++;
         node.addBundle(bundle);
     }
 }

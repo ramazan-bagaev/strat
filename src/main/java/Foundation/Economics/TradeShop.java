@@ -9,18 +9,18 @@ import java.util.HashMap;
 
 public class TradeShop {
 
-    private ProductStore tradeStore;
+    private ProductBundle goods;
 
     private HashMap<Product, Integer> prices;
 
-    private ProductStore ownerStore;
+    private Wallet traderWallet;
 
     private MarketObject marketObject;
 
-    public TradeShop(ProductStore ownerStore, ProductStore tradeStore, MarketObject marketObject){
-        this.ownerStore = ownerStore;
+    public TradeShop(Wallet traderWallet, ProductBundle goods, MarketObject marketObject){
+        this.traderWallet = traderWallet;
         this.marketObject = marketObject;
-        this.tradeStore = tradeStore;
+        this.goods = goods;
         prices = new HashMap<>();
     }
 
@@ -29,6 +29,6 @@ public class TradeShop {
     }
 
     public boolean hasProduct(Product product){
-        return tradeStore.hasProduct(product);
+        return goods.hasProduct(product);
     }
 }

@@ -13,7 +13,7 @@ public abstract class Work{
 
     private boolean available;
 
-    private int stage;
+    protected int stage;
     protected int endStage;
 
     protected ArrayList<Work> nextAvailableWorks;
@@ -45,6 +45,10 @@ public abstract class Work{
 
     protected boolean isFinished(){
         return (stage >= endStage);
+    }
+
+    protected boolean isStarted(){
+        return (stage == 0);
     }
 
     protected abstract void doMainWork();

@@ -27,6 +27,7 @@ public class TransportNetPathFinder {
             if (element.isEdge()) {
                 TransportNetEdge edge = (TransportNetEdge)element;
                 TransportNetNode nextNode = edge.getOppositeNode(node);
+                if (nextNode == null) continue;
                 int newDepth = depth.get(node) + edge.getLength();
                 int oldDepth = depth.getOrDefault(nextNode, newDepth + 1);
                 if (oldDepth > newDepth) {

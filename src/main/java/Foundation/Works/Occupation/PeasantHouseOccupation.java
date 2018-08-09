@@ -13,7 +13,7 @@ import Utils.Geometry.Index;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PeasantOccupation extends Occupation {
+public class PeasantHouseOccupation extends Occupation {
 
     private MeatMakingWork meatMakingWork;
     private WheatMakingWork wheatMakingWork;
@@ -21,9 +21,11 @@ public class PeasantOccupation extends Occupation {
 
     private PeasantHouseObject peasantHouse;
 
-    public PeasantOccupation(PeasantHouseObject peasantHouse){
+    public PeasantHouseOccupation(PeasantHouseObject peasantHouse){
+        super(peasantHouse.getParent().getMap().getGameEngine());
         this.peasantHouse = peasantHouse;
         initWorks();
+        gameEngine.addRunEntity(this);
     }
 
     public void initWorks(){
@@ -43,7 +45,7 @@ public class PeasantOccupation extends Occupation {
 
         square = size.x*size.y - 1;
         int amount = people.getAmount();
-        if (amount == 0) return;
+        if (amount < 2) return;
         int wheatWorking = amount * wheatFieldSize / square;
         if (wheatWorking == 0 && wheatFieldSize != 0) wheatWorking = 1;
 

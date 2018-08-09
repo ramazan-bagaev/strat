@@ -1,5 +1,6 @@
 package Foundation.Person;
 
+import Foundation.Economics.Wallet;
 import Foundation.Needs.Need;
 import Foundation.Needs.Needs;
 import Foundation.Products.EdibleProduct.EdibleProduct;
@@ -9,6 +10,7 @@ import Utils.Subscription;
 
 public class Person implements Broadcaster{
 
+    private Wallet wallet;
     private Society society;
     private String name;
     private Work work;
@@ -23,6 +25,7 @@ public class Person implements Broadcaster{
     private Needs luxuryNeeds;
 
 
+
     public enum Kasta{
         Low, Middle, High, Royal
     }
@@ -32,6 +35,7 @@ public class Person implements Broadcaster{
         this.kasta = kasta;
         this.society = society;
         this.alive = true;
+        this.wallet = new Wallet();
     }
 
 
@@ -75,6 +79,11 @@ public class Person implements Broadcaster{
         essentialNeeds = new Needs();
         essentialNeeds.addNeed(new EdibleProduct(5) {});
     }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
 
     @Override
     public String getValue(String key) {
