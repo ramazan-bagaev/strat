@@ -15,7 +15,7 @@ public class Time implements Broadcaster {
     }
 
     public void next(){
-        date.nextDate();
+        date.nextHour();
         dateContent.changed();
     }
 

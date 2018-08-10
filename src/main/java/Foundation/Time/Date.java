@@ -53,24 +53,36 @@ public class Date {
         return (hour == date.hour && day == date.day && month == date.month && year == date.year);
     }
 
-    public void nextDate(){
+    public void nextHour(){
         hour += 1;
         if (hour == END_HOUR){
             hour = START_HOUR;
-            day += 1;
-            weekDay += 1;
-            if (weekDay == END_WEEKDAY){
-                weekDay = START_WEEKDAY;
-            }
-            if (day == END_DAY){
-                day = START_DAY;
-                month += 1;
-                if (month == END_MONTH){
-                    month = START_MONTH;
-                    year += 1;
-                }
-            }
+            nextDay();
         }
+    }
+
+    public void nextDay(){
+        day += 1;
+        weekDay += 1;
+        if (weekDay == END_WEEKDAY){
+            weekDay = START_WEEKDAY;
+        }
+        if (day == END_DAY){
+            day = START_DAY;
+            nextMonth();
+        }
+    }
+
+    public void nextMonth(){
+        month += 1;
+        if (month == END_MONTH){
+            month = START_MONTH;
+            nextYear();
+        }
+    }
+
+    public void nextYear(){
+        year += 1;
     }
 
     public Date add(Date date){
