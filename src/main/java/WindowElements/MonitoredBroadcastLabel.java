@@ -120,4 +120,8 @@ public class MonitoredBroadcastLabel extends Label{
     public void setPreText(String preText) {
         this.preText = preText;
     }
+
+    public void unsubscribe(){
+        broadcaster.unsubscribe(key, subscription);
+    }
 }

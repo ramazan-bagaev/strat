@@ -55,6 +55,10 @@ public class ScrollableGroupCameraConfiguration extends CameraConfiguration{
         this.maxY += delta;
     }
 
+    public void decreaseMaxY(double delta){
+        this.maxY -= delta;
+    }
+
     @Override
     public Coord transform(Coord pos){
         Coord newPos = new Coord(pos);

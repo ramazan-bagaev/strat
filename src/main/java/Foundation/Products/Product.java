@@ -30,6 +30,7 @@ public abstract class Product implements ProductType, Need, Broadcaster{
         decrease(amount);
     }
 
+
     public void increase(int amount){
         if (amount <= 0) return;
         this.amount += amount;

@@ -119,6 +119,7 @@ public class Window {
 
     public void removeWindowElements(){
         windowElements.clear();
+        windowElementGroups.clear();
     }
 
     public int getId() {

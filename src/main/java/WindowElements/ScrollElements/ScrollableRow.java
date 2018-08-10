@@ -10,13 +10,14 @@ public class ScrollableRow {
 
     protected ArrayList<WindowElement> rowElements;
 
+    protected Coord shift;
     protected Coord size;
     protected ScrollableGroup parent;
 
     public ScrollableRow(Coord size, ScrollableGroup parent) {
         this.size = new Coord(size);
         this.parent = parent;
-
+        this.shift = new Coord();
         rowElements = new ArrayList<>();
     }
 
@@ -43,6 +44,7 @@ public class ScrollableRow {
         for(WindowElement windowElement: rowElements){
             windowElement.shift(shift);
         }
+        this.shift = this.shift.add(shift);
     }
 
     public boolean contain(Coord point){
@@ -52,6 +54,9 @@ public class ScrollableRow {
         return false;
     }
 
+    public Coord getShift(){
+        return shift;
+    }
 
 
 }

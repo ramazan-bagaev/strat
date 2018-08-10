@@ -11,6 +11,7 @@ import Foundation.Products.ProductStore;
 import Foundation.Works.Occupation.PeasantHouseOccupation;
 import Foundation.Works.Occupation.PeasantTraderOccupation;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class PeasantHouseHoldAI extends AI{
@@ -34,12 +35,10 @@ public class PeasantHouseHoldAI extends AI{
         if (peasantTraderOccupation != null) return;
         ProductStore productStore = houseHold.getProductStore();
         ProductBundle productBundle = new ProductBundle(100000);
-        Iterator<Product> iterator = productStore.getProducts().iterator();
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
-            productBundle.addProduct(product);
-            iterator.remove();
-        }
+        ArrayList<Product> products = productStore.getProducts();
+        if (products.size() == 0) return;
+        productBundle.addProduct(products.get(0));
+        productStore.removeProduct(products.get(0));
         MarketObject marketObject = houseHold.getHouse().getParent().getInfo().getMarketObject();
         if (marketObject == null) return;
         People people = houseHold.getPeople();

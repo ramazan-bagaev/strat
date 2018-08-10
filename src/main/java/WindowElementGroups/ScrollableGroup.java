@@ -84,6 +84,18 @@ public class ScrollableGroup extends WindowElementGroup{
         cameraConfiguration.increaseMaxY(scrollableRow.getSize().y + 10);
     }
 
+    public void removeScrollableRaw(ScrollableRow scrollableRow){
+        scrollableRows.remove(scrollableRow);
+        double pos = scrollableRow.getShift().y;
+        double sizeY = scrollableRow.getSize().y + 10;
+        for(ScrollableRow row: scrollableRows){
+            if (row.getShift().y > pos) {
+                row.shift(new Coord(0, -sizeY));
+            }
+        }
+        cameraConfiguration.decreaseMaxY(-sizeY);
+    }
+
     public void setScrollableRows(ArrayList<ScrollableRow> scrollableRows) {
         this.scrollableRows = scrollableRows;
         cameraConfiguration.setMaxY(scrollableRows.size()*20);

@@ -11,6 +11,8 @@ public class ProductScrollRow extends ScrollableRow {
 
     private Product product;
 
+    private MonitoredBroadcastLabel amountLabel;
+
     public ProductScrollRow(Product product, Coord size, ScrollableGroup parent) {
         super(size, parent);
         this.product = product;
@@ -29,13 +31,14 @@ public class ProductScrollRow extends ScrollableRow {
         MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(2*size.x/3 + 5, 0), new Coord(size.x/3 - 5, size.y),
                 product, "amount", parent, parent.getParent());
         rowElements.add(amount);
+        this.amountLabel = amount;
     }
 
+    public void closeSubscribtions(){
+        amountLabel.unsubscribe();
+    }
 
-    @Override
-    public void run(){
-        for(WindowElement windowElement: rowElements){
-            //windowElement.run();
-        }
+    public Product getProduct() {
+        return product;
     }
 }
