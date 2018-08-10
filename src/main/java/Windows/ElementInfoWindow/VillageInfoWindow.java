@@ -1,9 +1,9 @@
 package Windows.ElementInfoWindow;
 
 import Foundation.BasicShapes.BasicShape;
-import Foundation.Button;
+import WindowElements.Button;
 import Foundation.GameWindowHelper.States.VillagePeopleDistributionState;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Geometry.Coord;
 import Foundation.Elements.Village;
 import Foundation.Frame;

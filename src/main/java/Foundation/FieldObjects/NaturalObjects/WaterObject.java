@@ -4,7 +4,7 @@ import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 

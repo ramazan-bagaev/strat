@@ -5,12 +5,12 @@ import Foundation.Field;
 import Foundation.FieldObjects.BuildingObject.BuildingObject;
 import Foundation.GameWindowHelper.Modes.InFieldMode.CoveringObjectMode;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Foundation.Products.ProductBundle;
 import Foundation.TransportInfrostructure.TransportNetEdge;
 import Foundation.TransportInfrostructure.TransportNetElement;
 import Foundation.TransportInfrostructure.TransportNetNode;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;

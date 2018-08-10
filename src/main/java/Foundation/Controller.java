@@ -1,5 +1,7 @@
 package Foundation;
 
+import Windows.Window;
+
 public class Controller {
 
     public enum Action{

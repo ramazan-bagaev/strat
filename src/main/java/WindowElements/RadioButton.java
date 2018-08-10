@@ -3,6 +3,7 @@ package WindowElements;
 import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
 import Utils.Geometry.Coord;
+import Windows.Window;
 
 public abstract class RadioButton extends WindowElement {
 

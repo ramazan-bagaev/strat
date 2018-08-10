@@ -1,6 +1,6 @@
 package Windows.ElementInfoWindow;
 
-import Foundation.Button;
+import WindowElements.Button;
 import Foundation.Frame;
 import Foundation.Army.Army;
 import Utils.Geometry.Coord;

@@ -1,10 +1,14 @@
-package Foundation;
+package WindowElements;
 
 import Foundation.BasicShapes.CharacterShape.Font;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.StringShape;
+import Foundation.Color;
 import Utils.Geometry.Coord;
+import WindowElementGroups.WindowElementGroup;
+import WindowElements.WindowElement;
+import Windows.Window;
 
 import java.util.ArrayList;
 

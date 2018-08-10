@@ -6,6 +6,7 @@ import Foundation.Person.People;
 import Foundation.Person.Society;
 import Foundation.Army.Army;
 import Utils.Geometry.Coord;
+import WindowElements.Button;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.SliderElement;
 

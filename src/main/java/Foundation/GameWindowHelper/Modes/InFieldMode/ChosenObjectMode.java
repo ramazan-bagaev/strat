@@ -4,7 +4,7 @@ import Foundation.FieldObjects.FieldObject;
 import Foundation.GameWindowHelper.FieldObjectHelperElements.ChosenObjectHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 public class ChosenObjectMode extends Mode {
 

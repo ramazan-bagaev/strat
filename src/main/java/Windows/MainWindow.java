@@ -1,10 +1,11 @@
-package Foundation;
+package Windows;
 
+import Foundation.*;
 import Utils.Geometry.Coord;
-import Foundation.Controller;
-import Foundation.Input;
+import WindowElements.GameWindowElements.GameWindowElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
-public class MainWindow extends Window{
+public class MainWindow extends Window {
 
     private GameWindowElement gameWindowElement;
     private GameWindowHelperElement gameWindowHelperElement;

@@ -3,7 +3,7 @@ package Images;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 
 public class PersonImage extends Image {

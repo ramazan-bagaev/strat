@@ -3,7 +3,7 @@ package Foundation.GameWindowHelper.States;
 import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.VillagePeopleDistributionMode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Foundation.MainWindowCameraConfiguration;
 import Utils.Geometry.Coord;
 

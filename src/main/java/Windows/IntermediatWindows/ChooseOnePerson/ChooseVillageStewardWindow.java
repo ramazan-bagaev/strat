@@ -3,7 +3,7 @@ package Windows.IntermediatWindows.ChooseOnePerson;
 import Foundation.Elements.Manor;
 import Foundation.Frame;
 import Foundation.GameWindowHelper.States.AddVillageState;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Foundation.Person.Person;
 
 public class ChooseVillageStewardWindow extends ChooseOnePersonWindow {

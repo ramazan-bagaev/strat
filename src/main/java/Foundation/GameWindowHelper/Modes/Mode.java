@@ -1,6 +1,6 @@
 package Foundation.GameWindowHelper.Modes;
 
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 public abstract class Mode{
 

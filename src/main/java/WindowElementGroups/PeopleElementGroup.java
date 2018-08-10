@@ -2,7 +2,7 @@ package WindowElementGroups;
 
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.PersonScrolledRow;
 

@@ -3,7 +3,7 @@ package Images;
 import Foundation.Color;
 import Utils.Geometry.Coord;
 import Foundation.BasicShapes.RectangleShape;
-import Foundation.Window;
+import Windows.Window;
 
 public class MineImage extends Image{
 

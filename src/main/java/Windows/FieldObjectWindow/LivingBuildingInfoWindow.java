@@ -1,6 +1,6 @@
 package Windows.FieldObjectWindow;
 
-import Foundation.Button;
+import WindowElements.Button;
 import Foundation.FieldObjects.BuildingObject.LivingBuildingObject;
 import Foundation.Frame;
 import Utils.Geometry.Coord;

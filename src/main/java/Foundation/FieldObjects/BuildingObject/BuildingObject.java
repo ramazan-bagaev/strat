@@ -7,7 +7,7 @@ import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.FieldObjects.TransportObjects.TransportNetObject;
 import Foundation.GameWindowHelper.Modes.InFieldMode.LinkedToBuildingRoadCoveringMode;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;

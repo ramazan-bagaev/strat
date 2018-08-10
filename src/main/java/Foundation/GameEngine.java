@@ -4,11 +4,12 @@ import Foundation.Army.Battle;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.Country;
 import Foundation.Runnable.RunEntity;
+import Foundation.Time.Time;
 import Generation.CompleteGenerator;
 import Generation.FieldMapGenerator;
-import Generation.TerrainGenerator.TerrainGenerator;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
+import WindowElements.GameWindowElements.GameWindowElement;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -63,11 +64,7 @@ public class GameEngine {
 
 
     public void run(){
-        incr++;
-        if (incr >= 30){
-            time.nextDay();
-            incr = 0;
-        }
+        time.next();
         Iterator<RunEntity> iterator = runEntities.iterator();
         while (iterator.hasNext()){
             RunEntity runEntity = iterator.next();

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public abstract class Work{
 
+
+
     protected Occupation occupation;
 
     protected People people;

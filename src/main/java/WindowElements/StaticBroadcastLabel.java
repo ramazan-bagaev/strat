@@ -1,9 +1,10 @@
 package WindowElements;
 
-import Foundation.*;
 import Foundation.BasicShapes.StringShape;
 import Utils.Broadcaster;
 import Utils.Geometry.Coord;
+import WindowElementGroups.WindowElementGroup;
+import Windows.Window;
 
 public class StaticBroadcastLabel extends Label {
 

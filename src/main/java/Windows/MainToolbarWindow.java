@@ -2,8 +2,7 @@ package Windows;
 
 import Utils.Geometry.Coord;
 import Foundation.Frame;
-import Foundation.Window;
-import Foundation.WindowElement;
+import WindowElements.WindowElement;
 import WindowElements.TimeElement;
 
 import java.util.ArrayList;

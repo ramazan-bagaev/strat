@@ -1,5 +1,7 @@
 package Foundation;
 
+import WindowElements.WindowElement;
+
 public class Keyboard {
 
     private Input input;

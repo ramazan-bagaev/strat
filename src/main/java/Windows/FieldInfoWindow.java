@@ -7,6 +7,7 @@ import Images.CityImage;
 import Images.GroundImage;
 import Images.Image;
 import Utils.Geometry.Coord;
+import WindowElements.Button;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.ElementInfoWindow.EcosystemInfoWindow;

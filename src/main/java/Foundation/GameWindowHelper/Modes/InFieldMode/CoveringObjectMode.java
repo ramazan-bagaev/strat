@@ -3,10 +3,9 @@ package Foundation.GameWindowHelper.Modes.InFieldMode;
 import Foundation.Color;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.GameWindowHelper.FieldObjectHelperElements.CoveringObjectHelper;
-import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 import java.util.ArrayList;
 

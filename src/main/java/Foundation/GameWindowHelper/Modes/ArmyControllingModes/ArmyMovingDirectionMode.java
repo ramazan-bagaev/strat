@@ -1,9 +1,8 @@
 package Foundation.GameWindowHelper.Modes.ArmyControllingModes;
 
 import Foundation.Army.Army;
-import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
 import Foundation.GameWindowHelper.Modes.DirectionMode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Subscription;
 
 public class ArmyMovingDirectionMode extends DirectionMode {

@@ -5,7 +5,7 @@ import Foundation.Person.HouseHold;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Products.ProductStore;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Index;
 import Windows.FieldObjectWindow.LivingBuildingInfoWindow;
 

@@ -1,6 +1,5 @@
 package WindowElements;
 
-import Foundation.Button;
 import Utils.Geometry.Coord;
 import Windows.ClosableWindow;
 

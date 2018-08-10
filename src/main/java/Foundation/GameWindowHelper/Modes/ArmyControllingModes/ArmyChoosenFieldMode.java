@@ -5,7 +5,7 @@ import Foundation.Color;
 import Foundation.GameWindowHelper.HelperElements.ChosenFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Geometry.Index;
 import Utils.Subscription;
 

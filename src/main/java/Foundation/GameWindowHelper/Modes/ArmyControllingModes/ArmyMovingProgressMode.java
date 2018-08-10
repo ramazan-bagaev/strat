@@ -4,7 +4,7 @@ import Foundation.Army.Army;
 import Foundation.GameWindowHelper.HelperElements.ArmyMovingProgressHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Subscription;
 
 public class ArmyMovingProgressMode extends Mode {

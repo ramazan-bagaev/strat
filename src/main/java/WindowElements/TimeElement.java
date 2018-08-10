@@ -2,8 +2,10 @@ package WindowElements;
 
 import Foundation.*;
 import Foundation.BasicShapes.StringShape;
+import Foundation.Time.Time;
 import Utils.Geometry.Coord;
 import Utils.Subscription;
+import Windows.Window;
 
 public class TimeElement extends Label {
 

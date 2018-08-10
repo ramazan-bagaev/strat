@@ -1,10 +1,11 @@
 package WindowElements;
 
-import Foundation.*;
 import Foundation.BasicShapes.StringShape;
 import Utils.Broadcaster;
 import Utils.Geometry.Coord;
 import Utils.Subscription;
+import WindowElementGroups.WindowElementGroup;
+import Windows.Window;
 
 public class MonitoredBroadcastLabel extends Label{
 

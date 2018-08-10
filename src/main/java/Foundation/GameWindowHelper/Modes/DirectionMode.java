@@ -3,7 +3,7 @@ package Foundation.GameWindowHelper.Modes;
 import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.DirectionHelper;
 import Foundation.GameWindowHelper.HelperField;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;

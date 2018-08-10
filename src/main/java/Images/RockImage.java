@@ -5,6 +5,7 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.TriangleShape;
 import Utils.Geometry.Coord;
+import Windows.Window;
 
 import java.util.ArrayList;
 

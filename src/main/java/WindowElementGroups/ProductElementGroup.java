@@ -2,13 +2,10 @@ package WindowElementGroups;
 
 import Foundation.Products.Product;
 import Foundation.Products.ProductStore;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.ProductScrollRow;
 import WindowElements.ScrollElements.ScrollableRow;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ProductElementGroup extends ScrollableGroup{
 

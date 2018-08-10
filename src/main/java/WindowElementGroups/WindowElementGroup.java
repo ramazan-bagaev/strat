@@ -1,7 +1,11 @@
-package Foundation;
+package WindowElementGroups;
 
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
+import Foundation.Color;
+import Foundation.OpenGLBinder;
+import Windows.Window;
+import WindowElements.WindowElement;
 import Utils.Geometry.Coord;
 
 import java.util.ArrayList;

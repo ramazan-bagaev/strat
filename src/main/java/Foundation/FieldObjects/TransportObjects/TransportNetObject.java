@@ -2,8 +2,6 @@ package Foundation.FieldObjects.TransportObjects;
 
 import Foundation.Field;
 import Foundation.FieldObjects.FieldObject;
-import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
 import Foundation.TransportInfrostructure.TransportNetElement;
 import Utils.Geometry.Index;
 

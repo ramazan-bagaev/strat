@@ -5,6 +5,7 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Elements.City;
 import Foundation.Elements.Ground;
+import Foundation.Time.Time;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
 

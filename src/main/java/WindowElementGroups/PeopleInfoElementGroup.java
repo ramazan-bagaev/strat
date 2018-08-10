@@ -1,9 +1,9 @@
 package WindowElementGroups;
 
-import Foundation.Button;
+import WindowElements.Button;
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.PersonScrolledRow;
 import WindowElements.ScrollElements.ScrollableRow;

@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.LineShape;
 import Foundation.BasicShapes.RectangleShape;
 import Utils.Geometry.Coord;
+import Windows.Window;
 
 public class ManorImage extends Image {
 

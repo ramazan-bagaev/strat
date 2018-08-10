@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.TriangleShape;
 import Utils.Geometry.Coord;
+import Windows.Window;
 
 public class FarmImage extends Image {
 

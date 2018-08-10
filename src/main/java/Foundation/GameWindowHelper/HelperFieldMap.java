@@ -5,6 +5,7 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.GameWindowHelper.FieldObjectHelperElements.InFieldHelperElement;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 import java.util.ArrayList;
 import java.util.Collection;

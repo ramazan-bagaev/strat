@@ -11,6 +11,7 @@ import Foundation.Army.Army;
 import Foundation.GameWindowHelper.Modes.Mode;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
 
 public class StandardState extends HelperState {

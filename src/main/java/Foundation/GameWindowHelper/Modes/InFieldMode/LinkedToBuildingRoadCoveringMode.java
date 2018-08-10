@@ -2,7 +2,7 @@ package Foundation.GameWindowHelper.Modes.InFieldMode;
 
 import Foundation.Color;
 import Foundation.FieldObjects.BuildingObject.BuildingObject;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 public class LinkedToBuildingRoadCoveringMode extends CoveringObjectMode {
 

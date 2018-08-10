@@ -1,9 +1,12 @@
-package Foundation;
+package WindowElements;
 
 import Foundation.BasicShapes.BasicShape;
+import Foundation.OpenGLBinder;
 import Utils.Broadcaster;
 import Utils.Geometry.Coord;
 import Utils.Subscription;
+import WindowElementGroups.WindowElementGroup;
+import Windows.Window;
 
 import java.util.ArrayList;
 

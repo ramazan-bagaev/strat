@@ -3,7 +3,7 @@ package Foundation.FieldObjects.TransportObjects;
 import Foundation.Field;
 import Foundation.TransportInfrostructure.TransportNetEdge;
 import Foundation.TransportInfrostructure.TransportNetNode;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Index;
 
 public abstract class TransportNetEdgeObject extends TransportNetObject implements TransportNetEdge, RoadType {

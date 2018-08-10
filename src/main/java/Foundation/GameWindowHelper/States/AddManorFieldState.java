@@ -7,7 +7,7 @@ import Utils.Geometry.Index;
 import Foundation.Elements.Manor;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Geometry.Coord;
 
 import java.util.ArrayList;

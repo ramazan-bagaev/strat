@@ -1,7 +1,6 @@
 package WindowElements.ScrollElements;
 
 import Foundation.Products.Product;
-import Foundation.WindowElement;
 import Utils.Geometry.Coord;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.MonitoredBroadcastLabel;

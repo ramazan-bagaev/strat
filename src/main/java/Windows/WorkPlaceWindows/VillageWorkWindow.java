@@ -4,6 +4,8 @@ import Foundation.*;
 import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.States.*;
 import Utils.Geometry.Coord;
+import WindowElements.Button;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Windows.ClosableWindow;
 
 public class VillageWorkWindow extends ClosableWindow {

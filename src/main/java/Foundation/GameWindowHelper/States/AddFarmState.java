@@ -6,6 +6,7 @@ import Foundation.Elements.Village;
 import Foundation.GameWindowHelper.Modes.CoveringFieldMode;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 import java.util.ArrayList;
 

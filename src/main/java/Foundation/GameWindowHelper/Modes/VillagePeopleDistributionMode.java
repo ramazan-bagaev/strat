@@ -5,7 +5,7 @@ import Foundation.Elements.Village;
 import Foundation.Elements.WorkFieldElement;
 import Foundation.GameWindowHelper.HelperElements.HistogramHelper;
 import Foundation.GameWindowHelper.HelperField;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Foundation.Person.Person;
 import Utils.Geometry.Index;
 import Utils.Subscription;

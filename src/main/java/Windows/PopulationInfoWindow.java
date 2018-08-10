@@ -6,6 +6,7 @@ import Utils.Geometry.Coord;
 import WindowElementGroups.PeopleInfoElementGroup;
 import WindowElementGroups.ScrollableGroup;
 import WindowElements.CloseButton;
+import WindowElements.Label;
 import WindowElements.MonitoredBroadcastLabel;
 
 public class PopulationInfoWindow extends ClosableWindow{

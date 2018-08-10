@@ -3,7 +3,7 @@ package Foundation.GameWindowHelper.Modes;
 import Utils.Geometry.Index;
 import Foundation.GameWindowHelper.HelperElements.ChosenFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 public class ChosenFieldMode extends Mode {
 

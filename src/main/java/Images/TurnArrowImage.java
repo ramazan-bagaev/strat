@@ -1,7 +1,7 @@
 package Images;
 
 import Foundation.BasicShapes.LineShape;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 

@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
+import Windows.Window;
 
 import java.util.ArrayList;
 import java.util.Random;

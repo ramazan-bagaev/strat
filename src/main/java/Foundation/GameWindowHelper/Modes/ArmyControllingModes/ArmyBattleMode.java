@@ -7,7 +7,7 @@ import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.BattleHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Subscription;
 
 import java.util.ArrayList;

@@ -1,10 +1,14 @@
-package Foundation;
+package WindowElements;
 
 import Foundation.BasicShapes.CharacterShape.Font;
 import Foundation.BasicShapes.StringShape;
+import Foundation.Color;
 import Utils.Geometry.Coord;
+import WindowElementGroups.WindowElementGroup;
+import WindowElements.WindowElement;
+import Windows.Window;
 
-public class Label extends WindowElement{
+public class Label extends WindowElement {
 
     private StringShape stringShape;
 

@@ -5,6 +5,7 @@ import Foundation.Elements.ArmyFieldElement;
 import Foundation.Elements.FieldElement;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.Runnable.SuperField;
+import Foundation.Time.Time;
 import Generation.GeneratedObjects.Continent;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;

@@ -3,7 +3,7 @@ package Foundation.FieldObjects;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.FieldObjects.TransportObjects.TransportNetObject;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 import Foundation.Field;

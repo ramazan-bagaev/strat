@@ -6,7 +6,7 @@ import Foundation.Field;
 import Foundation.GameWindowHelper.HelperElements.HooveringHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Foundation.GameWindowHelper.Modes.Mode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Images.Image;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;

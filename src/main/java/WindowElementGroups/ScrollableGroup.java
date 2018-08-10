@@ -2,7 +2,9 @@ package WindowElementGroups;
 
 import Foundation.*;
 import Utils.Geometry.Coord;
+import WindowElements.Button;
 import WindowElements.ScrollElements.ScrollableRow;
+import Windows.Window;
 
 import java.util.ArrayList;
 

@@ -8,7 +8,7 @@ import Utils.Geometry.Index;
 import Foundation.Field;
 import Foundation.GameWindowHelper.Modes.CityInfoMode;
 import Foundation.GameWindowHelper.Modes.MegaBorderMode;
-import Foundation.GameWindowHelperElement;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import Utils.Geometry.Coord;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
 

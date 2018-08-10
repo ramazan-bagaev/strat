@@ -5,10 +5,8 @@ import Foundation.Color;
 import Foundation.Economics.TradeShop;
 import Foundation.Economics.Wallet;
 import Foundation.Field;
-import Foundation.Products.Product;
 import Foundation.Products.ProductBundle;
-import Foundation.Products.ProductStore;
-import Foundation.Window;
+import Windows.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 

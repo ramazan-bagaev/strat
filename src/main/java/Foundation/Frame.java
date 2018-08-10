@@ -2,10 +2,10 @@ package Foundation;
 
 import Foundation.BasicShapes.CharacterShape.Font;
 import Utils.Geometry.Coord;
-import Windows.MainToolbarWindow;
-import Foundation.GameEngine;
+import WindowElements.GameWindowElements.GameWindowElement;
 import Windows.MainMenuWindow;
-import Foundation.GameWindowElement;
+import Windows.MainWindow;
+import Windows.Window;
 
 import java.util.ArrayList;
 import java.util.HashMap;

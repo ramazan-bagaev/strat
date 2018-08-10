@@ -2,9 +2,8 @@ package WindowElements;
 
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
-import Foundation.Window;
-import Foundation.WindowElement;
-import Foundation.WindowElementGroup;
+import Windows.Window;
+import WindowElementGroups.WindowElementGroup;
 import Utils.Geometry.Coord;
 
 public class BackgroundElement extends WindowElement {

@@ -2,6 +2,7 @@ package Foundation.Elements;
 
 import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
+import Foundation.Time.Time;
 import Utils.Broadcaster;
 import Utils.Subscription;
 

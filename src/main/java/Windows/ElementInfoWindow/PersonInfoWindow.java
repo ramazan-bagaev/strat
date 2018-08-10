@@ -1,7 +1,7 @@
 package Windows.ElementInfoWindow;
 
 import Foundation.Frame;
-import Foundation.Label;
+import WindowElements.Label;
 import Foundation.Person.Person;
 import Images.Image;
 import Images.PersonImage;

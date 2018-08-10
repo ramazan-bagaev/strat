@@ -1,8 +1,8 @@
 package Windows.IntermediatWindows.ChooseOnePerson;
 
-import Foundation.Button;
+import WindowElements.Button;
 import Foundation.Frame;
-import Foundation.Label;
+import WindowElements.Label;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Utils.Geometry.Coord;

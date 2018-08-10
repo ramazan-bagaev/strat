@@ -3,6 +3,7 @@ package Images;
 import Foundation.*;
 import Foundation.BasicShapes.RectangleShape;
 import Utils.Geometry.Coord;
+import Windows.Window;
 
 public class RockResourceImage extends Image {
 

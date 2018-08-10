@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.Elements.City;
 import Foundation.GameWindowHelper.States.AddManorState;
 import Foundation.Person.Person;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 public class ChooseManorLordWindow extends ChooseOnePersonWindow {
 

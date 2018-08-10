@@ -1,4 +1,4 @@
-package Foundation;
+package WindowElements.GameWindowElements;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,13 @@ import Foundation.BasicShapes.BasicShape;
 import Foundation.GameWindowHelper.HelperFieldMap;
 import Foundation.GameWindowHelper.States.HelperState;
 import Foundation.GameWindowHelper.States.StandardState;
+import Foundation.MainWindowCameraConfiguration;
+import Foundation.OpenGLBinder;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
+import WindowElements.GameWindowElements.GameWindowElement;
+import WindowElements.WindowElement;
+import Windows.MainWindow;
 
 public class GameWindowHelperElement extends WindowElement {
 

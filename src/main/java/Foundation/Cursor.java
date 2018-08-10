@@ -1,6 +1,9 @@
 package Foundation;
 
 import Utils.Geometry.Coord;
+import WindowElementGroups.WindowElementGroup;
+import WindowElements.WindowElement;
+import Windows.Window;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

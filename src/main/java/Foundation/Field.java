@@ -5,6 +5,8 @@ import Foundation.Elements.*;
 import Foundation.Army.Army;
 import Foundation.FieldObjects.FieldObject;
 import Foundation.FieldObjects.FieldObjects;
+import Foundation.Time.Date;
+import Foundation.Time.Time;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 

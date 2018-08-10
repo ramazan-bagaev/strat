@@ -3,6 +3,7 @@ package WindowElements.ScrollElements;
 import Foundation.*;
 import Utils.Geometry.Coord;
 import WindowElementGroups.ScrollableGroup;
+import WindowElements.WindowElement;
 
 import java.util.ArrayList;
 

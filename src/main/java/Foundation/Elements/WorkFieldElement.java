@@ -1,10 +1,8 @@
 package Foundation.Elements;
 
 import Foundation.Field;
-import Foundation.FieldMap;
 import Foundation.Person.People;
 import Foundation.Person.Person;
-import Foundation.Time;
 import Foundation.Works.Work;
 
 public abstract class WorkFieldElement extends FieldElement {

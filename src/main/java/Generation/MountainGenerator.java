@@ -3,7 +3,7 @@ package Generation;
 import Foundation.Elements.Ground;
 import Foundation.Field;
 import Foundation.FieldMap;
-import Foundation.Time;
+import Foundation.Time.Time;
 import Generation.GeneratedObjects.Continent;
 import Utils.Geometry.Index;
 

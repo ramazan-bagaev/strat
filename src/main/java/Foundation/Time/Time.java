@@ -1,4 +1,4 @@
-package Foundation;
+package Foundation.Time;
 
 import Utils.Broadcaster;
 import Utils.Content;
@@ -14,20 +14,8 @@ public class Time implements Broadcaster {
         dateContent = new Content();
     }
 
-    public void nextDay(){
-        date.day +=1;
-        date.weekDay +=1;
-        if (date.weekDay == 8){
-            date.weekDay = 1;
-        }
-        if (date.day == 31){
-            date.day = 1;
-            date.month +=1;
-            if (date.month == 13){
-                date.month = 1;
-                date.year +=1;
-            }
-        }
+    public void next(){
+        date.nextDate();
         dateContent.changed();
     }
 

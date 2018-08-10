@@ -2,8 +2,8 @@ package Images;
 
 import Foundation.BasicShapes.BasicShape;
 import Utils.Geometry.Coord;
-import Foundation.Window;
-import Foundation.WindowElement;
+import Windows.Window;
+import WindowElements.WindowElement;
 
 import java.util.ArrayList;
 

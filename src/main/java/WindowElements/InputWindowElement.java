@@ -1,8 +1,12 @@
-package Foundation;
+package WindowElements;
 
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.BasicShapes.StringShape;
+import Foundation.Color;
+import Foundation.Keyboard;
 import Utils.Geometry.Coord;
+import WindowElements.WindowElement;
+import Windows.Window;
 
 public class InputWindowElement extends WindowElement {
 

@@ -4,6 +4,7 @@ import Foundation.*;
 import Foundation.GameWindowHelper.HelperElements.CoveringFieldHelper;
 import Foundation.GameWindowHelper.HelperField;
 import Utils.Geometry.Index;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 import java.util.ArrayList;
 

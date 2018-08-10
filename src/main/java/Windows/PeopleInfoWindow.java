@@ -1,7 +1,7 @@
 package Windows;
 
 import Foundation.Frame;
-import Foundation.Label;
+import WindowElements.Label;
 import Foundation.Person.People;
 import Utils.Geometry.Coord;
 import WindowElementGroups.PeopleInfoElementGroup;

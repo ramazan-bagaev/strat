@@ -6,6 +6,8 @@ import Foundation.GameWindowHelper.States.AddManorFieldState;
 import Images.Image;
 import Images.ManorImage;
 import Utils.Geometry.Coord;
+import WindowElements.Button;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 import WindowElements.MonitoredBroadcastLabel;
 import WindowElements.StaticBroadcastLabel;
 import Windows.ClosableWindow;

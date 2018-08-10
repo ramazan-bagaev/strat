@@ -2,10 +2,8 @@ package Windows;
 
 import Utils.Geometry.Coord;
 import Foundation.Frame;
-import Foundation.Window;
-import Foundation.WindowElement;
-import Foundation.Button;
-import Foundation.MainWindow;
+import WindowElements.WindowElement;
+import WindowElements.Button;
 
 import java.util.ArrayList;
 /**

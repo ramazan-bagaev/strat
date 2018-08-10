@@ -8,6 +8,7 @@ import Foundation.GameWindowHelper.Modes.MegaBorderMode;
 import Foundation.Person.Person;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
+import WindowElements.GameWindowElements.GameWindowHelperElement;
 
 public class AddVillageState extends HelperState {
 

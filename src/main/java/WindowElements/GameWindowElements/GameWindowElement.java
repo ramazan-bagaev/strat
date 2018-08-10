@@ -1,5 +1,6 @@
-package Foundation;
+package WindowElements.GameWindowElements;
 
+import Foundation.*;
 import Foundation.BasicShapes.BasicShape;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Elements.ArmyFieldElement;
@@ -9,15 +10,18 @@ import Foundation.Elements.Village;
 import Foundation.FieldObjects.FieldObject;
 import Utils.Geometry.Index;
 import Utils.Geometry.Coord;
+import WindowElements.WindowElement;
 import Windows.ElementInfoWindow.ArmyInfoWindow;
 import Windows.ElementInfoWindow.CityInfoWindow;
 import Windows.ElementInfoWindow.VillageInfoWindow;
 import Windows.FieldInfoWindow;
 import Windows.ElementInfoWindow.ManorInfoWindow;
+import Windows.MainWindow;
+import Windows.Window;
 
 import java.util.ArrayList;
 
-public class GameWindowElement extends WindowElement{
+public class GameWindowElement extends WindowElement {
 
     private GameEngine gameEngine;
     private MainWindow mainWindow;
