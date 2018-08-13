@@ -55,30 +55,17 @@ public class Date {
 
     public void nextHour(){
         hour += 1;
-        if (hour == END_HOUR){
-            hour = START_HOUR;
-            nextDay();
-        }
+        normalize();
     }
 
     public void nextDay(){
         day += 1;
-        weekDay += 1;
-        if (weekDay == END_WEEKDAY){
-            weekDay = START_WEEKDAY;
-        }
-        if (day == END_DAY){
-            day = START_DAY;
-            nextMonth();
-        }
+        normalize();
     }
 
     public void nextMonth(){
         month += 1;
-        if (month == END_MONTH){
-            month = START_MONTH;
-            nextYear();
-        }
+        normalize();
     }
 
     public void nextYear(){
@@ -94,6 +81,16 @@ public class Date {
         int year = this.year + date.year + month / END_MONTH;
         month = month % END_MONTH;
         return new Date(hour, day, month, year, weekDay);
+    }
+
+    public void normalize(){
+        day = day + hour / END_HOUR;
+        weekDay = (weekDay + hour / END_HOUR) % END_WEEKDAY;
+        hour = hour % END_HOUR;
+        month = month + day / END_DAY;
+        day = day % END_DAY;
+        year = year + month / END_MONTH;
+        month = month % END_MONTH;
     }
 
     public void setDate(Date date){
