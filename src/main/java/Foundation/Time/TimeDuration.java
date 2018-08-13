@@ -30,26 +30,4 @@ public abstract class TimeDuration {
         }
         return false;
     }
-
-    public static void main(String[] args){
-        TimeDuration a = new TimeDuration() {
-            @Override
-            boolean contains(Date date) {
-                return date.weekDay == 2 && date.year > 500 && date.year < 510;
-            }
-        };
-        a.hourUsing = true;
-        a.weekUsing = true;
-        a.yearUsing = true;
-
-        TimeDuration b = new TimeDuration() {
-            @Override
-            boolean contains(Date date) {
-                return (date.month >= 6 && date.month <= 8) && (date.day == 5);
-            }
-        };
-        b.monthUsing = true;
-        b.dayUsing = true;
-        System.out.println(a.intersect(b));
-    }
 }
