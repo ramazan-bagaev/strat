@@ -1,5 +1,7 @@
 package Foundation.Time;
 
+import java.util.ArrayList;
+
 public class TimeDurationIterator {
 
     private boolean hasNext;
@@ -22,8 +24,35 @@ public class TimeDurationIterator {
         this.yearUsing = timeDuration1.yearUsing || timeDuration2.yearUsing;
         this.dayAndWeekUsing = this.dayUsing && this.weekUsing;
         this.hasNext = true;
+        initIterDate();
+    }
 
+    public TimeDurationIterator(ArrayList<TimeDuration> timeDurations){
+        this.hourUsing = false;
+        this.dayUsing = false;
+        this.weekUsing = false;
+        this.monthUsing = false;
+        this.yearUsing = false;
+        for(TimeDuration timeDuration: timeDurations){
+            this.hourUsing |= timeDuration.hourUsing;
+            this.dayUsing |= timeDuration.dayUsing;
+            this.weekUsing |= timeDuration.weekUsing;
+            this.monthUsing |= timeDuration.monthUsing;
+            this.yearUsing |= timeDuration.yearUsing;
+        }
+
+        this.dayAndWeekUsing = this.dayUsing && this.weekUsing;
+        this.hasNext = true;
+        initIterDate();
+    }
+
+    private void initIterDate(){
         this.iterDate = new Date();
+        if (!hourUsing) iterDate.hour = Date.ANY_HOUR;
+        if (!dayUsing) iterDate.day = Date.ANY_DAY;
+        if (!weekUsing) iterDate.weekDay = Date.ANY_WEEKDAY;
+        if (!monthUsing) iterDate.month = Date.ANY_MONTH;
+        if (!yearUsing) iterDate.year = Date.ANY_YEAR;
     }
 
     public boolean hasNext(){

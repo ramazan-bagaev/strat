@@ -205,40 +205,6 @@ public class Village extends HabitableFieldElement {
         return workElements;
     }
 
-    public void removeWorkers(int number, Index index){
-        for(WorkFieldElement workElement: workElements){
-            if (workElement.getParent().getFieldMapPos().equals(index)){
-                workElement.removeRandomPeople(number);
-                return;
-            }
-        }
-    }
-
-    public void addWorkers(int number, Index index){
-        for(WorkFieldElement workElement: workElements){
-            if (workElement.getParent().getFieldMapPos().equals(index)){
-                People people = society.getPeople();
-                LinkedList<Person> rightPeople = new LinkedList<>();
-                for(Person person: people.getPersonArray()){
-                    if (person.getWork() != null) continue;
-                    rightPeople.add(person);
-                }
-                if (rightPeople.size() == 0) return;
-                People resultPeople = new People();
-                if (number > rightPeople.size()) number = rightPeople.size();
-                if (number <= 0) return;
-                for(int i = 0; i < number; i++){
-                    int ind = getParent().getRandom().nextInt(rightPeople.size());
-                    Person person = rightPeople.get(ind);
-                    resultPeople.addPerson(person);
-                    rightPeople.remove(person);
-                }
-                workElement.addPeople(resultPeople);
-                return;
-            }
-        }
-    }
-
 
     @Override
     public void run() {

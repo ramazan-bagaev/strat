@@ -5,6 +5,8 @@ import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Field;
 import Foundation.Products.ProductStore;
+import Foundation.Time.TimeDuration;
+import Foundation.Time.TimeDurations.PeasantWorkTimeDuration;
 import Foundation.Works.MeatMakingWork;
 import Foundation.Works.VegetableMakingWork;
 import Foundation.Works.WheatMakingWork;
@@ -29,6 +31,7 @@ public class PeasantHouseOccupation extends Occupation {
     }
 
     public void initWorks(){
+        TimeDuration timeDuration = new PeasantWorkTimeDuration(8, 20); // from 8 am to 20 pm
         Index size = peasantHouse.getSize();
         Field parent = peasantHouse.getParent();
         People people = peasantHouse.getPeople();
@@ -76,14 +79,14 @@ public class PeasantHouseOccupation extends Occupation {
         for(int i = 0; i < wheatWorking; i++){
             wheatPeople.addPerson(personArray.get(i));
         }
-        wheatMakingWork = new WheatMakingWork(wheatPeople, store, this);
+        wheatMakingWork = new WheatMakingWork(store, this);
         if (meatWorking == 0) return;
 
         People meatPeople = new People();
         for(int i = wheatWorking; i < wheatWorking + meatWorking; i++){
             meatPeople.addPerson(personArray.get(i));
         }
-        meatMakingWork = new MeatMakingWork(meatPeople, store, this);
+        meatMakingWork = new MeatMakingWork(store, this);
 
         if (vegetableWorking == 0) return;
 
@@ -91,22 +94,19 @@ public class PeasantHouseOccupation extends Occupation {
         for(int i = wheatWorking + meatWorking; i < wheatWorking + meatWorking + vegetableWorking; i++){
             vegetablePeople.addPerson(personArray.get(i));
         }
-        vegetableMakingWork = new VegetableMakingWork(vegetablePeople, store, this);
+        vegetableMakingWork = new VegetableMakingWork(store, this);
 
         linkWorks();
     }
 
     private void linkWorks(){
         if (meatMakingWork != null){
-            meatMakingWork.addNextAvailableWork(meatMakingWork);
             addWork(meatMakingWork);
         }
         if (wheatMakingWork != null){
-            wheatMakingWork.addNextAvailableWork(wheatMakingWork);
             addWork(wheatMakingWork);
         }
         if (vegetableMakingWork != null){
-            vegetableMakingWork.addNextAvailableWork(vegetableMakingWork);
             addWork(vegetableMakingWork);
         }
 

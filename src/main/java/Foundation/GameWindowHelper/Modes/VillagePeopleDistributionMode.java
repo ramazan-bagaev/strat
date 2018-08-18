@@ -44,11 +44,6 @@ public class VillagePeopleDistributionMode extends Mode {
 
 
         int noJob = 0;
-        for (Person person: village.getSociety().getPeople().getPersonArray()){
-            if (person.getWork() == null){
-                noJob++;
-            }
-        }
         Index index = village.getParent().getFieldMapPos();
         HelperField helperField = gameWindowHelperElement.getMap().getFieldByIndex(index);
         if (helperField == null){
@@ -67,12 +62,12 @@ public class VillagePeopleDistributionMode extends Mode {
                 if (delta > 0) {
                     int number = (int) (((delta/helperField.getSize().y)*village.getSociety().getAmount()));
                     if (number == 0) return false;
-                    village.removeWorkers(number, helperField.getPos());
+                    //village.removeWorkers(number, helperField.getPos());
                 }
                 if (delta < 0){
                     int number = -(int) ((delta/helperField.getSize().y)*village.getSociety().getAmount());
                     if (number == 0) return false;
-                    village.addWorkers(number, helperField.getPos());
+                    //village.addWorkers(number, helperField.getPos());
                 }
                 renewHelpers();
                 return true;

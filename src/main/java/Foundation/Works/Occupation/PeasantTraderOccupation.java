@@ -6,6 +6,8 @@ import Foundation.GameEngine;
 import Foundation.Person.HouseHold;
 import Foundation.Person.Person;
 import Foundation.Products.ProductBundle;
+import Foundation.Time.TimeDuration;
+import Foundation.Time.TimeDurations.OneDayAWeekActivityTimeDuration;
 import Foundation.Works.TradeWork;
 import Foundation.Works.TransportWork;
 
@@ -28,10 +30,16 @@ public class PeasantTraderOccupation extends Occupation{
     }
 
     private void initWorks(){
-        TransportWork commute = new TransportWork(null, this, houseHold.getHouse(), marketObject, productBundle);
-        TradeWork tradeWork = new TradeWork(null, this, mainTrader, marketObject, productBundle);
-        commute.addNextAvailableWork(tradeWork);
-        tradeWork.setAvailable(false);
+        TimeDuration timeDuration = new OneDayAWeekActivityTimeDuration(8, 20, 7);
+        TransportWork commute = new TransportWork(this, houseHold.getHouse(), marketObject,
+                productBundle);
+
+        TradeWork tradeWork = new TradeWork(this, mainTrader, marketObject,
+                productBundle);
+        tradeWork.addPerson(mainTrader, timeDuration);
+
+        tradeWork.addPreviousWork(commute);
+
         addWork(tradeWork);
         addWork(commute);
     }

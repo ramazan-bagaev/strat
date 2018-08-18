@@ -1,12 +1,13 @@
 package Foundation.Works;
 
 import Foundation.Person.People;
+import Foundation.Time.TimeDuration;
 import Foundation.Works.Occupation.Occupation;
 
 public class StewardWork extends Work {
 
-    public StewardWork(People people, Occupation occupation) {
-        super(people, occupation);
+    public StewardWork(Occupation occupation) {
+        super(occupation);
     }
 
     @Override

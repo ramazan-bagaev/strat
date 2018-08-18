@@ -1,28 +1,29 @@
 package Windows;
 
 import Foundation.Frame;
+import Foundation.Products.ProductContainer;
 import Foundation.Products.ProductStore;
 import Utils.Geometry.Coord;
 import Utils.Subscription;
 import WindowElementGroups.ProductElementGroup;
 
-public class ProductStoreWindow extends ClosableWindow {
+public class ProductContainerWindow extends ClosableWindow {
 
-    private ProductStore store;
+    private ProductContainer container;
 
     private ProductElementGroup productElementGroup;
     private Subscription productStoreSubscribtion;
 
-    public ProductStoreWindow(ProductStore store, Frame parent) {
+    public ProductContainerWindow(ProductContainer conainer, Frame parent) {
         super(new Coord(100, 600), new Coord(400, 150), parent);
-        this.store = store;
+        this.container = conainer;
         productStoreSubscribtion = new Subscription() {
             @Override
             public void changed() {
                 onChanged();
             }
         };
-        store.subscribe("goods", productStoreSubscribtion);
+        conainer.subscribe("goods", productStoreSubscribtion);
         setShapes();
     }
 
@@ -37,7 +38,7 @@ public class ProductStoreWindow extends ClosableWindow {
         addCloseButton();
 
         ProductElementGroup productElementGroup = new ProductElementGroup(new Coord(10, 30),
-                new Coord(390, 90), store, this);
+                new Coord(390, 90), container, this);
         // scrollableGroup.setScrollableElements(elements);
         this.productElementGroup = productElementGroup;
         addWindowElementGroup(productElementGroup);

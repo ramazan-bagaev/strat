@@ -3,6 +3,7 @@ package Foundation.Works.Occupation;
 import Foundation.GameEngine;
 import Foundation.Person.People;
 import Foundation.Runnable.RunEntity;
+import Foundation.Time.Time;
 import Foundation.Works.Work;
 
 import java.util.ArrayList;
@@ -12,10 +13,12 @@ public class Occupation implements RunEntity {
 
     protected ArrayList<Work> workGroup;
     protected GameEngine gameEngine;
+    protected Time time;
 
     public Occupation(GameEngine gameEngine){
         workGroup = new ArrayList<>();
         this.gameEngine = gameEngine;
+        this.time = gameEngine.getTime();
     }
 
     public void addWork(Work work){
@@ -25,9 +28,15 @@ public class Occupation implements RunEntity {
     @Override
     public void run() {
         for(Work work: workGroup){
-            if (work.isAvailable()) work.doWork();
+            if (work.isAvailable()) work.doWork(time);
         }
-        if (allWorksDone()) gameEngine.removeRunEntity(this);
+        if (allWorksDone()) initNewCycle();
+    }
+
+    private void initNewCycle(){
+        for(Work work: workGroup){
+            work.setFinished(false);
+        }
     }
 
     public boolean allWorksDone(){

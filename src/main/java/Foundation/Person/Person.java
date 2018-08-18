@@ -4,6 +4,9 @@ import Foundation.Economics.Wallet;
 import Foundation.Needs.Need;
 import Foundation.Needs.Needs;
 import Foundation.Products.EdibleProduct.EdibleProduct;
+import Foundation.Time.Date;
+import Foundation.Time.Schedule;
+import Foundation.Time.TimeDuration;
 import Foundation.Works.Work;
 import Utils.Broadcaster;
 import Utils.Subscription;
@@ -13,7 +16,7 @@ public class Person implements Broadcaster{
     private Wallet wallet;
     private Society society;
     private String name;
-    private Work work;
+    private Schedule schedule;
 
     private Kasta kasta;
 
@@ -36,6 +39,7 @@ public class Person implements Broadcaster{
         this.society = society;
         this.alive = true;
         this.wallet = new Wallet();
+        this.schedule = new Schedule();
     }
 
 
@@ -59,12 +63,16 @@ public class Person implements Broadcaster{
         this.society = society;
     }
 
-    public Work getWork() {
-        return work;
+    public void addWork(Work work, TimeDuration timeDuration){
+        schedule.addWork(work, timeDuration);
     }
 
-    public void setWork(Work work) {
-        this.work = work;
+    public boolean isAbleToWork(Work work, Date date){
+        return schedule.contains(work, date);
+    }
+
+    public boolean isAbleToWork(TimeDuration timeDuration){
+        return schedule.isFree(timeDuration);
     }
 
     public void kill() {

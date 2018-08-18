@@ -27,20 +27,6 @@ public abstract class WorkFieldElement extends FieldElement {
         distance = 0;
     }
 
-    public void addPerson(Person person){
-        people.addPerson(person);
-        person.setWork(work);
-    }
-
-    public void removePerson(Person person){
-        people.removePerson(person);
-        person.setWork(null);
-    }
-
-    public void addPeople(People people){
-        for(Person person: people.getPersonArray()) person.setWork(work);
-        this.people.addPeople(people);
-    }
 
     private double distanceFine(){
         if (distance <= 3) return 1;
@@ -59,17 +45,5 @@ public abstract class WorkFieldElement extends FieldElement {
 
     public Work getWork(){
         return work;
-    }
-
-    public void removeRandomPeople(int number){
-        int total = people.getAmount();
-        if (number > total) number = total;
-        if (number <= 0) return;
-        for(int i = 0; i < number; i++){
-            int randIndex = getParent().getRandom().nextInt(people.getAmount());
-            Person person = people.getPersonArray().get(randIndex);
-            people.removePerson(person);
-            person.setWork(null);
-        }
     }
 }

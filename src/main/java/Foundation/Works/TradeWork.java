@@ -2,7 +2,6 @@ package Foundation.Works;
 
 import Foundation.Economics.TradeShop;
 import Foundation.FieldObjects.BuildingObject.MarketObject;
-import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Products.ProductBundle;
 import Foundation.Works.Occupation.Occupation;
@@ -14,8 +13,9 @@ public class TradeWork extends Work {
     private Person mainTrader;
     private TradeShop tradeShop;
 
-    public TradeWork(People people, Occupation occupation, Person mainTrader, MarketObject marketObject, ProductBundle productBundle) {
-        super(people, occupation);
+    public TradeWork(Occupation occupation, Person mainTrader, MarketObject marketObject,
+                     ProductBundle productBundle) {
+        super(occupation);
         this.marketObject = marketObject;
         this.productBundle = productBundle;
         this.mainTrader = mainTrader;
@@ -23,7 +23,7 @@ public class TradeWork extends Work {
     }
 
     private void initShop(){
-        this.tradeShop = marketObject.addTradeShop(productBundle, mainTrader.getWallet());
+        this.tradeShop = marketObject.addTradeShop(productBundle, mainTrader);
     }
 
     private void removeShop(){
@@ -32,11 +32,11 @@ public class TradeWork extends Work {
 
     @Override
     protected void doMainWork() {
-        if (isStarted()){
+        if (isBeginningStage()){
             initShop();
             return;
         }
-        if (isFinished()){
+        if (stage == endStage - 1){
             removeShop();
             return;
         }

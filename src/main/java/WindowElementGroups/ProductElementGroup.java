@@ -1,7 +1,7 @@
 package WindowElementGroups;
 
 import Foundation.Products.Product;
-import Foundation.Products.ProductStore;
+import Foundation.Products.ProductContainer;
 import Windows.Window;
 import Utils.Geometry.Coord;
 import WindowElements.ScrollElements.ProductScrollRow;
@@ -9,24 +9,24 @@ import WindowElements.ScrollElements.ScrollableRow;
 
 public class ProductElementGroup extends ScrollableGroup{
 
-    protected ProductStore store;
+    protected ProductContainer container;
 
-    public ProductElementGroup(Coord pos, Coord size, ProductStore store, Window parent) {
+    public ProductElementGroup(Coord pos, Coord size, ProductContainer container, Window parent) {
         super(pos, size, parent);
-        this.store = store;
+        this.container = container;
         initRowElements();
     }
 
-    public ProductElementGroup(Coord pos, Coord size, Coord scrollWindowSize, ProductStore store, Window parent) {
+    public ProductElementGroup(Coord pos, Coord size, Coord scrollWindowSize, ProductContainer container, Window parent) {
         super(pos, size, scrollWindowSize, parent);
-        this.store = store;
+        this.container = container;
         initRowElements();
     }
 
     public void initRowElements(){
         initCameraConfiguration();
         scrollableRows.clear();
-        for(Product product: store.getProducts()){
+        for(Product product: container.getProducts()){
             ProductScrollRow productScrollRow = new ProductScrollRow(product, new Coord(getSize().x, 20), this);
             addScrollableRow(productScrollRow);
         }
@@ -35,8 +35,8 @@ public class ProductElementGroup extends ScrollableGroup{
     public void checkIntegrity(){
         for(ScrollableRow row: scrollableRows){
             ProductScrollRow prodRow = (ProductScrollRow)row;
-            if (!store.getProducts().contains(prodRow.getProduct())){
-                prodRow.closeSubscribtions();
+            if (!container.getProducts().contains(prodRow.getProduct())){
+                prodRow.closeSubscriptions();
             }
         }
     }

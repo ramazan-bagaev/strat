@@ -18,7 +18,7 @@ public abstract class TimeDuration {
         yearUsing = false;
     }
 
-    abstract boolean contains(Date date);
+    public abstract boolean contains(Date date);
 
     public boolean intersect(TimeDuration timeDuration){
         timeDurationIterator = new TimeDurationIterator(this, timeDuration);

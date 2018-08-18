@@ -7,7 +7,7 @@ import Utils.Geometry.Coord;
 import WindowElements.MonitoredBroadcastLabel;
 import Windows.ClosableWindow;
 import Windows.PeopleInfoWindow;
-import Windows.ProductStoreWindow;
+import Windows.ProductContainerWindow;
 
 public class LivingBuildingInfoWindow extends ClosableWindow {
 
@@ -43,7 +43,7 @@ public class LivingBuildingInfoWindow extends ClosableWindow {
             @Override
             public void click(Coord point){
                 Frame frame = getParent().getParent();
-                frame.addSpecialWindow("resource store window", new ProductStoreWindow(livingBuildingObject.getStore(), frame));
+                frame.addSpecialWindow("resource store window", new ProductContainerWindow(livingBuildingObject.getStore(), frame));
             }
         };
 

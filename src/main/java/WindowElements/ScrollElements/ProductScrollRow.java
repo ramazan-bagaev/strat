@@ -33,7 +33,7 @@ public class ProductScrollRow extends ScrollableRow {
         this.amountLabel = amount;
     }
 
-    public void closeSubscribtions(){
+    public void closeSubscriptions(){
         amountLabel.unsubscribe();
     }
 

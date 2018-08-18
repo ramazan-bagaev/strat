@@ -1,6 +1,10 @@
 package Foundation.Works;
 
 import Foundation.Person.People;
+import Foundation.Person.Person;
+import Foundation.Time.Date;
+import Foundation.Time.Time;
+import Foundation.Time.TimeDuration;
 import Foundation.Works.Occupation.Occupation;
 
 import java.util.ArrayList;
@@ -8,68 +12,90 @@ import java.util.ArrayList;
 public abstract class Work{
 
 
-
     protected Occupation occupation;
 
     protected People people;
 
-    private boolean available;
+    private boolean finished;
 
     protected int stage;
     protected int endStage;
 
-    protected ArrayList<Work> nextAvailableWorks;
+    protected ArrayList<Work> previousWorks;
 
-    public Work(People people, Occupation occupation){
-        this.people = people;
+    public Work(Occupation occupation){
+        this.people = new People();
         this.occupation = occupation;
-        available = true;
-        nextAvailableWorks = new ArrayList<>();
+        finished = false;
+        previousWorks = new ArrayList<>();
         stage = 0;
         endStage = 0;
     }
 
-    public void addNextAvailableWork(Work work){
-        nextAvailableWorks.add(work);
+    public void addPreviousWork(Work work){
+        previousWorks.add(work);
     }
 
     public void doFinishingWork(){
-        available = false;
+        finished = true;
         stage = 0;
-        for(Work work: nextAvailableWorks){
-            work.setAvailable(true);
+    }
+
+    public void addPerson(Person person, TimeDuration timeDuration){
+        if (person.isAbleToWork(timeDuration)){
+            people.addPerson(person);
+            person.addWork(this, timeDuration);
         }
     }
+
+    public void setFinished(boolean finished){
+        this.finished = finished;
+    }
+
 
     protected void nextStage(){
         stage++;
     }
 
-    protected boolean isFinished(){
+    private boolean isFinished(){
+        return finished;
+    }
+
+    public boolean isAvailable(){
+        if (finished) return false;
+        for(Work work: previousWorks){
+            if (!work.isFinished()) return false;
+        }
+        return true;
+    }
+
+    protected boolean isEndingStage(){
         return (stage >= endStage);
     }
 
-    protected boolean isStarted(){
+    protected boolean isBeginningStage(){
         return (stage == 0);
     }
 
     protected abstract void doMainWork();
 
-    public int getDuration(){
-        return endStage;
-    }
-
-    public void doWork(){
+    public void doWork(Time time){
+        if (getWorkingAmount(time.getDate()) == 0) return;
         doMainWork();
         nextStage();
-        if (isFinished()) doFinishingWork();
+
+        if (isEndingStage()) doFinishingWork();
     }
 
-    public boolean isAvailable() {
-        return available;
+    private int getWorkingAmount(Date date){
+        int amount = 0;
+        for(Person person: people.getPersonArray()) {
+            if (person.isAbleToWork(this, date)) amount++;
+        }
+        return amount;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public ArrayList<Work> getPreviousWorks() {
+        return previousWorks;
     }
 }

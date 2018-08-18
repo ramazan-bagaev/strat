@@ -5,6 +5,7 @@ import Foundation.FieldObjects.TransportObjects.TransportNetNodeObject;
 import Foundation.Person.People;
 import Foundation.Products.ProductBundle;
 import Foundation.Products.ProductStore;
+import Foundation.Time.TimeDuration;
 import Foundation.TransportInfrostructure.TransportNetNode;
 import Foundation.TransportInfrostructure.TransportNetPath;
 import Foundation.TransportInfrostructure.TransportNetPathFinder;
@@ -20,9 +21,9 @@ public class TransportWork extends Work{
     protected TransportNetPath path;
     protected ArrayList<TransportNetNode> visitedNodes;
 
-    public TransportWork(People people, Occupation occupation, BuildingObject source,
+    public TransportWork(Occupation occupation, BuildingObject source,
                          BuildingObject destination, ProductBundle productBundle) {
-        super(people, occupation);
+        super(occupation);
         this.source = source;
         this.destination = destination;
         this.bundle = productBundle;

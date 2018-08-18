@@ -3,14 +3,15 @@ package Foundation.Works;
 import Foundation.Person.People;
 import Foundation.Products.Product;
 import Foundation.Products.ProductStore;
+import Foundation.Time.TimeDuration;
 import Foundation.Works.Occupation.Occupation;
 
 public abstract class ProductMakingWork extends Work{
 
     private ProductStore productStore;
 
-    public ProductMakingWork(People people, ProductStore store, Occupation occupation) {
-        super(people, occupation);
+    public ProductMakingWork(ProductStore store, Occupation occupation) {
+        super(occupation);
         this.productStore = store;
         endStage = 1;
     }
