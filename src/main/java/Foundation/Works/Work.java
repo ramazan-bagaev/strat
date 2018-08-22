@@ -48,6 +48,10 @@ public abstract class Work{
         }
     }
 
+    public People getPeople() {
+        return people;
+    }
+
     public void setFinished(boolean finished){
         this.finished = finished;
     }

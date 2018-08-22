@@ -50,9 +50,6 @@ public class PeasantHouseHoldAI extends AI{
     @Override
     public void makeDecision() {
         if (houseHold == null) return;
-        if (peasantTraderOccupation != null) {
-            if (peasantTraderOccupation.allWorksDone()) peasantTraderOccupation = null;
-        }
         tryTrade();
     }
 

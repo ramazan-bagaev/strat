@@ -47,6 +47,14 @@ public class TransportWork extends Work{
         endStage = visitedNodes.size() - 1;
     }
 
+    public int getTimeAmountNeeded(){
+        return visitedNodes.size() - 1;
+    }
+
+    public ArrayList<TransportNetNode> getVisitedNodes() {
+        return visitedNodes;
+    }
+
     @Override
     protected void doMainWork() {
         if (endStage == -1) return;

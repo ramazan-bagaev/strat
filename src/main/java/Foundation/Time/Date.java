@@ -2,12 +2,6 @@ package Foundation.Time;
 
 public class Date {
 
-    public static final int ANY_HOUR = -1;
-    public static final int ANY_DAY = -1;
-    public static final int ANY_WEEKDAY = -1;
-    public static final int ANY_MONTH = -1;
-    public static final int ANY_YEAR = -1;
-
     public static final int START_HOUR = 0;
     public static final int START_DAY = 1;
     public static final int START_WEEKDAY = 1;
@@ -56,22 +50,7 @@ public class Date {
     }
 
     public boolean sameAs(Date date){
-        if (date.hour != hour){
-            if (date.hour != ANY_HOUR || hour != ANY_HOUR) return false;
-        }
-        if (date.day != day){
-            if (date.day != ANY_DAY || day != ANY_DAY) return false;
-        }
-        if (date.weekDay != weekDay){
-            if (date.weekDay != ANY_WEEKDAY || weekDay != ANY_WEEKDAY) return false;
-        }
-        if (date.month != month){
-            if (date.month != ANY_MONTH || month != ANY_MONTH) return false;
-        }
-        if (date.year != year){
-            if (date.year != ANY_YEAR || year != ANY_YEAR) return false;
-        }
-        return true;
+        return date.hour == hour && date.day == day && date.month == month && date.year == year;
     }
 
     public void nextHour(){

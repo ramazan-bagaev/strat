@@ -19,7 +19,7 @@ public class TradeWork extends Work {
         this.marketObject = marketObject;
         this.productBundle = productBundle;
         this.mainTrader = mainTrader;
-        this.endStage = 30;
+        this.endStage = 7;
     }
 
     private void initShop(){

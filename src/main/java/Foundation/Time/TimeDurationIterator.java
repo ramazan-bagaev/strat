@@ -23,8 +23,8 @@ public class TimeDurationIterator {
         this.monthUsing = timeDuration1.monthUsing || timeDuration2.monthUsing;
         this.yearUsing = timeDuration1.yearUsing || timeDuration2.yearUsing;
         this.dayAndWeekUsing = this.dayUsing && this.weekUsing;
-        this.hasNext = true;
-        initIterDate();
+        this.hasNext = this.hourUsing || this.dayUsing || this.weekUsing || this.monthUsing || this.yearUsing;
+        this.iterDate = new Date();
     }
 
     public TimeDurationIterator(ArrayList<TimeDuration> timeDurations){
@@ -42,17 +42,8 @@ public class TimeDurationIterator {
         }
 
         this.dayAndWeekUsing = this.dayUsing && this.weekUsing;
-        this.hasNext = true;
-        initIterDate();
-    }
-
-    private void initIterDate(){
+        this.hasNext = this.hourUsing || this.dayUsing || this.weekUsing || this.monthUsing || this.yearUsing;
         this.iterDate = new Date();
-        if (!hourUsing) iterDate.hour = Date.ANY_HOUR;
-        if (!dayUsing) iterDate.day = Date.ANY_DAY;
-        if (!weekUsing) iterDate.weekDay = Date.ANY_WEEKDAY;
-        if (!monthUsing) iterDate.month = Date.ANY_MONTH;
-        if (!yearUsing) iterDate.year = Date.ANY_YEAR;
     }
 
     public boolean hasNext(){

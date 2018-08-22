@@ -7,26 +7,46 @@ import java.util.ArrayList;
 
 public class WeeklyTimeDuration extends TimeDuration {
 
-    private int beginHour;
-    private int endHour;
-    private ArrayList<Integer> notWorkingWeekday;
+    private ArrayList<Integer> hours;
+    private ArrayList<Integer> weekdays;
 
     public WeeklyTimeDuration(int beginHour, int endHour){
-        this.beginHour = beginHour;
-        this.endHour = endHour;
-        this.notWorkingWeekday = new ArrayList<>();
+        this.hours = new ArrayList<>();
+        this.weekdays = new ArrayList<>();
+        for(int hour = beginHour; hour < endHour; hour++) hours.add(hour);
         this.hourUsing = true;
         this.weekUsing = true;
     }
 
-    public void addNotWorkingDay(int weekday){
-        if (weekday >= 1 && weekday <= 7){
-            if (!notWorkingWeekday.contains(weekday)) notWorkingWeekday.add(weekday);
-        }
+    public WeeklyTimeDuration(){
+        this.hours = new ArrayList<>();
+        this.weekdays = new ArrayList<>();
+        for(int hour = Date.START_HOUR; hour < Date.END_HOUR; hour++) hours.add(hour);
+        for(int weekday = Date.START_WEEKDAY; weekday < Date.END_WEEKDAY; weekday++) weekdays.add(weekday);
+    }
+
+    public void addWorkingDay(int weekday){
+        weekdays.add(weekday);
+    }
+
+    public void removeWorkingDay(int weekday){
+        weekdays.remove(new Integer(weekday));
+    }
+
+    public void removeWorkingHour(int hour){
+        hours.remove(new Integer(hour));
+    }
+
+    public ArrayList<Integer> getHours() {
+        return hours;
+    }
+
+    public ArrayList<Integer> getWeekdays() {
+        return weekdays;
     }
 
     @Override
-    public boolean contains(Date date) {
-        return date.hour >= beginHour && date.hour <= endHour && !notWorkingWeekday.contains(date.weekDay);
+    public boolean mainContains(Date date) {
+        return hours.contains(date.hour) && weekdays.contains(date.weekDay);
     }
 }

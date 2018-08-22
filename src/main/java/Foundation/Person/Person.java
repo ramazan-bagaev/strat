@@ -92,6 +92,9 @@ public class Person implements Broadcaster{
         return wallet;
     }
 
+    public Schedule getSchedule() {
+        return schedule;
+    }
 
     @Override
     public String getValue(String key) {

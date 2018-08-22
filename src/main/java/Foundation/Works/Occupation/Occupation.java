@@ -28,7 +28,9 @@ public class Occupation implements RunEntity {
     @Override
     public void run() {
         for(Work work: workGroup){
-            if (work.isAvailable()) work.doWork(time);
+            if (work.isAvailable()){
+                work.doWork(time);
+            }
         }
         if (allWorksDone()) initNewCycle();
     }
