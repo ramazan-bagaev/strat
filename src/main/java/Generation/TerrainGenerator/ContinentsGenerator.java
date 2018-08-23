@@ -66,9 +66,12 @@ public class ContinentsGenerator extends FieldMapGenerator {
     }
 
     private void fillContinentBordersWith(Plate plate, Ground.GroundType type){
+        Random myRandom = new Random();
         ArrayList<TerrainEdge> edges = plate.getEdges();
         for(TerrainEdge edge: edges){
-            LineIterator iter = new LineIterator(edge);
+            //LineIterator iter = new LineIterator(edge);
+            if (map.getFieldByIndex(edge.getFirst().getPos()).getGround() == null || map.getFieldByIndex(edge.getSecond().getPos()).getGround() == null){
+                BorderIterator iter = new BorderIterator(edge, myRandom);
             while(iter.hasNext()){
                 Index index = iter.nextSameIndex();
                 Field field = map.getFieldByIndex(index);
@@ -78,6 +81,8 @@ public class ContinentsGenerator extends FieldMapGenerator {
                     if (type == Ground.GroundType.Water) field.setHeight(-10);
                 }
             }
+            }
+            
         }
     }
 
