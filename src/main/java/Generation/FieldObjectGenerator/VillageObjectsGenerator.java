@@ -3,6 +3,7 @@ package Generation.FieldObjectGenerator;
 import Foundation.Field;
 import Foundation.FieldObjects.BuildingObject.*;
 import Foundation.FieldObjects.FieldObjects;
+import Foundation.FieldObjects.NaturalObjects.CropFieldObject;
 import Foundation.FieldObjects.OccupationPiece;
 import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
 import Foundation.Person.Person;
@@ -63,16 +64,20 @@ public class VillageObjectsGenerator {
             //Index pos = new Index(x, y);
             Index size = new Index(sizeX, sizeY);
             //OccupationPiece piece = field.getFieldObjects().getMinSpace(size);
-            Index pos = field.getFieldObjects().getPosForBuilding(size);
+            Index pos = field.getFieldObjects().getPosForBuilding(new Index(1, 1));
             if (pos != null){
-                LivingBuildingObject buildingObject = new PeasantHouseObject(field, pos, size);
+                LivingBuildingObject buildingObject = new PeasantHouseObject(field, pos, new Index(1, 1));
                 for(int i = 0; i < sizeX * sizeY; i++){
                     populace--;
                     if (populace < 0) break;
                     buildingObject.addPerson(people.get(populace));
                 }
+                OccupationPiece piece = fieldObjects.getMinSpace(size);
+                if (piece == null) continue;
+                CropFieldObject cropFieldObject = new CropFieldObject(field, piece.pos, size);
+                fieldObjects.addFieldObject(cropFieldObject);
                 PeasantHouseHoldAI ai = new PeasantHouseHoldAI();
-                ai.setHouseHold(buildingObject.getHouseHold());
+                ai.init(buildingObject.getHouseHold(), cropFieldObject);
                 fieldObjects.addBuilding(buildingObject);
             }
             if (populace <= 0) break;

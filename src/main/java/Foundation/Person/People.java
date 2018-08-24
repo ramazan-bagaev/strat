@@ -48,6 +48,10 @@ public class People implements Broadcaster{
         }
     }
 
+    public void removePeople(People people){
+        for(Person person: people.getPersonArray()) removePerson(person);
+    }
+
     public void clearDead(){
         Iterator<Person> iter = people.iterator();
         while(iter.hasNext()){
@@ -66,6 +70,21 @@ public class People implements Broadcaster{
         return people;
     }
 
+    public People getIntersection(People people){
+        People intersection = new People();
+        for(Person person: people.getPersonArray()){
+            if (contains(person)) intersection.addPerson(person);
+        }
+        return intersection;
+    }
+
+    public People getPeopleNotRepresented(People people){
+        People notRepresented = new People();
+        for(Person person: people.getPersonArray()){
+            if (!contains(person)) notRepresented.addPerson(person);
+        }
+        return notRepresented;
+    }
 
     public boolean contains(Person person){
         return people.contains(person);

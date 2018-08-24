@@ -13,6 +13,7 @@ import Foundation.FieldObjects.TransportObjects.PrimingRoadCrossObject;
 import Foundation.FieldObjects.TransportObjects.RoadType;
 import Foundation.FieldObjects.TransportObjects.TransportNetObject;
 import Foundation.Person.Person;
+import Foundation.Runnable.AI.LordHouseHoldAI;
 import Utils.FieldObjectPathFinder;
 import Utils.Geometry.Index;
 
@@ -165,6 +166,9 @@ public class ManorObjectsGenerator {
         Index size = new Index(6, 6);
         Index pos = fieldObjects.getPosForBuilding(size);
         ManorObject manorObject = new ManorObject(field, pos);
+        LordHouseHoldAI ai = new LordHouseHoldAI();
+        ai.init(manorObject.getHouseHold());
+
         field.addFieldObject(manorObject);
     }
 

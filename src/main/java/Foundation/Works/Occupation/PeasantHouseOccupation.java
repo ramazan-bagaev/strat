@@ -1,6 +1,7 @@
 package Foundation.Works.Occupation;
 
 import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
+import Foundation.FieldObjects.NaturalObjects.CropFieldObject;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Field;
@@ -16,15 +17,18 @@ import java.util.Random;
 
 public class PeasantHouseOccupation extends Occupation {
 
+    private CropFieldObject cropFieldObject;
+
     private MeatMakingWork meatMakingWork;
     private WheatMakingWork wheatMakingWork;
     private VegetableMakingWork vegetableMakingWork;
 
     private PeasantHouseObject peasantHouse;
 
-    public PeasantHouseOccupation(PeasantHouseObject peasantHouse){
+    public PeasantHouseOccupation(PeasantHouseObject peasantHouse, CropFieldObject cropFieldObject){
         super(peasantHouse.getParent().getMap().getGameEngine());
         this.peasantHouse = peasantHouse;
+        this.cropFieldObject = cropFieldObject;
         initWorks();
         gameEngine.addRunEntity(this);
     }
@@ -37,7 +41,7 @@ public class PeasantHouseOccupation extends Occupation {
         Random random = parent.getRandom();
 
         meatMakingWork = new MeatMakingWork(store, this);
-        wheatMakingWork = new WheatMakingWork(store, this);
+        wheatMakingWork = new WheatMakingWork(store, cropFieldObject, this);
         vegetableMakingWork = new VegetableMakingWork(store, this);
         for(Person person: people.getPersonArray()){
             int rand = random.nextInt(3);

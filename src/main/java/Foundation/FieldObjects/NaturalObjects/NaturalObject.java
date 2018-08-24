@@ -26,6 +26,11 @@ public abstract class NaturalObject extends FieldObject implements NaturalObject
     }
 
     @Override
+    public boolean isCropFieldObject(){
+        return false;
+    }
+
+    @Override
     public boolean isNaturalObject(){
         return true;
     }

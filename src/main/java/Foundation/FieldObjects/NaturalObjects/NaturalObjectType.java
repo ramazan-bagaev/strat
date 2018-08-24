@@ -5,4 +5,5 @@ public interface NaturalObjectType {
     boolean isWaterObject();
     boolean isForestObject();
     boolean isStoneObject();
+    boolean isCropFieldObject();
 }
