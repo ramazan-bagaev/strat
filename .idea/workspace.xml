@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e53fb7a-975d-4f5d-adac-5d2aa8e372ff" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject/MillObject.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Flora/CropField.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/WoodMakingWork.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Windows/FieldObjectWindow/AmbarInfoWindow.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Windows/FieldObjectWindow/MillInfoWindow.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Manor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Elements/Village.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject/AmbarObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject/AmbarObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject/PeasantHouseObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/BuildingObject/PeasantHouseObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/CropFieldObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/CropFieldObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/ForestObject.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/FieldObjects/NaturalObjects/ForestObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddVillageState.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/GameWindowHelper/States/AddVillageState.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Products/MaterialProduct/WoodMaterial.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Products/MaterialProduct/WoodMaterial.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/PeasantHouseHoldAI.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Runnable/AI/PeasantHouseHoldAI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Time/Schedule.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Time/Schedule.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Time/TimeDuration.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Time/TimeDuration.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/MeatMakingWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/MeatMakingWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/LordHouseOccupation.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/LordHouseOccupation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/PeasantHouseOccupation.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/PeasantHouseOccupation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/ProductMakingWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/ProductMakingWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/StewardWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/StewardWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/TradeWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/TradeWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/TransportWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/TransportWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/VegetableMakingWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/VegetableMakingWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/WheatMakingWork.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/WheatMakingWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Foundation/Works/Work.java" afterPath="$PROJECT_DIR$/src/main/java/Foundation/Works/Work.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CityGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/CityGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/ManorGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/ManorGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/VillageObjectsGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/Generation/FieldObjectGenerator/VillageObjectsGenerator.java" />
-    </list>
+    <list default="true" id="7e53fb7a-975d-4f5d-adac-5d2aa8e372ff" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/LordHouseOccupation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="335">
-              <caret line="177" column="54" lean-forward="true" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
+              <caret line="177" column="54" lean-forward="false" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Windows/FieldObjectWindow/AmbarInfoWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="18" column="20" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="20" />
+              <caret line="18" column="20" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -155,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/ManorGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="291">
-              <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+              <caret line="44" column="43" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -467,6 +436,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Foundation" type="462c0819:PsiDirectoryNode" />
+              <item name="Time" type="462c0819:PsiDirectoryNode" />
+              <item name="TimeDurations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Foundation" type="462c0819:PsiDirectoryNode" />
               <item name="Works" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -722,7 +701,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="215" y="96" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -738,7 +716,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20232172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20232172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1086,8 +1064,8 @@
         <state relative-caret-position="180">
           <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding>
-            <element signature="e#317#318#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="false" />
+            <element signature="e#345#346#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1097,8 +1075,8 @@
         <state relative-caret-position="234">
           <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="false" />
+            <element signature="e#644#645#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1108,8 +1086,8 @@
         <state relative-caret-position="234">
           <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1143,12 +1121,12 @@
         <state relative-caret-position="216">
           <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding>
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#812#813#0" expanded="false" />
+            <element signature="e#875#876#0" expanded="false" />
+            <element signature="e#1073#1074#0" expanded="false" />
+            <element signature="e#1120#1121#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1193,7 +1171,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Windows/FieldObjectWindow/AmbarInfoWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="18" column="20" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="20" />
+          <caret line="18" column="20" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1239,7 +1217,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Foundation/Works/Occupation/LordHouseOccupation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
-          <caret line="177" column="54" lean-forward="true" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
+          <caret line="177" column="54" lean-forward="false" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1257,7 +1235,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Generation/CivilizationGenerator/ManorGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
-          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+          <caret line="44" column="43" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
           <folding />
         </state>
       </provider>
