@@ -13,14 +13,23 @@ public abstract class ProductMakingWork extends Work{
     public ProductMakingWork(ProductStore store, Occupation occupation) {
         super(occupation);
         this.productStore = store;
-        endStage = 1;
+        endStage = 2;
     }
 
     public abstract Product makeProduct();
 
+    public abstract boolean initWork();
+
     @Override
-    public void doMainWork(){
-        productStore.addProduct(makeProduct());
+    public boolean doMainWork(){
+        if (isBeginningStage()){
+            return initWork();
+        }
+        if (stage == endStage - 1){
+            productStore.addProduct(makeProduct());
+            return true;
+        }
+        return true;
     }
 
 }

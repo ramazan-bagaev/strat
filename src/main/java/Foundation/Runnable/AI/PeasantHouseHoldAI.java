@@ -3,6 +3,7 @@ package Foundation.Runnable.AI;
 import Foundation.FieldObjects.BuildingObject.MarketObject;
 import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
 import Foundation.FieldObjects.NaturalObjects.CropFieldObject;
+import Foundation.Flora.CropField;
 import Foundation.Person.HouseHold;
 import Foundation.Person.People;
 import Foundation.Person.Person;
@@ -25,11 +26,11 @@ public class PeasantHouseHoldAI extends AI{
     public PeasantHouseHoldAI(){
     }
 
-    public void init(HouseHold houseHold, CropFieldObject cropFieldObject){
+    public void init(HouseHold houseHold){
         if (this.houseHold == null) houseHold.getHouse().getParent().getMap().getGameEngine().addRunEntity(this);
         this.houseHold = houseHold;
         this.peasantHouseObject = (PeasantHouseObject)this.houseHold.getHouse();
-        this.peasantHouseOccupation = new PeasantHouseOccupation(this.peasantHouseObject, cropFieldObject);
+        this.peasantHouseOccupation = new PeasantHouseOccupation(this.peasantHouseObject);
     }
 
     private void tryTrade(){

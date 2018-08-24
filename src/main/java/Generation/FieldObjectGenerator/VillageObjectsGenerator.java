@@ -64,20 +64,16 @@ public class VillageObjectsGenerator {
             //Index pos = new Index(x, y);
             Index size = new Index(sizeX, sizeY);
             //OccupationPiece piece = field.getFieldObjects().getMinSpace(size);
-            Index pos = field.getFieldObjects().getPosForBuilding(new Index(1, 1));
+            Index pos = field.getFieldObjects().getPosForBuilding(size);
             if (pos != null){
-                LivingBuildingObject buildingObject = new PeasantHouseObject(field, pos, new Index(1, 1));
+                PeasantHouseObject buildingObject = new PeasantHouseObject(field, pos, size);
                 for(int i = 0; i < sizeX * sizeY; i++){
                     populace--;
                     if (populace < 0) break;
                     buildingObject.addPerson(people.get(populace));
                 }
-                OccupationPiece piece = fieldObjects.getMinSpace(size);
-                if (piece == null) continue;
-                CropFieldObject cropFieldObject = new CropFieldObject(field, piece.pos, size);
-                fieldObjects.addFieldObject(cropFieldObject);
                 PeasantHouseHoldAI ai = new PeasantHouseHoldAI();
-                ai.init(buildingObject.getHouseHold(), cropFieldObject);
+                ai.init(buildingObject.getHouseHold());
                 fieldObjects.addBuilding(buildingObject);
             }
             if (populace <= 0) break;

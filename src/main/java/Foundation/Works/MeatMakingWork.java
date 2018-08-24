@@ -17,4 +17,9 @@ public class MeatMakingWork extends ProductMakingWork {
     public Product makeProduct() {
         return new MeatProduct(people.getAmount());
     }
+
+    @Override
+    public boolean initWork() {
+        return true;
+    }
 }

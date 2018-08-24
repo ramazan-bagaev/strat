@@ -2,6 +2,7 @@ package Foundation.Works.Occupation;
 
 import Foundation.FieldObjects.BuildingObject.PeasantHouseObject;
 import Foundation.FieldObjects.NaturalObjects.CropFieldObject;
+import Foundation.Flora.CropField;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Field;
@@ -17,7 +18,6 @@ import java.util.Random;
 
 public class PeasantHouseOccupation extends Occupation {
 
-    private CropFieldObject cropFieldObject;
 
     private MeatMakingWork meatMakingWork;
     private WheatMakingWork wheatMakingWork;
@@ -25,10 +25,9 @@ public class PeasantHouseOccupation extends Occupation {
 
     private PeasantHouseObject peasantHouse;
 
-    public PeasantHouseOccupation(PeasantHouseObject peasantHouse, CropFieldObject cropFieldObject){
+    public PeasantHouseOccupation(PeasantHouseObject peasantHouse){
         super(peasantHouse.getParent().getMap().getGameEngine());
         this.peasantHouse = peasantHouse;
-        this.cropFieldObject = cropFieldObject;
         initWorks();
         gameEngine.addRunEntity(this);
     }
@@ -41,7 +40,7 @@ public class PeasantHouseOccupation extends Occupation {
         Random random = parent.getRandom();
 
         meatMakingWork = new MeatMakingWork(store, this);
-        wheatMakingWork = new WheatMakingWork(store, cropFieldObject, this);
+        wheatMakingWork = new WheatMakingWork(store, peasantHouse.getCropField(), this);
         vegetableMakingWork = new VegetableMakingWork(store, this);
         for(Person person: people.getPersonArray()){
             int rand = random.nextInt(3);
@@ -50,14 +49,17 @@ public class PeasantHouseOccupation extends Occupation {
                     TimeDuration timeDuration = person.getSchedule().getFreeWeekTimeDuration(49);
                     if (timeDuration == null) break;
                     meatMakingWork.addPerson(person, timeDuration);
+                    break;
                 case 1:
                     timeDuration = person.getSchedule().getFreeWeekTimeDuration(49);
                     if (timeDuration == null) break;
                     wheatMakingWork.addPerson(person, timeDuration);
+                    break;
                 case 2:
                     timeDuration = person.getSchedule().getFreeWeekTimeDuration(49);
                     if (timeDuration == null) break;
                     vegetableMakingWork.addPerson(person, timeDuration);
+                    break;
             }
         }
 

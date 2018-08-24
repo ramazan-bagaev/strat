@@ -1,0 +1,227 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Schedule</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">Foundation.Time</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Schedule (Foundation.Time)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Schedule</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71.4%
+  </span>
+  <span class="absValue">
+    (65/ 91)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package Foundation.Time;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import Foundation.Time.TimeDurations.OneWeekdayTimeDuration;
+<i>4</i>&nbsp;import Foundation.Time.TimeDurations.WeeklyTimeDuration;
+<i>5</i>&nbsp;import Foundation.Works.Work;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.ArrayList;
+<i>8</i>&nbsp;import java.util.Iterator;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;public class Schedule {
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;    private ArrayList&lt;ScheduleItem&gt; items;
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    public Schedule(){</b>
+<b class="fc"><i>15</i>&nbsp;        items = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>16</i>&nbsp;    }</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    public void addWork(Work work, TimeDuration timeDuration){
+<b class="fc"><i>19</i>&nbsp;        for(ScheduleItem scheduleItem : items){</b>
+<b class="fc"><i>20</i>&nbsp;            if (scheduleItem.timeDuration.intersect(timeDuration)) return;</b>
+<b class="fc"><i>21</i>&nbsp;        }</b>
+<b class="fc"><i>22</i>&nbsp;        items.add(new ScheduleItem(work, timeDuration));</b>
+<b class="fc"><i>23</i>&nbsp;    }</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public Work getWork(Date date){
+<b class="nc"><i>26</i>&nbsp;        for(ScheduleItem scheduleItem: items){</b>
+<b class="nc"><i>27</i>&nbsp;            if (scheduleItem.timeDuration.contains(date)) return scheduleItem.work;</b>
+<b class="nc"><i>28</i>&nbsp;        }</b>
+<b class="nc"><i>29</i>&nbsp;        return null;</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public boolean isFree(TimeDuration timeDuration){
+<b class="fc"><i>33</i>&nbsp;        for(ScheduleItem scheduleItem: items){</b>
+<b class="fc"><i>34</i>&nbsp;            if (scheduleItem.timeDuration.intersect(timeDuration)) return false;</b>
+<b class="fc"><i>35</i>&nbsp;        }</b>
+<b class="fc"><i>36</i>&nbsp;        return true;</b>
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    public boolean contains(Work work, Date date){
+<b class="fc"><i>41</i>&nbsp;        for(ScheduleItem scheduleItem: items){</b>
+<b class="fc"><i>42</i>&nbsp;            if (scheduleItem.work == work){</b>
+<b class="fc"><i>43</i>&nbsp;                return (scheduleItem.timeDuration.contains(date));</b>
+<i>44</i>&nbsp;            }
+<b class="fc"><i>45</i>&nbsp;        }</b>
+<b class="nc"><i>46</i>&nbsp;        return false;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public TimeDuration getFreeWeekTimeDuration(int hourAmount){
+<b class="fc"><i>50</i>&nbsp;        ArrayList&lt;OneWeekdayTimeDuration&gt; freeTimeDurations = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>51</i>&nbsp;        ArrayList&lt;Integer&gt; freeHourAmount = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>52</i>&nbsp;        for(int weekday = Date.START_WEEKDAY; weekday &lt; Date.END_WEEKDAY; weekday++){</b>
+<b class="fc"><i>53</i>&nbsp;            OneWeekdayTimeDuration timeDuration = getFreeHour(weekday);</b>
+<b class="fc"><i>54</i>&nbsp;            if (timeDuration == null) continue;</b>
+<b class="fc"><i>55</i>&nbsp;            freeTimeDurations.add(timeDuration);</b>
+<b class="fc"><i>56</i>&nbsp;            freeHourAmount.add(timeDuration.getHours().size());</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;
+<b class="fc"><i>59</i>&nbsp;        int wholeTime = 0;</b>
+<b class="fc"><i>60</i>&nbsp;        for(Integer weeklyHour: freeHourAmount) wholeTime += weeklyHour;</b>
+<b class="fc"><i>61</i>&nbsp;        if (wholeTime &lt; hourAmount){</b>
+<b class="fc"><i>62</i>&nbsp;            return null;</b>
+<i>63</i>&nbsp;        }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;        // trying to extract full week
+<b class="fc"><i>66</i>&nbsp;        WeeklyTimeDuration weekly = new WeeklyTimeDuration();</b>
+<b class="fc"><i>67</i>&nbsp;        ArrayList&lt;Integer&gt; resHours = weekly.getHours();</b>
+<b class="fc"><i>68</i>&nbsp;        for(OneWeekdayTimeDuration oneWeekday: freeTimeDurations){</b>
+<i>69</i>&nbsp;
+<b class="fc"><i>70</i>&nbsp;            Iterator&lt;Integer&gt; iter = resHours.iterator();</b>
+<b class="fc"><i>71</i>&nbsp;            while(iter.hasNext()){</b>
+<b class="fc"><i>72</i>&nbsp;                int hour = iter.next();</b>
+<b class="fc"><i>73</i>&nbsp;                if (oneWeekday.getHours().contains(hour)) continue;</b>
+<b class="fc"><i>74</i>&nbsp;                iter.remove();</b>
+<b class="fc"><i>75</i>&nbsp;            }</b>
+<b class="fc"><i>76</i>&nbsp;            if (resHours.size() == 0) break;</b>
+<b class="fc"><i>77</i>&nbsp;        }</b>
+<i>78</i>&nbsp;
+<b class="fc"><i>79</i>&nbsp;        if (resHours.size() != 0){</b>
+<b class="fc"><i>80</i>&nbsp;            int weekSize = weekly.getWeekdays().size();</b>
+<b class="fc"><i>81</i>&nbsp;            while(weekSize * resHours.size() &gt; hourAmount) {</b>
+<b class="fc"><i>82</i>&nbsp;                weekly.removeWorkingHour(resHours.get(resHours.size() - 1));</b>
+<i>83</i>&nbsp;            }
+<b class="fc"><i>84</i>&nbsp;            if (weekSize * resHours.size() == hourAmount){</b>
+<b class="fc"><i>85</i>&nbsp;                return weekly;</b>
+<i>86</i>&nbsp;            }
+<i>87</i>&nbsp;        }
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;        // failed to do that, try compose timeDuration from different oneWeekdayTimeDurations
+<b class="nc"><i>90</i>&nbsp;        double part = 0;</b>
+<b class="nc"><i>91</i>&nbsp;        int delta = wholeTime - hourAmount;</b>
+<b class="nc"><i>92</i>&nbsp;        for(OneWeekdayTimeDuration weekdayTimeDuration: freeTimeDurations){</b>
+<b class="nc"><i>93</i>&nbsp;            ArrayList&lt;Integer&gt; hours = weekdayTimeDuration.getHours();</b>
+<b class="nc"><i>94</i>&nbsp;            part += (double)(delta*hours.size())/(double)(wholeTime);</b>
+<b class="nc"><i>95</i>&nbsp;            while(part &gt;= 1){</b>
+<b class="nc"><i>96</i>&nbsp;                weekdayTimeDuration.removeHours(hours.get(hours.size() - 1));</b>
+<b class="nc"><i>97</i>&nbsp;                part--;</b>
+<i>98</i>&nbsp;            }
+<b class="nc"><i>99</i>&nbsp;        }</b>
+<b class="nc"><i>100</i>&nbsp;        if (part &gt; 0){</b>
+<b class="nc"><i>101</i>&nbsp;            for(OneWeekdayTimeDuration weekdayTimeDuration: freeTimeDurations) {</b>
+<b class="nc"><i>102</i>&nbsp;                ArrayList&lt;Integer&gt; hours = weekdayTimeDuration.getHours();</b>
+<b class="nc"><i>103</i>&nbsp;                if (hours.size() == 0) continue;</b>
+<b class="nc"><i>104</i>&nbsp;                weekdayTimeDuration.removeHours(hours.get(hours.size() - 1));</b>
+<b class="nc"><i>105</i>&nbsp;                break;</b>
+<i>106</i>&nbsp;            }
+<i>107</i>&nbsp;        }
+<b class="nc"><i>108</i>&nbsp;        ArrayList&lt;TimeDuration&gt; finalTimeDuration = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>109</i>&nbsp;        for(OneWeekdayTimeDuration timeDuration: freeTimeDurations){</b>
+<b class="nc"><i>110</i>&nbsp;            finalTimeDuration.add(timeDuration);</b>
+<b class="nc"><i>111</i>&nbsp;        }</b>
+<b class="nc"><i>112</i>&nbsp;        TimeDuration result = new TimeDuration(finalTimeDuration);</b>
+<b class="nc"><i>113</i>&nbsp;        return result;</b>
+<i>114</i>&nbsp;    }
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;    public TimeDuration getFreeDayTimeDuration(int hourAmount, int weekDay){
+<b class="fc"><i>117</i>&nbsp;        OneWeekdayTimeDuration result = getFreeHour(weekDay);</b>
+<b class="fc"><i>118</i>&nbsp;        if (result == null) return null;</b>
+<b class="fc"><i>119</i>&nbsp;        ArrayList&lt;Integer&gt; hours = result.getHours();</b>
+<b class="fc"><i>120</i>&nbsp;        int amount = hours.size() - hourAmount;</b>
+<b class="fc"><i>121</i>&nbsp;        if (amount &lt; 0) return null;</b>
+<b class="fc"><i>122</i>&nbsp;        for(int i = 0; i &lt; amount; i++){</b>
+<b class="fc"><i>123</i>&nbsp;            int hour = hours.get(hours.size() - 1);</b>
+<b class="fc"><i>124</i>&nbsp;            result.removeHours(hour);</b>
+<i>125</i>&nbsp;        }
+<b class="fc"><i>126</i>&nbsp;        return result;</b>
+<i>127</i>&nbsp;    }
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;    private OneWeekdayTimeDuration getFreeHour(int weekday){
+<b class="fc"><i>130</i>&nbsp;        OneWeekdayTimeDuration weekDayTime = new OneWeekdayTimeDuration(weekday, 0, 23);</b>
+<b class="fc"><i>131</i>&nbsp;        ArrayList&lt;TimeDuration&gt; timeDurations = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>132</i>&nbsp;        for(ScheduleItem item: items) timeDurations.add(item.timeDuration);</b>
+<b class="fc"><i>133</i>&nbsp;        TimeDuration scheduleDuration = new TimeDuration(timeDurations);</b>
+<b class="fc"><i>134</i>&nbsp;        TimeDurationIterator iter = new TimeDurationIterator(scheduleDuration, weekDayTime);</b>
+<b class="fc"><i>135</i>&nbsp;        while (iter.hasNext()){</b>
+<b class="fc"><i>136</i>&nbsp;            Date date = iter.next();</b>
+<b class="fc"><i>137</i>&nbsp;            if (scheduleDuration.contains(date)) weekDayTime.removeHours(date.hour);</b>
+<b class="fc"><i>138</i>&nbsp;            if (weekDayTime.getHours().size() == 0){</b>
+<b class="fc"><i>139</i>&nbsp;                return null;</b>
+<i>140</i>&nbsp;            }
+<b class="fc"><i>141</i>&nbsp;        }</b>
+<b class="fc"><i>142</i>&nbsp;        return weekDayTime;</b>
+<i>143</i>&nbsp;    }
+<i>144</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-08-24 18:18</div>
+</div>
+</body>
+</html>

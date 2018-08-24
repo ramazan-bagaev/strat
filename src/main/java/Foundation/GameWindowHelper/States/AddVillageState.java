@@ -81,7 +81,8 @@ public class AddVillageState extends HelperState {
         index.y = (int) (point.y / gameWindowHelperElement.getMap().getFieldSize());
         if (impossible.isOccupiedBy(index)) return;
         if (possible.isOccupiedBy(index)){
-            manor.createVillage(index, steward);
+            //manor.createVillage(index, steward);
+            System.out.println("can't create manor, rewrite click");
         }
         clearHelperElements();
         gameWindowHelperElement.setStandardState();

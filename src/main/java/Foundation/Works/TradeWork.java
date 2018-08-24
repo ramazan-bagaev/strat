@@ -31,14 +31,15 @@ public class TradeWork extends Work {
     }
 
     @Override
-    protected void doMainWork() {
+    protected boolean doMainWork() {
         if (isBeginningStage()){
             initShop();
-            return;
+            return true;
         }
         if (stage == endStage - 1){
             removeShop();
-            return;
+            return true;
         }
+        return true;
     }
 }

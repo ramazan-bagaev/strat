@@ -61,7 +61,7 @@ public class ManorGenerator {
     private void setTerritory(Manor manor){
         Index pos = manor.getParent().getFieldMapPos();
         for(Index.Direction direction: Index.getAllDirections()){
-            if (random.nextInt(4) > 1) continue;
+            if (random.nextInt(4) > 0) continue;
             Index newPos = pos.add(Index.getUnitIndex(direction));
             if (field.getMap().getFieldByIndex(newPos) == null) continue;
             manor.addTerritory(newPos);

@@ -83,19 +83,6 @@ public class Manor extends HabitableFieldElement {
         return city;
     }
 
-    public void createVillage(Index point, Person steward){
-        if (!territory.contains(point)) return;
-        Field field = map.getFieldByIndex(point);
-        if (field.getVillage() != null) return; // TODO: check if there are other construction like fishing village, sawmill or mine
-       // society.removePerson(steward);
-        //Village village = Village.constructEmptyVillageWithSteward(time, field, map, steward, this);//new Village(time, field, map, steward, this);
-        Village village = Village.constructVillageWithRandomPeople(field, this);
-        field.setVillage(village);
-        villages.add(village);
-        map.getGameEngine().getGameWindowElement().setShapes();
-        map.getGameEngine().getGameWindowElement().getGameEngine().addRunEntity(village);
-    }
-
 
     public Person getLord() {
         return lord;

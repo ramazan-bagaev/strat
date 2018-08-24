@@ -11,6 +11,7 @@ public class StewardWork extends Work {
     }
 
     @Override
-    protected void doMainWork() {
+    protected boolean doMainWork() {
+        return false;
     }
 }

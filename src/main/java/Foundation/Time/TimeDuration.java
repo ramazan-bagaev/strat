@@ -1,5 +1,7 @@
 package Foundation.Time;
 
+import Utils.TimeMeasurer;
+
 import java.util.ArrayList;
 
 public class TimeDuration {

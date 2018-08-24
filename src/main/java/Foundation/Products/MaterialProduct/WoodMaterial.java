@@ -11,7 +11,7 @@ public class WoodMaterial extends MaterialProduct {
     @Override
     public boolean isSameProductAs(Product other) {
         if (super.isSameProductAs(other)){
-            if (((MaterialProduct)other).isMetal()) return true;
+            if (((MaterialProduct)other).isWood()) return true;
         }
         return false;
     }

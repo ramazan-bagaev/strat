@@ -9,8 +9,11 @@ import Utils.Geometry.Index;
 
 public class ForestObject extends NaturalObject {
 
+    private int woodAmount;
+
     public ForestObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
+        woodAmount = size.y * size.x * 1000;
         setShapes();
     }
 
@@ -28,5 +31,22 @@ public class ForestObject extends NaturalObject {
     @Override
     public Window getInfoWindow() {
         return null;
+    }
+
+    @Override
+    public boolean isForestObject(){
+        return true;
+    }
+
+    public int getSquare(){
+        return size.x * size.y;
+    }
+
+    public int getWoodAmount() {
+        return woodAmount;
+    }
+
+    public void decreaseWoodAmount(int amount){
+        woodAmount -= amount;
     }
 }

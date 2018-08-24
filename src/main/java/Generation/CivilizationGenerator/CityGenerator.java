@@ -83,7 +83,7 @@ public class CityGenerator{
             PalaceObject palaceObject = new PalaceObject(field, pos);
             fieldObjects.addBuilding(palaceObject);
         }
-        int populace = city.getSociety().getAmount();
+        int populace = city.getSociety().getWoodAmount();
         ArrayList<Person> people = city.getSociety().getPeople().getPersonArray();
         int k = 0;
         while(true){

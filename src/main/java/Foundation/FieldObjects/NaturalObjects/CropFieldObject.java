@@ -3,14 +3,18 @@ package Foundation.FieldObjects.NaturalObjects;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
+import Foundation.Flora.CropField;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 import Windows.Window;
 
 public class CropFieldObject extends NaturalObject{
 
+    private CropField cropField;
+
     public CropFieldObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
+        this.cropField = new CropField(size.x * size.y);
         setShapes();
     }
 
@@ -34,5 +38,9 @@ public class CropFieldObject extends NaturalObject{
     @Override
     public Window getInfoWindow() {
         return null;
+    }
+
+    public CropField getCropField() {
+        return cropField;
     }
 }

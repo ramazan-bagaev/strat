@@ -1,6 +1,7 @@
 package Foundation.Works;
 
 import Foundation.FieldObjects.NaturalObjects.CropFieldObject;
+import Foundation.Flora.CropField;
 import Foundation.Person.People;
 import Foundation.Products.EdibleProduct.WheatProduct;
 import Foundation.Products.Product;
@@ -11,20 +12,31 @@ import Utils.Geometry.Index;
 
 public class WheatMakingWork extends ProductMakingWork{
 
-    private CropFieldObject cropFieldObject;
+    private CropField cropField;
+    private int amount;
 
-    public WheatMakingWork(ProductStore store, CropFieldObject cropFieldObject, Occupation occupation) {
+    public WheatMakingWork(ProductStore store, CropField cropField, Occupation occupation) {
         super(store, occupation);
-        this.cropFieldObject = cropFieldObject;
+        this.cropField = cropField;
+        endStage = 7;
     }
 
     public int getSize(){
-        Index size = cropFieldObject.getSize();
-        return size.x * size.y;
+        return cropField.getSize();
+    }
+
+    public int getFreePosition(){
+        return cropField.getSize() - people.getAmount();
+    }
+
+    @Override
+    public boolean initWork(){
+        amount = Math.min(people.getAmount(), cropField.getSize());
+        return amount != 0;
     }
 
     @Override
     public Product makeProduct() {
-        return new WheatProduct(people.getAmount());
+        return new WheatProduct(amount);
     }
 }

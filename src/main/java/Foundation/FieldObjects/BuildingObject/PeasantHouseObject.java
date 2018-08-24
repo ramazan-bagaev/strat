@@ -3,15 +3,18 @@ package Foundation.FieldObjects.BuildingObject;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
+import Foundation.Flora.CropField;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 
 public class PeasantHouseObject extends LivingBuildingObject{
 
     private Index housePos;
+    private CropField cropField;
 
     public PeasantHouseObject(Field parent, Index cellPos, Index size) {
         super(parent, cellPos, size);
+        this.cropField = new CropField(size.x * size.y - 1);
         housePos = new Index(size.x/2, size.y/2);
         setShapes();
     }
@@ -31,8 +34,7 @@ public class PeasantHouseObject extends LivingBuildingObject{
         addBasicShape(rectangleShape);
     }
 
-    public void distributeWork(){
-       // occupation.initWorks();
-       // getParent().getMap().getGameEngine().addRunEntity(occupation);
+    public CropField getCropField() {
+        return cropField;
     }
 }

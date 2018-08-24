@@ -56,10 +56,11 @@ public class TransportWork extends Work{
     }
 
     @Override
-    protected void doMainWork() {
-        if (endStage == -1) return;
+    protected boolean doMainWork() {
+        if (endStage == -1) return false;
         TransportNetNodeObject node = (TransportNetNodeObject)visitedNodes.get(stage);
         node.removeBundle(bundle);
         node.addBundle(bundle);
+        return true;
     }
 }

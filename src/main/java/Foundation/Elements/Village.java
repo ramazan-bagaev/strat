@@ -29,20 +29,6 @@ public class Village extends HabitableFieldElement {
 
     private Territory availableWater;
 
-    public static Village constructEmptyVillageWithSteward(Field parent, Person steward, Manor manor){
-        Village res = new Village(parent, manor);
-        res.setSteward(steward);
-        res.fillField();
-        return res;
-    }
-
-    public static Village constructVillageWithRandomPeople(Field parent, Manor manor){
-        Village res = new Village(parent, manor);
-        res.addRandomPeople();
-        res.fillField();
-        return res;
-    }
-
     public Village(Field parent, Manor manor) {
         super(Type.Village, parent);
         this.manor = manor;
@@ -79,45 +65,6 @@ public class Village extends HabitableFieldElement {
         parent.getFieldObjects().addTransportNetElement(primingRoadCrossObject);
         parent.getFieldObjects().prolongTransportSystem();
         parent.getFieldObjects().prolongTransportSystem();
-    }
-
-    public void fillField(){
-        addFirstRoadPiece();
-        Random random = parent.getRandom();
-        int cellAmount = parent.getCellAmount();
-
-        int x = random.nextInt(cellAmount);
-        int y = random.nextInt(cellAmount);
-        Index stPos = parent.getFieldObjects().getPosForBuilding(new Index(3,3));
-        if (stPos != null) {
-            StewardBuildingObject stewardBuildingObject = new StewardBuildingObject(parent, stPos);
-            parent.getFieldObjects().addBuilding(stewardBuildingObject);
-        }
-        People people = society.getPeople();
-        ArrayList<Person> personArray = people.getPersonArray();
-        int populace = people.getAmount()-1;
-        int k = 0;
-        while(populace >= 0){
-            int sizeX = random.nextInt(3)+3;
-            int sizeY = random.nextInt(3)+3;
-            Index size = new Index(sizeX, sizeY);
-            Index pos = parent.getFieldObjects().getPosForBuilding(size);
-            if (pos != null){
-                PeasantHouseObject peasantHouseObject = new PeasantHouseObject(parent, pos, size);
-                int peasantNum = random.nextInt(4) + 3;
-                for(int i = 0; i < peasantNum; i++){
-                    peasantHouseObject.addPerson(personArray.get(populace));
-                    populace--;
-                    if (populace < 0) break;
-                }
-                peasantHouseObject.distributeWork();
-                parent.getFieldObjects().addBuilding(peasantHouseObject);
-            }
-            k++;
-            if (k > 500) break;
-            //if (populace < 0) break;
-        }
-        System.out.println("populace " + populace);
     }
 
     public void setSteward(Person steward){

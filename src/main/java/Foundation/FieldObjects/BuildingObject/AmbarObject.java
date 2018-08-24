@@ -7,6 +7,7 @@ import Foundation.FieldObjects.FieldObject;
 import Foundation.Products.ProductStore;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
+import Windows.FieldObjectWindow.AmbarInfoWindow;
 import Windows.Window;
 
 public class AmbarObject extends BuildingObject{
@@ -32,7 +33,7 @@ public class AmbarObject extends BuildingObject{
 
     @Override
     public Window getInfoWindow() {
-        return null;
+        return new AmbarInfoWindow(getParent().getMap().getGameEngine().getGameWindowElement().getParent().getParent(), this);
     }
 
     public ProductStore getStore() {

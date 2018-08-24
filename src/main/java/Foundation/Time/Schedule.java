@@ -3,6 +3,7 @@ package Foundation.Time;
 import Foundation.Time.TimeDurations.OneWeekdayTimeDuration;
 import Foundation.Time.TimeDurations.WeeklyTimeDuration;
 import Foundation.Works.Work;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 import java.util.Iterator;

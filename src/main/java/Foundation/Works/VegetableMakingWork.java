@@ -17,4 +17,9 @@ public class VegetableMakingWork extends ProductMakingWork {
     public Product makeProduct() {
         return new VegetableProduct(people.getAmount());
     }
+
+    @Override
+    public boolean initWork() {
+        return true;
+    }
 }

@@ -6,6 +6,7 @@ import Foundation.Time.Date;
 import Foundation.Time.Time;
 import Foundation.Time.TimeDuration;
 import Foundation.Works.Occupation.Occupation;
+import Utils.TimeMeasurer;
 
 import java.util.ArrayList;
 
@@ -81,10 +82,12 @@ public abstract class Work{
         return (stage == 0);
     }
 
-    protected abstract void doMainWork();
+    protected abstract boolean doMainWork();
 
     public void doWork(Time time){
-        if (getWorkingAmount(time.getDate()) == 0) return;
+        if (getWorkingAmount(time.getDate()) == 0){
+            return;
+        }
         doMainWork();
         nextStage();
 
