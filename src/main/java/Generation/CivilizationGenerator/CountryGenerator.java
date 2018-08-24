@@ -33,6 +33,10 @@ public class CountryGenerator extends FieldMapGenerator{
     private ArrayList<Country> countries;
     private ArrayList<Index> posForCities;
     private Index iter;
+    
+    //private boolean nearArea = true;
+    private boolean nearArea;
+    private int earthArea = 0;
 
 
     @Override
@@ -140,7 +144,26 @@ public class CountryGenerator extends FieldMapGenerator{
         if (centerField.getGroundType() == Ground.GroundType.Water) return false;
         if (centerField.getTree() != null) return false;
         if (centerField.getGroundType() == Ground.GroundType.Rock) return false;
-        //if (centerField.getGroundType() == Ground.GroundType.Sand) return false;
+        if (centerField.getGroundType() == Ground.GroundType.Sand) return false;
+        
+        // Checking nearest area if there is any soil
+        for(int y = -2; y < 3; y += 1){
+            iter.y = y + center.y;
+            for(int x = -2; x < 3; x += 1){
+                if (x != 0 && y != 0) continue;
+                iter.x = x + center.x;
+                Field surfF = map.getFieldByIndex(iter);
+                if (surfF == null) continue;
+                if ((surfF.getGroundType() == Ground.GroundType.Soil || surfF.getGroundType() == Ground.GroundType.Sand) && surfF.getTree() == null){
+                    nearArea = true;
+                    earthArea += 1;
+                }
+                else{
+                    nearArea = false;
+                }
+            }
+        }
+        
         for(int y = -1; y < 2; y++){
             iter.y = y + center.y;
             for(int x = -1; x < 2; x++){
@@ -148,11 +171,12 @@ public class CountryGenerator extends FieldMapGenerator{
                 iter.x = x + center.x;
                 Field surField = map.getFieldByIndex(iter);
                 if (surField == null) continue;
-                if (surField.getRiver() != null || surField.getGroundType() == Ground.GroundType.Water) return true;
+                if (surField.getRiver() != null  && nearArea == true && earthArea > 1) return true;
             }
         }
         return false;
     }
+    
 
     private void renewPosForCities(Index center){
         for(int y = -3; y < 4; y++){
