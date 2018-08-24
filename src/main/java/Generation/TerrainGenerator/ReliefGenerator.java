@@ -160,6 +160,12 @@ public class ReliefGenerator extends FieldMapGenerator {
         if (field.getGroundType() == Ground.GroundType.Water){
             if (oldHeight + delta >= 0) addRockGround(pos);
         }
+        else{
+            if (oldHeight + delta < 0){
+                field.setGround(new Ground(Ground.GroundType.Water, field));
+            }
+        }
+        
 
     }
 
