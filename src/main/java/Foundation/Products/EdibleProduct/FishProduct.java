@@ -6,6 +6,7 @@ public class FishProduct extends EdibleProduct {
 
     public FishProduct(int amount){
         super(amount);
+        this.name = "fish";
     }
 
     @Override
@@ -19,14 +20,5 @@ public class FishProduct extends EdibleProduct {
     @Override
     public boolean isFish(){
         return true;
-    }
-
-    @Override
-    public String getValue(String key){
-        switch (key){
-            case "name":
-                return "fish";
-        }
-        return super.getValue(key);
     }
 }

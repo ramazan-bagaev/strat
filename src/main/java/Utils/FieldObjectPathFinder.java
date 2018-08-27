@@ -58,6 +58,7 @@ public abstract class FieldObjectPathFinder {
         while (true){
             if (queue.size() == 0) return;
             Index curPos = queue.getFirst();
+            if (curPos == null) return;
             if (isFinish(curPos)){
                 constructPath(curPos);
                 return;

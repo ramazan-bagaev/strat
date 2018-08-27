@@ -3,15 +3,23 @@ package Foundation.FieldObjects.NaturalObjects;
 import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
+import Foundation.Products.RawMaterials.ElementConcentration;
 import Windows.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
 
 public class StoneObject extends NaturalObject {
 
-    public StoneObject(Field parent, Index cellPos, Index size) {
+    private MineralConcentration mineralConcentration;
+
+    public StoneObject(Field parent, MineralConcentration mineralConcentration, Index cellPos, Index size) {
         super(parent, cellPos, size);
+        this.mineralConcentration = mineralConcentration;
         setShapes();
+    }
+
+    public int getStoneSize(){
+        return size.x * size.y;
     }
 
     @Override
@@ -33,5 +41,9 @@ public class StoneObject extends NaturalObject {
     @Override
     public Window getInfoWindow() {
         return null;
+    }
+
+    public MineralConcentration getMineralConcentration() {
+        return mineralConcentration;
     }
 }

@@ -4,6 +4,7 @@ import Foundation.Field;
 import Foundation.FieldObjects.FieldObjects;
 import Foundation.FieldObjects.NaturalObjects.StoneObject;
 import Foundation.FieldObjects.OccupationPiece;
+import Generation.MineralConcentrationGenerator;
 import Utils.Geometry.Index;
 
 import java.util.ArrayList;
@@ -15,14 +16,16 @@ public class MountainRockGeneration{
     private FieldObjects fieldObjects;
     private Random random;
 
-    public MountainRockGeneration(){
+    private MineralConcentrationGenerator mineralConcentrationGenerator;
 
+    public MountainRockGeneration(){
     }
 
     public void generate(Field field){
         this.field = field;
         this.fieldObjects = field.getFieldObjects();
         this.random = field.getRandom();
+        this.mineralConcentrationGenerator = new MineralConcentrationGenerator(random);
         generateRocks(5);
     }
 
@@ -41,7 +44,7 @@ public class MountainRockGeneration{
                 random.nextInt(piece.pieceSize.y/2 + 1) + piece.pieceSize.y/4);
         Index newPos = new Index(random.nextInt( piece.pieceSize.x - newSize.x + 1) + piece.pos.x,
                 random.nextInt(piece.pieceSize.y - newSize.y + 1) + piece.pos.y);
-        fieldObjects.addFieldObject(new StoneObject(field, newPos, newSize));
+        fieldObjects.addFieldObject(new StoneObject(field, mineralConcentrationGenerator.generate(), newPos, newSize));
     }
 
 }

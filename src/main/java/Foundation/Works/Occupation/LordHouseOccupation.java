@@ -1,5 +1,6 @@
 package Foundation.Works.Occupation;
 
+import Foundation.Elements.Ground;
 import Foundation.Elements.Village;
 import Foundation.FieldMap;
 import Foundation.Field;
@@ -9,11 +10,13 @@ import Foundation.FieldObjects.FieldObjects;
 import Foundation.FieldObjects.NaturalObjects.CropFieldObject;
 import Foundation.FieldObjects.NaturalObjects.ForestObject;
 import Foundation.FieldObjects.NaturalObjects.NaturalObject;
+import Foundation.FieldObjects.NaturalObjects.StoneObject;
 import Foundation.FieldObjects.OccupationPiece;
 import Foundation.Person.People;
 import Foundation.Person.Person;
 import Foundation.Territory;
 import Foundation.Time.TimeDuration;
+import Foundation.Works.MineralExtractingWork;
 import Foundation.Works.WheatMakingWork;
 import Foundation.Works.WoodMakingWork;
 import Foundation.Works.Work;
@@ -33,6 +36,9 @@ public class LordHouseOccupation extends Occupation{
     private ArrayList<MillObject> mills;
     private ArrayList<WoodMakingWork> woodMakingWorks;
 
+    private ArrayList<MineObject> mineObjects;
+    private ArrayList<MineralExtractingWork> mineralExtractingWorks;
+
     private People workingPeasants;
 
     public LordHouseOccupation(ManorObject manorObject) {
@@ -42,6 +48,8 @@ public class LordHouseOccupation extends Occupation{
         this.wheatMakingWorks = new ArrayList<>();
         this.mills = new ArrayList<>();
         this.woodMakingWorks = new ArrayList<>();
+        this.mineObjects = new ArrayList<>();
+        this.mineralExtractingWorks = new ArrayList<>();
         this.workingPeasants = new People();
         initWorks();
         gameEngine.addRunEntity(this);
@@ -74,15 +82,24 @@ public class LordHouseOccupation extends Occupation{
     }
 
     private void distributeNewWorkers(People newPeople){
-        if (manorObject.getParent().getRandom().nextBoolean()){
+        int rand = manorObject.getParent().getRandom().nextInt(3);
+        if (rand == 0){
             distributeNewWheatWorkers(newPeople);
             if (newPeople.getAmount() == 0) return;
             makeNewCrops(newPeople);
+            if (newPeople.getAmount() == 0) return;
         }
-        else {
+        if (rand == 1){
             distributeNewMillWorkers(newPeople);
             if (newPeople.getAmount() == 0) return;
             makeNewMills(newPeople);
+            if (newPeople.getAmount() == 0) return;
+        }
+        if (rand == 2){
+            distributeNewMineWorkers(newPeople);
+            if (newPeople.getAmount() == 0) return;
+            makeNewMine(newPeople);
+            if (newPeople.getAmount() == 0) return;
         }
     }
 
@@ -106,6 +123,23 @@ public class LordHouseOccupation extends Occupation{
     private void distributeNewMillWorkers(People newPeople){
         ArrayList<Person> personArrayList = newPeople.getPersonArray();
         for(WoodMakingWork work: woodMakingWorks){
+            int delta = work.getFreePositions();
+            while(delta > 0){
+                if (personArrayList.size() == 0) return;
+                Person person = personArrayList.get(personArrayList.size() - 1);
+                personArrayList.remove(person);
+                TimeDuration timeDuration = person.getSchedule().getFreeWeekTimeDuration(35);
+                if (timeDuration == null) continue;
+                work.addPerson(person, timeDuration);
+                workingPeasants.addPerson(person);
+                delta--;
+            }
+        }
+    }
+
+    private void distributeNewMineWorkers(People newPeople){
+        ArrayList<Person> personArrayList = newPeople.getPersonArray();
+        for(MineralExtractingWork work: mineralExtractingWorks){
             int delta = work.getFreePositions();
             while(delta > 0){
                 if (personArrayList.size() == 0) return;
@@ -187,7 +221,7 @@ public class LordHouseOccupation extends Occupation{
             WoodMakingWork woodMakingWork = new WoodMakingWork(millObject.getStore(), nearest,this);
             woodMakingWorks.add(woodMakingWork);
             addWork(woodMakingWork);
-            int amount = nearest.getWoodAmount();
+            int amount = nearest.getSquare();
             ArrayList<Person> personArrayList = newPeople.getPersonArray();
             for(int i = 0; i < amount; i++){
                 if (personArrayList.size() == 0) break;
@@ -205,6 +239,55 @@ public class LordHouseOccupation extends Occupation{
         Index near = millObject.getCellPos().add(new Index(2, 0));
         RoadGenerator roadGenerator = new RoadGenerator(gameEngine.getMap());
         roadGenerator.generateRoad(manorField, manorField.getFirstEntryPoint(), millObject.getParent(), near);
+    }
+
+    private void makeNewMine(People newPeople){
+        Territory territory = manorObject.getParent().getManor().getTerritory();
+        FieldMap map = gameEngine.getMap();
+        MineObject mineObject = null;
+        for(Index pos: territory.getIndexArray()) {
+            Field field = map.getFieldByIndex(pos);
+            if (field.getManor() != null) continue;
+            if (field.getGroundType() != Ground.GroundType.Rock) continue;
+            FieldObjects fieldObjects = field.getFieldObjects();
+            OccupationPiece piece = fieldObjects.getMinSpace(new Index(3, 1));
+            StoneObject nearest = null;
+            double dist = 10000;
+            for(FieldObject fieldObject: fieldObjects.getArray()){
+                if (!fieldObject.isNaturalObject()) continue;
+                NaturalObject naturalObject = (NaturalObject)fieldObject;
+                if (!naturalObject.isStoneObject()) continue;
+                StoneObject stoneObject = (StoneObject) naturalObject;
+                double newDist = pos.distance(stoneObject.getCellPos());
+                if (newDist < dist){
+                    nearest = stoneObject;
+                    dist = newDist;
+                }
+            }
+            if (nearest == null) continue;
+            mineObject = new MineObject(field, piece.pos);
+            fieldObjects.addFieldObject(mineObject);
+            MineralExtractingWork work = new MineralExtractingWork(mineObject.getStore(), nearest,this);
+            mineralExtractingWorks.add(work);
+            addWork(work);
+            int amount = nearest.getStoneSize();
+            ArrayList<Person> personArrayList = newPeople.getPersonArray();
+            for(int i = 0; i < amount; i++){
+                if (personArrayList.size() == 0) break;
+                Person person = personArrayList.get(personArrayList.size() - 1);
+                personArrayList.remove(person);
+                TimeDuration timeDuration = person.getSchedule().getFreeWeekTimeDuration(35); // TODO: get rid of constants
+                if (timeDuration == null) continue;
+                work.addPerson(person, timeDuration);
+                workingPeasants.addPerson(person);
+            }
+            break;
+        }
+        if (mineObject == null) return;
+        Field manorField = manorObject.getParent();
+        Index near = mineObject.getCellPos().add(new Index(2, 0));
+        RoadGenerator roadGenerator = new RoadGenerator(gameEngine.getMap());
+        roadGenerator.generateRoad(manorField, manorField.getFirstEntryPoint(), mineObject.getParent(), near);
     }
 
     private Index getSizeFromSquare(int square){

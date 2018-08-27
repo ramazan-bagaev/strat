@@ -25,6 +25,11 @@ public abstract class MaterialProduct extends Product implements MaterialType {
     }
 
     @Override
+    public boolean isStone(){
+        return false;
+    }
+
+    @Override
     public boolean isSameProductAs(Product other){
         if (other.isMaterial()) return true;
         return false;

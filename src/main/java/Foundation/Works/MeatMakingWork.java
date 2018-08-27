@@ -14,8 +14,8 @@ public class MeatMakingWork extends ProductMakingWork {
     }
 
     @Override
-    public Product makeProduct() {
-        return new MeatProduct(people.getAmount());
+    public void makeProduct() {
+        createdProducts.add(new MeatProduct(people.getAmount()));
     }
 
     @Override

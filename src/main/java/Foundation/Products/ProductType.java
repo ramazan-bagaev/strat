@@ -4,4 +4,5 @@ public interface ProductType {
 
     boolean isEdible();
     boolean isMaterial();
+    boolean isRawMaterial();
 }

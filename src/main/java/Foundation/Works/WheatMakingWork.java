@@ -36,7 +36,7 @@ public class WheatMakingWork extends ProductMakingWork{
     }
 
     @Override
-    public Product makeProduct() {
-        return new WheatProduct(amount);
+    public void makeProduct() {
+        createdProducts.add(new WheatProduct(amount));
     }
 }

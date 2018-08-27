@@ -4,4 +4,5 @@ public interface MaterialType {
 
     boolean isWood();
     boolean isMetal();
+    boolean isStone();
 }

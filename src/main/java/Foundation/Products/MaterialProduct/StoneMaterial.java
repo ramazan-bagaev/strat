@@ -2,24 +2,23 @@ package Foundation.Products.MaterialProduct;
 
 import Foundation.Products.Product;
 
-public class WoodMaterial extends MaterialProduct {
+public class StoneMaterial extends MaterialProduct {
 
-    public WoodMaterial(int amount) {
+    public StoneMaterial(int amount) {
         super(amount);
-        this.name = "wood";
+        this.name = "stone";
     }
 
     @Override
     public boolean isSameProductAs(Product other) {
         if (super.isSameProductAs(other)){
-            if (((MaterialProduct)other).isWood()) return true;
+            if (((MaterialProduct)other).isStone()) return true;
         }
         return false;
     }
 
     @Override
-    public boolean isWood(){
+    public boolean isStone(){
         return true;
     }
-
 }

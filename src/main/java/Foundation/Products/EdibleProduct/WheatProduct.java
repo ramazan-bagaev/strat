@@ -6,6 +6,7 @@ public class WheatProduct extends EdibleProduct {
 
     public WheatProduct(int amount) {
         super(amount);
+        this.name = "wheat";
     }
 
     @Override
@@ -21,14 +22,5 @@ public class WheatProduct extends EdibleProduct {
     @Override
     public boolean isWheat(){
         return true;
-    }
-
-    @Override
-    public String getValue(String key){
-        switch (key){
-            case "name":
-                return "wheat";
-        }
-        return super.getValue(key);
     }
 }

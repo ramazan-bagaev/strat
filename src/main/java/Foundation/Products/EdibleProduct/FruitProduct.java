@@ -7,6 +7,7 @@ public class FruitProduct extends EdibleProduct {
 
     public FruitProduct(int amount) {
         super(amount);
+        this.name = "fruit";
     }
 
     @Override
@@ -22,12 +23,4 @@ public class FruitProduct extends EdibleProduct {
         return true;
     }
 
-    @Override
-    public String getValue(String key){
-        switch (key){
-            case "name":
-                return "fruit";
-        }
-        return super.getValue(key);
-    }
 }

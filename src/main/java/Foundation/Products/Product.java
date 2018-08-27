@@ -9,10 +9,12 @@ public abstract class Product implements ProductType, Need, Broadcaster{
 
     private int amount;
     protected Content amountContent;
+    protected String name;
 
     public Product(int amount){
         this.amount = amount;
         amountContent = new Content();
+        name = noResult;
     }
 
     @Override
@@ -63,6 +65,11 @@ public abstract class Product implements ProductType, Need, Broadcaster{
     }
 
     @Override
+    public boolean isRawMaterial(){
+        return false;
+    }
+
+    @Override
     public void subscribe(String key, Subscription subscription) {
         switch (key){
             case "amount":
@@ -85,6 +92,8 @@ public abstract class Product implements ProductType, Need, Broadcaster{
         switch (key){
             case "amount":
                 return String.valueOf(amount);
+            case "name":
+                return name;
         }
         return Broadcaster.noResult;
     }

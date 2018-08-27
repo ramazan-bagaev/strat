@@ -22,9 +22,9 @@ public class WoodMakingWork extends ProductMakingWork {
     }
 
     @Override
-    public Product makeProduct() {
+    public void makeProduct() {
         forestObject.decreaseWoodAmount(amount);
-        return new WoodMaterial(amount);
+        createdProducts.add(new WoodMaterial(amount));
     }
 
     @Override

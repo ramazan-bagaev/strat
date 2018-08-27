@@ -7,6 +7,7 @@ public class MeatProduct extends EdibleProduct {
 
     public MeatProduct(int amount) {
         super(amount);
+        this.name = "meat";
     }
 
     @Override
