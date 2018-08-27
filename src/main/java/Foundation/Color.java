@@ -8,7 +8,8 @@ public class Color {
     public float a;
 
     public enum Type {
-        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray, Green3, Yellow2, Brown, Snow
+        White, Black, Red, Green, Blue, Yellow, Green2, Gray, LightGray, Green3, Yellow2, Brown, Snow,
+        Copper, Carbon, Oxygen, Silicon, Iron, Silver, Gold, Lead, Aluminium
     }
 
     public Color(float r, float b, float g) {
@@ -108,7 +109,57 @@ public class Color {
                 r = 0.90f;
                 g = 0.90f;
                 b = 0.90f;
+                break;
+            case Copper:
+                r = 0.85f;
+                g = 0.56f;
+                b = 0.34f;
+                break;
+            case Carbon:
+                r = 0.16f;
+                g = 0.17f;
+                b = 0.20f;
+                break;
+            case Oxygen:
+                r = 1f;
+                g = 1f;
+                b = 1f;
+                break;
+            case Silicon:
+                r = 0.95f;
+                g = 0.64f;
+                b = 0.36f;
+                break;
+            case Iron:
+                r = 0.79f;
+                g = 0.80f;
+                b = 0.80f;
+                break;
+            case Silver:
+                r = 0.76f;
+                g = 0.77f;
+                b = 0.80f;
+                break;
+            case Gold:
+                r = 0.1f;
+                g = 0.84f;
+                b = 0f;
+                break;
+            case Lead:
+                r = 0.52f;
+                g = 0.45f;
+                b = 0.35f;
+                break;
+            case Aluminium:
+                r = 0.52f;
+                g = 0.53f;
+                b = 0.54f;
+                break;
         }
+    }
+
+    public double getGrayScale(){
+        return 0.2126*r + 0.7152*g + 0.0722*b;
     }
 
     public void moreGreen(int times){

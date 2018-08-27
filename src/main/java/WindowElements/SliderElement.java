@@ -28,8 +28,8 @@ public class SliderElement extends WindowElement{
         setSliderParts(new Coord(0, size.y/2 - 5));
     }
 
-    public SliderElement(Coord pos, Coord size, boolean horizontal, int begin, int end, WindowElementGroup groupParent, Window parent) {
-        super(pos, size, groupParent, parent);
+    public SliderElement(Coord pos, Coord size, boolean horizontal, int begin, int end, WindowElementGroup groupParent) {
+        super(pos, size, groupParent);
         this.begin = begin;
         this.end = end;
         this.horizontal = horizontal;

@@ -4,6 +4,7 @@ import Foundation.BasicShapes.RectangleShape;
 import Foundation.Color;
 import Foundation.Field;
 import Foundation.Products.RawMaterials.ElementConcentration;
+import Windows.FieldObjectWindow.StoneInfoWindow;
 import Windows.Window;
 import Utils.Geometry.Coord;
 import Utils.Geometry.Index;
@@ -40,7 +41,7 @@ public class StoneObject extends NaturalObject {
 
     @Override
     public Window getInfoWindow() {
-        return null;
+        return new StoneInfoWindow(this, getParent().getMap().getGameEngine().getGameWindowElement().getParent().getParent());
     }
 
     public MineralConcentration getMineralConcentration() {

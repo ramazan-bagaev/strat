@@ -8,8 +8,8 @@ import Windows.Window;
 
 public class StaticBroadcastLabel extends Label {
 
-    public StaticBroadcastLabel(Coord pos, Coord size, Broadcaster broadcaster, String key, WindowElementGroup windowElementGroup, Window parent) {
-        super(pos, size, "", windowElementGroup,  parent);
+    public StaticBroadcastLabel(Coord pos, Coord size, Broadcaster broadcaster, String key, WindowElementGroup windowElementGroup) {
+        super(pos, size, "", windowElementGroup);
         StringShape stringShape = getStringShape();
         stringShape.setText(broadcaster.getValue(key));
         setStringShape(stringShape);

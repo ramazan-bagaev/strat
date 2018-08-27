@@ -16,8 +16,8 @@ public class BackgroundElement extends WindowElement {
         addBasicShape(background);
     }
 
-    public BackgroundElement(Coord pos, Coord size, Color color, WindowElementGroup groupParent, Window parent) {
-        super(pos, size, groupParent, parent);
+    public BackgroundElement(Coord pos, Coord size, Color color, WindowElementGroup groupParent) {
+        super(pos, size, groupParent);
         background = new RectangleShape(new Coord(0, 0), new Coord(size), color, false, true);
         addBasicShape(background);
     }

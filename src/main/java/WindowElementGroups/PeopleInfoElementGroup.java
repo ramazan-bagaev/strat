@@ -35,28 +35,28 @@ public class PeopleInfoElementGroup extends PeopleElementGroup{
 
     public void addButtonChangeType(){
         double x = scrollWindowSize.x;
-        Button all = new Button(new Coord(0, size.y-20), new Coord(x/4, 20), this,"all", getParent()) {
+        Button all = new Button(new Coord(0, size.y-20), new Coord(x/4, 20), this,"all") {
             @Override
             public void click(Coord point) {
                 changeType(Type.All);
             }
         };
         addWindowElement(all);
-        Button high = new Button(new Coord(x/4, size.y-20), new Coord(x/4, 20), this,"high", getParent()) {
+        Button high = new Button(new Coord(x/4, size.y-20), new Coord(x/4, 20), this,"high") {
             @Override
             public void click(Coord point) {
                 changeType(Type.High);
             }
         };
         addWindowElement(high);
-        Button middle = new Button(new Coord(2*x/4, size.y-20), new Coord(x/4, 20), this,"middle", getParent()) {
+        Button middle = new Button(new Coord(2*x/4, size.y-20), new Coord(x/4, 20), this,"middle") {
             @Override
             public void click(Coord point) {
                 changeType(Type.Middle);
             }
         };
         addWindowElement(middle);
-        Button low = new Button(new Coord(3*x/4, size.y-20), new Coord(x/4, 20), this,"low", getParent()) {
+        Button low = new Button(new Coord(3*x/4, size.y-20), new Coord(x/4, 20), this,"low") {
             @Override
             public void click(Coord point) {
                 changeType(Type.Low);

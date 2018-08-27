@@ -24,15 +24,15 @@ public class PersonScrolledRow extends ScrollableRow {
 
     public void initRow(){
 
-        backgroundElement = new BackgroundElement(new Coord(0, 0), new Coord(size), new Color(Color.Type.White), parent, parent.getParent());
+        backgroundElement = new BackgroundElement(new Coord(0, 0), new Coord(size), new Color(Color.Type.White), parent);
         rowElements.add(backgroundElement);
 
         StaticBroadcastLabel name = new StaticBroadcastLabel(new Coord(5, 0), new Coord(size.x/2 - 5, size.y),
-                person, "name", parent, parent.getParent());
+                person, "name", parent);
         rowElements.add(name);
 
         StaticBroadcastLabel kasta = new StaticBroadcastLabel(new Coord(size.x/2 + 5, 0), new Coord(size.x/2 - 5, size.y),
-                person, "kasta", parent, parent.getParent());
+                person, "kasta", parent);
         rowElements.add(kasta);
     }
 

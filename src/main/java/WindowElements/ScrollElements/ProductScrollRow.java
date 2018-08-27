@@ -20,15 +20,15 @@ public class ProductScrollRow extends ScrollableRow {
 
     public void initRow(){
         StaticBroadcastLabel type = new StaticBroadcastLabel(new Coord(5, 0), new Coord(size.x/3 - 5, size.y),
-                product, "type", parent, parent.getParent());
+                product, "type", parent);
         rowElements.add(type);
 
         StaticBroadcastLabel name = new StaticBroadcastLabel(new Coord(size.x/3 + 5, 0), new Coord(size.x/3 - 5, size.y),
-                product, "name", parent, parent.getParent());
+                product, "name", parent);
         rowElements.add(name);
 
         MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(2*size.x/3 + 5, 0), new Coord(size.x/3 - 5, size.y),
-                product, "amount", parent, parent.getParent());
+                product, "amount", parent);
         rowElements.add(amount);
         this.amountLabel = amount;
     }

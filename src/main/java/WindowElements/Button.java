@@ -32,9 +32,9 @@ public class Button extends WindowElement {
         setBasicShapes(basicShapes);
     }
 
-    public Button(Coord pos, Coord size, WindowElementGroup groupParent, String str, Window parent){
-        super(pos, size, groupParent, parent);
-        Font font = parent.getFont("latin");
+    public Button(Coord pos, Coord size, WindowElementGroup groupParent, String str){
+        super(pos, size, groupParent);
+        Font font = getParent().getFont("latin");
         double sizeX = str.length() * size.y;
         text = new StringShape(new Coord(sizeX * delta, size.y/4), new Coord(sizeX, size.y/2), str, new Color(Color.Type.Black), font);
         carcas = new RectangleShape(new Coord(0, 0), new Coord(sizeX*(1+2*delta), size.y), new Color(Color.Type.White), true);

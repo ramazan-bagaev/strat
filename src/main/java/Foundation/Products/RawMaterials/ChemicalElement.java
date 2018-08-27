@@ -8,5 +8,30 @@ public class ChemicalElement {
         Copper, Carbon, Oxygen, Silicon, Iron, Silver, Gold, Lead, Aluminium
     }
 
+    public static String getShortName(Type type){
+        switch (type){
+
+            case Copper:
+                return "cu";
+            case Carbon:
+                return "c";
+            case Oxygen:
+                return "o";
+            case Silicon:
+                return "si";
+            case Iron:
+                return "fe";
+            case Silver:
+                return "ag";
+            case Gold:
+                return "au";
+            case Lead:
+                return "pb";
+            case Aluminium:
+                return "al";
+        }
+        return null;
+    }
+
 
 }

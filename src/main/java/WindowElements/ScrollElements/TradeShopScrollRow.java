@@ -20,11 +20,11 @@ public class TradeShopScrollRow extends ScrollableRow {
     private void initRow(){
 
         Label name = new Label(new Coord(5, 0), new Coord(size.x/2 - 10, size.y),
-                tradeShop.getTrader().getName(), parent, parent.getParent());
+                tradeShop.getTrader().getName(), parent);
         rowElements.add(name);
 
         MonitoredBroadcastLabel amount = new MonitoredBroadcastLabel(new Coord(size.x/2 + 5, 0), new Coord(size.x/2 - 10, size.y),
-                tradeShop, "amount", parent, parent.getParent());
+                tradeShop, "amount", parent);
         rowElements.add(amount);
 
     }

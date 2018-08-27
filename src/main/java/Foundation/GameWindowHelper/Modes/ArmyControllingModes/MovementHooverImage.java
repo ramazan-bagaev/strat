@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MovementHooverImage extends Image {
 
     public MovementHooverImage(Coord size){
-        super(new Coord(), size, null);
+        super(new Coord(), size);
 
         setShapes();
     }

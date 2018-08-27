@@ -31,12 +31,19 @@ public class WindowElement implements Broadcaster {
         basicShapes = new ArrayList<>();
     }
 
-    public WindowElement(Coord pos, Coord size, WindowElementGroup groupParent, Window parent){
+    public WindowElement(Coord pos, Coord size, WindowElementGroup groupParent){
         this.active = false;
         this.pos = new Coord(pos);
         this.size = new Coord(size);
-        setParent(parent);
+        setParent(groupParent.getParent());
         this.groupParent = groupParent;
+        basicShapes = new ArrayList<>();
+    }
+
+    public WindowElement(Coord pos, Coord size){
+        this.active = false;
+        this.pos = new Coord(pos);
+        this.size = new Coord(size);
         basicShapes = new ArrayList<>();
     }
 
