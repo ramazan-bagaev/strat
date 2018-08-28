@@ -1,7 +1,7 @@
 package WindowElements.ScrollElements;
 
-import Foundation.FieldObjects.NaturalObjects.MineralConcentration;
 import Foundation.FieldObjects.NaturalObjects.MineralConcentrationItem;
+import Foundation.Products.RawMaterials.ElementConcentrationItem;
 import Images.Image;
 import Images.MineralImage;
 import Utils.Geometry.Coord;
@@ -26,5 +26,9 @@ public class MineralConcentrationItemRow extends ScrollableRow {
         Label amount = new Label(new Coord(size.x/2 + 5, 0), new Coord(size.x/2 - 10, size.y),
                 String.valueOf(mineralConcentrationItem.part), parent);
         rowElements.add(amount);
+    }
+
+    public MineralConcentrationItem getMineralConcentrationItem() {
+        return mineralConcentrationItem;
     }
 }
