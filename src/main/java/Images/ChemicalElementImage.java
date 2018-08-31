@@ -29,7 +29,8 @@ public class ChemicalElementImage extends Image {
         if (gray < 0.5) textColor = new Color(Color.Type.White);
         else textColor = new Color(Color.Type.Black);
         String text = ChemicalElement.getShortName(type);
-        StringShape stringShape = new StringShape(new Coord(), new Coord(getSize()),
+        double centerX = getSize().x/2 - (double)(text.length()) * getSize().y/4;
+        StringShape stringShape = new StringShape(new Coord(centerX, getSize().y/4), new Coord(getSize().x, getSize().y/2),
                 text, textColor, getParent().getFont("latin"));
         addBasicShape(newShape);
         addBasicShapes(stringShape.getBasicShapes());

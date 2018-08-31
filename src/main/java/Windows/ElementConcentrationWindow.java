@@ -21,7 +21,7 @@ public class ElementConcentrationWindow extends ClosableWindow {
         addCloseButton();
 
         ElementConcentrationGroup group = new ElementConcentrationGroup(new Coord(10, 10),
-                new Coord(250, 150), elementConcentration, this);
+                new Coord(150, 150), elementConcentration, this);
         addWindowElementGroup(group);
     }
 }
