@@ -33,6 +33,14 @@ public class CountryGenerator extends FieldMapGenerator{
     private ArrayList<Country> countries;
     private ArrayList<Index> posForCities;
     private Index iter;
+    
+    private boolean nearArea;
+    private boolean goodCondition;
+    private int earthArea = 0;
+    private int prob = 0;
+    private int rockN = 1;
+    private int woodN = 1;
+    private int seaN = 1;
 
 
     @Override
@@ -134,13 +142,53 @@ public class CountryGenerator extends FieldMapGenerator{
             }
         }
     }
+        
 
     private boolean suitsForCity(Index center){
         Field centerField = map.getFieldByIndex(center);
         if (centerField.getGroundType() == Ground.GroundType.Water) return false;
         if (centerField.getTree() != null) return false;
         if (centerField.getGroundType() == Ground.GroundType.Rock) return false;
-        //if (centerField.getGroundType() == Ground.GroundType.Sand) return false;
+        if (centerField.getGroundType() == Ground.GroundType.Sand) return false;
+        
+        // Checking nearest area if there is any soil
+        for(int y = -2; y < 3; y += 1){
+            iter.y = y + center.y;
+            for(int x = -2; x < 3; x += 1){
+                if (x != 0 && y != 0) continue;
+                iter.x = x + center.x;
+                Field surfF = map.getFieldByIndex(iter);
+                if (surfF == null) continue;
+                if ((surfF.getGroundType() == Ground.GroundType.Soil || surfF.getGroundType() == Ground.GroundType.Sand) && surfF.getTree() == null){
+                    nearArea = true;
+                    earthArea += 1;
+                }
+                else{
+                    nearArea = false;
+                }
+            }
+        }
+        
+        // Checking if there are good conditions
+        for(int y = -3; y < 4; y += 1){
+            iter.y = y + center.y;
+            for(int x = -3; x < 4; x += 1){
+                if (x != 0 && y != 0) continue;
+                iter.x = x + center.x;
+                Field surfF = map.getFieldByIndex(iter);
+                if (surfF == null) continue;
+                if (surfF.getGroundType() == Ground.GroundType.Rock) rockN += 1;
+                if (surfF.getGroundType() == Ground.GroundType.Water) seaN += 1;
+                if (surfF.getTree() != null) woodN += 1;
+                prob = rockN * seaN * woodN;
+            }
+        }
+        
+        if (this.random.nextInt(17) < prob){
+            goodCondition = true;
+        }
+        else goodCondition = false;
+        
         for(int y = -1; y < 2; y++){
             iter.y = y + center.y;
             for(int x = -1; x < 2; x++){
@@ -148,11 +196,12 @@ public class CountryGenerator extends FieldMapGenerator{
                 iter.x = x + center.x;
                 Field surField = map.getFieldByIndex(iter);
                 if (surField == null) continue;
-                if (surField.getRiver() != null || surField.getGroundType() == Ground.GroundType.Water) return true;
+                if (surField.getRiver() != null  && nearArea && earthArea > 1 && goodCondition) return true;
             }
         }
         return false;
     }
+    
 
     private void renewPosForCities(Index center){
         for(int y = -3; y < 4; y++){
