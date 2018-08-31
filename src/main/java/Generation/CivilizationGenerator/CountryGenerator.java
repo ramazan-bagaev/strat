@@ -34,9 +34,13 @@ public class CountryGenerator extends FieldMapGenerator{
     private ArrayList<Index> posForCities;
     private Index iter;
     
-    //private boolean nearArea = true;
     private boolean nearArea;
+    private boolean goodCondition;
     private int earthArea = 0;
+    private int prob = 0;
+    private int rockN = 1;
+    private int woodN = 1;
+    private int seaN = 1;
 
 
     @Override
@@ -138,6 +142,7 @@ public class CountryGenerator extends FieldMapGenerator{
             }
         }
     }
+        
 
     private boolean suitsForCity(Index center){
         Field centerField = map.getFieldByIndex(center);
@@ -164,6 +169,26 @@ public class CountryGenerator extends FieldMapGenerator{
             }
         }
         
+        // Checking if there are good conditions
+        for(int y = -3; y < 4; y += 1){
+            iter.y = y + center.y;
+            for(int x = -3; x < 4; x += 1){
+                if (x != 0 && y != 0) continue;
+                iter.x = x + center.x;
+                Field surfF = map.getFieldByIndex(iter);
+                if (surfF == null) continue;
+                if (surfF.getGroundType() == Ground.GroundType.Rock) rockN += 1;
+                if (surfF.getGroundType() == Ground.GroundType.Water) seaN += 1;
+                if (surfF.getTree() != null) woodN += 1;
+                prob = rockN * seaN * woodN;
+            }
+        }
+        
+        if (this.random.nextInt(17) < prob){
+            goodCondition = true;
+        }
+        else goodCondition = false;
+        
         for(int y = -1; y < 2; y++){
             iter.y = y + center.y;
             for(int x = -1; x < 2; x++){
@@ -171,7 +196,7 @@ public class CountryGenerator extends FieldMapGenerator{
                 iter.x = x + center.x;
                 Field surField = map.getFieldByIndex(iter);
                 if (surField == null) continue;
-                if (surField.getRiver() != null  && nearArea == true && earthArea > 1) return true;
+                if (surField.getRiver() != null  && nearArea && earthArea > 1 && goodCondition) return true;
             }
         }
         return false;
